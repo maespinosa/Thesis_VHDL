@@ -1,0 +1,926 @@
+# ELBREAD: Elaboration process.
+# ELBREAD: Warning: Entity ov7670_if_lib.xilinx_frame_buffer has been compiled after architecture ov7670_if_lib.frame_buffer(SYN) that instantiates and binds this entity at simulation initialization. Recompile the source files in the correct order to perform the binding operation during compilation and simultaneously reduce the time required to initialize the simulation.
+# ELBREAD: Warning: ELBREAD_0081 frame_buffer.vhd (70): Design unit xilinx_frame_buffer instantiated in ov7670_if_lib.frame_buffer(SYN) not found in searched libraries: ov7670_if_lib.
+# ELBREAD: Elaboration time 0.2 [s].
+# Library Manager: Library "xilinxcorelib" attached.
+# AMAP: Adding mapping library O.K.
+acom -O3 -e 100 -work ov7670_if_lib -2002  $dsn/src/address_Generator.vhd $dsn/src/debounce.vhd $dsn/src/xilinx_frame_buffer.vhd $dsn/src/frame_buffer.vhd $dsn/src/i2c_sender.vhd $dsn/src/i3c2.vhd $dsn/src/ov7670_capture.vhd $dsn/src/ov7670_controller.vhd $dsn/src/ov7670_registers.vhd $dsn/src/RGB.vhd $dsn/src/vga.vhd $dsn/src/vga_pll.vhd $dsn/src/vga_pll_zedboard.vhd $dsn/src/top_level.vhd $dsn/src/tb_top_level.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\address_Generator.vhd
+# Compile Entity "Address_Generator"
+# Compile Architecture "Behavioral" of Entity "Address_Generator"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\debounce.vhd
+# Compile Entity "debounce"
+# Compile Architecture "Behavioral" of Entity "debounce"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\xilinx_frame_buffer.vhd
+# Compile Entity "xilinx_frame_buffer"
+# Compile Architecture "xilinx_frame_buffer_a" of Entity "xilinx_frame_buffer"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\frame_buffer.vhd
+# Compile Entity "frame_buffer"
+# Compile Architecture "SYN" of Entity "frame_buffer"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd
+# Compile Entity "i2c_sender"
+# Compile Architecture "Behavioral" of Entity "i2c_sender"
+# Error: COMP96_0569: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (55, 10): Case expression must be of a locally static subtype. Use -relax to allow expressions of a nonstatic subtype.
+# Error: COMP96_0547: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (56, 11): Choice in selected assignments and case statements must be locally static. Use -relax to allow nonstatic expressions and discrete ranges.
+# Error: COMP96_0547: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (63, 11): Choice in selected assignments and case statements must be locally static. Use -relax to allow nonstatic expressions and discrete ranges.
+# Error: COMP96_0547: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (70, 11): Choice in selected assignments and case statements must be locally static. Use -relax to allow nonstatic expressions and discrete ranges.
+# Error: COMP96_0547: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (77, 11): Choice in selected assignments and case statements must be locally static. Use -relax to allow nonstatic expressions and discrete ranges.
+# Error: COMP96_0547: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (84, 11): Choice in selected assignments and case statements must be locally static. Use -relax to allow nonstatic expressions and discrete ranges.
+# Error: COMP96_0547: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (91, 11): Choice in selected assignments and case statements must be locally static. Use -relax to allow nonstatic expressions and discrete ranges.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i3c2.vhd
+# Compile Entity "i3c2"
+# Compile Architecture "Behavioral" of Entity "i3c2"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\ov7670_capture.vhd
+# Compile Entity "ov7670_capture"
+# Compile Architecture "Behavioral" of Entity "ov7670_capture"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\ov7670_controller.vhd
+# Compile Entity "ov7670_controller"
+# Compile Architecture "Behavioral" of Entity "ov7670_controller"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\ov7670_registers.vhd
+# Compile Entity "ov7670_registers"
+# Compile Architecture "Behavioral" of Entity "ov7670_registers"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\RGB.vhd
+# Compile Entity "RGB"
+# Compile Architecture "Behavioral" of Entity "RGB"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\vga.vhd
+# Compile Entity "VGA"
+# Compile Architecture "Behavioral" of Entity "VGA"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\vga_pll.vhd
+# Compile Entity "vga_pll"
+# Compile Architecture "SYN" of Entity "vga_pll"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\vga_pll_zedboard.vhd
+# Compile Entity "vga_pll_zedboard"
+# Compile Architecture "xilinx" of Entity "vga_pll_zedboard"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\top_level.vhd
+# Compile Entity "top_level"
+# Compile Architecture "Behavioral" of Entity "top_level"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\tb_top_level.vhd
+# Compile Entity "tb_top_level"
+# Compile Architecture "behavior" of Entity "tb_top_level"
+# Warning: ELAB1_0026: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\tb_top_level.vhd : (65, 0): There is no default binding for component "top_level". (Port "clk_50" is not on the entity).
+# Compile failure 7 Errors 1 Warnings  Analysis time :  1.0 [s]
+acom -O3 -e 100 -work ov7670_if_lib -2002  $dsn/src/i2c_sender.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd
+# Compile Entity "i2c_sender"
+# Compile Architecture "Behavioral" of Entity "i2c_sender"
+# Error: COMP96_0569: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (55, 10): Case expression must be of a locally static subtype. Use -relax to allow expressions of a nonstatic subtype.
+# Error: COMP96_0547: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (56, 11): Choice in selected assignments and case statements must be locally static. Use -relax to allow nonstatic expressions and discrete ranges.
+# Error: COMP96_0547: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (63, 11): Choice in selected assignments and case statements must be locally static. Use -relax to allow nonstatic expressions and discrete ranges.
+# Error: COMP96_0547: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (70, 11): Choice in selected assignments and case statements must be locally static. Use -relax to allow nonstatic expressions and discrete ranges.
+# Error: COMP96_0547: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (77, 11): Choice in selected assignments and case statements must be locally static. Use -relax to allow nonstatic expressions and discrete ranges.
+# Error: COMP96_0547: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (84, 11): Choice in selected assignments and case statements must be locally static. Use -relax to allow nonstatic expressions and discrete ranges.
+# Error: COMP96_0547: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (91, 11): Choice in selected assignments and case statements must be locally static. Use -relax to allow nonstatic expressions and discrete ranges.
+# Compile failure 7 Errors 0 Warnings  Analysis time :  16.0 [ms]
+acom -O3 -e 100 -work ov7670_if_lib -2002  -relax $dsn/src/i2c_sender.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd
+# Compile Entity "i2c_sender"
+# Compile Architecture "Behavioral" of Entity "i2c_sender"
+# Warning: COMP96_0316: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (55, 10): Case expression must be of a locally static subtype.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (56, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (63, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (70, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (77, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (84, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (91, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Compile success 0 Errors 7 Warnings  Analysis time :  0.1 [s]
+acom -O3 -e 100 -work ov7670_if_lib -2002  $dsn/src/address_Generator.vhd $dsn/src/debounce.vhd $dsn/src/xilinx_frame_buffer.vhd $dsn/src/frame_buffer.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\address_Generator.vhd
+# Compile Entity "Address_Generator"
+# Compile Architecture "Behavioral" of Entity "Address_Generator"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\debounce.vhd
+# Compile Entity "debounce"
+# Compile Architecture "Behavioral" of Entity "debounce"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\xilinx_frame_buffer.vhd
+# Compile Entity "xilinx_frame_buffer"
+# Compile Architecture "xilinx_frame_buffer_a" of Entity "xilinx_frame_buffer"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\frame_buffer.vhd
+# Compile Entity "frame_buffer"
+# Compile Architecture "SYN" of Entity "frame_buffer"
+# Compile success 0 Errors 0 Warnings  Analysis time :  0.1 [s]
+acom -O3 -e 100 -work ov7670_if_lib -2002  -relax $dsn/src/i2c_sender.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd
+# Compile Entity "i2c_sender"
+# Compile Architecture "Behavioral" of Entity "i2c_sender"
+# Warning: COMP96_0316: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (55, 10): Case expression must be of a locally static subtype.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (56, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (63, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (70, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (77, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (84, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (91, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Compile success 0 Errors 7 Warnings  Analysis time :  78.0 [ms]
+acom -O3 -e 100 -work ov7670_if_lib -2002  $dsn/src/i3c2.vhd $dsn/src/ov7670_capture.vhd $dsn/src/ov7670_controller.vhd $dsn/src/ov7670_registers.vhd $dsn/src/RGB.vhd $dsn/src/vga.vhd $dsn/src/vga_pll.vhd $dsn/src/vga_pll_zedboard.vhd $dsn/src/top_level.vhd $dsn/src/tb_top_level.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i3c2.vhd
+# Compile Entity "i3c2"
+# Compile Architecture "Behavioral" of Entity "i3c2"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\ov7670_capture.vhd
+# Compile Entity "ov7670_capture"
+# Compile Architecture "Behavioral" of Entity "ov7670_capture"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\ov7670_controller.vhd
+# Compile Entity "ov7670_controller"
+# Compile Architecture "Behavioral" of Entity "ov7670_controller"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\ov7670_registers.vhd
+# Compile Entity "ov7670_registers"
+# Compile Architecture "Behavioral" of Entity "ov7670_registers"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\RGB.vhd
+# Compile Entity "RGB"
+# Compile Architecture "Behavioral" of Entity "RGB"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\vga.vhd
+# Compile Entity "VGA"
+# Compile Architecture "Behavioral" of Entity "VGA"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\vga_pll.vhd
+# Compile Entity "vga_pll"
+# Compile Architecture "SYN" of Entity "vga_pll"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\vga_pll_zedboard.vhd
+# Compile Entity "vga_pll_zedboard"
+# Compile Architecture "xilinx" of Entity "vga_pll_zedboard"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\top_level.vhd
+# Compile Entity "top_level"
+# Compile Architecture "Behavioral" of Entity "top_level"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\tb_top_level.vhd
+# Compile Entity "tb_top_level"
+# Compile Architecture "behavior" of Entity "tb_top_level"
+# Warning: ELAB1_0026: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\tb_top_level.vhd : (65, 0): There is no default binding for component "top_level". (Port "clk_50" is not on the entity).
+# Compile success 0 Errors 1 Warnings  Analysis time :  0.8 [s]
+acom -reorder -O3 -e 100 -work ov7670_if_lib -2002  $dsn/src/address_Generator.vhd $dsn/src/debounce.vhd $dsn/src/xilinx_frame_buffer.vhd $dsn/src/frame_buffer.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\address_Generator.vhd
+# Compile Entity "Address_Generator"
+# Compile Architecture "Behavioral" of Entity "Address_Generator"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\debounce.vhd
+# Compile Entity "debounce"
+# Compile Architecture "Behavioral" of Entity "debounce"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\xilinx_frame_buffer.vhd
+# Compile Entity "xilinx_frame_buffer"
+# Compile Architecture "xilinx_frame_buffer_a" of Entity "xilinx_frame_buffer"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\frame_buffer.vhd
+# Compile Entity "frame_buffer"
+# Compile Architecture "SYN" of Entity "frame_buffer"
+# Top-level unit(s) detected:
+# Entity => debounce
+# Entity => frame_buffer
+# Entity => Address_Generator
+# Compile success 0 Errors 0 Warnings  Analysis time :  0.2 [s]
+acom -reorder -O3 -e 100 -work ov7670_if_lib -2002  -relax $dsn/src/i2c_sender.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd
+# Compile Entity "i2c_sender"
+# Compile Architecture "Behavioral" of Entity "i2c_sender"
+# Warning: COMP96_0316: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (55, 10): Case expression must be of a locally static subtype.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (56, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (63, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (70, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (77, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (84, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (91, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Top-level unit(s) detected:
+# Entity => i2c_sender
+# Compile success 0 Errors 7 Warnings  Analysis time :  78.0 [ms]
+acom -reorder -O3 -e 100 -work ov7670_if_lib -2002  $dsn/src/i3c2.vhd $dsn/src/ov7670_capture.vhd $dsn/src/ov7670_controller.vhd $dsn/src/ov7670_registers.vhd $dsn/src/RGB.vhd $dsn/src/vga.vhd $dsn/src/vga_pll.vhd $dsn/src/vga_pll_zedboard.vhd $dsn/src/top_level.vhd $dsn/src/tb_top_level.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i3c2.vhd
+# Compile Entity "i3c2"
+# Compile Architecture "Behavioral" of Entity "i3c2"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\ov7670_capture.vhd
+# Compile Entity "ov7670_capture"
+# Compile Architecture "Behavioral" of Entity "ov7670_capture"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\ov7670_controller.vhd
+# Compile Entity "ov7670_controller"
+# Compile Architecture "Behavioral" of Entity "ov7670_controller"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\ov7670_registers.vhd
+# Compile Entity "ov7670_registers"
+# Compile Architecture "Behavioral" of Entity "ov7670_registers"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\RGB.vhd
+# Compile Entity "RGB"
+# Compile Architecture "Behavioral" of Entity "RGB"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\vga.vhd
+# Compile Entity "VGA"
+# Compile Architecture "Behavioral" of Entity "VGA"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\vga_pll.vhd
+# Compile Entity "vga_pll"
+# Compile Architecture "SYN" of Entity "vga_pll"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\vga_pll_zedboard.vhd
+# Compile Entity "vga_pll_zedboard"
+# Compile Architecture "xilinx" of Entity "vga_pll_zedboard"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\top_level.vhd
+# Compile Entity "top_level"
+# Compile Architecture "Behavioral" of Entity "top_level"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\tb_top_level.vhd
+# Compile Entity "tb_top_level"
+# Compile Architecture "behavior" of Entity "tb_top_level"
+# Top-level unit(s) detected:
+# Entity => ov7670_registers
+# Entity => vga_pll
+# Entity => tb_top_level
+# Warning: ELAB1_0026: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\tb_top_level.vhd : (65, 0): There is no default binding for component "top_level". (Port "clk_50" is not on the entity).
+# Compile success 0 Errors 1 Warnings  Analysis time :  0.8 [s]
+comp  
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\address_Generator.vhd
+# Compile Entity "Address_Generator"
+# Compile Architecture "Behavioral" of Entity "Address_Generator"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\debounce.vhd
+# Compile Entity "debounce"
+# Compile Architecture "Behavioral" of Entity "debounce"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\xilinx_frame_buffer.vhd
+# Compile Entity "xilinx_frame_buffer"
+# Compile Architecture "xilinx_frame_buffer_a" of Entity "xilinx_frame_buffer"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\frame_buffer.vhd
+# Compile Entity "frame_buffer"
+# Compile Architecture "SYN" of Entity "frame_buffer"
+# Compile success 0 Errors 0 Warnings  Analysis time :  94.0 [ms]
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd
+# Compile Entity "i2c_sender"
+# Compile Architecture "Behavioral" of Entity "i2c_sender"
+# Warning: COMP96_0316: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (55, 10): Case expression must be of a locally static subtype.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (56, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (63, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (70, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (77, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (84, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (91, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Compile success 0 Errors 7 Warnings  Analysis time :  47.0 [ms]
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i3c2.vhd
+# Compile Entity "i3c2"
+# Compile Architecture "Behavioral" of Entity "i3c2"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\ov7670_capture.vhd
+# Compile Entity "ov7670_capture"
+# Compile Architecture "Behavioral" of Entity "ov7670_capture"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\ov7670_controller.vhd
+# Compile Entity "ov7670_controller"
+# Compile Architecture "Behavioral" of Entity "ov7670_controller"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\ov7670_registers.vhd
+# Compile Entity "ov7670_registers"
+# Compile Architecture "Behavioral" of Entity "ov7670_registers"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\RGB.vhd
+# Compile Entity "RGB"
+# Compile Architecture "Behavioral" of Entity "RGB"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\vga.vhd
+# Compile Entity "VGA"
+# Compile Architecture "Behavioral" of Entity "VGA"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\vga_pll.vhd
+# Compile Entity "vga_pll"
+# Compile Architecture "SYN" of Entity "vga_pll"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\vga_pll_zedboard.vhd
+# Compile Entity "vga_pll_zedboard"
+# Compile Architecture "xilinx" of Entity "vga_pll_zedboard"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\top_level.vhd
+# Compile Entity "top_level"
+# Compile Architecture "Behavioral" of Entity "top_level"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\tb_top_level.vhd
+# Compile Entity "tb_top_level"
+# Compile Architecture "behavior" of Entity "tb_top_level"
+# Warning: ELAB1_0026: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\tb_top_level.vhd : (65, 0): There is no default binding for component "top_level". (Port "clk_50" is not on the entity).
+# Compile success 0 Errors 1 Warnings  Analysis time :  0.7 [s]
+cd $dsn 
+runscript {.\simulation_env.pl}    
+comp  
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\address_Generator.vhd
+# Compile Entity "Address_Generator"
+# Compile Architecture "Behavioral" of Entity "Address_Generator"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\debounce.vhd
+# Compile Entity "debounce"
+# Compile Architecture "Behavioral" of Entity "debounce"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\xilinx_frame_buffer.vhd
+# Compile Entity "xilinx_frame_buffer"
+# Compile Architecture "xilinx_frame_buffer_a" of Entity "xilinx_frame_buffer"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\frame_buffer.vhd
+# Compile Entity "frame_buffer"
+# Compile Architecture "SYN" of Entity "frame_buffer"
+# Compile success 0 Errors 0 Warnings  Analysis time :  0.1 [s]
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd
+# Compile Entity "i2c_sender"
+# Compile Architecture "Behavioral" of Entity "i2c_sender"
+# Warning: COMP96_0316: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (55, 10): Case expression must be of a locally static subtype.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (56, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (63, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (70, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (77, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (84, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (91, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Compile success 0 Errors 7 Warnings  Analysis time :  47.0 [ms]
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i3c2.vhd
+# Compile Entity "i3c2"
+# Compile Architecture "Behavioral" of Entity "i3c2"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\ov7670_capture.vhd
+# Compile Entity "ov7670_capture"
+# Compile Architecture "Behavioral" of Entity "ov7670_capture"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\ov7670_controller.vhd
+# Compile Entity "ov7670_controller"
+# Compile Architecture "Behavioral" of Entity "ov7670_controller"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\ov7670_registers.vhd
+# Compile Entity "ov7670_registers"
+# Compile Architecture "Behavioral" of Entity "ov7670_registers"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\RGB.vhd
+# Compile Entity "RGB"
+# Compile Architecture "Behavioral" of Entity "RGB"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\vga.vhd
+# Compile Entity "VGA"
+# Compile Architecture "Behavioral" of Entity "VGA"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\vga_pll.vhd
+# Compile Entity "vga_pll"
+# Compile Architecture "SYN" of Entity "vga_pll"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\vga_pll_zedboard.vhd
+# Compile Entity "vga_pll_zedboard"
+# Compile Architecture "xilinx" of Entity "vga_pll_zedboard"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\top_level.vhd
+# Compile Entity "top_level"
+# Compile Architecture "Behavioral" of Entity "top_level"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\tb_top_level.vhd
+# Compile Entity "tb_top_level"
+# Compile Architecture "behavior" of Entity "tb_top_level"
+# Warning: ELAB1_0026: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\tb_top_level.vhd : (65, 0): There is no default binding for component "top_level". (Port "clk_50" is not on the entity).
+# Compile success 0 Errors 1 Warnings  Analysis time :  0.7 [s]
+cd $dsn 
+runscript {.\simulation_env.pl}    
+runscript {.\simulation_env.pl}
+comp  
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\address_Generator.vhd
+# Compile Entity "Address_Generator"
+# Compile Architecture "Behavioral" of Entity "Address_Generator"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\debounce.vhd
+# Compile Entity "debounce"
+# Compile Architecture "Behavioral" of Entity "debounce"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\xilinx_frame_buffer.vhd
+# Compile Entity "xilinx_frame_buffer"
+# Compile Architecture "xilinx_frame_buffer_a" of Entity "xilinx_frame_buffer"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\frame_buffer.vhd
+# Compile Entity "frame_buffer"
+# Compile Architecture "SYN" of Entity "frame_buffer"
+# Compile success 0 Errors 0 Warnings  Analysis time :  0.1 [s]
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd
+# Compile Entity "i2c_sender"
+# Compile Architecture "Behavioral" of Entity "i2c_sender"
+# Warning: COMP96_0316: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (55, 10): Case expression must be of a locally static subtype.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (56, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (63, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (70, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (77, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (84, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (91, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Compile success 0 Errors 7 Warnings  Analysis time :  47.0 [ms]
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i3c2.vhd
+# Compile Entity "i3c2"
+# Compile Architecture "Behavioral" of Entity "i3c2"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\ov7670_capture.vhd
+# Compile Entity "ov7670_capture"
+# Compile Architecture "Behavioral" of Entity "ov7670_capture"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\ov7670_controller.vhd
+# Compile Entity "ov7670_controller"
+# Compile Architecture "Behavioral" of Entity "ov7670_controller"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\ov7670_registers.vhd
+# Compile Entity "ov7670_registers"
+# Compile Architecture "Behavioral" of Entity "ov7670_registers"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\RGB.vhd
+# Compile Entity "RGB"
+# Compile Architecture "Behavioral" of Entity "RGB"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\vga.vhd
+# Compile Entity "VGA"
+# Compile Architecture "Behavioral" of Entity "VGA"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\vga_pll.vhd
+# Compile Entity "vga_pll"
+# Compile Architecture "SYN" of Entity "vga_pll"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\vga_pll_zedboard.vhd
+# Compile Entity "vga_pll_zedboard"
+# Compile Architecture "xilinx" of Entity "vga_pll_zedboard"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\top_level.vhd
+# Compile Entity "top_level"
+# Compile Architecture "Behavioral" of Entity "top_level"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\tb_top_level.vhd
+# Compile Entity "tb_top_level"
+# Compile Architecture "behavior" of Entity "tb_top_level"
+# Warning: ELAB1_0026: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\tb_top_level.vhd : (65, 0): There is no default binding for component "top_level". (Port "clk_50" is not on the entity).
+# Compile success 0 Errors 1 Warnings  Analysis time :  0.7 [s]
+cd $dsn 
+runscript {.\simulation_env.pl}    
+comp  
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\address_Generator.vhd
+# Compile Entity "Address_Generator"
+# Compile Architecture "Behavioral" of Entity "Address_Generator"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\debounce.vhd
+# Compile Entity "debounce"
+# Compile Architecture "Behavioral" of Entity "debounce"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\xilinx_frame_buffer.vhd
+# Compile Entity "xilinx_frame_buffer"
+# Compile Architecture "xilinx_frame_buffer_a" of Entity "xilinx_frame_buffer"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\frame_buffer.vhd
+# Compile Entity "frame_buffer"
+# Compile Architecture "SYN" of Entity "frame_buffer"
+# Compile success 0 Errors 0 Warnings  Analysis time :  0.1 [s]
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd
+# Compile Entity "i2c_sender"
+# Compile Architecture "Behavioral" of Entity "i2c_sender"
+# Warning: COMP96_0316: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (55, 10): Case expression must be of a locally static subtype.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (56, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (63, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (70, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (77, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (84, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (91, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Compile success 0 Errors 7 Warnings  Analysis time :  32.0 [ms]
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i3c2.vhd
+# Compile Entity "i3c2"
+# Compile Architecture "Behavioral" of Entity "i3c2"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\ov7670_capture.vhd
+# Compile Entity "ov7670_capture"
+# Compile Architecture "Behavioral" of Entity "ov7670_capture"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\ov7670_controller.vhd
+# Compile Entity "ov7670_controller"
+# Compile Architecture "Behavioral" of Entity "ov7670_controller"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\ov7670_registers.vhd
+# Compile Entity "ov7670_registers"
+# Compile Architecture "Behavioral" of Entity "ov7670_registers"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\RGB.vhd
+# Compile Entity "RGB"
+# Compile Architecture "Behavioral" of Entity "RGB"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\vga.vhd
+# Compile Entity "VGA"
+# Compile Architecture "Behavioral" of Entity "VGA"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\vga_pll.vhd
+# Compile Entity "vga_pll"
+# Compile Architecture "SYN" of Entity "vga_pll"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\vga_pll_zedboard.vhd
+# Compile Entity "vga_pll_zedboard"
+# Compile Architecture "xilinx" of Entity "vga_pll_zedboard"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\top_level.vhd
+# Compile Entity "top_level"
+# Compile Architecture "Behavioral" of Entity "top_level"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\tb_top_level.vhd
+# Compile Entity "tb_top_level"
+# Compile Architecture "behavior" of Entity "tb_top_level"
+# Warning: ELAB1_0026: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\tb_top_level.vhd : (65, 0): There is no default binding for component "top_level". (Port "clk_50" is not on the entity).
+# Compile success 0 Errors 1 Warnings  Analysis time :  0.7 [s]
+cd $dsn 
+runscript {.\simulation_env.pl}    
+# Library Manager: Library "unisim" attached.
+# AMAP: Adding mapping library O.K.
+comp  
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\address_Generator.vhd
+# Compile Entity "Address_Generator"
+# Compile Architecture "Behavioral" of Entity "Address_Generator"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\debounce.vhd
+# Compile Entity "debounce"
+# Compile Architecture "Behavioral" of Entity "debounce"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\xilinx_frame_buffer.vhd
+# Compile Entity "xilinx_frame_buffer"
+# Compile Architecture "xilinx_frame_buffer_a" of Entity "xilinx_frame_buffer"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\frame_buffer.vhd
+# Compile Entity "frame_buffer"
+# Compile Architecture "SYN" of Entity "frame_buffer"
+# Compile success 0 Errors 0 Warnings  Analysis time :  0.1 [s]
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd
+# Compile Entity "i2c_sender"
+# Compile Architecture "Behavioral" of Entity "i2c_sender"
+# Warning: COMP96_0316: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (55, 10): Case expression must be of a locally static subtype.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (56, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (63, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (70, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (77, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (84, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (91, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Compile success 0 Errors 7 Warnings  Analysis time :  31.0 [ms]
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i3c2.vhd
+# Compile Entity "i3c2"
+# Compile Architecture "Behavioral" of Entity "i3c2"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\ov7670_capture.vhd
+# Compile Entity "ov7670_capture"
+# Compile Architecture "Behavioral" of Entity "ov7670_capture"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\ov7670_controller.vhd
+# Compile Entity "ov7670_controller"
+# Compile Architecture "Behavioral" of Entity "ov7670_controller"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\ov7670_registers.vhd
+# Compile Entity "ov7670_registers"
+# Compile Architecture "Behavioral" of Entity "ov7670_registers"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\RGB.vhd
+# Compile Entity "RGB"
+# Compile Architecture "Behavioral" of Entity "RGB"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\vga.vhd
+# Compile Entity "VGA"
+# Compile Architecture "Behavioral" of Entity "VGA"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\vga_pll.vhd
+# Compile Entity "vga_pll"
+# Compile Architecture "SYN" of Entity "vga_pll"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\vga_pll_zedboard.vhd
+# Compile Entity "vga_pll_zedboard"
+# Compile Architecture "xilinx" of Entity "vga_pll_zedboard"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\top_level.vhd
+# Compile Entity "top_level"
+# Compile Architecture "Behavioral" of Entity "top_level"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\tb_top_level.vhd
+# Compile Entity "tb_top_level"
+# Compile Architecture "behavior" of Entity "tb_top_level"
+# Warning: ELAB1_0026: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\tb_top_level.vhd : (65, 0): There is no default binding for component "top_level". (Port "clk_50" is not on the entity).
+# Compile success 0 Errors 1 Warnings  Analysis time :  0.7 [s]
+cd $dsn 
+runscript {.\simulation_env.pl}    
+comp  
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\address_Generator.vhd
+# Compile Entity "Address_Generator"
+# Compile Architecture "Behavioral" of Entity "Address_Generator"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\debounce.vhd
+# Compile Entity "debounce"
+# Compile Architecture "Behavioral" of Entity "debounce"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\xilinx_frame_buffer.vhd
+# Compile Entity "xilinx_frame_buffer"
+# Compile Architecture "xilinx_frame_buffer_a" of Entity "xilinx_frame_buffer"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\frame_buffer.vhd
+# Compile Entity "frame_buffer"
+# Compile Architecture "SYN" of Entity "frame_buffer"
+# Compile success 0 Errors 0 Warnings  Analysis time :  94.0 [ms]
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd
+# Compile Entity "i2c_sender"
+# Compile Architecture "Behavioral" of Entity "i2c_sender"
+# Warning: COMP96_0316: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (55, 10): Case expression must be of a locally static subtype.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (56, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (63, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (70, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (77, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (84, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (91, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Compile success 0 Errors 7 Warnings  Analysis time :  31.0 [ms]
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i3c2.vhd
+# Compile Entity "i3c2"
+# Compile Architecture "Behavioral" of Entity "i3c2"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\ov7670_capture.vhd
+# Compile Entity "ov7670_capture"
+# Compile Architecture "Behavioral" of Entity "ov7670_capture"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\ov7670_controller.vhd
+# Compile Entity "ov7670_controller"
+# Compile Architecture "Behavioral" of Entity "ov7670_controller"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\ov7670_registers.vhd
+# Compile Entity "ov7670_registers"
+# Compile Architecture "Behavioral" of Entity "ov7670_registers"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\RGB.vhd
+# Compile Entity "RGB"
+# Compile Architecture "Behavioral" of Entity "RGB"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\vga.vhd
+# Compile Entity "VGA"
+# Compile Architecture "Behavioral" of Entity "VGA"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\vga_pll.vhd
+# Compile Entity "vga_pll"
+# Compile Architecture "SYN" of Entity "vga_pll"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\vga_pll_zedboard.vhd
+# Compile Entity "vga_pll_zedboard"
+# Compile Architecture "xilinx" of Entity "vga_pll_zedboard"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\top_level.vhd
+# Compile Entity "top_level"
+# Compile Architecture "Behavioral" of Entity "top_level"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\tb_top_level.vhd
+# Compile Entity "tb_top_level"
+# Compile Architecture "behavior" of Entity "tb_top_level"
+# Warning: ELAB1_0026: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\tb_top_level.vhd : (65, 0): There is no default binding for component "top_level". (Port "clk_50" is not on the entity).
+# Compile success 0 Errors 1 Warnings  Analysis time :  0.6 [s]
+cd $dsn 
+runscript {.\simulation_env.pl}    
+comp  
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\address_Generator.vhd
+# Compile Entity "Address_Generator"
+# Compile Architecture "Behavioral" of Entity "Address_Generator"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\debounce.vhd
+# Compile Entity "debounce"
+# Compile Architecture "Behavioral" of Entity "debounce"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\xilinx_frame_buffer.vhd
+# Compile Entity "xilinx_frame_buffer"
+# Compile Architecture "xilinx_frame_buffer_a" of Entity "xilinx_frame_buffer"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\frame_buffer.vhd
+# Compile Entity "frame_buffer"
+# Compile Architecture "SYN" of Entity "frame_buffer"
+# Compile success 0 Errors 0 Warnings  Analysis time :  93.0 [ms]
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd
+# Compile Entity "i2c_sender"
+# Compile Architecture "Behavioral" of Entity "i2c_sender"
+# Warning: COMP96_0316: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (55, 10): Case expression must be of a locally static subtype.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (56, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (63, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (70, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (77, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (84, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (91, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Compile success 0 Errors 7 Warnings  Analysis time :  31.0 [ms]
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i3c2.vhd
+# Compile Entity "i3c2"
+# Compile Architecture "Behavioral" of Entity "i3c2"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\ov7670_capture.vhd
+# Compile Entity "ov7670_capture"
+# Compile Architecture "Behavioral" of Entity "ov7670_capture"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\ov7670_controller.vhd
+# Compile Entity "ov7670_controller"
+# Compile Architecture "Behavioral" of Entity "ov7670_controller"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\ov7670_registers.vhd
+# Compile Entity "ov7670_registers"
+# Compile Architecture "Behavioral" of Entity "ov7670_registers"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\RGB.vhd
+# Compile Entity "RGB"
+# Compile Architecture "Behavioral" of Entity "RGB"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\vga.vhd
+# Compile Entity "VGA"
+# Compile Architecture "Behavioral" of Entity "VGA"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\vga_pll.vhd
+# Compile Entity "vga_pll"
+# Compile Architecture "SYN" of Entity "vga_pll"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\vga_pll_zedboard.vhd
+# Compile Entity "vga_pll_zedboard"
+# Compile Architecture "xilinx" of Entity "vga_pll_zedboard"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\top_level.vhd
+# Compile Entity "top_level"
+# Compile Architecture "Behavioral" of Entity "top_level"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\tb_top_level.vhd
+# Compile Entity "tb_top_level"
+# Compile Architecture "behavior" of Entity "tb_top_level"
+# Warning: ELAB1_0026: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\tb_top_level.vhd : (65, 0): There is no default binding for component "top_level". (Port "clk_50" is not on the entity).
+# Compile success 0 Errors 1 Warnings  Analysis time :  0.6 [s]
+cd $dsn 
+runscript {.\simulation_env.pl}    
+comp  
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\address_Generator.vhd
+# Compile Entity "Address_Generator"
+# Compile Architecture "Behavioral" of Entity "Address_Generator"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\debounce.vhd
+# Compile Entity "debounce"
+# Compile Architecture "Behavioral" of Entity "debounce"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\xilinx_frame_buffer.vhd
+# Compile Entity "xilinx_frame_buffer"
+# Compile Architecture "xilinx_frame_buffer_a" of Entity "xilinx_frame_buffer"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\frame_buffer.vhd
+# Compile Entity "frame_buffer"
+# Compile Architecture "SYN" of Entity "frame_buffer"
+# Compile success 0 Errors 0 Warnings  Analysis time :  0.1 [s]
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd
+# Compile Entity "i2c_sender"
+# Compile Architecture "Behavioral" of Entity "i2c_sender"
+# Warning: COMP96_0316: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (55, 10): Case expression must be of a locally static subtype.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (56, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (63, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (70, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (77, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (84, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (91, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Compile success 0 Errors 7 Warnings  Analysis time :  47.0 [ms]
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i3c2.vhd
+# Compile Entity "i3c2"
+# Compile Architecture "Behavioral" of Entity "i3c2"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\ov7670_capture.vhd
+# Compile Entity "ov7670_capture"
+# Compile Architecture "Behavioral" of Entity "ov7670_capture"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\ov7670_controller.vhd
+# Compile Entity "ov7670_controller"
+# Compile Architecture "Behavioral" of Entity "ov7670_controller"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\ov7670_registers.vhd
+# Compile Entity "ov7670_registers"
+# Compile Architecture "Behavioral" of Entity "ov7670_registers"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\RGB.vhd
+# Compile Entity "RGB"
+# Compile Architecture "Behavioral" of Entity "RGB"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\vga.vhd
+# Compile Entity "VGA"
+# Compile Architecture "Behavioral" of Entity "VGA"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\vga_pll.vhd
+# Compile Entity "vga_pll"
+# Compile Architecture "SYN" of Entity "vga_pll"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\vga_pll_zedboard.vhd
+# Compile Entity "vga_pll_zedboard"
+# Compile Architecture "xilinx" of Entity "vga_pll_zedboard"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\top_level.vhd
+# Compile Entity "top_level"
+# Compile Architecture "Behavioral" of Entity "top_level"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\tb_top_level.vhd
+# Compile Entity "tb_top_level"
+# Compile Architecture "behavior" of Entity "tb_top_level"
+# Warning: ELAB1_0026: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\tb_top_level.vhd : (65, 0): There is no default binding for component "top_level". (Port "clk_50" is not on the entity).
+# Compile success 0 Errors 1 Warnings  Analysis time :  0.7 [s]
+cd $dsn 
+runscript {.\simulation_env.pl}    
+acom -O3 -e 100 -work ov7670_if_lib -2002  $dsn/src/xilinx_frame_buffer.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\xilinx_frame_buffer.vhd
+# Compile Entity "xilinx_frame_buffer"
+# Compile Architecture "xilinx_frame_buffer_a" of Entity "xilinx_frame_buffer"
+# Compile success 0 Errors 0 Warnings  Analysis time :  31.0 [ms]
+acom -O3 -e 100 -work ov7670_if_lib -2002  $dsn/src/address_Generator.vhd $dsn/src/debounce.vhd $dsn/src/xilinx_frame_buffer.vhd $dsn/src/frame_buffer.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\address_Generator.vhd
+# Compile Entity "Address_Generator"
+# Compile Architecture "Behavioral" of Entity "Address_Generator"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\debounce.vhd
+# Compile Entity "debounce"
+# Compile Architecture "Behavioral" of Entity "debounce"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\xilinx_frame_buffer.vhd
+# Compile Entity "xilinx_frame_buffer"
+# Compile Architecture "xilinx_frame_buffer_a" of Entity "xilinx_frame_buffer"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\frame_buffer.vhd
+# Compile Entity "frame_buffer"
+# Compile Architecture "SYN" of Entity "frame_buffer"
+# Compile success 0 Errors 0 Warnings  Analysis time :  0.1 [s]
+acom -O3 -e 100 -work ov7670_if_lib -2002  -relax $dsn/src/i2c_sender.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd
+# Compile Entity "i2c_sender"
+# Compile Architecture "Behavioral" of Entity "i2c_sender"
+# Warning: COMP96_0316: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (55, 10): Case expression must be of a locally static subtype.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (56, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (63, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (70, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (77, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (84, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (91, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Compile success 0 Errors 7 Warnings  Analysis time :  46.0 [ms]
+acom -O3 -e 100 -work ov7670_if_lib -2002  $dsn/src/i3c2.vhd $dsn/src/ov7670_capture.vhd $dsn/src/ov7670_controller.vhd $dsn/src/ov7670_registers.vhd $dsn/src/RGB.vhd $dsn/src/vga.vhd $dsn/src/vga_pll.vhd $dsn/src/vga_pll_zedboard.vhd $dsn/src/top_level.vhd $dsn/src/tb_top_level.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i3c2.vhd
+# Compile Entity "i3c2"
+# Compile Architecture "Behavioral" of Entity "i3c2"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\ov7670_capture.vhd
+# Compile Entity "ov7670_capture"
+# Compile Architecture "Behavioral" of Entity "ov7670_capture"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\ov7670_controller.vhd
+# Compile Entity "ov7670_controller"
+# Compile Architecture "Behavioral" of Entity "ov7670_controller"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\ov7670_registers.vhd
+# Compile Entity "ov7670_registers"
+# Compile Architecture "Behavioral" of Entity "ov7670_registers"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\RGB.vhd
+# Compile Entity "RGB"
+# Compile Architecture "Behavioral" of Entity "RGB"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\vga.vhd
+# Compile Entity "VGA"
+# Compile Architecture "Behavioral" of Entity "VGA"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\vga_pll.vhd
+# Compile Entity "vga_pll"
+# Compile Architecture "SYN" of Entity "vga_pll"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\vga_pll_zedboard.vhd
+# Compile Entity "vga_pll_zedboard"
+# Compile Architecture "xilinx" of Entity "vga_pll_zedboard"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\top_level.vhd
+# Compile Entity "top_level"
+# Compile Architecture "Behavioral" of Entity "top_level"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\tb_top_level.vhd
+# Compile Entity "tb_top_level"
+# Compile Architecture "behavior" of Entity "tb_top_level"
+# Warning: ELAB1_0026: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\tb_top_level.vhd : (65, 0): There is no default binding for component "top_level". (Port "clk_50" is not on the entity).
+# Compile success 0 Errors 1 Warnings  Analysis time :  0.7 [s]
+comp  
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\address_Generator.vhd
+# Compile Entity "Address_Generator"
+# Compile Architecture "Behavioral" of Entity "Address_Generator"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\debounce.vhd
+# Compile Entity "debounce"
+# Compile Architecture "Behavioral" of Entity "debounce"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\xilinx_frame_buffer.vhd
+# Compile Entity "xilinx_frame_buffer"
+# Compile Architecture "xilinx_frame_buffer_a" of Entity "xilinx_frame_buffer"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\frame_buffer.vhd
+# Compile Entity "frame_buffer"
+# Compile Architecture "SYN" of Entity "frame_buffer"
+# Compile success 0 Errors 0 Warnings  Analysis time :  94.0 [ms]
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd
+# Compile Entity "i2c_sender"
+# Compile Architecture "Behavioral" of Entity "i2c_sender"
+# Warning: COMP96_0316: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (55, 10): Case expression must be of a locally static subtype.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (56, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (63, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (70, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (77, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (84, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (91, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Compile success 0 Errors 7 Warnings  Analysis time :  31.0 [ms]
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i3c2.vhd
+# Compile Entity "i3c2"
+# Compile Architecture "Behavioral" of Entity "i3c2"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\ov7670_capture.vhd
+# Compile Entity "ov7670_capture"
+# Compile Architecture "Behavioral" of Entity "ov7670_capture"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\ov7670_controller.vhd
+# Compile Entity "ov7670_controller"
+# Compile Architecture "Behavioral" of Entity "ov7670_controller"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\ov7670_registers.vhd
+# Compile Entity "ov7670_registers"
+# Compile Architecture "Behavioral" of Entity "ov7670_registers"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\RGB.vhd
+# Compile Entity "RGB"
+# Compile Architecture "Behavioral" of Entity "RGB"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\vga.vhd
+# Compile Entity "VGA"
+# Compile Architecture "Behavioral" of Entity "VGA"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\vga_pll.vhd
+# Compile Entity "vga_pll"
+# Compile Architecture "SYN" of Entity "vga_pll"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\vga_pll_zedboard.vhd
+# Compile Entity "vga_pll_zedboard"
+# Compile Architecture "xilinx" of Entity "vga_pll_zedboard"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\top_level.vhd
+# Compile Entity "top_level"
+# Compile Architecture "Behavioral" of Entity "top_level"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\tb_top_level.vhd
+# Compile Entity "tb_top_level"
+# Compile Architecture "behavior" of Entity "tb_top_level"
+# Warning: ELAB1_0026: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\tb_top_level.vhd : (65, 0): There is no default binding for component "top_level". (Port "clk_50" is not on the entity).
+# Compile success 0 Errors 1 Warnings  Analysis time :  0.6 [s]
+cd $dsn 
+runscript {.\simulation_env.pl}    
+runscript {.\simulation_env.pl}
+runscript {.\simulation_env.pl}
+acom -O3 -e 100 -work ov7670_if_lib -2002  $dsn/src/tb_top_level.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\tb_top_level.vhd
+# Compile Entity "tb_top_level"
+# Compile Architecture "behavior" of Entity "tb_top_level"
+# Warning: ELAB1_0026: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\tb_top_level.vhd : (65, 0): There is no default binding for component "top_level". (Port "clk_50" is not on the entity).
+# Compile success 0 Errors 1 Warnings  Analysis time :  47.0 [ms]
+acom -O3 -e 100 -work ov7670_if_lib -2002  $dsn/src/address_Generator.vhd $dsn/src/debounce.vhd $dsn/src/xilinx_frame_buffer.vhd $dsn/src/frame_buffer.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\address_Generator.vhd
+# Compile Entity "Address_Generator"
+# Compile Architecture "Behavioral" of Entity "Address_Generator"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\debounce.vhd
+# Compile Entity "debounce"
+# Compile Architecture "Behavioral" of Entity "debounce"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\xilinx_frame_buffer.vhd
+# Compile Entity "xilinx_frame_buffer"
+# Compile Architecture "xilinx_frame_buffer_a" of Entity "xilinx_frame_buffer"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\frame_buffer.vhd
+# Compile Entity "frame_buffer"
+# Compile Architecture "SYN" of Entity "frame_buffer"
+# Compile success 0 Errors 0 Warnings  Analysis time :  0.1 [s]
+acom -O3 -e 100 -work ov7670_if_lib -2002  -relax $dsn/src/i2c_sender.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd
+# Compile Entity "i2c_sender"
+# Compile Architecture "Behavioral" of Entity "i2c_sender"
+# Warning: COMP96_0316: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (55, 10): Case expression must be of a locally static subtype.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (56, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (63, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (70, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (77, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (84, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Warning: COMP96_0546: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i2c_sender.vhd : (91, 11): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Compile success 0 Errors 7 Warnings  Analysis time :  46.0 [ms]
+acom -O3 -e 100 -work ov7670_if_lib -2002  $dsn/src/i3c2.vhd $dsn/src/ov7670_capture.vhd $dsn/src/ov7670_controller.vhd $dsn/src/ov7670_registers.vhd $dsn/src/RGB.vhd $dsn/src/vga.vhd $dsn/src/vga_pll.vhd $dsn/src/vga_pll_zedboard.vhd $dsn/src/top_level.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\i3c2.vhd
+# Compile Entity "i3c2"
+# Compile Architecture "Behavioral" of Entity "i3c2"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\ov7670_capture.vhd
+# Compile Entity "ov7670_capture"
+# Compile Architecture "Behavioral" of Entity "ov7670_capture"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\ov7670_controller.vhd
+# Compile Entity "ov7670_controller"
+# Compile Architecture "Behavioral" of Entity "ov7670_controller"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\ov7670_registers.vhd
+# Compile Entity "ov7670_registers"
+# Compile Architecture "Behavioral" of Entity "ov7670_registers"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\RGB.vhd
+# Compile Entity "RGB"
+# Compile Architecture "Behavioral" of Entity "RGB"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\vga.vhd
+# Compile Entity "VGA"
+# Compile Architecture "Behavioral" of Entity "VGA"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\vga_pll.vhd
+# Compile Entity "vga_pll"
+# Compile Architecture "SYN" of Entity "vga_pll"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\vga_pll_zedboard.vhd
+# Compile Entity "vga_pll_zedboard"
+# Compile Architecture "xilinx" of Entity "vga_pll_zedboard"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\top_level.vhd
+# Compile Entity "top_level"
+# Compile Architecture "Behavioral" of Entity "top_level"
+# Compile success 0 Errors 0 Warnings  Analysis time :  0.6 [s]
+acom -O3 -e 100 -work ov7670_if_lib -2002  -relax $dsn/src/tb_top_level.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\tb_top_level.vhd
+# Compile Entity "tb_top_level"
+# Compile Architecture "behavior" of Entity "tb_top_level"
+# Warning: ELAB1_0026: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src\tb_top_level.vhd : (65, 0): There is no default binding for component "top_level". (Port "clk_50" is not on the entity).
+# Compile success 0 Errors 1 Warnings  Analysis time :  31.0 [ms]
+runscript {.\simulation_env.pl}

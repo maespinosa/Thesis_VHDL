@@ -1,0 +1,248 @@
+# Reading C:/Modeltech_pe_edu_10.4a/tcl/vsim/pref.tcl
+do modelsim.do
+# vmap -modelsim_quiet xilinxcorelib C:/Xilinx/14.6/ISE_DS/ISE/vhdl/mti_pe/10.4a/nt64/xilinxcorelib
+# Model Technology ModelSim PE vmap 10.4a Lib Mapping Utility 2015.03 Apr  7 2015
+# vmap -modelsim_quiet -modelsim_quiet xilinxcorelib C:/Xilinx/14.6/ISE_DS/ISE/vhdl/mti_pe/10.4a/nt64/xilinxcorelib 
+# Modifying modelsim.ini
+# vmap -modelsim_quiet unisim C:/Xilinx/14.6/ISE_DS/ISE/vhdl/mti_pe/10.4a/nt64/unisim
+# Model Technology ModelSim PE vmap 10.4a Lib Mapping Utility 2015.03 Apr  7 2015
+# vmap -modelsim_quiet -modelsim_quiet unisim C:/Xilinx/14.6/ISE_DS/ISE/vhdl/mti_pe/10.4a/nt64/unisim 
+# Modifying modelsim.ini
+# view -undock wave
+# .main_pane.wave.interior.cs.body.pw.wf
+# cd c:/Sourcetree_Local/Thesis_VHDL/Active_HDL_Projects/OV7670_IF_LIB/OV7670_IF_LIB/ov7670_if_lib
+# reading modelsim.ini
+# vlib modelsim
+# ** Warning: (vlib-34) Library already exists at "modelsim".
+# 
+# vcom -2008 -work modelsim ./src/address_Generator.vhd
+# Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+# Start time: 18:38:44 on Apr 06,2017
+# vcom -reportprogress 300 -2008 -work modelsim ./src/address_Generator.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling entity Address_Generator
+# -- Compiling architecture Behavioral of Address_Generator
+# End time: 18:38:44 on Apr 06,2017, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -2008 -work modelsim ./src/debounce.vhd
+# Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+# Start time: 18:38:44 on Apr 06,2017
+# vcom -reportprogress 300 -2008 -work modelsim ./src/debounce.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity debounce
+# -- Compiling architecture Behavioral of debounce
+# End time: 18:38:44 on Apr 06,2017, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -2008 -work modelsim ./src/xilinx_frame_buffer.vhd
+# Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+# Start time: 18:38:44 on Apr 06,2017
+# vcom -reportprogress 300 -2008 -work modelsim ./src/xilinx_frame_buffer.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity xilinx_frame_buffer
+# -- Compiling architecture xilinx_frame_buffer_a of xilinx_frame_buffer
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Loading entity BLK_MEM_GEN_V7_3
+# End time: 18:38:44 on Apr 06,2017, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -2008 -work modelsim ./src/frame_buffer.vhd
+# Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+# Start time: 18:38:44 on Apr 06,2017
+# vcom -reportprogress 300 -2008 -work modelsim ./src/frame_buffer.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity frame_buffer
+# -- Compiling architecture SYN of frame_buffer
+# End time: 18:38:44 on Apr 06,2017, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -2008 -work modelsim ./src/i2c_sender.vhd
+# Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+# Start time: 18:38:44 on Apr 06,2017
+# vcom -reportprogress 300 -2008 -work modelsim ./src/i2c_sender.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity i2c_sender
+# -- Compiling architecture Behavioral of i2c_sender
+# End time: 18:38:44 on Apr 06,2017, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -2008 -work modelsim ./src/i3c2.vhd
+# Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+# Start time: 18:38:44 on Apr 06,2017
+# vcom -reportprogress 300 -2008 -work modelsim ./src/i3c2.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity i3c2
+# -- Compiling architecture Behavioral of i3c2
+# End time: 18:38:44 on Apr 06,2017, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -2008 -work modelsim ./src/ov7670_capture.vhd
+# Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+# Start time: 18:38:44 on Apr 06,2017
+# vcom -reportprogress 300 -2008 -work modelsim ./src/ov7670_capture.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity ov7670_capture
+# -- Compiling architecture Behavioral of ov7670_capture
+# End time: 18:38:44 on Apr 06,2017, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -2008 -work modelsim ./src/ov7670_controller.vhd
+# Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+# Start time: 18:38:45 on Apr 06,2017
+# vcom -reportprogress 300 -2008 -work modelsim ./src/ov7670_controller.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity ov7670_controller
+# -- Compiling architecture Behavioral of ov7670_controller
+# End time: 18:38:45 on Apr 06,2017, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -2008 -work modelsim ./src/ov7670_registers.vhd
+# Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+# Start time: 18:38:45 on Apr 06,2017
+# vcom -reportprogress 300 -2008 -work modelsim ./src/ov7670_registers.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity ov7670_registers
+# -- Compiling architecture Behavioral of ov7670_registers
+# End time: 18:38:45 on Apr 06,2017, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -2008 -work modelsim ./src/RGB.vhd
+# Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+# Start time: 18:38:45 on Apr 06,2017
+# vcom -reportprogress 300 -2008 -work modelsim ./src/RGB.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling entity RGB
+# -- Compiling architecture Behavioral of RGB
+# End time: 18:38:45 on Apr 06,2017, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -2008 -work modelsim ./src/vga.vhd
+# Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+# Start time: 18:38:45 on Apr 06,2017
+# vcom -reportprogress 300 -2008 -work modelsim ./src/vga.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling entity VGA
+# -- Compiling architecture Behavioral of VGA
+# End time: 18:38:45 on Apr 06,2017, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -2008 -work modelsim ./src/vga_pll.vhd
+# Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+# Start time: 18:38:45 on Apr 06,2017
+# vcom -reportprogress 300 -2008 -work modelsim ./src/vga_pll.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package VCOMPONENTS
+# -- Compiling entity vga_pll
+# -- Compiling architecture SYN of vga_pll
+# End time: 18:38:45 on Apr 06,2017, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -2008 -work modelsim ./src/vga_pll_zedboard.vhd
+# Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+# Start time: 18:38:45 on Apr 06,2017
+# vcom -reportprogress 300 -2008 -work modelsim ./src/vga_pll_zedboard.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Loading package NUMERIC_STD
+# -- Loading package VCOMPONENTS
+# -- Compiling entity vga_pll_zedboard
+# -- Compiling architecture xilinx of vga_pll_zedboard
+# End time: 18:38:46 on Apr 06,2017, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vcom -2008 -work modelsim ./src/top_level.vhd
+# Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+# Start time: 18:38:46 on Apr 06,2017
+# vcom -reportprogress 300 -2008 -work modelsim ./src/top_level.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity top_level
+# -- Compiling architecture Behavioral of top_level
+# End time: 18:38:46 on Apr 06,2017, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim modelsim.top_level
+# //  ModelSim PE Student Edition 10.4a Apr  7 2015 
+# //
+# //  Copyright 1991-2015 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //  THIS DOCUMENT CONTAINS TRADE SECRETS AND COMMERCIAL OR FINANCIAL
+# //  INFORMATION THAT ARE PRIVILEGED, CONFIDENTIAL, AND EXEMPT FROM
+# //  DISCLOSURE UNDER THE FREEDOM OF INFORMATION ACT, 5 U.S.C. SECTION 552.
+# //  FURTHERMORE, THIS INFORMATION IS PROHIBITED FROM DISCLOSURE UNDER
+# //  THE TRADE SECRETS ACT, 18 U.S.C. SECTION 1905.
+# //
+# // NOT FOR CORPORATE OR PRODUCTION USE.
+# // THE ModelSim PE Student Edition IS NOT A SUPPORTED PRODUCT.
+# // FOR HIGHER EDUCATION PURPOSES ONLY
+# //
+# vsim -gui 
+# Start time: 18:38:46 on Apr 06,2017
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading modelsim.top_level(behavioral)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading ieee.numeric_std(body)
+# Loading unisim.vcomponents
+# Loading modelsim.vga_pll_zedboard(xilinx)
+# Loading unisim.ibufg(ibufg_v)
+# Loading ieee.std_logic_signed(body)
+# Loading ieee.vital_timing(body)
+# Loading ieee.vital_primitives(body)
+# Loading unisim.vpkg(body)
+# ** Warning: (vsim-3479) Time unit 'ps' is less than the simulator resolution (1ns).
+#    Time: 0 ns  Iteration: 0  Instance: /top_level/inst_vga_pll/mmcm_adv_inst
+# Loading unisim.mmcme2_adv(mmcme2_adv_v)
+# Loading unisim.bufg(bufg_v)
+# Loading modelsim.vga(behavioral)
+# Loading modelsim.debounce(behavioral)
+# Loading modelsim.ov7670_controller(behavioral)
+# Loading modelsim.i3c2(behavioral)
+# Loading modelsim.frame_buffer(syn)
+# Loading modelsim.xilinx_frame_buffer(xilinx_frame_buffer_a)
+# Loading xilinxcorelib.blk_mem_gen_v7_3(behavioral)
+# Loading ieee.std_logic_textio(body)
+# Loading xilinxcorelib.blk_mem_gen_v7_3_mem_module(mem_module_behavioral)
+# Loading xilinxcorelib.blk_mem_gen_v7_3_output_stage(output_stage_behavioral)
+# Loading xilinxcorelib.blk_mem_gen_v7_3_softecc_output_reg_stage(softecc_output_reg_stage_behavioral)
+# Loading modelsim.ov7670_capture(behavioral)
+# Loading modelsim.rgb(behavioral)
+# Loading modelsim.address_generator(behavioral)
+# ** Warning: Design size of 30490 statements or 21 leaf instances exceeds ModelSim PE Student Edition recommended capacity.
+# Expect performance to be quite adversely affected.
+# End time: 19:40:37 on Apr 06,2017, Elapsed time: 1:01:51
+# Errors: 0, Warnings: 2

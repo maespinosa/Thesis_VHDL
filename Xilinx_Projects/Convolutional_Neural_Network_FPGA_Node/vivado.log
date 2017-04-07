@@ -1,0 +1,30 @@
+#-----------------------------------------------------------
+# Vivado v2015.4 (64-bit)
+# SW Build 1412921 on Wed Nov 18 09:43:45 MST 2015
+# IP Build 1412160 on Tue Nov 17 13:47:24 MST 2015
+# Start of session at: Wed Apr 05 18:10:07 2017
+# Process ID: 26544
+# Current directory: C:/Sourcetree_Local/Thesis_VHDL/Xilinx_Projects/Convolutional_Neural_Network_FPGA_Node
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent25968 C:\Sourcetree_Local\Thesis_VHDL\Xilinx_Projects\Convolutional_Neural_Network_FPGA_Node\Convolutional_Neural_Network_FPGA_Node.xpr
+# Log file: C:/Sourcetree_Local/Thesis_VHDL/Xilinx_Projects/Convolutional_Neural_Network_FPGA_Node/vivado.log
+# Journal file: C:/Sourcetree_Local/Thesis_VHDL/Xilinx_Projects/Convolutional_Neural_Network_FPGA_Node\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Sourcetree_Local/Thesis_VHDL/Xilinx_Projects/Convolutional_Neural_Network_FPGA_Node/Convolutional_Neural_Network_FPGA_Node.xpr
+INFO: [ProjectBase 1-489] The host OS only allows 260 characters in a normal path. The project is stored in a path with more than 80 characters. If you experience issues with IP, Block Designs, or files not being found, please consider moving the project to a location with a shorter path. Alternately consider using the OS subst command to map part of the path to a drive letter.
+Current project path is 'C:/Sourcetree_Local/Thesis_VHDL/Xilinx_Projects/Convolutional_Neural_Network_FPGA_Node'
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2015.4/data/ip'.
+open_project: Time (s): cpu = 00:00:15 ; elapsed = 00:00:07 . Memory (MB): peak = 853.906 ; gain = 150.391
+open_bd_design {C:/Sourcetree_Local/Thesis_VHDL/Xilinx_Projects/Convolutional_Neural_Network_FPGA_Node/Convolutional_Neural_Network_FPGA_Node.srcs/sources_1/bd/Node/Node.bd}
+Adding component instance block -- xilinx.com:ip:processing_system7:5.5 - processing_system7_0
+Adding component instance block -- xilinx.com:ip:axi_dma:7.1 - axi_dma_0
+Adding component instance block -- xilinx.com:ip:proc_sys_reset:5.0 - rst_processing_system7_0_100M
+INFO: [Ipptcl 7-1463] No Compatible Board Interface found. Board Tab not created in customize GUI
+Successfully read diagram <Node> from BD file <C:/Sourcetree_Local/Thesis_VHDL/Xilinx_Projects/Convolutional_Neural_Network_FPGA_Node/Convolutional_Neural_Network_FPGA_Node.srcs/sources_1/bd/Node/Node.bd>
+open_bd_design: Time (s): cpu = 00:00:09 ; elapsed = 00:00:07 . Memory (MB): peak = 933.023 ; gain = 79.117
+exit
+INFO: [Common 17-206] Exiting Vivado at Thu Apr 06 17:27:15 2017...

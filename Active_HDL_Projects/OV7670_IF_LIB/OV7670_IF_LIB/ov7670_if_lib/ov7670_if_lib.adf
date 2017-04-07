@@ -1,0 +1,105 @@
+[Project]
+Current Flow=Multivendor
+VCS=0
+version=3
+Current Config=compile
+
+[Configurations]
+compile=ov7670_if_lib
+
+[Library]
+ov7670_if_lib=.\ov7670_if_lib\ov7670_if_lib.lib
+xilinxcorelib=.\..\..\..\..\..\..\aldec\active-hdl-student-edition\vlib\xilinx_ise\vhdl\xilinxcorelib\xilinxcorelib.lib
+unisim=.\..\..\..\..\..\..\aldec\active-hdl-student-edition\vlib\xilinx_ise\vhdl\unisim\unisim.lib
+
+[Settings]
+AccessRead=0
+AccessReadWrite=0
+AccessACCB=0
+AccessACCR=0
+AccessReadWriteSLP=0
+AccessReadTopLevel=1
+DisableC=1
+ENABLE_ADV_DATAFLOW=0
+RUN_MODE_SYNTH=1
+FLOW_TYPE=HDL
+LANGUAGE=VHDL
+REFRESH_FLOW=1
+FLOWTOOLS=IMPL_WITH_SYNTH
+ON_SERVERFARM_SYNTH=0
+ON_SERVERFARM_IMPL=0
+ON_SERVERFARM_SIM=0
+DVM_DISPLAY=NO
+fileopenfolder=C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV7670_IF_LIB\OV7670_IF_LIB\ov7670_if_lib\src
+
+[LocalVerilogSets]
+EnableSLP=1
+EnableDebug=0
+
+[LocalVhdlSets]
+CompileWithDebug=0
+
+[$LibMap$]
+ov7670_if_lib=.
+Active_lib=ARTIX7
+xilinxun=ARTIX7
+UnlinkedDesignLibrary=ARTIX7
+DESIGNS=ARTIX7
+xilinxcorelib=.
+unisim=.
+
+[SYNTHESIS]
+SYNTH_DONT_RUN_SYNTHESIS=0
+
+[IMPLEMENTATION]
+IMPL_DONT_RUN_LOGIC_OPTIMIZATION=0
+IMPL_DONT_RUN_POWER_OPTIMIZATION=1
+IMPL_DONT_RUN_PLACE=0
+IMPL_DONT_RUN_POST_PLACE_POWER_OPTIMIZATION=0
+IMPL_DONT_RUN_PLACED_NETLIST_OPTIMIZATION=1
+IMPL_DONT_RUN_ROUTE=0
+IMPL_DONT_RUN_ROUTED_NETLIST_OPTIMIZATION=1
+IMPL_DONT_RUN_BITSTREAM=0
+FLOW_STEPS_RESET=0
+UCF=
+
+[SpecTracer]
+WindowVisible=0
+
+[HierarchyViewer]
+HierarchyInformation=frame_buffer|SYN|0 
+ShowHide=ShowTopLevel
+Selected=
+
+[Files]
+/address_Generator.vhd=-1
+/debounce.vhd=-1
+/xilinx_frame_buffer.vhd=-1
+/frame_buffer.vhd=-1
+/i2c_sender.vhd=-1
+/i3c2.vhd=-1
+/ov7670_capture.vhd=-1
+/ov7670_controller.vhd=-1
+/ov7670_registers.vhd=-1
+/RGB.vhd=-1
+/vga.vhd=-1
+/vga_pll.vhd=-1
+/vga_pll_zedboard.vhd=-1
+/top_level.vhd=-1
+
+[Files.Data]
+.\src\address_Generator.vhd=VHDL Source Code
+.\src\debounce.vhd=VHDL Source Code
+.\src\xilinx_frame_buffer.vhd=VHDL Source Code
+.\src\frame_buffer.vhd=VHDL Source Code
+.\src\i2c_sender.vhd=VHDL Source Code
+.\src\i3c2.vhd=VHDL Source Code
+.\src\ov7670_capture.vhd=VHDL Source Code
+.\src\ov7670_controller.vhd=VHDL Source Code
+.\src\ov7670_registers.vhd=VHDL Source Code
+.\src\RGB.vhd=VHDL Source Code
+.\src\vga.vhd=VHDL Source Code
+.\src\vga_pll.vhd=VHDL Source Code
+.\src\vga_pll_zedboard.vhd=VHDL Source Code
+.\src\top_level.vhd=VHDL Source Code
+
