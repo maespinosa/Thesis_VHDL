@@ -1,0 +1,147 @@
+[Project]
+Current Flow=Multivendor
+VCS=0
+version=3
+Current Config=compile
+
+[Configurations]
+compile=ov5642_if_lib
+
+[Library]
+ov5642_if_lib=.\ov5642_if_lib\ov5642_if_lib.lib
+
+[Settings]
+AccessRead=0
+AccessReadWrite=0
+AccessACCB=0
+AccessACCR=0
+AccessReadWriteSLP=0
+AccessReadTopLevel=1
+DisableC=1
+ENABLE_ADV_DATAFLOW=0
+RUN_MODE_SYNTH=1
+FLOW_TYPE=HDL
+LANGUAGE=VHDL
+REFRESH_FLOW=1
+FLOWTOOLS=IMPL_WITH_SYNTH
+ON_SERVERFARM_SYNTH=0
+ON_SERVERFARM_IMPL=0
+ON_SERVERFARM_SIM=0
+DVM_DISPLAY=NO
+fileopenfolder=C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV5642_IF_LIB\ov5642_if_lib\src
+
+[LocalVerilogSets]
+EnableSLP=1
+EnableDebug=0
+
+[LocalVhdlSets]
+CompileWithDebug=0
+
+[$LibMap$]
+ov5642_if_lib=.
+Active_lib=ARTIX7
+xilinxun=ARTIX7
+UnlinkedDesignLibrary=ARTIX7
+DESIGNS=ARTIX7
+
+[SYNTHESIS]
+SYNTH_DONT_RUN_SYNTHESIS=0
+
+[IMPLEMENTATION]
+IMPL_DONT_RUN_LOGIC_OPTIMIZATION=0
+IMPL_DONT_RUN_POWER_OPTIMIZATION=1
+IMPL_DONT_RUN_PLACE=0
+IMPL_DONT_RUN_POST_PLACE_POWER_OPTIMIZATION=0
+IMPL_DONT_RUN_PLACED_NETLIST_OPTIMIZATION=1
+IMPL_DONT_RUN_ROUTE=0
+IMPL_DONT_RUN_ROUTED_NETLIST_OPTIMIZATION=1
+IMPL_DONT_RUN_BITSTREAM=0
+FLOW_STEPS_RESET=0
+UCF=
+
+[SpecTracer]
+WindowVisible=0
+
+[HierarchyViewer]
+HierarchyInformation=deep_learning_implementation|behavioral|0 
+ShowHide=ShowTopLevel
+Selected=
+
+[Folders]
+Name3=Makefiles
+Directory3=C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV5642_IF_LIB\ov5642_if_lib\
+Extension3=mak
+Name4=Memory
+Directory4=C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV5642_IF_LIB\ov5642_if_lib\
+Extension4=mem;mif;hex
+Name5=Dll Libraries
+Directory5=C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV5642_IF_LIB\ov5642_if_lib\
+Extension5=dll
+Name6=PDF
+Directory6=C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV5642_IF_LIB\ov5642_if_lib\
+Extension6=pdf
+Name7=HTML
+Directory7=C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV5642_IF_LIB\ov5642_if_lib\
+Extension7=htm;html
+
+[Files]
+/hwrite_file.vhd=-1
+/matlab_compare.vhd=-1
+/image_capture_control.vhd=-1
+/ov5462_sccb_cntrl.vhd=-1
+/ov5642_if_test_tb.vhd=-1
+/read_file.vhd=-1
+/FIFO_DUALCLOCK_MACRO.vhd=-1
+/i2c_master.vhd=-1
+/Network_Controller.vhd=-1
+/bayer_demosaic.vhd=-1
+/FIFO_NETWORK.bde=-1
+/color_test.bde=-1
+/BRAM_SDP_MACRO.vhd=-1
+/arducam_if.bde=-1
+/sensor_to_monitor_node.bde=-1
+/clk_wiz_v3_6.vhd=-1
+/system_reset_manager.vhd=-1
+/sim_clk_generator.vhd=-1
+/ov5642_if_test.bde=-1
+/vga_sync.vhd=-1
+/monitor_animate.vhd=-1
+
+[Files.Data]
+.\src\hwrite_file.vhd=VHDL Source Code
+.\src\matlab_compare.vhd=VHDL Source Code
+.\src\image_capture_control.vhd=VHDL Source Code
+.\src\ov5462_sccb_cntrl.vhd=VHDL Source Code
+.\src\ov5642_if_test_tb.vhd=VHDL Source Code
+.\src\read_file.vhd=VHDL Source Code
+.\src\FIFO_DUALCLOCK_MACRO.vhd=VHDL Source Code
+.\src\i2c_master.vhd=VHDL Source Code
+.\src\Network_Controller.vhd=VHDL Source Code
+.\src\bayer_demosaic.vhd=VHDL Source Code
+.\src\FIFO_NETWORK.bde=Block Diagram
+.\src\color_test.bde=Block Diagram
+.\src\BRAM_SDP_MACRO.vhd=VHDL Source Code
+.\src\arducam_if.bde=Block Diagram
+.\src\sensor_to_monitor_node.bde=Block Diagram
+.\src\clk_wiz_v3_6.vhd=VHDL Source Code
+.\src\system_reset_manager.vhd=VHDL Source Code
+.\src\sim_clk_generator.vhd=VHDL Source Code
+.\src\ov5642_if_test.bde=Block Diagram
+.\src\vga_sync.vhd=VHDL Source Code
+.\src\monitor_animate.vhd=VHDL Source Code
+
+[file_out:/FIFO_NETWORK.bde]
+/..\compile\FIFO_NETWORK.vhd=-1
+
+[file_out:/color_test.bde]
+/..\compile\color_test.vhd=-1
+
+[file_out:/arducam_if.bde]
+/..\compile\arducam_if.vhd=-1
+
+[file_out:/sensor_to_monitor_node.bde]
+/..\compile\sensor_to_monitor_node.vhd=-1
+
+[file_out:/ov5642_if_test.bde]
+/..\compile\ov5642_if_test.vhd=-1
+

@@ -1,0 +1,31 @@
+Tue Apr 11 17:34:02 PDT 2017
+Trace back: window name "mbox" already exists in parent
+    while executing
+"label $treeWgt.mbox  -bd 2  -padx 8  -pady 8  -anchor center  -relief raised  -text "$initMsg"  -background $pf(textBackground)  -foreground $pf(textF..."
+    (procedure "postMsgbox" line 14)
+    invoked from within
+"postMsgbox $windowobj"
+    (procedure "IsDataReady" line 22)
+    invoked from within
+"IsDataReady $windowobj"
+    (procedure "UpdateData" line 6)
+    invoked from within
+"UpdateData $windowobj"
+    (procedure "UVMdetails::Activate" line 9)
+    invoked from within
+"UVMdetails::Activate .main_pane.uvmdetails"
+    ("eval" body line 1)
+    invoked from within
+"eval $itk_option(-activatecommand) $frame_name"
+    (object "::.main_pane.uvmdetails" method "::mtiwidgets::WindowObj::Activate" body line 16)
+    invoked from within
+"$windowobj Activate """
+    (object "::.vcop" method "::vsimwidgets::Vcop::ActualActivate" body line 36)
+    invoked from within
+"::.vcop ActualActivate"
+    (in namespace inscope "::vsimwidgets::Vcop" script line 1)
+    invoked from within
+"namespace inscope ::vsimwidgets::Vcop {::.vcop ActualActivate}"
+    ("after" script)
+  <2:C:/Modeltech_pe_edu_10.4a/win32pe_edu/tk8.5/bgerror.tcl:92: ::tkerror {window name "mbox" already exists in parent}
+  <1:eval:1: ::tk::dialog::error::bgerror {window name "mbox" already exists in parent}
