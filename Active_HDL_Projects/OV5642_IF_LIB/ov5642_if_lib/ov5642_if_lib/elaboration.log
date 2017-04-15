@@ -1,4 +1,4 @@
-Active-HDL 10.3.3559.6081  2017-04-12 15:52:55
+Active-HDL 10.3.3559.6081  2017-04-14 17:53:05
 
 Elaboration top modules:
 Architecture                  behavioral(Deep_Learning_Implementation)
@@ -14,12 +14,12 @@ sensor_to_monitor_node       | sensor_to_monitor_node | ov5642_if_lib |      | 1
 arducam_if                   | arducam_if             | ov5642_if_lib |      | 10.3.3559.6081  (Windows) | -O3
 clk_wiz_v3_6                 | xilinx                 | ov5642_if_lib |      | 10.3.3559.6081  (Windows) | -O3
 system_reset_manager         | arch                   | ov5642_if_lib |      | 10.3.3559.6081  (Windows) | -O3
-OV5462_SCCB_CNTRL            | Behavioral             | ov5642_if_lib |      | 10.3.3559.6081  (Windows) | -O3
-image_capture_control        | Behavioral             | ov5642_if_lib |      | 10.3.3559.6081  (Windows) | -O3 -2008
+OV5462_SCCB_CNTRL            | behavioral             | ov5642_if_lib |      | 10.3.3559.6081  (Windows) | -O3
+image_capture_control        | behavioral             | ov5642_if_lib |      | 10.3.3559.6081  (Windows) | -O3 -2008
 FIFO_NETWORK                 | behavioral             | ov5642_if_lib |      | 10.3.3559.6081  (Windows) | -O3
 bayer_demosaic               | behavioral             | ov5642_if_lib |      | 10.3.3559.6081  (Windows) | -O3
 i2c_master                   | logic                  | ov5642_if_lib |      | 10.3.3559.6081  (Windows) | -O3 -relax
-FIFO_DUALCLOCK_MACRO         | fifo_V                 | ov5642_if_lib |      | 10.3.3559.6081  (Windows) | -O3
+FIFO_DUALCLOCK_MACRO         | fifo_v                 | ov5642_if_lib |      | 10.3.3559.6081  (Windows) | -O3
 Network_Controller           | arch                   | ov5642_if_lib |      | 10.3.3559.6081  (Windows) | -O3
 fifo18                       | fifo18_v               | unisim        |      | 10.3.3559.6081  (Windows) | -vendor xilinx -93
 fifo18e1                     | fifo18e1_v             | unisim        |      | 10.3.3559.6081  (Windows) | -vendor xilinx -93

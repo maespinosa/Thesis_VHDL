@@ -9,6 +9,7 @@ compile=ov5642_if_lib
 
 [Library]
 ov5642_if_lib=.\ov5642_if_lib\ov5642_if_lib.lib
+xilinxcorelib=.\..\..\..\..\..\aldec\active-hdl-student-edition\vlib\xilinx_ise\vhdl\xilinxcorelib\xilinxcorelib.lib
 
 [Settings]
 AccessRead=0
@@ -43,6 +44,7 @@ Active_lib=ARTIX7
 xilinxun=ARTIX7
 UnlinkedDesignLibrary=ARTIX7
 DESIGNS=ARTIX7
+xilinxcorelib=.
 
 [SYNTHESIS]
 SYNTH_DONT_RUN_SYNTHESIS=0
@@ -84,6 +86,17 @@ Name7=HTML
 Directory7=C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV5642_IF_LIB\ov5642_if_lib\
 Extension7=htm;html
 
+[file_out:/FIFO_NETWORK.bde]
+/..\compile\FIFO_NETWORK.vhd=-1
+
+[file_out:/color_test.bde]
+/..\compile\color_test.vhd=-1
+
+[file_out:/ov5642_if_test.bde]
+/..\compile\ov5642_if_test.vhd=-1
+
+
+
 [Files]
 /hwrite_file.vhd=-1
 /matlab_compare.vhd=-1
@@ -98,7 +111,6 @@ Extension7=htm;html
 /FIFO_NETWORK.bde=-1
 /color_test.bde=-1
 /BRAM_SDP_MACRO.vhd=-1
-/arducam_if.bde=-1
 /sensor_to_monitor_node.bde=-1
 /clk_wiz_v3_6.vhd=-1
 /system_reset_manager.vhd=-1
@@ -106,6 +118,9 @@ Extension7=htm;html
 /ov5642_if_test.bde=-1
 /vga_sync.vhd=-1
 /monitor_animate.vhd=-1
+/camera_configurator.vhd=-1
+/dist_mem_gen_v7_2.vhd=-1
+/arducam_if.bde=-1
 
 [Files.Data]
 .\src\hwrite_file.vhd=VHDL Source Code
@@ -121,7 +136,6 @@ Extension7=htm;html
 .\src\FIFO_NETWORK.bde=Block Diagram
 .\src\color_test.bde=Block Diagram
 .\src\BRAM_SDP_MACRO.vhd=VHDL Source Code
-.\src\arducam_if.bde=Block Diagram
 .\src\sensor_to_monitor_node.bde=Block Diagram
 .\src\clk_wiz_v3_6.vhd=VHDL Source Code
 .\src\system_reset_manager.vhd=VHDL Source Code
@@ -129,19 +143,11 @@ Extension7=htm;html
 .\src\ov5642_if_test.bde=Block Diagram
 .\src\vga_sync.vhd=VHDL Source Code
 .\src\monitor_animate.vhd=VHDL Source Code
-
-[file_out:/FIFO_NETWORK.bde]
-/..\compile\FIFO_NETWORK.vhd=-1
-
-[file_out:/color_test.bde]
-/..\compile\color_test.vhd=-1
-
-[file_out:/arducam_if.bde]
-/..\compile\arducam_if.vhd=-1
+.\src\camera_configurator.vhd=VHDL Source Code
+.\src\dist_mem_gen_v7_2.vhd=VHDL Source Code
+.\src\arducam_if.bde=Block Diagram
 
 [file_out:/sensor_to_monitor_node.bde]
 /..\compile\sensor_to_monitor_node.vhd=-1
-
-[file_out:/ov5642_if_test.bde]
-/..\compile\ov5642_if_test.vhd=-1
-
+[file_out:/arducam_if.bde]
+/..\compile\arducam_if.vhd=-1

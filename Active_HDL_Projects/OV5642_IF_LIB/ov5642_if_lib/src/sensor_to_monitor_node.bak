@@ -2,7 +2,7 @@ SCHM0106
 
 HEADER
 {
- FREEID 1139
+ FREEID 1156
  VARIABLES
  {
   #ARCHITECTURE="sensor_to_monitor_node"
@@ -37,7 +37,7 @@ HEADER
     #LANGUAGE="VHDL"
     #MODIFIED="1491966684"
     #NAME="arducam_if"
-    #PRAGMED_GENERICS="data_width"
+    #PRAGMED_GENERICS="data_width;"
     #SYMBOL_GLOBALLY_UNIQUE_IDENTIFIER="f5589b04-7d8d-462c-a42c-85954b95f235"
    }
   }
@@ -732,7 +732,7 @@ HEADER
     #LANGUAGE="VHDL"
     #MODIFIED="1491969533"
     #NAME="FIFO_DUALCLOCK_MACRO"
-    #PRAGMED_GENERICS="ALMOST_FULL_OFFSET;ALMOST_EMPTY_OFFSET;DATA_WIDTH;DEVICE;FIFO_SIZE;FIRST_WORD_FALL_THROUGH;INIT;SRVAL;SIM_MODE"
+    #PRAGMED_GENERICS="ALMOST_FULL_OFFSET;ALMOST_EMPTY_OFFSET;DATA_WIDTH;DEVICE;FIFO_SIZE;FIRST_WORD_FALL_THROUGH;INIT;SRVAL;SIM_MODE;"
     #SYMBOL_GLOBALLY_UNIQUE_IDENTIFIER="d01e516f-9cad-4177-8924-c0d303dc4ac7"
    }
   }
@@ -1293,7 +1293,6 @@ HEADER
     #LANGUAGE="VHDL"
     #MODIFIED="1491969747"
     #NAME="vga_sync"
-    #PRAGMED_GENERICS="CE729A48-56DB-4404-8D82-DEDFA76BECFB"
     #SYMBOL_GLOBALLY_UNIQUE_IDENTIFIER="504f20a5-1acf-4eea-9ca4-983db31f6371"
    }
   }
@@ -2698,9 +2697,11 @@ PAGE ""
    VARIABLES
    {
     #COMPONENT="Output"
+    #CUSTOM_NAME=""
     #LIBRARY="#terminals"
     #REFERENCE="hsync"
     #SYMBOL="Output"
+    #SYMBOL_GLOBALLY_UNIQUE_IDENTIFIER=""
     #VHDL_TYPE="STD_LOGIC"
    }
    COORD (3820,760)
@@ -2711,9 +2712,11 @@ PAGE ""
    VARIABLES
    {
     #COMPONENT="Output"
+    #CUSTOM_NAME=""
     #LIBRARY="#terminals"
     #REFERENCE="vsync"
     #SYMBOL="Output"
+    #SYMBOL_GLOBALLY_UNIQUE_IDENTIFIER=""
     #VHDL_TYPE="STD_LOGIC"
    }
    COORD (3820,800)
@@ -2735,17 +2738,10 @@ PAGE ""
    MARGINS (1,1)
    PARENT 555
   }
-  NET WIRE  628, 0, 0
-  {
-   VARIABLES
-   {
-    #NAME="clk"
-   }
-  }
   TEXT  630, 0, 0
   {
    TEXT "$#NAME"
-   RECT (3025,732,3055,759)
+   RECT (2976,732,3104,759)
    ALIGN 9
    PARENT 1080
   }
@@ -3102,7 +3098,7 @@ PAGE ""
   }
   WIRE  1080, 0, 0
   {
-   NET 628
+   NET 85
    VTX 1067, 1068
   }
   WIRE  1081, 0, 0
@@ -3254,7 +3250,7 @@ PAGE ""
  
  BODY
  {
-  TEXT  1122, 0, 0
+  TEXT  1139, 0, 0
   {
    PAGEALIGN 10
    OUTLINE 5,1, (0,0,0)
@@ -3265,7 +3261,7 @@ PAGE ""
    COLOR (0,0,0)
    FONT (12,0,0,700,0,0,0,"Arial")
   }
-  TEXT  1123, 0, 0
+  TEXT  1140, 0, 0
   {
    PAGEALIGN 10
    TEXT "$CREATIONDATE"
@@ -3276,7 +3272,7 @@ PAGE ""
    FONT (12,0,0,700,0,128,0,"Arial")
    UPDATE 0
   }
-  TEXT  1124, 0, 0
+  TEXT  1141, 0, 0
   {
    PAGEALIGN 10
    TEXT "Title:"
@@ -3286,7 +3282,7 @@ PAGE ""
    COLOR (0,0,0)
    FONT (12,0,0,700,0,0,0,"Arial")
   }
-  TEXT  1125, 0, 0
+  TEXT  1142, 0, 0
   {
    PAGEALIGN 10
    OUTLINE 5,1, (0,0,0)
@@ -3298,7 +3294,7 @@ PAGE ""
    FONT (12,0,0,700,0,128,0,"Arial")
    UPDATE 0
   }
-  TEXT  1126, 0, 0
+  TEXT  1143, 0, 0
   {
    PAGEALIGN 10
    TEXT 
@@ -3311,7 +3307,7 @@ PAGE ""
    FONT (12,0,0,700,0,0,0,"Arial")
    MULTILINE
   }
-  TEXT  1127, 0, 0
+  TEXT  1144, 0, 0
   {
    PAGEALIGN 10
    TEXT "Page:"
@@ -3321,7 +3317,7 @@ PAGE ""
    COLOR (0,0,0)
    FONT (12,0,0,700,0,0,0,"Arial")
   }
-  TEXT  1128, 0, 0
+  TEXT  1145, 0, 0
   {
    PAGEALIGN 10
    OUTLINE 5,1, (0,0,0)
@@ -3333,7 +3329,7 @@ PAGE ""
    FONT (12,0,0,700,0,128,0,"Arial")
    UPDATE 0
   }
-  TEXT  1129, 0, 0
+  TEXT  1146, 0, 0
   {
    PAGEALIGN 10
    TEXT "Revision:"
@@ -3343,7 +3339,7 @@ PAGE ""
    COLOR (0,0,0)
    FONT (12,0,0,700,0,0,0,"Arial")
   }
-  TEXT  1130, 0, 0
+  TEXT  1147, 0, 0
   {
    PAGEALIGN 10
    TEXT "$Revision"
@@ -3354,7 +3350,7 @@ PAGE ""
    FONT (12,0,0,700,0,204,0,"Arial")
    UPDATE 0
   }
-  GROUP  1131, 0, 0
+  GROUP  1148, 0, 0
   {
    PAGEALIGN 10
    RECT (3596,2727,4477,3108)
@@ -3366,7 +3362,7 @@ PAGE ""
     FILL (1,(0,0,0),0)
    }
   }
-  GROUP  1132, 0, 0
+  GROUP  1149, 0, 0
   {
    PAGEALIGN 10
    RECT (3596,2927,4477,2928)
@@ -3378,7 +3374,7 @@ PAGE ""
     FILL (1,(0,0,0),0)
    }
   }
-  GROUP  1133, 0, 0
+  GROUP  1150, 0, 0
   {
    PAGEALIGN 10
    RECT (3596,2867,4477,2868)
@@ -3390,7 +3386,7 @@ PAGE ""
     FILL (1,(0,0,0),0)
    }
   }
-  GROUP  1134, 0, 0
+  GROUP  1151, 0, 0
   {
    PAGEALIGN 10
    RECT (3596,2987,4477,2988)
@@ -3402,7 +3398,7 @@ PAGE ""
     FILL (1,(0,0,0),0)
    }
   }
-  GROUP  1135, 0, 0
+  GROUP  1152, 0, 0
   {
    PAGEALIGN 10
    RECT (3596,3047,4477,3048)
@@ -3414,7 +3410,7 @@ PAGE ""
     FILL (1,(0,0,0),0)
    }
   }
-  GROUP  1136, 0, 0
+  GROUP  1153, 0, 0
   {
    PAGEALIGN 10
    RECT (3776,2727,3777,2868)
@@ -3425,7 +3421,7 @@ PAGE ""
     POINTS ( (0,0), (0,140) )
    }
   }
-  GROUP  1137, 0, 0
+  GROUP  1154, 0, 0
   {
    PAGEALIGN 10
    RECT (3776,2867,3777,3108)
@@ -3436,7 +3432,7 @@ PAGE ""
     POINTS ( (0,0), (0,240) )
    }
   }
-  BMPPICT  1138, 0, 0
+  BMPPICT  1155, 0, 0
   {
    PAGEALIGN 10
    RECT (3616,2787,3755,2832)

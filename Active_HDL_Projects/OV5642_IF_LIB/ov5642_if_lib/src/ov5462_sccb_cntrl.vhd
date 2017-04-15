@@ -8,296 +8,319 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 
-entity OV5462_SCCB_CNTRL is
+entity OV5462_SCCB_CNTRL is	 
+	generic(
+		g_slave_id   		: std_logic_vector(7 downto 0) := 0x"78"
+	); 
     Port ( 
-			clk   : in    STD_LOGIC;
-			--resend :in    STD_LOGIC;
-			config_finished : out std_logic;
-		    sioc  : out   STD_LOGIC;
-		    siod  : inout STD_LOGIC
+		i_clk   			: in STD_LOGIC; 
+		i_reset_n 			: in std_logic;
+		i_i2c_addr 			: in std_logic(15 downto 0); 
+		i_i2c_data			: in std_logic(7 downto 0); 
+		i_i2c_rw			: in std_logic; 
+		i_i2c_en			: in std_logic; 
+		
+		o_config_done	 	: out std_logic; 
+		o_busy 				: out std_logic; 
+		o_sioc 				: out std_logic	 
+	    io_siod  			: inout std_logic_vector(7 downto 0)
 		);
 end OV5462_SCCB_CNTRL;
 
 architecture Behavioral of OV5462_SCCB_CNTRL is
-	COMPONENT i3c2 GENERIC (
-		clk_divide  : std_logic_vector(7 downto 0)
-   );
-	PORT(
-		clk : IN std_logic;
-		inst_data : IN std_logic_vector(8 downto 0);
-		inputs : IN std_logic_vector(15 downto 0);    
-		i2c_sda : INOUT std_logic;      
-		inst_address : OUT std_logic_vector(9 downto 0);
-		i2c_scl : OUT std_logic;
-		outputs : OUT std_logic_vector(15 downto 0);
-		reg_addr : OUT std_logic_vector(4 downto 0);
-		reg_data : OUT std_logic_vector(7 downto 0);
-		reg_write : OUT std_logic;
-		error : OUT std_logic
-		);
-	END COMPONENT;
 
-   signal inputs  : std_logic_vector(15 downto 0);
-   signal outputs : std_logic_vector(15 downto 0);
-   signal data    : std_logic_vector( 8 downto 0);
-   signal address : std_logic_vector( 9 downto 0);
+type siod_state_type is (IDLE, START_OF_TRANSMISSION, PHASE_1, PHASE_2_HI, PHASE_2_LO, PHASE_3, END_OF_TRANSMISSION); 
+signal siod_current_state 	: siod_state_type; 	 	 
+signal siod_next_state 		: siod_state_type;		
+
+type sioc_state_type is (IDLE, START_OF_TRANSMISSION, OPERATIONAL_HI, OPERATIONAL_LO, END_OF_TRANSMISSION); 
+signal sioc_current_state 	: sioc_state_type; 	 	 
+signal sioc_next_state 		: sioc_state_type;		
+
+signal busy 		: std_logic; 
+signal sioc 		: std_logic; 
+signal config_done 	: std_logic;  
+signal siod			: std_logic_vector(7 downto 0); 
 
 begin
-   --inputs(0) <= resend;
-   config_finished <= outputs(0);
 	
-	Inst_i3c2: i3c2 GENERIC MAP(
-      clk_divide => std_logic_vector(to_unsigned(125,8)) 
-   ) PORT MAP(
-		clk => clk,
-		inst_address => address,
-		inst_data => data,
-		i2c_scl => sioc,
-		i2c_sda => siod,
-		inputs => inputs,
-		outputs => outputs,
-		reg_addr => open,
-		reg_data => open,
-		reg_write => open,
-		error => open
-	);
+o_busy 			<= busy; 
+o_sioc 			<= sioc; 
+o_config_done 	<= config_done; 
+io_siod 		<= siod when 
+
+sioc_state_transition: process(i_clk, i_reset_n) 
+begin 
+	if(i_reset_n = '0') then 
+		sioc_current_state <= IDLE: 
+	elsif(rising_edge(i_clk)) then 
+		sioc_current_state <= sioc_next_state; 
+	end if; 
+end process; 
+
+sioc_next_state_comb: process(all) 
+begin 
+	
+	sioc <= '1'; 
+	busy <= '0'; 
+	
+	case sioc_current_state is
+		when IDLE =>  
+			sioc <= '1'; 
+			busy <= '0'; 
+			if(siod_counter > 0) then 
+				sioc_next_state <= START_OF_TRANSMISSION; 
+			else 
+				sioc_next_state <= IDLE; 
+			end if; 
+		
+		when START_OF_TRANSMISSION =>  
+			busy <= '1'
+			if(siod_counter = 200) then 
+				sioc_next_state <= OPERATIONAL_HI; 
+				sioc <= '0'; 
+			else 
+				sioc_next_state <= START_OF_TRANSMISSION; 	
+				sioc <= '1'; 
+			end if; 
+		
+		when OPERATIONAL_HI => 	  
+			sioc <= '1'; 
+			busy <= '1'; 
+			if(sioc_counter < 1000) then 
+			   sioc_next_state <= OPERATIONAL_HI; 
+			else 
+			   sioc_next_state <= OPERATIONAL_LO; 	
+			end if; 
+		
+		when OPERATIONAL_LO => 
+			sioc <= '0'; 
+			busy <= '1'; 
+			if(sioc_counter < 1000) then 
+			   sioc_next_state <= OPERATIONAL_LO; 
+			else 
+			   sioc_next_state <= OPERATIONAL_HI; 	
+			end if; 
+		
+		when END_OF_TRANSMISSION => 
+		
+		
+		
+		when others => 
+	end case; 
+end process; 
 
 	
-	process(clk)
-	begin
-		if rising_edge(clk) then
-         
-         case address is
-           when "0000000000" => data <= "011100100";
-           when "0000000001" => data <= "101000010";
-           when "0000000010" => data <= "100010010";
-           when "0000000011" => data <= "110000000";
-           when "0000000100" => data <= "011111111";
-           when "0000000101" => data <= "011101001";
-           when "0000000110" => data <= "101000010";
-           when "0000000111" => data <= "100010010";
-           when "0000001000" => data <= "100000100";
-           when "0000001001" => data <= "011111111";
-           when "0000001010" => data <= "101000010";
-           when "0000001011" => data <= "100010001";
-           when "0000001100" => data <= "100000000";
-           when "0000001101" => data <= "011111111";
-           when "0000001110" => data <= "101000010";
-           when "0000001111" => data <= "100001100";
-           when "0000010000" => data <= "100000000";
-           when "0000010001" => data <= "011111111";
-           when "0000010010" => data <= "101000010";
-           when "0000010011" => data <= "100111110";
-           when "0000010100" => data <= "100000000";
-           when "0000010101" => data <= "011111111";
-           when "0000010110" => data <= "101000010";
-           when "0000010111" => data <= "110001100";
-           when "0000011000" => data <= "100000000";
-           when "0000011001" => data <= "011111111";
-           when "0000011010" => data <= "101000010";
-           when "0000011011" => data <= "100000100";
-           when "0000011100" => data <= "100000000";
-           when "0000011101" => data <= "011111111";
-           when "0000011110" => data <= "101000010";
-           when "0000011111" => data <= "101000000";
-           when "0000100000" => data <= "100010000";
-           when "0000100001" => data <= "011111111";
-           when "0000100010" => data <= "101000010";
-           when "0000100011" => data <= "100111010";
-           when "0000100100" => data <= "100000100";
-           when "0000100101" => data <= "011111111";
-           when "0000100110" => data <= "101000010";
-           when "0000100111" => data <= "100010100";
-           when "0000101000" => data <= "100111000";
-           when "0000101001" => data <= "011111111";
-           when "0000101010" => data <= "101000010";
-           when "0000101011" => data <= "101001111";
-           when "0000101100" => data <= "101000000";
-           when "0000101101" => data <= "011111111";
-           when "0000101110" => data <= "101000010";
-           when "0000101111" => data <= "101010000";
-           when "0000110000" => data <= "100110100";
-           when "0000110001" => data <= "011111111";
-           when "0000110010" => data <= "101000010";
-           when "0000110011" => data <= "101010001";
-           when "0000110100" => data <= "100001100";
-           when "0000110101" => data <= "011111111";
-           when "0000110110" => data <= "101000010";
-           when "0000110111" => data <= "101010010";
-           when "0000111000" => data <= "100010111";
-           when "0000111001" => data <= "011111111";
-           when "0000111010" => data <= "101000010";
-           when "0000111011" => data <= "101010011";
-           when "0000111100" => data <= "100101001";
-           when "0000111101" => data <= "011111111";
-           when "0000111110" => data <= "101000010";
-           when "0000111111" => data <= "101010100";
-           when "0001000000" => data <= "101000000";
-           when "0001000001" => data <= "011111111";
-           when "0001000010" => data <= "101000010";
-           when "0001000011" => data <= "101011000";
-           when "0001000100" => data <= "100011110";
-           when "0001000101" => data <= "011111111";
-           when "0001000110" => data <= "101000010";
-           when "0001000111" => data <= "100111101";
-           when "0001001000" => data <= "111000000";
-           when "0001001001" => data <= "011111111";
-           when "0001001010" => data <= "101000010";
-           when "0001001011" => data <= "100010001";
-           when "0001001100" => data <= "100000000";
-           when "0001001101" => data <= "011111111";
-           when "0001001110" => data <= "101000010";
-           when "0001001111" => data <= "100010111";
-           when "0001010000" => data <= "100010001";
-           when "0001010001" => data <= "011111111";
-           when "0001010010" => data <= "101000010";
-           when "0001010011" => data <= "100011000";
-           when "0001010100" => data <= "101100001";
-           when "0001010101" => data <= "011111111";
-           when "0001010110" => data <= "101000010";
-           when "0001010111" => data <= "100110010";
-           when "0001011000" => data <= "110100100";
-           when "0001011001" => data <= "011111111";
-           when "0001011010" => data <= "101000010";
-           when "0001011011" => data <= "100011001";
-           when "0001011100" => data <= "100000011";
-           when "0001011101" => data <= "011111111";
-           when "0001011110" => data <= "101000010";
-           when "0001011111" => data <= "100011010";
-           when "0001100000" => data <= "101111011";
-           when "0001100001" => data <= "011111111";
-           when "0001100010" => data <= "101000010";
-           when "0001100011" => data <= "100000011";
-           when "0001100100" => data <= "100001010";
-           when "0001100101" => data <= "011111111";
-           when "0001100110" => data <= "101000010";
-           when "0001100111" => data <= "100001110";
-           when "0001101000" => data <= "101100001";
-           when "0001101001" => data <= "011111111";
-           when "0001101010" => data <= "101000010";
-           when "0001101011" => data <= "100001111";
-           when "0001101100" => data <= "101001011";
-           when "0001101101" => data <= "011111111";
-           when "0001101110" => data <= "101000010";
-           when "0001101111" => data <= "100010110";
-           when "0001110000" => data <= "100000010";
-           when "0001110001" => data <= "011111111";
-           when "0001110010" => data <= "101000010";
-           when "0001110011" => data <= "100011110";
-           when "0001110100" => data <= "100110111";
-           when "0001110101" => data <= "011111111";
-           when "0001110110" => data <= "101000010";
-           when "0001110111" => data <= "100100001";
-           when "0001111000" => data <= "100000010";
-           when "0001111001" => data <= "011111111";
-           when "0001111010" => data <= "101000010";
-           when "0001111011" => data <= "100100010";
-           when "0001111100" => data <= "110010001";
-           when "0001111101" => data <= "011111111";
-           when "0001111110" => data <= "101000010";
-           when "0001111111" => data <= "100101001";
-           when "0010000000" => data <= "100000111";
-           when "0010000001" => data <= "011111111";
-           when "0010000010" => data <= "101000010";
-           when "0010000011" => data <= "100110011";
-           when "0010000100" => data <= "100001011";
-           when "0010000101" => data <= "011111111";
-           when "0010000110" => data <= "101000010";
-           when "0010000111" => data <= "100110101";
-           when "0010001000" => data <= "100001011";
-           when "0010001001" => data <= "011111111";
-           when "0010001010" => data <= "101000010";
-           when "0010001011" => data <= "100110111";
-           when "0010001100" => data <= "100011101";
-           when "0010001101" => data <= "011111111";
-           when "0010001110" => data <= "101000010";
-           when "0010001111" => data <= "100111000";
-           when "0010010000" => data <= "101110001";
-           when "0010010001" => data <= "011111111";
-           when "0010010010" => data <= "101000010";
-           when "0010010011" => data <= "100111001";
-           when "0010010100" => data <= "100101010";
-           when "0010010101" => data <= "011111111";
-           when "0010010110" => data <= "101000010";
-           when "0010010111" => data <= "100111100";
-           when "0010011000" => data <= "101111000";
-           when "0010011001" => data <= "011111111";
-           when "0010011010" => data <= "101000010";
-           when "0010011011" => data <= "101001101";
-           when "0010011100" => data <= "101000000";
-           when "0010011101" => data <= "011111111";
-           when "0010011110" => data <= "101000010";
-           when "0010011111" => data <= "101001110";
-           when "0010100000" => data <= "100100000";
-           when "0010100001" => data <= "011111111";
-           when "0010100010" => data <= "101000010";
-           when "0010100011" => data <= "101101001";
-           when "0010100100" => data <= "100000000";
-           when "0010100101" => data <= "011111111";
-           when "0010100110" => data <= "101000010";
-           when "0010100111" => data <= "101101011";
-           when "0010101000" => data <= "101001010";
-           when "0010101001" => data <= "011111111";
-           when "0010101010" => data <= "101000010";
-           when "0010101011" => data <= "101110100";
-           when "0010101100" => data <= "100010000";
-           when "0010101101" => data <= "011111111";
-           when "0010101110" => data <= "101000010";
-           when "0010101111" => data <= "110001101";
-           when "0010110000" => data <= "101001111";
-           when "0010110001" => data <= "011111111";
-           when "0010110010" => data <= "101000010";
-           when "0010110011" => data <= "110001110";
-           when "0010110100" => data <= "100000000";
-           when "0010110101" => data <= "011111111";
-           when "0010110110" => data <= "101000010";
-           when "0010110111" => data <= "110001111";
-           when "0010111000" => data <= "100000000";
-           when "0010111001" => data <= "011111111";
-           when "0010111010" => data <= "101000010";
-           when "0010111011" => data <= "110010000";
-           when "0010111100" => data <= "100000000";
-           when "0010111101" => data <= "011111111";
-           when "0010111110" => data <= "101000010";
-           when "0010111111" => data <= "110010001";
-           when "0011000000" => data <= "100000000";
-           when "0011000001" => data <= "011111111";
-           when "0011000010" => data <= "101000010";
-           when "0011000011" => data <= "110010110";
-           when "0011000100" => data <= "100000000";
-           when "0011000101" => data <= "011111111";
-           when "0011000110" => data <= "101000010";
-           when "0011000111" => data <= "110011010";
-           when "0011001000" => data <= "100000000";
-           when "0011001001" => data <= "011111111";
-           when "0011001010" => data <= "101000010";
-           when "0011001011" => data <= "110110000";
-           when "0011001100" => data <= "110000100";
-           when "0011001101" => data <= "011111111";
-           when "0011001110" => data <= "101000010";
-           when "0011001111" => data <= "110110001";
-           when "0011010000" => data <= "100001100";
-           when "0011010001" => data <= "011111111";
-           when "0011010010" => data <= "101000010";
-           when "0011010011" => data <= "110110010";
-           when "0011010100" => data <= "100001110";
-           when "0011010101" => data <= "011111111";
-           when "0011010110" => data <= "101000010";
-           when "0011010111" => data <= "110110011";
-           when "0011011000" => data <= "110000010";
-           when "0011011001" => data <= "011111111";
-           when "0011011010" => data <= "101000010";
-           when "0011011011" => data <= "110111000";
-           when "0011011100" => data <= "100001010";
-           when "0011011101" => data <= "011111111";
-           when "0011011110" => data <= "011111110";
-           when "0011011111" => data <= "011111110";
-           when "0011100000" => data <= "010000000";
-           when "0011100001" => data <= "000000000";
-           when "0011100010" => data <= "000011100";
-           when others => data <= (others =>'0');
-        end case;
-		end if;
-	end process;
+generate_scl: process(i_clk, i_reset_n) 
+begin 
+	if(i_reset_n = '0') then 	
+		sioc_counter <= 0; 
+	elsif(rising_edge(i_clk)) then 
+		sioc_counter <= sioc_counter; 
+		
+		case sioc_current_state is
+			when IDLE =>
+				sioc_counter <= 0; 
+			
+			when START_OF_TRANSMISSION => 	
+				sioc_counter <= 0; 	
+			
+			when OPERATIONAL_HI => 		
+				if(sioc_counter < 1000) then 
+				   sioc_counter <= sioc_counter + 1; 	
+				else 
+				   sioc_counter <= 0; 	
+				end if; 
+				
+			when OPERATIONAL_LO => 	
+				if(sioc_counter < 1000) then 
+				   sioc_counter <= sioc_counter + 1; 	 
+				else 
+				   sioc_counter <= 0; 	
+				end if; 
+			
+			when END_OF_TRANSMISSION => 
+			when others => 
+		end case; 
+		
+	end if; 
+end process; 
+	
+		
+	
+siod_state_transition: process(i_clk, i_reset_n) 
+begin 
+	if(i_reset_n = '0') then 
+		siod_current_state <= IDLE: 
+	elsif(rising_edge(i_clk)) then 
+		siod_current_state <= siod_next_state; 
+	end if; 
+end process; 	
+
+
+	
+siod_next_state_comb: process(all) is 
+begin 	
+		 	
+	case siod_current_state is 
+		when IDLE => 
+			if(i_i2c_ena <= '1') then 
+				siod_next_state <= START_OF_TRANSMISSION; 
+			else 
+				siod_next_state <= IDLE; 
+			end if; 
+			
+		
+		when START_OF_TRANSMISSION => 
+			if(siod_counter < 200) then 
+				siod_next_state <= START_OF_TRANSMISSION;  
+			else 
+				siod_next_state <= PHASE_1;
+			end if; 
+
+		
+		when PHASE_1 => --ID ADDRESS TRANSMISSION 
+			if(bit_counter < 8) then 
+			 	siod_next_state <= PHASE_1; 
+			else 
+				siod_next_state <= PHASE_2; 
+			end if; 
+			
+		when PHASE_2_HI =>   
+			if(bit_counter < 8) then 
+			 	siod_next_state <= PHASE_2_HI; 
+			else 
+				siod_next_state <= PHASE_2_LO; 
+			end if; 
+			
+		when PHASE_2_LO =>   
+			if(bit_counter < 8) then 
+			 	siod_next_state <= PHASE_2_LO; 
+			else 
+				siod_next_state <= PHASE_3; 
+			end if; 
+		
+		when PHASE_3 =>
+			if(bit_counter < 8) then 
+			 	siod_next_state <= PHASE_3; 
+			else 
+				siod_next_state <= END_OF_TRANSMISSION; 
+			end if; 
+		
+		when END_OF_TRANSMISSION => 
+		
+		when others => 
+			siod_next_state <= IDLE; 
+		
+	end case; 
+	
+	
+end process; 
+
+siod_sequential_logic : process(i_clk, i_reset_n) is 
+begin 
+	if (i_reset_n <= '0') then 	  
+		siod_counter <= 0; 	 
+		siod <= 'Z'; 
+
+	elsif(rising_edge(i_clk)) then
+		siod_counter <= siod_counter; 	
+		siod <= siod; 
+		
+		
+		case siod_current_state is 
+			when IDLE => 
+				siod_counter <= 0;
+				siod <= 'Z'; 
+			
+			when START_OF_TRANSMISSION => 
+				if(siod_counter < 200) then 
+					siod_counter <= siod_counter + 1; 
+					siod <= '1'; 
+				else 
+					siod_counter <= 0; 
+					siod <= '0'; 
+				end if; 
+			
+				ID <= g_slave_address(7 downto 1) & (g_slave_address(0) or i_i2c_rw); 
+			
+			when PHASE_1 => --ID ADDRESS TRANSMISSION 
+ 				
+				if(sioc_current_state /= sioc_next_state and sioc_next_state = OPERATIONAL_LO)then 
+					siod <= ID(7); 
+					ID <= ID(6 downto 0) & '0';	  
+					if(bit_counter < 7) then 
+						bit_counter <= bit_counter + 1; 
+				    else 
+						bit_counter <= 0; 
+					end if; 
+					
+				else 
+					siod <= siod; 
+					ID <= ID; 
+				end if; 
+				
+				sub_address <= i_i2c_addr(15 downto 8); 
+				
+			when PHASE_2_HI => 
+				if(sioc_current_state /= sioc_next_state and sioc_next_state = OPERATIONAL_LO)then 
+					
+					siod <= sub_address(7); 
+                    sub_address <= sub_address(6 downto 0) & '0';	  
+					if(bit_counter < 7) then 
+						bit_counter <= bit_counter + 1; 
+				    else 
+						bit_counter <= 0; 
+					end if; 
+				else 
+					siod <= siod; 
+					sub_address <= sub_address; 
+				end if;    
+			 	
+				sub_address <= i_i2c_addr(7 downto 0); 
+				
+			when PHASE_2_LO => 
+				if(sioc_current_state /= sioc_next_state and sioc_next_state = OPERATIONAL_LO)then 
+					
+					siod <= sub_address(7); 
+                    sub_address <= sub_address(6 downto 0) & '0';	  
+					if(bit_counter < 7) then 
+						bit_counter <= bit_counter + 1; 
+				    else 
+						bit_counter <= 0; 
+					end if; 
+				else 
+					siod <= siod; 
+					sub_address <= sub_address; 
+				end if;    
+				
+				data <= i_i2c_data; 
+				
+			when PHASE_3 =>  
+				if(sioc_current_state /= sioc_next_state and sioc_next_state = OPERATIONAL_LO)then 
+					
+					siod <= data(7); 
+                    data <= data(6 downto 0) & '0';	  
+					if(bit_counter < 7) then 
+						bit_counter <= bit_counter + 1; 
+				    else 
+						bit_counter <= 0; 
+					end if; 
+				else 
+					siod <= siod; 
+					data <= data; 
+				end if; 
+			when END_OF_TRANSMISSION => 
+			
+			when others => 
+			
+		end case; 
+			
+			
+		
+		
+	end if; 
+end process; 
+	
 end Behavioral;
 

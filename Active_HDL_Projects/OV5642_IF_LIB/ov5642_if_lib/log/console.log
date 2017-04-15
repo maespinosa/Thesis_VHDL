@@ -1,3 +1,148 @@
 # ELBREAD: Elaboration process.
-# ELBREAD: Warning: ELBREAD_0081 ov5462_sccb_cntrl.vhd (49): Design unit i3c2 instantiated in ov5642_if_lib.OV5462_SCCB_CNTRL(Behavioral) not found in searched libraries: ov5642_if_lib.
-# ELBREAD: Elaboration time 4.0 [s].
+# ELBREAD: Warning: ELBREAD_0081 ov5462_sccb_cntrl.vhd (49): Design unit i3c2 instantiated in ov5642_if_lib.OV5462_SCCB_CNTRL(behavioral) not found in searched libraries: ov5642_if_lib.
+# ELBREAD: Elaboration time 0.0 [s].
+acom -O3 -e 100 -work ov5642_if_lib -2002  $dsn/src/camera_configurator.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV5642_IF_LIB\ov5642_if_lib\src\camera_configurator.vhd
+# Compile Entity "camera_configurator"
+# Compile Architecture "arch" of Entity "camera_configurator"
+# Compile success 0 Errors 0 Warnings  Analysis time :  16.0 [ms]
+# arducam_if.bde: Updating instances of symbol 'camera_configurator' from library 'ov5642_if_lib' (CONFIG_CONTROLLER)
+acom -O3 -e 100 -work ov5642_if_lib -2002  $dsn/src/arducam_if.bde
+# DRC: Checking file 'c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV5642_IF_LIB\ov5642_if_lib\src\arducam_if.bde'.
+# DRC: Error: arducam_if.bde - 2 error(s), 13 warning(s)
+# DRC: DRC process completed in 2 second(s).
+# DRC: The results have been written to the log file. Double click on this line to view the log.
+acom -O3 -e 100 -work ov5642_if_lib -2002  $dsn/src/hwrite_file.vhd $dsn/src/matlab_compare.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV5642_IF_LIB\ov5642_if_lib\src\hwrite_file.vhd
+# Compile Entity "hwrite_file"
+# Compile Architecture "arch" of Entity "hwrite_file"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV5642_IF_LIB\ov5642_if_lib\src\matlab_compare.vhd
+# Compile Entity "matlab_compare"
+# Compile Architecture "arch" of Entity "matlab_compare"
+# Compile success 0 Errors 0 Warnings  Analysis time :  0.1 [s]
+acom -O3 -e 100 -work ov5642_if_lib -2008  $dsn/src/image_capture_control.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV5642_IF_LIB\ov5642_if_lib\src\image_capture_control.vhd
+# Compile Entity "image_capture_control"
+# Compile Architecture "Behavioral" of Entity "image_capture_control"
+# Compile success 0 Errors 0 Warnings  Analysis time :  0.1 [s]
+acom -O3 -e 100 -work ov5642_if_lib -2002  $dsn/src/ov5462_sccb_cntrl.vhd $dsn/src/ov5642_if_test_tb.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV5642_IF_LIB\ov5642_if_lib\src\ov5462_sccb_cntrl.vhd
+# Compile Entity "OV5462_SCCB_CNTRL"
+# Compile Architecture "Behavioral" of Entity "OV5462_SCCB_CNTRL"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV5642_IF_LIB\ov5642_if_lib\src\ov5642_if_test_tb.vhd
+# Compile Entity "OV5642_IF_TOP_tb"
+# Compile Architecture "testbench" of Entity "OV5642_IF_TOP_tb"
+# Warning: ELAB1_0026: ov5642_if_test_tb.vhd : (62, 0): There is no default binding for component "OV5642_IF_TEST". (Port "i_EN" is not on the entity).
+# Compile success 0 Errors 1 Warnings  Analysis time :  0.1 [s]
+acom -O3 -e 100 -work ov5642_if_lib -2008  $dsn/src/read_file.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV5642_IF_LIB\ov5642_if_lib\src\read_file.vhd
+# Compile Entity "read_file"
+# Compile Architecture "arch" of Entity "read_file"
+# Compile success 0 Errors 0 Warnings  Analysis time :  0.2 [s]
+acom -O3 -e 100 -work ov5642_if_lib -2002  $dsn/src/FIFO_DUALCLOCK_MACRO.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV5642_IF_LIB\ov5642_if_lib\src\FIFO_DUALCLOCK_MACRO.vhd
+# Compile Entity "FIFO_DUALCLOCK_MACRO"
+# Compile Architecture "fifo_V" of Entity "FIFO_DUALCLOCK_MACRO"
+# Compile success 0 Errors 0 Warnings  Analysis time :  0.3 [s]
+acom -O3 -e 100 -work ov5642_if_lib -2002  -relax $dsn/src/i2c_master.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV5642_IF_LIB\ov5642_if_lib\src\i2c_master.vhd
+# Compile Entity "i2c_master"
+# Compile Architecture "logic" of Entity "i2c_master"
+# Warning: COMP96_0546: i2c_master.vhd : (86, 14): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Warning: COMP96_0546: i2c_master.vhd : (89, 14): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Warning: COMP96_0546: i2c_master.vhd : (92, 14): Choice in a case statement is not locally static. Duplicate choices will not be detected.
+# Compile success 0 Errors 3 Warnings  Analysis time :  63.0 [ms]
+acom -O3 -e 100 -work ov5642_if_lib -2002  $dsn/src/Network_Controller.vhd $dsn/src/bayer_demosaic.vhd $dsn/src/FIFO_NETWORK.bde $dsn/src/color_test.bde $dsn/src/BRAM_SDP_MACRO.vhd $dsn/src/sensor_to_monitor_node.bde $dsn/src/clk_wiz_v3_6.vhd $dsn/src/system_reset_manager.vhd $dsn/src/sim_clk_generator.vhd $dsn/src/ov5642_if_test.bde $dsn/src/vga_sync.vhd $dsn/src/monitor_animate.vhd $dsn/src/camera_configurator.vhd $dsn/src/dist_mem_gen_v7_2.vhd $dsn/src/arducam_if.bde
+# DRC: Checking file 'c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV5642_IF_LIB\ov5642_if_lib\src\FIFO_NETWORK.bde'.
+# DRC: Error: FIFO_NETWORK.bde - 6 error(s), 3 warning(s)
+# DRC: DRC process completed in 2 second(s).
+# DRC: The results have been written to the log file. Double click on this line to view the log.
+# DRC: Checking file 'c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV5642_IF_LIB\ov5642_if_lib\src\color_test.bde'.
+# DRC: Warning: color_test.bde - 0 error(s), 9 warning(s)
+# DRC: DRC process completed in 1 second(s).
+# DRC: The results have been written to the log file. Double click on this line to view the log.
+# Generating c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV5642_IF_LIB\ov5642_if_lib\compile\color_test.vhd from c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV5642_IF_LIB\ov5642_if_lib\src\color_test.bde ...
+# Generation successful
+# DRC: Checking file 'c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV5642_IF_LIB\ov5642_if_lib\src\sensor_to_monitor_node.bde'.
+# DRC: Error: sensor_to_monitor_node.bde - 2 error(s), 11 warning(s)
+# DRC: DRC process completed in 2 second(s).
+# DRC: The results have been written to the log file. Double click on this line to view the log.
+# DRC: Checking file 'c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV5642_IF_LIB\ov5642_if_lib\src\ov5642_if_test.bde'.
+# DRC: Warning: ov5642_if_test.bde - 0 error(s), 6 warning(s)
+# DRC: DRC process completed in 1 second(s).
+# DRC: The results have been written to the log file. Double click on this line to view the log.
+# Generating c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV5642_IF_LIB\ov5642_if_lib\compile\ov5642_if_test.vhd from c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV5642_IF_LIB\ov5642_if_lib\src\ov5642_if_test.bde ...
+# Generation successful
+# DRC: Checking file 'c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV5642_IF_LIB\ov5642_if_lib\src\arducam_if.bde'.
+# DRC: Error: arducam_if.bde - 1 error(s), 13 warning(s)
+# DRC: DRC process completed in 2 second(s).
+# DRC: The results have been written to the log file. Double click on this line to view the log.
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV5642_IF_LIB\ov5642_if_lib\src\Network_Controller.vhd
+# Compile Entity "Network_Controller"
+# Compile Architecture "arch" of Entity "Network_Controller"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV5642_IF_LIB\ov5642_if_lib\src\bayer_demosaic.vhd
+# Compile Entity "bayer_demosaic"
+# Compile Architecture "behavioral" of Entity "bayer_demosaic"
+# File: .\..\compile\color_test.vhd
+# Compile Entity "Deep_Learning_Implementation"
+# Compile Architecture "behavioral" of Entity "Deep_Learning_Implementation"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV5642_IF_LIB\ov5642_if_lib\src\BRAM_SDP_MACRO.vhd
+# Compile Entity "BRAM_SDP_MACRO"
+# Compile Architecture "bram_V" of Entity "BRAM_SDP_MACRO"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV5642_IF_LIB\ov5642_if_lib\src\clk_wiz_v3_6.vhd
+# Compile Entity "clk_wiz_v3_6"
+# Compile Architecture "xilinx" of Entity "clk_wiz_v3_6"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV5642_IF_LIB\ov5642_if_lib\src\system_reset_manager.vhd
+# Compile Entity "system_reset_manager"
+# Compile Architecture "arch" of Entity "system_reset_manager"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV5642_IF_LIB\ov5642_if_lib\src\sim_clk_generator.vhd
+# Compile Entity "sim_clk_generator"
+# Compile Architecture "arch" of Entity "sim_clk_generator"
+# File: .\..\compile\ov5642_if_test.vhd
+# Compile Entity "OV5642_IF_TEST"
+# Compile Architecture "behavioral" of Entity "OV5642_IF_TEST"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV5642_IF_LIB\ov5642_if_lib\src\vga_sync.vhd
+# Compile Entity "vga_sync"
+# Compile Architecture "arch" of Entity "vga_sync"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV5642_IF_LIB\ov5642_if_lib\src\monitor_animate.vhd
+# Compile Entity "monitor_animate"
+# Compile Architecture "arch" of Entity "monitor_animate"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV5642_IF_LIB\ov5642_if_lib\src\camera_configurator.vhd
+# Compile Entity "camera_configurator"
+# Compile Architecture "arch" of Entity "camera_configurator"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV5642_IF_LIB\ov5642_if_lib\src\dist_mem_gen_v7_2.vhd
+# Compile Entity "dist_mem_gen_v7_2"
+# Compile Architecture "dist_mem_gen_v7_2_a" of Entity "dist_mem_gen_v7_2"
+# Compile success 0 Errors 0 Warnings  Analysis time :  1.0 [s]
+acom -O3 -e 100 -work ov5642_if_lib -2002  $dsn/src/arducam_if.bde
+# DRC: Checking file 'c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV5642_IF_LIB\ov5642_if_lib\src\arducam_if.bde'.
+# DRC: Error: arducam_if.bde - 1 error(s), 13 warning(s)
+# DRC: DRC process completed in 1 second(s).
+# DRC: The results have been written to the log file. Double click on this line to view the log.
+acom -O3 -e 100 -work ov5642_if_lib -2002  $dsn/src/arducam_if.bde
+# DRC: Checking file 'c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV5642_IF_LIB\ov5642_if_lib\src\arducam_if.bde'.
+# DRC: Warning: arducam_if.bde - 0 error(s), 7 warning(s)
+# DRC: DRC process completed in 1 second(s).
+# DRC: The results have been written to the log file. Double click on this line to view the log.
+# Generating c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV5642_IF_LIB\ov5642_if_lib\compile\arducam_if.vhd from c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV5642_IF_LIB\ov5642_if_lib\src\arducam_if.bde ...
+# Generation successful
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: .\..\compile\arducam_if.vhd
+# Compile Entity "arducam_if"
+# Compile Architecture "arducam_if" of Entity "arducam_if"
+# Compile success 0 Errors 0 Warnings  Analysis time :  63.0 [ms]
+acom -O3 -e 100 -work ov5642_if_lib -2002  $dsn/src/camera_configurator.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV5642_IF_LIB\ov5642_if_lib\src\camera_configurator.vhd
+# Compile Entity "camera_configurator"
+# Compile Architecture "arch" of Entity "camera_configurator"
+# Compile success 0 Errors 0 Warnings  Analysis time :  31.0 [ms]
+# arducam_if.bde: Updating instances of symbol 'camera_configurator' from library 'ov5642_if_lib' (CONFIG_CONTROLLER)

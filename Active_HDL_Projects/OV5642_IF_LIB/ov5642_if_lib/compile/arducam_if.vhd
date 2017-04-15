@@ -8,7 +8,7 @@
 -------------------------------------------------------------------------------
 --
 -- File        : c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV5642_IF_LIB\ov5642_if_lib\compile\arducam_if.vhd
--- Generated   : Mon Apr 10 18:00:34 2017
+-- Generated   : Fri Apr 14 18:11:26 2017
 -- From        : c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV5642_IF_LIB\ov5642_if_lib\src\arducam_if.bde
 -- By          : Bde2Vhdl ver. 2.6
 --
@@ -33,18 +33,18 @@ entity arducam_if is
        i_HREF : in STD_LOGIC;
        i_PCLK : in STD_LOGIC;
        i_VSYNC : in STD_LOGIC;
+       i_btn_config : in STD_LOGIC;
        i_clk : in STD_LOGIC;
        i_reset_n : in STD_LOGIC;
        i_SDATA : in STD_LOGIC_VECTOR(9 downto 0);
+       o_IMAGE_DATA : out STD_LOGIC;
        o_PIXEL_NUMBER : out INTEGER;
+       o_PIXEL_VALID : out STD_LOGIC;
        o_PWDN : out STD_LOGIC;
        o_RST : out STD_LOGIC;
-       o_SIOC : out STD_LOGIC;
        o_X_POS : out INTEGER;
        o_Y_POS : out INTEGER;
-       o_DOUT_B : out STD_LOGIC_VECTOR(data_width-1 downto 0);
-       o_DOUT_G : out STD_LOGIC_VECTOR(data_width-1 downto 0);
-       o_DOUT_R : out STD_LOGIC_VECTOR(data_width-1 downto 0);
+       o_SIOC : inout STD_LOGIC;
        o_SIOD : inout STD_LOGIC
   );
 end arducam_if;
@@ -53,39 +53,13 @@ architecture arducam_if of arducam_if is
 
 ---- Component declarations -----
 
-component bayer_demosaic
-  generic(
-       data_width : INTEGER
-  );
+component dist_mem_gen_v7_2
   port (
-       i_DIN0 : in STD_LOGIC_VECTOR(data_width-1 downto 0);
-       i_DIN1 : in STD_LOGIC_VECTOR(data_width-1 downto 0);
-       i_DIN2 : in STD_LOGIC_VECTOR(data_width-1 downto 0);
-       i_clk : in STD_LOGIC;
-       i_network_primed : in STD_LOGIC;
-       i_reset_n : in STD_LOGIC;
-       o_DOUT_B : out STD_LOGIC_VECTOR(data_width-1 downto 0);
-       o_DOUT_G : out STD_LOGIC_VECTOR(data_width-1 downto 0);
-       o_DOUT_R : out STD_LOGIC_VECTOR(data_width-1 downto 0);
-       o_read_en : out STD_LOGIC
-  );
-end component;
-component FIFO_NETWORK
-  generic(
-       DATA_WIDTH : INTEGER := 10
-  );
-  port (
-       DI : in STD_LOGIC_VECTOR(DATA_WIDTH-1 downto 0);
-       i_clk : in STD_LOGIC;
-       i_data_valid : in STD_LOGIC;
-       i_enable : in STD_LOGIC;
-       i_read_en : in STD_LOGIC;
-       i_reset_n : in STD_LOGIC;
-       o_DO0 : out STD_LOGIC_VECTOR(DATA_WIDTH-1 downto 0);
-       o_DO1 : out STD_LOGIC_VECTOR(DATA_WIDTH-1 downto 0);
-       o_DO2 : out STD_LOGIC_VECTOR(DATA_WIDTH-1 downto 0);
-       o_network_primed : out STD_LOGIC;
-       o_wready : out STD_LOGIC
+       a : in STD_LOGIC_VECTOR(9 downto 0);
+       clk : in STD_LOGIC;
+       d : in STD_LOGIC_VECTOR(15 downto 0);
+       we : in STD_LOGIC;
+       spo : out STD_LOGIC_VECTOR(15 downto 0)
   );
 end component;
 component i2c_master
@@ -128,12 +102,21 @@ component image_capture_control
        o_Y_POS : out INTEGER
   );
 end component;
-component OV5462_SCCB_CNTRL
+component camera_configurator
   port (
-       clk : in STD_LOGIC;
-       config_finished : out STD_LOGIC;
-       sioc : out STD_LOGIC;
-       siod : inout STD_LOGIC
+       i_ack_error : in STD_LOGIC;
+       i_bram_data : in STD_LOGIC_VECTOR(15 downto 0);
+       i_btn_config : in STD_LOGIC;
+       i_clk : in STD_LOGIC;
+       i_i2c_busy : in STD_LOGIC;
+       i_reset_n : in STD_LOGIC;
+       config_done : out STD_LOGIC;
+       o_addr : out STD_LOGIC_VECTOR(15 downto 0);
+       o_bram_addr : out STD_LOGIC_VECTOR(9 downto 0);
+       o_bram_we : out STD_LOGIC;
+       o_data : out STD_LOGIC_VECTOR(7 downto 0);
+       o_i2c_en : out STD_LOGIC;
+       o_i2c_rw : out STD_LOGIC
   );
 end component;
 
@@ -142,15 +125,17 @@ constant DANGLING_INPUT_CONSTANT : STD_LOGIC := 'Z';
 
 ---- Signal declarations used on the diagram ----
 
-signal i_enable : STD_LOGIC;
-signal NET144 : STD_LOGIC;
-signal NET160 : STD_LOGIC;
-signal NET162 : STD_LOGIC;
-signal NET18 : STD_LOGIC;
-signal BUS1672 : STD_LOGIC_VECTOR(data_width-1 downto 0);
-signal BUS1682 : STD_LOGIC_VECTOR(data_width-1 downto 0);
-signal BUS1686 : STD_LOGIC_VECTOR(data_width-1 downto 0);
-signal BUS1690 : STD_LOGIC_VECTOR(data_width-1 downto 0);
+signal NET1056 : STD_LOGIC;
+signal NET886 : STD_LOGIC;
+signal NET890 : STD_LOGIC;
+signal NET894 : STD_LOGIC;
+signal NET898 : STD_LOGIC;
+signal NET952 : STD_LOGIC;
+signal BUS875 : STD_LOGIC_VECTOR(7 downto 0);
+signal BUS882 : STD_LOGIC_VECTOR(15 downto 0);
+signal BUS902 : STD_LOGIC_VECTOR(9 downto 0);
+signal BUS909 : STD_LOGIC_VECTOR(15 downto 0);
+signal IMAGE_DATA : STD_LOGIC_VECTOR(data_width-1 downto 0);
 
 ---- Declaration for Dangling input ----
 signal Dangling_Input_Signal : STD_LOGIC;
@@ -159,12 +144,65 @@ begin
 
 ----  Component instantiations  ----
 
-U1 : OV5462_SCCB_CNTRL
+CONFIG_BRAM : dist_mem_gen_v7_2
   port map(
+       d(0) => Dangling_Input_Signal,
+       d(1) => Dangling_Input_Signal,
+       d(2) => Dangling_Input_Signal,
+       d(3) => Dangling_Input_Signal,
+       d(4) => Dangling_Input_Signal,
+       d(5) => Dangling_Input_Signal,
+       d(6) => Dangling_Input_Signal,
+       d(7) => Dangling_Input_Signal,
+       d(8) => Dangling_Input_Signal,
+       d(9) => Dangling_Input_Signal,
+       d(10) => Dangling_Input_Signal,
+       d(11) => Dangling_Input_Signal,
+       d(12) => Dangling_Input_Signal,
+       d(13) => Dangling_Input_Signal,
+       d(14) => Dangling_Input_Signal,
+       d(15) => Dangling_Input_Signal,
+       a => BUS902,
        clk => i_clk,
-       config_finished => NET18,
-       sioc => o_SIOC,
-       siod => o_SIOD
+       spo => BUS909,
+       we => NET1056
+  );
+
+CONFIG_CONTROLLER : camera_configurator
+  port map(
+       config_done => NET952,
+       i_ack_error => NET886,
+       i_bram_data => BUS909,
+       i_btn_config => i_btn_config,
+       i_clk => i_clk,
+       i_i2c_busy => NET898,
+       i_reset_n => i_reset_n,
+       o_addr => BUS882,
+       o_bram_addr => BUS902,
+       o_bram_we => NET1056,
+       o_data => BUS875,
+       o_i2c_en => NET890,
+       o_i2c_rw => NET894
+  );
+
+MASTER_I2C : i2c_master
+  port map(
+       addr(0) => BUS882(9),
+       addr(1) => BUS882(10),
+       addr(2) => BUS882(11),
+       addr(3) => BUS882(12),
+       addr(4) => BUS882(13),
+       addr(5) => BUS882(14),
+       addr(6) => BUS882(15),
+       ack_error => NET886,
+       busy => NET898,
+       clk => i_clk,
+       data_wr => BUS875,
+       ena => NET890,
+       reset_n => i_reset_n,
+       rw => NET894,
+       scl => o_SIOC,
+       sda => o_SIOD
   );
 
 U2 : image_capture_control
@@ -172,78 +210,27 @@ U2 : image_capture_control
        data_width => 10
   )
   port map(
-       i_EN => NET18,
+       i_EN => NET952,
        i_HREF => i_HREF,
        i_PCLK => i_PCLK,
        i_SDATA => i_SDATA(9 downto 0),
        i_VSYNC => i_VSYNC,
        i_clk => i_clk,
        i_reset_n => i_reset_n,
-       o_IMAGE_DATA => BUS1672(data_width-1 downto 0),
+       o_IMAGE_DATA => IMAGE_DATA(data_width-1 downto 0),
        o_PIXEL_NUMBER => o_PIXEL_NUMBER,
-       o_PIXEL_VALID => NET144,
+       o_PIXEL_VALID => o_PIXEL_VALID,
        o_PWDN => o_PWDN,
        o_RST => o_RST,
        o_X_POS => o_X_POS,
        o_Y_POS => o_Y_POS
   );
 
-U3 : FIFO_NETWORK
-  generic map(
-       DATA_WIDTH => 10
-  )
-  port map(
-       DI => BUS1672(data_width-1 downto 0),
-       i_clk => i_clk,
-       i_data_valid => NET144,
-       i_enable => i_enable,
-       i_read_en => NET162,
-       i_reset_n => i_reset_n,
-       o_DO0 => BUS1682(data_width-1 downto 0),
-       o_DO1 => BUS1686(data_width-1 downto 0),
-       o_DO2 => BUS1690(data_width-1 downto 0),
-       o_network_primed => NET160
-  );
 
-U4 : bayer_demosaic
-  generic map(
-       data_width => 10
-  )
-  port map(
-       i_DIN0 => BUS1682(data_width-1 downto 0),
-       i_DIN1 => BUS1686(data_width-1 downto 0),
-       i_DIN2 => BUS1690(data_width-1 downto 0),
-       i_clk => i_clk,
-       i_network_primed => NET160,
-       i_reset_n => i_reset_n,
-       o_DOUT_B => o_DOUT_B(data_width-1 downto 0),
-       o_DOUT_G => o_DOUT_G(data_width-1 downto 0),
-       o_DOUT_R => o_DOUT_R(data_width-1 downto 0),
-       o_read_en => NET162
-  );
+---- Terminal assignment ----
 
-U5 : i2c_master
-  port map(
-       addr(0) => Dangling_Input_Signal,
-       addr(1) => Dangling_Input_Signal,
-       addr(2) => Dangling_Input_Signal,
-       addr(3) => Dangling_Input_Signal,
-       addr(4) => Dangling_Input_Signal,
-       addr(5) => Dangling_Input_Signal,
-       addr(6) => Dangling_Input_Signal,
-       data_wr(0) => Dangling_Input_Signal,
-       data_wr(1) => Dangling_Input_Signal,
-       data_wr(2) => Dangling_Input_Signal,
-       data_wr(3) => Dangling_Input_Signal,
-       data_wr(4) => Dangling_Input_Signal,
-       data_wr(5) => Dangling_Input_Signal,
-       data_wr(6) => Dangling_Input_Signal,
-       data_wr(7) => Dangling_Input_Signal,
-       clk => Dangling_Input_Signal,
-       ena => Dangling_Input_Signal,
-       reset_n => Dangling_Input_Signal,
-       rw => Dangling_Input_Signal
-  );
+    -- Output\buffer terminals
+	o_IMAGE_DATA <= IMAGE_DATA(data_width-1);
 
 
 ---- Dangling input signal assignment ----
