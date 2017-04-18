@@ -1,62 +1,9 @@
-Active-HDL 10.3.3559.6081  2017-04-14 17:53:05
+Active-HDL 10.3.3559.6081  2017-04-15 12:05:10
 
 Elaboration top modules:
-Architecture                  behavioral(Deep_Learning_Implementation)
 
 
--------------------------------------------------------------------------------------------------------------------------------
-Entity                       | Architecture           | Library       | Info | Compiler Version          | Compilation Options
--------------------------------------------------------------------------------------------------------------------------------
-Deep_Learning_Implementation | behavioral             | ov5642_if_lib |      | 10.3.3559.6081  (Windows) | -O3
-matlab_compare               | arch                   | ov5642_if_lib |      | 10.3.3559.6081  (Windows) | -O3
-read_file                    | arch                   | ov5642_if_lib |      | 10.3.3559.6081  (Windows) | -O3 -2008
-sensor_to_monitor_node       | sensor_to_monitor_node | ov5642_if_lib |      | 10.3.3559.6081  (Windows) | -O3
-arducam_if                   | arducam_if             | ov5642_if_lib |      | 10.3.3559.6081  (Windows) | -O3
-clk_wiz_v3_6                 | xilinx                 | ov5642_if_lib |      | 10.3.3559.6081  (Windows) | -O3
-system_reset_manager         | arch                   | ov5642_if_lib |      | 10.3.3559.6081  (Windows) | -O3
-OV5462_SCCB_CNTRL            | behavioral             | ov5642_if_lib |      | 10.3.3559.6081  (Windows) | -O3
-image_capture_control        | behavioral             | ov5642_if_lib |      | 10.3.3559.6081  (Windows) | -O3 -2008
-FIFO_NETWORK                 | behavioral             | ov5642_if_lib |      | 10.3.3559.6081  (Windows) | -O3
-bayer_demosaic               | behavioral             | ov5642_if_lib |      | 10.3.3559.6081  (Windows) | -O3
-i2c_master                   | logic                  | ov5642_if_lib |      | 10.3.3559.6081  (Windows) | -O3 -relax
-FIFO_DUALCLOCK_MACRO         | fifo_v                 | ov5642_if_lib |      | 10.3.3559.6081  (Windows) | -O3
-Network_Controller           | arch                   | ov5642_if_lib |      | 10.3.3559.6081  (Windows) | -O3
-fifo18                       | fifo18_v               | unisim        |      | 10.3.3559.6081  (Windows) | -vendor xilinx -93
-fifo18e1                     | fifo18e1_v             | unisim        |      | 10.3.3559.6081  (Windows) | -vendor xilinx -93
-ff18_internal_vhdl           | ff18_internal_vhdl_v   | unisim        |      | 10.3.3559.6081  (Windows) | -vendor xilinx -93
-fifo18_36                    | fifo18_36_v            | unisim        |      | 10.3.3559.6081  (Windows) | -vendor xilinx -93
-fifo36                       | fifo36_v               | unisim        |      | 10.3.3559.6081  (Windows) | -vendor xilinx -93
-fifo36e1                     | fifo36e1_v             | unisim        |      | 10.3.3559.6081  (Windows) | -vendor xilinx -93
-ff36_internal_vhdl           | ff36_internal_vhdl_v   | unisim        |      | 10.3.3559.6081  (Windows) | -vendor xilinx -93
-fifo36_72                    | fifo36_72_v            | unisim        |      | 10.3.3559.6081  (Windows) | -vendor xilinx -93
-ibufg                        | ibufg_v                | unisim        |      | 10.3.3559.6081  (Windows) | -vendor xilinx -93
-plle2_adv                    | plle2_adv_v            | unisim        |      | 10.3.3559.6081  (Windows) | -vendor xilinx -93
-bufg                         | bufg_v                 | unisim        |      | 10.3.3559.6081  (Windows) | -vendor xilinx -93
-ibuf                         | ibuf_v                 | unisim        |      | 10.3.3559.6081  (Windows) | -vendor xilinx -93
--------------------------------------------------------------------------------------------------------------------------------
-
--------------------------------------------------------------------------------------------------------------------------------
-VHDL Package                                          | Library       | Info | Compiler Version          | Compilation Options
--------------------------------------------------------------------------------------------------------------------------------
-standard                                              | std           |      |                           | <unavailable>
-TEXTIO                                                | std           |      | 10.3.3559.6081  (Windows) |  -2008
-std_logic_1164                                        | ieee          |      | 10.3.3559.6081  (Windows) |  -2008
-std_logic_arith                                       | ieee          |      | 10.3.3559.6081  (Windows) | <unavailable>
-STD_LOGIC_SIGNED                                      | ieee          |      | 10.3.3559.6081  (Windows) | <unavailable>
-STD_LOGIC_UNSIGNED                                    | ieee          |      | 10.3.3559.6081  (Windows) | <unavailable>
-STD_LOGIC_TEXTIO                                      | ieee          |      | 10.3.3559.6081  (Windows) | <unavailable>
-NUMERIC_STD                                           | ieee          |      | 10.3.3559.6081  (Windows) |  -2008
-VCOMPONENTS                                           | unisim        |      | 10.3.3559.6081  (Windows) | -vendor xilinx -93
-VITAL_Timing                                          | ieee          |      | 10.3.3559.6081  (Windows) | <unavailable>
-VITAL_Primitives                                      | ieee          |      | 10.3.3559.6081  (Windows) | <unavailable>
-VPKG                                                  | unisim        |      | 10.3.3559.6081  (Windows) | -vendor xilinx -93
--------------------------------------------------------------------------------------------------------------------------------
-
--------------------------------------------------------------------------------------------------------------------------------
-Library                                               | Comment
--------------------------------------------------------------------------------------------------------------------------------
-ieee                                                  | Standard IEEE packages library
-ov5642_if_lib                                         | None
-std                                                   | Standard VHDL library
-unisim                                                | XILINX VIVADO 2015.4 Update 1, UNISIM VHDL LIBRARY
--------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------
+Library                 | Comment
+----------------------------------------------------------------------------------
+----------------------------------------------------------------------------------

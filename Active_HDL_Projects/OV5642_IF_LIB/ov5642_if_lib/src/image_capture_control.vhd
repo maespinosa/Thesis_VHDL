@@ -44,6 +44,7 @@ entity image_capture_control is
            i_HREF               : in STD_LOGIC;
            i_PCLK               : in STD_LOGIC;
            i_EN                 : in STD_LOGIC; 
+		   i_not_almost_full	: in std_logic; 
            --o_XCLK               : out STD_LOGIC;
            o_RST                : out STD_LOGIC;
            o_PWDN               : out STD_LOGIC; 
@@ -138,7 +139,7 @@ begin
 	case current_state is
 		
 		when IDLE =>  
-			if (i_VSYNC = '1') then 
+			if (i_VSYNC = '1' and i_not_almost_full = '1') then 
 				next_state <= SOL;  
 			else 
 				next_state <= IDLE; 

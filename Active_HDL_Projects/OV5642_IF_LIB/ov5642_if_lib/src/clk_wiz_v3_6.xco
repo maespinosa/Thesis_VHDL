@@ -1,7 +1,7 @@
 ##############################################################
 #
 # Xilinx Core Generator version 14.6
-# Date: Mon Apr 10 00:51:09 2017
+# Date: Tue Apr 18 02:51:17 2017
 #
 ##############################################################
 #
@@ -79,7 +79,7 @@ CSET clkout2_requested_phase=0.000
 CSET clkout2_used=true
 CSET clkout3_drives=BUFG
 CSET clkout3_requested_duty_cycle=50.000
-CSET clkout3_requested_out_freq=200
+CSET clkout3_requested_out_freq=100
 CSET clkout3_requested_phase=0.000
 CSET clkout3_used=true
 CSET clkout4_drives=BUFG
@@ -148,20 +148,20 @@ CSET jitter_options=UI
 CSET jitter_sel=No_Jitter
 CSET locked_port=LOCKED
 CSET mmcm_bandwidth=OPTIMIZED
-CSET mmcm_clkfbout_mult_f=12
+CSET mmcm_clkfbout_mult_f=9
 CSET mmcm_clkfbout_phase=0.000
 CSET mmcm_clkfbout_use_fine_ps=false
 CSET mmcm_clkin1_period=10.000
 CSET mmcm_clkin2_period=10.000
-CSET mmcm_clkout0_divide_f=8
+CSET mmcm_clkout0_divide_f=6
 CSET mmcm_clkout0_duty_cycle=0.5
 CSET mmcm_clkout0_phase=0.000
 CSET mmcm_clkout0_use_fine_ps=false
-CSET mmcm_clkout1_divide=48
+CSET mmcm_clkout1_divide=36
 CSET mmcm_clkout1_duty_cycle=0.5
 CSET mmcm_clkout1_phase=0.000
 CSET mmcm_clkout1_use_fine_ps=false
-CSET mmcm_clkout2_divide=6
+CSET mmcm_clkout2_divide=9
 CSET mmcm_clkout2_duty_cycle=0.5
 CSET mmcm_clkout2_phase=0.000
 CSET mmcm_clkout2_use_fine_ps=false
@@ -266,4 +266,4 @@ CSET use_status=false
 MISC pkg_timestamp=2012-05-10T12:44:55Z
 # END Extra information
 GENERATE
-# CRC:  cd335a0
+# CRC:  2705697

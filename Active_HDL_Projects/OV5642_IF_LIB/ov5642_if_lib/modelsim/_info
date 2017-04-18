@@ -9,7 +9,7 @@ z2
 cModel Technology
 Z0 dc:/Sourcetree_Local/Thesis_VHDL/Active_HDL_Projects/OV5642_IF_LIB/ov5642_if_lib
 Earducam_if
-Z1 w1491872434
+Z1 w1492406384
 Z2 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
 Z3 DPx4 ieee 16 std_logic_signed 0 22 C<aanc0R`<LWPSe[JYRP^3
 Z4 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
@@ -20,13 +20,13 @@ Z7 8./compile/arducam_if.vhd
 Z8 F./compile/arducam_if.vhd
 l0
 L28
-VB0^e_1lD@bkeEPc`R=m@>3
-!s100 7]Rl2AHn11DMabBL=284k3
+VK;67^e0`f^6B9YdYlWWgn0
+!s100 Ch`k6Mb>C1NGNGHUCbG_e3
 Z9 OP;C;10.4a;61
 33
-Z10 !s110 1491962470
+Z10 !s110 1492469492
 !i10b 1
-Z11 !s108 1491962470.000000
+Z11 !s108 1492469492.000000
 Z12 !s90 -reportprogress|300|-2008|-work|modelsim|./compile/arducam_if.vhd|
 Z13 !s107 ./compile/arducam_if.vhd|
 !i113 1
@@ -38,11 +38,11 @@ R3
 R4
 R5
 R6
-DEx4 work 10 arducam_if 0 22 B0^e_1lD@bkeEPc`R=m@>3
-l158
+DEx4 work 10 arducam_if 0 22 K;67^e0`f^6B9YdYlWWgn0
+l144
 L52
-V@hHnIR1FUiPo4VlONg0Bl3
-!s100 ]^>KNfB`eA9=9Q:gnM1n?0
+VTUF6>oHcVh8VYbfegD5UO3
+!s100 8aljn@B1G8gV9@4Dfgz?f3
 R9
 33
 R10
@@ -67,9 +67,9 @@ VVCA@m7`93F96lBRCEjnQ03
 !s100 j7J1h<7F]j5AKPBIM<g]72
 R9
 33
-Z20 !s110 1491962469
+Z20 !s110 1492469490
 !i10b 1
-Z21 !s108 1491962469.000000
+Z21 !s108 1492469490.000000
 Z22 !s90 -reportprogress|300|-2008|-work|modelsim|./src/bayer_demosaic.vhd|
 Z23 !s107 ./src/bayer_demosaic.vhd|
 !i113 1
@@ -108,9 +108,9 @@ V:F`i]9L1i5MV3`^C8DUgz1
 !s100 YON]GoQ;VKD0PeU^?W0[I1
 R9
 33
-R10
+R20
 !i10b 1
-R11
+R21
 Z28 !s90 -reportprogress|300|-2008|-work|modelsim|./src/BRAM_SDP_MACRO.vhd|
 Z29 !s107 ./src/BRAM_SDP_MACRO.vhd|
 !i113 1
@@ -127,16 +127,57 @@ V6CZQl>04`VLm5h;G`eVLY2
 !s100 ;H4kEKgOMWhT_XF]h_ljW2
 R9
 33
-R10
+Z30 !s110 1492469491
 !i10b 1
-R11
+R21
 R28
 R29
 !i113 1
 R14
 R15
+Ecamera_configurator
+Z31 w1492322420
+R17
+R5
+R6
+R0
+Z32 8./src/camera_configurator.vhd
+Z33 F./src/camera_configurator.vhd
+l0
+L30
+VJA[;4?`1m2:H9B3WM<E>Z3
+!s100 HfXgE0_NedFR2><QU<HiB0
+R9
+33
+R10
+!i10b 1
+R11
+Z34 !s90 -reportprogress|300|-2008|-work|modelsim|./src/camera_configurator.vhd|
+Z35 !s107 ./src/camera_configurator.vhd|
+!i113 1
+R14
+R15
+Aarch
+R17
+R5
+R6
+DEx4 work 19 camera_configurator 0 22 JA[;4?`1m2:H9B3WM<E>Z3
+l68
+L52
+VJ5fWkTOXMio6ba6ZOREC[3
+!s100 Yg=^K=j;=]?SJY7AKj5V>0
+R9
+33
+R10
+!i10b 1
+R11
+R34
+R35
+!i113 1
+R14
+R15
 Eclk_wiz_v3_6
-Z30 w1491786162
+Z36 w1491786162
 R25
 R17
 R4
@@ -144,19 +185,19 @@ R2
 R5
 R6
 R0
-Z31 8./src/clk_wiz_v3_6.vhd
-Z32 F./src/clk_wiz_v3_6.vhd
+Z37 8./src/clk_wiz_v3_6.vhd
+Z38 F./src/clk_wiz_v3_6.vhd
 l0
 L76
 VlB[aFRW]VB=T:bQ5iz?6Q3
 !s100 Wz_n@S:MH^2nURWIG_LiN3
 R9
 33
-Z33 !s110 1491962471
+Z39 !s110 1492469488
 !i10b 1
-R11
-Z34 !s90 -reportprogress|300|-2008|-work|modelsim|./src/clk_wiz_v3_6.vhd|
-Z35 !s107 ./src/clk_wiz_v3_6.vhd|
+Z40 !s108 1492469487.000000
+Z41 !s90 -reportprogress|300|-2008|-work|modelsim|./src/clk_wiz_v3_6.vhd|
+Z42 !s107 ./src/clk_wiz_v3_6.vhd|
 !i113 1
 R14
 R15
@@ -174,35 +215,35 @@ Vf68D_C;?2>6cI4I3Bkzf`0
 !s100 NReHS4g^J72`g`9E33S_10
 R9
 33
-R33
+R39
 !i10b 1
-R11
-R34
-R35
+R40
+R41
+R42
 !i113 1
 R14
 R15
 Edeep_learning_implementation
-Z36 w1491872433
+Z43 w1492218436
 R2
 R3
 R4
 R5
 R6
 R0
-Z37 8./compile/color_test.vhd
-Z38 F./compile/color_test.vhd
+Z44 8./compile/color_test.vhd
+Z45 F./compile/color_test.vhd
 l0
 L28
 VJdD2eoQhUgNH8hg>K[1fY0
 !s100 h`NlV^_M;MF<XXT>X_G2F3
 R9
 33
-R10
+R20
 !i10b 1
-R11
-Z39 !s90 -reportprogress|300|-2008|-work|modelsim|./compile/color_test.vhd|
-Z40 !s107 ./compile/color_test.vhd|
+R21
+Z46 !s90 -reportprogress|300|-2008|-work|modelsim|./compile/color_test.vhd|
+Z47 !s107 ./compile/color_test.vhd|
 !i113 1
 R14
 R15
@@ -219,11 +260,52 @@ V`_kh5@7l^RliKo^eZN6a>3
 !s100 h8A81V@zeILzSA0lBW>M`3
 R9
 33
-R10
+R20
 !i10b 1
-R11
-R39
+R21
+R46
+R47
+!i113 1
+R14
+R15
+Edist_mem_gen_v7_2
+Z48 w1492304157
+R5
+R6
+R0
+Z49 8./src/dist_mem_gen_v7_2.vhd
+Z50 F./src/dist_mem_gen_v7_2.vhd
+l0
+L43
+VSCZmVKb2OVIn2eIgANz_C0
+!s100 f04W9TJFL7ja`NR6Q>F972
+R9
+33
+Z51 !s110 1492469487
+!i10b 1
 R40
+Z52 !s90 -reportprogress|300|-2008|-work|modelsim|./src/dist_mem_gen_v7_2.vhd|
+Z53 !s107 ./src/dist_mem_gen_v7_2.vhd|
+!i113 1
+R14
+R15
+Adist_mem_gen_v7_2_a
+R17
+DEx13 xilinxcorelib 17 dist_mem_gen_v7_2 0 22 1>81Jk]^d8?5U5X?cLCim2
+R5
+R6
+DEx4 work 17 dist_mem_gen_v7_2 0 22 SCZmVKb2OVIn2eIgANz_C0
+l102
+L53
+VA>e4f>[jWPn`<3blcDHVB3
+!s100 GeJ81jG>a_7aDmgcRJ;MX2
+R9
+33
+R51
+!i10b 1
+R40
+R52
+R53
 !i113 1
 R14
 R15
@@ -234,19 +316,19 @@ R17
 R5
 R6
 R0
-Z41 8./src/FIFO_DUALCLOCK_MACRO.vhd
-Z42 F./src/FIFO_DUALCLOCK_MACRO.vhd
+Z54 8./src/FIFO_DUALCLOCK_MACRO.vhd
+Z55 F./src/FIFO_DUALCLOCK_MACRO.vhd
 l0
 L34
 V5SCn4FDUm1efj]In@3Bg]0
 !s100 PDm_BQSXLQC3@EXFnDUSm3
 R9
 33
-R20
+Z56 !s110 1492469489
 !i10b 1
-R21
-Z43 !s90 -reportprogress|300|-2008|-work|modelsim|./src/FIFO_DUALCLOCK_MACRO.vhd|
-Z44 !s107 ./src/FIFO_DUALCLOCK_MACRO.vhd|
+Z57 !s108 1492469489.000000
+Z58 !s90 -reportprogress|300|-2008|-work|modelsim|./src/FIFO_DUALCLOCK_MACRO.vhd|
+Z59 !s107 ./src/FIFO_DUALCLOCK_MACRO.vhd|
 !i113 1
 R14
 R15
@@ -262,24 +344,66 @@ VIl0Wi:16KAi>TI_lPBcnb1
 !s100 Je_6dEGePc0Fk9bC_^bdo2
 R9
 33
-R20
+R56
 !i10b 1
-R21
-R43
-R44
+R57
+R58
+R59
+!i113 1
+R14
+R15
+Efifo_generator_v9_3
+Z60 w1492404297
+R5
+R6
+R0
+Z61 8./src/fifo_generator_v9_3.vhd
+Z62 F./src/fifo_generator_v9_3.vhd
+l0
+L43
+Vz<L_4GQJ1D=:fU2cT5h<U0
+!s100 KaY7SK:?l4_0S<ekNaiR20
+R9
+33
+R10
+!i10b 1
+R11
+Z63 !s90 -reportprogress|300|-2008|-work|modelsim|./src/fifo_generator_v9_3.vhd|
+Z64 !s107 ./src/fifo_generator_v9_3.vhd|
+!i113 1
+R14
+R15
+Afifo_generator_v9_3_a
+R2
+R4
+DEx13 xilinxcorelib 19 fifo_generator_v9_3 0 22 3Ka;D[R2Pd>m@_hPQcHI91
+R5
+R6
+DEx4 work 19 fifo_generator_v9_3 0 22 z<L_4GQJ1D=:fU2cT5h<U0
+l277
+L62
+V<CAOm:S7nVi=0U:HjPo:c3
+!s100 F?BM_I6no6i;deNV;EjIS1
+R9
+33
+R10
+!i10b 1
+R11
+R63
+R64
 !i113 1
 R14
 R15
 Efifo_network
-Z45 w1491793722
+Z65 w1491793722
 R2
 R3
 R4
 R5
 R6
 R0
-Z46 8./compile/fifo_network.vhd
-Z47 F./compile/fifo_network.vhd
+Z66 8./compile/fifo_network.vhd
+Z67 F./compile/fifo_network.vhd
 l0
 L28
 VCjT:6W@BD>f0o0=^9`<?43
@@ -289,8 +413,8 @@ R9
 R20
 !i10b 1
 R21
-Z48 !s90 -reportprogress|300|-2008|-work|modelsim|./compile/fifo_network.vhd|
-Z49 !s107 ./compile/fifo_network.vhd|
+Z68 !s90 -reportprogress|300|-2008|-work|modelsim|./compile/fifo_network.vhd|
+Z69 !s107 ./compile/fifo_network.vhd|
 !i113 1
 R14
 R15
@@ -310,37 +434,37 @@ R9
 R20
 !i10b 1
 R21
-R48
-R49
+R68
+R69
 !i113 1
 R14
 R15
 Ehwrite_file
-Z50 w1491962425
-Z51 DPx4 ieee 16 std_logic_textio 0 22 V5TSK`;aJKC<l]CEg1>mz1
+Z70 w1491962425
+Z71 DPx4 ieee 16 std_logic_textio 0 22 V5TSK`;aJKC<l]CEg1>mz1
 R17
 R4
 R5
 R6
 R0
-Z52 8./src/hwrite_file.vhd
-Z53 F./src/hwrite_file.vhd
+Z72 8./src/hwrite_file.vhd
+Z73 F./src/hwrite_file.vhd
 l0
 L19
 V?52V2=6TDVRcVQ9zO5feB1
 !s100 __9D8LaKnCB;YdBJiFDXA1
 R9
 33
-Z54 !s110 1491962468
+R51
 !i10b 1
-Z55 !s108 1491962467.000000
-Z56 !s90 -reportprogress|300|-2008|-work|modelsim|./src/hwrite_file.vhd|
-Z57 !s107 ./src/hwrite_file.vhd|
+R40
+Z74 !s90 -reportprogress|300|-2008|-work|modelsim|./src/hwrite_file.vhd|
+Z75 !s107 ./src/hwrite_file.vhd|
 !i113 1
 R14
 R15
 Aarch
-R51
+R71
 R17
 R4
 R5
@@ -352,34 +476,34 @@ VFlgI<ILojILejO>UHoN3l2
 !s100 ;WmJ;RDP^Mo20BSe3i4dN1
 R9
 33
-R54
+R51
 !i10b 1
-R55
-R56
-R57
+R40
+R74
+R75
 !i113 1
 R14
 R15
 Ei2c_master
-Z58 w1491692526
+Z76 w1491692526
 R4
 R2
 R5
 R6
 R0
-Z59 8./src/i2c_master.vhd
-Z60 F./src/i2c_master.vhd
+Z77 8./src/i2c_master.vhd
+Z78 F./src/i2c_master.vhd
 l0
 L36
 V?`JC]KmR6]I8QP7eX`3;13
 !s100 KHGj><ciT8M<1L5Zg@[gn1
 R9
 33
-R20
+R56
 !i10b 1
-R21
-Z61 !s90 -reportprogress|300|-2008|-work|modelsim|./src/i2c_master.vhd|
-Z62 !s107 ./src/i2c_master.vhd|
+R57
+Z79 !s90 -reportprogress|300|-2008|-work|modelsim|./src/i2c_master.vhd|
+Z80 !s107 ./src/i2c_master.vhd|
 !i113 1
 R14
 R15
@@ -395,33 +519,33 @@ VEaeU7=SnW_R5Y`U;OFae20
 !s100 eM>`jQ]@Qz>9>Z1cz8z@F1
 R9
 33
-R20
+R56
 !i10b 1
-R21
-R61
-R62
+R57
+R79
+R80
 !i113 1
 R14
 R15
 Eimage_capture_control
-Z63 w1491963121
+Z81 w1492407295
 R17
 R5
 R6
 R0
-Z64 8C:/Sourcetree_Local/Thesis_VHDL/Active_HDL_Projects/OV5642_IF_LIB/ov5642_if_lib/src/image_capture_control.vhd
-Z65 FC:/Sourcetree_Local/Thesis_VHDL/Active_HDL_Projects/OV5642_IF_LIB/ov5642_if_lib/src/image_capture_control.vhd
+Z82 8./src/image_capture_control.vhd
+Z83 F./src/image_capture_control.vhd
 l0
 L35
-VX@O3iJ4lTiJEZkb?5@0N52
-!s100 o_;P4k@El?^7L192T74EJ2
+V7ZfRV8E91P@io_MWl@Na83
+!s100 f5BWe<P8N[hjT11bZlkJ50
 R9
 33
-Z66 !s110 1491963132
+R39
 !i10b 1
-Z67 !s108 1491963132.000000
-Z68 !s90 -reportprogress|300|-2008|-work|modelsim|-O0|C:/Sourcetree_Local/Thesis_VHDL/Active_HDL_Projects/OV5642_IF_LIB/ov5642_if_lib/src/image_capture_control.vhd|
-Z69 !s107 C:/Sourcetree_Local/Thesis_VHDL/Active_HDL_Projects/OV5642_IF_LIB/ov5642_if_lib/src/image_capture_control.vhd|
+Z84 !s108 1492469488.000000
+Z85 !s90 -reportprogress|300|-2008|-work|modelsim|./src/image_capture_control.vhd|
+Z86 !s107 ./src/image_capture_control.vhd|
 !i113 1
 R14
 R15
@@ -429,47 +553,47 @@ Abehavioral
 R17
 R5
 R6
-Z70 DEx4 work 21 image_capture_control 0 22 X@O3iJ4lTiJEZkb?5@0N52
-l109
-L61
-VZS=P<MPl7FKJWX@E7?]<A0
-!s100 6ZNGn=WnV6@GDboe;hje43
+DEx4 work 21 image_capture_control 0 22 7ZfRV8E91P@io_MWl@Na83
+l110
+L62
+V[PazCn=kP5C?7;;Mh:k:91
+!s100 WzdCd@PM0z]2ggYgbIjF:1
 R9
 33
-R66
+R39
 !i10b 1
-R67
-R68
-R69
+R84
+R85
+R86
 !i113 1
 R14
 R15
 Ematlab_compare
-Z71 w1491958781
-R51
+Z87 w1491958781
+R71
 R17
 R4
 R5
 R6
 R0
-Z72 8./src/matlab_compare.vhd
-Z73 F./src/matlab_compare.vhd
+Z88 8./src/matlab_compare.vhd
+Z89 F./src/matlab_compare.vhd
 l0
 L18
 VLS[JdHKm294FWR3YnV6fV3
 !s100 4e@NjZ3ihnMSdUn190MUY0
 R9
 33
-R54
+R51
 !i10b 1
-Z74 !s108 1491962468.000000
-Z75 !s90 -reportprogress|300|-2008|-work|modelsim|./src/matlab_compare.vhd|
-Z76 !s107 ./src/matlab_compare.vhd|
+R40
+Z90 !s90 -reportprogress|300|-2008|-work|modelsim|./src/matlab_compare.vhd|
+Z91 !s107 ./src/matlab_compare.vhd|
 !i113 1
 R14
 R15
 Aarch
-R51
+R71
 R17
 R4
 R5
@@ -481,24 +605,65 @@ Vd[TLUYKnj_;YEknL2a@oH2
 !s100 JB1:RF<oTl5O[F^7nh87e3
 R9
 33
-R54
+R51
 !i10b 1
-R74
-R75
-R76
+R40
+R90
+R91
+!i113 1
+R14
+R15
+Emonitor_animate
+Z92 w1491966334
+R17
+R5
+R6
+R0
+Z93 8./src/monitor_animate.vhd
+Z94 F./src/monitor_animate.vhd
+l0
+L7
+VUHFMDTnEGA]d2`Vm`_:<=0
+!s100 Ae>YGNk2mTOg1Nh`I8=W]2
+R9
+33
+R10
+!i10b 1
+R11
+Z95 !s90 -reportprogress|300|-2008|-work|modelsim|./src/monitor_animate.vhd|
+Z96 !s107 ./src/monitor_animate.vhd|
+!i113 1
+R14
+R15
+Aarch
+R17
+R5
+R6
+DEx4 work 15 monitor_animate 0 22 UHFMDTnEGA]d2`Vm`_:<=0
+l91
+L20
+Vj5hH;5dSD0bGZmN@?`J]62
+!s100 _kS@>MXIXi`a4PT@lN8Ro0
+R9
+33
+R10
+!i10b 1
+R11
+R95
+R96
 !i113 1
 R14
 R15
 Enetwork_controller
-Z77 w1466986906
+Z97 w1466986906
 R17
 R4
 R2
 R5
 R6
 R0
-Z78 8./src/Network_Controller.vhd
-Z79 F./src/Network_Controller.vhd
+Z98 8./src/Network_Controller.vhd
+Z99 F./src/Network_Controller.vhd
 l0
 L7
 VX9LH8Ff4Wb@b;e=V>b<CO3
@@ -508,8 +673,8 @@ R9
 R20
 !i10b 1
 R21
-Z80 !s90 -reportprogress|300|-2008|-work|modelsim|./src/Network_Controller.vhd|
-Z81 !s107 ./src/Network_Controller.vhd|
+Z100 !s90 -reportprogress|300|-2008|-work|modelsim|./src/Network_Controller.vhd|
+Z101 !s107 ./src/Network_Controller.vhd|
 !i113 1
 R14
 R15
@@ -529,30 +694,30 @@ R9
 R20
 !i10b 1
 R21
-R80
-R81
+R100
+R101
 !i113 1
 R14
 R15
 Eov5462_sccb_cntrl
-Z82 w1467013007
+Z102 w1492313646
 R17
 R5
 R6
 R0
-Z83 8./src/ov5462_sccb_cntrl.vhd
-Z84 F./src/ov5462_sccb_cntrl.vhd
+Z103 8./src/ov5462_sccb_cntrl.vhd
+Z104 F./src/ov5462_sccb_cntrl.vhd
 l0
 L11
-VMa:X3?IAmYM2ZW3_fI78J3
-!s100 d>T?6=l9]zk=N4e41JlQ?3
+VDHnSiO8lUgJOD5bkz6D6@0
+!s100 lILNQ4H`9[6nHbZn>MoK[3
 R9
 33
-R54
+R39
 !i10b 1
-R74
-Z85 !s90 -reportprogress|300|-2008|-work|modelsim|./src/ov5462_sccb_cntrl.vhd|
-Z86 !s107 ./src/ov5462_sccb_cntrl.vhd|
+R84
+Z105 !s90 -reportprogress|300|-2008|-work|modelsim|./src/ov5462_sccb_cntrl.vhd|
+Z106 !s107 ./src/ov5462_sccb_cntrl.vhd|
 !i113 1
 R14
 R15
@@ -560,42 +725,42 @@ Abehavioral
 R17
 R5
 R6
-DEx4 work 17 ov5462_sccb_cntrl 0 22 Ma:X3?IAmYM2ZW3_fI78J3
-l45
-L21
-V[AY_llKHL[mX_6=JRikFH3
-!s100 G`^<U8U>o2=Jj8LDd7RBM2
+DEx4 work 17 ov5462_sccb_cntrl 0 22 DHnSiO8lUgJOD5bkz6D6@0
+l54
+L31
+V:1bPP_^zgcmfjooNz^18<3
+!s100 [g]KBPIT44CkEM>^XBd[N0
 R9
 33
-R54
+R39
 !i10b 1
-R74
-R85
-R86
+R84
+R105
+R106
 !i113 1
 R14
 R15
 Eov5642_if_test
-Z87 w1491962441
+Z107 w1492469442
 R2
 R3
 R4
 R5
 R6
 R0
-Z88 8./compile/ov5642_if_test.vhd
-Z89 F./compile/ov5642_if_test.vhd
+Z108 8./compile/ov5642_if_test.vhd
+Z109 F./compile/ov5642_if_test.vhd
 l0
 L28
-V2[nD:O:fBegY^9HXP=Yo93
-!s100 @CRA?lkQ9a1[:<VJ@alHM3
+V:_i?E@=39bDW_jnRAm0?N0
+!s100 g`W8BfCHKR]O>F3Q8dJED2
 R9
 33
-R33
+Z110 !s110 1492469493
 !i10b 1
-Z90 !s108 1491962471.000000
-Z91 !s90 -reportprogress|300|-2008|-work|modelsim|./compile/ov5642_if_test.vhd|
-Z92 !s107 ./compile/ov5642_if_test.vhd|
+R11
+Z111 !s90 -reportprogress|300|-2008|-work|modelsim|./compile/ov5642_if_test.vhd|
+Z112 !s107 ./compile/ov5642_if_test.vhd|
 !i113 1
 R14
 R15
@@ -605,46 +770,46 @@ R3
 R4
 R5
 R6
-DEx4 work 14 ov5642_if_test 0 22 2[nD:O:fBegY^9HXP=Yo93
-l137
-L40
-VA]EzmZT1HoaPoAn<Oa5Hh1
-!s100 @SleTDg8nk^AKhch^3Idi2
+Z113 DEx4 work 14 ov5642_if_test 0 22 :_i?E@=39bDW_jnRAm0?N0
+l247
+L49
+V`oZBiT^N811bXdLI84c7g1
+!s100 [aVdobhYH;B===F6RE>cK1
 R9
 33
-R33
+R110
 !i10b 1
-R90
-R91
-R92
+R11
+R111
+R112
 !i113 1
 R14
 R15
 Eov5642_if_top_tb
-Z93 w1481407148
-R51
+Z114 w1481407148
+R71
 R17
 R5
 R6
 R0
-Z94 8./src/ov5642_if_test_tb.vhd
-Z95 F./src/ov5642_if_test_tb.vhd
+Z115 8./src/ov5642_if_test_tb.vhd
+Z116 F./src/ov5642_if_test_tb.vhd
 l0
 L31
 VK=VnLz>h>PbAZcNm[E=3O1
 !s100 XBm;Kd`L1jkQTIC`gPD333
 R9
 33
-R54
+R56
 !i10b 1
-R74
-Z96 !s90 -reportprogress|300|-2008|-work|modelsim|./src/ov5642_if_test_tb.vhd|
-Z97 !s107 ./src/ov5642_if_test_tb.vhd|
+R57
+Z117 !s90 -reportprogress|300|-2008|-work|modelsim|./src/ov5642_if_test_tb.vhd|
+Z118 !s107 ./src/ov5642_if_test_tb.vhd|
 !i113 1
 R14
 R15
 Atestbench
-R51
+R71
 R17
 R5
 R6
@@ -655,41 +820,41 @@ V6<`43:TW9@fG>;NV[37e80
 !s100 S9XkVeJGlHmM=X><NiKGf2
 R9
 33
-R54
+R56
 !i10b 1
-R74
-R96
-R97
+R57
+R117
+R118
 !i113 1
 R14
 R15
 Eread_file
-Z98 w1491959873
-R51
+Z119 w1491959873
+R71
 R17
 R4
 R2
 R5
 R6
 R0
-Z99 8./src/read_file.vhd
-Z100 F./src/read_file.vhd
+Z120 8./src/read_file.vhd
+Z121 F./src/read_file.vhd
 l0
 L19
 Vj7^A<_C?P9WcFbmFS^GG;0
 !s100 Pzg>VmakeZW8mnokESUJA3
 R9
 33
-R54
+R51
 !i10b 1
-R74
-Z101 !s90 -reportprogress|300|-2008|-work|modelsim|./src/read_file.vhd|
-Z102 !s107 ./src/read_file.vhd|
+R40
+Z122 !s90 -reportprogress|300|-2008|-work|modelsim|./src/read_file.vhd|
+Z123 !s107 ./src/read_file.vhd|
 !i113 1
 R14
 R15
 Aarch
-R51
+R71
 R17
 R4
 R2
@@ -702,35 +867,35 @@ VXfi5EKAOSK0eN]Qf0AZzT1
 !s100 A5VR6G5^?F>oQU`jQB0eZ3
 R9
 33
-R54
+R51
 !i10b 1
-R74
-R101
-R102
+R40
+R122
+R123
 !i113 1
 R14
 R15
 Esensor_to_monitor_node
-Z103 w1491872435
+Z124 w1491872435
 R2
 R3
 R4
 R5
 R6
 R0
-Z104 8./compile/sensor_to_monitor_node.vhd
-Z105 F./compile/sensor_to_monitor_node.vhd
+Z125 8./compile/sensor_to_monitor_node.vhd
+Z126 F./compile/sensor_to_monitor_node.vhd
 l0
 L28
 VQ:[6Ck:>GhZ?]M0g[^:cD0
 !s100 ORlDPESF?jl]Zo1CQ8E9a3
 R9
 33
-R10
+R30
 !i10b 1
-R11
-Z106 !s90 -reportprogress|300|-2008|-work|modelsim|./compile/sensor_to_monitor_node.vhd|
-Z107 !s107 ./compile/sensor_to_monitor_node.vhd|
+Z127 !s108 1492469491.000000
+Z128 !s90 -reportprogress|300|-2008|-work|modelsim|./compile/sensor_to_monitor_node.vhd|
+Z129 !s107 ./compile/sensor_to_monitor_node.vhd|
 !i113 1
 R14
 R15
@@ -747,32 +912,32 @@ VlC_V2`nALm@[@@^QP83[S1
 !s100 U:k<TSC[1BQ<RM=E^Wm@<1
 R9
 33
-R10
+R30
 !i10b 1
-R11
-R106
-R107
+R127
+R128
+R129
 !i113 1
 R14
 R15
 Esim_clk_generator
-Z108 w1491875506
+Z130 w1491875506
 R5
 R6
 R0
-Z109 8./src/sim_clk_generator.vhd
-Z110 F./src/sim_clk_generator.vhd
+Z131 8./src/sim_clk_generator.vhd
+Z132 F./src/sim_clk_generator.vhd
 l0
 L28
 VJbOlzF0U91218Kb6>2ISl2
 !s100 HCIihEOCGb[O64ONQFnY`1
 R9
 33
-R33
+R30
 !i10b 1
-R90
-Z111 !s90 -reportprogress|300|-2008|-work|modelsim|./src/sim_clk_generator.vhd|
-Z112 !s107 ./src/sim_clk_generator.vhd|
+R127
+Z133 !s90 -reportprogress|300|-2008|-work|modelsim|./src/sim_clk_generator.vhd|
+Z134 !s107 ./src/sim_clk_generator.vhd|
 !i113 1
 R14
 R15
@@ -786,32 +951,32 @@ Vj<i6f:cCTXoiP_keU7_dW2
 !s100 T64R@9]a>2N?kY@;I9OA51
 R9
 33
-R33
+R30
 !i10b 1
-R90
-R111
-R112
+R127
+R133
+R134
 !i113 1
 R14
 R15
 Esystem_reset_manager
-Z113 w1491788772
+Z135 w1491788772
 R5
 R6
 R0
-Z114 8./src/system_reset_manager.vhd
-Z115 F./src/system_reset_manager.vhd
+Z136 8./src/system_reset_manager.vhd
+Z137 F./src/system_reset_manager.vhd
 l0
 L28
 VM[XHKjoff`QLzWhWWzO3[1
 !s100 Vh>idTBm6RRXZNTX:45?J2
 R9
 33
-R33
+R30
 !i10b 1
-R90
-Z116 !s90 -reportprogress|300|-2008|-work|modelsim|./src/system_reset_manager.vhd|
-Z117 !s107 ./src/system_reset_manager.vhd|
+R127
+Z138 !s90 -reportprogress|300|-2008|-work|modelsim|./src/system_reset_manager.vhd|
+Z139 !s107 ./src/system_reset_manager.vhd|
 !i113 1
 R14
 R15
@@ -825,11 +990,11 @@ Vd2TlPEQ?ooe?nF]OI[nf=3
 !s100 <dLlX^hEF9kMQh;GH??3c0
 R9
 33
-R33
+R30
 !i10b 1
-R90
-R116
-R117
+R127
+R138
+R139
 !i113 1
 R14
 R15
@@ -839,8 +1004,8 @@ R17
 R5
 R6
 R0
-8./src/vga_sync.vhd
-F./src/vga_sync.vhd
+Z140 8./src/vga_sync.vhd
+Z141 F./src/vga_sync.vhd
 l0
 L29
 V^[8KOg:N:SMFVBMA]@B0U1
@@ -850,8 +1015,49 @@ R9
 !s110 1491873509
 !i10b 1
 !s108 1491873509.000000
-!s90 -reportprogress|300|-2008|-work|modelsim|./src/vga_sync.vhd|
-!s107 ./src/vga_sync.vhd|
+Z142 !s90 -reportprogress|300|-2008|-work|modelsim|./src/vga_sync.vhd|
+Z143 !s107 ./src/vga_sync.vhd|
+!i113 1
+R14
+R15
+Evga_sync
+Z144 w1492405096
+R17
+R5
+R6
+R0
+R140
+R141
+l0
+L5
+VfjSb8@gX5CAV@azK0:P=81
+!s100 EdMIY8LjlSbZ3V9T<Fgh33
+R9
+33
+R30
+!i10b 1
+R127
+R142
+R143
+!i113 1
+R14
+R15
+Aarch
+R17
+R5
+R6
+DEx4 work 8 vga_sync 0 22 fjSb8@gX5CAV@azK0:P=81
+l48
+L21
+V@WMRhlJNYLbhzi;BL^lT=2
+!s100 ]FbIe8I>eUWna=C9eFzlX0
+R9
+33
+R30
+!i10b 1
+R127
+R142
+R143
 !i113 1
 R14
 R15

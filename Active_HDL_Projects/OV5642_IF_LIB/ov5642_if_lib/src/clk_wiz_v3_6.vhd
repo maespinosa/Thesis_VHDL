@@ -55,9 +55,9 @@
 -- "Output    Output      Phase     Duty      Pk-to-Pk        Phase"
 -- "Clock    Freq (MHz) (degrees) Cycle (%) Jitter (ps)  Error (ps)"
 ------------------------------------------------------------------------------
--- CLK_OUT1___150.000______0.000______50.0______107.567_____87.180
--- CLK_OUT2____25.000______0.000______50.0______154.057_____87.180
--- CLK_OUT3___200.000______0.000______50.0______102.086_____87.180
+-- CLK_OUT1___150.000______0.000______50.0______127.220____105.461
+-- CLK_OUT2____25.000______0.000______50.0______183.467____105.461
+-- CLK_OUT3___100.000______0.000______50.0______137.681____105.461
 --
 ------------------------------------------------------------------------------
 -- "Input Clock   Freq (MHz)    Input Jitter (UI)"
@@ -115,8 +115,7 @@ architecture xilinx of clk_wiz_v3_6 is
   signal psdone_unused    : std_logic;
   -- Unused status signals
   signal clkfbstopped_unused : std_logic;
-  signal clkinstopped_unused : std_logic;	   
-  
+  signal clkinstopped_unused : std_logic;
 begin
 
 
@@ -125,10 +124,9 @@ begin
   clkin1_buf : IBUFG
   port map
    (O => clkin1,
-   I => CLK_IN1);	  
+   I => CLK_IN1); 
    
    CLKIN_BUFG_OUT <= clkin1; 
-   
 
 
   -- Clocking primitive
@@ -141,15 +139,15 @@ begin
    (BANDWIDTH            => "OPTIMIZED",
     COMPENSATION         => "ZHOLD",
     DIVCLK_DIVIDE        => 1,
-    CLKFBOUT_MULT        => 12,
+    CLKFBOUT_MULT        => 9,
     CLKFBOUT_PHASE       => 0.000,
-    CLKOUT0_DIVIDE       => 8,
+    CLKOUT0_DIVIDE       => 6,
     CLKOUT0_PHASE        => 0.000,
     CLKOUT0_DUTY_CYCLE   => 0.5,
-    CLKOUT1_DIVIDE       => 48,
+    CLKOUT1_DIVIDE       => 36,
     CLKOUT1_PHASE        => 0.000,
     CLKOUT1_DUTY_CYCLE   => 0.5,
-    CLKOUT2_DIVIDE       => 6,
+    CLKOUT2_DIVIDE       => 9,
     CLKOUT2_PHASE        => 0.000,
     CLKOUT2_DUTY_CYCLE   => 0.5,
     CLKIN1_PERIOD        => 10.000,

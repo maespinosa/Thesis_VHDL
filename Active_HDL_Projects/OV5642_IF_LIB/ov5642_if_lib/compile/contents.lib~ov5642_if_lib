@@ -1,12 +1,12 @@
-1145
+1627
 ~E 1 "./../compile/arducam_if.vhd" 28 arducam_if
-~A 1 "./../compile/arducam_if.vhd" 52 arducam_if
+~A 1 "./../compile/arducam_if.vhd" 55 arducam_if
 ~E 1 "./../src/bayer_demosaic.vhd" 29 bayer_demosaic
 ~A 1 "./../src/bayer_demosaic.vhd" 53 behavioral
 ~E 1 "./../src/BRAM_SDP_MACRO.vhd" 38 BRAM_SDP_MACRO
 ~A 1 "./../src/BRAM_SDP_MACRO.vhd" 217 bram_V
-~E 1 "./../src/camera_configurator.vhd" 29 camera_configurator
-~A 1 "./../src/camera_configurator.vhd" 50 arch
+~E 1 "./../src/camera_configurator.vhd" 30 camera_configurator
+~A 1 "./../src/camera_configurator.vhd" 52 arch
 ~E 1 "./../src/clk_wiz_v3_6.vhd" 76 clk_wiz_v3_6
 ~A 1 "./../src/clk_wiz_v3_6.vhd" 91 xilinx
 ~E 1 "./../compile/color_test.vhd" 28 Deep_Learning_Implementation
@@ -15,6 +15,8 @@
 ~A 1 "./../src/dist_mem_gen_v7_2.vhd" 53 dist_mem_gen_v7_2_a
 ~E 1 "./../src/FIFO_DUALCLOCK_MACRO.vhd" 34 FIFO_DUALCLOCK_MACRO
 ~A 1 "./../src/FIFO_DUALCLOCK_MACRO.vhd" 68 fifo_V
+~E 1 "./../src/fifo_generator_v9_3.vhd" 43 fifo_generator_v9_3
+~A 1 "./../src/fifo_generator_v9_3.vhd" 62 fifo_generator_v9_3_a
 ~E 1 "./../compile/FIFO_NETWORK.vhd" 28 FIFO_NETWORK
 ~A 1 "./../compile/FIFO_NETWORK.vhd" 47 behavioral
 ~E 0 "" 0 Fub2
@@ -25,7 +27,7 @@
 ~A 1 "./../src/i2c_master.vhd" 54 logic
 ~E 1 "./../src/i3c2.vhd" 18 i3c2
 ~E 1 "./../src/image_capture_control.vhd" 35 image_capture_control
-~A 1 "./../src/image_capture_control.vhd" 61 Behavioral
+~A 1 "./../src/image_capture_control.vhd" 62 Behavioral
 ~E 1 "./../src/matlab_compare.vhd" 18 matlab_compare
 ~A 1 "./../src/matlab_compare.vhd" 33 arch
 ~E 1 "./../src/monitor_animate.vhd" 7 monitor_animate
@@ -33,9 +35,9 @@
 ~E 1 "./../src/Network_Controller.vhd" 7 Network_Controller
 ~A 1 "./../src/Network_Controller.vhd" 26 arch
 ~E 1 "./../src/ov5462_sccb_cntrl.vhd" 11 OV5462_SCCB_CNTRL
-~A 1 "./../src/ov5462_sccb_cntrl.vhd" 21 Behavioral
+~A 1 "./../src/ov5462_sccb_cntrl.vhd" 31 Behavioral
 ~E 1 "./../compile/ov5642_if_test.vhd" 28 OV5642_IF_TEST
-~A 1 "./../compile/ov5642_if_test.vhd" 40 behavioral
+~A 1 "./../compile/ov5642_if_test.vhd" 49 behavioral
 ~E 1 "./../src/ov5642_if_top.vhd" 35 OV5642_IF_TOP
 ~A 1 "./../src/ov5642_if_top.vhd" 56 behavioral
 ~E 1 "./../src/ov5642_if_test_tb.vhd" 31 OV5642_IF_TOP_tb
@@ -48,6 +50,12 @@
 ~A 1 "./../src/sim_clk_generator.vhd" 40 arch
 ~E 1 "./../src/system_reset_manager.vhd" 28 system_reset_manager
 ~A 1 "./../src/system_reset_manager.vhd" 39 arch
+~E 1 "./../src/vga_clk.vhd" 74 vga_clk
+~A 1 "./../src/vga_clk.vhd" 87 xilinx
 ~E 1 "./../src/vga_if.vhd" 29 vga_if
+~E 1 "./../src/vga_sim.vhd" 29 vga_sim
+~A 1 "./../src/vga_sim.vhd" 42 arch
 ~E 1 "./../src/vga_sync.vhd" 5 vga_sync
-~A 1 "./../src/vga_sync.vhd" 20 arch
+~A 1 "./../src/vga_sync.vhd" 21 arch
+~E 1 "./../compile/vga_test.vhd" 28 vga_test
+~A 1 "./../compile/vga_test.vhd" 39 arch

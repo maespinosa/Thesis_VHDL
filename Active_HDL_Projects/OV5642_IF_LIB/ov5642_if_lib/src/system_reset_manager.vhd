@@ -44,13 +44,13 @@ begin
 	
 o_reset_n <= reset_n; 
 	
-reset_proc: process(i_clk) is 
+reset_proc: process(all) is 
 begin 
 	if(i_locked = '1') then 
 		if(i_hardware_reset = '1') then 	
-			reset_n <= '1'; 
+			reset_n <= '0'; 
 	    else 
-			reset_n <= '0';   
+			reset_n <= '1';   
 		end if; 
 		
 	else 
