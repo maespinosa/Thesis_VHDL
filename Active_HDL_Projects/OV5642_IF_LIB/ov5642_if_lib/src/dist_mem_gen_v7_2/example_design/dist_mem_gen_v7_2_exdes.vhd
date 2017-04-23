@@ -78,7 +78,7 @@ entity dist_mem_gen_v7_2_exdes is
     CLK        : IN  STD_LOGIC                                                := '0';
     WE         : IN  STD_LOGIC                                                := '0';
     SPO        : OUT STD_LOGIC_VECTOR(16-1 downto 0);
-    A          : IN  STD_LOGIC_VECTOR(10-1-(4*0*boolean'pos(10>4)) downto 0)
+    A          : IN  STD_LOGIC_VECTOR(11-1-(4*0*boolean'pos(11>4)) downto 0)
                  := (OTHERS => '0');
     D          : IN  STD_LOGIC_VECTOR(16-1 downto 0)                := (OTHERS => '0')
       );
@@ -97,7 +97,7 @@ architecture xilinx of dist_mem_gen_v7_2_exdes is
     CLK                     : IN STD_LOGIC;
     WE                      : IN  STD_LOGIC;
     SPO                     : OUT STD_LOGIC_VECTOR(16-1 downto 0);
-    A                       : IN  STD_LOGIC_VECTOR(10-1-(4*0*boolean'pos(10>4)) downto 0)
+    A                       : IN  STD_LOGIC_VECTOR(11-1-(4*0*boolean'pos(11>4)) downto 0)
                               := (OTHERS => '0');
     D                       : IN  STD_LOGIC_VECTOR(16-1 downto 0)                := (OTHERS => '0')
 

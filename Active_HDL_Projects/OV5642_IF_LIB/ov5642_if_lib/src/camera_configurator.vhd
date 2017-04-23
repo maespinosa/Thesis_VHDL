@@ -37,7 +37,7 @@ entity camera_configurator is
 		i_i2c_sent		: in std_logic; 
 		
 		
-		o_bram_address	: out std_logic_vector(9 downto 0); 
+		o_bram_address	: out std_logic_vector(10 downto 0); 
 		o_i2c_rw		: out std_logic; 
 		o_i2c_ena		: out std_logic; 
 		o_i2c_address   : out std_logic_vector(15 downto 0); 
@@ -51,16 +51,18 @@ end camera_configurator;
 
 architecture arch of camera_configurator is	
 
-signal bram_address		: unsigned(9 downto 0); 
+signal bram_address		: unsigned(10 downto 0); 
 signal i2c_rw	 		: std_logic; 
 signal i2c_ena			: std_logic; 
 signal i2c_address		: std_logic_vector(15 downto 0) ;
 signal i2c_data			: std_logic_vector(7 downto 0); 
 signal bram_we			: std_logic; 
 signal config_done 		: std_logic;   
-signal address_counter	: unsigned(9 downto 0); 
+signal address_counter	: unsigned(10 downto 0);  
+signal wait_counter		: integer; 
 
-type state_type is (IDLE, FETCH_ADDRESS, FETCH_DATA, SEND_ADDRESS_DATA, DONE); 
+
+type state_type is (IDLE, FETCH_ADDRESS, FETCH_DATA, SEND_ADDRESS_DATA, DONE, CONFIG_DONE_STATE, WAIT_STATE); 
 
 signal current_state : state_type; 	 	 
 signal next_state : state_type;		
@@ -93,11 +95,12 @@ begin
 	i2c_ena <= '0'; 
 	
 	bram_we <= '0';    
-	i2c_rw <= '1'; 
+	i2c_rw <= '0'; 
 
 	case current_state is 			
 		when IDLE =>   
 			i2c_ena <= '0'; 
+		
 			if(i_btn_config = '1' ) then 
 				next_state <= FETCH_ADDRESS;
 			else 
@@ -129,13 +132,32 @@ begin
 		
 
 		when DONE =>
-			if(address_counter < 1040) then 
+			if(address_counter < 1051) then 
 				config_done <= '0'; 
 				next_state <= FETCH_ADDRESS; 
 			else 
 				config_done <= '1';  
-				next_state <= IDLE;  
+				next_state <= WAIT_STATE;   
+			end if;    
+			
+		when WAIT_STATE => 
+		    config_done <= '1'; 
+			if(wait_counter < 1000) then 
+				next_state <= WAIT_STATE;  
+			else 
+				next_state <= CONFIG_DONE_STATE;  
 			end if; 
+			
+		
+		when CONFIG_DONE_STATE => 
+			if(i_btn_config = '1') then 
+				config_done <= '0'; 
+				next_state <= IDLE; 
+			else 	  
+				config_done <= '1'; 
+				next_state <= CONFIG_DONE_STATE; 	 
+			end if; 
+		
 		
 		
 		when others => 	
@@ -150,10 +172,12 @@ begin
 	if(i_reset_n = '0') then   
 		bram_address <= (others => '0');  
 		address_counter <= (others => '0'); 
+		wait_counter 	<= 0; 
 		
 	elsif(rising_edge(i_clk)) then 	
 		bram_address <= bram_address; 
-		address_counter <= address_counter; 
+		address_counter <= address_counter;   
+		wait_counter <= wait_counter; 
 		
 		case current_state is 			
 			when IDLE =>
@@ -181,11 +205,23 @@ begin
 		
 				
 			when DONE =>
-				if(address_counter < 1040) then 
+				if(address_counter < 1051) then 
 					address_counter <= address_counter + 1;
 				else 
 					address_counter <= (others => '0'); 
 				end if; 
+				
+			when WAIT_STATE => 
+				if(wait_counter < 1000) then 
+					wait_counter <= wait_counter + 1; 
+				else 
+					wait_counter <= 0; 
+				end if; 
+				
+				
+			when CONFIG_DONE_STATE => 
+				address_counter <= (others => '0'); 
+			
 				
 			when others => 	 
 				bram_address <= (others => '0');  

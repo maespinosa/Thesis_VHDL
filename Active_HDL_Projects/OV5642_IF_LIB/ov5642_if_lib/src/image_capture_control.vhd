@@ -53,7 +53,8 @@ entity image_capture_control is
            o_X_POS              : out INTEGER;
            o_Y_POS              : out INTEGER; 
 		   o_PIXEL_NUMBER	    : out INTEGER; 
-		   o_FRAME_DONE			: out std_logic 
+		   o_FRAME_DONE			: out std_logic; 
+		   o_debug_state		: out std_logic_vector(2 downto 0)
            
            
            ); 
@@ -101,7 +102,10 @@ signal frame_done			: std_logic;
 type state_type is (IDLE, SOL, HREF_HI, HREF_LO, EOF); 
 
 signal current_state : state_type; 	 	 
-signal next_state : state_type;		
+signal next_state : state_type;	
+
+
+signal debug_state : std_logic_vector(2 downto 0); 
 
 
 
@@ -116,7 +120,8 @@ o_PIXEL_VALID        <= PIXEL_VALID_INT;
 o_X_POS              <= X_POS_INT; 
 o_Y_POS              <= Y_POS_INT; 
 o_PIXEL_NUMBER	     <= PIXEL_NUMBER_INT; 
-o_FRAME_DONE		 <= frame_done; 
+o_FRAME_DONE		 <= frame_done;  
+o_debug_state		 <= debug_state; 
 	
 state_transition: process(i_clk, i_reset_n) is 
 begin 
@@ -133,19 +138,22 @@ begin
 	
 	o_RST <= i_reset_n; 
 	o_PWDN <= '0'; 	   
-	frame_done <= '0'; 
+	frame_done <= '0'; 	
+	debug_state <= "000"; 
 	
 	
 	case current_state is
 		
 		when IDLE =>  
-			if (i_VSYNC = '1' and i_not_almost_full = '1') then 
+			debug_state <= "001"; 
+			if (i_VSYNC = '1' and i_not_almost_full = '1' and i_EN = '1') then 
 				next_state <= SOL;  
 			else 
 				next_state <= IDLE; 
 			end if;  
 			
-		when SOL => 
+		when SOL =>  
+			debug_state <= "010"; 
 		    if (i_HREF = '1') then 
 				next_state <= HREF_HI; 
 			else 
@@ -153,13 +161,15 @@ begin
 			end if;    
 			
 	    when HREF_HI => 
+			debug_state <= "011"; 
 			if (i_HREF = '0') then 
 				next_state <= HREF_LO; 
 			else 
 				next_state <= HREF_HI; 
 			end if;   
 			
-		when HREF_LO => 	
+		when HREF_LO => 
+			debug_state <= "100"; 
 		    if (i_HREF = '0' and i_VSYNC = '0') then 
 				next_state <= HREF_LO; 	  
 				if(X_POS_INT = COLUMNS_VGA and Y_POS_INT = ROWS_VGA-1) then
@@ -176,7 +186,8 @@ begin
 				next_state <= HREF_LO; 
 			end if;  
 			
-	    when others => 
+	    when others => 	  
+			debug_state <= "111"; 
 			next_state <= IDLE;    
 		
 		

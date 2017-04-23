@@ -8,7 +8,7 @@
 -------------------------------------------------------------------------------
 --
 -- File        : c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV5642_IF_LIB\ov5642_if_lib\compile\vga_test.vhd
--- Generated   : Mon Apr 17 19:55:57 2017
+-- Generated   : Sat Apr 22 22:48:36 2017
 -- From        : c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV5642_IF_LIB\ov5642_if_lib\src\vga_test.bde
 -- By          : Bde2Vhdl ver. 2.6
 --
@@ -57,20 +57,6 @@ component vga_sim
        o_vga_data : out STD_LOGIC_VECTOR(9 downto 0)
   );
 end component;
-component vga_sync
-  port (
-       i_clk : in STD_LOGIC;
-       i_not_almost_empty : in STD_LOGIC;
-       i_reset_n : in STD_LOGIC;
-       i_vga_data : in STD_LOGIC_VECTOR(9 downto 0);
-       o_hsync : out STD_LOGIC;
-       o_pixel_x : out STD_LOGIC_VECTOR(9 downto 0);
-       o_pixel_y : out STD_LOGIC_VECTOR(9 downto 0);
-       o_vga_data : out STD_LOGIC_VECTOR(11 downto 0);
-       o_video_on : out STD_LOGIC;
-       o_vsync : out STD_LOGIC
-  );
-end component;
 component vga_clk
   port (
        CLK_IN1 : in STD_LOGIC;
@@ -80,6 +66,26 @@ component vga_clk
        LOCKED : out STD_LOGIC
   );
 end component;
+component vga_sync
+  port (
+       i_almost_full : in STD_LOGIC;
+       i_clk : in STD_LOGIC;
+       i_not_almost_empty : in STD_LOGIC;
+       i_reset_n : in STD_LOGIC;
+       i_valid : in STD_LOGIC;
+       i_vga_data : in STD_LOGIC_VECTOR(9 downto 0);
+       o_hsync : out STD_LOGIC;
+       o_pixel_x : out STD_LOGIC_VECTOR(9 downto 0);
+       o_pixel_y : out STD_LOGIC_VECTOR(9 downto 0);
+       o_read_en : out STD_LOGIC;
+       o_vga_data : out STD_LOGIC_VECTOR(11 downto 0);
+       o_video_on : out STD_LOGIC;
+       o_vsync : out STD_LOGIC
+  );
+end component;
+
+----     Constants     -----
+constant DANGLING_INPUT_CONSTANT : STD_LOGIC := 'Z';
 
 ---- Signal declarations used on the diagram ----
 
@@ -93,6 +99,9 @@ signal reset_n : STD_LOGIC;
 signal i_vga_data : STD_LOGIC_VECTOR(9 downto 0);
 signal o_pixel_x : STD_LOGIC_VECTOR(9 downto 0);
 signal o_pixel_y : STD_LOGIC_VECTOR(9 downto 0);
+
+---- Declaration for Dangling input ----
+signal Dangling_Input_Signal : STD_LOGIC;
 
 begin
 
@@ -129,9 +138,11 @@ U5 : vga_sim
 
 VGA_CONTROLLER : vga_sync
   port map(
+       i_almost_full => Dangling_Input_Signal,
        i_clk => CLK_OUT1,
        i_not_almost_empty => i_not_almost_empty,
        i_reset_n => reset_n,
+       i_valid => Dangling_Input_Signal,
        i_vga_data => i_vga_data,
        o_hsync => o_hsync,
        o_pixel_x => o_pixel_x,
@@ -147,5 +158,9 @@ VGA_CONTROLLER : vga_sync
     -- Output\buffer terminals
 	o_locked_up <= Output2;
 
+
+---- Dangling input signal assignment ----
+
+Dangling_Input_Signal <= DANGLING_INPUT_CONSTANT;
 
 end arch;

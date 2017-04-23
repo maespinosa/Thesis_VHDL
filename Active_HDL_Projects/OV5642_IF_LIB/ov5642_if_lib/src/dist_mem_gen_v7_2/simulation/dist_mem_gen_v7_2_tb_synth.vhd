@@ -102,7 +102,7 @@ COMPONENT dist_mem_gen_v7_2_exdes
     CLK        : IN  STD_LOGIC                                                := '0';
     WE         : IN  STD_LOGIC                                                := '0';
     SPO        : OUT STD_LOGIC_VECTOR(16-1 downto 0);
-    A          : IN  STD_LOGIC_VECTOR(10-1-(4*0*boolean'pos(10>4)) downto 0)
+    A          : IN  STD_LOGIC_VECTOR(11-1-(4*0*boolean'pos(11>4)) downto 0)
                  := (OTHERS => '0');
     D          : IN  STD_LOGIC_VECTOR(16-1 downto 0)                := (OTHERS => '0')
       );
@@ -120,8 +120,8 @@ END COMPONENT;
   SIGNAL RESET_SYNC_R2 : STD_LOGIC:='1';
   SIGNAL RESET_SYNC_R3 : STD_LOGIC:='1';
 
-  SIGNAL ADDR: STD_LOGIC_VECTOR(9 DOWNTO 0) := (OTHERS => '0');
-  SIGNAL ADDR_R: STD_LOGIC_VECTOR(9 DOWNTO 0) := (OTHERS => '0');
+  SIGNAL ADDR: STD_LOGIC_VECTOR(10 DOWNTO 0) := (OTHERS => '0');
+  SIGNAL ADDR_R: STD_LOGIC_VECTOR(10 DOWNTO 0) := (OTHERS => '0');
   SIGNAL WE : STD_LOGIC:='0';
   SIGNAL WE_R : STD_LOGIC:='0';
   SIGNAL SPO: STD_LOGIC_VECTOR(15 DOWNTO 0) := (OTHERS => '0');

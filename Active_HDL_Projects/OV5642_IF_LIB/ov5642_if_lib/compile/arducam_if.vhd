@@ -8,7 +8,7 @@
 -------------------------------------------------------------------------------
 --
 -- File        : c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV5642_IF_LIB\ov5642_if_lib\compile\arducam_if.vhd
--- Generated   : Mon Apr 17 20:04:15 2017
+-- Generated   : Sat Apr 22 22:48:35 2017
 -- From        : c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV5642_IF_LIB\ov5642_if_lib\src\arducam_if.bde
 -- By          : Bde2Vhdl ver. 2.6
 --
@@ -38,6 +38,7 @@ entity arducam_if is
        i_clk_150MHz : in STD_LOGIC;
        i_not_almost_full : in STD_LOGIC;
        i_reset_n : in STD_LOGIC;
+       i_sw_config_bypass : in STD_LOGIC;
        i_SDATA : in STD_LOGIC_VECTOR(9 downto 0);
        o_FRAME_DONE : out STD_LOGIC;
        o_PIXEL_NUMBER : out INTEGER;
@@ -47,7 +48,9 @@ entity arducam_if is
        o_SIOC : out STD_LOGIC;
        o_X_POS : out INTEGER;
        o_Y_POS : out INTEGER;
+       o_image_enable : out STD_LOGIC;
        o_IMAGE_DATA : out STD_LOGIC_VECTOR(data_width-1 downto 0);
+       o_debug_state : out STD_LOGIC_VECTOR(2 downto 0);
        o_SIOD : inout STD_LOGIC
   );
 end arducam_if;
@@ -58,7 +61,7 @@ architecture arducam_if of arducam_if is
 
 component dist_mem_gen_v7_2
   port (
-       a : in STD_LOGIC_VECTOR(9 downto 0);
+       a : in STD_LOGIC_VECTOR(10 downto 0);
        clk : in STD_LOGIC;
        d : in STD_LOGIC_VECTOR(15 downto 0);
        we : in STD_LOGIC;
@@ -85,7 +88,8 @@ component image_capture_control
        o_PWDN : out STD_LOGIC;
        o_RST : out STD_LOGIC;
        o_X_POS : out INTEGER;
-       o_Y_POS : out INTEGER
+       o_Y_POS : out INTEGER;
+       o_debug_state : out STD_LOGIC_VECTOR(2 downto 0)
   );
 end component;
 component OV5462_SCCB_CNTRL
@@ -114,7 +118,7 @@ component camera_configurator
        i_i2c_busy : in STD_LOGIC;
        i_i2c_sent : in STD_LOGIC;
        i_reset_n : in STD_LOGIC;
-       o_bram_address : out STD_LOGIC_VECTOR(9 downto 0);
+       o_bram_address : out STD_LOGIC_VECTOR(10 downto 0);
        o_bram_we : out STD_LOGIC;
        o_config_done : out STD_LOGIC;
        o_i2c_address : out STD_LOGIC_VECTOR(15 downto 0);
@@ -129,6 +133,7 @@ constant DANGLING_INPUT_CONSTANT : STD_LOGIC := 'Z';
 
 ---- Signal declarations used on the diagram ----
 
+signal enable : STD_LOGIC;
 signal i_clk : STD_LOGIC;
 signal NET1056 : STD_LOGIC;
 signal NET1707 : STD_LOGIC;
@@ -138,7 +143,7 @@ signal NET898 : STD_LOGIC;
 signal NET952 : STD_LOGIC;
 signal BUS875 : STD_LOGIC_VECTOR(7 downto 0);
 signal BUS882 : STD_LOGIC_VECTOR(15 downto 0);
-signal BUS902 : STD_LOGIC_VECTOR(9 downto 0);
+signal BUS902 : STD_LOGIC_VECTOR(10 downto 0);
 signal BUS909 : STD_LOGIC_VECTOR(15 downto 0);
 signal IMAGE_DATA : STD_LOGIC_VECTOR(data_width-1 downto 0);
 
@@ -146,6 +151,9 @@ signal IMAGE_DATA : STD_LOGIC_VECTOR(data_width-1 downto 0);
 signal Dangling_Input_Signal : STD_LOGIC;
 
 begin
+
+---- User Signal Assignments ----
+o_image_enable <= enable;
 
 ----  Component instantiations  ----
 
@@ -195,7 +203,7 @@ IMAGE_CONTROLLER : image_capture_control
        data_width => 10
   )
   port map(
-       i_EN => NET952,
+       i_EN => enable,
        i_HREF => i_HREF,
        i_PCLK => i_PCLK,
        i_SDATA => i_SDATA(9 downto 0),
@@ -210,7 +218,8 @@ IMAGE_CONTROLLER : image_capture_control
        o_PWDN => o_PWDN,
        o_RST => o_RST,
        o_X_POS => o_X_POS,
-       o_Y_POS => o_Y_POS
+       o_Y_POS => o_Y_POS,
+       o_debug_state => o_debug_state
   );
 
 U1 : OV5462_SCCB_CNTRL
@@ -226,6 +235,8 @@ U1 : OV5462_SCCB_CNTRL
        o_i2c_sent => NET1707,
        o_sioc => o_SIOC
   );
+
+enable <= NET952 or i_sw_config_bypass;
 
 
 ---- Terminal assignment ----

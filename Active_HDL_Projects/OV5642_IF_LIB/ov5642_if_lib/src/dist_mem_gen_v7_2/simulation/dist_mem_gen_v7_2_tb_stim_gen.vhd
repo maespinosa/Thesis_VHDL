@@ -117,7 +117,7 @@ ENTITY dist_mem_gen_v7_2_TB_STIM_GEN IS
   PORT (
     CLK : IN STD_LOGIC;
     RST : IN STD_LOGIC;
-    A   : OUT  STD_LOGIC_VECTOR(10-1 downto 0)   := (OTHERS => '0'); 
+    A   : OUT  STD_LOGIC_VECTOR(11-1 downto 0)   := (OTHERS => '0'); 
     D   : OUT  STD_LOGIC_VECTOR(16-1 downto 0)         := (OTHERS => '0');
     WE         : OUT  STD_LOGIC  := '0';
     DATA_IN : IN STD_LOGIC_VECTOR (15 DOWNTO 0);   --OUTPUT VECTOR 
@@ -131,24 +131,24 @@ ARCHITECTURE BEHAVIORAL OF dist_mem_gen_v7_2_TB_STIM_GEN IS
   CONSTANT ZERO           : STD_LOGIC_VECTOR(31 DOWNTO 0)                := (OTHERS => '0');
   CONSTANT DATA_PART_CNT_A: INTEGER:=1;
   SIGNAL   WRITE_ADDR     : STD_LOGIC_VECTOR(31 DOWNTO 0)                := (OTHERS => '0');
-  SIGNAL   WRITE_ADDR_INT : STD_LOGIC_VECTOR(9 DOWNTO 0)   := (OTHERS => '0');
+  SIGNAL   WRITE_ADDR_INT : STD_LOGIC_VECTOR(10 DOWNTO 0)   := (OTHERS => '0');
   SIGNAL   DO_READ_REG    : STD_LOGIC_VECTOR(4 DOWNTO 0)                 :=(OTHERS => '0');
-  SIGNAL   READ_ADDR_INT  : STD_LOGIC_VECTOR(9 DOWNTO 0)   := (OTHERS => '0');
+  SIGNAL   READ_ADDR_INT  : STD_LOGIC_VECTOR(10 DOWNTO 0)   := (OTHERS => '0');
   SIGNAL   READ_ADDR      : STD_LOGIC_VECTOR(31 DOWNTO 0)                := (OTHERS => '0');
   SIGNAL   D_INT          : STD_LOGIC_VECTOR(15 DOWNTO 0) := (OTHERS => '0');
   SIGNAL   DO_WRITE       : STD_LOGIC                                    := '0';
   SIGNAL   DO_READ        : STD_LOGIC                                    := '0';
   SIGNAL   COUNT_NO       : INTEGER                                      :=0;
 BEGIN
-  WRITE_ADDR_INT(9 DOWNTO 0) <= WRITE_ADDR(9 DOWNTO 0);
-  READ_ADDR_INT(9 DOWNTO 0)  <= READ_ADDR(9 DOWNTO 0);
+  WRITE_ADDR_INT(10 DOWNTO 0) <= WRITE_ADDR(10 DOWNTO 0);
+  READ_ADDR_INT(10 DOWNTO 0)  <= READ_ADDR(10 DOWNTO 0);
   A <= IF_THEN_ELSE(DO_WRITE='1',WRITE_ADDR_INT,READ_ADDR_INT); 
   D <= D_INT;
   CHECK_DATA <= DO_READ;
 
 RD_AGEN_INST:ENTITY work.dist_mem_gen_v7_2_TB_AGEN
   GENERIC MAP( 
-    C_MAX_DEPTH => 528 
+    C_MAX_DEPTH => 2048 
   )
   PORT MAP(
     CLK        => CLK,
@@ -161,7 +161,7 @@ RD_AGEN_INST:ENTITY work.dist_mem_gen_v7_2_TB_AGEN
 
 WR_AGEN_INST:ENTITY work.dist_mem_gen_v7_2_TB_AGEN
   GENERIC MAP(
-    C_MAX_DEPTH => 528  )
+    C_MAX_DEPTH => 2048  )
   PORT MAP(
     CLK        => CLK,
   	 RST        => RST,

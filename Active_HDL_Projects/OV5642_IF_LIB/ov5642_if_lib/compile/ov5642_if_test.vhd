@@ -8,7 +8,7 @@
 -------------------------------------------------------------------------------
 --
 -- File        : c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV5642_IF_LIB\ov5642_if_lib\compile\ov5642_if_test.vhd
--- Generated   : Mon Apr 17 19:55:56 2017
+-- Generated   : Sun Apr 23 00:30:42 2017
 -- From        : c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV5642_IF_LIB\ov5642_if_lib\src\ov5642_if_test.bde
 -- By          : Bde2Vhdl ver. 2.6
 --
@@ -52,7 +52,7 @@ architecture behavioral of OV5642_IF_TEST is
 
 component dist_mem_gen_v7_2
   port (
-       a : in STD_LOGIC_VECTOR(9 downto 0);
+       a : in STD_LOGIC_VECTOR(10 downto 0);
        clk : in STD_LOGIC;
        d : in STD_LOGIC_VECTOR(15 downto 0);
        we : in STD_LOGIC;
@@ -139,7 +139,7 @@ component camera_configurator
        i_i2c_busy : in STD_LOGIC;
        i_i2c_sent : in STD_LOGIC;
        i_reset_n : in STD_LOGIC;
-       o_bram_address : out STD_LOGIC_VECTOR(9 downto 0);
+       o_bram_address : out STD_LOGIC_VECTOR(10 downto 0);
        o_bram_we : out STD_LOGIC;
        o_config_done : out STD_LOGIC;
        o_i2c_address : out STD_LOGIC_VECTOR(15 downto 0);
@@ -168,7 +168,8 @@ component image_capture_control
        o_PWDN : out STD_LOGIC;
        o_RST : out STD_LOGIC;
        o_X_POS : out INTEGER;
-       o_Y_POS : out INTEGER
+       o_Y_POS : out INTEGER;
+       o_debug_state : out STD_LOGIC_VECTOR(2 downto 0)
   );
 end component;
 component OV5462_SCCB_CNTRL
@@ -191,13 +192,16 @@ component OV5462_SCCB_CNTRL
 end component;
 component vga_sync
   port (
+       i_almost_full : in STD_LOGIC;
        i_clk : in STD_LOGIC;
        i_not_almost_empty : in STD_LOGIC;
        i_reset_n : in STD_LOGIC;
+       i_valid : in STD_LOGIC;
        i_vga_data : in STD_LOGIC_VECTOR(9 downto 0);
        o_hsync : out STD_LOGIC;
        o_pixel_x : out STD_LOGIC_VECTOR(9 downto 0);
        o_pixel_y : out STD_LOGIC_VECTOR(9 downto 0);
+       o_read_en : out STD_LOGIC;
        o_vga_data : out STD_LOGIC_VECTOR(11 downto 0);
        o_video_on : out STD_LOGIC;
        o_vsync : out STD_LOGIC
@@ -209,7 +213,6 @@ constant DANGLING_INPUT_CONSTANT : STD_LOGIC := 'Z';
 
 ---- Signal declarations used on the diagram ----
 
-signal ALMOSTEMPTY : STD_LOGIC;
 signal ALMOSTFULL : STD_LOGIC;
 signal clk_100MHz : STD_LOGIC;
 signal clk_150MHz : STD_LOGIC;
@@ -223,11 +226,15 @@ signal NET4709 : STD_LOGIC := '1';
 signal NET4712 : STD_LOGIC := '1';
 signal NET4719 : STD_LOGIC;
 signal NET5007 : STD_LOGIC;
-signal NET5135 : STD_LOGIC;
 signal NET5560 : STD_LOGIC;
 signal NET5627 : STD_LOGIC;
 signal NET5803 : STD_LOGIC;
 signal NET6226 : STD_LOGIC;
+signal NET6530 : STD_LOGIC;
+signal NET6590 : STD_LOGIC;
+signal NET6594 : STD_LOGIC;
+signal NET6616 : STD_LOGIC;
+signal NET6669 : STD_LOGIC;
 signal PIXEL_VALID : STD_LOGIC;
 signal PWDN : STD_LOGIC;
 signal reset_n : STD_LOGIC;
@@ -235,7 +242,7 @@ signal VSYNC : STD_LOGIC;
 signal xclk : STD_LOGIC;
 signal BUS4695 : STD_LOGIC_VECTOR(7 downto 0);
 signal BUS4697 : STD_LOGIC_VECTOR(15 downto 0);
-signal BUS4705 : STD_LOGIC_VECTOR(9 downto 0);
+signal BUS4705 : STD_LOGIC_VECTOR(10 downto 0);
 signal BUS4707 : STD_LOGIC_VECTOR(15 downto 0);
 signal BUS5126 : STD_LOGIC_VECTOR(9 downto 0);
 signal IMAGE_DATA : STD_LOGIC_VECTOR(data_width-1 downto 0);
@@ -327,14 +334,16 @@ FIFO : fifo_generator_v9_3
        din(7) => IMAGE_DATA(7),
        din(8) => IMAGE_DATA(8),
        din(9) => IMAGE_DATA(9),
-       almost_empty => ALMOSTEMPTY,
        almost_full => NET5803,
        dout => BUS5126,
        empty => EMPTY,
        full => FULL,
+       prog_empty => NET6669,
+       prog_full => NET6616,
        rd_clk => xclk,
-       rd_en => NET5135,
+       rd_en => NET6590,
        rst => NET5627,
+       valid => NET6530,
        wr_clk => clk_150MHz,
        wr_en => PIXEL_VALID
   );
@@ -401,7 +410,7 @@ SYS_CLK_GEN : sim_clk_generator
        o_reset_n => reset_n
   );
 
-NET5560 <= not(ALMOSTEMPTY);
+NET5560 <= not(NET6669);
 
 NET5627 <= not(reset_n);
 
@@ -409,15 +418,18 @@ ALMOSTFULL <= not(NET5803);
 
 VGA : vga_sync
   port map(
+       i_almost_full => NET6616,
        i_clk => xclk,
        i_not_almost_empty => NET5560,
        i_reset_n => reset_n,
+       i_valid => NET6530,
        i_vga_data => BUS5126,
        o_hsync => o_hsync,
        o_pixel_x => o_pixel_x,
        o_pixel_y => o_pixel_y,
+       o_read_en => NET6590,
        o_vga_data => o_vga_data,
-       o_video_on => NET5135,
+       o_video_on => NET6594,
        o_vsync => o_vsync
   );
 

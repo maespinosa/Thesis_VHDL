@@ -75,30 +75,34 @@ add wave -noupdate -group SCENE_SIMULATOR /ov5642_if_test/SCENE_SIMULATOR/HREF
 add wave -noupdate -group SCENE_SIMULATOR /ov5642_if_test/SCENE_SIMULATOR/PCLK
 add wave -noupdate -group SCENE_SIMULATOR /ov5642_if_test/SCENE_SIMULATOR/current_state
 add wave -noupdate -group SCENE_SIMULATOR /ov5642_if_test/SCENE_SIMULATOR/next_state
-add wave -noupdate -group IMAGE_CAPTURE_CONTROL /ov5642_if_test/IMAGE_CAPTURE_FSM/i_clk
-add wave -noupdate -group IMAGE_CAPTURE_CONTROL /ov5642_if_test/IMAGE_CAPTURE_FSM/i_reset_n
-add wave -noupdate -group IMAGE_CAPTURE_CONTROL /ov5642_if_test/IMAGE_CAPTURE_FSM/i_SDATA
-add wave -noupdate -group IMAGE_CAPTURE_CONTROL /ov5642_if_test/IMAGE_CAPTURE_FSM/i_VSYNC
-add wave -noupdate -group IMAGE_CAPTURE_CONTROL /ov5642_if_test/IMAGE_CAPTURE_FSM/i_HREF
-add wave -noupdate -group IMAGE_CAPTURE_CONTROL /ov5642_if_test/IMAGE_CAPTURE_FSM/i_PCLK
-add wave -noupdate -group IMAGE_CAPTURE_CONTROL /ov5642_if_test/IMAGE_CAPTURE_FSM/i_EN
-add wave -noupdate -group IMAGE_CAPTURE_CONTROL /ov5642_if_test/IMAGE_CAPTURE_FSM/o_RST
-add wave -noupdate -group IMAGE_CAPTURE_CONTROL /ov5642_if_test/IMAGE_CAPTURE_FSM/o_PWDN
-add wave -noupdate -group IMAGE_CAPTURE_CONTROL /ov5642_if_test/IMAGE_CAPTURE_FSM/o_IMAGE_DATA
-add wave -noupdate -group IMAGE_CAPTURE_CONTROL /ov5642_if_test/IMAGE_CAPTURE_FSM/o_PIXEL_VALID
-add wave -noupdate -group IMAGE_CAPTURE_CONTROL /ov5642_if_test/IMAGE_CAPTURE_FSM/o_X_POS
-add wave -noupdate -group IMAGE_CAPTURE_CONTROL /ov5642_if_test/IMAGE_CAPTURE_FSM/o_Y_POS
-add wave -noupdate -group IMAGE_CAPTURE_CONTROL /ov5642_if_test/IMAGE_CAPTURE_FSM/o_PIXEL_NUMBER
-add wave -noupdate -group IMAGE_CAPTURE_CONTROL /ov5642_if_test/IMAGE_CAPTURE_FSM/IMAGE_DATA_INT
-add wave -noupdate -group IMAGE_CAPTURE_CONTROL /ov5642_if_test/IMAGE_CAPTURE_FSM/PIXEL_VALID_INT
-add wave -noupdate -group IMAGE_CAPTURE_CONTROL /ov5642_if_test/IMAGE_CAPTURE_FSM/PIXEL_NUMBER_INT
-add wave -noupdate -group IMAGE_CAPTURE_CONTROL /ov5642_if_test/IMAGE_CAPTURE_FSM/X_POS_INT
-add wave -noupdate -group IMAGE_CAPTURE_CONTROL /ov5642_if_test/IMAGE_CAPTURE_FSM/Y_POS_INT
-add wave -noupdate -group IMAGE_CAPTURE_CONTROL /ov5642_if_test/IMAGE_CAPTURE_FSM/execute_flag
-add wave -noupdate -group IMAGE_CAPTURE_CONTROL /ov5642_if_test/IMAGE_CAPTURE_FSM/RST_INT
-add wave -noupdate -group IMAGE_CAPTURE_CONTROL /ov5642_if_test/IMAGE_CAPTURE_FSM/PWDN_INT
-add wave -noupdate -group IMAGE_CAPTURE_CONTROL /ov5642_if_test/IMAGE_CAPTURE_FSM/current_state
-add wave -noupdate -group IMAGE_CAPTURE_CONTROL /ov5642_if_test/IMAGE_CAPTURE_FSM/next_state
+add wave -noupdate -expand -group IMAGE_CAPTURE_CONTROL /ov5642_if_test/IMAGE_CAPTURE_FSM/i_clk
+add wave -noupdate -expand -group IMAGE_CAPTURE_CONTROL /ov5642_if_test/IMAGE_CAPTURE_FSM/i_reset_n
+add wave -noupdate -expand -group IMAGE_CAPTURE_CONTROL /ov5642_if_test/IMAGE_CAPTURE_FSM/i_SDATA
+add wave -noupdate -expand -group IMAGE_CAPTURE_CONTROL /ov5642_if_test/IMAGE_CAPTURE_FSM/i_VSYNC
+add wave -noupdate -expand -group IMAGE_CAPTURE_CONTROL /ov5642_if_test/IMAGE_CAPTURE_FSM/i_HREF
+add wave -noupdate -expand -group IMAGE_CAPTURE_CONTROL /ov5642_if_test/IMAGE_CAPTURE_FSM/i_PCLK
+add wave -noupdate -expand -group IMAGE_CAPTURE_CONTROL /ov5642_if_test/IMAGE_CAPTURE_FSM/i_EN
+add wave -noupdate -expand -group IMAGE_CAPTURE_CONTROL /ov5642_if_test/IMAGE_CAPTURE_FSM/o_RST
+add wave -noupdate -expand -group IMAGE_CAPTURE_CONTROL /ov5642_if_test/IMAGE_CAPTURE_FSM/o_PWDN
+add wave -noupdate -expand -group IMAGE_CAPTURE_CONTROL /ov5642_if_test/IMAGE_CAPTURE_FSM/o_IMAGE_DATA
+add wave -noupdate -expand -group IMAGE_CAPTURE_CONTROL /ov5642_if_test/IMAGE_CAPTURE_FSM/o_PIXEL_VALID
+add wave -noupdate -expand -group IMAGE_CAPTURE_CONTROL /ov5642_if_test/IMAGE_CAPTURE_FSM/o_X_POS
+add wave -noupdate -expand -group IMAGE_CAPTURE_CONTROL /ov5642_if_test/IMAGE_CAPTURE_FSM/o_Y_POS
+add wave -noupdate -expand -group IMAGE_CAPTURE_CONTROL /ov5642_if_test/IMAGE_CAPTURE_FSM/o_PIXEL_NUMBER
+add wave -noupdate -expand -group IMAGE_CAPTURE_CONTROL /ov5642_if_test/IMAGE_CAPTURE_FSM/IMAGE_DATA_INT
+add wave -noupdate -expand -group IMAGE_CAPTURE_CONTROL /ov5642_if_test/IMAGE_CAPTURE_FSM/PIXEL_VALID_INT
+add wave -noupdate -expand -group IMAGE_CAPTURE_CONTROL /ov5642_if_test/IMAGE_CAPTURE_FSM/PIXEL_NUMBER_INT
+add wave -noupdate -expand -group IMAGE_CAPTURE_CONTROL /ov5642_if_test/IMAGE_CAPTURE_FSM/X_POS_INT
+add wave -noupdate -expand -group IMAGE_CAPTURE_CONTROL /ov5642_if_test/IMAGE_CAPTURE_FSM/Y_POS_INT
+add wave -noupdate -expand -group IMAGE_CAPTURE_CONTROL /ov5642_if_test/IMAGE_CAPTURE_FSM/execute_flag
+add wave -noupdate -expand -group IMAGE_CAPTURE_CONTROL /ov5642_if_test/IMAGE_CAPTURE_FSM/RST_INT
+add wave -noupdate -expand -group IMAGE_CAPTURE_CONTROL /ov5642_if_test/IMAGE_CAPTURE_FSM/PWDN_INT
+add wave -noupdate -expand -group IMAGE_CAPTURE_CONTROL /ov5642_if_test/IMAGE_CAPTURE_FSM/data_width
+add wave -noupdate -expand -group IMAGE_CAPTURE_CONTROL /ov5642_if_test/IMAGE_CAPTURE_FSM/i_not_almost_full
+add wave -noupdate -expand -group IMAGE_CAPTURE_CONTROL /ov5642_if_test/IMAGE_CAPTURE_FSM/o_debug_state
+add wave -noupdate -expand -group IMAGE_CAPTURE_CONTROL /ov5642_if_test/IMAGE_CAPTURE_FSM/frame_done
+add wave -noupdate -expand -group IMAGE_CAPTURE_CONTROL /ov5642_if_test/IMAGE_CAPTURE_FSM/current_state
+add wave -noupdate -expand -group IMAGE_CAPTURE_CONTROL /ov5642_if_test/IMAGE_CAPTURE_FSM/next_state
 add wave -noupdate -group COMPARE_MATLAB /ov5642_if_test/COMPARE_MATLAB/sys_clk
 add wave -noupdate -group COMPARE_MATLAB /ov5642_if_test/COMPARE_MATLAB/enable
 add wave -noupdate -group COMPARE_MATLAB /ov5642_if_test/COMPARE_MATLAB/reset_n
@@ -147,9 +151,13 @@ add wave -noupdate -expand -group VGA /ov5642_if_test/VGA/h_sync
 add wave -noupdate -expand -group VGA /ov5642_if_test/VGA/h_end
 add wave -noupdate -expand -group VGA /ov5642_if_test/VGA/v_end
 add wave -noupdate -expand -group VGA /ov5642_if_test/VGA/video_on
+add wave -noupdate -expand -group VGA /ov5642_if_test/VGA/i_not_almost_empty
+add wave -noupdate -expand -group VGA /ov5642_if_test/VGA/i_almost_full
+add wave -noupdate -expand -group VGA /ov5642_if_test/VGA/current_state
+add wave -noupdate -expand -group VGA /ov5642_if_test/VGA/next_state
 add wave -noupdate -expand -group VGA /ov5642_if_test/VGA/vga_data
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {192 ns} 0}
+WaveRestoreCursors {{Cursor 1} {3124 ns} 0}
 quietly wave cursor active 1
 configure wave -namecolwidth 261
 configure wave -valuecolwidth 100
@@ -165,4 +173,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ns
 update
-WaveRestoreZoom {0 ns} {630 ns}
+WaveRestoreZoom {0 ns} {393375 ns}

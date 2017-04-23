@@ -8,9 +8,12 @@ entity vga_sync is
    		i_reset_n	: in std_logic;	 
 		i_vga_data	: in std_logic_vector(9 downto 0); 	  
 		i_not_almost_empty : in std_logic; 
+		i_almost_full	: in std_logic;  
+		i_valid 		: in std_logic; 
       	o_hsync     : out std_logic; 
 		o_vsync		: out std_logic;
         o_video_on    : out std_logic; 
+		o_read_en 		: out std_logic; 
 		--p_tick		: out std_logic;
       	o_pixel_x  	: out std_logic_vector(9 downto 0); 
 		o_pixel_y	: out std_logic_vector(9 downto 0); 
@@ -43,8 +46,15 @@ architecture arch of vga_sync is
    signal video_on			: std_logic; 	
    
    signal vga_data			: std_logic_vector(11 downto 0); 
+   signal wait_counter 		: integer; 	  
+   signal read_en			: std_logic; 
    
    
+
+	type state_type is (IDLE, SEND_READ, OPERATIONAL); 
+	
+	signal current_state : state_type; 	 	 
+	signal next_state : state_type;		
 begin	
 	
 	
@@ -74,99 +84,156 @@ begin
    o_pixel_x <= std_logic_vector(h_count);
    o_pixel_y <= std_logic_vector(v_count);
    o_video_on <= video_on; 
-   o_vga_data <= vga_data; 	  
+   o_vga_data <= vga_data; 	 
+   o_read_en <= read_en; 
    
-   comb_logic: process(all) 	
-   begin  
-	   
-	   if h_count=(HD+HF+HB+HR-1) or i_not_almost_empty = '0' then 
-		   h_end <= '1'; 
-	   else 
-		   h_end <= '0'; 
+   state_transition: process(i_clk, i_reset_n) 
+   begin 
+	   if(i_reset_n = '0') then 
+		   current_state <= IDLE; 
+	   elsif(rising_edge(i_clk))then 
+		   current_state <= next_state;
 	   end if; 
+   end process; 
 	   
-	   if v_count=(VD+VF+VB+VR-1) or i_not_almost_empty = '0' then 
-		   v_end <= '1'; 
-	   else 
-		   v_end <= '0'; 
-	   end if; 
+   
+   next_state_comb: process(all) 	
+   begin   
+	   h_end <= '0'; 
+	   v_end <= '0'; 
+	   video_on <= '0'; 
+	   vga_data <= (others => '0');   
+	   read_en <= '0'; 
 	   
-	   if( (h_count<HD) and (v_count<VD) and i_not_almost_empty = '1') then 
-		   video_on <= '1'; 
-	   else
-		   video_on <= '0'; 
-	   end if; 	 
-	   
-	   if (video_on = '1') then 
-		   vga_data <= "00" & i_vga_data; 
-	   else 
-		   vga_data <= (others => '0'); 
-	   end if; 
-	   
-	   
-	   
+	   case current_state is 
+		   when IDLE =>	
+		       read_en <= '0'; 
+		   
+			   if (i_not_almost_empty = '1' and wait_counter > 100) then 
+				   next_state <= OPERATIONAL; 
+			   else 
+				   next_state <= IDLE; 
+			   end if; 
+			   
+		   when SEND_READ => 
+		   	   read_en <= '1'; 
+		   
+		   
+		   when OPERATIONAL => 	 
+			   read_en <= video_on; 
+
+		   	   next_state <= OPERATIONAL; 
+		   
+			   if (h_count=(HD+HF+HB+HR-1))then -- or i_not_almost_empty = '0' then 
+				   h_end <= '1'; 
+			   end if; 
+			   
+			   if (v_count=(VD+VF+VB+VR-1)) then -- or i_not_almost_empty = '0' then 
+				   v_end <= '1'; 
+			   end if; 
+			   
+			   if( (h_count<HD) and (v_count<VD)) then -- and i_not_almost_empty = '1') then 
+				   video_on <= '1'; 
+			   end if; 	 
+			   
+			   if (video_on = '1') then 
+				   vga_data <= "00" & i_vga_data; 
+			   end if; 
+				   
+		   when others => 
+		  	 next_state <= IDLE; 
+		   
+	   	end case; 
+
    end process; 
    
    
 
 	  
    -- mod-800 horizontal sync counter
-   column_counter: process (i_clk,i_reset_n)
+   row_column_counter: process (i_clk,i_reset_n)
    begin
       if (i_reset_n = '0') then 	
 		  h_count <= (others => '0');  
 		  h_sync <= '0'; 
-		  
+		  v_count <= (others => '0'); 	 
+		  v_sync <= '0'; 
+		  wait_counter <= 0;  
+		  --video_on 	<= '0'; 
 	  elsif (rising_edge(i_clk)) then  -- 25 MHz tick	
-		  if(h_count >= (HD+HF) 				 --656
-			  and h_count <= (HD+HF+HR-1)) then  --751
+		  h_count <= h_count; 
+		  h_sync <= h_sync; 
+		  v_count <= v_count; 
+		  v_sync <= v_sync;  
+		  wait_counter <= wait_counter;  
+		  --video_on <= video_on; 
+		  
+		  
+		  case current_state is 
 			  
-			  h_sync <= '1'; 
-		  else 
-			  h_sync <= '0'; 
-		  end if; 
-		  
-	  
-         if h_end='1' then
-            h_count <= (others=>'0');
-         else
-            h_count <= h_count + 1;
-         end if;
-      else
-         h_count <= h_count;
-      end if;
-   end process;	
-   
-   -- mod-525 vertical sync counter
-   row_counter: process (i_clk,i_reset_n)
-   begin	
-	   if(i_reset_n = '0') then 
-		   v_count <= (others => '0'); 	 
-		   v_sync <= '0'; 
-	   elsif(rising_edge(i_clk)) then 
-		   
-		   if(v_count >= (VD+VF) 				--490
-			  and v_count <= (VD+VF+VR-1)) then --491 	 
-			   
-			   v_sync <= '1'; 
-		   else
-			   v_sync <= '0'; 
-		   end if; 
+			  when IDLE => 
+				  h_count <= (others => '0');  
+				  h_sync <= '0'; 
+				  v_count <= (others => '0'); 	 
+				  v_sync <= '0';	 
+				  --video_on <= '0'; 
+				  
+				  wait_counter <= wait_counter + 1; 
+			  
+			  when OPERATIONAL =>  
+			  		wait_counter <= 0;  
+			  
+--				   if( (h_count<HD) and (v_count<VD)) then -- and i_not_almost_empty = '1') then 
+--					   video_on <= '1'; 
+--				   end if; 	
+			  
+				  if(h_count >= (HD+HF) 				 --656
+					  and h_count <= (HD+HF+HR-1)) then  --751
+					  
+					  h_sync <= '1'; 
+				  else 
+					  h_sync <= '0'; 
+				  end if; 
+				  
+			  
+		          if h_end='1' then
+		             h_count <= (others=>'0');
+		          else
+		             h_count <= h_count + 1;
+		          end if; 
+				 
+				 
+		
 				   
-	      if h_end='1' then
-	         if (v_end='1') then
-	            v_count <= (others=>'0');
-	         else
-	            v_count <= v_count + 1;
-	         end if;
-	      else
-	         v_count <= v_count;
-	      end if;  
-		  
-		end if; 
-		  
-   end process;	  
-   
+				  if(v_count >= (VD+VF) 				--490
+					 and v_count <= (VD+VF+VR-1)) then --491 	 
+					   
+					  v_sync <= '1'; 
+				  else
+					  v_sync <= '0'; 
+				  end if; 
+						   
+			      if h_end='1' then
+			         if (v_end='1') then
+			            v_count <= (others=>'0');
+			         else
+			            v_count <= v_count + 1;
+			         end if;
+			      else
+			         v_count <= v_count;
+			      end if; 	
+				  
+			  when others => 
+				  h_count <= (others => '1');  
+				  h_sync <= '1'; 
+				  v_count <= (others => '1'); 	 
+				  v_sync <= '1';   
+				  
+		end case; 
+
+      end if; 
+	  
+   end process;	
    
 
 end arch;

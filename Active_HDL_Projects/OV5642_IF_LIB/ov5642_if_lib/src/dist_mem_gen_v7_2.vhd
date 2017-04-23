@@ -42,7 +42,7 @@ LIBRARY XilinxCoreLib;
 -- synthesis translate_on
 ENTITY dist_mem_gen_v7_2 IS
   PORT (
-    a : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
+    a : IN STD_LOGIC_VECTOR(10 DOWNTO 0);
     d : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     clk : IN STD_LOGIC;
     we : IN STD_LOGIC;
@@ -54,7 +54,7 @@ ARCHITECTURE dist_mem_gen_v7_2_a OF dist_mem_gen_v7_2 IS
 -- synthesis translate_off
 COMPONENT wrapped_dist_mem_gen_v7_2
   PORT (
-    a : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
+    a : IN STD_LOGIC_VECTOR(10 DOWNTO 0);
     d : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     clk : IN STD_LOGIC;
     we : IN STD_LOGIC;
@@ -65,9 +65,9 @@ END COMPONENT;
 -- Configuration specification
   FOR ALL : wrapped_dist_mem_gen_v7_2 USE ENTITY XilinxCoreLib.dist_mem_gen_v7_2(behavioral)
     GENERIC MAP (
-      c_addr_width => 10,
+      c_addr_width => 11,
       c_default_data => "0",
-      c_depth => 528,
+      c_depth => 2048,
       c_family => "zynq",
       c_has_clk => 1,
       c_has_d => 1,
