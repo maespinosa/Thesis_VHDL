@@ -1,4 +1,6 @@
-126
+172
+~E 1 "./../src/accumulator.vhd" 29 accumulator
+~A 1 "./../src/accumulator.vhd" 80 arch
 ~E 1 "./../src/conv_input_buffer.vhd" 43 conv_input_buffer
 ~A 1 "./../src/conv_input_buffer.vhd" 64 conv_input_buffer_a
 ~E 1 "./../src/conv_multiplier.vhd" 43 conv_multiplier
@@ -6,13 +8,13 @@
 ~E 1 "./../src/conv_output_buffer.vhd" 43 conv_output_buffer
 ~A 1 "./../src/conv_output_buffer.vhd" 64 conv_output_buffer_a
 ~E 1 "./../src/Convolution_Controller.vhd" 28 Convolution_Controller
-~A 1 "./../src/Convolution_Controller.vhd" 67 arch
+~A 1 "./../src/Convolution_Controller.vhd" 95 arch
 ~E 1 "./../compile/Convolution_Layer_Top.vhd" 28 Convolution_Layer_Top
 ~A 1 "./../compile/Convolution_Layer_Top.vhd" 31 arch
 ~E 1 "./../compile/filter_top.vhd" 28 filter_top
-~A 1 "./../compile/filter_top.vhd" 42 arch
+~A 1 "./../compile/filter_top.vhd" 54 arch
 ~E 1 "./../src/input_fifo_net_controller.vhd" 28 input_fifo_net_controller
-~A 1 "./../src/input_fifo_net_controller.vhd" 100 arch
+~A 1 "./../src/input_fifo_net_controller.vhd" 101 arch
 ~E 1 "./../compile/input_fifo_network.vhd" 28 input_fifo_network
 ~A 1 "./../compile/input_fifo_network.vhd" 88 arch
 ~E 1 "./../src/input_network_colors.vhd" 29 input_network_colors
@@ -21,3 +23,5 @@
 ~A 1 "./../src/input_network_fifo.vhd" 64 input_network_fifo_a
 ~E 1 "./../compile/multiplier_bank.vhd" 28 multiplier_bank
 ~A 1 "./../compile/multiplier_bank.vhd" 72 arch
+~E 1 "./../src/relu_unit.vhd" 30 relu_unit
+~A 1 "./../src/relu_unit.vhd" 52 arch

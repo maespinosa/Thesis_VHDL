@@ -66,6 +66,8 @@ Selected=
 /output_fifo_network.bde=-1
 /input_network_colors.vhd=-1
 /multiplier_bank.bde=-1
+/accumulator.vhd=-1
+/relu_unit.vhd=-1
 
 [Files.Data]
 .\src\Convolution_Controller.vhd=VHDL Source Code
@@ -80,7 +82,11 @@ Selected=
 .\src\output_fifo_network.bde=Block Diagram
 .\src\input_network_colors.vhd=VHDL Source Code
 .\src\multiplier_bank.bde=Block Diagram
+.\src\accumulator.vhd=VHDL Source Code
+.\src\relu_unit.vhd=VHDL Source Code
 
+[file_out:/Convolution_Layer_Top.bde]
+/..\compile\Convolution_Layer_Top.vhd=-1
 
 [file_out:/filter_top.bde]
 /..\compile\filter_top.vhd=-1
@@ -91,5 +97,3 @@ Selected=
 [file_out:/multiplier_bank.bde]
 /..\compile\multiplier_bank.vhd=-1
 
-[file_out:/Convolution_Layer_Top.bde]
-/..\compile\Convolution_Layer_Top.vhd=-1

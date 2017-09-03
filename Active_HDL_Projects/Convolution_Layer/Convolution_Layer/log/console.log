@@ -1,218 +1,180 @@
 # ELBREAD: Elaboration process.
-# ELBREAD: Elaboration time 0.2 [s].
-acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/input_network_colors.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\input_network_colors.vhd
-# Compile Entity "input_network_colors"
-# Error: COMP96_0018: input_network_colors.vhd : (35, 2): Identifier expected.
-# Error: COMP96_0018: input_network_colors.vhd : (89, 1): Identifier expected.
-# Error: COMP96_0015: input_network_colors.vhd : (89, 1): ')' expected.
-# Error: COMP96_0015: input_network_colors.vhd : (89, 1): ';' expected.
-# Error: COMP96_0019: input_network_colors.vhd : (89, 5): Keyword 'end' expected.
-# Compile Architecture "arch" of Entity "input_network_colors"
-# Error: COMP96_0056: input_network_colors.vhd : (93, 1): Cannot find referenced entity declaration "input_network_colors".
-# Compile failure 6 Errors 0 Warnings  Analysis time :  0.1 [s]
-acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/input_network_colors.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\input_network_colors.vhd
-# Compile Entity "input_network_colors"
-# Error: COMP96_0018: input_network_colors.vhd : (89, 1): Identifier expected.
-# Error: COMP96_0015: input_network_colors.vhd : (89, 1): ')' expected.
-# Error: COMP96_0015: input_network_colors.vhd : (89, 1): ';' expected.
-# Error: COMP96_0019: input_network_colors.vhd : (89, 5): Keyword 'end' expected.
-# Compile Architecture "arch" of Entity "input_network_colors"
-# Error: COMP96_0056: input_network_colors.vhd : (93, 1): Cannot find referenced entity declaration "input_network_colors".
-# Compile failure 5 Errors 0 Warnings  Analysis time :  15.0 [ms]
-acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/input_network_colors.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\input_network_colors.vhd
-# Compile Entity "input_network_colors"
-# Compile Architecture "arch" of Entity "input_network_colors"
-# Compile success 0 Errors 0 Warnings  Analysis time :  0.3 [s]
-acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/input_network_colors.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\input_network_colors.vhd
-# Compile Entity "input_network_colors"
-# Compile Architecture "arch" of Entity "input_network_colors"
-# Compile success 0 Errors 0 Warnings  Analysis time :  31.0 [ms]
-acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/input_fifo_network.bde
-# DRC: Checking file 'C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\input_fifo_network.bde'.
-# DRC: Warning: input_fifo_network.bde - 0 error(s), 21 warning(s)
+# ELBREAD: Elaboration time 0.0 [s].
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/filter_top.bde
+# DRC: Checking file 'c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\filter_top.bde'.
+# DRC: Error: filter_top.bde - 33 error(s), 67 warning(s)
+# DRC: DRC process completed in 1 second(s).
+# DRC: The results have been written to the log file. Double click on this line to view the log.
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/filter_top.bde
+# DRC: Checking file 'c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\filter_top.bde'.
+# DRC: Warning: filter_top.bde - 0 error(s), 100 warning(s)
 # DRC: DRC process completed in 2 second(s).
 # DRC: The results have been written to the log file. Double click on this line to view the log.
-# Generating C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\compile\input_fifo_network.vhd from C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\input_fifo_network.bde ...
+# Generating c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\compile\filter_top.vhd from c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\filter_top.bde ...
 # Generation successful
 # Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: .\..\compile\input_fifo_network.vhd
-# Compile Entity "input_fifo_network"
-# Error: COMP96_0078: input_fifo_network.bde(input_fifo_network.vhd) : (46, 44): Unknown identifier "blue_bits".
-# Error: COMP96_0133: input_fifo_network.bde(input_fifo_network.vhd) : (46, 44): Cannot find object declaration.
-# Error: COMP96_0094: input_fifo_network.bde(input_fifo_network.vhd) : (46, 44): Locally static expression is required in the range definition.
-# Error: COMP96_0078: input_fifo_network.bde(input_fifo_network.vhd) : (47, 45): Unknown identifier "green_bits".
-# Error: COMP96_0133: input_fifo_network.bde(input_fifo_network.vhd) : (47, 45): Cannot find object declaration.
-# Error: COMP96_0094: input_fifo_network.bde(input_fifo_network.vhd) : (47, 45): Locally static expression is required in the range definition.
-# Error: COMP96_0078: input_fifo_network.bde(input_fifo_network.vhd) : (48, 43): Unknown identifier "red_bits".
-# Error: COMP96_0133: input_fifo_network.bde(input_fifo_network.vhd) : (48, 43): Cannot find object declaration.
-# Error: COMP96_0094: input_fifo_network.bde(input_fifo_network.vhd) : (48, 43): Locally static expression is required in the range definition.
-# Error: COMP96_0078: input_fifo_network.bde(input_fifo_network.vhd) : (49, 45): Unknown identifier "blue_bits".
-# Error: COMP96_0133: input_fifo_network.bde(input_fifo_network.vhd) : (49, 45): Cannot find object declaration.
-# Error: COMP96_0094: input_fifo_network.bde(input_fifo_network.vhd) : (49, 45): Locally static expression is required in the range definition.
-# Error: COMP96_0078: input_fifo_network.bde(input_fifo_network.vhd) : (50, 46): Unknown identifier "green_bits".
-# Error: COMP96_0133: input_fifo_network.bde(input_fifo_network.vhd) : (50, 46): Cannot find object declaration.
-# Error: COMP96_0094: input_fifo_network.bde(input_fifo_network.vhd) : (50, 46): Locally static expression is required in the range definition.
-# Error: COMP96_0078: input_fifo_network.bde(input_fifo_network.vhd) : (51, 44): Unknown identifier "red_bits".
-# Error: COMP96_0133: input_fifo_network.bde(input_fifo_network.vhd) : (51, 44): Cannot find object declaration.
-# Error: COMP96_0094: input_fifo_network.bde(input_fifo_network.vhd) : (51, 44): Locally static expression is required in the range definition.
-# Error: COMP96_0078: input_fifo_network.bde(input_fifo_network.vhd) : (52, 44): Unknown identifier "blue_bits".
-# Error: COMP96_0133: input_fifo_network.bde(input_fifo_network.vhd) : (52, 44): Cannot find object declaration.
-# Error: COMP96_0094: input_fifo_network.bde(input_fifo_network.vhd) : (52, 44): Locally static expression is required in the range definition.
-# Error: COMP96_0078: input_fifo_network.bde(input_fifo_network.vhd) : (53, 45): Unknown identifier "green_bits".
-# Error: COMP96_0133: input_fifo_network.bde(input_fifo_network.vhd) : (53, 45): Cannot find object declaration.
-# Error: COMP96_0094: input_fifo_network.bde(input_fifo_network.vhd) : (53, 45): Locally static expression is required in the range definition.
-# Error: COMP96_0078: input_fifo_network.bde(input_fifo_network.vhd) : (54, 43): Unknown identifier "red_bits".
-# Error: COMP96_0133: input_fifo_network.bde(input_fifo_network.vhd) : (54, 43): Cannot find object declaration.
-# Error: COMP96_0094: input_fifo_network.bde(input_fifo_network.vhd) : (54, 43): Locally static expression is required in the range definition.
-# Error: COMP96_0078: input_fifo_network.bde(input_fifo_network.vhd) : (55, 44): Unknown identifier "blue_bits".
-# Error: COMP96_0133: input_fifo_network.bde(input_fifo_network.vhd) : (55, 44): Cannot find object declaration.
-# Error: COMP96_0094: input_fifo_network.bde(input_fifo_network.vhd) : (55, 44): Locally static expression is required in the range definition.
-# Error: COMP96_0078: input_fifo_network.bde(input_fifo_network.vhd) : (56, 45): Unknown identifier "green_bits".
-# Error: COMP96_0133: input_fifo_network.bde(input_fifo_network.vhd) : (56, 45): Cannot find object declaration.
-# Error: COMP96_0094: input_fifo_network.bde(input_fifo_network.vhd) : (56, 45): Locally static expression is required in the range definition.
-# Error: COMP96_0078: input_fifo_network.bde(input_fifo_network.vhd) : (57, 43): Unknown identifier "red_bits".
-# Error: COMP96_0133: input_fifo_network.bde(input_fifo_network.vhd) : (57, 43): Cannot find object declaration.
-# Error: COMP96_0094: input_fifo_network.bde(input_fifo_network.vhd) : (57, 43): Locally static expression is required in the range definition.
-# Error: COMP96_0078: input_fifo_network.bde(input_fifo_network.vhd) : (58, 44): Unknown identifier "blue_bits".
-# Error: COMP96_0133: input_fifo_network.bde(input_fifo_network.vhd) : (58, 44): Cannot find object declaration.
-# Error: COMP96_0094: input_fifo_network.bde(input_fifo_network.vhd) : (58, 44): Locally static expression is required in the range definition.
-# Error: COMP96_0078: input_fifo_network.bde(input_fifo_network.vhd) : (59, 45): Unknown identifier "green_bits".
-# Error: COMP96_0133: input_fifo_network.bde(input_fifo_network.vhd) : (59, 45): Cannot find object declaration.
-# Error: COMP96_0094: input_fifo_network.bde(input_fifo_network.vhd) : (59, 45): Locally static expression is required in the range definition.
-# Error: COMP96_0078: input_fifo_network.bde(input_fifo_network.vhd) : (60, 43): Unknown identifier "red_bits".
-# Error: COMP96_0133: input_fifo_network.bde(input_fifo_network.vhd) : (60, 43): Cannot find object declaration.
-# Error: COMP96_0094: input_fifo_network.bde(input_fifo_network.vhd) : (60, 43): Locally static expression is required in the range definition.
-# Error: COMP96_0078: input_fifo_network.bde(input_fifo_network.vhd) : (61, 44): Unknown identifier "blue_bits".
-# Error: COMP96_0133: input_fifo_network.bde(input_fifo_network.vhd) : (61, 44): Cannot find object declaration.
-# Error: COMP96_0094: input_fifo_network.bde(input_fifo_network.vhd) : (61, 44): Locally static expression is required in the range definition.
-# Error: COMP96_0078: input_fifo_network.bde(input_fifo_network.vhd) : (62, 45): Unknown identifier "green_bits".
-# Error: COMP96_0133: input_fifo_network.bde(input_fifo_network.vhd) : (62, 45): Cannot find object declaration.
-# Error: COMP96_0094: input_fifo_network.bde(input_fifo_network.vhd) : (62, 45): Locally static expression is required in the range definition.
-# Error: COMP96_0078: input_fifo_network.bde(input_fifo_network.vhd) : (63, 43): Unknown identifier "red_bits".
-# Error: COMP96_0133: input_fifo_network.bde(input_fifo_network.vhd) : (63, 43): Cannot find object declaration.
-# Error: COMP96_0094: input_fifo_network.bde(input_fifo_network.vhd) : (63, 43): Locally static expression is required in the range definition.
-# Error: COMP96_0078: input_fifo_network.bde(input_fifo_network.vhd) : (64, 44): Unknown identifier "blue_bits".
-# Error: COMP96_0133: input_fifo_network.bde(input_fifo_network.vhd) : (64, 44): Cannot find object declaration.
-# Error: COMP96_0094: input_fifo_network.bde(input_fifo_network.vhd) : (64, 44): Locally static expression is required in the range definition.
-# Error: COMP96_0078: input_fifo_network.bde(input_fifo_network.vhd) : (65, 45): Unknown identifier "green_bits".
-# Error: COMP96_0133: input_fifo_network.bde(input_fifo_network.vhd) : (65, 45): Cannot find object declaration.
-# Error: COMP96_0094: input_fifo_network.bde(input_fifo_network.vhd) : (65, 45): Locally static expression is required in the range definition.
-# Error: COMP96_0078: input_fifo_network.bde(input_fifo_network.vhd) : (66, 43): Unknown identifier "red_bits".
-# Error: COMP96_0133: input_fifo_network.bde(input_fifo_network.vhd) : (66, 43): Cannot find object declaration.
-# Error: COMP96_0094: input_fifo_network.bde(input_fifo_network.vhd) : (66, 43): Locally static expression is required in the range definition.
-# Error: COMP96_0078: input_fifo_network.bde(input_fifo_network.vhd) : (67, 44): Unknown identifier "blue_bits".
-# Error: COMP96_0133: input_fifo_network.bde(input_fifo_network.vhd) : (67, 44): Cannot find object declaration.
-# Error: COMP96_0094: input_fifo_network.bde(input_fifo_network.vhd) : (67, 44): Locally static expression is required in the range definition.
-# Error: COMP96_0078: input_fifo_network.bde(input_fifo_network.vhd) : (68, 45): Unknown identifier "green_bits".
-# Error: COMP96_0133: input_fifo_network.bde(input_fifo_network.vhd) : (68, 45): Cannot find object declaration.
-# Error: COMP96_0094: input_fifo_network.bde(input_fifo_network.vhd) : (68, 45): Locally static expression is required in the range definition.
-# Error: COMP96_0078: input_fifo_network.bde(input_fifo_network.vhd) : (69, 43): Unknown identifier "red_bits".
-# Error: COMP96_0133: input_fifo_network.bde(input_fifo_network.vhd) : (69, 43): Cannot find object declaration.
-# Error: COMP96_0094: input_fifo_network.bde(input_fifo_network.vhd) : (69, 43): Locally static expression is required in the range definition.
-# Error: COMP96_0078: input_fifo_network.bde(input_fifo_network.vhd) : (70, 44): Unknown identifier "blue_bits".
-# Error: COMP96_0133: input_fifo_network.bde(input_fifo_network.vhd) : (70, 44): Cannot find object declaration.
-# Error: COMP96_0094: input_fifo_network.bde(input_fifo_network.vhd) : (70, 44): Locally static expression is required in the range definition.
-# Error: COMP96_0078: input_fifo_network.bde(input_fifo_network.vhd) : (71, 45): Unknown identifier "green_bits".
-# Error: COMP96_0133: input_fifo_network.bde(input_fifo_network.vhd) : (71, 45): Cannot find object declaration.
-# Error: COMP96_0094: input_fifo_network.bde(input_fifo_network.vhd) : (71, 45): Locally static expression is required in the range definition.
-# Error: COMP96_0078: input_fifo_network.bde(input_fifo_network.vhd) : (72, 43): Unknown identifier "red_bits".
-# Error: COMP96_0133: input_fifo_network.bde(input_fifo_network.vhd) : (72, 43): Cannot find object declaration.
-# Error: COMP96_0094: input_fifo_network.bde(input_fifo_network.vhd) : (72, 43): Locally static expression is required in the range definition.
-# Error: COMP96_0078: input_fifo_network.bde(input_fifo_network.vhd) : (73, 44): Unknown identifier "blue_bits".
-# Error: COMP96_0133: input_fifo_network.bde(input_fifo_network.vhd) : (73, 44): Cannot find object declaration.
-# Error: COMP96_0094: input_fifo_network.bde(input_fifo_network.vhd) : (73, 44): Locally static expression is required in the range definition.
-# Error: COMP96_0078: input_fifo_network.bde(input_fifo_network.vhd) : (74, 45): Unknown identifier "green_bits".
-# Error: COMP96_0133: input_fifo_network.bde(input_fifo_network.vhd) : (74, 45): Cannot find object declaration.
-# Error: COMP96_0094: input_fifo_network.bde(input_fifo_network.vhd) : (74, 45): Locally static expression is required in the range definition.
-# Error: COMP96_0078: input_fifo_network.bde(input_fifo_network.vhd) : (75, 43): Unknown identifier "red_bits".
-# Error: COMP96_0133: input_fifo_network.bde(input_fifo_network.vhd) : (75, 43): Cannot find object declaration.
-# Error: COMP96_0094: input_fifo_network.bde(input_fifo_network.vhd) : (75, 43): Locally static expression is required in the range definition.
-# Error: COMP96_0078: input_fifo_network.bde(input_fifo_network.vhd) : (76, 44): Unknown identifier "blue_bits".
-# Error: COMP96_0133: input_fifo_network.bde(input_fifo_network.vhd) : (76, 44): Cannot find object declaration.
-# Error: COMP96_0094: input_fifo_network.bde(input_fifo_network.vhd) : (76, 44): Locally static expression is required in the range definition.
-# Error: COMP96_0078: input_fifo_network.bde(input_fifo_network.vhd) : (77, 45): Unknown identifier "green_bits".
-# Error: COMP96_0133: input_fifo_network.bde(input_fifo_network.vhd) : (77, 45): Cannot find object declaration.
-# Error: COMP96_0094: input_fifo_network.bde(input_fifo_network.vhd) : (77, 45): Locally static expression is required in the range definition.
-# Error: COMP96_0078: input_fifo_network.bde(input_fifo_network.vhd) : (78, 43): Unknown identifier "red_bits".
-# Error: COMP96_0133: input_fifo_network.bde(input_fifo_network.vhd) : (78, 43): Cannot find object declaration.
-# Error: COMP96_0094: input_fifo_network.bde(input_fifo_network.vhd) : (78, 43): Locally static expression is required in the range definition.
-# Compile Architecture "arch" of Entity "input_fifo_network"
-# Too many errors - compilation terminated
-# Error: COMP96_0078: input_fifo_network.bde(input_fifo_network.vhd) : (168, 33): Unknown identifier "g_data_width".
-# Compile failure 100 Errors 0 Warnings  Analysis time :  0.2 [s]
-# filter_top.bde: Updating instances of symbol 'input_fifo_network' from library 'Convolution_Layer' (U1)
-acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/input_fifo_net_controller.vhd
+# File: .\..\compile\filter_top.vhd
+# Compile Entity "filter_top"
+# Compile Architecture "arch" of Entity "filter_top"
+# Error: COMP96_0078: filter_top.bde(filter_top.vhd) : (466, 24): Unknown identifier "g_gree_bits".
+# Error: COMP96_0133: filter_top.bde(filter_top.vhd) : (466, 24): Cannot find object declaration.
+# Error: COMP96_0104: filter_top.bde(filter_top.vhd) : (466, 8): Undefined type of expression.
+# Compile failure 3 Errors 0 Warnings  Analysis time :  0.2 [s]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/accumulator.vhd
 # Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\input_fifo_net_controller.vhd
-# Compile Entity "input_fifo_net_controller"
-# Compile Architecture "arch" of Entity "input_fifo_net_controller"
-# Compile success 0 Errors 0 Warnings  Analysis time :  32.0 [ms]
-# filter_top.bde: Updating instances of symbol 'input_fifo_net_controller' from library 'Convolution_Layer' (U13)
-acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/input_fifo_network.bde
-# DRC: Checking file 'C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\input_fifo_network.bde'.
-# DRC: Warning: input_fifo_network.bde - 0 error(s), 21 warning(s)
-# DRC: DRC process completed in 2 second(s).
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\accumulator.vhd
+# Compile Entity "accumulator"
+# Compile Architecture "arch" of Entity "accumulator"
+# Compile success 0 Errors 0 Warnings  Analysis time :  62.0 [ms]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/filter_top.bde
+# DRC: Checking file 'c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\filter_top.bde'.
+# DRC: Warning: filter_top.bde - 0 error(s), 100 warning(s)
+# DRC: DRC process completed in 1 second(s).
 # DRC: The results have been written to the log file. Double click on this line to view the log.
-# Generating C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\compile\input_fifo_network.vhd from C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\input_fifo_network.bde ...
+# Generating c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\compile\filter_top.vhd from c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\filter_top.bde ...
 # Generation successful
 # Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: .\..\compile\input_fifo_network.vhd
-# Compile Entity "input_fifo_network"
-# Compile Architecture "arch" of Entity "input_fifo_network"
-# Compile success 0 Errors 0 Warnings  Analysis time :  0.2 [s]
-acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/input_network_colors.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\input_network_colors.vhd
-# Compile Entity "input_network_colors"
-# Compile Architecture "arch" of Entity "input_network_colors"
-# Compile success 0 Errors 0 Warnings  Analysis time :  47.0 [ms]
-# input_fifo_network.bde: Updating instances of symbol 'input_network_colors' from library 'Convolution_Layer' (U2)
+# File: .\..\compile\filter_top.vhd
+# Compile Entity "filter_top"
+# Compile Architecture "arch" of Entity "filter_top"
+# Compile success 0 Errors 0 Warnings  Analysis time :  0.1 [s]
 acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/input_fifo_network.bde
-# DRC: Checking file 'C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\input_fifo_network.bde'.
+# DRC: Checking file 'c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\input_fifo_network.bde'.
 # DRC: Warning: input_fifo_network.bde - 0 error(s), 21 warning(s)
 # DRC: DRC process completed in 2 second(s).
 # DRC: The results have been written to the log file. Double click on this line to view the log.
-# Generating C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\compile\input_fifo_network.vhd from C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\input_fifo_network.bde ...
+# Generating c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\compile\input_fifo_network.vhd from c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\input_fifo_network.bde ...
 # Generation successful
 # Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
 # File: .\..\compile\input_fifo_network.vhd
 # Compile Entity "input_fifo_network"
 # Compile Architecture "arch" of Entity "input_fifo_network"
 # Compile success 0 Errors 0 Warnings  Analysis time :  0.1 [s]
-# filter_top.bde: Updating instances of symbol 'input_fifo_network' from library 'Convolution_Layer' (U1)
-acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/input_fifo_net_controller.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\input_fifo_net_controller.vhd
-# Compile Entity "input_fifo_net_controller"
-# Error: COMP96_0018: input_fifo_net_controller.vhd : (31, 2): Identifier expected.
-# Compile Architecture "arch" of Entity "input_fifo_net_controller"
-# Compile failure 1 Errors 0 Warnings  Analysis time :  16.0 [ms]
-acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/input_fifo_net_controller.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\input_fifo_net_controller.vhd
-# Compile Entity "input_fifo_net_controller"
-# Compile Architecture "arch" of Entity "input_fifo_net_controller"
-# Compile success 0 Errors 0 Warnings  Analysis time :  46.0 [ms]
-# filter_top.bde: Updating instances of symbol 'input_fifo_net_controller' from library 'Convolution_Layer' (U13)
-# Error: You do not have valid license to save diagrams containing more than 30 components.
-# Contact Aldec for ordering information - sales@aldec.com.
-acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/multiplier_bank.bde
-# DRC: Checking file 'C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\multiplier_bank.bde'.
-# DRC: Warning: multiplier_bank.bde - 0 error(s), 33 warning(s)
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/filter_top.bde
+# DRC: Checking file 'c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\filter_top.bde'.
+# DRC: Warning: filter_top.bde - 0 error(s), 67 warning(s)
 # DRC: DRC process completed in 2 second(s).
 # DRC: The results have been written to the log file. Double click on this line to view the log.
-# Generating C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\compile\multiplier_bank.vhd from C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\multiplier_bank.bde ...
+# Generating c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\compile\filter_top.vhd from c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\filter_top.bde ...
 # Generation successful
 # Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: .\..\compile\multiplier_bank.vhd
-# Compile Entity "multiplier_bank"
-# Compile Architecture "arch" of Entity "multiplier_bank"
+# File: .\..\compile\filter_top.vhd
+# Compile Entity "filter_top"
+# Compile Architecture "arch" of Entity "filter_top"
+# Compile success 0 Errors 0 Warnings  Analysis time :  0.2 [s]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/accumulator.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\accumulator.vhd
+# Compile Entity "accumulator"
+# Error: COMP96_0078: accumulator.vhd : (73, 38): Unknown identifier "g_conv_width".
+# Error: COMP96_0133: accumulator.vhd : (73, 38): Cannot find object declaration.
+# Error: COMP96_0094: accumulator.vhd : (73, 38): Locally static expression is required in the range definition.
+# Compile Architecture "arch" of Entity "accumulator"
+# Compile failure 3 Errors 0 Warnings  Analysis time :  1.0 [s]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/accumulator.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\accumulator.vhd
+# Compile Entity "accumulator"
+# Compile Architecture "arch" of Entity "accumulator"
+# Compile success 0 Errors 0 Warnings  Analysis time :  47.0 [ms]
+# filter_top.bde: Updating instances of symbol 'accumulator' from library 'Convolution_Layer' (U2)
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/relu_unit.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\relu_unit.vhd
+# Compile Entity "relu_unit"
+# Compile Architecture "arch" of Entity "relu_unit"
+# Compile success 0 Errors 0 Warnings  Analysis time :  62.0 [ms]
+# Convolution_Layer_Top.bde: Updating instances of symbol 'filter_top' from library 'Convolution_Layer' (U4)
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/input_fifo_net_controller.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\input_fifo_net_controller.vhd
+# Compile Entity "input_fifo_net_controller"
+# Compile Architecture "arch" of Entity "input_fifo_net_controller"
+# Compile success 0 Errors 0 Warnings  Analysis time :  47.0 [ms]
+# filter_top.bde: Updating instances of symbol 'input_fifo_net_controller' from library 'Convolution_Layer' (U13)
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/filter_top.bde
+# DRC: Checking file 'c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\filter_top.bde'.
+# DRC: Warning: filter_top.bde - 0 error(s), 66 warning(s)
+# DRC: DRC process completed in 2 second(s).
+# DRC: The results have been written to the log file. Double click on this line to view the log.
+# Generating c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\compile\filter_top.vhd from c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\filter_top.bde ...
+# Generation successful
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: .\..\compile\filter_top.vhd
+# Compile Entity "filter_top"
+# Compile Architecture "arch" of Entity "filter_top"
+# Compile success 0 Errors 0 Warnings  Analysis time :  0.2 [s]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/Convolution_Controller.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\Convolution_Controller.vhd
+# Compile Entity "Convolution_Controller"
+# Error: COMP96_0078: Convolution_Controller.vhd : (69, 45): Unknown identifier "g_relu_width".
+# Error: COMP96_0133: Convolution_Controller.vhd : (69, 45): Cannot find object declaration.
+# Error: COMP96_0094: Convolution_Controller.vhd : (69, 45): Locally static expression is required in the range definition.
+# Error: COMP96_0078: Convolution_Controller.vhd : (78, 41): Unknown identifier "g_data_width".
+# Error: COMP96_0133: Convolution_Controller.vhd : (78, 41): Cannot find object declaration.
+# Error: COMP96_0094: Convolution_Controller.vhd : (78, 41): Locally static expression is required in the range definition.
+# Compile Architecture "arch" of Entity "Convolution_Controller"
+# Compile failure 6 Errors 0 Warnings  Analysis time :  32.0 [ms]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/Convolution_Controller.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\Convolution_Controller.vhd
+# Compile Entity "Convolution_Controller"
+# Error: COMP96_0018: Convolution_Controller.vhd : (33, 2): Identifier expected.
+# Compile Architecture "arch" of Entity "Convolution_Controller"
+# Compile failure 1 Errors 0 Warnings  Analysis time :  16.0 [ms]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/Convolution_Controller.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\Convolution_Controller.vhd
+# Compile Entity "Convolution_Controller"
+# Compile Architecture "arch" of Entity "Convolution_Controller"
+# Compile success 0 Errors 0 Warnings  Analysis time :  47.0 [ms]
+# Convolution_Layer_Top.bde: Updating instances of symbol 'Convolution_Controller' from library 'Convolution_Layer' (U1)
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/filter_top.bde
+# DRC: Checking file 'c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\filter_top.bde'.
+# DRC: Warning: filter_top.bde - 0 error(s), 66 warning(s)
+# DRC: DRC process completed in 2 second(s).
+# DRC: The results have been written to the log file. Double click on this line to view the log.
+# Generating c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\compile\filter_top.vhd from c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\filter_top.bde ...
+# Generation successful
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: .\..\compile\filter_top.vhd
+# Compile Entity "filter_top"
+# Error: COMP96_0078: filter_top.bde(filter_top.vhd) : (31, 34): Unknown identifier "g_data_width".
+# Error: COMP96_0133: filter_top.bde(filter_top.vhd) : (31, 34): Cannot find object declaration.
+# Error: COMP96_0077: filter_top.bde(filter_top.vhd) : (31, 34): Undefined type of expression. Expected type 'INTEGER'.
+# Error: COMP96_0078: filter_top.bde(filter_top.vhd) : (32, 32): Unknown identifier "g_red_bits".
+# Error: COMP96_0133: filter_top.bde(filter_top.vhd) : (32, 32): Cannot find object declaration.
+# Error: COMP96_0077: filter_top.bde(filter_top.vhd) : (32, 32): Undefined type of expression. Expected type 'INTEGER'.
+# Error: COMP96_0078: filter_top.bde(filter_top.vhd) : (33, 34): Unknown identifier "g_green_bits".
+# Error: COMP96_0133: filter_top.bde(filter_top.vhd) : (33, 34): Cannot find object declaration.
+# Error: COMP96_0077: filter_top.bde(filter_top.vhd) : (33, 34): Undefined type of expression. Expected type 'INTEGER'.
+# Error: COMP96_0078: filter_top.bde(filter_top.vhd) : (34, 33): Unknown identifier "g_blue_bits".
+# Error: COMP96_0133: filter_top.bde(filter_top.vhd) : (34, 33): Cannot find object declaration.
+# Error: COMP96_0077: filter_top.bde(filter_top.vhd) : (34, 33): Undefined type of expression. Expected type 'INTEGER'.
+# Error: COMP96_0078: filter_top.bde(filter_top.vhd) : (35, 36): Unknown identifier "g_weight_width".
+# Error: COMP96_0133: filter_top.bde(filter_top.vhd) : (35, 36): Cannot find object declaration.
+# Error: COMP96_0077: filter_top.bde(filter_top.vhd) : (35, 36): Undefined type of expression. Expected type 'INTEGER'.
+# Error: COMP96_0078: filter_top.bde(filter_top.vhd) : (36, 40): Unknown identifier "g_multiplier_width".
+# Error: COMP96_0133: filter_top.bde(filter_top.vhd) : (36, 40): Cannot find object declaration.
+# Error: COMP96_0077: filter_top.bde(filter_top.vhd) : (36, 40): Undefined type of expression. Expected type 'INTEGER'.
+# Error: COMP96_0078: filter_top.bde(filter_top.vhd) : (37, 37): Unknown identifier "g_product_width".
+# Error: COMP96_0133: filter_top.bde(filter_top.vhd) : (37, 37): Cannot find object declaration.
+# Error: COMP96_0077: filter_top.bde(filter_top.vhd) : (37, 37): Undefined type of expression. Expected type 'INTEGER'.
+# Error: COMP96_0078: filter_top.bde(filter_top.vhd) : (38, 34): Unknown identifier "g_conv_width".
+# Error: COMP96_0133: filter_top.bde(filter_top.vhd) : (38, 34): Cannot find object declaration.
+# Error: COMP96_0077: filter_top.bde(filter_top.vhd) : (38, 34): Undefined type of expression. Expected type 'INTEGER'.
+# Compile Architecture "arch" of Entity "filter_top"
+# Compile failure 24 Errors 0 Warnings  Analysis time :  0.1 [s]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/filter_top.bde
+# DRC: Checking file 'c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\filter_top.bde'.
+# DRC: Warning: filter_top.bde - 0 error(s), 66 warning(s)
+# DRC: DRC process completed in 1 second(s).
+# DRC: The results have been written to the log file. Double click on this line to view the log.
+# Generating c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\compile\filter_top.vhd from c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\filter_top.bde ...
+# Generation successful
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: .\..\compile\filter_top.vhd
+# Compile Entity "filter_top"
+# Compile Architecture "arch" of Entity "filter_top"
 # Compile success 0 Errors 0 Warnings  Analysis time :  0.1 [s]

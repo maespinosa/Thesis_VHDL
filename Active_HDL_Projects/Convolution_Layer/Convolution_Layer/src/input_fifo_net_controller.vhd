@@ -27,7 +27,8 @@ use IEEE.STD_LOGIC_1164.all;
 
 entity input_fifo_net_controller is	   
 	generic(
-	g_weight_width : integer := 16
+	g_weight_width : integer := 16; 
+	g_data_width : integer := 16
 	); 
 	port(
 	i_clk 				: in std_logic; 
@@ -42,7 +43,7 @@ entity input_fifo_net_controller is
 	i_inbuff_prog_empty			: in std_logic; 
 	o_inbuff_prog_empty_thresh 	: out std_logic_vector(9 downto 0); 
 	
-	
+	o_fifo_net_din				: out std_logic_vector(g_data_width-1 downto 0); 
 	o_wr_en						: out std_logic_vector(10 downto 0); 
 	i_full						: in std_logic_vector(10 downto 0); 
 	i_almost_full 				: in std_logic_vector(10 downto 0); 
