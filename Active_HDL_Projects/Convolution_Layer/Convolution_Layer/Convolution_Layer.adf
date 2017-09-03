@@ -49,7 +49,7 @@ UCF=
 WindowVisible=0
 
 [HierarchyViewer]
-HierarchyInformation=convolution_controller|arch|0  
+HierarchyInformation=convolution_controller|arch|0 
 ShowHide=ShowTopLevel
 Selected=
 
@@ -64,6 +64,8 @@ Selected=
 /conv_multiplier.vhd=-1
 /input_fifo_net_controller.vhd=-1
 /output_fifo_network.bde=-1
+/input_network_colors.vhd=-1
+/multiplier_bank.bde=-1
 
 [Files.Data]
 .\src\Convolution_Controller.vhd=VHDL Source Code
@@ -76,13 +78,18 @@ Selected=
 .\src\conv_multiplier.vhd=VHDL Source Code
 .\src\input_fifo_net_controller.vhd=VHDL Source Code
 .\src\output_fifo_network.bde=Block Diagram
+.\src\input_network_colors.vhd=VHDL Source Code
+.\src\multiplier_bank.bde=Block Diagram
 
-[file_out:/Convolution_Layer_Top.bde]
-/..\compile\Convolution_Layer_Top.vhd=-1
 
+[file_out:/filter_top.bde]
+/..\compile\filter_top.vhd=-1
 
 [file_out:/input_fifo_network.bde]
 /..\compile\input_fifo_network.vhd=-1
 
-[file_out:/filter_top.bde]
-/..\compile\filter_top.vhd=-1
+[file_out:/multiplier_bank.bde]
+/..\compile\multiplier_bank.vhd=-1
+
+[file_out:/Convolution_Layer_Top.bde]
+/..\compile\Convolution_Layer_Top.vhd=-1

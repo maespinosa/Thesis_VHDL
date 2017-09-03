@@ -1,0 +1,140 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+
+<!----------------------------------------------------------------------------->
+<!--                          BEGIN HTML HEAD                                -->
+<!--                                                                         -->
+
+<HEAD>
+<TITLE>DRC Report File - multiplier_bank.bde</TITLE>
+<STYLE>
+.Err	{color:#FF0000;cursor:hand;text-decoration:underline;}
+.Warn	{color:#0000FF;cursor:hand;text-decoration:underline;}
+.Info	{color:#000000;cursor:hand;text-decoration:underline;}
+.Sccss  {color:#009600;cursor:hand;text-decoration:underline;}
+.ErrH	{color:#FF0000;cursor:hand;text-decoration:underline;}
+.WarnH	{color:#0000FF;cursor:hand;text-decoration:underline;}
+.InfoH	{color:#000000;cursor:hand;text-decoration:underline;}
+.Err1	{color:#FF0000;}
+.Warn1	{color:#0000FF;}
+.Info1	{color:#000000;}
+.Sccss1 {color:#009600;}
+</STYLE>
+</HEAD>
+<BODY BGCOLOR="white" TEXT="black" LINK="blue" VLINK="purple" BACKGROUND="C:\Aldec\Active-HDL-Student-Edition\\Flows\Res\default.bmp">
+<FONT FACE="Serif">
+<tt>
+<!--                                                                         -->
+<!--                             END HEADER                                  -->
+<!----------------------------------------------------------------------------->
+
+<!----------------------------------------------------------------------------->
+<!--                            BEGIN VBSCRIPT                               -->
+<!--                                                                         -->
+<SCRIPT LANGUAGE=JSCRIPT>
+	function RollOn() {
+		switch(window.event.srcElement.className) {
+			case 'Err':
+				window.event.srcElement.className = 'ErrH'; break;
+			case 'Warn':
+				window.event.srcElement.className = 'WarnH'; break;
+			case 'Info':
+				window.event.srcElement.className = 'InfoH'; break;
+		}
+	}
+	function RollOff() {
+		switch(window.event.srcElement.className) {
+			case 'ErrH':
+				window.event.srcElement.className = 'Err'; break;
+			case 'WarnH':
+				window.event.srcElement.className = 'Warn'; break;
+			case 'InfoH':
+				window.event.srcElement.className = 'Info'; break;
+		}
+	}
+	function OnError(sMsg,sUrl,sLine) {
+		return true;
+	}
+	
+	document.onmouseover = RollOn;
+	document.onmouseout = RollOff;
+	window.onerror = OnError;
+</SCRIPT>
+
+<SCRIPT LANGUAGE=VBSCRIPT>
+
+Function IID_IDispatch
+	IID_IDispatch = "{00020400-0000-0000-C000-000000000046}"
+End Function
+
+Function CLSID_Executor
+	CLSID_Executor = "Aldec.ExePlugIn.Generic.7"
+End Function
+
+
+Sub OpenPlugIn (progid, template, document, element, string)
+
+	Dim executor, command
+
+	Set executor = window.external.aldec.connector.OpenPlugIn(CLSID_Executor, IID_IDispatch)
+
+	command = "?Activate[<"+progid+">][<"+template+">][<"+document+">][<"+element+">][<"+string+">]"
+
+	executor.ExecuteCommand command, ""
+
+End Sub
+
+
+</SCRIPT>
+<!--                                                                         -->
+<!--                             END VBSCRIPT                                -->
+<!----------------------------------------------------------------------------->
+
+<H2>DRC Report File - multiplier_bank.bde</H2>
+
+Created on Sat 2017-09-02 at 21:19:21
+<HR NOSHADE COLOR="#008080">
+<SPAN class=Info1>Checking file 'C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\multiplier_bank.bde'.</SPAN><BR>
+<SPAN class=Info1>
+	<p class = Warn1 style=font-weight:bold;margin-top:0px;margin-bottom:0px>Ambiguous range in net mapping
+	</p><ul style=margin-left:30px;margin-top:0px;margin-bottom:0px>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','C:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\multiplier_bank.bde','','-errorid=6,202');>	'R0' instance: 'a(15:0)' input bus pin and 'i_data0(g_multiplier_width-1:0)' input bus terminal</a></li>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','C:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\multiplier_bank.bde','','-errorid=8,206');>	'R0' instance: 'b(15:0)' input bus pin and 'i_w0(g_multiplier_width-1:0)' input bus terminal</a></li>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','C:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\multiplier_bank.bde','','-errorid=4,424');>	'R0' instance: 'p(31:0)' output bus pin and 'o_product0_red(g_product_width-1:0)' bus signal</a></li>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','C:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\multiplier_bank.bde','','-errorid=6,257');>	'R1' instance: 'a(15:0)' input bus pin and 'i_data1(g_multiplier_width-1:0)' input bus terminal</a></li>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','C:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\multiplier_bank.bde','','-errorid=8,261');>	'R1' instance: 'b(15:0)' input bus pin and 'i_w1(g_multiplier_width-1:0)' input bus terminal</a></li>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','C:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\multiplier_bank.bde','','-errorid=4,420');>	'R1' instance: 'p(31:0)' output bus pin and 'o_product1_red(g_product_width-1:0)' bus signal</a></li>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','C:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\multiplier_bank.bde','','-errorid=6,335');>	'R10' instance: 'a(15:0)' input bus pin and 'i_data10(g_multiplier_width-1:0)' input bus terminal</a></li>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','C:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\multiplier_bank.bde','','-errorid=8,339');>	'R10' instance: 'b(15:0)' input bus pin and 'i_w10(g_multiplier_width-1:0)' input bus terminal</a></li>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','C:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\multiplier_bank.bde','','-errorid=4,384');>	'R10' instance: 'p(31:0)' output bus pin and 'o_product10_red(g_product_width-1:0)' bus signal</a></li>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','C:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\multiplier_bank.bde','','-errorid=6,265');>	'R2' instance: 'a(15:0)' input bus pin and 'i_data2(g_multiplier_width-1:0)' input bus terminal</a></li>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','C:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\multiplier_bank.bde','','-errorid=8,269');>	'R2' instance: 'b(15:0)' input bus pin and 'i_w2_red(g_multiplier_width-1:0)' bus signal</a></li>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','C:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\multiplier_bank.bde','','-errorid=4,416');>	'R2' instance: 'p(31:0)' output bus pin and 'o_product2_red(g_product_width-1:0)' bus signal</a></li>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','C:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\multiplier_bank.bde','','-errorid=6,276');>	'R3' instance: 'a(15:0)' input bus pin and 'i_data3(g_multiplier_width-1:0)' input bus terminal</a></li>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','C:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\multiplier_bank.bde','','-errorid=8,280');>	'R3' instance: 'b(15:0)' input bus pin and 'i_w3(g_multiplier_width-1:0)' input bus terminal</a></li>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','C:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\multiplier_bank.bde','','-errorid=4,412');>	'R3' instance: 'p(31:0)' output bus pin and 'o_product3_red(g_product_width-1:0)' bus signal</a></li>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','C:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\multiplier_bank.bde','','-errorid=6,284');>	'R4' instance: 'a(15:0)' input bus pin and 'i_data4(g_multiplier_width-1:0)' input bus terminal</a></li>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','C:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\multiplier_bank.bde','','-errorid=8,288');>	'R4' instance: 'b(15:0)' input bus pin and 'i_w4(g_multiplier_width-1:0)' input bus terminal</a></li>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','C:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\multiplier_bank.bde','','-errorid=4,408');>	'R4' instance: 'p(31:0)' output bus pin and 'o_product4_red(g_product_width-1:0)' bus signal</a></li>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','C:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\multiplier_bank.bde','','-errorid=6,292');>	'R5' instance: 'a(15:0)' input bus pin and 'i_data5(g_multiplier_width-1:0)' input bus terminal</a></li>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','C:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\multiplier_bank.bde','','-errorid=8,296');>	'R5' instance: 'b(15:0)' input bus pin and 'i_w5(g_multiplier_width-1:0)' input bus terminal</a></li>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','C:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\multiplier_bank.bde','','-errorid=4,404');>	'R5' instance: 'p(31:0)' output bus pin and 'o_product5_red(g_product_width-1:0)' bus signal</a></li>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','C:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\multiplier_bank.bde','','-errorid=6,300');>	'R6' instance: 'a(15:0)' input bus pin and 'i_data6(g_multiplier_width-1:0)' input bus terminal</a></li>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','C:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\multiplier_bank.bde','','-errorid=8,304');>	'R6' instance: 'b(15:0)' input bus pin and 'i_w6(g_multiplier_width-1:0)' input bus terminal</a></li>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','C:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\multiplier_bank.bde','','-errorid=4,400');>	'R6' instance: 'p(31:0)' output bus pin and 'o_product6_red(g_product_width-1:0)' bus signal</a></li>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','C:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\multiplier_bank.bde','','-errorid=6,308');>	'R7' instance: 'a(15:0)' input bus pin and 'i_data7_red(g_multiplier_width-1:0)' bus signal</a></li>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','C:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\multiplier_bank.bde','','-errorid=8,315');>	'R7' instance: 'b(15:0)' input bus pin and 'i_w7(g_multiplier_width-1:0)' input bus terminal</a></li>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','C:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\multiplier_bank.bde','','-errorid=4,396');>	'R7' instance: 'p(31:0)' output bus pin and 'o_product7_red(g_product_width-1:0)' bus signal</a></li>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','C:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\multiplier_bank.bde','','-errorid=6,319');>	'R8' instance: 'a(15:0)' input bus pin and 'i_data8(g_multiplier_width-1:0)' input bus terminal</a></li>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','C:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\multiplier_bank.bde','','-errorid=8,323');>	'R8' instance: 'b(15:0)' input bus pin and 'i_w8(g_multiplier_width-1:0)' input bus terminal</a></li>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','C:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\multiplier_bank.bde','','-errorid=4,392');>	'R8' instance: 'p(31:0)' output bus pin and 'o_product8_red(g_product_width-1:0)' bus signal</a></li>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','C:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\multiplier_bank.bde','','-errorid=6,327');>	'R9' instance: 'a(15:0)' input bus pin and 'i_data9(g_multiplier_width-1:0)' input bus terminal</a></li>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','C:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\multiplier_bank.bde','','-errorid=8,331');>	'R9' instance: 'b(15:0)' input bus pin and 'i_w9(g_multiplier_width-1:0)' input bus terminal</a></li>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','C:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\multiplier_bank.bde','','-errorid=4,388');>	'R9' instance: 'p(31:0)' output bus pin and 'o_product9_red(g_product_width-1:0)' bus signal</a></li></ul></SPAN><BR>
+<SPAN class=Warn1>multiplier_bank.bde - 0 error(s), 33 warning(s)</SPAN><BR>
+<SPAN class=Info1>DRC process completed in 2 second(s).</SPAN><BR>
+</tt>
+</FONT>
+       
+        </BODY>
+</HTML>

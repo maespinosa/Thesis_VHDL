@@ -8,14 +8,14 @@ Status=Compiled
 FileTimeLow=30610373
 Status=Modified
 [COMPILESTATUS|.\src\filter_top.bde]
-FileTimeLow=30614450
+FileTimeLow=30614639
 Status=Modified
 [COMPILESTATUS|.\compile\filter_top.vhd]
 FileTimeLow=30611030
 Status=Modified
 [COMPILESTATUS|.\src\input_fifo_network.bde]
-FileTimeLow=30611030
-Status=Error
+FileTimeLow=30614637
+Status=Modified
 [COMPILESTATUS|.\src\conv_input_buffer.vhd]
 FileTimeLow=30610375
 Status=Compiled
@@ -26,16 +26,16 @@ Status=Compiled
 FileTimeLow=30610434
 Status=Compiled
 [COMPILESTATUS|.\compile\input_fifo_network.vhd]
-FileTimeLow=30610576
+FileTimeLow=30614631
 Status=Modified
 [COMPILESTATUS|.\src\conv_multiplier.vhd]
 FileTimeLow=30610623
 Status=Compiled
 [CACHEDOC|Aldec.BDE.7|.\Convolution_Layer\src\input_fifo_network.bde|]
 SymbolsToolbox=0
-ZOOMOFSETS_PAGES=1,1,463,4337,-796,-147,
+ZOOMOFSETS_PAGES=1,1,1,2,1505,468,
 [COMPILESTATUS|.\src\input_fifo_net_controller.vhd]
-FileTimeLow=30611030
+FileTimeLow=30614631
 Status=Compiled
 [CACHEDOC|Aldec.Hde.HdePlugIn.7|.\Convolution_Layer\src/input_fifo_net_controller.vhd|]
 CurrentLine=44
@@ -45,14 +45,23 @@ BookmarksLength=3
 CurrentFontSize=-13
 Frame=2
 WindowWorkspaceInfo=LAAAAAAAAAADAAAA/////////////////////+wIAACeAAAAAA8AAE8DAAAsAAAAAAAAAAEAAAD/////////////////////mAcAADUAAABhCgAAiQIAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADIAAAAyAAAAAAAAAAAAAAAyAAAAMgAAAAAAAAAAAAAAAAAAAAAAAAAGwAAAAEAAAA=
-[CACHESIMPLE|Aldec.SymbolsCommands.7]
-Built-in symbols=0
-Convolution_Layer=0
 [COMPILESTATUS|.\src\output_fifo_network.bde]
 FileTimeLow=30613638
 Status=Modified
 [CACHEDOC|Aldec.BDE.7|.\Convolution_Layer\src\filter_top.bde|]
 SymbolsToolbox=0
 ZOOMOFSETS_PAGES=1,1,1,2,299,616,
+[COMPILESTATUS|.\src\input_network_colors.vhd]
+FileTimeLow=30614631
+Status=Compiled
+[COMPILESTATUS|.\src\multiplier_bank.bde]
+FileTimeLow=30614635
+Status=Compiled
+[COMPILESTATUS|.\compile\multiplier_bank.vhd]
+FileTimeLow=30614635
+Status=Compiled
+[CACHESIMPLE|Aldec.SymbolsCommands.7]
+Built-in symbols=0
+Convolution_Layer=0
 [Gui config]
 RunFor=100 ns
