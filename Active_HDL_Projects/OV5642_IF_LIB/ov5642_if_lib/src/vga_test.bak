@@ -2,7 +2,7 @@ SCHM0106
 
 HEADER
 {
- FREEID 592
+ FREEID 609
  VARIABLES
  {
   #ARCHITECTURE="arch"
@@ -477,7 +477,7 @@ HEADER
    }
   }
  }
- SYMBOL "#default" "vga_sync" "vga_sync"
+ SYMBOL "ov5642_if_lib" "vga_sync" "vga_sync"
  {
   HEADER
   {
@@ -489,7 +489,7 @@ HEADER
 "library STD,IEEE;\n"+
 "use std.standard.all,ieee.std_logic_1164.all;"
     #LANGUAGE="VHDL"
-    #MODIFIED="1492925590"
+    #MODIFIED="1492926388"
     #NAME="vga_sync"
     #SYMBOL_GLOBALLY_UNIQUE_IDENTIFIER="504f20a5-1acf-4eea-9ca4-983db31f6371"
    }
@@ -499,7 +499,7 @@ HEADER
    PAGEHEADER
    {
     RECT (-60,120,300,760)
-    FREEID 48
+    FREEID 50
    }
    
    BODY
@@ -604,10 +604,18 @@ HEADER
     TEXT  47, 0, 0
     {
      TEXT "$#NAME"
-     RECT (-35,550,20,574)
+     RECT (-35,270,20,294)
      ALIGN 4
      MARGINS (1,1)
      PARENT 46
+    }
+    TEXT  49, 0, 0
+    {
+     TEXT "$#NAME"
+     RECT (181,410,275,434)
+     ALIGN 6
+     MARGINS (1,1)
+     PARENT 48
     }
     PIN  22, 0, 0
     {
@@ -787,7 +795,7 @@ HEADER
     }
     PIN  46, 0, 0
     {
-     COORD (-60,560)
+     COORD (-60,280)
      VARIABLES
      {
       #DIRECTION="IN"
@@ -798,6 +806,22 @@ HEADER
      {
       OUTLINE 0,1, (0,0,255)
       POINTS ( (0,0), (20,0) )
+      FILL (1,(0,0,0),0)
+     }
+    }
+    PIN  48, 0, 0
+    {
+     COORD (300,420)
+     VARIABLES
+     {
+      #DIRECTION="OUT"
+      #LENGTH="20"
+      #NAME="o_read_en"
+     }
+     LINE  2, 0, 0
+     {
+      OUTLINE 0,1, (0,0,255)
+      POINTS ( (0,0), (-20,0) )
       FILL (1,(0,0,0),0)
      }
     }
@@ -823,7 +847,7 @@ PAGE ""
    {
     #COMPONENT="vga_sync"
     #CUSTOM_NAME=""
-    #LIBRARY="#default"
+    #LIBRARY="ov5642_if_lib"
     #REFERENCE="VGA_CONTROLLER"
     #SYMBOL="vga_sync"
     #SYMBOL_GLOBALLY_UNIQUE_IDENTIFIER="504f20a5-1acf-4eea-9ca4-983db31f6371"
@@ -1603,7 +1627,7 @@ PAGE ""
  
  BODY
  {
-  TEXT  575, 0, 0
+  TEXT  592, 0, 0
   {
    PAGEALIGN 10
    OUTLINE 5,1, (0,0,0)
@@ -1614,7 +1638,7 @@ PAGE ""
    COLOR (0,0,0)
    FONT (12,0,0,700,0,0,0,"Arial")
   }
-  TEXT  576, 0, 0
+  TEXT  593, 0, 0
   {
    PAGEALIGN 10
    TEXT "$CREATIONDATE"
@@ -1625,7 +1649,7 @@ PAGE ""
    FONT (12,0,0,700,0,128,0,"Arial")
    UPDATE 0
   }
-  TEXT  577, 0, 0
+  TEXT  594, 0, 0
   {
    PAGEALIGN 10
    TEXT "Title:"
@@ -1635,7 +1659,7 @@ PAGE ""
    COLOR (0,0,0)
    FONT (12,0,0,700,0,0,0,"Arial")
   }
-  TEXT  578, 0, 0
+  TEXT  595, 0, 0
   {
    PAGEALIGN 10
    OUTLINE 5,1, (0,0,0)
@@ -1647,7 +1671,7 @@ PAGE ""
    FONT (12,0,0,700,0,128,0,"Arial")
    UPDATE 0
   }
-  TEXT  579, 0, 0
+  TEXT  596, 0, 0
   {
    PAGEALIGN 10
    TEXT 
@@ -1660,7 +1684,7 @@ PAGE ""
    FONT (12,0,0,700,0,0,0,"Arial")
    MULTILINE
   }
-  TEXT  580, 0, 0
+  TEXT  597, 0, 0
   {
    PAGEALIGN 10
    TEXT "Page:"
@@ -1670,7 +1694,7 @@ PAGE ""
    COLOR (0,0,0)
    FONT (12,0,0,700,0,0,0,"Arial")
   }
-  TEXT  581, 0, 0
+  TEXT  598, 0, 0
   {
    PAGEALIGN 10
    OUTLINE 5,1, (0,0,0)
@@ -1682,7 +1706,7 @@ PAGE ""
    FONT (12,0,0,700,0,128,0,"Arial")
    UPDATE 0
   }
-  TEXT  582, 0, 0
+  TEXT  599, 0, 0
   {
    PAGEALIGN 10
    TEXT "Revision:"
@@ -1692,7 +1716,7 @@ PAGE ""
    COLOR (0,0,0)
    FONT (12,0,0,700,0,0,0,"Arial")
   }
-  TEXT  583, 0, 0
+  TEXT  600, 0, 0
   {
    PAGEALIGN 10
    TEXT "$Revision"
@@ -1703,7 +1727,7 @@ PAGE ""
    FONT (12,0,0,700,0,204,0,"Arial")
    UPDATE 0
   }
-  GROUP  584, 0, 0
+  GROUP  601, 0, 0
   {
    PAGEALIGN 10
    RECT (1720,1120,2601,1501)
@@ -1715,7 +1739,7 @@ PAGE ""
     FILL (1,(0,0,0),0)
    }
   }
-  GROUP  585, 0, 0
+  GROUP  602, 0, 0
   {
    PAGEALIGN 10
    RECT (1720,1320,2601,1321)
@@ -1727,7 +1751,7 @@ PAGE ""
     FILL (1,(0,0,0),0)
    }
   }
-  GROUP  586, 0, 0
+  GROUP  603, 0, 0
   {
    PAGEALIGN 10
    RECT (1720,1260,2601,1261)
@@ -1739,7 +1763,7 @@ PAGE ""
     FILL (1,(0,0,0),0)
    }
   }
-  GROUP  587, 0, 0
+  GROUP  604, 0, 0
   {
    PAGEALIGN 10
    RECT (1720,1380,2601,1381)
@@ -1751,7 +1775,7 @@ PAGE ""
     FILL (1,(0,0,0),0)
    }
   }
-  GROUP  588, 0, 0
+  GROUP  605, 0, 0
   {
    PAGEALIGN 10
    RECT (1720,1440,2601,1441)
@@ -1763,7 +1787,7 @@ PAGE ""
     FILL (1,(0,0,0),0)
    }
   }
-  GROUP  589, 0, 0
+  GROUP  606, 0, 0
   {
    PAGEALIGN 10
    RECT (1900,1120,1901,1261)
@@ -1774,7 +1798,7 @@ PAGE ""
     POINTS ( (0,0), (0,140) )
    }
   }
-  GROUP  590, 0, 0
+  GROUP  607, 0, 0
   {
    PAGEALIGN 10
    RECT (1900,1260,1901,1501)
@@ -1785,7 +1809,7 @@ PAGE ""
     POINTS ( (0,0), (0,240) )
    }
   }
-  BMPPICT  591, 0, 0
+  BMPPICT  608, 0, 0
   {
    PAGEALIGN 10
    RECT (1740,1180,1879,1225)

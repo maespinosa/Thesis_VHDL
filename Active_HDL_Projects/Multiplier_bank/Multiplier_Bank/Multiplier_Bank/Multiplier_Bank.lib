@@ -1,0 +1,106 @@
+timestamp=1501464821537
+
+[~A]
+ModifyID=155
+Version=74
+
+[fifo_generator_v9_3]
+A/fifo_generator_v9_3_a=21|./../src/fifo_generator_v9_3.vhd|64|1*0
+I=0*39364
+I/fifo_generator_v9_3_a=0*39575
+M=11|0|vd0|1500471564739|./../src/fifo_generator_v9_3.vhd|0*1817*0x2fbf3ec735edc17a7b2383ac8fd3b62634eac0a2|0*2510*0x23b75c12e3e89f2ef000564498faa8c2
+M/fifo_generator_v9_3_a=21|0|vd0|1500471564836|./../src/fifo_generator_v9_3.vhd|0*2615*0x3dbe2cb28ddaac7aa05a2aaab8efd0ed93a95597|0*9020*0x20116f55b147878295aeff36dce7fc50
+NSymbols/fifo_generator_v9_3=40|0|2*0
+R=./../src/fifo_generator_v9_3.vhd|43
+Version=10.3.3559.6081  (Windows)|00000003789cd3f5370600015b00b0|898c5c786fdc82e8727e1dc74648b7eb8f912153a23130d5f880c0d93bd957faa9aa52f88ad1887bd0b0048fab370b2d
+Version/fifo_generator_v9_3_a=10.3.3559.6081  (Windows)|00000003789cd3f5370600015b00b0|898c5c786fdc82e8727e1dc74648b7ebaca21114eddce7f881a60f188a9141c2dd21c29a5377ce0b1e8cf273ff8aea5a
+
+[multiplier]
+A/multiplier_a=21|./../src/multiplier.vhd|52|1*16861
+I=0*40070
+I/multiplier_a=0*40272
+M=11|0|vd0|1498917249360|./../src/multiplier.vhd|0*0*0xfc384159f0503e7b3cfd48051ee56ef6c8274fdf|0*312*0x23b75c12e3e89f2ef000564498faa8c2
+M/multiplier_a=21|0|vd0|1498917249475|./../src/multiplier.vhd|0*399*0x5a780a94b801ed7293cfce88f2028bf8ab171786|0*1277*0x20116f55b147878295aeff36dce7fc50
+NSymbols/multiplier=40|0|2*5779
+R=./../src/multiplier.vhd|43
+Version=10.3.3559.6081  (Windows)|00000003789cd3f5370600015b00b0|ae76990bd7f3693aa5cae06a1fb118e3111672bef854fb9edfeeceb9b633f76009c9873516594bac2282b1abbc91afb4
+Version/multiplier_a=10.3.3559.6081  (Windows)|00000003789cd3f5370600015b00b0|7a86c372c70bedd1f9930d5dfab07e016671983e33a9d0428080517c0c8f0fbf5005c01dee8115622c71af34678db6d5
+
+[multiplier_check_tag]
+A/arch=21|./../src/multiplier_check_tag.vhd|66|1*18989
+I=0*40931
+I/arch=0*41225
+M=11|0|vd0|1500729108451|./../src/multiplier_check_tag.vhd|0*23762*0x17966eff54de93a964284f4e42787cfe56410266|0*24768*0x23b75c12e3e89f2ef000564498faa8c2
+M/arch=21|0|vd0|1500729108455|./../src/multiplier_check_tag.vhd|0*24875*0x061dc63f87e07a4e75b00569f2e0452ae4f2adf3|0*25043*0x20116f55b147878295aeff36dce7fc50
+NSymbols/multiplier_check_tag=40|0|2*7698
+R=./../src/multiplier_check_tag.vhd|33
+Version=10.3.3559.6081  (Windows)|00000003789cd3f5370600015b00b0|e8d50808a52751c45c5856b5bd3e74d787f6fc7736f37cc8619af23ef0084308efa35e34afc8abaa4743f5492c315525
+Version/arch=10.3.3559.6081  (Windows)|00000003789cd3f5370600015b00b0|907f1eb2ab5faaca81dadc47e735a03a85a57b5c09f62f90c456d54fa7a70d42
+
+[multiplier_controller]
+A/arch=21|./../src/multiplier_controller.vhd|129|1*82968
+BinI32/arch=3*1455
+I=0*53722
+I/arch=0*56281
+M=11|0|vd0|1501464590367|./../src/multiplier_controller.vhd|0*51561*0xa305ae1a80906962ca157139c3b3351110fe95fc|0*53613*0x23b75c12e3e89f2ef000564498faa8c2
+M/arch=21|0|vd0|1501464590369|./../src/multiplier_controller.vhd|0*54017*0xfef6466107cfb5c195a0b10546cf7d5b6689e91a|0*56164*0x20116f55b147878295aeff36dce7fc50
+NSymbols/multiplier_controller=40|0|2*330335
+R=./../src/multiplier_controller.vhd|32
+Version=10.3.3559.6081  (Windows)|00000003789cd3f5370600015b00b0|e8d50808a52751c45c5856b5bd3e74d794224928362946640fb6dbeeb17f2036e3ce0d70186660d337ddd09d964d2670
+Version/arch=10.3.3559.6081  (Windows)|00000003789cd3f5370600015b00b0|907f1eb2ab5faaca81dadc47e735a03a4d01d0951bd55956260727c685d666a2
+
+[multiplier_inbuff]
+A/multiplier_inbuff_a=21|./../src/multiplier_inbuff.vhd|64|1*25511
+I=0*42920
+I/multiplier_inbuff_a=0*43129
+M=11|0|vd0|1500471782963|./../src/multiplier_inbuff.vhd|0*9150*0x6dfb73f70cc8afd80d83b590d1f666ddd7b54f11|0*9835*0x23b75c12e3e89f2ef000564498faa8c2
+M/multiplier_inbuff_a=21|0|vd0|1500471782974|./../src/multiplier_inbuff.vhd|0*9936*0x57ec0453edda8d0547bdedd7d84adaa7ff2aa811|0*16323*0x20116f55b147878295aeff36dce7fc50
+NSymbols/multiplier_inbuff=40|0|2*76052
+R=./../src/multiplier_inbuff.vhd|43
+Version=10.3.3559.6081  (Windows)|00000003789cd3f5370600015b00b0|295512738571661132a3cf9a8deb4c8c17811b047203b98caf1b8c409a1387595d2bf97c348b8b0fc3711e4e2efad38d
+Version/multiplier_inbuff_a=10.3.3559.6081  (Windows)|00000003789cd3f5370600015b00b0|295512738571661132a3cf9a8deb4c8c729873d9c9be22003cb392f604ae237995f1a56123debeba933cea990631b1dd
+
+[multiplier_outbuff]
+A/multiplier_outbuff_a=21|./../src/multiplier_outbuff.vhd|64|1*42360
+I=0*43710
+I/multiplier_outbuff_a=0*43920
+M=11|0|vd0|1500473935533|./../src/multiplier_outbuff.vhd|0*16447*0x659a8df260a6eb4ed1e71e7bb91d8c38cd4553da|0*17136*0x23b75c12e3e89f2ef000564498faa8c2
+M/multiplier_outbuff_a=21|0|vd0|1500473935544|./../src/multiplier_outbuff.vhd|0*17239*0xfb36020aeeaefcc0f7c77a8972060c565094c4a1|0*23635*0x20116f55b147878295aeff36dce7fc50
+NSymbols/multiplier_outbuff=40|0|2*82784
+R=./../src/multiplier_outbuff.vhd|43
+Version=10.3.3559.6081  (Windows)|00000003789cd3f5370600015b00b0|d6b339fec30bd700fb59f667b5eee1a56e3e38cf712c7d0c38454d402c7f8e09adca065d21c5d7ea44230d8ed7f05996
+Version/multiplier_outbuff_a=10.3.3559.6081  (Windows)|00000003789cd3f5370600015b00b0|d6b339fec30bd700fb59f667b5eee1a5330bf72233e9ed9ce2d3f2414f919d4956dd364e4a9fb723641db2872a043bb3
+
+[multiplier_top]
+A/arch=24|.\..\src\multiplier_top.bde|10000|1*59215
+BinI32/arch=3*1223
+I=0*44657
+I/arch=0*45047
+M=11|0|vd0|1500729356993|./../compile/multiplier_top.vhd|0*25158*0xff473c0b6e9ad6fecb21e1467dcbacd34afb8943|0*26663*0x23b75c12e3e89f2ef000564498faa8c2
+M/arch=21|0|vd0|1501460614705|./../compile/multiplier_top.vhd|0*26762*0x79087391aae6597c6ae5cc451fb72a35a33e711d|0*34625*0x20116f55b147878295aeff36dce7fc50
+R=./../compile/multiplier_top.vhd|32
+Version=10.3.3559.6081  (Windows)|00000003789cd3f5370600015b00b0|659c2a473d3ee43ad8d22dfb5c927e2615c4d6f16efe19c680b783f19f414322ebb64c73ec4065f31f6b7203df931e75
+Version/arch=10.3.3559.6081  (Windows)|00000003789cd3f5370600015b00b0|907f1eb2ab5faaca81dadc47e735a03a9f13c5db94221c2b01205434aa2f3c63
+
+[multiplier_types]
+E=1*77579
+I=0*45620
+M=3|0|vd0|1499748610682|./../src/multiplier_types.vhd|0*1380*0xfe39a5038aa97744f5808fdcf71d7ee19efa2446|0*1718*0x23b75c12e3e89f2ef000564498faa8c2
+R=./../src/multiplier_types.vhd|29
+Version=10.3.3559.6081  (Windows)|00000003789cd3f5370600015b00b0|00ab2b195f864f3cca605aac6426049ae2f621a8fdb1e42fd1dd3205805a82d10a7a24fb712e929e2f11fd20ac0dffb4
+
+[~MFT]
+0=16|0Multiplier_Bank.mgf|56281|10607
+1=2|1Multiplier_Bank.mgf|82968|9256
+2=6|2Multiplier_Bank.mgf|330335|301758
+3=2|3Multiplier_Bank.mgf|1455|1223
+
+[~U]
+fifo_generator_v9_3=11|0*39061||0x3
+multiplier=11|0*39859||0x3
+multiplier_check_tag=11|0*40537||0x3
+multiplier_controller=11|0*51048||0x3
+multiplier_inbuff=11|0*42621||0x3
+multiplier_outbuff=11|0*43409||0x3
+multiplier_top=11|0*44202|
+multiplier_types=3|0*45174|0*45404

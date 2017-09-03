@@ -8,7 +8,7 @@
 -------------------------------------------------------------------------------
 --
 -- File        : c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV5642_IF_LIB\ov5642_if_lib\compile\color_test.vhd
--- Generated   : Fri Apr 14 18:07:16 2017
+-- Generated   : Tue Apr 25 17:05:13 2017
 -- From        : c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV5642_IF_LIB\ov5642_if_lib\src\color_test.bde
 -- By          : Bde2Vhdl ver. 2.6
 --

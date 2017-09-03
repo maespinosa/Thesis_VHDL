@@ -1544,7 +1544,7 @@ const struct sensor_reg OV5642_720P_Video_setting[] PROGMEM =
 	{0x3003 ,0x00}, //SYSTEM RESET03 All blocks enabled not reset
 	{0x3004 ,0xff}, //CLOCK ENABLE00 All Clocks Enabled 
 	{0x3030 ,0x2b}, //SC A PWC PK O bp_regulator activated 
-	{0x3011 ,0x08}, //PLL CONTROL 02 0x8 PLL DIVP divider value 
+	{0x3011 ,0x10}, //PLL CONTROL 02 0x8 PLL DIVP divider value 
 	{0x3010 ,0x10}, //PLL CONTROL 01 PLL DIVS divider System divider ratio 0x1
 	{0x3604 ,0x60}, //ANALOG CONTROL REGISTERS ?????????????????
 	{0x3622 ,0x60}, //ANALOG CONTROL REGISTERS ????????????????? 
@@ -1689,7 +1689,7 @@ const struct sensor_reg OV5642_720P_Video_setting[] PROGMEM =
 	{0x5089 ,0x00}, //??????????????????????????????????
 	{0x302b ,0x00}, //SYSTEM CONTROL ????????????????????????
 	{0x3503 ,0x07}, //AEC PK MANUAL AEC MANUAL MODE CONTROL VTS manual enabled, AGC manual enabled, AEC Manual enabled 
-	{0x3011 ,0x08}, //PLL CONTROL 02 PLL DIVP divider 0x8 value  
+	{0x3011 ,0x10}, //PLL CONTROL 02 PLL DIVP divider 0x8 value  
 	{0x350c ,0x02}, //AEC PK VTS AEC VTS Output High bits
 	{0x350d ,0xe4}, //AEC PK VTS AEC VTS Output Low bits 
 	{0x3621 ,0xc9}, //ARRAY CONTROL 01 Horizontal Binning Enabled 
@@ -2084,7 +2084,7 @@ const struct sensor_reg OV5642_VGA_Video_setting[] PROGMEM =
 	{0x3004 ,0xff}, //CLOCK ENABLE00 All Clocks Enabled 
 	
 	{0x3030 ,0x2b}, //SC A PWC PK O bp_regulator activated 
-	{0x3011 ,0x08}, //PLL CONTROL 02 0x8 PLL DIVP divider value 
+	{0x3011 ,0x80}, //PLL CONTROL 02 0x8 PLL DIVP divider value 
 	{0x3010 ,0x10}, //PLL CONTROL 01 PLL DIVS divider System divider ratio 0x1
 	{0x3604 ,0x60}, //ANALOG CONTROL REGISTERS ?????????????????
 	{0x3622 ,0x60}, //ANALOG CONTROL REGISTERS ????????????????? 
@@ -2125,8 +2125,8 @@ const struct sensor_reg OV5642_VGA_Video_setting[] PROGMEM =
 	{0x501f ,0x01}, //FORMAT MUX CONTROL <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 	{0x5000 ,0x2f}, //ISP CONTROL 00 Raw Gamma,De-noise,Black pixel cancellation, white pixel cancellation, color interpolation
 	{0x5001 ,0xcf}, //ISP CONTROL 01 Special digital effect, UV adjust, Line Stretch, UV Average, Color Matrix, Auto White Balance
-	{0x4300 ,0x00}, //FORMAT CONTROL 00  RGRG.../GBGB...
-	{0x4300 ,0x00}, //FORMAT CONTROL 00  RGRG.../GBGB...
+	{0x4300 ,0xA1}, //FORMAT CONTROL 00  RGRG.../GBGB...
+	{0x4300 ,0xA1}, //FORMAT CONTROL 00  RGRG.../GBGB...
 	{0x460b ,0x35}, //?????VFIFO???
 	{0x471d ,0x00}, //DVP CONTROL 1D VSYNC extended when dummy line inserted
 	{0x3002 ,0xd8}, //SYSTEM RESET02 Reset SFIFO and compression 
@@ -2229,7 +2229,7 @@ const struct sensor_reg OV5642_VGA_Video_setting[] PROGMEM =
 	{0x5089 ,0x00}, //??????????????????????????????????
 	{0x302b ,0x00}, //SYSTEM CONTROL ????????????????????????
 	{0x3503 ,0x07}, //AEC PK MANUAL AEC MANUAL MODE CONTROL VTS manual enabled, AGC manual enabled, AEC Manual enabled 
-	{0x3011 ,0x08}, //PLL CONTROL 02 PLL DIVP divider 0x8 value  
+	{0x3011 ,0x80}, //PLL CONTROL 02 PLL DIVP divider 0x8 value  
 	{0x350c ,0x02}, //AEC PK VTS AEC VTS Output High bits
 	{0x350d ,0xe4}, //AEC PK VTS AEC VTS Output Low bits 
 	{0x3621 ,0xc9}, //ARRAY CONTROL 01 Horizontal Binning Enabled 
@@ -2623,6 +2623,67 @@ const struct sensor_reg OV5642_VGA_Video_setting[] PROGMEM =
 	{0xffff, 0xff},	
 	
 };
+
+	{0x3103 ,0x93}, //PCLK CLOCK SELECT Bit[1] Select PLL input clock 1: From pre-divider<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+	{0x3008 ,0x82}, //SYSTEM CONTROL00 Bit[7]: System software reset 
+	{0x3017 ,0x7f}, //PAD OUTPUT ENABLE 01 Enable all 
+	{0x3018 ,0xfc}, //PAD OUTPUT ENABLE 02 Enable all Dx outputs 
+	{0x3810 ,0xc2}, //TIMING HVOFFS Horizontal and Vertical Offset Setting DEFAULT
+	{0x3615 ,0xf0}, //ANALOG CONTROL REGISTERS ??????????????
+	{0x3000 ,0x00}, //SYSTEM RESET00 All blocks enabled not reset
+	{0x3001 ,0x00}, //SYSTEM RESET01 All blocks enabled not reset
+	{0x3002 ,0x00}, //SYSTEM RESET02 All blocks enabled not reset 
+	{0x3003 ,0x00}, //SYSTEM RESET03 All blocks enabled not reset
+	{0x3004 ,0xff}, //CLOCK ENABLE00 All Clocks Enabled 
+	
+	{0x3030 ,0x2b}, //SC A PWC PK O bp_regulator activated 
+	{0x3011 ,0x80}, //PLL CONTROL 02 0x8 PLL DIVP divider value 
+	{0x3010 ,0x10}, //PLL CONTROL 01 PLL DIVS divider System divider ratio 0x1
+
+    {0x501f ,0x01}, //FORMAT MUX CONTROL <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+	{0x4300 ,0xA1}, //FORMAT CONTROL 00  RGRG.../GBGB...
+	{0x4300 ,0xA1}, //FORMAT CONTROL 00  RGRG.../GBGB...
+
+	{0x460c ,0x22}, //VFIFO CTRL0C PCLK Manual Enable DVP PCLK divider is controlled by 0x3815
+	{0x3815 ,0x44}, //
+
+	{0x3800 ,0x1 },  // 	- TIMING HS HREF Horizontal Start Point High Byte
+	{0x3801 ,0xa8},  // 424 - TIMING HS HREF Horizontal Start Point Low Byte
+	{0x3802 ,0x0 },  // 	- TIMING VS HREF Vertical Start Point High Byte
+	{0x3803 ,0xA },  // 10	- TIMING VS HREF Vertical Start Point Low Byte
+	{0x3804 ,0xA },  // 	- TIMING HW HREF Horizontal Width High Byte
+	{0x3805 ,0x20},  // 2592- TIMING HW HREF Horizontal Width Low Byte
+	{0x3806 ,0x7 },  //  	- TIMING VH HREF Vertical Height High Byte 
+	{0x3807 ,0x98},  // 1944- TIMING VH HREF Vertical Height Low Byte
+	{0x3808 ,0x2 },  // 	- TIMING DVPHO DVP Output Horizontal Width High Byte
+	{0x3809 ,0x80},  // 640	- TIMING DVPHO DVP Output Horizontal Width Low Byte
+	{0x380a ,0x1 },  // 	- TIMING DVPVO DVP Output Vertical Height High Byte 
+	{0x380b ,0xe0},  // 480	- TIMING DVPVO DVP Output Vertical Height Low Byte
+	{0x380c ,0xc },  //     - TIMING HTS Total Horizontal Size High Byte
+	{0x380d ,0x80},  // 3200- TIMING HTS Total Horizontal Size Low Byte
+	{0x380e ,0x7 },  // 	- TIMING VTS Total Vertical Size High Byte 
+	{0x380f ,0xd0},  // 2000- TIMING VTS Total Vertical Size Low Byte
+	{0x5001 ,0x7f},  // ISP CONTROL 01 All bits enabled not bit 7
+	{0x5680 ,0x0 },  //		- AVG X START Horizontal Start Position for Average Window
+	{0x5681 ,0x0 },  //		- AVG X START Horizontal Start Position for Average Window
+	{0x5682 ,0xA },  //		- AVG X END Horizontal End Position for Average Window
+	{0x5683 ,0x20},  // 2592- AVG X END Horizontal End Position for Average Window
+	{0x5684 ,0x0 },  //		- AVG Y START Horizontal Start Position for Average Window
+	{0x5685 ,0x0 },  //		- AVG Y START Horizontal Start Position for Average Window
+	{0x5686 ,0x7 },  //		- AVG Y END Horizontal End Position for Average Window
+	{0x5687 ,0x98},  // 1944- AVG Y END Horizontal End Position for Average Window
+	{0x3801, 0xb0},  // TIMING HS HREF Horizontal Start Point Low Byte
+
+	{0x3818, 0x80}, //TIMING TC REG18 Mirror
+	{0x3621, 0x27}, //ARRAY CONTROL 01    
+	{0xffff, 0xff},
+
+
+
+
+
+
+
 
 #endif
 

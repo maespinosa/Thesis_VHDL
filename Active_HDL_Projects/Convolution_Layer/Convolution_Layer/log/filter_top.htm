@@ -1,0 +1,123 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+
+<!----------------------------------------------------------------------------->
+<!--                          BEGIN HTML HEAD                                -->
+<!--                                                                         -->
+
+<HEAD>
+<TITLE>DRC Report File - filter_top.bde</TITLE>
+<STYLE>
+.Err	{color:#FF0000;cursor:hand;text-decoration:underline;}
+.Warn	{color:#0000FF;cursor:hand;text-decoration:underline;}
+.Info	{color:#000000;cursor:hand;text-decoration:underline;}
+.Sccss  {color:#009600;cursor:hand;text-decoration:underline;}
+.ErrH	{color:#FF0000;cursor:hand;text-decoration:underline;}
+.WarnH	{color:#0000FF;cursor:hand;text-decoration:underline;}
+.InfoH	{color:#000000;cursor:hand;text-decoration:underline;}
+.Err1	{color:#FF0000;}
+.Warn1	{color:#0000FF;}
+.Info1	{color:#000000;}
+.Sccss1 {color:#009600;}
+</STYLE>
+</HEAD>
+<BODY BGCOLOR="white" TEXT="black" LINK="blue" VLINK="purple" BACKGROUND="C:\Aldec\Active-HDL-Student-Edition\\Flows\Res\default.bmp">
+<FONT FACE="Serif">
+<tt>
+<!--                                                                         -->
+<!--                             END HEADER                                  -->
+<!----------------------------------------------------------------------------->
+
+<!----------------------------------------------------------------------------->
+<!--                            BEGIN VBSCRIPT                               -->
+<!--                                                                         -->
+<SCRIPT LANGUAGE=JSCRIPT>
+	function RollOn() {
+		switch(window.event.srcElement.className) {
+			case 'Err':
+				window.event.srcElement.className = 'ErrH'; break;
+			case 'Warn':
+				window.event.srcElement.className = 'WarnH'; break;
+			case 'Info':
+				window.event.srcElement.className = 'InfoH'; break;
+		}
+	}
+	function RollOff() {
+		switch(window.event.srcElement.className) {
+			case 'ErrH':
+				window.event.srcElement.className = 'Err'; break;
+			case 'WarnH':
+				window.event.srcElement.className = 'Warn'; break;
+			case 'InfoH':
+				window.event.srcElement.className = 'Info'; break;
+		}
+	}
+	function OnError(sMsg,sUrl,sLine) {
+		return true;
+	}
+	
+	document.onmouseover = RollOn;
+	document.onmouseout = RollOff;
+	window.onerror = OnError;
+</SCRIPT>
+
+<SCRIPT LANGUAGE=VBSCRIPT>
+
+Function IID_IDispatch
+	IID_IDispatch = "{00020400-0000-0000-C000-000000000046}"
+End Function
+
+Function CLSID_Executor
+	CLSID_Executor = "Aldec.ExePlugIn.Generic.7"
+End Function
+
+
+Sub OpenPlugIn (progid, template, document, element, string)
+
+	Dim executor, command
+
+	Set executor = window.external.aldec.connector.OpenPlugIn(CLSID_Executor, IID_IDispatch)
+
+	command = "?Activate[<"+progid+">][<"+template+">][<"+document+">][<"+element+">][<"+string+">]"
+
+	executor.ExecuteCommand command, ""
+
+End Sub
+
+
+</SCRIPT>
+<!--                                                                         -->
+<!--                             END VBSCRIPT                                -->
+<!----------------------------------------------------------------------------->
+
+<H2>DRC Report File - filter_top.bde</H2>
+
+Created on Tue 2017-08-15 at 23:13:31
+<HR NOSHADE COLOR="#008080">
+<SPAN class=Info1>Checking file 'c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\filter_top.bde'.</SPAN><BR>
+<SPAN class=Info1>
+	<p class = Warn1 style=font-weight:bold;margin-top:0px;margin-bottom:0px>Nets without source
+	</p><ul style=margin-left:30px;margin-top:0px;margin-bottom:0px>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\filter_top.bde','','-errorid=149');>	'NET149' wire signal</a></li>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\filter_top.bde','','-errorid=344');>	'din' bus signal</a></li></ul></SPAN><BR>
+<SPAN class=Info1>
+	<p class = Warn1 style=font-weight:bold;margin-top:0px;margin-bottom:0px>Unconnected symbol pins
+	</p><ul style=margin-left:30px;margin-top:0px;margin-bottom:0px>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\filter_top.bde','','-errorid=62');>	In instance 'U10': 'p'</a></li>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\filter_top.bde','','-errorid=65');>	In instance 'U11': 'p'</a></li>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\filter_top.bde','','-errorid=68');>	In instance 'U12': 'p'</a></li>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\filter_top.bde','','-errorid=38');>	In instance 'U2': 'p'</a></li>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\filter_top.bde','','-errorid=41');>	In instance 'U3': 'p'</a></li>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\filter_top.bde','','-errorid=44');>	In instance 'U4': 'p'</a></li>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\filter_top.bde','','-errorid=47');>	In instance 'U5': 'p'</a></li>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\filter_top.bde','','-errorid=50');>	In instance 'U6': 'p'</a></li>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\filter_top.bde','','-errorid=53');>	In instance 'U7': 'p'</a></li>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\filter_top.bde','','-errorid=56');>	In instance 'U8': 'p'</a></li>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\filter_top.bde','','-errorid=59');>	In instance 'U9': 'p'</a></li></ul></SPAN><BR>
+<SPAN class=Warn1>filter_top.bde - 0 error(s), 13 warning(s)</SPAN><BR>
+<SPAN class=Info1>DRC process completed in 2 second(s).</SPAN><BR>
+</tt>
+</FONT>
+       
+        </BODY>
+</HTML>

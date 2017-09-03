@@ -24,7 +24,10 @@ entity OV5462_SCCB_CNTRL is
 		o_busy 				: out std_logic; 
 		o_sioc 				: out std_logic;
 		o_i2c_sent			: out std_logic; 
-	    io_siod  			: inout std_logic
+	    io_siod  			: inout std_logic; 
+		
+		o_siod_state_debug	: out std_logic_vector(4 downto 0); 
+		o_sioc_state_debug 	: out std_logic_vector(2 downto 0)
 		);
 end OV5462_SCCB_CNTRL;
 
@@ -56,7 +59,9 @@ signal wait_counter : integer;
 signal repeat 		: std_logic; 
 signal cut_clock 		: std_logic; 
 signal siod_delayed	: std_logic_vector(63 downto 0); 
-signal executed 	: std_logic; 
+signal executed 	: std_logic;  
+signal siod_state_debug : std_logic_vector(4 downto 0); 
+signal sioc_state_debug : std_logic_vector(2 downto 0); 
 
 
 
@@ -65,8 +70,13 @@ begin
 o_busy 			<= busy; 
 o_sioc 			<= sioc; 
 io_siod 		<= siod_delayed(63) when tri_buff_en = '0' else 
-					'Z'; 	  
-o_i2c_sent		<= i2c_sent; 
+					'Z'; 	
+--io_siod 		<= '1' when siod_delayed(63) = '1' else  
+--					'0'; 
+o_i2c_sent		<= i2c_sent;  
+o_sioc_state_debug <= sioc_state_debug; 
+o_siod_state_debug <= siod_state_debug; 
+
 
 sioc_state_transition: process(i_clk, i_reset_n) 
 begin 
@@ -77,18 +87,20 @@ begin
 	end if; 
 end process; 
 
-sioc_next_state_comb: process(all) 
+sioc_next_state_comb: process(sioc_current_state,siod_current_state,siod_counter,sioc_counter,cut_clock) 
 begin 
 	
 	sioc <= '1'; 
 	--busy <= '0'; 
 	i2c_sent <= '0'; 	
+	sioc_state_debug <= (others => '0'); 
 
 	
 	case sioc_current_state is
 		when IDLE =>  
 			sioc <= '1'; 
-			--busy <= '0'; 
+			--busy <= '0'; 	
+			sioc_state_debug <= "001"; 
 			if(siod_counter > 0) then 
 				sioc_next_state <= START_OF_TRANSMISSION; 
 			else 
@@ -97,7 +109,8 @@ begin
 		
 		when START_OF_TRANSMISSION =>  
 			--busy <= '1'; 	 
-			sioc <= '1'; 
+			sioc <= '1';  
+			sioc_state_debug <= "010"; 
 			if(siod_counter < 1000) then 
 				sioc_next_state <= START_OF_TRANSMISSION; 
 			else 
@@ -106,7 +119,7 @@ begin
 		
 		when OPERATIONAL_HI => 	  
 			--busy <= '1'; 
-
+			sioc_state_debug <= "011"; 
 			if(sioc_counter < 500) then 
 			   sioc_next_state <= OPERATIONAL_HI; 
 			else 
@@ -122,7 +135,7 @@ begin
 		
 		when OPERATIONAL_LO => 
 			sioc <= '0'; 
-			
+			sioc_state_debug <= "100"; 
 				
 			if(sioc_counter < 500) then 
 			   sioc_next_state <= OPERATIONAL_LO; 
@@ -139,7 +152,7 @@ begin
 
 			
 		when END_SCL => 
-				 
+			sioc_state_debug <= "101"; 	 
 			sioc <= '1'; 
 			if(sioc_counter < 2000) then 
 				sioc_next_state <= END_SCL; 
@@ -154,7 +167,8 @@ begin
 
 		
 		
-		when others => 
+		when others => 	
+			sioc_state_debug <= "110"; 
 			sioc_next_state <= IDLE; 
 		
 		
@@ -219,14 +233,16 @@ end process;
 
 
 	
-siod_next_state_comb: process(all) is 
+siod_next_state_comb: process(siod_current_state,i_i2c_ena,siod_counter,sioc_current_state,sioc_next_state,bit_counter,siod_counter,executed,siod,wait_counter) is 
 begin 
     tri_buff_en <= '1'; 
 	--repeat <= '0';
 	busy <= '0'; 
+	siod_state_debug <= (others => '0'); 
 		 	
 	case siod_current_state is 
 		when IDLE =>   
+			siod_state_debug <=	"00001"; 
 			busy <= '0'; 
 			tri_buff_en <= '1';
 			if(i_i2c_ena = '1') then 
@@ -236,7 +252,8 @@ begin
 			end if; 
 			
 		
-		when START_OF_TRANSMISSION =>  
+		when START_OF_TRANSMISSION => 
+			siod_state_debug <=	"00010"; 
 			tri_buff_en <= '0';   
 			busy <= '1'; 
 			if(siod_counter < 1000) then 
@@ -247,6 +264,7 @@ begin
 
 		
 		when PHASE_1 => --ID ADDRESS TRANSMISSION 	
+			siod_state_debug <=	"00011"; 
 			tri_buff_en <= '0'; 
 			busy <= '1'; 
 			if(sioc_current_state /= sioc_next_state and sioc_next_state = OPERATIONAL_LO) then 
@@ -261,7 +279,8 @@ begin
 				siod_next_state <= PHASE_1; 
 			end if;   
 		
-		when ACK_DONT_CARE_1 => 
+		when ACK_DONT_CARE_1 =>   
+			siod_state_debug <=	"00100"; 
 			if(siod_counter < 64 and executed = '0') then 	
 				tri_buff_en <= '0'; 
 			else 
@@ -276,6 +295,7 @@ begin
 			end if; 
 			
 		when ACK_WAIT_1 => 
+		    siod_state_debug <=	"00101"; 
 			if(siod_counter < 64 and executed = '0') then 	
 				tri_buff_en <= '1'; 
 			else 
@@ -294,7 +314,8 @@ begin
 				siod_next_state <= ACK_WAIT_1; 	
 			end if; 
 			
-		when PHASE_2_HI =>   
+		when PHASE_2_HI => 
+			siod_state_debug <=	"00110"; 
 			tri_buff_en <= '0'; 
 			busy <= '1'; 
 			if(sioc_current_state /= sioc_next_state and sioc_next_state = OPERATIONAL_LO)then 
@@ -310,6 +331,7 @@ begin
 			end if;    
 		
 		when ACK_DONT_CARE_2 => 
+			siod_state_debug <=	"00111"; 
 			if(siod_counter < 64 and executed = '0') then 	
 				tri_buff_en <= '0'; 
 			else 
@@ -323,6 +345,7 @@ begin
 			end if; 
 			
 		when ACK_WAIT_2 => 
+			siod_state_debug <=	"01000"; 
 			if(siod_counter < 64 and executed = '0') then 	
 				tri_buff_en <= '1'; 
 			else 
@@ -341,7 +364,8 @@ begin
 			end if; 
 			
 			
-		when PHASE_2_LO =>   
+		when PHASE_2_LO => 
+			siod_state_debug <=	"01001"; 
 			tri_buff_en <= '0'; 
 			busy <= '1'; 
 			if(sioc_current_state /= sioc_next_state and sioc_next_state = OPERATIONAL_LO)then 
@@ -357,6 +381,7 @@ begin
 			end if;    
 			
 		when ACK_DONT_CARE_3 => 
+			siod_state_debug <=	"01010"; 
 			if(siod_counter < 64 and executed = '0') then 	
 				tri_buff_en <= '0'; 
 			else 
@@ -369,7 +394,8 @@ begin
 				siod_next_state <= ACK_DONT_CARE_3; 	
 			end if;    
 			
-		when ACK_WAIT_3 => 
+		when ACK_WAIT_3 =>
+			siod_state_debug <=	"01011"; 
 			if(siod_counter < 64 and executed = '0') then 	
 				tri_buff_en <= '1'; 
 			else 
@@ -388,6 +414,7 @@ begin
 			end if; 
 		
 		when PHASE_3 =>	
+			siod_state_debug <=	"01100"; 
 			tri_buff_en <= '0'; 
 			busy <= '1'; 
 			if(sioc_current_state /= sioc_next_state and sioc_next_state = OPERATIONAL_LO)then 
@@ -403,6 +430,7 @@ begin
 			end if;  
 			
 		when ACK_DONT_CARE_4 => 
+			siod_state_debug <=	"01101"; 
 			if(siod_counter < 64 and executed = '0') then 	
 				tri_buff_en <= '0'; 
 			else 
@@ -415,7 +443,8 @@ begin
 				siod_next_state <= ACK_DONT_CARE_4; 	
 			end if; 
 			
-		when ACK_WAIT_4 =>  
+		when ACK_WAIT_4 => 
+			siod_state_debug <=	"01110"; 
 			if(siod_counter < 64 and executed = '0') then 	
 				tri_buff_en <= '1'; 
 			else 
@@ -433,7 +462,8 @@ begin
 				siod_next_state <= ACK_WAIT_4; 	
 			end if; 
 	
-		when END_SDA => 	
+		when END_SDA => 
+			siod_state_debug <=	"01111"; 
 			busy <= '1'; 
 			if(siod_counter < 2000) then 
 				siod_next_state <= END_SDA;   
@@ -444,6 +474,7 @@ begin
 			end if;
 			
 		when WAIT_STATE => 	
+			siod_state_debug <=	"10000"; 
 			tri_buff_en <= '1'; 
 			busy <= '1'; 
 			if(wait_counter < 10000) then 
@@ -454,7 +485,8 @@ begin
 			
 
 		
-		when others => 
+		when others => 	
+			siod_state_debug <=	"10001"; 
 			siod_next_state <= IDLE; 
 		
 	end case; 

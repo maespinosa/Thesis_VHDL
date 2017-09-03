@@ -8,7 +8,7 @@
 -------------------------------------------------------------------------------
 --
 -- File        : c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV5642_IF_LIB\ov5642_if_lib\compile\ov5642_if_test.vhd
--- Generated   : Sun Apr 23 00:30:42 2017
+-- Generated   : Mon Apr 24 19:30:45 2017
 -- From        : c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV5642_IF_LIB\ov5642_if_lib\src\ov5642_if_test.bde
 -- By          : Bde2Vhdl ver. 2.6
 --
@@ -46,7 +46,14 @@ entity OV5642_IF_TEST is
   );
 end OV5642_IF_TEST;
 
+library ieee;
+
 architecture behavioral of OV5642_IF_TEST is
+
+function aldec_slv2int (val:std_logic_vector) return integer is
+begin
+return conv_integer(unsigned(val));
+end aldec_slv2int;
 
 ---- Component declarations -----
 
@@ -61,7 +68,7 @@ component dist_mem_gen_v7_2
 end component;
 component fifo_generator_v9_3
   port (
-       din : in STD_LOGIC_VECTOR(9 downto 0);
+       din : in STD_LOGIC_VECTOR(11 downto 0);
        rd_clk : in STD_LOGIC;
        rd_en : in STD_LOGIC;
        rst : in STD_LOGIC;
@@ -69,7 +76,7 @@ component fifo_generator_v9_3
        wr_en : in STD_LOGIC;
        almost_empty : out STD_LOGIC;
        almost_full : out STD_LOGIC;
-       dout : out STD_LOGIC_VECTOR(9 downto 0);
+       dout : out STD_LOGIC_VECTOR(11 downto 0);
        empty : out STD_LOGIC;
        full : out STD_LOGIC;
        prog_empty : out STD_LOGIC;
@@ -112,6 +119,7 @@ component read_file
   );
   port (
        i_enable : in STD_LOGIC;
+       i_pclk : in STD_LOGIC;
        i_reset_n : in STD_LOGIC;
        i_xclk : in STD_LOGIC;
        o_HREF : out STD_LOGIC;
@@ -162,14 +170,16 @@ component image_capture_control
        i_not_almost_full : in STD_LOGIC;
        i_reset_n : in STD_LOGIC;
        o_FRAME_DONE : out STD_LOGIC;
-       o_IMAGE_DATA : out STD_LOGIC_VECTOR(data_width-1 downto 0);
+       o_IMAGE_DATA : out STD_LOGIC_VECTOR(11 downto 0);
        o_PIXEL_NUMBER : out INTEGER;
        o_PIXEL_VALID : out STD_LOGIC;
        o_PWDN : out STD_LOGIC;
        o_RST : out STD_LOGIC;
-       o_X_POS : out INTEGER;
-       o_Y_POS : out INTEGER;
-       o_debug_state : out STD_LOGIC_VECTOR(2 downto 0)
+       o_X_POS : out STD_LOGIC_VECTOR(11 downto 0);
+       o_Y_POS : out STD_LOGIC_VECTOR(11 downto 0);
+       o_debug_state : out STD_LOGIC_VECTOR(2 downto 0);
+       o_pclk : out STD_LOGIC;
+       o_pclk_counter : out STD_LOGIC_VECTOR(7 downto 0)
   );
 end component;
 component OV5462_SCCB_CNTRL
@@ -192,12 +202,12 @@ component OV5462_SCCB_CNTRL
 end component;
 component vga_sync
   port (
-       i_almost_full : in STD_LOGIC;
        i_clk : in STD_LOGIC;
        i_not_almost_empty : in STD_LOGIC;
+       i_not_almost_full : in STD_LOGIC;
        i_reset_n : in STD_LOGIC;
        i_valid : in STD_LOGIC;
-       i_vga_data : in STD_LOGIC_VECTOR(9 downto 0);
+       i_vga_data : in STD_LOGIC_VECTOR(11 downto 0);
        o_hsync : out STD_LOGIC;
        o_pixel_x : out STD_LOGIC_VECTOR(9 downto 0);
        o_pixel_y : out STD_LOGIC_VECTOR(9 downto 0);
@@ -235,6 +245,7 @@ signal NET6590 : STD_LOGIC;
 signal NET6594 : STD_LOGIC;
 signal NET6616 : STD_LOGIC;
 signal NET6669 : STD_LOGIC;
+signal NET6764 : STD_LOGIC;
 signal PIXEL_VALID : STD_LOGIC;
 signal PWDN : STD_LOGIC;
 signal reset_n : STD_LOGIC;
@@ -244,8 +255,8 @@ signal BUS4695 : STD_LOGIC_VECTOR(7 downto 0);
 signal BUS4697 : STD_LOGIC_VECTOR(15 downto 0);
 signal BUS4705 : STD_LOGIC_VECTOR(10 downto 0);
 signal BUS4707 : STD_LOGIC_VECTOR(15 downto 0);
-signal BUS5126 : STD_LOGIC_VECTOR(9 downto 0);
-signal IMAGE_DATA : STD_LOGIC_VECTOR(data_width-1 downto 0);
+signal BUS5126 : STD_LOGIC_VECTOR(11 downto 0);
+signal IMAGE_DATA : STD_LOGIC_VECTOR(11 downto 0);
 signal o_SDATA : STD_LOGIC_VECTOR(data_width-1 downto 0);
 
 ---- Declaration for Dangling input ----
@@ -286,16 +297,16 @@ CLK_100MHz_GEN : sim_clk_generator
 
 COMPARE_MATLAB : matlab_compare
   generic map(
-       data_width => 10,
+       data_width => 12,
        filename => "../../../../Thesis_Matlab_Models/Bayer_Image/test_image1.txt"
   )
   port map(
-       data_to_write => IMAGE_DATA(9 downto 0),
+       data_to_write => IMAGE_DATA(11 downto 0),
        enable => i_EN,
        match => match,
        pixel_valid => PIXEL_VALID,
        reset_n => reset_n,
-       sys_clk => clk_150MHz
+       sys_clk => i_PCLK
   );
 
 CONFIG_BRAM : dist_mem_gen_v7_2
@@ -324,17 +335,8 @@ CONFIG_BRAM : dist_mem_gen_v7_2
 
 FIFO : fifo_generator_v9_3
   port map(
-       din(0) => IMAGE_DATA(0),
-       din(1) => IMAGE_DATA(1),
-       din(2) => IMAGE_DATA(2),
-       din(3) => IMAGE_DATA(3),
-       din(4) => IMAGE_DATA(4),
-       din(5) => IMAGE_DATA(5),
-       din(6) => IMAGE_DATA(6),
-       din(7) => IMAGE_DATA(7),
-       din(8) => IMAGE_DATA(8),
-       din(9) => IMAGE_DATA(9),
        almost_full => NET5803,
+       din => IMAGE_DATA,
        dout => BUS5126,
        empty => EMPTY,
        full => FULL,
@@ -344,7 +346,7 @@ FIFO : fifo_generator_v9_3
        rd_en => NET6590,
        rst => NET5627,
        valid => NET6530,
-       wr_clk => clk_150MHz,
+       wr_clk => i_PCLK,
        wr_en => PIXEL_VALID
   );
 
@@ -353,6 +355,8 @@ IMAGE_CAPTURE_FSM : image_capture_control
        data_width => 10
   )
   port map(
+       aldec_slv2int(o_X_POS) => o_X_POS,
+       aldec_slv2int(o_Y_POS) => o_Y_POS,
        i_EN => NET4709,
        i_HREF => i_HREF,
        i_PCLK => i_PCLK,
@@ -362,12 +366,20 @@ IMAGE_CAPTURE_FSM : image_capture_control
        i_not_almost_full => ALMOSTFULL,
        i_reset_n => reset_n,
        o_FRAME_DONE => NET6226,
-       o_IMAGE_DATA => IMAGE_DATA(9 downto 0),
+       o_IMAGE_DATA => IMAGE_DATA,
        o_PIXEL_NUMBER => o_PIXEL_NUMBER,
        o_PIXEL_VALID => PIXEL_VALID,
-       o_PWDN => PWDN,
-       o_X_POS => o_X_POS,
-       o_Y_POS => o_Y_POS
+       o_PWDN => PWDN
+  );
+
+PCLK_GEN : sim_clk_generator
+-- synthesis translate_off
+  generic map(
+       clk_period => 20 ns
+  )
+-- synthesis translate_on
+  port map(
+       o_clk => NET6764
   );
 
 SCCB_CONTROLLER : OV5462_SCCB_CNTRL
@@ -391,6 +403,7 @@ SCENE_SIMULATOR : read_file
   )
   port map(
        i_enable => PWDN,
+       i_pclk => NET6764,
        i_reset_n => reset_n,
        i_xclk => xclk,
        o_HREF => i_HREF,
@@ -418,9 +431,9 @@ ALMOSTFULL <= not(NET5803);
 
 VGA : vga_sync
   port map(
-       i_almost_full => NET6616,
        i_clk => xclk,
        i_not_almost_empty => NET5560,
+       i_not_almost_full => NET6616,
        i_reset_n => reset_n,
        i_valid => NET6530,
        i_vga_data => BUS5126,
@@ -435,11 +448,11 @@ VGA : vga_sync
 
 WRITE_OUTPUT : hwrite_file
   generic map(
-       data_width => 10,
+       data_width => 12,
        filename => "simresult_image.txt"
   )
   port map(
-       data_to_write => IMAGE_DATA(data_width-1 downto 0),
+       data_to_write => IMAGE_DATA(11 downto 0),
        data_valid => PIXEL_VALID,
        enable => i_EN,
        reset_n => reset_n,

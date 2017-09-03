@@ -1,0 +1,122 @@
+timestamp=1502864371176
+
+[~A]
+ModifyID=97
+Version=74
+
+[conv_input_buffer]
+A/conv_input_buffer_a=21|./../src/conv_input_buffer.vhd|64|1*0
+I=0*58849
+I/conv_input_buffer_a=0*59058
+M=11|0|vd0|1502582610572|./../src/conv_input_buffer.vhd|0*21297*0x9e857ae1a14ddc64fee9171803997e86e2535a0f|0*21982*0x23b75c12e3e89f2ef000564498faa8c2
+M/conv_input_buffer_a=21|0|vd0|1502582610662|./../src/conv_input_buffer.vhd|0*22083*0xb27dcb524e425f2850a3e627fa3e8b3084c5a5c8|0*28470*0x20116f55b147878295aeff36dce7fc50
+NSymbols/conv_input_buffer=40|0|2*238501
+R=./../src/conv_input_buffer.vhd|43
+Version=10.3.3559.6081  (Windows)|00000003789cd3f5370600015b00b0|c9cb796afad9e1a50f2f81cd5129a05c4cd14b795a57b5922d11738a2ca21bfce2f32b2310e0d326008ad19a1fe1de0b
+Version/conv_input_buffer_a=10.3.3559.6081  (Windows)|00000003789cd3f5370600015b00b0|c9cb796afad9e1a50f2f81cd5129a05c5c68e7e90ab20237698f9d8f415e48d890ff58633d79b8b4804461e3cc95d600
+
+[conv_multiplier]
+A/conv_multiplier_a=21|./../src/conv_multiplier.vhd|52|1*16849
+I=0*59559
+I/conv_multiplier_a=0*59766
+M=11|0|vd0|1502689016423|./../src/conv_multiplier.vhd|0*50537*0x2bf863c2b09f5f3dd18c3eed67268d8e179aa43b|0*50869*0x23b75c12e3e89f2ef000564498faa8c2
+M/conv_multiplier_a=21|0|vd0|1502689016555|./../src/conv_multiplier.vhd|0*50966*0x5499e26b55120d628ffbcc75f4dc8129f4dbca1b|0*51889*0x20116f55b147878295aeff36dce7fc50
+NSymbols/conv_multiplier=40|0|2*5773
+R=./../src/conv_multiplier.vhd|43
+Version=10.3.3559.6081  (Windows)|00000003789cd3f5370600015b00b0|06714df700a5af49e199ae629bfb47fffc1ead8b619890da6ef85b934d58673c34af59b677de248bfb51559334860ac6
+Version/conv_multiplier_a=10.3.3559.6081  (Windows)|00000003789cd3f5370600015b00b0|06714df700a5af49e199ae629bfb47ffa94477763809e3ef782bc32fcd4285baa8a968362e4d926e278e37f1005c22f4
+
+[conv_output_buffer]
+A/conv_output_buffer_a=21|./../src/conv_output_buffer.vhd|64|1*19007
+I=0*60342
+I/conv_output_buffer_a=0*60552
+M=11|0|vd0|1502606023254|./../src/conv_output_buffer.vhd|0*28594*0xc2e158218dd95ff578b2ef69b4b80cffdbfa6edf|0*29283*0x23b75c12e3e89f2ef000564498faa8c2
+M/conv_output_buffer_a=21|0|vd0|1502606023264|./../src/conv_output_buffer.vhd|0*29386*0x69b0fa616800aa858722641ad1e36bb8200019fe|0*35782*0x20116f55b147878295aeff36dce7fc50
+NSymbols/conv_output_buffer=40|0|2*250758
+R=./../src/conv_output_buffer.vhd|43
+Version=10.3.3559.6081  (Windows)|00000003789cd3f5370600015b00b0|c5b90f646595dc7bcf7dd0fe42d52c0ebc1d463db161549e5439319c9fbfd27b6ae93776b5df91046427f1323b2b2cb1
+Version/conv_output_buffer_a=10.3.3559.6081  (Windows)|00000003789cd3f5370600015b00b0|c5b90f646595dc7bcf7dd0fe42d52c0e57afe261b8f7402036ad86056f7558f9144fc3ddb3a528f7e42b4c68f723c1ab
+
+[convolution_controller]
+A/arch=21|./../src/Convolution_Controller.vhd|67|1*35862
+I=0*61201
+I/arch=0*61415
+M=11|0|vd0|1502860803596|./../src/Convolution_Controller.vhd|0*52300*0xfb2fd5991d531681404fe848bba3267691cf6b9c|0*53843*0x23b75c12e3e89f2ef000564498faa8c2
+M/arch=21|0|vd0|1502860803603|./../src/Convolution_Controller.vhd|0*52007*0x451ae2a5eeea5c961596f27b1bf6f44aad7415d5|0*52181*0x20116f55b147878295aeff36dce7fc50
+NSymbols/convolution_controller=NSymbols/Convolution_Controller 40|0|2*13483
+R=./../src/Convolution_Controller.vhd|28
+Version=10.3.3559.6081  (Windows)|00000003789cd3f5370600015b00b0|a4ffd27123a12318bcf7652f005846261ed030358f66812637ac5f80b8bb0f5ced015f5b8ea211d02a5214f727f3a92c
+Version/arch=10.3.3559.6081  (Windows)|00000003789cd3f5370600015b00b0|907f1eb2ab5faaca81dadc47e735a03ad1278feb51e6ae2a6b7983d99a849752
+
+[convolution_layer_top]
+A/arch=24|.\..\src\Convolution_Layer_Top.bde|10000|1*37905
+BinI32/arch=3*0
+I=0*61782
+I/arch=0*62104
+M=11|0|vd0|1502581666321|./../compile/Convolution_Layer_Top.vhd|0*0*0xec4762504b309669525a732ff9fe5788689469bb|0*308*0x23b75c12e3e89f2ef000564498faa8c2
+M/arch=21|0|vd0|1502581666388|./../compile/Convolution_Layer_Top.vhd|0*421*0x133a85ba3341962bfa7fe50d0c5527b489a8ae12|0*21176*0x20116f55b147878295aeff36dce7fc50
+R=./../compile/Convolution_Layer_Top.vhd|28
+Version=10.3.3559.6081  (Windows)|00000003789cd3f5370600015b00b0|04c28eed39c9dfd064cc41cc274548e875cb6b8c17f1a02f2ed487051b47828e676c3614077ac887f762c49d27964ef8
+Version/arch=10.3.3559.6081  (Windows)|00000003789cd3f5370600015b00b0|907f1eb2ab5faaca81dadc47e735a03a79d6b9aa1e4a5d8d9a816ed56326aef7
+
+[filter_top]
+A/arch=24|.\..\src\filter_top.bde|10000|1*128205
+BinI32/arch=3*171
+I=0*77643
+I/arch=0*90831
+M=11|0|vd0|1502864012605|./../compile/filter_top.vhd|0*76956*0x9949bb37b00d08aaf053e42679586189c2da15c2|0*77552*0x23b75c12e3e89f2ef000564498faa8c2
+M/arch=21|0|vd0|1502864047906|./../compile/filter_top.vhd|0*84454*0x1061b563c807b11e5256779035b9caecdf66a791|0*90732*0x20116f55b147878295aeff36dce7fc50
+NSymbols/filter_top=40|0|2*263019
+R=./../compile/filter_top.vhd|28
+Version=10.3.3559.6081  (Windows)|00000003789cd3f5370600015b00b0|d60b08548b01373c7d72f6457d547aca59bbba08720702809c046e8922621107581efdfa5331ef5507dc193390ec9ba8
+Version/arch=10.3.3559.6081  (Windows)|00000003789cd3f5370600015b00b0|907f1eb2ab5faaca81dadc47e735a03a57f67737b3c7a17625bc6bc4ec7f86cb
+
+[input_fifo_net_controller]
+A/arch=21|./../src/input_fifo_net_controller.vhd|73|1*112971
+I=0*75937
+I/arch=0*76462
+M=11|0|vd0|1502863879899|./../src/input_fifo_net_controller.vhd|0*74413*0x622a6369541721f81bff3c81e04a654c26589e14|0*75820*0x23b75c12e3e89f2ef000564498faa8c2
+M/arch=21|0|vd0|1502863879901|./../src/input_fifo_net_controller.vhd|0*76154*0xabdbce9a71d3e77c8dc1e6b9941a266fa887c49e|0*76337*0x20116f55b147878295aeff36dce7fc50
+NSymbols/input_fifo_net_controller=40|0|2*217284
+R=./../src/input_fifo_net_controller.vhd|28
+Version=10.3.3559.6081  (Windows)|00000003789cd3f5370600015b00b0|668d96ddb78be20b7779da13f66094c2cf59a089e51b1e2e5c0aec2f29bff45de1e24ef76b32ab2f749681f7076b4cd7a08a003cc3e4d41e96b71522d3593b65
+Version/arch=10.3.3559.6081  (Windows)|00000003789cd3f5370600015b00b0|907f1eb2ab5faaca81dadc47e735a03a081ad56b3277f219a36c672d46e2d686
+
+[input_fifo_network]
+A/arch=24|.\..\src\input_fifo_network.bde|10000|1*70153
+I=0*63441
+I/arch=0*63760
+M=11|0|vd0|1502668957309|./../compile/input_fifo_network.vhd|0*43224*0x2ea3060093dae8f8c8e3463971dcf07f58bd8b0e|0*44128*0x23b75c12e3e89f2ef000564498faa8c2
+M/arch=21|0|vd0|1502668957321|./../compile/input_fifo_network.vhd|0*44235*0xfbc1295efd9784ea3ff92580a303e224544a7912|0*50422*0x20116f55b147878295aeff36dce7fc50
+NSymbols/input_fifo_network=40|0|2*123531
+R=./../compile/input_fifo_network.vhd|28
+Version=10.3.3559.6081  (Windows)|00000003789cd3f5370600015b00b0|668d96ddb78be20b7779da13f66094c2ef54c767371dbac6f1eb3bb9a5b8ddd6e411b51c1bfca3f2aeb8afcdd997cdd0
+Version/arch=10.3.3559.6081  (Windows)|00000003789cd3f5370600015b00b0|907f1eb2ab5faaca81dadc47e735a03a85a6bbe59df7647bda03cf5c05b4670e
+
+[input_network_fifo]
+A/input_network_fifo_a=21|./../src/input_network_fifo.vhd|64|1*84512
+I=0*64431
+I/input_network_fifo_a=0*64641
+M=11|0|vd0|1502607833373|./../src/input_network_fifo.vhd|0*35909*0xed30c09c7641e9c4b20a2c3b92dbfcdbf0682f6a|0*36598*0x23b75c12e3e89f2ef000564498faa8c2
+M/input_network_fifo_a=21|0|vd0|1502607833379|./../src/input_network_fifo.vhd|0*36701*0x647a80a00d5e8558bda7b39ce97f2c2bd1fa7a4e|0*43097*0x20116f55b147878295aeff36dce7fc50
+NSymbols/input_network_fifo=40|0|2*62280
+R=./../src/input_network_fifo.vhd|43
+Version=10.3.3559.6081  (Windows)|00000003789cd3f5370600015b00b0|78b0a11e48839a89f46279c89a029331a9e16b4a7270560c44cd8b611f5c66515bdb7f1af48c76412487301c2275826c
+Version/input_network_fifo_a=10.3.3559.6081  (Windows)|00000003789cd3f5370600015b00b0|78b0a11e48839a89f46279c89a029331a2dcb477d6c60829cbb3b2798932550dc69ba9b11f63ca25e81623419142d16d
+
+[~MFT]
+0=8|0Convolution_Layer.mgf|90831|20851
+1=2|1Convolution_Layer.mgf|128205|33103
+2=7|2Convolution_Layer.mgf|263019|146767
+3=2|3Convolution_Layer.mgf|171|0
+
+[~U]
+conv_input_buffer=11|0*58549||0x3
+conv_multiplier=11|0*59338||0x3
+conv_output_buffer=11|0*60041||0x3
+convolution_controller=Convolution_Controller 11|0*60834||0x3
+convolution_layer_top=Convolution_Layer_Top 11|0*61634|
+filter_top=11|0*76684||0x3
+input_fifo_net_controller=11|0*74024||0x3
+input_fifo_network=11|0*63134||0x3
+input_network_fifo=11|0*64129||0x3

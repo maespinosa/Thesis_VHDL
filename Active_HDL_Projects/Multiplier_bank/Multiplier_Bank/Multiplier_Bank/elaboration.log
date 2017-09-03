@@ -1,0 +1,35 @@
+Active-HDL 10.3.3559.6081  2017-07-01 06:54:09
+
+Elaboration top modules:
+Architecture                  multiplier_a(multiplier)
+
+
+---------------------------------------------------------------------------------------------------------
+Entity         | Architecture | Library         | Info | Compiler Version          | Compilation Options
+---------------------------------------------------------------------------------------------------------
+multiplier     | multiplier_a | multiplier_bank |      | 10.3.3559.6081  (Windows) | -O3
+mult_gen_v11_2 | behavioral   | xilinxcorelib   |      | 10.3.3559.6081  (Windows) | -vendor xilinx -93
+---------------------------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------------------------
+VHDL Package                  | Library         | Info | Compiler Version          | Compilation Options
+---------------------------------------------------------------------------------------------------------
+standard                      | std             |      |                           | <unavailable>
+TEXTIO                        | std             |      | 10.3.3559.6081  (Windows) |  -2008
+std_logic_1164                | ieee            |      | 10.3.3559.6081  (Windows) | 
+bip_utils_pkg_v2_0            | xilinxcorelib   |      | 10.3.3559.6081  (Windows) | -vendor xilinx -93
+NUMERIC_STD                   | ieee            |      | 10.3.3559.6081  (Windows) | 
+std_logic_arith               | ieee            |      | 10.3.3559.6081  (Windows) | 
+STD_LOGIC_SIGNED              | ieee            |      | 10.3.3559.6081  (Windows) | 
+mult_gen_pkg_v11_2            | xilinxcorelib   |      | 10.3.3559.6081  (Windows) | -vendor xilinx -93
+STD_LOGIC_UNSIGNED            | ieee            |      | 10.3.3559.6081  (Windows) | 
+---------------------------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------------------------
+Library                       | Comment
+---------------------------------------------------------------------------------------------------------
+ieee                          | Standard IEEE packages library
+multiplier_bank               | None
+std                           | Standard VHDL library
+xilinxcorelib                 | XILINX ISE 14.7, XILINXCORELIB VHDL LIBRARY
+---------------------------------------------------------------------------------------------------------

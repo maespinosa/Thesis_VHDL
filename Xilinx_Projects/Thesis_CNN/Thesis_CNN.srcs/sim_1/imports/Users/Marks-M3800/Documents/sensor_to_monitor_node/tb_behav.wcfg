@@ -1,0 +1,670 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="tb" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="1261066087fs"></ZoomStartTime>
+      <ZoomEndTime time="1293580498fs"></ZoomEndTime>
+      <Cursor1Time time="1289558000fs"></Cursor1Time>
+   </zoom_setting>
+   <WVObjectSize size="162" />
+   <wvobject db_ref_id="1" fp_name="/tb/ck" type="logic">
+      <obj_property name="ElementShortName">ck</obj_property>
+      <obj_property name="ObjectShortName">ck</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/ck_n" type="logic">
+      <obj_property name="ElementShortName">ck_n</obj_property>
+      <obj_property name="ObjectShortName">ck_n</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/cke" type="logic">
+      <obj_property name="ElementShortName">cke</obj_property>
+      <obj_property name="ObjectShortName">cke</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/cs_n" type="logic">
+      <obj_property name="ElementShortName">cs_n</obj_property>
+      <obj_property name="ObjectShortName">cs_n</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/ras_n" type="logic">
+      <obj_property name="ElementShortName">ras_n</obj_property>
+      <obj_property name="ObjectShortName">ras_n</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/cas_n" type="logic">
+      <obj_property name="ElementShortName">cas_n</obj_property>
+      <obj_property name="ObjectShortName">cas_n</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/we_n" type="logic">
+      <obj_property name="ElementShortName">we_n</obj_property>
+      <obj_property name="ObjectShortName">we_n</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/ba" type="array">
+      <obj_property name="ElementShortName">ba[2:0]</obj_property>
+      <obj_property name="ObjectShortName">ba[2:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/a" type="array">
+      <obj_property name="ElementShortName">a[12:0]</obj_property>
+      <obj_property name="ObjectShortName">a[12:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/dm" type="array">
+      <obj_property name="ElementShortName">dm[1:0]</obj_property>
+      <obj_property name="ObjectShortName">dm[1:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/dq" type="array">
+      <obj_property name="ElementShortName">dq[15:0]</obj_property>
+      <obj_property name="ObjectShortName">dq[15:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/dqs" type="array">
+      <obj_property name="ElementShortName">dqs[1:0]</obj_property>
+      <obj_property name="ObjectShortName">dqs[1:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/dqs_n" type="array">
+      <obj_property name="ElementShortName">dqs_n[1:0]</obj_property>
+      <obj_property name="ObjectShortName">dqs_n[1:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/rdqs_n" type="array">
+      <obj_property name="ElementShortName">rdqs_n[1:0]</obj_property>
+      <obj_property name="ObjectShortName">rdqs_n[1:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/odt" type="logic">
+      <obj_property name="ElementShortName">odt</obj_property>
+      <obj_property name="ObjectShortName">odt</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/mode_reg0" type="array">
+      <obj_property name="ElementShortName">mode_reg0[12:0]</obj_property>
+      <obj_property name="ObjectShortName">mode_reg0[12:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/mode_reg1" type="array">
+      <obj_property name="ElementShortName">mode_reg1[12:0]</obj_property>
+      <obj_property name="ObjectShortName">mode_reg1[12:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/cl" type="array">
+      <obj_property name="ElementShortName">cl[2:0]</obj_property>
+      <obj_property name="ObjectShortName">cl[2:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/bo" type="logic">
+      <obj_property name="ElementShortName">bo</obj_property>
+      <obj_property name="ObjectShortName">bo</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/bl" type="array">
+      <obj_property name="ElementShortName">bl[7:0]</obj_property>
+      <obj_property name="ObjectShortName">bl[7:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/rdqs_en" type="logic">
+      <obj_property name="ElementShortName">rdqs_en</obj_property>
+      <obj_property name="ObjectShortName">rdqs_en</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/dqs_n_en" type="logic">
+      <obj_property name="ElementShortName">dqs_n_en</obj_property>
+      <obj_property name="ObjectShortName">dqs_n_en</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/al" type="array">
+      <obj_property name="ElementShortName">al[2:0]</obj_property>
+      <obj_property name="ObjectShortName">al[2:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/rl" type="array">
+      <obj_property name="ElementShortName">rl[3:0]</obj_property>
+      <obj_property name="ObjectShortName">rl[3:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/wl" type="array">
+      <obj_property name="ElementShortName">wl[3:0]</obj_property>
+      <obj_property name="ObjectShortName">wl[3:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/dq_en" type="logic">
+      <obj_property name="ElementShortName">dq_en</obj_property>
+      <obj_property name="ObjectShortName">dq_en</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/dm_out" type="array">
+      <obj_property name="ElementShortName">dm_out[1:0]</obj_property>
+      <obj_property name="ObjectShortName">dm_out[1:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/dq_out" type="array">
+      <obj_property name="ElementShortName">dq_out[15:0]</obj_property>
+      <obj_property name="ObjectShortName">dq_out[15:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/dqs_en" type="logic">
+      <obj_property name="ElementShortName">dqs_en</obj_property>
+      <obj_property name="ObjectShortName">dqs_en</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/dqs_out" type="array">
+      <obj_property name="ElementShortName">dqs_out[1:0]</obj_property>
+      <obj_property name="ObjectShortName">dqs_out[1:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/dm_fifo" type="array">
+      <obj_property name="ElementShortName">dm_fifo[34:0][1:0]</obj_property>
+      <obj_property name="ObjectShortName">dm_fifo[34:0][1:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/dq_fifo" type="array">
+      <obj_property name="ElementShortName">dq_fifo[34:0][15:0]</obj_property>
+      <obj_property name="ObjectShortName">dq_fifo[34:0][15:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/q0" type="array">
+      <obj_property name="ElementShortName">q0[15:0]</obj_property>
+      <obj_property name="ObjectShortName">q0[15:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/q1" type="array">
+      <obj_property name="ElementShortName">q1[15:0]</obj_property>
+      <obj_property name="ObjectShortName">q1[15:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/q2" type="array">
+      <obj_property name="ElementShortName">q2[15:0]</obj_property>
+      <obj_property name="ObjectShortName">q2[15:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/q3" type="array">
+      <obj_property name="ElementShortName">q3[15:0]</obj_property>
+      <obj_property name="ObjectShortName">q3[15:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/burst_cntr" type="array">
+      <obj_property name="ElementShortName">burst_cntr[1:0]</obj_property>
+      <obj_property name="ObjectShortName">burst_cntr[1:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/tck" type="other">
+      <obj_property name="ElementShortName">tck</obj_property>
+      <obj_property name="ObjectShortName">tck</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/taa" type="array">
+      <obj_property name="ElementShortName">taa[11:0]</obj_property>
+      <obj_property name="ObjectShortName">taa[11:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/tanpd" type="array">
+      <obj_property name="ElementShortName">tanpd[11:0]</obj_property>
+      <obj_property name="ObjectShortName">tanpd[11:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/taond" type="array">
+      <obj_property name="ElementShortName">taond[11:0]</obj_property>
+      <obj_property name="ObjectShortName">taond[11:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/taofd" type="array">
+      <obj_property name="ElementShortName">taofd[11:0]</obj_property>
+      <obj_property name="ObjectShortName">taofd[11:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/taxpd" type="array">
+      <obj_property name="ElementShortName">taxpd[11:0]</obj_property>
+      <obj_property name="ObjectShortName">taxpd[11:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/tccd" type="array">
+      <obj_property name="ElementShortName">tccd[11:0]</obj_property>
+      <obj_property name="ObjectShortName">tccd[11:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/tcke" type="array">
+      <obj_property name="ElementShortName">tcke[11:0]</obj_property>
+      <obj_property name="ObjectShortName">tcke[11:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/tdllk" type="array">
+      <obj_property name="ElementShortName">tdllk[11:0]</obj_property>
+      <obj_property name="ObjectShortName">tdllk[11:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/tfaw" type="array">
+      <obj_property name="ElementShortName">tfaw[11:0]</obj_property>
+      <obj_property name="ObjectShortName">tfaw[11:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/tmod" type="array">
+      <obj_property name="ElementShortName">tmod[11:0]</obj_property>
+      <obj_property name="ObjectShortName">tmod[11:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/tmrd" type="array">
+      <obj_property name="ElementShortName">tmrd[11:0]</obj_property>
+      <obj_property name="ObjectShortName">tmrd[11:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/tras" type="array">
+      <obj_property name="ElementShortName">tras[11:0]</obj_property>
+      <obj_property name="ObjectShortName">tras[11:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/trc" type="array">
+      <obj_property name="ElementShortName">trc[11:0]</obj_property>
+      <obj_property name="ObjectShortName">trc[11:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/trcd" type="array">
+      <obj_property name="ElementShortName">trcd[11:0]</obj_property>
+      <obj_property name="ObjectShortName">trcd[11:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/trfc" type="array">
+      <obj_property name="ElementShortName">trfc[11:0]</obj_property>
+      <obj_property name="ObjectShortName">trfc[11:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/trp" type="array">
+      <obj_property name="ElementShortName">trp[11:0]</obj_property>
+      <obj_property name="ObjectShortName">trp[11:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/trrd" type="array">
+      <obj_property name="ElementShortName">trrd[11:0]</obj_property>
+      <obj_property name="ObjectShortName">trrd[11:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/trtp" type="array">
+      <obj_property name="ElementShortName">trtp[11:0]</obj_property>
+      <obj_property name="ObjectShortName">trtp[11:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/twr" type="array">
+      <obj_property name="ElementShortName">twr[11:0]</obj_property>
+      <obj_property name="ObjectShortName">twr[11:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/twtr" type="array">
+      <obj_property name="ElementShortName">twtr[11:0]</obj_property>
+      <obj_property name="ObjectShortName">twtr[11:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/txard" type="array">
+      <obj_property name="ElementShortName">txard[11:0]</obj_property>
+      <obj_property name="ObjectShortName">txard[11:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/txards" type="array">
+      <obj_property name="ElementShortName">txards[11:0]</obj_property>
+      <obj_property name="ObjectShortName">txards[11:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/txp" type="array">
+      <obj_property name="ElementShortName">txp[11:0]</obj_property>
+      <obj_property name="ObjectShortName">txp[11:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/txsnr" type="array">
+      <obj_property name="ElementShortName">txsnr[11:0]</obj_property>
+      <obj_property name="ObjectShortName">txsnr[11:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/txsrd" type="array">
+      <obj_property name="ElementShortName">txsrd[11:0]</obj_property>
+      <obj_property name="ObjectShortName">txsrd[11:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/TCK_MIN" type="array">
+      <obj_property name="ElementShortName">TCK_MIN[31:0]</obj_property>
+      <obj_property name="ObjectShortName">TCK_MIN[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/TJIT_PER" type="array">
+      <obj_property name="ElementShortName">TJIT_PER[31:0]</obj_property>
+      <obj_property name="ObjectShortName">TJIT_PER[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/TJIT_DUTY" type="array">
+      <obj_property name="ElementShortName">TJIT_DUTY[31:0]</obj_property>
+      <obj_property name="ObjectShortName">TJIT_DUTY[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/TJIT_CC" type="array">
+      <obj_property name="ElementShortName">TJIT_CC[31:0]</obj_property>
+      <obj_property name="ObjectShortName">TJIT_CC[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/TERR_2PER" type="array">
+      <obj_property name="ElementShortName">TERR_2PER[31:0]</obj_property>
+      <obj_property name="ObjectShortName">TERR_2PER[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/TERR_3PER" type="array">
+      <obj_property name="ElementShortName">TERR_3PER[31:0]</obj_property>
+      <obj_property name="ObjectShortName">TERR_3PER[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/TERR_4PER" type="array">
+      <obj_property name="ElementShortName">TERR_4PER[31:0]</obj_property>
+      <obj_property name="ObjectShortName">TERR_4PER[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/TERR_5PER" type="array">
+      <obj_property name="ElementShortName">TERR_5PER[31:0]</obj_property>
+      <obj_property name="ObjectShortName">TERR_5PER[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/TERR_N1PER" type="array">
+      <obj_property name="ElementShortName">TERR_N1PER[31:0]</obj_property>
+      <obj_property name="ObjectShortName">TERR_N1PER[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/TERR_N2PER" type="array">
+      <obj_property name="ElementShortName">TERR_N2PER[31:0]</obj_property>
+      <obj_property name="ObjectShortName">TERR_N2PER[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/TQHS" type="array">
+      <obj_property name="ElementShortName">TQHS[31:0]</obj_property>
+      <obj_property name="ObjectShortName">TQHS[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/TAC" type="array">
+      <obj_property name="ElementShortName">TAC[31:0]</obj_property>
+      <obj_property name="ObjectShortName">TAC[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/TDS" type="array">
+      <obj_property name="ElementShortName">TDS[31:0]</obj_property>
+      <obj_property name="ObjectShortName">TDS[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/TDH" type="array">
+      <obj_property name="ElementShortName">TDH[31:0]</obj_property>
+      <obj_property name="ObjectShortName">TDH[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/TDQSCK" type="array">
+      <obj_property name="ElementShortName">TDQSCK[31:0]</obj_property>
+      <obj_property name="ObjectShortName">TDQSCK[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/TDQSQ" type="array">
+      <obj_property name="ElementShortName">TDQSQ[31:0]</obj_property>
+      <obj_property name="ObjectShortName">TDQSQ[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/TIS" type="array">
+      <obj_property name="ElementShortName">TIS[31:0]</obj_property>
+      <obj_property name="ObjectShortName">TIS[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/TIH" type="array">
+      <obj_property name="ElementShortName">TIH[31:0]</obj_property>
+      <obj_property name="ObjectShortName">TIH[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/TRC" type="array">
+      <obj_property name="ElementShortName">TRC[31:0]</obj_property>
+      <obj_property name="ObjectShortName">TRC[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/TRCD" type="array">
+      <obj_property name="ElementShortName">TRCD[31:0]</obj_property>
+      <obj_property name="ObjectShortName">TRCD[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/TWTR" type="array">
+      <obj_property name="ElementShortName">TWTR[31:0]</obj_property>
+      <obj_property name="ObjectShortName">TWTR[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/TRP" type="array">
+      <obj_property name="ElementShortName">TRP[31:0]</obj_property>
+      <obj_property name="ObjectShortName">TRP[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/TRPA" type="array">
+      <obj_property name="ElementShortName">TRPA[31:0]</obj_property>
+      <obj_property name="ObjectShortName">TRPA[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/TXARDS" type="array">
+      <obj_property name="ElementShortName">TXARDS[31:0]</obj_property>
+      <obj_property name="ObjectShortName">TXARDS[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/TXARD" type="array">
+      <obj_property name="ElementShortName">TXARD[31:0]</obj_property>
+      <obj_property name="ObjectShortName">TXARD[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/TXP" type="array">
+      <obj_property name="ElementShortName">TXP[31:0]</obj_property>
+      <obj_property name="ObjectShortName">TXP[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/TANPD" type="array">
+      <obj_property name="ElementShortName">TANPD[31:0]</obj_property>
+      <obj_property name="ObjectShortName">TANPD[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/TAXPD" type="array">
+      <obj_property name="ElementShortName">TAXPD[31:0]</obj_property>
+      <obj_property name="ObjectShortName">TAXPD[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/CL_TIME" type="array">
+      <obj_property name="ElementShortName">CL_TIME[31:0]</obj_property>
+      <obj_property name="ObjectShortName">CL_TIME[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/TFAW" type="array">
+      <obj_property name="ElementShortName">TFAW[31:0]</obj_property>
+      <obj_property name="ObjectShortName">TFAW[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/AL_MIN" type="array">
+      <obj_property name="ElementShortName">AL_MIN[31:0]</obj_property>
+      <obj_property name="ObjectShortName">AL_MIN[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/AL_MAX" type="array">
+      <obj_property name="ElementShortName">AL_MAX[31:0]</obj_property>
+      <obj_property name="ObjectShortName">AL_MAX[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/CL_MIN" type="array">
+      <obj_property name="ElementShortName">CL_MIN[31:0]</obj_property>
+      <obj_property name="ObjectShortName">CL_MIN[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/CL_MAX" type="array">
+      <obj_property name="ElementShortName">CL_MAX[31:0]</obj_property>
+      <obj_property name="ObjectShortName">CL_MAX[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/WR_MIN" type="array">
+      <obj_property name="ElementShortName">WR_MIN[31:0]</obj_property>
+      <obj_property name="ObjectShortName">WR_MIN[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/WR_MAX" type="array">
+      <obj_property name="ElementShortName">WR_MAX[31:0]</obj_property>
+      <obj_property name="ObjectShortName">WR_MAX[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/BL_MIN" type="array">
+      <obj_property name="ElementShortName">BL_MIN[31:0]</obj_property>
+      <obj_property name="ObjectShortName">BL_MIN[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/BL_MAX" type="array">
+      <obj_property name="ElementShortName">BL_MAX[31:0]</obj_property>
+      <obj_property name="ObjectShortName">BL_MAX[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/TCK_MAX" type="array">
+      <obj_property name="ElementShortName">TCK_MAX[31:0]</obj_property>
+      <obj_property name="ObjectShortName">TCK_MAX[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/TCH_MIN" type="other">
+      <obj_property name="ElementShortName">TCH_MIN</obj_property>
+      <obj_property name="ObjectShortName">TCH_MIN</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/TCH_MAX" type="other">
+      <obj_property name="ElementShortName">TCH_MAX</obj_property>
+      <obj_property name="ObjectShortName">TCH_MAX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/TCL_MIN" type="other">
+      <obj_property name="ElementShortName">TCL_MIN</obj_property>
+      <obj_property name="ObjectShortName">TCL_MIN</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/TCL_MAX" type="other">
+      <obj_property name="ElementShortName">TCL_MAX</obj_property>
+      <obj_property name="ObjectShortName">TCL_MAX</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/TLZ" type="array">
+      <obj_property name="ElementShortName">TLZ[31:0]</obj_property>
+      <obj_property name="ObjectShortName">TLZ[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/THZ" type="array">
+      <obj_property name="ElementShortName">THZ[31:0]</obj_property>
+      <obj_property name="ObjectShortName">THZ[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/TDIPW" type="other">
+      <obj_property name="ElementShortName">TDIPW</obj_property>
+      <obj_property name="ObjectShortName">TDIPW</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/TDQSH" type="other">
+      <obj_property name="ElementShortName">TDQSH</obj_property>
+      <obj_property name="ObjectShortName">TDQSH</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/TDQSL" type="other">
+      <obj_property name="ElementShortName">TDQSL</obj_property>
+      <obj_property name="ObjectShortName">TDQSL</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/TDSS" type="other">
+      <obj_property name="ElementShortName">TDSS</obj_property>
+      <obj_property name="ObjectShortName">TDSS</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/TDSH" type="other">
+      <obj_property name="ElementShortName">TDSH</obj_property>
+      <obj_property name="ObjectShortName">TDSH</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/TWPRE" type="other">
+      <obj_property name="ElementShortName">TWPRE</obj_property>
+      <obj_property name="ObjectShortName">TWPRE</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/TWPST" type="other">
+      <obj_property name="ElementShortName">TWPST</obj_property>
+      <obj_property name="ObjectShortName">TWPST</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/TDQSS" type="other">
+      <obj_property name="ElementShortName">TDQSS</obj_property>
+      <obj_property name="ObjectShortName">TDQSS</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/TIPW" type="other">
+      <obj_property name="ElementShortName">TIPW</obj_property>
+      <obj_property name="ObjectShortName">TIPW</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/TCCD" type="array">
+      <obj_property name="ElementShortName">TCCD[31:0]</obj_property>
+      <obj_property name="ObjectShortName">TCCD[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/TRAS_MIN" type="array">
+      <obj_property name="ElementShortName">TRAS_MIN[31:0]</obj_property>
+      <obj_property name="ObjectShortName">TRAS_MIN[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/TRAS_MAX" type="array">
+      <obj_property name="ElementShortName">TRAS_MAX[31:0]</obj_property>
+      <obj_property name="ObjectShortName">TRAS_MAX[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/TRTP" type="array">
+      <obj_property name="ElementShortName">TRTP[31:0]</obj_property>
+      <obj_property name="ObjectShortName">TRTP[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/TWR" type="array">
+      <obj_property name="ElementShortName">TWR[31:0]</obj_property>
+      <obj_property name="ObjectShortName">TWR[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/TMRD" type="array">
+      <obj_property name="ElementShortName">TMRD[31:0]</obj_property>
+      <obj_property name="ObjectShortName">TMRD[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/TDLLK" type="array">
+      <obj_property name="ElementShortName">TDLLK[31:0]</obj_property>
+      <obj_property name="ObjectShortName">TDLLK[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/TRFC_MIN" type="array">
+      <obj_property name="ElementShortName">TRFC_MIN[31:0]</obj_property>
+      <obj_property name="ObjectShortName">TRFC_MIN[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/TRFC_MAX" type="array">
+      <obj_property name="ElementShortName">TRFC_MAX[31:0]</obj_property>
+      <obj_property name="ObjectShortName">TRFC_MAX[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/TXSNR" type="array">
+      <obj_property name="ElementShortName">TXSNR[31:0]</obj_property>
+      <obj_property name="ObjectShortName">TXSNR[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/TXSRD" type="array">
+      <obj_property name="ElementShortName">TXSRD[31:0]</obj_property>
+      <obj_property name="ObjectShortName">TXSRD[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/TISXR" type="array">
+      <obj_property name="ElementShortName">TISXR[31:0]</obj_property>
+      <obj_property name="ObjectShortName">TISXR[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/TAOND" type="array">
+      <obj_property name="ElementShortName">TAOND[31:0]</obj_property>
+      <obj_property name="ObjectShortName">TAOND[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/TAOFD" type="other">
+      <obj_property name="ElementShortName">TAOFD</obj_property>
+      <obj_property name="ObjectShortName">TAOFD</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/TAONPD" type="array">
+      <obj_property name="ElementShortName">TAONPD[31:0]</obj_property>
+      <obj_property name="ObjectShortName">TAONPD[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/TAOFPD" type="array">
+      <obj_property name="ElementShortName">TAOFPD[31:0]</obj_property>
+      <obj_property name="ObjectShortName">TAOFPD[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/TMOD" type="array">
+      <obj_property name="ElementShortName">TMOD[31:0]</obj_property>
+      <obj_property name="ObjectShortName">TMOD[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/TCKE" type="array">
+      <obj_property name="ElementShortName">TCKE[31:0]</obj_property>
+      <obj_property name="ObjectShortName">TCKE[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/ADDR_BITS" type="array">
+      <obj_property name="ElementShortName">ADDR_BITS[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ADDR_BITS[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/ROW_BITS" type="array">
+      <obj_property name="ElementShortName">ROW_BITS[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ROW_BITS[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/COL_BITS" type="array">
+      <obj_property name="ElementShortName">COL_BITS[31:0]</obj_property>
+      <obj_property name="ObjectShortName">COL_BITS[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/DM_BITS" type="array">
+      <obj_property name="ElementShortName">DM_BITS[31:0]</obj_property>
+      <obj_property name="ObjectShortName">DM_BITS[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/DQ_BITS" type="array">
+      <obj_property name="ElementShortName">DQ_BITS[31:0]</obj_property>
+      <obj_property name="ObjectShortName">DQ_BITS[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/DQS_BITS" type="array">
+      <obj_property name="ElementShortName">DQS_BITS[31:0]</obj_property>
+      <obj_property name="ObjectShortName">DQS_BITS[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/TRRD" type="array">
+      <obj_property name="ElementShortName">TRRD[31:0]</obj_property>
+      <obj_property name="ObjectShortName">TRRD[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/CS_BITS" type="array">
+      <obj_property name="ElementShortName">CS_BITS[31:0]</obj_property>
+      <obj_property name="ObjectShortName">CS_BITS[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/RANKS" type="array">
+      <obj_property name="ElementShortName">RANKS[31:0]</obj_property>
+      <obj_property name="ObjectShortName">RANKS[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/BA_BITS" type="array">
+      <obj_property name="ElementShortName">BA_BITS[31:0]</obj_property>
+      <obj_property name="ObjectShortName">BA_BITS[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/MEM_BITS" type="array">
+      <obj_property name="ElementShortName">MEM_BITS[31:0]</obj_property>
+      <obj_property name="ObjectShortName">MEM_BITS[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/AP" type="array">
+      <obj_property name="ElementShortName">AP[31:0]</obj_property>
+      <obj_property name="ObjectShortName">AP[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/BL_BITS" type="array">
+      <obj_property name="ElementShortName">BL_BITS[31:0]</obj_property>
+      <obj_property name="ObjectShortName">BL_BITS[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/BO_BITS" type="array">
+      <obj_property name="ElementShortName">BO_BITS[31:0]</obj_property>
+      <obj_property name="ObjectShortName">BO_BITS[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/STOP_ON_ERROR" type="array">
+      <obj_property name="ElementShortName">STOP_ON_ERROR[31:0]</obj_property>
+      <obj_property name="ObjectShortName">STOP_ON_ERROR[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/DEBUG" type="array">
+      <obj_property name="ElementShortName">DEBUG[31:0]</obj_property>
+      <obj_property name="ObjectShortName">DEBUG[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/BUS_DELAY" type="array">
+      <obj_property name="ElementShortName">BUS_DELAY[31:0]</obj_property>
+      <obj_property name="ObjectShortName">BUS_DELAY[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/RANDOM_OUT_DELAY" type="array">
+      <obj_property name="ElementShortName">RANDOM_OUT_DELAY[31:0]</obj_property>
+      <obj_property name="ObjectShortName">RANDOM_OUT_DELAY[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/RANDOM_SEED" type="array">
+      <obj_property name="ElementShortName">RANDOM_SEED[31:0]</obj_property>
+      <obj_property name="ObjectShortName">RANDOM_SEED[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/RDQSEN_PRE" type="array">
+      <obj_property name="ElementShortName">RDQSEN_PRE[31:0]</obj_property>
+      <obj_property name="ObjectShortName">RDQSEN_PRE[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/RDQSEN_PST" type="array">
+      <obj_property name="ElementShortName">RDQSEN_PST[31:0]</obj_property>
+      <obj_property name="ObjectShortName">RDQSEN_PST[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/RDQS_PRE" type="array">
+      <obj_property name="ElementShortName">RDQS_PRE[31:0]</obj_property>
+      <obj_property name="ObjectShortName">RDQS_PRE[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/RDQS_PST" type="array">
+      <obj_property name="ElementShortName">RDQS_PST[31:0]</obj_property>
+      <obj_property name="ObjectShortName">RDQS_PST[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/RDQEN_PRE" type="array">
+      <obj_property name="ElementShortName">RDQEN_PRE[31:0]</obj_property>
+      <obj_property name="ObjectShortName">RDQEN_PRE[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/RDQEN_PST" type="array">
+      <obj_property name="ElementShortName">RDQEN_PST[31:0]</obj_property>
+      <obj_property name="ObjectShortName">RDQEN_PST[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/WDQS_PRE" type="array">
+      <obj_property name="ElementShortName">WDQS_PRE[31:0]</obj_property>
+      <obj_property name="ObjectShortName">WDQS_PRE[31:0]</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="/tb/WDQS_PST" type="array">
+      <obj_property name="ElementShortName">WDQS_PST[31:0]</obj_property>
+      <obj_property name="ObjectShortName">WDQS_PST[31:0]</obj_property>
+   </wvobject>
+</wave_config>

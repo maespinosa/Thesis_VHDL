@@ -1,0 +1,421 @@
+23:34:28 **** Build of project sensor_to_monitor_node_bsp ****
+make -k all 
+"Running Make include in microblaze_0/libsrc/bram_v4_0/src"
+make -C microblaze_0/libsrc/bram_v4_0/src -s include  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v9.5 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-g"
+"Running Make include in microblaze_0/libsrc/cpu_v2_3/src"
+make -C microblaze_0/libsrc/cpu_v2_3/src -s include  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v9.5 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-g"
+"Running Make include in microblaze_0/libsrc/OV5642_IF_v1_0/src"
+make -C microblaze_0/libsrc/OV5642_IF_v1_0/src -s include  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v9.5 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-g"
+"Running Make include in microblaze_0/libsrc/standalone_v5_3/src"
+make -C microblaze_0/libsrc/standalone_v5_3/src -s include  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v9.5 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-g"
+"Running Make include in microblaze_0/libsrc/uartlite_v3_1/src"
+make -C microblaze_0/libsrc/uartlite_v3_1/src -s include  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v9.5 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-g"
+"Running Make include in microblaze_0/libsrc/VGA_IF_v1_0/src"
+make -C microblaze_0/libsrc/VGA_IF_v1_0/src -s include  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v9.5 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-g"
+"Running Make libs in microblaze_0/libsrc/bram_v4_0/src"
+make -C microblaze_0/libsrc/bram_v4_0/src -s libs  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v9.5 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-g"
+"Compiling bram"
+mb-ar: creating ../../../lib/libxil.a
+"Running Make libs in microblaze_0/libsrc/cpu_v2_3/src"
+make -C microblaze_0/libsrc/cpu_v2_3/src -s libs  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v9.5 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-g"
+"Compiling cpu"
+"Running Make libs in microblaze_0/libsrc/OV5642_IF_v1_0/src"
+make -C microblaze_0/libsrc/OV5642_IF_v1_0/src -s libs  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v9.5 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-g"
+"Compiling OV5642_IF..."
+"Running Make libs in microblaze_0/libsrc/standalone_v5_3/src"
+make -C microblaze_0/libsrc/standalone_v5_3/src -s libs  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v9.5 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-g"
+"Compiling standalone";
+"Running Make libs in microblaze_0/libsrc/uartlite_v3_1/src"
+make -C microblaze_0/libsrc/uartlite_v3_1/src -s libs  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v9.5 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-g"
+"Compiling uartlite"
+"Running Make libs in microblaze_0/libsrc/VGA_IF_v1_0/src"
+make -C microblaze_0/libsrc/VGA_IF_v1_0/src -s libs  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v9.5 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-g"
+"Compiling VGA_IF..."
+'Finished building libraries'
+23:34:39 **** Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+'Building file: ../src/helloworld.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -I../../sensor_to_monitor_node_bsp/microblaze_0/include -mlittle-endian -mcpu=v9.5 -mxl-soft-mul -Wl,--no-relax -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.d" -o "src/helloworld.o" "../src/helloworld.c"
+'Finished building: ../src/helloworld.c'
+' '
+'Building file: ../src/platform.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/platform.o" -I../../sensor_to_monitor_node_bsp/microblaze_0/include -mlittle-endian -mcpu=v9.5 -mxl-soft-mul -Wl,--no-relax -MMD -MP -MF"src/platform.d" -MT"src/platform.d" -o "src/platform.o" "../src/platform.c"
+'Finished building: ../src/platform.c'
+' '
+'Building target: sensor_to_monitor_node.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../sensor_to_monitor_node_bsp/microblaze_0/lib -mlittle-endian -mcpu=v9.5 -mxl-soft-mul -Wl,--no-relax -o "sensor_to_monitor_node.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: sensor_to_monitor_node.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size sensor_to_monitor_node.elf  |tee "sensor_to_monitor_node.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+   3328	    288	   3120	   6736	   1a50	sensor_to_monitor_node.elf
+'Finished building: sensor_to_monitor_node.elf.size'
+' '
+19:02:14 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+19:12:56 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+19:13:24 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+19:14:06 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+19:14:38 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+19:17:50 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+19:23:48 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+19:25:12 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+19:28:01 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+19:30:23 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+19:30:45 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+19:31:09 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+19:31:59 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+19:36:26 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+19:37:24 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+23:31:45 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+23:32:17 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+10:06:48 **** Clean-only build of project sensor_to_monitor_node_bsp ****
+make -k clean 
+rm -f microblaze_0/lib/libxil.a
+10:06:51 **** Clean-only build of configuration Debug for project sensor_to_monitor_node ****
+make clean 
+rm -rf  ./src/helloworld.o ./src/platform.o  ./src/helloworld.d ./src/platform.d  sensor_to_monitor_node.elf.size  sensor_to_monitor_node.elf
+' '
+10:06:52 **** Build of project sensor_to_monitor_node_bsp ****
+make -k all 
+"Running Make include in microblaze_0/libsrc/bram_v4_0/src"
+make -C microblaze_0/libsrc/bram_v4_0/src -s include  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v9.5 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-g"
+"Running Make include in microblaze_0/libsrc/cpu_v2_3/src"
+make -C microblaze_0/libsrc/cpu_v2_3/src -s include  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v9.5 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-g"
+"Running Make include in microblaze_0/libsrc/OV5642_IF_v1_0/src"
+make -C microblaze_0/libsrc/OV5642_IF_v1_0/src -s include  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v9.5 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-g"
+"Running Make include in microblaze_0/libsrc/standalone_v5_3/src"
+make -C microblaze_0/libsrc/standalone_v5_3/src -s include  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v9.5 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-g"
+"Running Make include in microblaze_0/libsrc/uartlite_v3_1/src"
+make -C microblaze_0/libsrc/uartlite_v3_1/src -s include  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v9.5 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-g"
+"Running Make include in microblaze_0/libsrc/VGA_IF_v1_0/src"
+make -C microblaze_0/libsrc/VGA_IF_v1_0/src -s include  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v9.5 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-g"
+"Running Make libs in microblaze_0/libsrc/bram_v4_0/src"
+make -C microblaze_0/libsrc/bram_v4_0/src -s libs  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v9.5 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-g"
+"Compiling bram"
+mb-ar: creating ../../../lib/libxil.a
+"Running Make libs in microblaze_0/libsrc/cpu_v2_3/src"
+make -C microblaze_0/libsrc/cpu_v2_3/src -s libs  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v9.5 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-g"
+"Compiling cpu"
+"Running Make libs in microblaze_0/libsrc/OV5642_IF_v1_0/src"
+make -C microblaze_0/libsrc/OV5642_IF_v1_0/src -s libs  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v9.5 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-g"
+"Compiling OV5642_IF..."
+"Running Make libs in microblaze_0/libsrc/standalone_v5_3/src"
+make -C microblaze_0/libsrc/standalone_v5_3/src -s libs  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v9.5 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-g"
+"Compiling standalone";
+"Running Make libs in microblaze_0/libsrc/uartlite_v3_1/src"
+make -C microblaze_0/libsrc/uartlite_v3_1/src -s libs  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v9.5 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-g"
+"Compiling uartlite"
+"Running Make libs in microblaze_0/libsrc/VGA_IF_v1_0/src"
+make -C microblaze_0/libsrc/VGA_IF_v1_0/src -s libs  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS= -O2 -c -mcpu=v9.5 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-g"
+"Compiling VGA_IF..."
+'Finished building libraries'
+10:07:00 **** Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+'Building file: ../src/helloworld.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -I../../sensor_to_monitor_node_bsp/microblaze_0/include -mlittle-endian -mcpu=v9.5 -mxl-soft-mul -Wl,--no-relax -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.d" -o "src/helloworld.o" "../src/helloworld.c"
+'Finished building: ../src/helloworld.c'
+' '
+'Building file: ../src/platform.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/platform.o" -I../../sensor_to_monitor_node_bsp/microblaze_0/include -mlittle-endian -mcpu=v9.5 -mxl-soft-mul -Wl,--no-relax -MMD -MP -MF"src/platform.d" -MT"src/platform.d" -o "src/platform.o" "../src/platform.c"
+'Finished building: ../src/platform.c'
+' '
+'Building target: sensor_to_monitor_node.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../sensor_to_monitor_node_bsp/microblaze_0/lib -mlittle-endian -mcpu=v9.5 -mxl-soft-mul -Wl,--no-relax -o "sensor_to_monitor_node.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: sensor_to_monitor_node.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size sensor_to_monitor_node.elf  |tee "sensor_to_monitor_node.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+   3328	    288	   3120	   6736	   1a50	sensor_to_monitor_node.elf
+'Finished building: sensor_to_monitor_node.elf.size'
+' '
+11:28:54 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+11:39:55 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+15:11:09 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+16:12:57 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+22:43:43 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+01:15:01 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+01:19:17 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+01:19:28 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+01:19:47 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+01:20:31 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+01:21:13 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+01:23:25 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+01:26:59 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+02:05:21 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+18:17:30 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+19:19:22 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+20:26:20 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+22:38:20 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+23:20:03 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+23:47:22 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+00:15:35 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+00:24:42 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+00:25:59 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+00:45:03 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+02:21:09 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+20:04:37 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+20:57:11 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+21:03:45 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+21:21:32 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+22:47:10 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+00:56:20 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+02:00:09 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+17:52:35 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+20:30:58 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+21:57:28 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+21:57:55 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+21:58:22 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+22:05:08 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+22:07:03 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+22:13:15 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+22:14:07 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+22:46:34 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+01:02:44 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+01:14:16 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+01:18:51 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+01:19:07 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+01:22:06 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+01:22:32 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+01:22:44 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+01:39:45 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+01:40:06 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+01:42:41 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+01:42:58 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+01:43:28 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+02:04:09 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+02:04:16 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+02:04:32 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+02:04:44 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+02:08:27 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+02:08:48 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+02:39:13 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+03:02:02 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+23:06:56 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+23:58:23 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+00:13:19 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+00:14:02 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+09:31:58 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+00:58:50 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+01:33:26 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+15:43:52 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+15:44:26 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+15:46:50 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+15:53:01 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+16:05:33 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+16:05:55 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+19:12:37 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+19:31:21 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+20:18:54 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+20:19:11 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+20:19:29 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+21:38:12 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+21:38:37 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.
+22:56:54 **** Incremental Build of configuration Debug for project sensor_to_monitor_node ****
+make all 
+make: Nothing to be done for `all'.

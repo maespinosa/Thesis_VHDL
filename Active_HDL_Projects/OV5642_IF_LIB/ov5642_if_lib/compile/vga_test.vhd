@@ -8,7 +8,7 @@
 -------------------------------------------------------------------------------
 --
 -- File        : c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV5642_IF_LIB\ov5642_if_lib\compile\vga_test.vhd
--- Generated   : Sat Apr 22 22:48:36 2017
+-- Generated   : Mon Apr 24 19:30:43 2017
 -- From        : c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\OV5642_IF_LIB\ov5642_if_lib\src\vga_test.bde
 -- By          : Bde2Vhdl ver. 2.6
 --

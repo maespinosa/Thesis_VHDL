@@ -10,6 +10,7 @@ compile=ov5642_if_lib
 [Library]
 ov5642_if_lib=.\ov5642_if_lib\ov5642_if_lib.lib
 xilinxcorelib=.\..\..\..\..\..\aldec\active-hdl-student-edition\vlib\xilinx_ise\vhdl\xilinxcorelib\xilinxcorelib.lib
+ieee=.\..\..\..\..\..\aldec\active-hdl-student-edition\vlib\ieee\ieee.lib
 
 [Settings]
 AccessRead=0
@@ -45,6 +46,7 @@ xilinxun=ARTIX7
 UnlinkedDesignLibrary=ARTIX7
 DESIGNS=ARTIX7
 xilinxcorelib=.
+ieee=.
 
 [SYNTHESIS]
 SYNTH_DONT_RUN_SYNTHESIS=0
@@ -65,7 +67,7 @@ UCF=
 WindowVisible=0
 
 [HierarchyViewer]
-HierarchyInformation=
+HierarchyInformation=read_file|arch|0  
 ShowHide=ShowTopLevel
 Selected=
 
@@ -90,59 +92,81 @@ Extension7=htm;html
 /hwrite_file.vhd=-1
 /matlab_compare.vhd=-1
 /dist_mem_gen_v7_2.vhd=-1
+/image_fifo_generator.vhd=-1
+/fifo_generator_v9_3.vhd=-1
+/OV5642_FIFO.vhd=-1
+/VGA_FIFO.vhd=-1
 /read_file.vhd=-1
 /clk_wiz_v3_6.vhd=-1
+/config_bram_generator.vhd=-1
 /image_capture_control.vhd=-1
 /ov5462_sccb_cntrl.vhd=-1
 /ov5642_if_test_tb.vhd=-1
 /FIFO_DUALCLOCK_MACRO.vhd=-1
-/i2c_master.vhd=-1
 /Network_Controller.vhd=-1
 /bayer_demosaic.vhd=-1
 /FIFO_NETWORK.bde=-1
 /color_test.bde=-1
 /BRAM_SDP_MACRO.vhd=-1
+/i2c_master.vhd=-1
 /system_reset_manager.vhd=-1
 /sim_clk_generator.vhd=-1
 /vga_sync.vhd=-1
 /monitor_animate.vhd=-1
 /camera_configurator.vhd=-1
-/fifo_generator_v9_3.vhd=-1
 /arducam_if.bde=-1
 /vga_sim.vhd=-1
 /vga_clk.vhd=-1
 /vga_test.bde=-1
+/cross_clk.vhd=-1
+/write_bram.vhd=-1
+/cross_clk_vga.vhd=-1
 /sensor_to_monitor_node.bde=-1
+/ov5642_controller.vhd=-1
 /ov5642_if_test.bde=-1
+/ov5642_if_ip.bde=-1
+/vga_controller.vhd=-1
+/vga_if_ip.bde=-1
 
 [Files.Data]
 .\src\hwrite_file.vhd=VHDL Source Code
 .\src\matlab_compare.vhd=VHDL Source Code
 .\src\dist_mem_gen_v7_2.vhd=VHDL Source Code
+.\src\image_fifo_generator.vhd=VHDL Source Code
+.\src\fifo_generator_v9_3.vhd=VHDL Source Code
+.\src\OV5642_FIFO.vhd=VHDL Source Code
+.\src\VGA_FIFO.vhd=VHDL Source Code
 .\src\read_file.vhd=VHDL Source Code
 .\src\clk_wiz_v3_6.vhd=VHDL Source Code
+.\src\config_bram_generator.vhd=VHDL Source Code
 .\src\image_capture_control.vhd=VHDL Source Code
 .\src\ov5462_sccb_cntrl.vhd=VHDL Source Code
 .\src\ov5642_if_test_tb.vhd=VHDL Source Code
 .\src\FIFO_DUALCLOCK_MACRO.vhd=VHDL Source Code
-.\src\i2c_master.vhd=VHDL Source Code
 .\src\Network_Controller.vhd=VHDL Source Code
 .\src\bayer_demosaic.vhd=VHDL Source Code
 .\src\FIFO_NETWORK.bde=Block Diagram
 .\src\color_test.bde=Block Diagram
 .\src\BRAM_SDP_MACRO.vhd=VHDL Source Code
+.\src\i2c_master.vhd=VHDL Source Code
 .\src\system_reset_manager.vhd=VHDL Source Code
 .\src\sim_clk_generator.vhd=VHDL Source Code
 .\src\vga_sync.vhd=VHDL Source Code
 .\src\monitor_animate.vhd=VHDL Source Code
 .\src\camera_configurator.vhd=VHDL Source Code
-.\src\fifo_generator_v9_3.vhd=VHDL Source Code
 .\src\arducam_if.bde=Block Diagram
 .\src\vga_sim.vhd=VHDL Source Code
 .\src\vga_clk.vhd=VHDL Source Code
 .\src\vga_test.bde=Block Diagram
+.\src\cross_clk.vhd=VHDL Source Code
+.\src\write_bram.vhd=VHDL Source Code
+.\src\cross_clk_vga.vhd=VHDL Source Code
 .\src\sensor_to_monitor_node.bde=Block Diagram
+.\src\ov5642_controller.vhd=VHDL Source Code
 .\src\ov5642_if_test.bde=Block Diagram
+.\src\ov5642_if_ip.bde=Block Diagram
+.\src\vga_controller.vhd=VHDL Source Code
+.\src\vga_if_ip.bde=Block Diagram
 
 [file_out:/FIFO_NETWORK.bde]
 /..\compile\FIFO_NETWORK.vhd=-1
@@ -161,4 +185,10 @@ Extension7=htm;html
 
 [file_out:/ov5642_if_test.bde]
 /..\compile\ov5642_if_test.vhd=-1
+
+[file_out:/ov5642_if_ip.bde]
+/..\compile\ov5642_if_ip.vhd=-1
+
+[file_out:/vga_if_ip.bde]
+/..\compile\vga_if_ip.vhd=-1
 

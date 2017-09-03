@@ -1,0 +1,931 @@
+# Reading C:/Modeltech_pe_edu_10.4a/tcl/vsim/pref.tcl
+do modelsim.do
+# Model Technology ModelSim PE vmap 10.4a Lib Mapping Utility 2015.03 Apr  7 2015
+# vmap -modelsim_quiet -modelsim_quiet xilinxcorelib C:/Xilinx/14.6/ISE_DS/ISE/vhdl/mti_pe/10.4a/nt64/xilinxcorelib 
+# Modifying modelsim.ini
+# Model Technology ModelSim PE vmap 10.4a Lib Mapping Utility 2015.03 Apr  7 2015
+# vmap -modelsim_quiet -modelsim_quiet unisim C:/Xilinx/14.6/ISE_DS/ISE/vhdl/mti_pe/10.4a/nt64/unisim 
+# Modifying modelsim.ini
+# reading modelsim.ini
+# ** Warning: (vlib-34) Library already exists at "Bubble_Sorter".
+# 
+# Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+# Start time: 00:01:51 on Jun 21,2017
+# vcom -reportprogress 300 -2008 -work Bubble_Sorter ./src/cnn_types.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling package cnn_types
+# End time: 00:01:51 on Jun 21,2017, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# ** Warning: (vlib-34) Library already exists at "modelsim".
+# 
+# Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+# Start time: 00:01:51 on Jun 21,2017
+# vcom -reportprogress 300 -2008 -work modelsim ./src/sort_unit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package cnn_types
+# -- Compiling entity sort_unit
+# -- Compiling architecture Behavioral of sort_unit
+# End time: 00:01:52 on Jun 21,2017, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+# Start time: 00:01:52 on Jun 21,2017
+# vcom -reportprogress 300 -2008 -work modelsim ./src/bubble_sorter.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package cnn_types
+# -- Compiling entity bubble_sorter
+# -- Compiling architecture arch of bubble_sorter
+# End time: 00:01:52 on Jun 21,2017, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+# Start time: 00:01:52 on Jun 21,2017
+# vcom -reportprogress 300 -2008 -work modelsim ./src/bubble_sorter_tb.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package cnn_types
+# -- Compiling entity bubble_sorter_tb
+# -- Compiling architecture tb of bubble_sorter_tb
+# End time: 00:01:52 on Jun 21,2017, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+# Start time: 00:01:52 on Jun 21,2017
+# vcom -reportprogress 300 -2008 -work modelsim ./src/sort_unit_signed.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package cnn_types
+# -- Compiling entity sort_unit_signed
+# -- Compiling architecture Behavioral of sort_unit_signed
+# End time: 00:01:52 on Jun 21,2017, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+# Start time: 00:01:52 on Jun 21,2017
+# vcom -reportprogress 300 -2008 -work modelsim ./src/bubble_sorter_signed.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package cnn_types
+# -- Compiling entity bubble_sorter_signed
+# -- Compiling architecture arch of bubble_sorter_signed
+# End time: 00:01:52 on Jun 21,2017, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+# Start time: 00:01:52 on Jun 21,2017
+# vcom -reportprogress 300 -2008 -work modelsim ./src/bubble_sorter_signed_tb.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package cnn_types
+# -- Compiling entity bubble_sorter_signed_tb
+# -- Compiling architecture arch of bubble_sorter_signed_tb
+# End time: 00:01:52 on Jun 21,2017, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# //  ModelSim PE Student Edition 10.4a Apr  7 2015 
+# //
+# //  Copyright 1991-2015 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //  THIS DOCUMENT CONTAINS TRADE SECRETS AND COMMERCIAL OR FINANCIAL
+# //  INFORMATION THAT ARE PRIVILEGED, CONFIDENTIAL, AND EXEMPT FROM
+# //  DISCLOSURE UNDER THE FREEDOM OF INFORMATION ACT, 5 U.S.C. SECTION 552.
+# //  FURTHERMORE, THIS INFORMATION IS PROHIBITED FROM DISCLOSURE UNDER
+# //  THE TRADE SECRETS ACT, 18 U.S.C. SECTION 1905.
+# //
+# // NOT FOR CORPORATE OR PRODUCTION USE.
+# // THE ModelSim PE Student Edition IS NOT A SUPPORTED PRODUCT.
+# // FOR HIGHER EDUCATION PURPOSES ONLY
+# //
+# vsim -gui 
+# Start time: 00:01:52 on Jun 21,2017
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading bubble_sorter.cnn_types
+# Loading modelsim.bubble_sorter_signed_tb(arch)
+# Loading modelsim.bubble_sorter_signed(arch)
+# Loading modelsim.sort_unit_signed(behavioral)
+# .main_pane.wave.interior.cs.body.pw.wf
+add wave -position end sim:/bubble_sorter_signed_tb/bubble_sorter_signed_UUT/*
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+# 
+#           File in use by: Marks-M3800  Hostname: MARKS-M3800-PC  ProcessID: 10332
+# 
+#           Attempting to use alternate WLF file "./wlft8715dr".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+# 
+#           Using alternate file: ./wlft8715dr
+# 
+run -all
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage8
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage8
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage8
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage8
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage8
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage8
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage8
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage8
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage7
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage7
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage7
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage7
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage7
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage7
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage7
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage7
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage6
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage6
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage6
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage6
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage6
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage6
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage6
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage6
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage5
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage5
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage5
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage5
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage5
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage5
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage5
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage5
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage4
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage4
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage4
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage4
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage4
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage4
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage4
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage4
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage3
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage3
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage3
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage3
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage3
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage3
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage3
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage3
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage2
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage2
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage2
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage2
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage2
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage2
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage2
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage2
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage1
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage1
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage1
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage1
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage1
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage1
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage1
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage1
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage0
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage0
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage0
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage0
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage0
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage0
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage0
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage0
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage8
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage8
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage8
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage8
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage8
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage8
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage8
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage8
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage7
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage7
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage7
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage7
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage7
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage7
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage7
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage7
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage6
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage6
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage6
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage6
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage6
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage6
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage6
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage6
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage5
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage5
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage5
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage5
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage5
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage5
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage5
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage5
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage4
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage4
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage4
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage4
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage4
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage4
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage4
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage4
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage3
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage3
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage3
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage3
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage3
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage3
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage3
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage3
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage2
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage2
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage2
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage2
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage2
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage2
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage2
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage2
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage1
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage1
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage1
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage1
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage1
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage1
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage1
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage1
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage0
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage0
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage0
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage0
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage0
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage0
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage0
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage0
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 2  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage8
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 2  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage8
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 2  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage8
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 2  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage8
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 2  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage8
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 2  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage8
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 2  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage8
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 2  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage7
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 2  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage7
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 2  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage7
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 2  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage7
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 2  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage7
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 2  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage7
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 2  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage7
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 2  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage6
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 2  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage6
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 2  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage6
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 2  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage6
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 2  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage6
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 2  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage6
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 2  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage6
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 2  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage5
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 2  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage5
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 2  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage5
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 2  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage5
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 2  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage5
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 2  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage5
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 2  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage5
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 2  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage4
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 2  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage4
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 2  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage4
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 2  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage4
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 2  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage4
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 2  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage4
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 2  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage4
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 2  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage3
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 2  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage3
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 2  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage3
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 2  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage3
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 2  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage3
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 2  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage3
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 2  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage3
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 2  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage2
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 2  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage2
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 2  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage2
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 2  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage2
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 2  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage2
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 2  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage2
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 2  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage2
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 2  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage1
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 2  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage1
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 2  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage1
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 2  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage1
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 2  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage1
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 2  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage1
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 2  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage1
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 2  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage0
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 2  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage0
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 2  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage0
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 2  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage0
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 2  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage0
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 2  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage0
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 2  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage0
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 3  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage8
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 3  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage8
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 3  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage8
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 3  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage8
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 3  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage8
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 3  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage8
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 3  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage7
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 3  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage7
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 3  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage7
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 3  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage7
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 3  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage7
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 3  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage7
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 3  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage6
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 3  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage6
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 3  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage6
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 3  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage6
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 3  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage6
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 3  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage6
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 3  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage5
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 3  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage5
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 3  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage5
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 3  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage5
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 3  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage5
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 3  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage5
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 3  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage4
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 3  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage4
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 3  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage4
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 3  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage4
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 3  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage4
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 3  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage4
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 3  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage3
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 3  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage3
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 3  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage3
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 3  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage3
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 3  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage3
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 3  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage3
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 3  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage2
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 3  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage2
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 3  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage2
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 3  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage2
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 3  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage2
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 3  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage2
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 3  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage1
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 3  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage1
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 3  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage1
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 3  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage1
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 3  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage1
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 3  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage1
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 3  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage0
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 3  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage0
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 3  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage0
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 3  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage0
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 3  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage0
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 3  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage0
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 4  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage8
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 4  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage8
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 4  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage8
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 4  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage8
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 4  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage8
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 4  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage7
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 4  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage7
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 4  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage7
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 4  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage7
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 4  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage7
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 4  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage6
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 4  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage6
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 4  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage6
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 4  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage6
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 4  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage6
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 4  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage5
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 4  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage5
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 4  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage5
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 4  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage5
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 4  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage5
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 4  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage4
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 4  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage4
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 4  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage4
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 4  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage4
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 4  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage4
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 4  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage3
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 4  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage3
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 4  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage3
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 4  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage3
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 4  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage3
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 4  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage2
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 4  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage2
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 4  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage2
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 4  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage2
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 4  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage2
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 4  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage1
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 4  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage1
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 4  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage1
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 4  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage1
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 4  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage1
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 4  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage0
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 4  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage0
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 4  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage0
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 4  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage0
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 4  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage0
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 5  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage8
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 5  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage8
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 5  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage8
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 5  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage8
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 5  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage7
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 5  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage7
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 5  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage7
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 5  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage7
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 5  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage6
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 5  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage6
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 5  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage6
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 5  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage6
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 5  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage5
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 5  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage5
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 5  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage5
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 5  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage5
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 5  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage4
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 5  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage4
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 5  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage4
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 5  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage4
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 5  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage3
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 5  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage3
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 5  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage3
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 5  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage3
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 5  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage2
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 5  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage2
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 5  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage2
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 5  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage2
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 5  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage1
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 5  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage1
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 5  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage1
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 5  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage1
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 5  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage0
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 5  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage0
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 5  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage0
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 5  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage0
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 6  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage8
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 6  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage8
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 6  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage8
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 6  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage7
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 6  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage7
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 6  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage7
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 6  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage6
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 6  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage6
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 6  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage6
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 6  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage5
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 6  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage5
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 6  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage5
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 6  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage4
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 6  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage4
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 6  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage4
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 6  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage3
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 6  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage3
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 6  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage3
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 6  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage2
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 6  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage2
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 6  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage2
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 6  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage1
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 6  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage1
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 6  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage1
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 6  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage0
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 6  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage0
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 6  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage0
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 7  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage8
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 7  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage8
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 7  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage7
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 7  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage7
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 7  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage6
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 7  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage6
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 7  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage5
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 7  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage5
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 7  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage4
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 7  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage4
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 7  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage3
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 7  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage3
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 7  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage2
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 7  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage2
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 7  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage1
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 7  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage1
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 7  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage0
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 7  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage0
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 8  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage8
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 8  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage7
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 8  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage6
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 8  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage5
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 8  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage4
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 8  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage3
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 8  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage2
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 8  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage1
+# ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 8  Instance: /bubble_sorter_signed_tb/bubble_sorter_signed_UUT/stage0
+# Break key hit
+# Simulation stop requested.
+# End time: 10:49:32 on Jun 30,2017, Elapsed time: 226:47:40
+# Errors: 0, Warnings: 398

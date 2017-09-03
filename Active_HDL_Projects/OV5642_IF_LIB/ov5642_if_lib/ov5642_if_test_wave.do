@@ -57,24 +57,24 @@ add wave -noupdate -group CONFIG_BRAM /ov5642_if_test/CONFIG_BRAM/d
 add wave -noupdate -group CONFIG_BRAM /ov5642_if_test/CONFIG_BRAM/clk
 add wave -noupdate -group CONFIG_BRAM /ov5642_if_test/CONFIG_BRAM/we
 add wave -noupdate -group CONFIG_BRAM /ov5642_if_test/CONFIG_BRAM/spo
-add wave -noupdate -group SCENE_SIMULATOR /ov5642_if_test/SCENE_SIMULATOR/i_xclk
-add wave -noupdate -group SCENE_SIMULATOR /ov5642_if_test/SCENE_SIMULATOR/i_enable
-add wave -noupdate -group SCENE_SIMULATOR /ov5642_if_test/SCENE_SIMULATOR/i_reset_n
-add wave -noupdate -group SCENE_SIMULATOR /ov5642_if_test/SCENE_SIMULATOR/o_SDATA
-add wave -noupdate -group SCENE_SIMULATOR /ov5642_if_test/SCENE_SIMULATOR/o_VSYNC
-add wave -noupdate -group SCENE_SIMULATOR /ov5642_if_test/SCENE_SIMULATOR/o_HREF
-add wave -noupdate -group SCENE_SIMULATOR /ov5642_if_test/SCENE_SIMULATOR/o_PCLK
-add wave -noupdate -group SCENE_SIMULATOR /ov5642_if_test/SCENE_SIMULATOR/close_flag
-add wave -noupdate -group SCENE_SIMULATOR /ov5642_if_test/SCENE_SIMULATOR/counter
-add wave -noupdate -group SCENE_SIMULATOR /ov5642_if_test/SCENE_SIMULATOR/read_pulse
-add wave -noupdate -group SCENE_SIMULATOR /ov5642_if_test/SCENE_SIMULATOR/row_counter
-add wave -noupdate -group SCENE_SIMULATOR /ov5642_if_test/SCENE_SIMULATOR/column_counter
-add wave -noupdate -group SCENE_SIMULATOR /ov5642_if_test/SCENE_SIMULATOR/SDATA
-add wave -noupdate -group SCENE_SIMULATOR /ov5642_if_test/SCENE_SIMULATOR/VSYNC
-add wave -noupdate -group SCENE_SIMULATOR /ov5642_if_test/SCENE_SIMULATOR/HREF
-add wave -noupdate -group SCENE_SIMULATOR /ov5642_if_test/SCENE_SIMULATOR/PCLK
-add wave -noupdate -group SCENE_SIMULATOR /ov5642_if_test/SCENE_SIMULATOR/current_state
-add wave -noupdate -group SCENE_SIMULATOR /ov5642_if_test/SCENE_SIMULATOR/next_state
+add wave -noupdate -expand -group SCENE_SIMULATOR /ov5642_if_test/SCENE_SIMULATOR/i_xclk
+add wave -noupdate -expand -group SCENE_SIMULATOR /ov5642_if_test/SCENE_SIMULATOR/i_enable
+add wave -noupdate -expand -group SCENE_SIMULATOR /ov5642_if_test/SCENE_SIMULATOR/i_reset_n
+add wave -noupdate -expand -group SCENE_SIMULATOR /ov5642_if_test/SCENE_SIMULATOR/o_SDATA
+add wave -noupdate -expand -group SCENE_SIMULATOR /ov5642_if_test/SCENE_SIMULATOR/o_VSYNC
+add wave -noupdate -expand -group SCENE_SIMULATOR /ov5642_if_test/SCENE_SIMULATOR/o_HREF
+add wave -noupdate -expand -group SCENE_SIMULATOR /ov5642_if_test/SCENE_SIMULATOR/o_PCLK
+add wave -noupdate -expand -group SCENE_SIMULATOR /ov5642_if_test/SCENE_SIMULATOR/close_flag
+add wave -noupdate -expand -group SCENE_SIMULATOR /ov5642_if_test/SCENE_SIMULATOR/counter
+add wave -noupdate -expand -group SCENE_SIMULATOR /ov5642_if_test/SCENE_SIMULATOR/read_pulse
+add wave -noupdate -expand -group SCENE_SIMULATOR /ov5642_if_test/SCENE_SIMULATOR/row_counter
+add wave -noupdate -expand -group SCENE_SIMULATOR /ov5642_if_test/SCENE_SIMULATOR/column_counter
+add wave -noupdate -expand -group SCENE_SIMULATOR /ov5642_if_test/SCENE_SIMULATOR/SDATA
+add wave -noupdate -expand -group SCENE_SIMULATOR /ov5642_if_test/SCENE_SIMULATOR/VSYNC
+add wave -noupdate -expand -group SCENE_SIMULATOR /ov5642_if_test/SCENE_SIMULATOR/HREF
+add wave -noupdate -expand -group SCENE_SIMULATOR /ov5642_if_test/SCENE_SIMULATOR/PCLK
+add wave -noupdate -expand -group SCENE_SIMULATOR /ov5642_if_test/SCENE_SIMULATOR/current_state
+add wave -noupdate -expand -group SCENE_SIMULATOR /ov5642_if_test/SCENE_SIMULATOR/next_state
 add wave -noupdate -expand -group IMAGE_CAPTURE_CONTROL /ov5642_if_test/IMAGE_CAPTURE_FSM/i_clk
 add wave -noupdate -expand -group IMAGE_CAPTURE_CONTROL /ov5642_if_test/IMAGE_CAPTURE_FSM/i_reset_n
 add wave -noupdate -expand -group IMAGE_CAPTURE_CONTROL /ov5642_if_test/IMAGE_CAPTURE_FSM/i_SDATA
@@ -151,13 +151,13 @@ add wave -noupdate -expand -group VGA /ov5642_if_test/VGA/h_sync
 add wave -noupdate -expand -group VGA /ov5642_if_test/VGA/h_end
 add wave -noupdate -expand -group VGA /ov5642_if_test/VGA/v_end
 add wave -noupdate -expand -group VGA /ov5642_if_test/VGA/video_on
+add wave -noupdate -expand -group VGA /ov5642_if_test/VGA/i_not_almost_full
 add wave -noupdate -expand -group VGA /ov5642_if_test/VGA/i_not_almost_empty
-add wave -noupdate -expand -group VGA /ov5642_if_test/VGA/i_almost_full
 add wave -noupdate -expand -group VGA /ov5642_if_test/VGA/current_state
 add wave -noupdate -expand -group VGA /ov5642_if_test/VGA/next_state
 add wave -noupdate -expand -group VGA /ov5642_if_test/VGA/vga_data
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {3124 ns} 0}
+WaveRestoreCursors {{Cursor 1} {1744 ns} 0}
 quietly wave cursor active 1
 configure wave -namecolwidth 261
 configure wave -valuecolwidth 100
@@ -173,4 +173,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ns
 update
-WaveRestoreZoom {0 ns} {393375 ns}
+WaveRestoreZoom {0 ns} {61300 ns}

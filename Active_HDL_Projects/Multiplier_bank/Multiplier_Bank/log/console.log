@@ -1,0 +1,507 @@
+# Library Manager: Library "xilinxcorelib" attached.
+# AMAP: Adding mapping library O.K.
+# Library Manager: Library "ieee" attached.
+# AMAP: Adding mapping library O.K.
+acom -reorder -O3 -e 100 -work Multiplier_Bank -2002  $dsn/src/multiplier.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Multiplier_bank\Multiplier_Bank\src\multiplier.vhd
+# Compile Entity "multiplier"
+# Compile Architecture "multiplier_a" of Entity "multiplier"
+# Top-level unit(s) detected:
+# Entity => multiplier
+# Compile success 0 Errors 0 Warnings  Analysis time :  0.2 [s]
+# ELBREAD: Elaboration process.
+# ELBREAD: Elaboration time 0.1 [s].
+acom -O3 -e 100 -work multiplier_bank -2002  $dsn/src/multiplier_top.bde
+# DRC: Checking file 'C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Multiplier_bank\Multiplier_Bank\src\multiplier_top.bde'.
+# DRC: Warning: multiplier_top.bde - 0 error(s), 12 warning(s)
+# DRC: DRC process completed in 2 second(s).
+# DRC: The results have been written to the log file. Double click on this line to view the log.
+# Generating C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Multiplier_bank\Multiplier_Bank\compile\multiplier_top.vhd from C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Multiplier_bank\Multiplier_Bank\src\multiplier_top.bde ...
+# Generation successful
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: .\..\compile\multiplier_top.vhd
+# Compile Entity "multiplier_top"
+# Error: COMP96_0078: multiplier_top.bde(multiplier_top.vhd) : (34, 17): Unknown identifier "ARRAY_TYPE_240X16BIT".
+# Error: COMP96_0064: multiplier_top.bde(multiplier_top.vhd) : (34, 17): Unknown type.
+# Error: COMP96_0078: multiplier_top.bde(multiplier_top.vhd) : (35, 17): Unknown identifier "ARRAY_TYPE_240X16BIT".
+# Error: COMP96_0064: multiplier_top.bde(multiplier_top.vhd) : (35, 17): Unknown type.
+# Error: COMP96_0078: multiplier_top.bde(multiplier_top.vhd) : (36, 24): Unknown identifier "ARRAY_TYPE_240X32BIT".
+# Error: COMP96_0064: multiplier_top.bde(multiplier_top.vhd) : (36, 24): Unknown type.
+# Compile Architecture "arch" of Entity "multiplier_top"
+# Error: COMP96_0019: multiplier_top.bde(multiplier_top.vhd) : (65, 1): Keyword 'end' expected.
+# Error: COMP96_0016: multiplier_top.bde(multiplier_top.vhd) : (65, 6): Design unit declaration expected.
+# Compile failure 8 Errors 0 Warnings  Analysis time :  94.0 [ms]
+acom -O3 -e 100 -work multiplier_bank -2002  $dsn/src/multiplier_top.bde
+# DRC: Checking file 'C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Multiplier_bank\Multiplier_Bank\src\multiplier_top.bde'.
+# DRC: Warning: multiplier_top.bde - 0 error(s), 12 warning(s)
+# DRC: DRC process completed in 1 second(s).
+# DRC: The results have been written to the log file. Double click on this line to view the log.
+# Generating C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Multiplier_bank\Multiplier_Bank\compile\multiplier_top.vhd from C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Multiplier_bank\Multiplier_Bank\src\multiplier_top.bde ...
+# Generation successful
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: .\..\compile\multiplier_top.vhd
+# Compile Entity "multiplier_top"
+# Error: COMP96_0078: multiplier_top.bde(multiplier_top.vhd) : (34, 17): Unknown identifier "ARRAY_TYPE_240X16BIT".
+# Error: COMP96_0064: multiplier_top.bde(multiplier_top.vhd) : (34, 17): Unknown type.
+# Error: COMP96_0078: multiplier_top.bde(multiplier_top.vhd) : (35, 17): Unknown identifier "ARRAY_TYPE_240X16BIT".
+# Error: COMP96_0064: multiplier_top.bde(multiplier_top.vhd) : (35, 17): Unknown type.
+# Error: COMP96_0078: multiplier_top.bde(multiplier_top.vhd) : (36, 24): Unknown identifier "ARRAY_TYPE_240X32BIT".
+# Error: COMP96_0064: multiplier_top.bde(multiplier_top.vhd) : (36, 24): Unknown type.
+# Compile Architecture "arch" of Entity "multiplier_top"
+# Error: COMP96_0019: multiplier_top.bde(multiplier_top.vhd) : (65, 1): Keyword 'end' expected.
+# Error: COMP96_0016: multiplier_top.bde(multiplier_top.vhd) : (65, 6): Design unit declaration expected.
+# Compile failure 8 Errors 0 Warnings  Analysis time :  31.0 [ms]
+acom -O3 -e 100 -work multiplier_bank -2002  $dsn/src/multiplier_top.bde
+# DRC: Checking file 'C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Multiplier_bank\Multiplier_Bank\src\multiplier_top.bde'.
+# DRC: Warning: multiplier_top.bde - 0 error(s), 12 warning(s)
+# DRC: DRC process completed in 1 second(s).
+# DRC: The results have been written to the log file. Double click on this line to view the log.
+# Generating C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Multiplier_bank\Multiplier_Bank\compile\multiplier_top.vhd from C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Multiplier_bank\Multiplier_Bank\src\multiplier_top.bde ...
+# Generation successful
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: .\..\compile\multiplier_top.vhd
+# Compile Entity "multiplier_top"
+# Error: COMP96_0055: multiplier_top.bde(multiplier_top.vhd) : (29, 21): Cannot find referenced context element "multiplier_bank.multiplier_types".
+# Error: COMP96_0078: multiplier_top.bde(multiplier_top.vhd) : (38, 17): Unknown identifier "ARRAY_TYPE_240X16BIT".
+# Error: COMP96_0064: multiplier_top.bde(multiplier_top.vhd) : (38, 17): Unknown type.
+# Error: COMP96_0078: multiplier_top.bde(multiplier_top.vhd) : (39, 17): Unknown identifier "ARRAY_TYPE_240X16BIT".
+# Error: COMP96_0064: multiplier_top.bde(multiplier_top.vhd) : (39, 17): Unknown type.
+# Error: COMP96_0078: multiplier_top.bde(multiplier_top.vhd) : (40, 24): Unknown identifier "ARRAY_TYPE_240X32BIT".
+# Error: COMP96_0064: multiplier_top.bde(multiplier_top.vhd) : (40, 24): Unknown type.
+# Compile Architecture "arch" of Entity "multiplier_top"
+# Error: COMP96_0019: multiplier_top.bde(multiplier_top.vhd) : (70, 1): Keyword 'end' expected.
+# Error: COMP96_0016: multiplier_top.bde(multiplier_top.vhd) : (70, 6): Design unit declaration expected.
+# Compile failure 9 Errors 0 Warnings  Analysis time :  63.0 [ms]
+acom -O3 -e 100 -work multiplier_bank -2002  $dsn/src/multiplier_types.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Multiplier_bank\Multiplier_Bank\src\multiplier_types.vhd
+# Compile Package "multiplier_types"
+# Compile success 0 Errors 0 Warnings  Analysis time :  62.0 [ms]
+acom -O3 -e 100 -work multiplier_bank -2002  $dsn/src/multiplier_top.bde
+# DRC: Checking file 'C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Multiplier_bank\Multiplier_Bank\src\multiplier_top.bde'.
+# DRC: Warning: multiplier_top.bde - 0 error(s), 12 warning(s)
+# DRC: DRC process completed in 1 second(s).
+# DRC: The results have been written to the log file. Double click on this line to view the log.
+# Generating C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Multiplier_bank\Multiplier_Bank\compile\multiplier_top.vhd from C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Multiplier_bank\Multiplier_Bank\src\multiplier_top.bde ...
+# Generation successful
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: .\..\compile\multiplier_top.vhd
+# Compile Entity "multiplier_top"
+# Error: COMP96_0356: multiplier_top.bde(multiplier_top.vhd) : (38, 37): Index constraint cannot be applied to constrained type.
+# Error: COMP96_0356: multiplier_top.bde(multiplier_top.vhd) : (39, 37): Index constraint cannot be applied to constrained type.
+# Error: COMP96_0356: multiplier_top.bde(multiplier_top.vhd) : (40, 44): Index constraint cannot be applied to constrained type.
+# Compile Architecture "arch" of Entity "multiplier_top"
+# Error: COMP96_0019: multiplier_top.bde(multiplier_top.vhd) : (70, 1): Keyword 'end' expected.
+# Error: COMP96_0016: multiplier_top.bde(multiplier_top.vhd) : (70, 6): Design unit declaration expected.
+# Compile failure 5 Errors 0 Warnings  Analysis time :  47.0 [ms]
+acom -O3 -e 100 -work multiplier_bank -2002  $dsn/src/multiplier_top.bde
+# DRC: Checking file 'C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Multiplier_bank\Multiplier_Bank\src\multiplier_top.bde'.
+# DRC: Warning: multiplier_top.bde - 0 error(s), 12 warning(s)
+# DRC: DRC process completed in 1 second(s).
+# DRC: The results have been written to the log file. Double click on this line to view the log.
+# Generating C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Multiplier_bank\Multiplier_Bank\compile\multiplier_top.vhd from C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Multiplier_bank\Multiplier_Bank\src\multiplier_top.bde ...
+# Generation successful
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: .\..\compile\multiplier_top.vhd
+# Compile Entity "multiplier_top"
+# Compile Architecture "arch" of Entity "multiplier_top"
+# Error: COMP96_0019: multiplier_top.bde(multiplier_top.vhd) : (70, 1): Keyword 'end' expected.
+# Error: COMP96_0016: multiplier_top.bde(multiplier_top.vhd) : (70, 6): Design unit declaration expected.
+# Compile failure 2 Errors 0 Warnings  Analysis time :  31.0 [ms]
+acom -O3 -e 100 -work multiplier_bank -2002  $dsn/src/multiplier_top.bde
+# DRC: Checking file 'C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Multiplier_bank\Multiplier_Bank\src\multiplier_top.bde'.
+# DRC: Warning: multiplier_top.bde - 0 error(s), 12 warning(s)
+# DRC: DRC process completed in 1 second(s).
+# DRC: The results have been written to the log file. Double click on this line to view the log.
+# Generating C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Multiplier_bank\Multiplier_Bank\compile\multiplier_top.vhd from C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Multiplier_bank\Multiplier_Bank\src\multiplier_top.bde ...
+# Generation successful
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: .\..\compile\multiplier_top.vhd
+# Compile Entity "multiplier_top"
+# Compile Architecture "arch" of Entity "multiplier_top"
+# Error: COMP96_0356: multiplier_top.bde(multiplier_top.vhd) : (63, 45): Index constraint cannot be applied to constrained type.
+# Error: COMP96_0356: multiplier_top.bde(multiplier_top.vhd) : (65, 38): Index constraint cannot be applied to constrained type.
+# Compile failure 2 Errors 0 Warnings  Analysis time :  78.0 [ms]
+acom -O3 -e 100 -work multiplier_bank -2002  $dsn/src/multiplier_top.bde
+# DRC: Checking file 'C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Multiplier_bank\Multiplier_Bank\src\multiplier_top.bde'.
+# DRC: Warning: multiplier_top.bde - 0 error(s), 12 warning(s)
+# DRC: DRC process completed in 1 second(s).
+# DRC: The results have been written to the log file. Double click on this line to view the log.
+# Generating C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Multiplier_bank\Multiplier_Bank\compile\multiplier_top.vhd from C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Multiplier_bank\Multiplier_Bank\src\multiplier_top.bde ...
+# Generation successful
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: .\..\compile\multiplier_top.vhd
+# Compile Entity "multiplier_top"
+# Compile Architecture "arch" of Entity "multiplier_top"
+# Compile success 0 Errors 0 Warnings  Analysis time :  0.2 [s]
+acom -O3 -e 100 -work multiplier_bank -2002  $dsn/src/multiplier_top.bde
+# DRC: Checking file 'C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Multiplier_bank\Multiplier_Bank\src\multiplier_top.bde'.
+# DRC: Warning: multiplier_top.bde - 0 error(s), 12 warning(s)
+# DRC: DRC process completed in 2 second(s).
+# DRC: The results have been written to the log file. Double click on this line to view the log.
+# Generating C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Multiplier_bank\Multiplier_Bank\compile\multiplier_top.vhd from C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Multiplier_bank\Multiplier_Bank\src\multiplier_top.bde ...
+# Generation successful
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: .\..\compile\multiplier_top.vhd
+# Compile Entity "multiplier_top"
+# Compile Architecture "arch" of Entity "multiplier_top"
+# Compile success 0 Errors 0 Warnings  Analysis time :  46.0 [ms]
+acom -O3 -e 100 -work multiplier_bank -2002  $dsn/src/multiplier_controller.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Multiplier_bank\Multiplier_Bank\src\multiplier_controller.vhd
+# Compile Entity "multiplier_controller"
+# Compile Architecture "arch" of Entity "multiplier_controller"
+# Compile success 0 Errors 0 Warnings  Analysis time :  31.0 [ms]
+acom -O3 -e 100 -work multiplier_bank -2002  $dsn/src/multiplier_top.bde
+# DRC: Checking file 'C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Multiplier_bank\Multiplier_Bank\src\multiplier_top.bde'.
+# DRC: Warning: multiplier_top.bde - 0 error(s), 8 warning(s)
+# DRC: DRC process completed in 1 second(s).
+# DRC: The results have been written to the log file. Double click on this line to view the log.
+# Generating C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Multiplier_bank\Multiplier_Bank\compile\multiplier_top.vhd from C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Multiplier_bank\Multiplier_Bank\src\multiplier_top.bde ...
+# Generation successful
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: .\..\compile\multiplier_top.vhd
+# Compile Entity "multiplier_top"
+# Compile Architecture "arch" of Entity "multiplier_top"
+# Compile success 0 Errors 0 Warnings  Analysis time :  62.0 [ms]
+acom -O3 -e 100 -work multiplier_bank -2002  $dsn/src/multiplier_controller.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Multiplier_bank\Multiplier_Bank\src\multiplier_controller.vhd
+# Compile Entity "multiplier_controller"
+# Error: COMP96_0018: multiplier_controller.vhd : (40, 2): Identifier expected.
+# Compile Architecture "arch" of Entity "multiplier_controller"
+# Compile failure 1 Errors 0 Warnings  Analysis time :  46.0 [ms]
+acom -O3 -e 100 -work multiplier_bank -2002  $dsn/src/multiplier_controller.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Multiplier_bank\Multiplier_Bank\src\multiplier_controller.vhd
+# Compile Entity "multiplier_controller"
+# Error: COMP96_0018: multiplier_controller.vhd : (41, 2): Identifier expected.
+# Compile Architecture "arch" of Entity "multiplier_controller"
+# Compile failure 1 Errors 0 Warnings  Analysis time :  15.0 [ms]
+acom -O3 -e 100 -work multiplier_bank -2002  $dsn/src/multiplier_controller.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Multiplier_bank\Multiplier_Bank\src\multiplier_controller.vhd
+# Compile Entity "multiplier_controller"
+# Compile Architecture "arch" of Entity "multiplier_controller"
+# Compile success 0 Errors 0 Warnings  Analysis time :  31.0 [ms]
+# multiplier_top.bde: Updating instances of symbol 'multiplier_controller' from library 'multiplier_bank' (U6)
+acom -O3 -e 100 -work multiplier_bank -2002  $dsn/src/multiplier_controller.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Multiplier_bank\Multiplier_Bank\src\multiplier_controller.vhd
+# Compile Entity "multiplier_controller"
+# Compile Architecture "arch" of Entity "multiplier_controller"
+# Compile success 0 Errors 0 Warnings  Analysis time :  31.0 [ms]
+# multiplier_top.bde: Updating instances of symbol 'multiplier_controller' from library 'multiplier_bank' (U7)
+# multiplier_top.bde: Updating instances of symbol 'multiplier_controller' from library 'multiplier_bank' (U7)
+acom -O3 -e 100 -work multiplier_bank -2002  $dsn/src/multiplier_top.bde
+# DRC: Checking file 'C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Multiplier_bank\Multiplier_Bank\src\multiplier_top.bde'.
+# DRC: Warning: multiplier_top.bde - 0 error(s), 1 warning(s)
+# DRC: DRC process completed in 1 second(s).
+# DRC: The results have been written to the log file. Double click on this line to view the log.
+# Generating C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Multiplier_bank\Multiplier_Bank\compile\multiplier_top.vhd from C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Multiplier_bank\Multiplier_Bank\src\multiplier_top.bde ...
+# Generation successful
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: .\..\compile\multiplier_top.vhd
+# Compile Entity "multiplier_top"
+# Compile Architecture "arch" of Entity "multiplier_top"
+# Compile success 0 Errors 0 Warnings  Analysis time :  0.2 [s]
+acom -O3 -e 100 -work multiplier_bank -2002  $dsn/src/multiplier_controller.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Multiplier_bank\Multiplier_Bank\src\multiplier_controller.vhd
+# Compile Entity "multiplier_controller"
+# Error: COMP96_0015: multiplier_controller.vhd : (74, 17): ')' expected.
+# Error: COMP96_0015: multiplier_controller.vhd : (74, 17): ';' expected.
+# Error: COMP96_0019: multiplier_controller.vhd : (74, 19): Keyword 'end' expected.
+# Error: COMP96_0015: multiplier_controller.vhd : (74, 19): ';' expected.
+# Error: COMP96_0016: multiplier_controller.vhd : (74, 23): Design unit declaration expected.
+# Compile Architecture "arch" of Entity "multiplier_controller"
+# Error: COMP96_0019: multiplier_controller.vhd : (95, 3): Keyword 'end' expected.
+# Error: COMP96_0016: multiplier_controller.vhd : (95, 10): Design unit declaration expected.
+# Compile failure 7 Errors 0 Warnings  Analysis time :  78.0 [ms]
+acom -O3 -e 100 -work multiplier_bank -2002  $dsn/src/multiplier_controller.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Multiplier_bank\Multiplier_Bank\src\multiplier_controller.vhd
+# Compile Entity "multiplier_controller"
+# Compile Architecture "arch" of Entity "multiplier_controller"
+# Error: COMP96_0019: multiplier_controller.vhd : (95, 3): Keyword 'end' expected.
+# Error: COMP96_0016: multiplier_controller.vhd : (95, 10): Design unit declaration expected.
+# Compile failure 2 Errors 0 Warnings  Analysis time :  62.0 [ms]
+acom -O3 -e 100 -work multiplier_bank -2002  $dsn/src/multiplier_controller.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Multiplier_bank\Multiplier_Bank\src\multiplier_controller.vhd
+# Compile Entity "multiplier_controller"
+# Compile Architecture "arch" of Entity "multiplier_controller"
+# Error: COMP96_0078: multiplier_controller.vhd : (155, 22): Unknown identifier "i_dsps_assigned".
+# Error: COMP96_0133: multiplier_controller.vhd : (155, 22): Cannot find object declaration.
+# Error: COMP96_0077: multiplier_controller.vhd : (155, 22): Undefined type of expression. Expected type 'STD_ULOGIC'.
+# Error: COMP96_0078: multiplier_controller.vhd : (156, 22): Unknown identifier "i_bank_enabled".
+# Error: COMP96_0133: multiplier_controller.vhd : (156, 22): Cannot find object declaration.
+# Error: COMP96_0077: multiplier_controller.vhd : (156, 22): Undefined type of expression. Expected type 'STD_ULOGIC'.
+# Error: COMP96_0078: multiplier_controller.vhd : (163, 27): Unknown identifier "i_dsp_id_reg".
+# Error: COMP96_0133: multiplier_controller.vhd : (163, 27): Cannot find object declaration.
+# Error: COMP96_0077: multiplier_controller.vhd : (163, 27): Undefined type of expression. Expected type 'STD_LOGIC_VECTOR'.
+# Error: COMP96_0078: multiplier_controller.vhd : (164, 23): Unknown identifier "i_dsp_id_reg".
+# Error: COMP96_0133: multiplier_controller.vhd : (164, 23): Cannot find object declaration.
+# Error: COMP96_0077: multiplier_controller.vhd : (164, 23): Undefined type of expression. Expected type 'STD_LOGIC_VECTOR'.
+# Error: COMP96_0078: multiplier_controller.vhd : (165, 18): Unknown identifier "i_dsp_id_reg".
+# Error: COMP96_0133: multiplier_controller.vhd : (165, 18): Cannot find object declaration.
+# Error: COMP96_0077: multiplier_controller.vhd : (165, 18): Undefined type of expression. Expected type 'STD_LOGIC_VECTOR'.
+# Error: COMP96_0078: multiplier_controller.vhd : (190, 11): Unknown identifier "destination_addr_reg".
+# Error: COMP96_0133: multiplier_controller.vhd : (190, 11): Cannot find object declaration.
+# Error: COMP96_0078: multiplier_controller.vhd : (190, 35): Unknown identifier "i_destination_addr_reg".
+# Error: COMP96_0078: multiplier_controller.vhd : (192, 5): Unknown identifier "destination_addr_reg".
+# Error: COMP96_0133: multiplier_controller.vhd : (192, 5): Cannot find object declaration.
+# Error: COMP96_0078: multiplier_controller.vhd : (192, 29): Unknown identifier "destination_addr_reg".
+# Compile failure 21 Errors 0 Warnings  Analysis time :  0.1 [s]
+acom -O3 -e 100 -work multiplier_bank -2002  $dsn/src/multiplier_controller.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Multiplier_bank\Multiplier_Bank\src\multiplier_controller.vhd
+# Compile Entity "multiplier_controller"
+# Compile Architecture "arch" of Entity "multiplier_controller"
+# Error: COMP96_0078: multiplier_controller.vhd : (155, 22): Unknown identifier "i_dsps_assigned".
+# Error: COMP96_0133: multiplier_controller.vhd : (155, 22): Cannot find object declaration.
+# Error: COMP96_0077: multiplier_controller.vhd : (155, 22): Undefined type of expression. Expected type 'STD_ULOGIC'.
+# Error: COMP96_0078: multiplier_controller.vhd : (163, 27): Unknown identifier "i_dsp_id_reg".
+# Error: COMP96_0133: multiplier_controller.vhd : (163, 27): Cannot find object declaration.
+# Error: COMP96_0077: multiplier_controller.vhd : (163, 27): Undefined type of expression. Expected type 'STD_LOGIC_VECTOR'.
+# Error: COMP96_0078: multiplier_controller.vhd : (164, 23): Unknown identifier "i_dsp_id_reg".
+# Error: COMP96_0133: multiplier_controller.vhd : (164, 23): Cannot find object declaration.
+# Error: COMP96_0077: multiplier_controller.vhd : (164, 23): Undefined type of expression. Expected type 'STD_LOGIC_VECTOR'.
+# Error: COMP96_0078: multiplier_controller.vhd : (165, 18): Unknown identifier "i_dsp_id_reg".
+# Error: COMP96_0133: multiplier_controller.vhd : (165, 18): Cannot find object declaration.
+# Error: COMP96_0077: multiplier_controller.vhd : (165, 18): Undefined type of expression. Expected type 'STD_LOGIC_VECTOR'.
+# Error: COMP96_0078: multiplier_controller.vhd : (190, 11): Unknown identifier "destination_addr_reg".
+# Error: COMP96_0133: multiplier_controller.vhd : (190, 11): Cannot find object declaration.
+# Error: COMP96_0078: multiplier_controller.vhd : (190, 35): Unknown identifier "i_destination_addr_reg".
+# Error: COMP96_0078: multiplier_controller.vhd : (192, 5): Unknown identifier "destination_addr_reg".
+# Error: COMP96_0133: multiplier_controller.vhd : (192, 5): Cannot find object declaration.
+# Error: COMP96_0078: multiplier_controller.vhd : (192, 29): Unknown identifier "destination_addr_reg".
+# Compile failure 18 Errors 0 Warnings  Analysis time :  16.0 [ms]
+acom -O3 -e 100 -work multiplier_bank -2002  $dsn/src/multiplier_controller.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Multiplier_bank\Multiplier_Bank\src\multiplier_controller.vhd
+# Compile Entity "multiplier_controller"
+# Compile Architecture "arch" of Entity "multiplier_controller"
+# Error: COMP96_0078: multiplier_controller.vhd : (163, 27): Unknown identifier "i_dsp_id_reg".
+# Error: COMP96_0133: multiplier_controller.vhd : (163, 27): Cannot find object declaration.
+# Error: COMP96_0077: multiplier_controller.vhd : (163, 27): Undefined type of expression. Expected type 'STD_LOGIC_VECTOR'.
+# Error: COMP96_0078: multiplier_controller.vhd : (164, 23): Unknown identifier "i_dsp_id_reg".
+# Error: COMP96_0133: multiplier_controller.vhd : (164, 23): Cannot find object declaration.
+# Error: COMP96_0077: multiplier_controller.vhd : (164, 23): Undefined type of expression. Expected type 'STD_LOGIC_VECTOR'.
+# Error: COMP96_0078: multiplier_controller.vhd : (165, 18): Unknown identifier "i_dsp_id_reg".
+# Error: COMP96_0133: multiplier_controller.vhd : (165, 18): Cannot find object declaration.
+# Error: COMP96_0077: multiplier_controller.vhd : (165, 18): Undefined type of expression. Expected type 'STD_LOGIC_VECTOR'.
+# Error: COMP96_0078: multiplier_controller.vhd : (190, 11): Unknown identifier "destination_addr_reg".
+# Error: COMP96_0133: multiplier_controller.vhd : (190, 11): Cannot find object declaration.
+# Error: COMP96_0078: multiplier_controller.vhd : (190, 35): Unknown identifier "i_destination_addr_reg".
+# Error: COMP96_0078: multiplier_controller.vhd : (192, 5): Unknown identifier "destination_addr_reg".
+# Error: COMP96_0133: multiplier_controller.vhd : (192, 5): Cannot find object declaration.
+# Error: COMP96_0078: multiplier_controller.vhd : (192, 29): Unknown identifier "destination_addr_reg".
+# Compile failure 15 Errors 0 Warnings  Analysis time :  16.0 [ms]
+acom -O3 -e 100 -work multiplier_bank -2002  $dsn/src/multiplier_controller.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Multiplier_bank\Multiplier_Bank\src\multiplier_controller.vhd
+# Compile Entity "multiplier_controller"
+# Compile Architecture "arch" of Entity "multiplier_controller"
+# Error: COMP96_0078: multiplier_controller.vhd : (190, 11): Unknown identifier "destination_addr_reg".
+# Error: COMP96_0133: multiplier_controller.vhd : (190, 11): Cannot find object declaration.
+# Error: COMP96_0078: multiplier_controller.vhd : (190, 35): Unknown identifier "i_destination_addr_reg".
+# Error: COMP96_0078: multiplier_controller.vhd : (192, 5): Unknown identifier "destination_addr_reg".
+# Error: COMP96_0133: multiplier_controller.vhd : (192, 5): Cannot find object declaration.
+# Error: COMP96_0078: multiplier_controller.vhd : (192, 29): Unknown identifier "destination_addr_reg".
+# Compile failure 6 Errors 0 Warnings  Analysis time :  15.0 [ms]
+acom -O3 -e 100 -work multiplier_bank -2002  $dsn/src/multiplier_controller.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Multiplier_bank\Multiplier_Bank\src\multiplier_controller.vhd
+# Compile Entity "multiplier_controller"
+# Compile Architecture "arch" of Entity "multiplier_controller"
+# Compile success 0 Errors 0 Warnings  Analysis time :  0.2 [s]
+# multiplier_top.bde: Updating instances of symbol 'multiplier_controller' from library 'multiplier_bank' (U7)
+acom -O3 -e 100 -work multiplier_bank -2002  $dsn/src/multiplier_controller.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Multiplier_bank\Multiplier_Bank\src\multiplier_controller.vhd
+# Compile Entity "multiplier_controller"
+# Compile Architecture "arch" of Entity "multiplier_controller"
+# Compile success 0 Errors 0 Warnings  Analysis time :  94.0 [ms]
+# multiplier_top.bde: Updating instances of symbol 'multiplier_controller' from library 'multiplier_bank' (U7)
+acom -O3 -e 100 -work multiplier_bank -2002  $dsn/src/fifo_generator_v9_3.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Multiplier_bank\Multiplier_Bank\src\fifo_generator_v9_3.vhd
+# Compile Entity "fifo_generator_v9_3"
+# Compile Architecture "fifo_generator_v9_3_a" of Entity "fifo_generator_v9_3"
+# Compile success 0 Errors 0 Warnings  Analysis time :  0.1 [s]
+acom -O3 -e 100 -work multiplier_bank -2002  $dsn/src/multiplier_inbuff.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Multiplier_bank\Multiplier_Bank\src\multiplier_inbuff.vhd
+# Compile Entity "multiplier_inbuff"
+# Compile Architecture "multiplier_inbuff_a" of Entity "multiplier_inbuff"
+# Compile success 0 Errors 0 Warnings  Analysis time :  46.0 [ms]
+acom -O3 -e 100 -work multiplier_bank -2002  $dsn/src/multiplier_controller.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Multiplier_bank\Multiplier_Bank\src\multiplier_controller.vhd
+# Compile Entity "multiplier_controller"
+# Compile Architecture "arch" of Entity "multiplier_controller"
+# Error: COMP96_0078: multiplier_controller.vhd : (190, 5): Unknown identifier "dsps_used".
+# Error: COMP96_0133: multiplier_controller.vhd : (190, 5): Cannot find object declaration.
+# Error: COMP96_0078: multiplier_controller.vhd : (190, 20): Unknown identifier "dsps_used".
+# Compile failure 3 Errors 0 Warnings  Analysis time :  31.0 [ms]
+acom -O3 -e 100 -work multiplier_bank -2002  $dsn/src/multiplier_controller.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Multiplier_bank\Multiplier_Bank\src\multiplier_controller.vhd
+# Compile Entity "multiplier_controller"
+# Compile Architecture "arch" of Entity "multiplier_controller"
+# Compile success 0 Errors 0 Warnings  Analysis time :  94.0 [ms]
+# multiplier_top.bde: Updating instances of symbol 'multiplier_controller' from library 'multiplier_bank' (U7)
+acom -O3 -e 100 -work multiplier_bank -2002  $dsn/src/multiplier_outbuff.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Multiplier_bank\Multiplier_Bank\src\multiplier_outbuff.vhd
+# Compile Entity "multiplier_outbuff"
+# Compile Architecture "multiplier_outbuff_a" of Entity "multiplier_outbuff"
+# Compile success 0 Errors 0 Warnings  Analysis time :  47.0 [ms]
+acom -O3 -e 100 -work multiplier_bank -2002  $dsn/src/multiplier_controller.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Multiplier_bank\Multiplier_Bank\src\multiplier_controller.vhd
+# Compile Entity "multiplier_controller"
+# Error: COMP96_0018: multiplier_controller.vhd : (109, 2): Identifier expected.
+# Compile Architecture "arch" of Entity "multiplier_controller"
+# Compile failure 1 Errors 0 Warnings  Analysis time :  0.2 [s]
+acom -O3 -e 100 -work multiplier_bank -2002  $dsn/src/multiplier_controller.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Multiplier_bank\Multiplier_Bank\src\multiplier_controller.vhd
+# Compile Entity "multiplier_controller"
+# Compile Architecture "arch" of Entity "multiplier_controller"
+# Compile success 0 Errors 0 Warnings  Analysis time :  0.1 [s]
+# multiplier_top.bde: Updating instances of symbol 'multiplier_controller' from library 'multiplier_bank' (U7)
+acom -O3 -e 100 -work multiplier_bank -2002  $dsn/src/multiplier_controller.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Multiplier_bank\Multiplier_Bank\src\multiplier_controller.vhd
+# Compile Entity "multiplier_controller"
+# Compile Architecture "arch" of Entity "multiplier_controller"
+# Compile success 0 Errors 0 Warnings  Analysis time :  94.0 [ms]
+# multiplier_top.bde: Updating instances of symbol 'multiplier_controller' from library 'multiplier_bank' (U7)
+acom -O3 -e 100 -work multiplier_bank -2002  $dsn/src/multiplier_controller.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Multiplier_bank\Multiplier_Bank\src\multiplier_controller.vhd
+# Compile Entity "multiplier_controller"
+# Compile Architecture "arch" of Entity "multiplier_controller"
+# Compile success 0 Errors 0 Warnings  Analysis time :  94.0 [ms]
+# multiplier_top.bde: Updating instances of symbol 'multiplier_controller' from library 'multiplier_bank' (U7)
+acom -O3 -e 100 -work multiplier_bank -2002  $dsn/src/multiplier_check_tag.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Multiplier_bank\Multiplier_Bank\src\multiplier_check_tag.vhd
+# Compile Entity "multiplier_check_tag"
+# Compile Architecture "arch" of Entity "multiplier_check_tag"
+# Compile success 0 Errors 0 Warnings  Analysis time :  0.1 [s]
+acom -O3 -e 100 -work multiplier_bank -2002  $dsn/src/multiplier_check_tag.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Multiplier_bank\Multiplier_Bank\src\multiplier_check_tag.vhd
+# Compile Entity "multiplier_check_tag"
+# Compile Architecture "arch" of Entity "multiplier_check_tag"
+# Compile success 0 Errors 0 Warnings  Analysis time :  16.0 [ms]
+# multiplier_top.bde: Updating instances of symbol 'multiplier_check_tag' from library 'multiplier_bank' (U13)
+acom -O3 -e 100 -work multiplier_bank -2002  $dsn/src/multiplier_check_tag.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Multiplier_bank\Multiplier_Bank\src\multiplier_check_tag.vhd
+# Compile Entity "multiplier_check_tag"
+# Compile Architecture "arch" of Entity "multiplier_check_tag"
+# Compile success 0 Errors 0 Warnings  Analysis time :  0.0 [ms]
+# multiplier_top.bde: Updating instances of symbol 'multiplier_check_tag' from library 'multiplier_bank' (U13)
+acom -O3 -e 100 -work multiplier_bank -2002  $dsn/src/multiplier_check_tag.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Multiplier_bank\Multiplier_Bank\src\multiplier_check_tag.vhd
+# Compile Entity "multiplier_check_tag"
+# Compile Architecture "arch" of Entity "multiplier_check_tag"
+# Compile success 0 Errors 0 Warnings  Analysis time :  16.0 [ms]
+# multiplier_top.bde: Updating instances of symbol 'multiplier_check_tag' from library 'multiplier_bank' (U13)
+# multiplier_top.bde: Updating instances of symbol 'multiplier_check_tag' from library 'multiplier_bank' (U13)
+acom -O3 -e 100 -work multiplier_bank -2002  $dsn/src/multiplier_top.bde
+# DRC: Checking file 'C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Multiplier_bank\Multiplier_Bank\src\multiplier_top.bde'.
+# DRC: multiplier_top.bde - 0 error(s), 0 warning(s)
+# DRC: DRC process completed in 1 second(s).
+# DRC: The results have been written to the log file. Double click on this line to view the log.
+# Generating C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Multiplier_bank\Multiplier_Bank\compile\multiplier_top.vhd from C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Multiplier_bank\Multiplier_Bank\src\multiplier_top.bde ...
+# Generation successful
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: .\..\compile\multiplier_top.vhd
+# Compile Entity "multiplier_top"
+# Compile Architecture "arch" of Entity "multiplier_top"
+# Compile success 0 Errors 0 Warnings  Analysis time :  0.6 [s]
+acom -O3 -e 100 -work multiplier_bank -2002  $dsn/src/multiplier_controller.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Multiplier_bank\Multiplier_Bank\src\multiplier_controller.vhd
+# Compile Entity "multiplier_controller"
+# Compile Architecture "arch" of Entity "multiplier_controller"
+# Error: COMP96_0078: multiplier_controller.vhd : (168, 12): Unknown identifier "i_slv_reg_wren".
+# Error: COMP96_0133: multiplier_controller.vhd : (168, 12): Cannot find object declaration.
+# Error: COMP96_0289: multiplier_controller.vhd : (168, 12): Prefix of index must be an array.
+# Error: COMP96_0077: multiplier_controller.vhd : (168, 11): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0078: multiplier_controller.vhd : (184, 12): Unknown identifier "i_slv_reg_wren".
+# Error: COMP96_0133: multiplier_controller.vhd : (184, 12): Cannot find object declaration.
+# Error: COMP96_0289: multiplier_controller.vhd : (184, 12): Prefix of index must be an array.
+# Error: COMP96_0077: multiplier_controller.vhd : (184, 11): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0078: multiplier_controller.vhd : (195, 12): Unknown identifier "i_slv_reg_wren".
+# Error: COMP96_0133: multiplier_controller.vhd : (195, 12): Cannot find object declaration.
+# Error: COMP96_0289: multiplier_controller.vhd : (195, 12): Prefix of index must be an array.
+# Error: COMP96_0077: multiplier_controller.vhd : (195, 11): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0078: multiplier_controller.vhd : (212, 12): Unknown identifier "i_slv_reg_wren".
+# Error: COMP96_0133: multiplier_controller.vhd : (212, 12): Cannot find object declaration.
+# Error: COMP96_0289: multiplier_controller.vhd : (212, 12): Prefix of index must be an array.
+# Error: COMP96_0077: multiplier_controller.vhd : (212, 11): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0078: multiplier_controller.vhd : (219, 12): Unknown identifier "i_slv_reg_wren".
+# Error: COMP96_0133: multiplier_controller.vhd : (219, 12): Cannot find object declaration.
+# Error: COMP96_0289: multiplier_controller.vhd : (219, 12): Prefix of index must be an array.
+# Error: COMP96_0077: multiplier_controller.vhd : (219, 11): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0078: multiplier_controller.vhd : (227, 12): Unknown identifier "i_slv_reg_wren".
+# Error: COMP96_0133: multiplier_controller.vhd : (227, 12): Cannot find object declaration.
+# Error: COMP96_0289: multiplier_controller.vhd : (227, 12): Prefix of index must be an array.
+# Error: COMP96_0077: multiplier_controller.vhd : (227, 11): Undefined type of expression. Expected type 'BOOLEAN'.
+# Compile failure 24 Errors 0 Warnings  Analysis time :  0.4 [s]
+acom -O3 -e 100 -work multiplier_bank -2002  $dsn/src/multiplier_controller.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Multiplier_bank\Multiplier_Bank\src\multiplier_controller.vhd
+# Compile Entity "multiplier_controller"
+# Compile Architecture "arch" of Entity "multiplier_controller"
+# Compile success 0 Errors 0 Warnings  Analysis time :  0.3 [s]
+acom -O3 -e 100 -work multiplier_bank -2002  $dsn/src/multiplier_top.bde
+# DRC: Checking file 'C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Multiplier_bank\Multiplier_Bank\src\multiplier_top.bde'.
+# DRC: multiplier_top.bde - 0 error(s), 0 warning(s)
+# DRC: DRC process completed in 2 second(s).
+# DRC: The results have been written to the log file. Double click on this line to view the log.
+# Generating C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Multiplier_bank\Multiplier_Bank\compile\multiplier_top.vhd from C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Multiplier_bank\Multiplier_Bank\src\multiplier_top.bde ...
+# Generation successful
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: .\..\compile\multiplier_top.vhd
+# Compile Entity "multiplier_top"
+# Compile Architecture "arch" of Entity "multiplier_top"
+# Warning: ELAB1_0026: multiplier_top.bde(multiplier_top.vhd) : (252, 0): There is no default binding for component "multiplier_controller". (Port "i_burst_write_active" is not on the entity).
+# Compile success 0 Errors 1 Warnings  Analysis time :  0.2 [s]
+# multiplier_top.bde: Updating instances of symbol 'multiplier_controller' from library 'multiplier_bank' (bank_controller)
+acom -O3 -e 100 -work multiplier_bank -2002  $dsn/src/multiplier_controller.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Multiplier_bank\Multiplier_Bank\src\multiplier_controller.vhd
+# Compile Entity "multiplier_controller"
+# Compile Architecture "arch" of Entity "multiplier_controller"
+# Compile success 0 Errors 0 Warnings  Analysis time :  46.0 [ms]
+# multiplier_top.bde: Updating instances of symbol 'multiplier_controller' from library 'multiplier_bank' (bank_controller)
+acom -O3 -e 100 -work multiplier_bank -2002  $dsn/src/multiplier_controller.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Multiplier_bank\Multiplier_Bank\src\multiplier_controller.vhd
+# Compile Entity "multiplier_controller"
+# Compile Architecture "arch" of Entity "multiplier_controller"
+# Compile success 0 Errors 0 Warnings  Analysis time :  62.0 [ms]
+# multiplier_top.bde: Updating instances of symbol 'multiplier_controller' from library 'multiplier_bank' (bank_controller)
+acom -O3 -e 100 -work multiplier_bank -2002  $dsn/src/multiplier_controller.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Multiplier_bank\Multiplier_Bank\src\multiplier_controller.vhd
+# Compile Entity "multiplier_controller"
+# Compile Architecture "arch" of Entity "multiplier_controller"
+# Compile success 0 Errors 0 Warnings  Analysis time :  47.0 [ms]
+# multiplier_top.bde: Updating instances of symbol 'multiplier_controller' from library 'multiplier_bank' (bank_controller)
+acom -O3 -e 100 -work multiplier_bank -2002  $dsn/src/multiplier_controller.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Multiplier_bank\Multiplier_Bank\src\multiplier_controller.vhd
+# Compile Entity "multiplier_controller"
+# Compile Architecture "arch" of Entity "multiplier_controller"
+# Compile success 0 Errors 0 Warnings  Analysis time :  46.0 [ms]
+# multiplier_top.bde: Updating instances of symbol 'multiplier_controller' from library 'multiplier_bank' (bank_controller)

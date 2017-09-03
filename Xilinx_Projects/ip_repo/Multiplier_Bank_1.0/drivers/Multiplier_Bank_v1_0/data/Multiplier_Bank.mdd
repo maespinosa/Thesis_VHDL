@@ -1,0 +1,10 @@
+
+
+OPTION psf_version = 2.1;
+
+BEGIN DRIVER Multiplier_Bank
+	OPTION supported_peripherals = (Multiplier_Bank);
+	OPTION copyfiles = all;
+	OPTION VERSION = 1.0;
+	OPTION NAME = Multiplier_Bank;
+END DRIVER

@@ -1,0 +1,94 @@
+[Project]
+Current Flow=Multivendor
+VCS=0
+version=3
+Current Config=compile
+
+[Configurations]
+compile=Bubble_Sorter
+
+[Library]
+Bubble_Sorter=.\Bubble_Sorter\Bubble_Sorter.lib
+
+[Settings]
+AccessRead=0
+AccessReadWrite=0
+AccessACCB=0
+AccessACCR=0
+AccessReadWriteSLP=0
+AccessReadTopLevel=1
+DisableC=1
+ENABLE_ADV_DATAFLOW=0
+FLOW_TYPE=HDL
+LANGUAGE=VHDL
+REFRESH_FLOW=1
+FAMILY=Xilinx14x ARTIX7
+SYNTH_TOOL=MV_XST146_SYNTH_IMPL
+RUN_MODE_SYNTH=1
+CSYNTH_TOOL=
+PHYSSYNTH_TOOL=
+IMPL_TOOL=
+FLOWTOOLS=IMPL_WITH_SYNTH
+ON_SERVERFARM_SYNTH=0
+ON_SERVERFARM_IMPL=0
+ON_SERVERFARM_SIM=0
+DVM_DISPLAY=NO
+fileopenfolder=C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Bubble_Sorter\Bubble_Sorter\src
+
+[LocalVerilogSets]
+EnableSLP=1
+EnableDebug=0
+
+[LocalVhdlSets]
+CompileWithDebug=0
+
+[$LibMap$]
+Bubble_Sorter=.
+Active_lib=ARTIX7
+xilinxun=ARTIX7
+UnlinkedDesignLibrary=ARTIX7
+DESIGNS=ARTIX7
+
+[IMPLEMENTATION]
+UCF=
+
+[Folders]
+Name3=Makefiles
+Directory3=C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Bubble_Sorter\Bubble_Sorter\
+Extension3=mak
+Name4=Memory
+Directory4=C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Bubble_Sorter\Bubble_Sorter\
+Extension4=mem;mif;hex
+Name5=Dll Libraries
+Directory5=C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Bubble_Sorter\Bubble_Sorter\
+Extension5=dll
+Name6=PDF
+Directory6=C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Bubble_Sorter\Bubble_Sorter\
+Extension6=pdf
+Name7=HTML
+Directory7=C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Bubble_Sorter\Bubble_Sorter\
+Extension7=htm;html
+
+[SpecTracer]
+WindowVisible=0
+
+[Files]
+/sort_unit.vhd=-1
+/bubble_sorter.vhd=-1
+/bubble_sorter_tb.vhd=-1
+/sort_unit_signed.vhd=-1
+/bubble_sorter_signed.vhd=-1
+/bubble_sorter_signed_tb.vhd=-1
+
+[Files.Data]
+.\src\sort_unit.vhd=VHDL Source Code
+.\src\bubble_sorter.vhd=VHDL Source Code
+.\src\bubble_sorter_tb.vhd=VHDL Source Code
+.\src\sort_unit_signed.vhd=VHDL Source Code
+.\src\bubble_sorter_signed.vhd=VHDL Source Code
+.\src\bubble_sorter_signed_tb.vhd=VHDL Source Code
+
+[HierarchyViewer]
+HierarchyInformation=bubble_sorter_tb|tb|0 
+ShowHide=ShowTopLevel
+Selected=

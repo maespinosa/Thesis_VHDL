@@ -1,0 +1,928 @@
+18:49:23 INFO  : Launching XSDB server: xsdb.bat C:/Xilinx/SDK/2015.4/scripts/xsdb/xsdb/xsdb-server.tcl
+18:49:29 INFO  : XSDB server has started successfully.
+18:49:44 INFO  : Processing command line option -hwspec C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/sim_node_wrapper.hdf.
+21:42:39 INFO  : Launching XSDB server: xsdb.bat C:/Xilinx/SDK/2015.4/scripts/xsdb/xsdb/xsdb-server.tcl
+21:42:40 INFO  : XSDB server has started successfully.
+21:42:42 INFO  : Processing command line option -hwspec C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/sim_node_wrapper.hdf.
+21:42:43 INFO  : Checking for hwspec changes in the project sim_node_wrapper_hw_platform_0.
+21:51:10 INFO  : Launching XSDB server: xsdb.bat C:/Xilinx/SDK/2015.4/scripts/xsdb/xsdb/xsdb-server.tcl
+21:51:11 INFO  : XSDB server has started successfully.
+21:51:13 INFO  : Processing command line option -hwspec C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/sim_node_wrapper.hdf.
+21:51:14 INFO  : Checking for hwspec changes in the project sim_node_wrapper_hw_platform_0.
+22:00:48 INFO  : Launching XSDB server: xsdb.bat C:/Xilinx/SDK/2015.4/scripts/xsdb/xsdb/xsdb-server.tcl
+22:00:49 INFO  : XSDB server has started successfully.
+22:00:51 INFO  : Processing command line option -hwspec C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/sim_node_wrapper.hdf.
+22:00:52 INFO  : Checking for hwspec changes in the project sim_node_wrapper_hw_platform_0.
+23:32:27 INFO  : Launching XSDB server: xsdb.bat C:/Xilinx/SDK/2015.4/scripts/xsdb/xsdb/xsdb-server.tcl
+23:32:29 INFO  : XSDB server has started successfully.
+23:32:29 INFO  : Processing command line option -hwspec C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf.
+18:00:22 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+18:00:24 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292744538A" && level==0} -index 0' command is executed.
+18:00:27 INFO  : FPGA configured successfully with bitstream "C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper_hw_platform_0/download.bit"
+19:02:15 INFO  : Processor reset is completed for microblaze_0
+19:12:57 INFO  : Processor reset is completed for microblaze_0
+19:12:57 ERROR : Unexpected error while opening JTAG UART: 
+java.lang.RuntimeException: Error while opening JTAG UART server: MDM Uart NOT Present in the System
+
+	at com.xilinx.sdk.targetmanager.internal.TM.startJTAGUARTServer(TM.java:951)
+	at com.xilinx.sdk.debug.core.internal.comm.JTAGUARTStreamsProxy.<init>(JTAGUARTStreamsProxy.java:32)
+	at com.xilinx.sdk.debug.core.internal.RemoteProcess.createStreamsProxy(RemoteProcess.java:164)
+	at com.xilinx.sdk.debug.core.internal.RemoteProcess.<init>(RemoteProcess.java:65)
+	at com.xilinx.sdk.debug.core.internal.AppRunner.run(AppRunner.java:91)
+	at com.xilinx.sdk.debug.core.XilinxAppLaunchConfigurationDelegate.runApplication(XilinxAppLaunchConfigurationDelegate.java:637)
+	at com.xilinx.sdk.debug.core.XilinxAppLaunchConfigurationDelegate.launch(XilinxAppLaunchConfigurationDelegate.java:309)
+	at com.xilinx.sdk.debug.ui.XilinxAppLaunchDelegateWrapper.launch(XilinxAppLaunchDelegateWrapper.java:31)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:858)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:707)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1018)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1222)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+19:13:24 INFO  : microblaze_0 Processor is in use. Please stop existing Run or Debug sessions before launching.
+19:14:07 INFO  : microblaze_0 Processor is in use. Please stop existing Run or Debug sessions before launching.
+19:14:09 INFO  : Processor reset is completed for microblaze_0
+19:14:39 INFO  : microblaze_0 Processor is in use. Please stop existing Run or Debug sessions before launching.
+19:22:35 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+19:22:35 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292744538A" && level==0} -index 0' command is executed.
+19:22:37 INFO  : FPGA configured successfully with bitstream "C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper_hw_platform_0/download.bit"
+19:31:26 ERROR : Unexpected error while parsing XMD response ?: com.google.gson.JsonSyntaxException: com.google.gson.stream.MalformedJsonException: invalid number or unquoted string near 
+19:31:41 INFO  : Launching XSDB server: xsdb.bat C:/Xilinx/SDK/2015.4/scripts/xsdb/xsdb/xsdb-server.tcl
+19:31:42 INFO  : XSDB server has started successfully.
+19:31:43 INFO  : Processing command line option -hwspec C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf.
+19:31:43 INFO  : Checking for hwspec changes in the project node_wrapper_hw_platform_0.
+19:32:09 INFO  : Processor reset is completed for microblaze_0
+19:36:27 ERROR : Checking FPGA configuration failed..Connection to Board Failed
+
+
+    Unknown Error Occured
+    Cable is not powered-on
+
+19:36:27 ERROR : Unexpected error while launching program.
+com.xilinx.sdk.targetmanager.TMException: Connection to Board Failed
+
+
+    Unknown Error Occured
+    Cable is not powered-on
+
+	at com.xilinx.sdk.targetmanager.internal.TM.isFPGAConfigured(TM.java:374)
+	at com.xilinx.sdk.debug.core.XilinxAppLaunchConfigurationDelegate.isFpgaConfigured(XilinxAppLaunchConfigurationDelegate.java:409)
+	at com.xilinx.sdk.debug.core.XilinxAppLaunchConfigurationDelegate.launch(XilinxAppLaunchConfigurationDelegate.java:303)
+	at com.xilinx.sdk.debug.ui.XilinxAppLaunchDelegateWrapper.launch(XilinxAppLaunchDelegateWrapper.java:31)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:858)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:707)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1018)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1222)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+19:36:58 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+19:36:59 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292744538A" && level==0} -index 0' command is executed.
+19:37:01 INFO  : FPGA configured successfully with bitstream "C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper_hw_platform_0/download.bit"
+19:37:25 INFO  : Processor reset is completed for microblaze_0
+23:31:46 INFO  : Processor reset is completed for microblaze_0
+23:31:57 ERROR : Unexpected error while launching program.
+java.lang.RuntimeException: Debug Operation Not Supported on the Target, Current Processor State is not "Stopped"
+MicroBlaze Pipeline Stalled on a Blocking Instruction or Invalid Bus Access
+    Stalled PC: 0x80000004
+    Try Resetting the Processor to Continue..
+
+	at com.xilinx.sdk.targetmanager.internal.TM.downloadELF(TM.java:686)
+	at com.xilinx.sdk.debug.core.internal.AppRunner.run(AppRunner.java:129)
+	at com.xilinx.sdk.debug.core.XilinxAppLaunchConfigurationDelegate.runApplication(XilinxAppLaunchConfigurationDelegate.java:637)
+	at com.xilinx.sdk.debug.core.XilinxAppLaunchConfigurationDelegate.launch(XilinxAppLaunchConfigurationDelegate.java:309)
+	at com.xilinx.sdk.debug.ui.XilinxAppLaunchDelegateWrapper.launch(XilinxAppLaunchDelegateWrapper.java:31)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:858)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:707)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1018)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1222)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+23:32:32 ERROR : Unexpected error while parsing XMD response ?: com.google.gson.JsonSyntaxException: com.google.gson.stream.MalformedJsonException: invalid number or unquoted string near 
+10:05:54 INFO  : Launching XSDB server: xsdb.bat C:/Xilinx/SDK/2015.4/scripts/xsdb/xsdb/xsdb-server.tcl
+10:05:58 INFO  : XSDB server has started successfully.
+10:06:17 INFO  : Processing command line option -hwspec C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf.
+10:06:19 INFO  : Checking for hwspec changes in the project node_wrapper_hw_platform_0.
+10:06:19 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1496509486864,  Project:1496298645801
+10:06:19 INFO  : The hardware specification for project 'node_wrapper_hw_platform_0' is different from C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf.
+10:06:19 INFO  : Copied contents of C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf into \node_wrapper_hw_platform_0\system.hdf.
+10:06:20 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+10:06:46 INFO  : 
+10:06:48 INFO  : Updating hardware inferred compiler options for sensor_to_monitor_node.
+10:06:48 INFO  : Clearing existing target manager status.
+10:06:48 INFO  : Workspace synchronized with the new hardware specification file. Cleaning dependent projects...
+10:06:51 WARN  : Linker script will not be updated automatically. Users need to update it manually.
+11:26:02 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+11:26:04 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292744538A" && level==0} -index 0' command is executed.
+11:26:07 INFO  : FPGA configured successfully with bitstream "C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper_hw_platform_0/download.bit"
+11:28:55 INFO  : Processor reset is completed for microblaze_0
+11:37:53 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+11:37:54 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292744538A" && level==0} -index 0' command is executed.
+11:37:56 INFO  : FPGA configured successfully with bitstream "C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper_hw_platform_0/download.bit"
+11:39:56 INFO  : Processor reset is completed for microblaze_0
+11:40:07 ERROR : Unexpected error while launching program.
+java.lang.RuntimeException: Cannot perform the Debug Command, Current Processor State is "Running"
+
+	at com.xilinx.sdk.targetmanager.internal.TM.downloadELF(TM.java:686)
+	at com.xilinx.sdk.debug.core.internal.AppRunner.run(AppRunner.java:129)
+	at com.xilinx.sdk.debug.core.XilinxAppLaunchConfigurationDelegate.runApplication(XilinxAppLaunchConfigurationDelegate.java:637)
+	at com.xilinx.sdk.debug.core.XilinxAppLaunchConfigurationDelegate.launch(XilinxAppLaunchConfigurationDelegate.java:309)
+	at com.xilinx.sdk.debug.ui.XilinxAppLaunchDelegateWrapper.launch(XilinxAppLaunchDelegateWrapper.java:31)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:858)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:707)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1018)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1222)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+13:21:17 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1496521202922,  Project:1496509486864
+13:21:17 INFO  : Project node_wrapper_hw_platform_0's source hardware specification located at C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf is now different from the local copy.
+		 The local copy will be replaced with the source specification and your workspace will be updated.
+13:21:22 INFO  : Project node_wrapper_hw_platform_0's source hardware specification location will not be monitored anymore.
+13:21:22 ERROR : Unexpected error while parsing XMD response ?: com.google.gson.JsonSyntaxException: com.google.gson.stream.MalformedJsonException: invalid number or unquoted string near 
+13:21:39 INFO  : Launching XSDB server: xsdb.bat C:/Xilinx/SDK/2015.4/scripts/xsdb/xsdb/xsdb-server.tcl
+13:21:41 INFO  : XSDB server has started successfully.
+13:21:48 INFO  : Processing command line option -hwspec C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf.
+13:24:00 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+13:24:06 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292744538A" && level==0} -index 0' command is executed.
+13:24:09 INFO  : FPGA configured successfully with bitstream "C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper_hw_platform_0/download.bit"
+15:08:20 ERROR : Unexpected error while parsing XMD response ?: com.google.gson.JsonSyntaxException: com.google.gson.stream.MalformedJsonException: invalid number or unquoted string near 
+15:09:19 INFO  : Launching XSDB server: xsdb.bat C:/Xilinx/SDK/2015.4/scripts/xsdb/xsdb/xsdb-server.tcl
+15:09:20 INFO  : XSDB server has started successfully.
+15:09:23 INFO  : Processing command line option -hwspec C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf.
+15:09:24 INFO  : Checking for hwspec changes in the project node_wrapper_hw_platform_1.
+15:09:24 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1496527730136,  Project:1496521202922
+15:09:24 INFO  : The hardware specification for project 'node_wrapper_hw_platform_1' is different from C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf.
+15:09:24 INFO  : Copied contents of C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf into \node_wrapper_hw_platform_1\system.hdf.
+15:09:25 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+15:09:25 INFO  : Clearing existing target manager status.
+15:09:25 INFO  : Workspace synchronized with the new hardware specification file. Cleaning dependent projects...
+15:09:25 WARN  : Linker script will not be updated automatically. Users need to update it manually.
+15:10:18 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+15:10:24 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292744538A" && level==0} -index 0' command is executed.
+15:10:27 INFO  : FPGA configured successfully with bitstream "C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper_hw_platform_1/download.bit"
+15:11:10 INFO  : Processor reset is completed for microblaze_0
+16:10:43 ERROR : Unexpected error while parsing XMD response ?: com.google.gson.JsonSyntaxException: com.google.gson.stream.MalformedJsonException: invalid number or unquoted string near 
+16:11:00 INFO  : Launching XSDB server: xsdb.bat C:/Xilinx/SDK/2015.4/scripts/xsdb/xsdb/xsdb-server.tcl
+16:11:01 INFO  : XSDB server has started successfully.
+16:11:03 INFO  : Processing command line option -hwspec C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf.
+16:11:04 INFO  : Checking for hwspec changes in the project node_wrapper_hw_platform_1.
+16:11:04 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1496531056676,  Project:1496527730136
+16:11:04 INFO  : The hardware specification for project 'node_wrapper_hw_platform_1' is different from C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf.
+16:11:04 INFO  : Copied contents of C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf into \node_wrapper_hw_platform_1\system.hdf.
+16:11:05 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+16:11:05 INFO  : Clearing existing target manager status.
+16:11:05 INFO  : Workspace synchronized with the new hardware specification file. Cleaning dependent projects...
+16:11:05 WARN  : Linker script will not be updated automatically. Users need to update it manually.
+16:12:17 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+16:12:23 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292744538A" && level==0} -index 0' command is executed.
+16:12:25 INFO  : FPGA configured successfully with bitstream "C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper_hw_platform_1/download.bit"
+16:12:58 INFO  : Processor reset is completed for microblaze_0
+20:27:07 INFO  : FPGA Cable Disconnected. All active launches will be terminated.
+20:31:36 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+20:31:37 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292744538A" && level==0} -index 0' command is executed.
+20:31:39 INFO  : FPGA configured successfully with bitstream "C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper_hw_platform_1/download.bit"
+22:41:32 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+22:41:32 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292744538A" && level==0} -index 0' command is executed.
+22:41:34 INFO  : FPGA configured successfully with bitstream "C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper_hw_platform_1/download.bit"
+22:43:45 INFO  : Processor reset is completed for microblaze_0
+23:38:05 INFO  : FPGA Cable Disconnected. All active launches will be terminated.
+00:25:00 ERROR : Unexpected error while parsing XMD response ?: com.google.gson.JsonSyntaxException: com.google.gson.stream.MalformedJsonException: invalid number or unquoted string near 
+00:26:02 INFO  : Launching XSDB server: xsdb.bat C:/Xilinx/SDK/2015.4/scripts/xsdb/xsdb/xsdb-server.tcl
+00:26:03 INFO  : XSDB server has started successfully.
+00:26:03 INFO  : Processing command line option -hwspec C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf.
+00:26:03 INFO  : Checking for hwspec changes in the project node_wrapper_hw_platform_1.
+00:26:04 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1496556880848,  Project:1496531056676
+00:26:04 INFO  : The hardware specification for project 'node_wrapper_hw_platform_1' is different from C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf.
+00:26:04 INFO  : Copied contents of C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf into \node_wrapper_hw_platform_1\system.hdf.
+00:26:05 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+00:26:05 INFO  : Clearing existing target manager status.
+00:26:05 INFO  : Workspace synchronized with the new hardware specification file. Cleaning dependent projects...
+00:26:05 WARN  : Linker script will not be updated automatically. Users need to update it manually.
+00:26:38 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+00:26:44 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292744538A" && level==0} -index 0' command is executed.
+00:26:47 INFO  : FPGA configured successfully with bitstream "C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper_hw_platform_1/download.bit"
+01:08:38 ERROR : Unexpected error while parsing XMD response ?: com.google.gson.JsonSyntaxException: com.google.gson.stream.MalformedJsonException: invalid number or unquoted string near 
+01:14:08 INFO  : Launching XSDB server: xsdb.bat C:/Xilinx/SDK/2015.4/scripts/xsdb/xsdb/xsdb-server.tcl
+01:14:10 INFO  : XSDB server has started successfully.
+01:14:10 INFO  : Processing command line option -hwspec C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf.
+01:14:10 INFO  : Checking for hwspec changes in the project node_wrapper_hw_platform_1.
+01:14:11 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1496564023857,  Project:1496556880848
+01:14:11 INFO  : The hardware specification for project 'node_wrapper_hw_platform_1' is different from C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf.
+01:14:11 INFO  : Copied contents of C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf into \node_wrapper_hw_platform_1\system.hdf.
+01:14:12 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+01:14:12 INFO  : Clearing existing target manager status.
+01:14:12 INFO  : Workspace synchronized with the new hardware specification file. Cleaning dependent projects...
+01:14:12 WARN  : Linker script will not be updated automatically. Users need to update it manually.
+01:14:34 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+01:14:40 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292744538A" && level==0} -index 0' command is executed.
+01:14:43 INFO  : FPGA configured successfully with bitstream "C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper_hw_platform_1/download.bit"
+01:15:03 INFO  : Processor reset is completed for microblaze_0
+01:19:03 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+01:19:03 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292744538A" && level==0} -index 0' command is executed.
+01:19:05 INFO  : FPGA configured successfully with bitstream "C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper_hw_platform_0/download.bit"
+01:19:18 INFO  : Processor reset is completed for microblaze_0
+01:19:18 ERROR : Unexpected error while launching program.
+java.lang.RuntimeException: Cannot perform the Debug Command, Current Processor State is "Running"
+
+	at com.xilinx.sdk.targetmanager.internal.TM.downloadELF(TM.java:686)
+	at com.xilinx.sdk.debug.core.internal.AppRunner.run(AppRunner.java:129)
+	at com.xilinx.sdk.debug.core.XilinxAppLaunchConfigurationDelegate.runApplication(XilinxAppLaunchConfigurationDelegate.java:637)
+	at com.xilinx.sdk.debug.core.XilinxAppLaunchConfigurationDelegate.launch(XilinxAppLaunchConfigurationDelegate.java:309)
+	at com.xilinx.sdk.debug.ui.XilinxAppLaunchDelegateWrapper.launch(XilinxAppLaunchDelegateWrapper.java:31)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:858)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:707)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1018)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1222)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+01:20:53 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+01:20:54 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292744538A" && level==0} -index 0' command is executed.
+01:20:56 INFO  : FPGA configured successfully with bitstream "C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper_hw_platform_0/download.bit"
+01:21:45 ERROR : Unexpected error while parsing XMD response ?: com.google.gson.JsonSyntaxException: com.google.gson.stream.MalformedJsonException: invalid number or unquoted string near 
+01:22:02 INFO  : Launching XSDB server: xsdb.bat C:/Xilinx/SDK/2015.4/scripts/xsdb/xsdb/xsdb-server.tcl
+01:22:04 INFO  : XSDB server has started successfully.
+01:22:04 INFO  : Processing command line option -hwspec C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf.
+01:22:04 INFO  : Checking for hwspec changes in the project node_wrapper_hw_platform_1.
+01:22:27 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+01:22:32 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292744538A" && level==0} -index 0' command is executed.
+01:22:35 INFO  : FPGA configured successfully with bitstream "C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper_hw_platform_0/download.bit"
+01:23:26 INFO  : Processor reset is completed for microblaze_0
+01:26:18 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+01:26:18 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292744538A" && level==0} -index 0' command is executed.
+01:26:21 INFO  : FPGA configured successfully with bitstream "C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper_hw_platform_0/download.bit"
+01:27:00 INFO  : Processor reset is completed for microblaze_0
+01:27:00 ERROR : Unexpected error while launching program.
+java.lang.RuntimeException: Cannot perform the Debug Command, Current Processor State is "Running"
+
+	at com.xilinx.sdk.targetmanager.internal.TM.downloadELF(TM.java:686)
+	at com.xilinx.sdk.debug.core.internal.AppRunner.run(AppRunner.java:129)
+	at com.xilinx.sdk.debug.core.XilinxAppLaunchConfigurationDelegate.runApplication(XilinxAppLaunchConfigurationDelegate.java:637)
+	at com.xilinx.sdk.debug.core.XilinxAppLaunchConfigurationDelegate.launch(XilinxAppLaunchConfigurationDelegate.java:309)
+	at com.xilinx.sdk.debug.ui.XilinxAppLaunchDelegateWrapper.launch(XilinxAppLaunchDelegateWrapper.java:31)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:858)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:707)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1018)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1222)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+01:29:45 ERROR : Unexpected error while parsing XMD response ?: com.google.gson.JsonSyntaxException: com.google.gson.stream.MalformedJsonException: invalid number or unquoted string near 
+02:03:12 INFO  : Launching XSDB server: xsdb.bat C:/Xilinx/SDK/2015.4/scripts/xsdb/xsdb/xsdb-server.tcl
+02:03:14 INFO  : XSDB server has started successfully.
+02:03:14 INFO  : Processing command line option -hwspec C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf.
+02:03:15 INFO  : Checking for hwspec changes in the project node_wrapper_hw_platform_1.
+02:03:15 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1496566960835,  Project:1496564023857
+02:03:15 INFO  : The hardware specification for project 'node_wrapper_hw_platform_1' is different from C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf.
+02:03:15 INFO  : Copied contents of C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf into \node_wrapper_hw_platform_1\system.hdf.
+02:03:17 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+02:03:17 INFO  : Clearing existing target manager status.
+02:03:18 INFO  : Workspace synchronized with the new hardware specification file. Cleaning dependent projects...
+02:03:18 WARN  : Linker script will not be updated automatically. Users need to update it manually.
+02:04:25 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+02:04:25 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292744538A" && level==0} -index 0' command is executed.
+02:04:27 INFO  : FPGA configured successfully with bitstream "C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper_hw_platform_1/download.bit"
+02:05:22 INFO  : Processor reset is completed for microblaze_0
+02:12:22 ERROR : Unexpected error while parsing XMD response ?: com.google.gson.JsonSyntaxException: com.google.gson.stream.MalformedJsonException: invalid number or unquoted string near 
+18:13:34 INFO  : Launching XSDB server: xsdb.bat C:/Xilinx/SDK/2015.4/scripts/xsdb/xsdb/xsdb-server.tcl
+18:13:37 INFO  : XSDB server has started successfully.
+18:13:40 INFO  : Processing command line option -hwspec C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf.
+18:13:40 INFO  : Checking for hwspec changes in the project node_wrapper_hw_platform_1.
+18:13:41 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1496568753777,  Project:1496566960835
+18:13:41 INFO  : The hardware specification for project 'node_wrapper_hw_platform_1' is different from C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf.
+18:13:41 INFO  : Copied contents of C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf into \node_wrapper_hw_platform_1\system.hdf.
+18:13:42 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+18:13:42 INFO  : Clearing existing target manager status.
+18:13:42 INFO  : Workspace synchronized with the new hardware specification file. Cleaning dependent projects...
+18:13:42 WARN  : Linker script will not be updated automatically. Users need to update it manually.
+18:14:36 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+18:14:36 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292744538A" && level==0} -index 0' command is executed.
+18:14:39 INFO  : FPGA configured successfully with bitstream "C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper_hw_platform_1/download.bit"
+18:17:35 INFO  : Processor reset is completed for microblaze_0
+18:28:20 ERROR : Unexpected error while parsing XMD response ?: com.google.gson.JsonSyntaxException: com.google.gson.stream.MalformedJsonException: invalid number or unquoted string near 
+19:12:16 INFO  : Launching XSDB server: xsdb.bat C:/Xilinx/SDK/2015.4/scripts/xsdb/xsdb/xsdb-server.tcl
+19:12:18 INFO  : XSDB server has started successfully.
+19:12:18 INFO  : Processing command line option -hwspec C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf.
+19:12:18 INFO  : Checking for hwspec changes in the project node_wrapper_hw_platform_1.
+19:12:19 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1496715011876,  Project:1496568753777
+19:12:19 INFO  : The hardware specification for project 'node_wrapper_hw_platform_1' is different from C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf.
+19:12:19 INFO  : Copied contents of C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf into \node_wrapper_hw_platform_1\system.hdf.
+19:12:20 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+19:12:20 INFO  : Clearing existing target manager status.
+19:12:20 INFO  : Workspace synchronized with the new hardware specification file. Cleaning dependent projects...
+19:12:20 WARN  : Linker script will not be updated automatically. Users need to update it manually.
+19:12:41 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+19:12:41 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292744538A" && level==0} -index 0' command is executed.
+19:12:44 INFO  : FPGA configured successfully with bitstream "C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper_hw_platform_1/download.bit"
+19:15:04 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+19:15:04 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292744538A" && level==0} -index 0' command is executed.
+19:15:06 INFO  : FPGA configured successfully with bitstream "C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper_hw_platform_1/download.bit"
+19:19:23 INFO  : Processor reset is completed for microblaze_0
+19:19:48 ERROR : Unexpected error while launching program.
+java.lang.RuntimeException: Debug Operation Not Supported on the Target, Current Processor State is not "Stopped"
+MicroBlaze Pipeline Stalled on a Blocking Instruction or Invalid Bus Access
+    Stalled PC: 0x00000004
+    Try Resetting the Processor to Continue..
+
+	at com.xilinx.sdk.targetmanager.internal.TM.downloadELF(TM.java:686)
+	at com.xilinx.sdk.debug.core.internal.AppRunner.run(AppRunner.java:129)
+	at com.xilinx.sdk.debug.core.XilinxAppLaunchConfigurationDelegate.runApplication(XilinxAppLaunchConfigurationDelegate.java:637)
+	at com.xilinx.sdk.debug.core.XilinxAppLaunchConfigurationDelegate.launch(XilinxAppLaunchConfigurationDelegate.java:309)
+	at com.xilinx.sdk.debug.ui.XilinxAppLaunchDelegateWrapper.launch(XilinxAppLaunchDelegateWrapper.java:31)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:858)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:707)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1018)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1222)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+19:20:10 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+19:20:11 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292744538A" && level==0} -index 0' command is executed.
+19:20:13 INFO  : FPGA configured successfully with bitstream "C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper_hw_platform_1/download.bit"
+19:36:24 ERROR : Unexpected error while parsing XMD response ?: com.google.gson.JsonSyntaxException: com.google.gson.stream.MalformedJsonException: invalid number or unquoted string near 
+20:25:00 INFO  : Launching XSDB server: xsdb.bat C:/Xilinx/SDK/2015.4/scripts/xsdb/xsdb/xsdb-server.tcl
+20:25:02 INFO  : XSDB server has started successfully.
+20:25:02 INFO  : Processing command line option -hwspec C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf.
+20:25:02 INFO  : Checking for hwspec changes in the project node_wrapper_hw_platform_1.
+20:25:03 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1496719329951,  Project:1496715011876
+20:25:03 INFO  : The hardware specification for project 'node_wrapper_hw_platform_1' is different from C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf.
+20:25:03 INFO  : Copied contents of C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf into \node_wrapper_hw_platform_1\system.hdf.
+20:25:04 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+20:25:04 INFO  : Clearing existing target manager status.
+20:25:04 INFO  : Workspace synchronized with the new hardware specification file. Cleaning dependent projects...
+20:25:04 WARN  : Linker script will not be updated automatically. Users need to update it manually.
+20:25:24 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+20:25:25 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292744538A" && level==0} -index 0' command is executed.
+20:25:27 INFO  : FPGA configured successfully with bitstream "C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper_hw_platform_1/download.bit"
+20:26:21 INFO  : Processor reset is completed for microblaze_0
+20:31:11 INFO  : FPGA Cable Disconnected. All active launches will be terminated.
+20:31:17 ERROR : Unexpected error while parsing XMD response ?: com.google.gson.JsonSyntaxException: com.google.gson.stream.MalformedJsonException: invalid number or unquoted string near 
+22:23:43 INFO  : Launching XSDB server: xsdb.bat C:/Xilinx/SDK/2015.4/scripts/xsdb/xsdb/xsdb-server.tcl
+22:23:45 INFO  : XSDB server has started successfully.
+22:23:45 INFO  : Processing command line option -hwspec C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf.
+22:23:45 INFO  : Checking for hwspec changes in the project node_wrapper_hw_platform_1.
+22:23:46 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1496726326475,  Project:1496719329951
+22:23:46 INFO  : The hardware specification for project 'node_wrapper_hw_platform_1' is different from C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf.
+22:23:46 INFO  : Copied contents of C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf into \node_wrapper_hw_platform_1\system.hdf.
+22:23:47 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+22:23:47 INFO  : Clearing existing target manager status.
+22:23:47 INFO  : Workspace synchronized with the new hardware specification file. Cleaning dependent projects...
+22:23:47 WARN  : Linker script will not be updated automatically. Users need to update it manually.
+22:30:00 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+22:30:02 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292744538A" && level==0} -index 0' command is executed.
+22:30:05 INFO  : FPGA configured successfully with bitstream "C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper_hw_platform_1/download.bit"
+22:38:22 INFO  : Processor reset is completed for microblaze_0
+22:54:45 ERROR : Unexpected error while parsing XMD response ?: com.google.gson.JsonSyntaxException: com.google.gson.stream.MalformedJsonException: invalid number or unquoted string near 
+23:17:00 INFO  : Launching XSDB server: xsdb.bat C:/Xilinx/SDK/2015.4/scripts/xsdb/xsdb/xsdb-server.tcl
+23:17:02 INFO  : XSDB server has started successfully.
+23:17:02 INFO  : Processing command line option -hwspec C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf.
+23:17:02 INFO  : Checking for hwspec changes in the project node_wrapper_hw_platform_1.
+23:17:03 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1496729710404,  Project:1496726326475
+23:17:03 INFO  : The hardware specification for project 'node_wrapper_hw_platform_1' is different from C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf.
+23:17:03 INFO  : Copied contents of C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf into \node_wrapper_hw_platform_1\system.hdf.
+23:17:04 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+23:17:04 INFO  : Clearing existing target manager status.
+23:17:04 INFO  : Workspace synchronized with the new hardware specification file. Cleaning dependent projects...
+23:17:04 WARN  : Linker script will not be updated automatically. Users need to update it manually.
+23:17:25 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+23:17:31 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292744538A" && level==0} -index 0' command is executed.
+23:17:34 INFO  : FPGA configured successfully with bitstream "C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper_hw_platform_1/download.bit"
+23:20:04 INFO  : Processor reset is completed for microblaze_0
+23:24:38 ERROR : Unexpected error while parsing XMD response ?: com.google.gson.JsonSyntaxException: com.google.gson.stream.MalformedJsonException: invalid number or unquoted string near 
+23:45:59 INFO  : Launching XSDB server: xsdb.bat C:/Xilinx/SDK/2015.4/scripts/xsdb/xsdb/xsdb-server.tcl
+23:46:01 INFO  : XSDB server has started successfully.
+23:46:01 INFO  : Processing command line option -hwspec C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf.
+23:46:01 INFO  : Checking for hwspec changes in the project node_wrapper_hw_platform_1.
+23:46:02 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1496731510469,  Project:1496729710404
+23:46:02 INFO  : The hardware specification for project 'node_wrapper_hw_platform_1' is different from C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf.
+23:46:02 INFO  : Copied contents of C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf into \node_wrapper_hw_platform_1\system.hdf.
+23:46:03 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+23:46:03 INFO  : Clearing existing target manager status.
+23:46:03 INFO  : Workspace synchronized with the new hardware specification file. Cleaning dependent projects...
+23:46:03 WARN  : Linker script will not be updated automatically. Users need to update it manually.
+23:46:27 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+23:46:33 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292744538A" && level==0} -index 0' command is executed.
+23:46:36 INFO  : FPGA configured successfully with bitstream "C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper_hw_platform_1/download.bit"
+23:47:23 INFO  : Processor reset is completed for microblaze_0
+00:13:59 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1496733220209,  Project:1496731510469
+00:13:59 INFO  : Project node_wrapper_hw_platform_1's source hardware specification located at C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf is now different from the local copy.
+		 The local copy will be replaced with the source specification and your workspace will be updated.
+00:14:06 INFO  : Copied contents of C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf into \node_wrapper_hw_platform_1\system.hdf.
+00:14:07 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+00:14:07 INFO  : Clearing existing target manager status.
+00:14:07 INFO  : Workspace synchronized with the new hardware specification file. Cleaning dependent projects...
+00:14:07 WARN  : Linker script will not be updated automatically. Users need to update it manually.
+00:14:08 ERROR : Unexpected error while parsing XMD response ?: com.google.gson.JsonSyntaxException: com.google.gson.stream.MalformedJsonException: invalid number or unquoted string near 
+00:14:28 INFO  : Launching XSDB server: xsdb.bat C:/Xilinx/SDK/2015.4/scripts/xsdb/xsdb/xsdb-server.tcl
+00:14:30 INFO  : XSDB server has started successfully.
+00:14:30 INFO  : Processing command line option -hwspec C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf.
+00:14:30 INFO  : Checking for hwspec changes in the project node_wrapper_hw_platform_1.
+00:14:50 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+00:14:56 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292744538A" && level==0} -index 0' command is executed.
+00:14:59 INFO  : FPGA configured successfully with bitstream "C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper_hw_platform_1/download.bit"
+00:15:36 INFO  : Processor reset is completed for microblaze_0
+00:24:43 INFO  : Processor reset is completed for microblaze_0
+00:25:33 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+00:25:33 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292744538A" && level==0} -index 0' command is executed.
+00:25:35 INFO  : FPGA configured successfully with bitstream "C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper_hw_platform_1/download.bit"
+00:25:59 INFO  : microblaze_0 Processor is in use. Please stop existing Run or Debug sessions before launching.
+00:26:04 INFO  : Processor reset is completed for microblaze_0
+00:26:43 ERROR : Unexpected error while parsing XMD response ?: com.google.gson.JsonSyntaxException: com.google.gson.stream.MalformedJsonException: invalid number or unquoted string near 
+00:44:13 INFO  : Launching XSDB server: xsdb.bat C:/Xilinx/SDK/2015.4/scripts/xsdb/xsdb/xsdb-server.tcl
+00:44:14 INFO  : XSDB server has started successfully.
+00:44:16 INFO  : Processing command line option -hwspec C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf.
+00:44:17 INFO  : Checking for hwspec changes in the project node_wrapper_hw_platform_1.
+00:44:44 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+00:44:49 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292744538A" && level==0} -index 0' command is executed.
+00:44:52 INFO  : FPGA configured successfully with bitstream "C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper_hw_platform_1/download.bit"
+00:45:05 INFO  : Processor reset is completed for microblaze_0
+01:40:50 ERROR : Unexpected error while parsing XMD response ?: com.google.gson.JsonSyntaxException: com.google.gson.stream.MalformedJsonException: invalid number or unquoted string near 
+01:41:05 INFO  : Launching XSDB server: xsdb.bat C:/Xilinx/SDK/2015.4/scripts/xsdb/xsdb/xsdb-server.tcl
+01:41:06 INFO  : XSDB server has started successfully.
+01:41:07 INFO  : Processing command line option -hwspec C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf.
+01:41:07 INFO  : Checking for hwspec changes in the project node_wrapper_hw_platform_1.
+01:42:01 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+01:42:06 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292744538A" && level==0} -index 0' command is executed.
+01:42:09 INFO  : FPGA configured successfully with bitstream "C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper_hw_platform_1/download.bit"
+02:19:03 ERROR : Unexpected error while parsing XMD response ?: com.google.gson.JsonSyntaxException: com.google.gson.stream.MalformedJsonException: invalid number or unquoted string near 
+02:19:21 INFO  : Launching XSDB server: xsdb.bat C:/Xilinx/SDK/2015.4/scripts/xsdb/xsdb/xsdb-server.tcl
+02:19:23 INFO  : XSDB server has started successfully.
+02:19:23 INFO  : Processing command line option -hwspec C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf.
+02:19:24 INFO  : Checking for hwspec changes in the project node_wrapper_hw_platform_1.
+02:19:24 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1496740671686,  Project:1496733220209
+02:19:24 INFO  : The hardware specification for project 'node_wrapper_hw_platform_1' is different from C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf.
+02:19:24 INFO  : Copied contents of C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf into \node_wrapper_hw_platform_1\system.hdf.
+02:19:25 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+02:19:25 INFO  : Clearing existing target manager status.
+02:19:25 INFO  : Workspace synchronized with the new hardware specification file. Cleaning dependent projects...
+02:19:25 WARN  : Linker script will not be updated automatically. Users need to update it manually.
+02:19:52 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+02:19:57 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292744538A" && level==0} -index 0' command is executed.
+02:20:00 INFO  : FPGA configured successfully with bitstream "C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper_hw_platform_1/download.bit"
+02:21:10 INFO  : Processor reset is completed for microblaze_0
+08:33:24 INFO  : FPGA Cable Disconnected. All active launches will be terminated.
+08:33:24 WARN  : Terminating existing sessions on processor microblaze_0
+19:59:58 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1496890768478,  Project:1496740671686
+19:59:58 INFO  : Project node_wrapper_hw_platform_1's source hardware specification located at C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf is now different from the local copy.
+		 The local copy will be replaced with the source specification and your workspace will be updated.
+20:00:03 INFO  : Project node_wrapper_hw_platform_1's source hardware specification location will not be monitored anymore.
+20:00:10 ERROR : Unexpected error while parsing XMD response ?: com.google.gson.JsonSyntaxException: com.google.gson.stream.MalformedJsonException: invalid number or unquoted string near 
+20:01:12 INFO  : Launching XSDB server: xsdb.bat C:/Xilinx/SDK/2015.4/scripts/xsdb/xsdb/xsdb-server.tcl
+20:01:16 INFO  : XSDB server has started successfully.
+20:01:25 INFO  : Processing command line option -hwspec C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf.
+20:04:03 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+20:04:03 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292744538A" && level==0} -index 0' command is executed.
+20:04:06 INFO  : FPGA configured successfully with bitstream "C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper_hw_platform_2/download.bit"
+20:04:42 INFO  : Processor reset is completed for microblaze_0
+20:47:17 ERROR : Unexpected error while parsing XMD response ?: com.google.gson.JsonSyntaxException: com.google.gson.stream.MalformedJsonException: invalid number or unquoted string near 
+20:54:56 INFO  : Launching XSDB server: xsdb.bat C:/Xilinx/SDK/2015.4/scripts/xsdb/xsdb/xsdb-server.tcl
+20:54:58 INFO  : XSDB server has started successfully.
+20:55:03 INFO  : Processing command line option -hwspec C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf.
+20:55:03 INFO  : Checking for hwspec changes in the project node_wrapper_hw_platform_2.
+20:55:03 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1496894076758,  Project:1496890768478
+20:55:03 INFO  : The hardware specification for project 'node_wrapper_hw_platform_2' is different from C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf.
+20:55:04 INFO  : Copied contents of C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf into \node_wrapper_hw_platform_2\system.hdf.
+20:55:05 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+20:55:06 INFO  : Clearing existing target manager status.
+20:55:06 INFO  : Workspace synchronized with the new hardware specification file. Cleaning dependent projects...
+20:55:06 WARN  : Linker script will not be updated automatically. Users need to update it manually.
+20:56:14 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+20:56:20 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292744538A" && level==0} -index 0' command is executed.
+20:56:22 INFO  : FPGA configured successfully with bitstream "C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper_hw_platform_2/download.bit"
+20:57:12 INFO  : Processor reset is completed for microblaze_0
+21:02:43 ERROR : Unexpected error while parsing XMD response ?: com.google.gson.JsonSyntaxException: com.google.gson.stream.MalformedJsonException: invalid number or unquoted string near 
+21:02:58 INFO  : Launching XSDB server: xsdb.bat C:/Xilinx/SDK/2015.4/scripts/xsdb/xsdb/xsdb-server.tcl
+21:02:59 INFO  : XSDB server has started successfully.
+21:02:59 INFO  : Processing command line option -hwspec C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf.
+21:02:59 INFO  : Checking for hwspec changes in the project node_wrapper_hw_platform_2.
+21:03:27 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:03:32 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292744538A" && level==0} -index 0' command is executed.
+21:03:35 INFO  : FPGA configured successfully with bitstream "C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper_hw_platform_2/download.bit"
+21:03:46 INFO  : Processor reset is completed for microblaze_0
+21:20:59 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:20:59 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292744538A" && level==0} -index 0' command is executed.
+21:21:02 INFO  : FPGA configured successfully with bitstream "C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper_hw_platform_0/download.bit"
+21:21:33 INFO  : Processor reset is completed for microblaze_0
+21:21:33 ERROR : Unexpected error while launching program.
+java.lang.RuntimeException: Cannot perform the Debug Command, Current Processor State is "Running"
+
+	at com.xilinx.sdk.targetmanager.internal.TM.downloadELF(TM.java:686)
+	at com.xilinx.sdk.debug.core.internal.AppRunner.run(AppRunner.java:129)
+	at com.xilinx.sdk.debug.core.XilinxAppLaunchConfigurationDelegate.runApplication(XilinxAppLaunchConfigurationDelegate.java:637)
+	at com.xilinx.sdk.debug.core.XilinxAppLaunchConfigurationDelegate.launch(XilinxAppLaunchConfigurationDelegate.java:309)
+	at com.xilinx.sdk.debug.ui.XilinxAppLaunchDelegateWrapper.launch(XilinxAppLaunchDelegateWrapper.java:31)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:858)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:707)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1018)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1222)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+21:57:35 INFO  : FPGA Cable Disconnected. All active launches will be terminated.
+22:45:46 ERROR : Unexpected error while parsing XMD response ?: com.google.gson.JsonSyntaxException: com.google.gson.stream.MalformedJsonException: invalid number or unquoted string near 
+22:46:13 INFO  : Launching XSDB server: xsdb.bat C:/Xilinx/SDK/2015.4/scripts/xsdb/xsdb/xsdb-server.tcl
+22:46:15 INFO  : XSDB server has started successfully.
+22:46:15 INFO  : Processing command line option -hwspec C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf.
+22:46:16 INFO  : Checking for hwspec changes in the project node_wrapper_hw_platform_2.
+22:46:16 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1496900643281,  Project:1496894076758
+22:46:16 INFO  : The hardware specification for project 'node_wrapper_hw_platform_2' is different from C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf.
+22:46:16 INFO  : Copied contents of C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf into \node_wrapper_hw_platform_2\system.hdf.
+22:46:17 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+22:46:17 INFO  : Clearing existing target manager status.
+22:46:18 INFO  : Workspace synchronized with the new hardware specification file. Cleaning dependent projects...
+22:46:18 WARN  : Linker script will not be updated automatically. Users need to update it manually.
+22:46:51 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+22:46:57 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292744538A" && level==0} -index 0' command is executed.
+22:47:00 INFO  : FPGA configured successfully with bitstream "C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper_hw_platform_2/download.bit"
+22:47:12 INFO  : Processor reset is completed for microblaze_0
+00:54:26 ERROR : Unexpected error while parsing XMD response ?: com.google.gson.JsonSyntaxException: com.google.gson.stream.MalformedJsonException: invalid number or unquoted string near 
+00:55:04 INFO  : Launching XSDB server: xsdb.bat C:/Xilinx/SDK/2015.4/scripts/xsdb/xsdb/xsdb-server.tcl
+00:55:10 INFO  : XSDB server has started successfully.
+00:55:13 INFO  : Processing command line option -hwspec C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf.
+00:55:13 INFO  : Checking for hwspec changes in the project node_wrapper_hw_platform_2.
+00:55:14 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1496908424486,  Project:1496900643281
+00:55:14 INFO  : The hardware specification for project 'node_wrapper_hw_platform_2' is different from C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf.
+00:55:14 INFO  : Copied contents of C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf into \node_wrapper_hw_platform_2\system.hdf.
+00:55:15 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+00:55:15 INFO  : Clearing existing target manager status.
+00:55:15 INFO  : Workspace synchronized with the new hardware specification file. Cleaning dependent projects...
+00:55:15 WARN  : Linker script will not be updated automatically. Users need to update it manually.
+00:55:56 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+00:56:01 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292744538A" && level==0} -index 0' command is executed.
+00:56:04 INFO  : FPGA configured successfully with bitstream "C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper_hw_platform_2/download.bit"
+00:56:24 INFO  : Processor reset is completed for microblaze_0
+01:58:15 ERROR : Unexpected error while parsing XMD response ?: com.google.gson.JsonSyntaxException: com.google.gson.stream.MalformedJsonException: invalid number or unquoted string near 
+01:58:43 INFO  : Launching XSDB server: xsdb.bat C:/Xilinx/SDK/2015.4/scripts/xsdb/xsdb/xsdb-server.tcl
+01:58:48 INFO  : XSDB server has started successfully.
+01:58:50 INFO  : Processing command line option -hwspec C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf.
+01:58:50 INFO  : Checking for hwspec changes in the project node_wrapper_hw_platform_2.
+01:58:51 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1496911510746,  Project:1496908424486
+01:58:51 INFO  : The hardware specification for project 'node_wrapper_hw_platform_2' is different from C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf.
+01:58:51 INFO  : Copied contents of C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf into \node_wrapper_hw_platform_2\system.hdf.
+01:58:52 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+01:58:52 INFO  : Clearing existing target manager status.
+01:58:52 INFO  : Workspace synchronized with the new hardware specification file. Cleaning dependent projects...
+01:58:52 WARN  : Linker script will not be updated automatically. Users need to update it manually.
+01:59:14 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+01:59:19 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292744538A" && level==0} -index 0' command is executed.
+01:59:22 INFO  : FPGA configured successfully with bitstream "C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper_hw_platform_2/download.bit"
+02:00:12 INFO  : Processor reset is completed for microblaze_0
+02:43:37 INFO  : FPGA Cable Disconnected. All active launches will be terminated.
+16:33:38 ERROR : Unexpected error while parsing XMD response ?: com.google.gson.JsonSyntaxException: com.google.gson.stream.MalformedJsonException: invalid number or unquoted string near 
+17:50:10 INFO  : Launching XSDB server: xsdb.bat C:/Xilinx/SDK/2015.4/scripts/xsdb/xsdb/xsdb-server.tcl
+17:50:18 INFO  : XSDB server has started successfully.
+17:50:20 INFO  : Processing command line option -hwspec C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf.
+17:50:20 INFO  : Checking for hwspec changes in the project node_wrapper_hw_platform_2.
+17:50:21 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1496969350907,  Project:1496911510746
+17:50:21 INFO  : The hardware specification for project 'node_wrapper_hw_platform_2' is different from C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf.
+17:50:21 INFO  : Copied contents of C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf into \node_wrapper_hw_platform_2\system.hdf.
+17:50:22 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+17:50:22 INFO  : Clearing existing target manager status.
+17:50:22 INFO  : Workspace synchronized with the new hardware specification file. Cleaning dependent projects...
+17:50:22 WARN  : Linker script will not be updated automatically. Users need to update it manually.
+17:52:11 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+17:52:16 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292744538A" && level==0} -index 0' command is executed.
+17:52:19 INFO  : FPGA configured successfully with bitstream "C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper_hw_platform_2/download.bit"
+17:52:40 INFO  : Processor reset is completed for microblaze_0
+18:47:08 INFO  : FPGA Cable Disconnected. All active launches will be terminated.
+20:18:35 ERROR : Unexpected error while parsing XMD response ?: com.google.gson.JsonSyntaxException: com.google.gson.stream.MalformedJsonException: invalid number or unquoted string near 
+20:19:07 INFO  : Launching XSDB server: xsdb.bat C:/Xilinx/SDK/2015.4/scripts/xsdb/xsdb/xsdb-server.tcl
+20:19:12 INFO  : XSDB server has started successfully.
+20:19:14 INFO  : Processing command line option -hwspec C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf.
+20:19:14 INFO  : Checking for hwspec changes in the project node_wrapper_hw_platform_2.
+20:19:15 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1496971369178,  Project:1496969350907
+20:19:15 INFO  : The hardware specification for project 'node_wrapper_hw_platform_2' is different from C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf.
+20:19:15 INFO  : Copied contents of C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf into \node_wrapper_hw_platform_2\system.hdf.
+20:19:16 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+20:19:16 INFO  : Clearing existing target manager status.
+20:19:16 INFO  : Workspace synchronized with the new hardware specification file. Cleaning dependent projects...
+20:19:16 WARN  : Linker script will not be updated automatically. Users need to update it manually.
+20:28:43 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+20:28:49 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292744538A" && level==0} -index 0' command is executed.
+20:28:52 INFO  : FPGA configured successfully with bitstream "C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper_hw_platform_2/download.bit"
+20:31:01 INFO  : Processor reset is completed for microblaze_0
+21:36:36 INFO  : FPGA Cable Disconnected. All active launches will be terminated.
+21:56:33 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:56:33 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292744538A" && level==0} -index 0' command is executed.
+21:56:35 INFO  : FPGA configured successfully with bitstream "C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper_hw_platform_2/download.bit"
+21:57:29 INFO  : Processor reset is completed for microblaze_0
+21:57:56 INFO  : microblaze_0 Processor is in use. Please stop existing Run or Debug sessions before launching.
+21:57:57 INFO  : Processor reset is completed for microblaze_0
+21:58:23 INFO  : Processor reset is completed for microblaze_0
+22:03:35 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+22:03:35 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292744538A" && level==0} -index 0' command is executed.
+22:03:37 INFO  : FPGA configured successfully with bitstream "C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper_hw_platform_2/download.bit"
+22:05:09 INFO  : Processor reset is completed for microblaze_0
+22:05:09 ERROR : Unexpected error while launching program.
+java.lang.RuntimeException: Cannot perform the Debug Command, Current Processor State is "Running"
+
+	at com.xilinx.sdk.targetmanager.internal.TM.downloadELF(TM.java:686)
+	at com.xilinx.sdk.debug.core.internal.AppRunner.run(AppRunner.java:129)
+	at com.xilinx.sdk.debug.core.XilinxAppLaunchConfigurationDelegate.runApplication(XilinxAppLaunchConfigurationDelegate.java:637)
+	at com.xilinx.sdk.debug.core.XilinxAppLaunchConfigurationDelegate.launch(XilinxAppLaunchConfigurationDelegate.java:309)
+	at com.xilinx.sdk.debug.ui.XilinxAppLaunchDelegateWrapper.launch(XilinxAppLaunchDelegateWrapper.java:31)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:858)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:707)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1018)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1222)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+22:06:50 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+22:06:51 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292744538A" && level==0} -index 0' command is executed.
+22:06:53 INFO  : FPGA configured successfully with bitstream "C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper_hw_platform_2/download.bit"
+22:07:29 ERROR : Unexpected error while parsing XMD response ?: com.google.gson.JsonSyntaxException: com.google.gson.stream.MalformedJsonException: invalid number or unquoted string near 
+22:12:11 INFO  : Launching XSDB server: xsdb.bat C:/Xilinx/SDK/2015.4/scripts/xsdb/xsdb/xsdb-server.tcl
+22:12:13 INFO  : XSDB server has started successfully.
+22:12:14 INFO  : Processing command line option -hwspec C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf.
+22:12:14 INFO  : Checking for hwspec changes in the project node_wrapper_hw_platform_2.
+22:12:38 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+22:12:44 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292744538A" && level==0} -index 0' command is executed.
+22:12:47 INFO  : FPGA configured successfully with bitstream "C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper_hw_platform_2/download.bit"
+22:13:18 INFO  : Processor reset is completed for microblaze_0
+22:13:53 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+22:13:54 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292744538A" && level==0} -index 0' command is executed.
+22:13:56 INFO  : FPGA configured successfully with bitstream "C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper_hw_platform_2/download.bit"
+22:14:08 INFO  : Processor reset is completed for microblaze_0
+22:44:16 ERROR : Unexpected error while parsing XMD response ?: com.google.gson.JsonSyntaxException: com.google.gson.stream.MalformedJsonException: invalid number or unquoted string near 
+22:45:06 INFO  : Launching XSDB server: xsdb.bat C:/Xilinx/SDK/2015.4/scripts/xsdb/xsdb/xsdb-server.tcl
+22:45:11 INFO  : XSDB server has started successfully.
+22:45:14 INFO  : Processing command line option -hwspec C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf.
+22:45:14 INFO  : Checking for hwspec changes in the project node_wrapper_hw_platform_2.
+22:45:15 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1496987041840,  Project:1496971369178
+22:45:15 INFO  : The hardware specification for project 'node_wrapper_hw_platform_2' is different from C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf.
+22:45:15 INFO  : Copied contents of C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf into \node_wrapper_hw_platform_2\system.hdf.
+22:45:16 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+22:45:16 INFO  : Clearing existing target manager status.
+22:45:16 INFO  : Workspace synchronized with the new hardware specification file. Cleaning dependent projects...
+22:45:16 WARN  : Linker script will not be updated automatically. Users need to update it manually.
+22:45:49 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+22:45:55 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292744538A" && level==0} -index 0' command is executed.
+22:45:58 INFO  : FPGA configured successfully with bitstream "C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper_hw_platform_2/download.bit"
+22:46:37 INFO  : Processor reset is completed for microblaze_0
+00:52:54 ERROR : Unexpected error while parsing XMD response ?: com.google.gson.JsonSyntaxException: com.google.gson.stream.MalformedJsonException: invalid number or unquoted string near 
+01:01:19 INFO  : Launching XSDB server: xsdb.bat C:/Xilinx/SDK/2015.4/scripts/xsdb/xsdb/xsdb-server.tcl
+01:01:24 INFO  : XSDB server has started successfully.
+01:01:26 INFO  : Processing command line option -hwspec C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf.
+01:01:28 INFO  : Checking for hwspec changes in the project node_wrapper_hw_platform_2.
+01:01:28 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1496995194479,  Project:1496987041840
+01:01:28 INFO  : The hardware specification for project 'node_wrapper_hw_platform_2' is different from C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf.
+01:01:28 INFO  : Copied contents of C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf into \node_wrapper_hw_platform_2\system.hdf.
+01:01:29 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+01:01:29 INFO  : Clearing existing target manager status.
+01:01:29 INFO  : Workspace synchronized with the new hardware specification file. Cleaning dependent projects...
+01:01:29 WARN  : Linker script will not be updated automatically. Users need to update it manually.
+01:01:49 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+01:01:55 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292744538A" && level==0} -index 0' command is executed.
+01:01:58 INFO  : FPGA configured successfully with bitstream "C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper_hw_platform_2/download.bit"
+01:02:46 INFO  : Processor reset is completed for microblaze_0
+01:12:43 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+01:12:44 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292744538A" && level==0} -index 0' command is executed.
+01:12:46 INFO  : FPGA configured successfully with bitstream "C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper_hw_platform_2/download.bit"
+01:14:17 INFO  : Processor reset is completed for microblaze_0
+01:14:17 ERROR : Unexpected error while launching program.
+java.lang.RuntimeException: Cannot perform the Debug Command, Current Processor State is "Running"
+
+	at com.xilinx.sdk.targetmanager.internal.TM.downloadELF(TM.java:686)
+	at com.xilinx.sdk.debug.core.internal.AppRunner.run(AppRunner.java:129)
+	at com.xilinx.sdk.debug.core.XilinxAppLaunchConfigurationDelegate.runApplication(XilinxAppLaunchConfigurationDelegate.java:637)
+	at com.xilinx.sdk.debug.core.XilinxAppLaunchConfigurationDelegate.launch(XilinxAppLaunchConfigurationDelegate.java:309)
+	at com.xilinx.sdk.debug.ui.XilinxAppLaunchDelegateWrapper.launch(XilinxAppLaunchDelegateWrapper.java:31)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:858)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:707)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1018)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1222)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+01:18:34 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+01:18:34 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292744538A" && level==0} -index 0' command is executed.
+01:18:37 INFO  : FPGA configured successfully with bitstream "C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper_hw_platform_2/download.bit"
+01:21:45 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+01:21:45 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292744538A" && level==0} -index 0' command is executed.
+01:21:47 INFO  : FPGA configured successfully with bitstream "C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper_hw_platform_2/download.bit"
+01:39:32 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+01:39:32 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292744538A" && level==0} -index 0' command is executed.
+01:39:34 INFO  : FPGA configured successfully with bitstream "C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper_hw_platform_2/download.bit"
+01:42:10 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+01:42:10 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292744538A" && level==0} -index 0' command is executed.
+01:42:12 INFO  : FPGA configured successfully with bitstream "C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper_hw_platform_2/download.bit"
+02:02:54 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+02:02:54 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292744538A" && level==0} -index 0' command is executed.
+02:02:56 INFO  : FPGA configured successfully with bitstream "C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper_hw_platform_2/download.bit"
+02:06:08 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+02:06:09 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292744538A" && level==0} -index 0' command is executed.
+02:06:11 INFO  : FPGA configured successfully with bitstream "C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper_hw_platform_2/download.bit"
+02:36:52 ERROR : Unexpected error while parsing XMD response ?: com.google.gson.JsonSyntaxException: com.google.gson.stream.MalformedJsonException: invalid number or unquoted string near 
+02:37:59 INFO  : Launching XSDB server: xsdb.bat C:/Xilinx/SDK/2015.4/scripts/xsdb/xsdb/xsdb-server.tcl
+02:38:02 INFO  : Launching XSDB server: xsdb.bat C:/Xilinx/SDK/2015.4/scripts/xsdb/xsdb/xsdb-server.tcl
+02:38:02 INFO  : XSDB server has started successfully.
+02:38:02 INFO  : Processing command line option -hwspec C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf.
+02:38:03 INFO  : XSDB server has started successfully.
+02:38:04 INFO  : Checking for hwspec changes in the project node_wrapper_hw_platform_2.
+02:38:04 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1497001055456,  Project:1496995194479
+02:38:04 INFO  : The hardware specification for project 'node_wrapper_hw_platform_2' is different from C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf.
+02:38:04 INFO  : Copied contents of C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf into \node_wrapper_hw_platform_2\system.hdf.
+02:38:05 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+02:38:05 INFO  : Clearing existing target manager status.
+02:38:05 INFO  : Workspace synchronized with the new hardware specification file. Cleaning dependent projects...
+02:38:05 WARN  : Linker script will not be updated automatically. Users need to update it manually.
+02:38:25 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+02:38:31 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292744538A" && level==0} -index 0' command is executed.
+02:38:34 INFO  : FPGA configured successfully with bitstream "C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper_hw_platform_2/download.bit"
+02:39:14 INFO  : Processor reset is completed for microblaze_0
+03:01:44 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+03:01:44 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292744538A" && level==0} -index 0' command is executed.
+03:01:46 INFO  : FPGA configured successfully with bitstream "C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper_hw_platform_2/download.bit"
+03:02:03 INFO  : Processor reset is completed for microblaze_0
+03:46:51 INFO  : FPGA Cable Disconnected. All active launches will be terminated.
+23:01:10 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1497074262506,  Project:1497001055456
+23:01:10 INFO  : Project node_wrapper_hw_platform_2's source hardware specification located at C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf is now different from the local copy.
+		 The local copy will be replaced with the source specification and your workspace will be updated.
+23:01:19 INFO  : Copied contents of C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf into \node_wrapper_hw_platform_2\system.hdf.
+23:01:20 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+23:01:20 INFO  : Clearing existing target manager status.
+23:01:20 INFO  : Workspace synchronized with the new hardware specification file. Cleaning dependent projects...
+23:01:20 WARN  : Linker script will not be updated automatically. Users need to update it manually.
+23:01:25 ERROR : Unexpected error while parsing XMD response ?: com.google.gson.JsonSyntaxException: com.google.gson.stream.MalformedJsonException: invalid number or unquoted string near 
+23:03:23 INFO  : Launching XSDB server: xsdb.bat C:/Xilinx/SDK/2015.4/scripts/xsdb/xsdb/xsdb-server.tcl
+23:03:29 INFO  : XSDB server has started successfully.
+23:03:32 INFO  : Processing command line option -hwspec C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf.
+23:03:32 INFO  : Checking for hwspec changes in the project node_wrapper_hw_platform_2.
+23:05:37 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+23:05:42 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292744538A" && level==0} -index 0' command is executed.
+23:05:45 INFO  : FPGA configured successfully with bitstream "C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper_hw_platform_2/download.bit"
+23:07:00 INFO  : Processor reset is completed for microblaze_0
+23:57:46 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+23:57:47 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292744538A" && level==0} -index 0' command is executed.
+23:57:49 INFO  : FPGA configured successfully with bitstream "C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper_hw_platform_2/download.bit"
+23:58:24 INFO  : Processor reset is completed for microblaze_0
+23:58:24 ERROR : Unexpected error while launching program.
+java.lang.RuntimeException: Cannot perform the Debug Command, Current Processor State is "Running"
+
+	at com.xilinx.sdk.targetmanager.internal.TM.downloadELF(TM.java:686)
+	at com.xilinx.sdk.debug.core.internal.AppRunner.run(AppRunner.java:129)
+	at com.xilinx.sdk.debug.core.XilinxAppLaunchConfigurationDelegate.runApplication(XilinxAppLaunchConfigurationDelegate.java:637)
+	at com.xilinx.sdk.debug.core.XilinxAppLaunchConfigurationDelegate.launch(XilinxAppLaunchConfigurationDelegate.java:309)
+	at com.xilinx.sdk.debug.ui.XilinxAppLaunchDelegateWrapper.launch(XilinxAppLaunchDelegateWrapper.java:31)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:858)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:707)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1018)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1222)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+00:08:03 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+00:08:04 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292744538A" && level==0} -index 0' command is executed.
+00:08:06 INFO  : FPGA configured successfully with bitstream "C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper_hw_platform_2/download.bit"
+01:15:07 INFO  : FPGA Cable Disconnected. All active launches will be terminated.
+09:30:29 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+09:30:29 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292744538A" && level==0} -index 0' command is executed.
+09:30:31 INFO  : FPGA configured successfully with bitstream "C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper_hw_platform_2/download.bit"
+12:35:55 INFO  : FPGA Cable Disconnected. All active launches will be terminated.
+23:57:13 ERROR : Unexpected error while parsing XMD response ?: com.google.gson.JsonSyntaxException: com.google.gson.stream.MalformedJsonException: invalid number or unquoted string near 
+00:55:51 INFO  : Launching XSDB server: xsdb.bat C:/Xilinx/SDK/2015.4/scripts/xsdb/xsdb/xsdb-server.tcl
+00:55:58 INFO  : XSDB server has started successfully.
+00:56:00 INFO  : Processing command line option -hwspec C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf.
+00:56:01 INFO  : Checking for hwspec changes in the project node_wrapper_hw_platform_2.
+00:56:33 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+00:56:39 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292744538A" && level==0} -index 0' command is executed.
+00:56:42 INFO  : FPGA configured successfully with bitstream "C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper_hw_platform_2/download.bit"
+00:58:53 INFO  : Processor reset is completed for microblaze_0
+01:33:05 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+01:33:06 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292744538A" && level==0} -index 0' command is executed.
+01:33:08 INFO  : FPGA configured successfully with bitstream "C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper_hw_platform_2/download.bit"
+01:33:28 INFO  : Processor reset is completed for microblaze_0
+01:33:28 ERROR : Unexpected error while launching program.
+java.lang.RuntimeException: Cannot perform the Debug Command, Current Processor State is "Running"
+
+	at com.xilinx.sdk.targetmanager.internal.TM.downloadELF(TM.java:686)
+	at com.xilinx.sdk.debug.core.internal.AppRunner.run(AppRunner.java:129)
+	at com.xilinx.sdk.debug.core.XilinxAppLaunchConfigurationDelegate.runApplication(XilinxAppLaunchConfigurationDelegate.java:637)
+	at com.xilinx.sdk.debug.core.XilinxAppLaunchConfigurationDelegate.launch(XilinxAppLaunchConfigurationDelegate.java:309)
+	at com.xilinx.sdk.debug.ui.XilinxAppLaunchDelegateWrapper.launch(XilinxAppLaunchDelegateWrapper.java:31)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:858)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:707)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1018)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1222)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+03:55:41 INFO  : FPGA Cable Disconnected. All active launches will be terminated.
+10:38:56 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+10:38:57 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292744538A" && level==0} -index 0' command is executed.
+10:38:59 INFO  : FPGA configured successfully with bitstream "C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper_hw_platform_2/download.bit"
+12:02:11 INFO  : FPGA Cable Disconnected. All active launches will be terminated.
+13:33:12 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+13:33:12 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292744538A" && level==0} -index 0' command is executed.
+13:33:15 INFO  : FPGA configured successfully with bitstream "C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper_hw_platform_2/download.bit"
+14:11:53 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+14:11:54 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292744538A" && level==0} -index 0' command is executed.
+14:11:56 INFO  : FPGA configured successfully with bitstream "C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper_hw_platform_2/download.bit"
+15:42:42 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1497220926867,  Project:1497074262506
+15:42:42 INFO  : Project node_wrapper_hw_platform_2's source hardware specification located at C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf is now different from the local copy.
+		 The local copy will be replaced with the source specification and your workspace will be updated.
+15:42:45 INFO  : Copied contents of C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf into \node_wrapper_hw_platform_2\system.hdf.
+15:42:46 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+15:42:47 INFO  : Clearing existing target manager status.
+15:42:47 INFO  : Workspace synchronized with the new hardware specification file. Cleaning dependent projects...
+15:42:47 WARN  : Linker script will not be updated automatically. Users need to update it manually.
+15:43:09 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+15:43:10 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292744538A" && level==0} -index 0' command is executed.
+15:43:12 INFO  : FPGA configured successfully with bitstream "C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper_hw_platform_2/download.bit"
+15:44:38 ERROR : Unexpected error while parsing XMD response ?: com.google.gson.JsonSyntaxException: com.google.gson.stream.MalformedJsonException: invalid number or unquoted string near 
+15:45:13 INFO  : Launching XSDB server: xsdb.bat C:/Xilinx/SDK/2015.4/scripts/xsdb/xsdb/xsdb-server.tcl
+15:45:19 INFO  : XSDB server has started successfully.
+15:45:27 INFO  : Processing command line option -hwspec C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf.
+15:45:31 INFO  : Checking for hwspec changes in the project node_wrapper_hw_platform_2.
+15:45:57 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+15:46:02 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292744538A" && level==0} -index 0' command is executed.
+15:46:05 INFO  : FPGA configured successfully with bitstream "C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper_hw_platform_2/download.bit"
+15:46:53 INFO  : Processor reset is completed for microblaze_0
+15:52:40 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+15:52:41 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292744538A" && level==0} -index 0' command is executed.
+15:52:43 INFO  : FPGA configured successfully with bitstream "C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper_hw_platform_2/download.bit"
+15:53:01 INFO  : Processor reset is completed for microblaze_0
+15:53:01 ERROR : Unexpected error while launching program.
+java.lang.RuntimeException: Cannot perform the Debug Command, Current Processor State is "Running"
+
+	at com.xilinx.sdk.targetmanager.internal.TM.downloadELF(TM.java:686)
+	at com.xilinx.sdk.debug.core.internal.AppRunner.run(AppRunner.java:129)
+	at com.xilinx.sdk.debug.core.XilinxAppLaunchConfigurationDelegate.runApplication(XilinxAppLaunchConfigurationDelegate.java:637)
+	at com.xilinx.sdk.debug.core.XilinxAppLaunchConfigurationDelegate.launch(XilinxAppLaunchConfigurationDelegate.java:309)
+	at com.xilinx.sdk.debug.ui.XilinxAppLaunchDelegateWrapper.launch(XilinxAppLaunchDelegateWrapper.java:31)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:858)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:707)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1018)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1222)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+16:05:13 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+16:05:13 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292744538A" && level==0} -index 0' command is executed.
+16:05:15 INFO  : FPGA configured successfully with bitstream "C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper_hw_platform_2/download.bit"
+17:52:27 INFO  : FPGA Cable Disconnected. All active launches will be terminated.
+19:12:09 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+19:12:09 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292744538A" && level==0} -index 0' command is executed.
+19:12:11 INFO  : FPGA configured successfully with bitstream "C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper_hw_platform_2/download.bit"
+19:30:45 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+19:30:45 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292744538A" && level==0} -index 0' command is executed.
+19:30:47 INFO  : FPGA configured successfully with bitstream "C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper_hw_platform_2/download.bit"
+20:17:55 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1497323715791,  Project:1497220926867
+20:17:55 INFO  : Project node_wrapper_hw_platform_2's source hardware specification located at C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf is now different from the local copy.
+		 The local copy will be replaced with the source specification and your workspace will be updated.
+20:18:00 INFO  : Copied contents of C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf into \node_wrapper_hw_platform_2\system.hdf.
+20:18:01 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+20:18:01 INFO  : Clearing existing target manager status.
+20:18:01 INFO  : Workspace synchronized with the new hardware specification file. Cleaning dependent projects...
+20:18:01 WARN  : Linker script will not be updated automatically. Users need to update it manually.
+20:18:26 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+20:18:27 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292744538A" && level==0} -index 0' command is executed.
+20:18:29 INFO  : FPGA configured successfully with bitstream "C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper_hw_platform_2/download.bit"
+21:37:32 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1497327846068,  Project:1497323715791
+21:37:32 INFO  : Project node_wrapper_hw_platform_2's source hardware specification located at C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf is now different from the local copy.
+		 The local copy will be replaced with the source specification and your workspace will be updated.
+21:37:33 INFO  : Copied contents of C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf into \node_wrapper_hw_platform_2\system.hdf.
+21:37:34 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+21:37:34 INFO  : Clearing existing target manager status.
+21:37:34 INFO  : Workspace synchronized with the new hardware specification file. Cleaning dependent projects...
+21:37:34 WARN  : Linker script will not be updated automatically. Users need to update it manually.
+21:37:58 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:37:59 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292744538A" && level==0} -index 0' command is executed.
+21:38:01 INFO  : FPGA configured successfully with bitstream "C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper_hw_platform_2/download.bit"
+07:58:17 INFO  : Launching XSDB server: xsdb.bat C:/Xilinx/SDK/2015.4/scripts/xsdb/xsdb/xsdb-server.tcl
+07:58:22 INFO  : XSDB server has started successfully.
+07:58:37 INFO  : Processing command line option -hwspec C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf.
+07:58:37 INFO  : Checking for hwspec changes in the project node_wrapper_hw_platform_2.
+07:58:38 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1497364009171,  Project:1497327846068
+07:58:38 INFO  : The hardware specification for project 'node_wrapper_hw_platform_2' is different from C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf.
+07:58:38 INFO  : Copied contents of C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf into \node_wrapper_hw_platform_2\system.hdf.
+07:58:39 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+07:58:39 INFO  : Clearing existing target manager status.
+07:58:39 INFO  : Workspace synchronized with the new hardware specification file. Cleaning dependent projects...
+07:58:39 WARN  : Linker script will not be updated automatically. Users need to update it manually.
+08:03:46 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+08:03:48 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292744538A" && level==0} -index 0' command is executed.
+08:03:51 INFO  : FPGA configured successfully with bitstream "C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper_hw_platform_2/download.bit"
+08:50:32 INFO  : FPGA Cable Disconnected. All active launches will be terminated.
+18:23:13 INFO  : Time out for XMD transaction is 60000
+If you want to increase the timeout value, goto Windows-> Preferences -> Xilinx SDK -> XMD Startup
+18:23:13 ERROR : Timeout occured while waiting to get reply for command "xdisconnect -cable"
+18:28:59 ERROR : Unexpected error while parsing XMD response ?: com.google.gson.JsonSyntaxException: com.google.gson.stream.MalformedJsonException: invalid number or unquoted string near 
+21:42:52 INFO  : Launching XSDB server: xsdb.bat C:/Xilinx/SDK/2015.4/scripts/xsdb/xsdb/xsdb-server.tcl
+21:42:53 INFO  : XSDB server has started successfully.
+21:42:57 INFO  : Processing command line option -hwspec C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf.
+21:42:58 INFO  : Checking for hwspec changes in the project node_wrapper_hw_platform_2.
+21:42:58 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1497413266198,  Project:1497364009171
+21:42:58 INFO  : The hardware specification for project 'node_wrapper_hw_platform_2' is different from C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf.
+21:42:58 INFO  : Copied contents of C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf into \node_wrapper_hw_platform_2\system.hdf.
+21:42:59 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+21:42:59 INFO  : Clearing existing target manager status.
+21:42:59 INFO  : Workspace synchronized with the new hardware specification file. Cleaning dependent projects...
+21:42:59 WARN  : Linker script will not be updated automatically. Users need to update it manually.
+22:08:51 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+22:08:53 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292744538A" && level==0} -index 0' command is executed.
+22:08:56 INFO  : FPGA configured successfully with bitstream "C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper_hw_platform_2/download.bit"
+22:52:30 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1497418527279,  Project:1497413266198
+22:52:30 INFO  : Project node_wrapper_hw_platform_2's source hardware specification located at C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf is now different from the local copy.
+		 The local copy will be replaced with the source specification and your workspace will be updated.
+22:52:34 INFO  : Copied contents of C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper.hdf into \node_wrapper_hw_platform_2\system.hdf.
+22:52:35 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+22:52:35 INFO  : Clearing existing target manager status.
+22:52:35 INFO  : Workspace synchronized with the new hardware specification file. Cleaning dependent projects...
+22:52:35 WARN  : Linker script will not be updated automatically. Users need to update it manually.
+22:55:52 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+22:55:53 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292744538A" && level==0} -index 0' command is executed.
+22:55:55 INFO  : FPGA configured successfully with bitstream "C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.sdk/node_wrapper_hw_platform_2/download.bit"
+22:56:56 INFO  : Processor reset is completed for microblaze_0
+22:56:56 ERROR : Unexpected error while launching program.
+java.lang.RuntimeException: Cannot perform the Debug Command, Current Processor State is "Running"
+
+	at com.xilinx.sdk.targetmanager.internal.TM.downloadELF(TM.java:686)
+	at com.xilinx.sdk.debug.core.internal.AppRunner.run(AppRunner.java:129)
+	at com.xilinx.sdk.debug.core.XilinxAppLaunchConfigurationDelegate.runApplication(XilinxAppLaunchConfigurationDelegate.java:637)
+	at com.xilinx.sdk.debug.core.XilinxAppLaunchConfigurationDelegate.launch(XilinxAppLaunchConfigurationDelegate.java:309)
+	at com.xilinx.sdk.debug.ui.XilinxAppLaunchDelegateWrapper.launch(XilinxAppLaunchDelegateWrapper.java:31)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:858)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:707)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1018)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1222)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+03:00:11 INFO  : FPGA Cable Disconnected. All active launches will be terminated.
+23:48:07 ERROR : Unexpected error while parsing XMD response ?: com.google.gson.JsonSyntaxException: com.google.gson.stream.MalformedJsonException: invalid number or unquoted string near 

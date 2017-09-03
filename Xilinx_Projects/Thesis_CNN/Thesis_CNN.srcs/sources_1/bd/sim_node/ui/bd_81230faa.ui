@@ -1,0 +1,75 @@
+{
+   guistr: "# # String gsaved with Nlview 6.5.5  2015-06-26 bk=1.3371 VDI=38 GEI=35 GUI=JA:1.6
+#  -string -flagsOSRD
+preplace port reset_rtl -pg 1 -y 670 -defaultsOSRD
+preplace port i_btn_config -pg 1 -y 790 -defaultsOSRD
+preplace port i_PCLK -pg 1 -y 750 -defaultsOSRD
+preplace port o_SIOC -pg 1 -y 750 -defaultsOSRD
+preplace port o_SIOD -pg 1 -y 770 -defaultsOSRD
+preplace port i_HREF -pg 1 -y 730 -defaultsOSRD
+preplace port sys_clk -pg 1 -y 650 -defaultsOSRD
+preplace port DDR2 -pg 1 -y 70 -defaultsOSRD
+preplace port i_config_bypass -pg 1 -y 810 -defaultsOSRD
+preplace port o_locked_up -pg 1 -y 610 -defaultsOSRD
+preplace port o_vsync -pg 1 -y 340 -defaultsOSRD
+preplace port o_PWDN -pg 1 -y 730 -defaultsOSRD
+preplace port o_XCLK -pg 1 -y 590 -defaultsOSRD
+preplace port o_i2c_busy -pg 1 -y 830 -defaultsOSRD
+preplace port i_VSYNC -pg 1 -y 770 -defaultsOSRD
+preplace port o_hsync -pg 1 -y 320 -defaultsOSRD
+preplace portBus o_capture_state_debug -pg 1 -y 890 -defaultsOSRD
+preplace portBus o_sioc_state_debug -pg 1 -y 850 -defaultsOSRD
+preplace portBus o_vga_data -pg 1 -y 360 -defaultsOSRD
+preplace portBus o_siod_state_debug -pg 1 -y 870 -defaultsOSRD
+preplace portBus i_SDATA -pg 1 -y 870 -defaultsOSRD
+preplace portBus o_debug_state -pg 1 -y 810 -defaultsOSRD
+preplace inst rst_mig_7series_0_150M -pg 1 -lvl 1 -y 100 -defaultsOSRD
+preplace inst mig_7series_0 -pg 1 -lvl 3 -y 110 -defaultsOSRD
+preplace inst OV5642_IF_0 -pg 1 -lvl 3 -y 830 -defaultsOSRD
+preplace inst VGA_IF_0 -pg 1 -lvl 3 -y 390 -defaultsOSRD
+preplace inst clk_wiz_0 -pg 1 -lvl 2 -y 660 -defaultsOSRD
+preplace inst axi_mem_intercon -pg 1 -lvl 2 -y 280 -defaultsOSRD
+preplace netloc axi_mem_intercon_M01_AXI 1 2 1 N
+preplace netloc mig_7series_0_mmcm_locked 1 0 4 30 190 NJ 20 NJ 20 1160
+preplace netloc mig_7series_0_DDR2 1 3 1 NJ
+preplace netloc OV5642_IF_0_o_write_done_irq 1 2 2 820 580 1160
+preplace netloc clk_wiz_0_locked 1 2 2 NJ 600 NJ
+preplace netloc OV5642_IF_0_o_sioc_state_debug 1 3 1 NJ
+preplace netloc i_btn_config_1 1 0 3 NJ 780 NJ 780 NJ
+preplace netloc i_VSYNC_1 1 0 3 NJ 770 NJ 770 NJ
+preplace netloc i_PCLK_1 1 0 3 NJ 750 NJ 750 NJ
+preplace netloc axi_mem_intercon_M03_AXI 1 2 1 720
+preplace netloc OV5642_IF_0_o_capture_state_debug 1 3 1 NJ
+preplace netloc OV5642_IF_0_M00_AXI 1 1 3 380 40 NJ 200 1170
+preplace netloc sys_clk_1 1 0 2 NJ 650 NJ
+preplace netloc axi_mem_intercon_M00_AXI 1 2 1 690
+preplace netloc OV5642_IF_0_o_debug_state 1 3 1 NJ
+preplace netloc OV5642_IF_0_o_SIOC 1 3 1 NJ
+preplace netloc i_SDATA_1 1 0 3 NJ 870 NJ 870 NJ
+preplace netloc axi_mem_intercon_M02_AXI 1 2 1 N
+preplace netloc mig_7series_0_ui_clk 1 0 4 20 200 390 510 810 570 1180
+preplace netloc i_config_bypass_1 1 0 3 NJ 810 NJ 810 NJ
+preplace netloc OV5642_IF_0_o_PWDN 1 3 1 NJ
+preplace netloc clk_wiz_0_clk_out1 1 2 1 710
+preplace netloc VGA_IF_0_o_vsync 1 3 1 NJ
+preplace netloc VGA_IF_0_o_vga_data 1 3 1 NJ
+preplace netloc clk_wiz_0_clk_out2 1 2 1 700
+preplace netloc rst_mig_7series_0_150M_peripheral_aresetn 1 1 2 360 520 770
+preplace netloc mig_7series_0_ui_clk_sync_rst 1 0 4 30 10 NJ 10 NJ 10 1180
+preplace netloc Net 1 3 1 N
+preplace netloc clk_wiz_0_clk_out3 1 2 2 730 590 NJ
+preplace netloc VGA_IF_0_o_hsync 1 3 1 NJ
+preplace netloc VGA_IF_0_M00_AXI 1 1 3 390 50 NJ 210 1160
+preplace netloc OV5642_IF_0_o_siod_state_debug 1 3 1 NJ
+preplace netloc OV5642_IF_0_o_i2c_busy 1 3 1 NJ
+preplace netloc i_HREF_1 1 0 3 NJ 730 NJ 740 NJ
+preplace netloc rst_mig_7series_0_150M_interconnect_aresetn 1 1 1 380
+preplace netloc axi_mem_intercon_M04_AXI 1 2 1 740
+preplace netloc reset_rtl_1 1 0 3 NJ 670 380 760 760
+levelinfo -pg 1 0 200 540 990 1210 -top 0 -bot 1060
+",
+}
+{
+   da_axi4_cnt: "16",
+   da_board_cnt: "2",
+}

@@ -34,7 +34,8 @@ entity camera_configurator is
 		i_btn_config 	: in std_logic; 
 		i_i2c_busy	  	: in std_logic;    
 		i_bram_data		: in std_logic_vector(15 downto 0); 	
-		i_i2c_sent		: in std_logic; 
+		i_i2c_sent		: in std_logic;    
+		i_valid_bram_instr : in std_logic_vector(31 downto 0); 
 		
 		
 		o_bram_address	: out std_logic_vector(10 downto 0); 
@@ -43,7 +44,8 @@ entity camera_configurator is
 		o_i2c_address   : out std_logic_vector(15 downto 0); 
 		o_i2c_data		: out std_logic_vector(7 downto 0);
 		o_bram_we		: out std_logic; 
-		o_config_done 	: out std_logic
+		o_config_done 	: out std_logic; 
+		o_capture_state_debug : out std_logic_vector(3 downto 0)
 	); 
 end camera_configurator;
 
@@ -60,6 +62,7 @@ signal bram_we			: std_logic;
 signal config_done 		: std_logic;   
 signal address_counter	: unsigned(10 downto 0);  
 signal wait_counter		: integer; 
+signal capture_state_debug : std_logic_vector(3 downto 0); 
 
 
 type state_type is (IDLE, FETCH_ADDRESS, FETCH_DATA, SEND_ADDRESS_DATA, DONE, CONFIG_DONE_STATE, WAIT_STATE); 
@@ -76,7 +79,8 @@ o_i2c_ena 		<= i2c_ena;
 o_i2c_address	<= i2c_address; 
 o_i2c_data		<= i2c_data; 
 o_bram_we 		<= bram_we; 
-o_config_done	<= config_done; 
+o_config_done	<= config_done;  
+o_capture_state_debug <= capture_state_debug; 
 	
 	
 state_transition: process(i_clk, i_reset_n) 
@@ -89,16 +93,19 @@ begin
 end process; 
 	
 	
-next_state_comb: process(all) 
+next_state_comb: process(current_state,i_btn_config,i_i2c_busy,i_i2c_sent,address_counter,wait_counter, i_valid_bram_instr) 
 begin 
 	config_done <= '0';
 	i2c_ena <= '0'; 
 	
 	bram_we <= '0';    
-	i2c_rw <= '0'; 
+	i2c_rw <= '0'; 	   
+	
+	capture_state_debug <= (others => '0'); 
 
 	case current_state is 			
-		when IDLE =>   
+		when IDLE =>  
+			capture_state_debug <= "0001"; 
 			i2c_ena <= '0'; 
 		
 			if(i_btn_config = '1' ) then 
@@ -107,17 +114,20 @@ begin
 				next_state <= IDLE; 
 			end if; 
 		
-		when FETCH_ADDRESS =>
+		when FETCH_ADDRESS =>  
+			capture_state_debug <= "0010";
 			i2c_ena <= '0'; 
 			next_state <= FETCH_DATA;
 
 		
-		when FETCH_DATA => 	 
+		when FETCH_DATA => 
+			capture_state_debug <= "0011";
 			i2c_ena <= '0'; 
 			next_state <= SEND_ADDRESS_DATA;
 
 		
 		when SEND_ADDRESS_DATA =>  
+			capture_state_debug <= "0100";
 			if(i_i2c_busy = '1')then 
 				i2c_ena <= '0'; 
 			else
@@ -131,8 +141,11 @@ begin
 			end if; 
 		
 
-		when DONE =>
-			if(address_counter < 1051) then 
+		when DONE => 
+			capture_state_debug <= "0101";
+			--if(address_counter < 1051) then
+			if(address_counter < unsigned(i_valid_bram_instr(10 downto 0))) then
+			--if(address_counter <= 2046) then
 				config_done <= '0'; 
 				next_state <= FETCH_ADDRESS; 
 			else 
@@ -141,6 +154,7 @@ begin
 			end if;    
 			
 		when WAIT_STATE => 
+		capture_state_debug <= "0110";
 		    config_done <= '1'; 
 			if(wait_counter < 1000) then 
 				next_state <= WAIT_STATE;  
@@ -149,7 +163,8 @@ begin
 			end if; 
 			
 		
-		when CONFIG_DONE_STATE => 
+		when CONFIG_DONE_STATE =>  
+			capture_state_debug <= "0111";
 			if(i_btn_config = '1') then 
 				config_done <= '0'; 
 				next_state <= IDLE; 
@@ -160,7 +175,8 @@ begin
 		
 		
 		
-		when others => 	
+		when others => 	  
+			capture_state_debug <= "1000";
 			next_state <= IDLE; 
 		
 	end case; 
@@ -205,7 +221,9 @@ begin
 		
 				
 			when DONE =>
-				if(address_counter < 1051) then 
+				--if(address_counter < 1051) then  
+				if(address_counter < unsigned(i_valid_bram_instr(10 downto 0))) then	
+				--if(address_counter <= 2046) then 
 					address_counter <= address_counter + 1;
 				else 
 					address_counter <= (others => '0'); 

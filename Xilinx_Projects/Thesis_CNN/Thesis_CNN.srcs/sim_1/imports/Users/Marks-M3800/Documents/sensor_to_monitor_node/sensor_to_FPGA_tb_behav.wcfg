@@ -1,0 +1,1430 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="sensor_to_FPGA_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="sensor_to_FPGA_tb" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="1369847095229fs"></ZoomStartTime>
+      <ZoomEndTime time="1656109160590fs"></ZoomEndTime>
+      <Cursor1Time time="1608398816363fs"></Cursor1Time>
+   </zoom_setting>
+   <WVObjectSize size="7" />
+   <wvobject fp_name="group595" type="group">
+      <obj_property name="label">Clock_Wizard</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="group551" type="group">
+      <obj_property name="label">OV5642_MODEL</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/ov5642_model/i_xclk" type="logic">
+         <obj_property name="ElementShortName">i_xclk</obj_property>
+         <obj_property name="ObjectShortName">i_xclk</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/ov5642_model/i_enable" type="logic">
+         <obj_property name="ElementShortName">i_enable</obj_property>
+         <obj_property name="ObjectShortName">i_enable</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/ov5642_model/i_reset_n" type="logic">
+         <obj_property name="ElementShortName">i_reset_n</obj_property>
+         <obj_property name="ObjectShortName">i_reset_n</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/ov5642_model/i_pclk" type="logic">
+         <obj_property name="ElementShortName">i_pclk</obj_property>
+         <obj_property name="ObjectShortName">i_pclk</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/ov5642_model/o_SDATA" type="array">
+         <obj_property name="ElementShortName">o_SDATA[9:0]</obj_property>
+         <obj_property name="ObjectShortName">o_SDATA[9:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/ov5642_model/o_VSYNC" type="logic">
+         <obj_property name="ElementShortName">o_VSYNC</obj_property>
+         <obj_property name="ObjectShortName">o_VSYNC</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/ov5642_model/o_HREF" type="logic">
+         <obj_property name="ElementShortName">o_HREF</obj_property>
+         <obj_property name="ObjectShortName">o_HREF</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/ov5642_model/o_PCLK" type="logic">
+         <obj_property name="ElementShortName">o_PCLK</obj_property>
+         <obj_property name="ObjectShortName">o_PCLK</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/ov5642_model/close_flag" type="logic">
+         <obj_property name="ElementShortName">close_flag</obj_property>
+         <obj_property name="ObjectShortName">close_flag</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/ov5642_model/counter" type="other">
+         <obj_property name="ElementShortName">counter</obj_property>
+         <obj_property name="ObjectShortName">counter</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/ov5642_model/read_pulse" type="logic">
+         <obj_property name="ElementShortName">read_pulse</obj_property>
+         <obj_property name="ObjectShortName">read_pulse</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/ov5642_model/row_counter" type="other">
+         <obj_property name="ElementShortName">row_counter</obj_property>
+         <obj_property name="ObjectShortName">row_counter</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/ov5642_model/column_counter" type="other">
+         <obj_property name="ElementShortName">column_counter</obj_property>
+         <obj_property name="ObjectShortName">column_counter</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/ov5642_model/SDATA" type="array">
+         <obj_property name="ElementShortName">SDATA[9:0]</obj_property>
+         <obj_property name="ObjectShortName">SDATA[9:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/ov5642_model/VSYNC" type="logic">
+         <obj_property name="ElementShortName">VSYNC</obj_property>
+         <obj_property name="ObjectShortName">VSYNC</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/ov5642_model/HREF" type="logic">
+         <obj_property name="ElementShortName">HREF</obj_property>
+         <obj_property name="ObjectShortName">HREF</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/ov5642_model/PCLK" type="logic">
+         <obj_property name="ElementShortName">PCLK</obj_property>
+         <obj_property name="ObjectShortName">PCLK</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/ov5642_model/current_state" type="other">
+         <obj_property name="ElementShortName">current_state</obj_property>
+         <obj_property name="ObjectShortName">current_state</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/ov5642_model/next_state" type="other">
+         <obj_property name="ElementShortName">next_state</obj_property>
+         <obj_property name="ObjectShortName">next_state</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/ov5642_model/data_width" type="other">
+         <obj_property name="ElementShortName">data_width</obj_property>
+         <obj_property name="ObjectShortName">data_width</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/ov5642_model/filename" type="array">
+         <obj_property name="ElementShortName">filename[1:68]</obj_property>
+         <obj_property name="ObjectShortName">filename[1:68]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/ov5642_model/rows_720p" type="other">
+         <obj_property name="ElementShortName">rows_720p</obj_property>
+         <obj_property name="ObjectShortName">rows_720p</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/ov5642_model/columns_720p" type="other">
+         <obj_property name="ElementShortName">columns_720p</obj_property>
+         <obj_property name="ObjectShortName">columns_720p</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/ov5642_model/rows_vga" type="other">
+         <obj_property name="ElementShortName">rows_vga</obj_property>
+         <obj_property name="ObjectShortName">rows_vga</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/ov5642_model/columns_vga" type="other">
+         <obj_property name="ElementShortName">columns_vga</obj_property>
+         <obj_property name="ObjectShortName">columns_vga</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/ov5642_model/one_720p" type="other">
+         <obj_property name="ElementShortName">one_720p</obj_property>
+         <obj_property name="ObjectShortName">one_720p</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/ov5642_model/two_720p" type="other">
+         <obj_property name="ElementShortName">two_720p</obj_property>
+         <obj_property name="ObjectShortName">two_720p</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/ov5642_model/three_720p" type="other">
+         <obj_property name="ElementShortName">three_720p</obj_property>
+         <obj_property name="ObjectShortName">three_720p</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/ov5642_model/four_720p" type="other">
+         <obj_property name="ElementShortName">four_720p</obj_property>
+         <obj_property name="ObjectShortName">four_720p</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/ov5642_model/five_720p" type="other">
+         <obj_property name="ElementShortName">five_720p</obj_property>
+         <obj_property name="ObjectShortName">five_720p</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/ov5642_model/six_720p" type="other">
+         <obj_property name="ElementShortName">six_720p</obj_property>
+         <obj_property name="ObjectShortName">six_720p</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/ov5642_model/seven_720p" type="other">
+         <obj_property name="ElementShortName">seven_720p</obj_property>
+         <obj_property name="ObjectShortName">seven_720p</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/ov5642_model/eight_720p" type="other">
+         <obj_property name="ElementShortName">eight_720p</obj_property>
+         <obj_property name="ObjectShortName">eight_720p</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/ov5642_model/nine_720p" type="other">
+         <obj_property name="ElementShortName">nine_720p</obj_property>
+         <obj_property name="ObjectShortName">nine_720p</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/ov5642_model/one_vga" type="other">
+         <obj_property name="ElementShortName">one_vga</obj_property>
+         <obj_property name="ObjectShortName">one_vga</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/ov5642_model/two_vga" type="other">
+         <obj_property name="ElementShortName">two_vga</obj_property>
+         <obj_property name="ObjectShortName">two_vga</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/ov5642_model/three_vga" type="other">
+         <obj_property name="ElementShortName">three_vga</obj_property>
+         <obj_property name="ObjectShortName">three_vga</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/ov5642_model/four_vga" type="other">
+         <obj_property name="ElementShortName">four_vga</obj_property>
+         <obj_property name="ObjectShortName">four_vga</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/ov5642_model/five_vga" type="other">
+         <obj_property name="ElementShortName">five_vga</obj_property>
+         <obj_property name="ObjectShortName">five_vga</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/ov5642_model/six_vga" type="other">
+         <obj_property name="ElementShortName">six_vga</obj_property>
+         <obj_property name="ObjectShortName">six_vga</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/ov5642_model/seven_vga" type="other">
+         <obj_property name="ElementShortName">seven_vga</obj_property>
+         <obj_property name="ObjectShortName">seven_vga</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/ov5642_model/eight_vga" type="other">
+         <obj_property name="ElementShortName">eight_vga</obj_property>
+         <obj_property name="ObjectShortName">eight_vga</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/ov5642_model/nine_vga" type="other">
+         <obj_property name="ElementShortName">nine_vga</obj_property>
+         <obj_property name="ObjectShortName">nine_vga</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group2416" type="group">
+      <obj_property name="label">OV5642_IF_AXI_IP</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="group722" type="group">
+         <obj_property name="label">OV5642_IF_SLAVE_IF</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+      </wvobject>
+      <wvobject fp_name="group817" type="group">
+         <obj_property name="label">OV5642_IF_MASTER_IF</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+      </wvobject>
+      <wvobject fp_name="group2415" type="group">
+         <obj_property name="label">AXI_OV5642_IF</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject fp_name="group2287" type="group">
+            <obj_property name="label">OV5642_INTERFACE</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="isExpanded"></obj_property>
+            <wvobject fp_name="group2414" type="group">
+               <obj_property name="label">SCCB_CONTROLLER</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+            </wvobject>
+            <wvobject fp_name="group2318" type="group">
+               <obj_property name="label">CONFIG_CONTROLLER</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+            </wvobject>
+            <wvobject fp_name="group2293" type="group">
+               <obj_property name="label">CONFIG_BRAM</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+            </wvobject>
+            <wvobject fp_name="group2380" type="group">
+               <obj_property name="label">IMAGE_CONTROLLER</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject fp_name="group2238" type="group">
+            <obj_property name="label">OV5642_IF_FIFO</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="isExpanded"></obj_property>
+         </wvobject>
+         <wvobject fp_name="group2221" type="group">
+            <obj_property name="label">OV5642_IF_CONTROLLER</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="isExpanded"></obj_property>
+         </wvobject>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group2719" type="group">
+      <obj_property name="label">VGA_IF_AXI_IP</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/addr" type="array">
+         <obj_property name="ElementShortName">addr[12:0]</obj_property>
+         <obj_property name="ObjectShortName">addr[12:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="group2485" type="group">
+         <obj_property name="label">VGA_IF_SLAVE_IF</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+      </wvobject>
+      <wvobject fp_name="group2583" type="group">
+         <obj_property name="label">VGA_IF_MASTER_IF</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+      </wvobject>
+      <wvobject fp_name="group2622" type="group">
+         <obj_property name="label">VGA_INTERFACE</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="isExpanded"></obj_property>
+         <wvobject fp_name="group2639" type="group">
+            <obj_property name="label">VGA_FIFO</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+         </wvobject>
+         <wvobject fp_name="group2681" type="group">
+            <obj_property name="label">VGA_CONTROLLER</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+         </wvobject>
+         <wvobject fp_name="group2718" type="group">
+            <obj_property name="label">VGA_DISPLAY_LOGIC</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+         </wvobject>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group6260" type="group">
+      <obj_property name="label">MIG_7SERIES</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="group421" type="group">
+      <obj_property name="label">Nexys_DDR2</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/dm_rdqs" type="array">
+         <obj_property name="ElementShortName">dm_rdqs[1:0]</obj_property>
+         <obj_property name="ObjectShortName">dm_rdqs[1:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/ba" type="array">
+         <obj_property name="ElementShortName">ba[2:0]</obj_property>
+         <obj_property name="ObjectShortName">ba[2:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/dq" type="array">
+         <obj_property name="ElementShortName">dq[15:0]</obj_property>
+         <obj_property name="ObjectShortName">dq[15:0]</obj_property>
+         <obj_property name="isExpanded"></obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/dqs" type="array">
+         <obj_property name="ElementShortName">dqs[1:0]</obj_property>
+         <obj_property name="ObjectShortName">dqs[1:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/dqs_n" type="array">
+         <obj_property name="ElementShortName">dqs_n[1:0]</obj_property>
+         <obj_property name="ObjectShortName">dqs_n[1:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/rdqs_n" type="array">
+         <obj_property name="ElementShortName">rdqs_n[1:0]</obj_property>
+         <obj_property name="ObjectShortName">rdqs_n[1:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/odt" type="logic">
+         <obj_property name="ElementShortName">odt</obj_property>
+         <obj_property name="ObjectShortName">odt</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/tck_avg" type="other">
+         <obj_property name="ElementShortName">tck_avg</obj_property>
+         <obj_property name="ObjectShortName">tck_avg</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/tck_sample" type="array">
+         <obj_property name="ElementShortName">tck_sample[199:0][63:0]</obj_property>
+         <obj_property name="ObjectShortName">tck_sample[199:0][63:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/tch_sample" type="array">
+         <obj_property name="ElementShortName">tch_sample[199:0][63:0]</obj_property>
+         <obj_property name="ObjectShortName">tch_sample[199:0][63:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/tcl_sample" type="array">
+         <obj_property name="ElementShortName">tcl_sample[199:0][63:0]</obj_property>
+         <obj_property name="ObjectShortName">tcl_sample[199:0][63:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/tck_i" type="array">
+         <obj_property name="ElementShortName">tck_i[63:0]</obj_property>
+         <obj_property name="ObjectShortName">tck_i[63:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/tch_i" type="array">
+         <obj_property name="ElementShortName">tch_i[63:0]</obj_property>
+         <obj_property name="ObjectShortName">tch_i[63:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/tcl_i" type="array">
+         <obj_property name="ElementShortName">tcl_i[63:0]</obj_property>
+         <obj_property name="ObjectShortName">tcl_i[63:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/tch_avg" type="other">
+         <obj_property name="ElementShortName">tch_avg</obj_property>
+         <obj_property name="ObjectShortName">tch_avg</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/tcl_avg" type="other">
+         <obj_property name="ElementShortName">tcl_avg</obj_property>
+         <obj_property name="ObjectShortName">tcl_avg</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/tm_ck_pos" type="array">
+         <obj_property name="ElementShortName">tm_ck_pos[63:0]</obj_property>
+         <obj_property name="ObjectShortName">tm_ck_pos[63:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/tm_ck_neg" type="array">
+         <obj_property name="ElementShortName">tm_ck_neg[63:0]</obj_property>
+         <obj_property name="ObjectShortName">tm_ck_neg[63:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/tjit_per_rtime" type="other">
+         <obj_property name="ElementShortName">tjit_per_rtime</obj_property>
+         <obj_property name="ObjectShortName">tjit_per_rtime</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/tjit_cc_time" type="array">
+         <obj_property name="ElementShortName">tjit_cc_time[31:0]</obj_property>
+         <obj_property name="ObjectShortName">tjit_cc_time[31:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/terr_nper_rtime" type="other">
+         <obj_property name="ElementShortName">terr_nper_rtime</obj_property>
+         <obj_property name="ObjectShortName">terr_nper_rtime</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/out_delay" type="other">
+         <obj_property name="ElementShortName">out_delay</obj_property>
+         <obj_property name="ObjectShortName">out_delay</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/dqsck" type="array">
+         <obj_property name="ElementShortName">dqsck[1:0][31:0]</obj_property>
+         <obj_property name="ObjectShortName">dqsck[1:0][31:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/dqsck_min" type="array">
+         <obj_property name="ElementShortName">dqsck_min[31:0]</obj_property>
+         <obj_property name="ObjectShortName">dqsck_min[31:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/dqsck_max" type="array">
+         <obj_property name="ElementShortName">dqsck_max[31:0]</obj_property>
+         <obj_property name="ObjectShortName">dqsck_max[31:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/dqsq_min" type="array">
+         <obj_property name="ElementShortName">dqsq_min[31:0]</obj_property>
+         <obj_property name="ObjectShortName">dqsq_min[31:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/dqsq_max" type="array">
+         <obj_property name="ElementShortName">dqsq_max[31:0]</obj_property>
+         <obj_property name="ObjectShortName">dqsq_max[31:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/seed" type="array">
+         <obj_property name="ElementShortName">seed[31:0]</obj_property>
+         <obj_property name="ObjectShortName">seed[31:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/burst_order" type="logic">
+         <obj_property name="ElementShortName">burst_order</obj_property>
+         <obj_property name="ObjectShortName">burst_order</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/burst_length" type="array">
+         <obj_property name="ElementShortName">burst_length[3:0]</obj_property>
+         <obj_property name="ObjectShortName">burst_length[3:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/cas_latency" type="array">
+         <obj_property name="ElementShortName">cas_latency[31:0]</obj_property>
+         <obj_property name="ObjectShortName">cas_latency[31:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/additive_latency" type="array">
+         <obj_property name="ElementShortName">additive_latency[31:0]</obj_property>
+         <obj_property name="ObjectShortName">additive_latency[31:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/dll_reset" type="logic">
+         <obj_property name="ElementShortName">dll_reset</obj_property>
+         <obj_property name="ObjectShortName">dll_reset</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/dll_locked" type="logic">
+         <obj_property name="ElementShortName">dll_locked</obj_property>
+         <obj_property name="ObjectShortName">dll_locked</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/dll_en" type="logic">
+         <obj_property name="ElementShortName">dll_en</obj_property>
+         <obj_property name="ObjectShortName">dll_en</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/write_recovery" type="array">
+         <obj_property name="ElementShortName">write_recovery[31:0]</obj_property>
+         <obj_property name="ObjectShortName">write_recovery[31:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/low_power" type="logic">
+         <obj_property name="ElementShortName">low_power</obj_property>
+         <obj_property name="ObjectShortName">low_power</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/odt_rtt" type="array">
+         <obj_property name="ElementShortName">odt_rtt[1:0]</obj_property>
+         <obj_property name="ObjectShortName">odt_rtt[1:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/odt_en" type="logic">
+         <obj_property name="ElementShortName">odt_en</obj_property>
+         <obj_property name="ObjectShortName">odt_en</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/ocd" type="array">
+         <obj_property name="ElementShortName">ocd[2:0]</obj_property>
+         <obj_property name="ObjectShortName">ocd[2:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/dqs_n_en" type="logic">
+         <obj_property name="ElementShortName">dqs_n_en</obj_property>
+         <obj_property name="ObjectShortName">dqs_n_en</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/rdqs_en" type="logic">
+         <obj_property name="ElementShortName">rdqs_en</obj_property>
+         <obj_property name="ObjectShortName">rdqs_en</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/out_en" type="logic">
+         <obj_property name="ElementShortName">out_en</obj_property>
+         <obj_property name="ObjectShortName">out_en</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/read_latency" type="array">
+         <obj_property name="ElementShortName">read_latency[31:0]</obj_property>
+         <obj_property name="ObjectShortName">read_latency[31:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/write_latency" type="array">
+         <obj_property name="ElementShortName">write_latency[31:0]</obj_property>
+         <obj_property name="ObjectShortName">write_latency[31:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/cmd_string" type="array">
+         <obj_property name="ElementShortName">cmd_string[9:0][71:0]</obj_property>
+         <obj_property name="ObjectShortName">cmd_string[9:0][71:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/active_bank" type="array">
+         <obj_property name="ElementShortName">active_bank[7:0]</obj_property>
+         <obj_property name="ObjectShortName">active_bank[7:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/auto_precharge_bank" type="array">
+         <obj_property name="ElementShortName">auto_precharge_bank[7:0]</obj_property>
+         <obj_property name="ObjectShortName">auto_precharge_bank[7:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/write_precharge_bank" type="array">
+         <obj_property name="ElementShortName">write_precharge_bank[7:0]</obj_property>
+         <obj_property name="ObjectShortName">write_precharge_bank[7:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/read_precharge_bank" type="array">
+         <obj_property name="ElementShortName">read_precharge_bank[7:0]</obj_property>
+         <obj_property name="ObjectShortName">read_precharge_bank[7:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/active_row" type="array">
+         <obj_property name="ElementShortName">active_row[7:0][12:0]</obj_property>
+         <obj_property name="ObjectShortName">active_row[7:0][12:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/in_power_down" type="logic">
+         <obj_property name="ElementShortName">in_power_down</obj_property>
+         <obj_property name="ObjectShortName">in_power_down</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/in_self_refresh" type="logic">
+         <obj_property name="ElementShortName">in_self_refresh</obj_property>
+         <obj_property name="ObjectShortName">in_self_refresh</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/init_mode_reg" type="array">
+         <obj_property name="ElementShortName">init_mode_reg[3:0]</obj_property>
+         <obj_property name="ObjectShortName">init_mode_reg[3:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/init_done" type="logic">
+         <obj_property name="ElementShortName">init_done</obj_property>
+         <obj_property name="ObjectShortName">init_done</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/init_step" type="array">
+         <obj_property name="ElementShortName">init_step[31:0]</obj_property>
+         <obj_property name="ObjectShortName">init_step[31:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/er_trfc_max" type="logic">
+         <obj_property name="ElementShortName">er_trfc_max</obj_property>
+         <obj_property name="ObjectShortName">er_trfc_max</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/odt_state" type="logic">
+         <obj_property name="ElementShortName">odt_state</obj_property>
+         <obj_property name="ObjectShortName">odt_state</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/prev_odt" type="logic">
+         <obj_property name="ElementShortName">prev_odt</obj_property>
+         <obj_property name="ObjectShortName">prev_odt</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/ref_cntr" type="array">
+         <obj_property name="ElementShortName">ref_cntr[31:0]</obj_property>
+         <obj_property name="ObjectShortName">ref_cntr[31:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/ck_cntr" type="array">
+         <obj_property name="ElementShortName">ck_cntr[31:0]</obj_property>
+         <obj_property name="ObjectShortName">ck_cntr[31:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/ck_load_mode" type="array">
+         <obj_property name="ElementShortName">ck_load_mode[31:0]</obj_property>
+         <obj_property name="ObjectShortName">ck_load_mode[31:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/ck_write" type="array">
+         <obj_property name="ElementShortName">ck_write[31:0]</obj_property>
+         <obj_property name="ObjectShortName">ck_write[31:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/ck_read" type="array">
+         <obj_property name="ElementShortName">ck_read[31:0]</obj_property>
+         <obj_property name="ObjectShortName">ck_read[31:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/ck_write_ap" type="array">
+         <obj_property name="ElementShortName">ck_write_ap[31:0]</obj_property>
+         <obj_property name="ObjectShortName">ck_write_ap[31:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/ck_power_down" type="array">
+         <obj_property name="ElementShortName">ck_power_down[31:0]</obj_property>
+         <obj_property name="ObjectShortName">ck_power_down[31:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/ck_slow_exit_pd" type="array">
+         <obj_property name="ElementShortName">ck_slow_exit_pd[31:0]</obj_property>
+         <obj_property name="ObjectShortName">ck_slow_exit_pd[31:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/ck_self_refresh" type="array">
+         <obj_property name="ElementShortName">ck_self_refresh[31:0]</obj_property>
+         <obj_property name="ObjectShortName">ck_self_refresh[31:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/ck_cke" type="array">
+         <obj_property name="ElementShortName">ck_cke[31:0]</obj_property>
+         <obj_property name="ObjectShortName">ck_cke[31:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/ck_odt" type="array">
+         <obj_property name="ElementShortName">ck_odt[31:0]</obj_property>
+         <obj_property name="ObjectShortName">ck_odt[31:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/ck_dll_reset" type="array">
+         <obj_property name="ElementShortName">ck_dll_reset[31:0]</obj_property>
+         <obj_property name="ObjectShortName">ck_dll_reset[31:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/ck_bank_write" type="array">
+         <obj_property name="ElementShortName">ck_bank_write[7:0][31:0]</obj_property>
+         <obj_property name="ObjectShortName">ck_bank_write[7:0][31:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/ck_bank_read" type="array">
+         <obj_property name="ElementShortName">ck_bank_read[7:0][31:0]</obj_property>
+         <obj_property name="ObjectShortName">ck_bank_read[7:0][31:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/tm_refresh" type="array">
+         <obj_property name="ElementShortName">tm_refresh[63:0]</obj_property>
+         <obj_property name="ObjectShortName">tm_refresh[63:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/tm_precharge" type="array">
+         <obj_property name="ElementShortName">tm_precharge[63:0]</obj_property>
+         <obj_property name="ObjectShortName">tm_precharge[63:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/tm_precharge_all" type="array">
+         <obj_property name="ElementShortName">tm_precharge_all[63:0]</obj_property>
+         <obj_property name="ObjectShortName">tm_precharge_all[63:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/tm_activate" type="array">
+         <obj_property name="ElementShortName">tm_activate[63:0]</obj_property>
+         <obj_property name="ObjectShortName">tm_activate[63:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/tm_write_end" type="array">
+         <obj_property name="ElementShortName">tm_write_end[63:0]</obj_property>
+         <obj_property name="ObjectShortName">tm_write_end[63:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/tm_self_refresh" type="array">
+         <obj_property name="ElementShortName">tm_self_refresh[63:0]</obj_property>
+         <obj_property name="ObjectShortName">tm_self_refresh[63:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/tm_odt_en" type="array">
+         <obj_property name="ElementShortName">tm_odt_en[63:0]</obj_property>
+         <obj_property name="ObjectShortName">tm_odt_en[63:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/tm_bank_precharge" type="array">
+         <obj_property name="ElementShortName">tm_bank_precharge[7:0][63:0]</obj_property>
+         <obj_property name="ObjectShortName">tm_bank_precharge[7:0][63:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/tm_bank_activate" type="array">
+         <obj_property name="ElementShortName">tm_bank_activate[7:0][63:0]</obj_property>
+         <obj_property name="ObjectShortName">tm_bank_activate[7:0][63:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/tm_bank_write_end" type="array">
+         <obj_property name="ElementShortName">tm_bank_write_end[7:0][63:0]</obj_property>
+         <obj_property name="ObjectShortName">tm_bank_write_end[7:0][63:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/tm_bank_read_end" type="array">
+         <obj_property name="ElementShortName">tm_bank_read_end[7:0][63:0]</obj_property>
+         <obj_property name="ObjectShortName">tm_bank_read_end[7:0][63:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/al_pipeline" type="array">
+         <obj_property name="ElementShortName">al_pipeline[26:0]</obj_property>
+         <obj_property name="ObjectShortName">al_pipeline[26:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/wr_pipeline" type="array">
+         <obj_property name="ElementShortName">wr_pipeline[26:0]</obj_property>
+         <obj_property name="ObjectShortName">wr_pipeline[26:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/rd_pipeline" type="array">
+         <obj_property name="ElementShortName">rd_pipeline[26:0]</obj_property>
+         <obj_property name="ObjectShortName">rd_pipeline[26:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/odt_pipeline" type="array">
+         <obj_property name="ElementShortName">odt_pipeline[26:0]</obj_property>
+         <obj_property name="ObjectShortName">odt_pipeline[26:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/ba_pipeline" type="array">
+         <obj_property name="ElementShortName">ba_pipeline[26:0][2:0]</obj_property>
+         <obj_property name="ObjectShortName">ba_pipeline[26:0][2:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/row_pipeline" type="array">
+         <obj_property name="ElementShortName">row_pipeline[26:0][12:0]</obj_property>
+         <obj_property name="ObjectShortName">row_pipeline[26:0][12:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/col_pipeline" type="array">
+         <obj_property name="ElementShortName">col_pipeline[26:0][9:0]</obj_property>
+         <obj_property name="ObjectShortName">col_pipeline[26:0][9:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/prev_cke" type="logic">
+         <obj_property name="ElementShortName">prev_cke</obj_property>
+         <obj_property name="ObjectShortName">prev_cke</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/memory_data" type="array">
+         <obj_property name="ElementShortName">memory_data[127:0]</obj_property>
+         <obj_property name="ObjectShortName">memory_data[127:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/bit_mask" type="array">
+         <obj_property name="ElementShortName">bit_mask[127:0]</obj_property>
+         <obj_property name="ObjectShortName">bit_mask[127:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/burst_position" type="array">
+         <obj_property name="ElementShortName">burst_position[2:0]</obj_property>
+         <obj_property name="ObjectShortName">burst_position[2:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/burst_cntr" type="array">
+         <obj_property name="ElementShortName">burst_cntr[3:0]</obj_property>
+         <obj_property name="ObjectShortName">burst_cntr[3:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/dq_temp" type="array">
+         <obj_property name="ElementShortName">dq_temp[15:0]</obj_property>
+         <obj_property name="ObjectShortName">dq_temp[15:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/check_write_postamble" type="array">
+         <obj_property name="ElementShortName">check_write_postamble[35:0]</obj_property>
+         <obj_property name="ObjectShortName">check_write_postamble[35:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/check_write_preamble" type="array">
+         <obj_property name="ElementShortName">check_write_preamble[35:0]</obj_property>
+         <obj_property name="ObjectShortName">check_write_preamble[35:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/check_write_dqs_high" type="array">
+         <obj_property name="ElementShortName">check_write_dqs_high[35:0]</obj_property>
+         <obj_property name="ObjectShortName">check_write_dqs_high[35:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/check_write_dqs_low" type="array">
+         <obj_property name="ElementShortName">check_write_dqs_low[35:0]</obj_property>
+         <obj_property name="ObjectShortName">check_write_dqs_low[35:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/check_dm_tdipw" type="array">
+         <obj_property name="ElementShortName">check_dm_tdipw[17:0]</obj_property>
+         <obj_property name="ObjectShortName">check_dm_tdipw[17:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/check_dq_tdipw" type="array">
+         <obj_property name="ElementShortName">check_dq_tdipw[71:0]</obj_property>
+         <obj_property name="ObjectShortName">check_dq_tdipw[71:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/tm_cke" type="array">
+         <obj_property name="ElementShortName">tm_cke[63:0]</obj_property>
+         <obj_property name="ObjectShortName">tm_cke[63:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/tm_odt" type="array">
+         <obj_property name="ElementShortName">tm_odt[63:0]</obj_property>
+         <obj_property name="ObjectShortName">tm_odt[63:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/tm_tdqss" type="array">
+         <obj_property name="ElementShortName">tm_tdqss[63:0]</obj_property>
+         <obj_property name="ObjectShortName">tm_tdqss[63:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/tm_dm" type="array">
+         <obj_property name="ElementShortName">tm_dm[17:0][63:0]</obj_property>
+         <obj_property name="ObjectShortName">tm_dm[17:0][63:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/tm_dqs" type="array">
+         <obj_property name="ElementShortName">tm_dqs[17:0][63:0]</obj_property>
+         <obj_property name="ObjectShortName">tm_dqs[17:0][63:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/tm_dqs_pos" type="array">
+         <obj_property name="ElementShortName">tm_dqs_pos[35:0][63:0]</obj_property>
+         <obj_property name="ObjectShortName">tm_dqs_pos[35:0][63:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/tm_dqss_pos" type="array">
+         <obj_property name="ElementShortName">tm_dqss_pos[35:0][63:0]</obj_property>
+         <obj_property name="ObjectShortName">tm_dqss_pos[35:0][63:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/tm_dqs_neg" type="array">
+         <obj_property name="ElementShortName">tm_dqs_neg[35:0][63:0]</obj_property>
+         <obj_property name="ObjectShortName">tm_dqs_neg[35:0][63:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/tm_dq" type="array">
+         <obj_property name="ElementShortName">tm_dq[71:0][63:0]</obj_property>
+         <obj_property name="ObjectShortName">tm_dq[71:0][63:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/tm_cmd_addr" type="array">
+         <obj_property name="ElementShortName">tm_cmd_addr[22:0][63:0]</obj_property>
+         <obj_property name="ObjectShortName">tm_cmd_addr[22:0][63:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/cmd_addr_string" type="array">
+         <obj_property name="ElementShortName">cmd_addr_string[22:0][55:0]</obj_property>
+         <obj_property name="ObjectShortName">cmd_addr_string[22:0][55:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/dqs_string" type="array">
+         <obj_property name="ElementShortName">dqs_string[1:0][39:0]</obj_property>
+         <obj_property name="ObjectShortName">dqs_string[1:0][39:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/ck_in" type="logic">
+         <obj_property name="ElementShortName">ck_in</obj_property>
+         <obj_property name="ObjectShortName">ck_in</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/ck_n_in" type="logic">
+         <obj_property name="ElementShortName">ck_n_in</obj_property>
+         <obj_property name="ObjectShortName">ck_n_in</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/cke_in" type="logic">
+         <obj_property name="ElementShortName">cke_in</obj_property>
+         <obj_property name="ObjectShortName">cke_in</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/cs_n_in" type="logic">
+         <obj_property name="ElementShortName">cs_n_in</obj_property>
+         <obj_property name="ObjectShortName">cs_n_in</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/ras_n_in" type="logic">
+         <obj_property name="ElementShortName">ras_n_in</obj_property>
+         <obj_property name="ObjectShortName">ras_n_in</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/cas_n_in" type="logic">
+         <obj_property name="ElementShortName">cas_n_in</obj_property>
+         <obj_property name="ObjectShortName">cas_n_in</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/we_n_in" type="logic">
+         <obj_property name="ElementShortName">we_n_in</obj_property>
+         <obj_property name="ObjectShortName">we_n_in</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/dm_in" type="array">
+         <obj_property name="ElementShortName">dm_in[17:0]</obj_property>
+         <obj_property name="ObjectShortName">dm_in[17:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/ba_in" type="array">
+         <obj_property name="ElementShortName">ba_in[2:0]</obj_property>
+         <obj_property name="ObjectShortName">ba_in[2:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/addr_in" type="array">
+         <obj_property name="ElementShortName">addr_in[15:0]</obj_property>
+         <obj_property name="ObjectShortName">addr_in[15:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/dq_in" type="array">
+         <obj_property name="ElementShortName">dq_in[71:0]</obj_property>
+         <obj_property name="ObjectShortName">dq_in[71:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/dqs_in" type="array">
+         <obj_property name="ElementShortName">dqs_in[35:0]</obj_property>
+         <obj_property name="ObjectShortName">dqs_in[35:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/odt_in" type="logic">
+         <obj_property name="ElementShortName">odt_in</obj_property>
+         <obj_property name="ObjectShortName">odt_in</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/dm_in_pos" type="array">
+         <obj_property name="ElementShortName">dm_in_pos[17:0]</obj_property>
+         <obj_property name="ObjectShortName">dm_in_pos[17:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/dm_in_neg" type="array">
+         <obj_property name="ElementShortName">dm_in_neg[17:0]</obj_property>
+         <obj_property name="ObjectShortName">dm_in_neg[17:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/dq_in_pos" type="array">
+         <obj_property name="ElementShortName">dq_in_pos[71:0]</obj_property>
+         <obj_property name="ObjectShortName">dq_in_pos[71:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/dq_in_neg" type="array">
+         <obj_property name="ElementShortName">dq_in_neg[71:0]</obj_property>
+         <obj_property name="ObjectShortName">dq_in_neg[71:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/dq_in_valid" type="logic">
+         <obj_property name="ElementShortName">dq_in_valid</obj_property>
+         <obj_property name="ObjectShortName">dq_in_valid</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/dqs_in_valid" type="logic">
+         <obj_property name="ElementShortName">dqs_in_valid</obj_property>
+         <obj_property name="ObjectShortName">dqs_in_valid</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/wdqs_cntr" type="array">
+         <obj_property name="ElementShortName">wdqs_cntr[31:0]</obj_property>
+         <obj_property name="ObjectShortName">wdqs_cntr[31:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/wdq_cntr" type="array">
+         <obj_property name="ElementShortName">wdq_cntr[31:0]</obj_property>
+         <obj_property name="ObjectShortName">wdq_cntr[31:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/wdqs_pos_cntr" type="array">
+         <obj_property name="ElementShortName">wdqs_pos_cntr[35:0][31:0]</obj_property>
+         <obj_property name="ObjectShortName">wdqs_pos_cntr[35:0][31:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/b2b_write" type="logic">
+         <obj_property name="ElementShortName">b2b_write</obj_property>
+         <obj_property name="ObjectShortName">b2b_write</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/prev_dqs_in" type="array">
+         <obj_property name="ElementShortName">prev_dqs_in[35:0]</obj_property>
+         <obj_property name="ObjectShortName">prev_dqs_in[35:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/diff_ck" type="logic">
+         <obj_property name="ElementShortName">diff_ck</obj_property>
+         <obj_property name="ObjectShortName">diff_ck</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/dqs_even" type="array">
+         <obj_property name="ElementShortName">dqs_even[17:0]</obj_property>
+         <obj_property name="ObjectShortName">dqs_even[17:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/dqs_odd" type="array">
+         <obj_property name="ElementShortName">dqs_odd[17:0]</obj_property>
+         <obj_property name="ObjectShortName">dqs_odd[17:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/cmd_n_in" type="array">
+         <obj_property name="ElementShortName">cmd_n_in[3:0]</obj_property>
+         <obj_property name="ObjectShortName">cmd_n_in[3:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/dqs_out_en" type="logic">
+         <obj_property name="ElementShortName">dqs_out_en</obj_property>
+         <obj_property name="ObjectShortName">dqs_out_en</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/dqs_out_en_dly" type="array">
+         <obj_property name="ElementShortName">dqs_out_en_dly[1:0]</obj_property>
+         <obj_property name="ObjectShortName">dqs_out_en_dly[1:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/dqs_out" type="logic">
+         <obj_property name="ElementShortName">dqs_out</obj_property>
+         <obj_property name="ObjectShortName">dqs_out</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/dqs_out_dly" type="array">
+         <obj_property name="ElementShortName">dqs_out_dly[1:0]</obj_property>
+         <obj_property name="ObjectShortName">dqs_out_dly[1:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/dq_out_en" type="logic">
+         <obj_property name="ElementShortName">dq_out_en</obj_property>
+         <obj_property name="ObjectShortName">dq_out_en</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/dq_out_en_dly" type="array">
+         <obj_property name="ElementShortName">dq_out_en_dly[15:0]</obj_property>
+         <obj_property name="ObjectShortName">dq_out_en_dly[15:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/dq_out" type="array">
+         <obj_property name="ElementShortName">dq_out[15:0]</obj_property>
+         <obj_property name="ObjectShortName">dq_out[15:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/dq_out_dly" type="array">
+         <obj_property name="ElementShortName">dq_out_dly[15:0]</obj_property>
+         <obj_property name="ObjectShortName">dq_out_dly[15:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/rdqsen_cntr" type="array">
+         <obj_property name="ElementShortName">rdqsen_cntr[31:0]</obj_property>
+         <obj_property name="ObjectShortName">rdqsen_cntr[31:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/rdqs_cntr" type="array">
+         <obj_property name="ElementShortName">rdqs_cntr[31:0]</obj_property>
+         <obj_property name="ObjectShortName">rdqs_cntr[31:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/rdqen_cntr" type="array">
+         <obj_property name="ElementShortName">rdqen_cntr[31:0]</obj_property>
+         <obj_property name="ObjectShortName">rdqen_cntr[31:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/rdq_cntr" type="array">
+         <obj_property name="ElementShortName">rdq_cntr[31:0]</obj_property>
+         <obj_property name="ObjectShortName">rdq_cntr[31:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/TCK_MIN" type="array">
+         <obj_property name="ElementShortName">TCK_MIN[31:0]</obj_property>
+         <obj_property name="ObjectShortName">TCK_MIN[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/TJIT_PER" type="array">
+         <obj_property name="ElementShortName">TJIT_PER[31:0]</obj_property>
+         <obj_property name="ObjectShortName">TJIT_PER[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/TJIT_DUTY" type="array">
+         <obj_property name="ElementShortName">TJIT_DUTY[31:0]</obj_property>
+         <obj_property name="ObjectShortName">TJIT_DUTY[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/TJIT_CC" type="array">
+         <obj_property name="ElementShortName">TJIT_CC[31:0]</obj_property>
+         <obj_property name="ObjectShortName">TJIT_CC[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/TERR_2PER" type="array">
+         <obj_property name="ElementShortName">TERR_2PER[31:0]</obj_property>
+         <obj_property name="ObjectShortName">TERR_2PER[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/TERR_3PER" type="array">
+         <obj_property name="ElementShortName">TERR_3PER[31:0]</obj_property>
+         <obj_property name="ObjectShortName">TERR_3PER[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/TERR_4PER" type="array">
+         <obj_property name="ElementShortName">TERR_4PER[31:0]</obj_property>
+         <obj_property name="ObjectShortName">TERR_4PER[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/TERR_5PER" type="array">
+         <obj_property name="ElementShortName">TERR_5PER[31:0]</obj_property>
+         <obj_property name="ObjectShortName">TERR_5PER[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/TERR_N1PER" type="array">
+         <obj_property name="ElementShortName">TERR_N1PER[31:0]</obj_property>
+         <obj_property name="ObjectShortName">TERR_N1PER[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/TERR_N2PER" type="array">
+         <obj_property name="ElementShortName">TERR_N2PER[31:0]</obj_property>
+         <obj_property name="ObjectShortName">TERR_N2PER[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/TQHS" type="array">
+         <obj_property name="ElementShortName">TQHS[31:0]</obj_property>
+         <obj_property name="ObjectShortName">TQHS[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/TAC" type="array">
+         <obj_property name="ElementShortName">TAC[31:0]</obj_property>
+         <obj_property name="ObjectShortName">TAC[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/TDS" type="array">
+         <obj_property name="ElementShortName">TDS[31:0]</obj_property>
+         <obj_property name="ObjectShortName">TDS[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/TDH" type="array">
+         <obj_property name="ElementShortName">TDH[31:0]</obj_property>
+         <obj_property name="ObjectShortName">TDH[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/TDQSCK" type="array">
+         <obj_property name="ElementShortName">TDQSCK[31:0]</obj_property>
+         <obj_property name="ObjectShortName">TDQSCK[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/TDQSQ" type="array">
+         <obj_property name="ElementShortName">TDQSQ[31:0]</obj_property>
+         <obj_property name="ObjectShortName">TDQSQ[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/TIS" type="array">
+         <obj_property name="ElementShortName">TIS[31:0]</obj_property>
+         <obj_property name="ObjectShortName">TIS[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/TIH" type="array">
+         <obj_property name="ElementShortName">TIH[31:0]</obj_property>
+         <obj_property name="ObjectShortName">TIH[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/TRC" type="array">
+         <obj_property name="ElementShortName">TRC[31:0]</obj_property>
+         <obj_property name="ObjectShortName">TRC[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/TRCD" type="array">
+         <obj_property name="ElementShortName">TRCD[31:0]</obj_property>
+         <obj_property name="ObjectShortName">TRCD[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/TWTR" type="array">
+         <obj_property name="ElementShortName">TWTR[31:0]</obj_property>
+         <obj_property name="ObjectShortName">TWTR[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/TRP" type="array">
+         <obj_property name="ElementShortName">TRP[31:0]</obj_property>
+         <obj_property name="ObjectShortName">TRP[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/TRPA" type="array">
+         <obj_property name="ElementShortName">TRPA[31:0]</obj_property>
+         <obj_property name="ObjectShortName">TRPA[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/TXARDS" type="array">
+         <obj_property name="ElementShortName">TXARDS[31:0]</obj_property>
+         <obj_property name="ObjectShortName">TXARDS[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/TXARD" type="array">
+         <obj_property name="ElementShortName">TXARD[31:0]</obj_property>
+         <obj_property name="ObjectShortName">TXARD[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/TXP" type="array">
+         <obj_property name="ElementShortName">TXP[31:0]</obj_property>
+         <obj_property name="ObjectShortName">TXP[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/TANPD" type="array">
+         <obj_property name="ElementShortName">TANPD[31:0]</obj_property>
+         <obj_property name="ObjectShortName">TANPD[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/TAXPD" type="array">
+         <obj_property name="ElementShortName">TAXPD[31:0]</obj_property>
+         <obj_property name="ObjectShortName">TAXPD[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/CL_TIME" type="array">
+         <obj_property name="ElementShortName">CL_TIME[31:0]</obj_property>
+         <obj_property name="ObjectShortName">CL_TIME[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/TFAW" type="array">
+         <obj_property name="ElementShortName">TFAW[31:0]</obj_property>
+         <obj_property name="ObjectShortName">TFAW[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/AL_MIN" type="array">
+         <obj_property name="ElementShortName">AL_MIN[31:0]</obj_property>
+         <obj_property name="ObjectShortName">AL_MIN[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/AL_MAX" type="array">
+         <obj_property name="ElementShortName">AL_MAX[31:0]</obj_property>
+         <obj_property name="ObjectShortName">AL_MAX[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/CL_MIN" type="array">
+         <obj_property name="ElementShortName">CL_MIN[31:0]</obj_property>
+         <obj_property name="ObjectShortName">CL_MIN[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/CL_MAX" type="array">
+         <obj_property name="ElementShortName">CL_MAX[31:0]</obj_property>
+         <obj_property name="ObjectShortName">CL_MAX[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/WR_MIN" type="array">
+         <obj_property name="ElementShortName">WR_MIN[31:0]</obj_property>
+         <obj_property name="ObjectShortName">WR_MIN[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/WR_MAX" type="array">
+         <obj_property name="ElementShortName">WR_MAX[31:0]</obj_property>
+         <obj_property name="ObjectShortName">WR_MAX[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/BL_MIN" type="array">
+         <obj_property name="ElementShortName">BL_MIN[31:0]</obj_property>
+         <obj_property name="ObjectShortName">BL_MIN[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/BL_MAX" type="array">
+         <obj_property name="ElementShortName">BL_MAX[31:0]</obj_property>
+         <obj_property name="ObjectShortName">BL_MAX[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/TCK_MAX" type="array">
+         <obj_property name="ElementShortName">TCK_MAX[31:0]</obj_property>
+         <obj_property name="ObjectShortName">TCK_MAX[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/TCH_MIN" type="other">
+         <obj_property name="ElementShortName">TCH_MIN</obj_property>
+         <obj_property name="ObjectShortName">TCH_MIN</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/TCH_MAX" type="other">
+         <obj_property name="ElementShortName">TCH_MAX</obj_property>
+         <obj_property name="ObjectShortName">TCH_MAX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/TCL_MIN" type="other">
+         <obj_property name="ElementShortName">TCL_MIN</obj_property>
+         <obj_property name="ObjectShortName">TCL_MIN</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/TCL_MAX" type="other">
+         <obj_property name="ElementShortName">TCL_MAX</obj_property>
+         <obj_property name="ObjectShortName">TCL_MAX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/TLZ" type="array">
+         <obj_property name="ElementShortName">TLZ[31:0]</obj_property>
+         <obj_property name="ObjectShortName">TLZ[31:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/THZ" type="array">
+         <obj_property name="ElementShortName">THZ[31:0]</obj_property>
+         <obj_property name="ObjectShortName">THZ[31:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/TDIPW" type="other">
+         <obj_property name="ElementShortName">TDIPW</obj_property>
+         <obj_property name="ObjectShortName">TDIPW</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/TDQSH" type="other">
+         <obj_property name="ElementShortName">TDQSH</obj_property>
+         <obj_property name="ObjectShortName">TDQSH</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/TDQSL" type="other">
+         <obj_property name="ElementShortName">TDQSL</obj_property>
+         <obj_property name="ObjectShortName">TDQSL</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/TDSS" type="other">
+         <obj_property name="ElementShortName">TDSS</obj_property>
+         <obj_property name="ObjectShortName">TDSS</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/TDSH" type="other">
+         <obj_property name="ElementShortName">TDSH</obj_property>
+         <obj_property name="ObjectShortName">TDSH</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/TWPRE" type="other">
+         <obj_property name="ElementShortName">TWPRE</obj_property>
+         <obj_property name="ObjectShortName">TWPRE</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/TWPST" type="other">
+         <obj_property name="ElementShortName">TWPST</obj_property>
+         <obj_property name="ObjectShortName">TWPST</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/TDQSS" type="other">
+         <obj_property name="ElementShortName">TDQSS</obj_property>
+         <obj_property name="ObjectShortName">TDQSS</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/TIPW" type="other">
+         <obj_property name="ElementShortName">TIPW</obj_property>
+         <obj_property name="ObjectShortName">TIPW</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/TCCD" type="array">
+         <obj_property name="ElementShortName">TCCD[31:0]</obj_property>
+         <obj_property name="ObjectShortName">TCCD[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/TRAS_MIN" type="array">
+         <obj_property name="ElementShortName">TRAS_MIN[31:0]</obj_property>
+         <obj_property name="ObjectShortName">TRAS_MIN[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/TRAS_MAX" type="array">
+         <obj_property name="ElementShortName">TRAS_MAX[31:0]</obj_property>
+         <obj_property name="ObjectShortName">TRAS_MAX[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/TRTP" type="array">
+         <obj_property name="ElementShortName">TRTP[31:0]</obj_property>
+         <obj_property name="ObjectShortName">TRTP[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/TWR" type="array">
+         <obj_property name="ElementShortName">TWR[31:0]</obj_property>
+         <obj_property name="ObjectShortName">TWR[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/TMRD" type="array">
+         <obj_property name="ElementShortName">TMRD[31:0]</obj_property>
+         <obj_property name="ObjectShortName">TMRD[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/TDLLK" type="array">
+         <obj_property name="ElementShortName">TDLLK[31:0]</obj_property>
+         <obj_property name="ObjectShortName">TDLLK[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/TRFC_MIN" type="array">
+         <obj_property name="ElementShortName">TRFC_MIN[31:0]</obj_property>
+         <obj_property name="ObjectShortName">TRFC_MIN[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/TRFC_MAX" type="array">
+         <obj_property name="ElementShortName">TRFC_MAX[31:0]</obj_property>
+         <obj_property name="ObjectShortName">TRFC_MAX[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/TXSNR" type="array">
+         <obj_property name="ElementShortName">TXSNR[31:0]</obj_property>
+         <obj_property name="ObjectShortName">TXSNR[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/TXSRD" type="array">
+         <obj_property name="ElementShortName">TXSRD[31:0]</obj_property>
+         <obj_property name="ObjectShortName">TXSRD[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/TISXR" type="array">
+         <obj_property name="ElementShortName">TISXR[31:0]</obj_property>
+         <obj_property name="ObjectShortName">TISXR[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/TAOND" type="array">
+         <obj_property name="ElementShortName">TAOND[31:0]</obj_property>
+         <obj_property name="ObjectShortName">TAOND[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/TAOFD" type="other">
+         <obj_property name="ElementShortName">TAOFD</obj_property>
+         <obj_property name="ObjectShortName">TAOFD</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/TAONPD" type="array">
+         <obj_property name="ElementShortName">TAONPD[31:0]</obj_property>
+         <obj_property name="ObjectShortName">TAONPD[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/TAOFPD" type="array">
+         <obj_property name="ElementShortName">TAOFPD[31:0]</obj_property>
+         <obj_property name="ObjectShortName">TAOFPD[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/TMOD" type="array">
+         <obj_property name="ElementShortName">TMOD[31:0]</obj_property>
+         <obj_property name="ObjectShortName">TMOD[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/TCKE" type="array">
+         <obj_property name="ElementShortName">TCKE[31:0]</obj_property>
+         <obj_property name="ObjectShortName">TCKE[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/ADDR_BITS" type="array">
+         <obj_property name="ElementShortName">ADDR_BITS[31:0]</obj_property>
+         <obj_property name="ObjectShortName">ADDR_BITS[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/ROW_BITS" type="array">
+         <obj_property name="ElementShortName">ROW_BITS[31:0]</obj_property>
+         <obj_property name="ObjectShortName">ROW_BITS[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/COL_BITS" type="array">
+         <obj_property name="ElementShortName">COL_BITS[31:0]</obj_property>
+         <obj_property name="ObjectShortName">COL_BITS[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/DM_BITS" type="array">
+         <obj_property name="ElementShortName">DM_BITS[31:0]</obj_property>
+         <obj_property name="ObjectShortName">DM_BITS[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/DQ_BITS" type="array">
+         <obj_property name="ElementShortName">DQ_BITS[31:0]</obj_property>
+         <obj_property name="ObjectShortName">DQ_BITS[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/DQS_BITS" type="array">
+         <obj_property name="ElementShortName">DQS_BITS[31:0]</obj_property>
+         <obj_property name="ObjectShortName">DQS_BITS[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/TRRD" type="array">
+         <obj_property name="ElementShortName">TRRD[31:0]</obj_property>
+         <obj_property name="ObjectShortName">TRRD[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/CS_BITS" type="array">
+         <obj_property name="ElementShortName">CS_BITS[31:0]</obj_property>
+         <obj_property name="ObjectShortName">CS_BITS[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/RANKS" type="array">
+         <obj_property name="ElementShortName">RANKS[31:0]</obj_property>
+         <obj_property name="ObjectShortName">RANKS[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/BA_BITS" type="array">
+         <obj_property name="ElementShortName">BA_BITS[31:0]</obj_property>
+         <obj_property name="ObjectShortName">BA_BITS[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/MEM_BITS" type="array">
+         <obj_property name="ElementShortName">MEM_BITS[31:0]</obj_property>
+         <obj_property name="ObjectShortName">MEM_BITS[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/AP" type="array">
+         <obj_property name="ElementShortName">AP[31:0]</obj_property>
+         <obj_property name="ObjectShortName">AP[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/BL_BITS" type="array">
+         <obj_property name="ElementShortName">BL_BITS[31:0]</obj_property>
+         <obj_property name="ObjectShortName">BL_BITS[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/BO_BITS" type="array">
+         <obj_property name="ElementShortName">BO_BITS[31:0]</obj_property>
+         <obj_property name="ObjectShortName">BO_BITS[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/STOP_ON_ERROR" type="array">
+         <obj_property name="ElementShortName">STOP_ON_ERROR[31:0]</obj_property>
+         <obj_property name="ObjectShortName">STOP_ON_ERROR[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/DEBUG" type="array">
+         <obj_property name="ElementShortName">DEBUG[31:0]</obj_property>
+         <obj_property name="ObjectShortName">DEBUG[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/BUS_DELAY" type="array">
+         <obj_property name="ElementShortName">BUS_DELAY[31:0]</obj_property>
+         <obj_property name="ObjectShortName">BUS_DELAY[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/RANDOM_OUT_DELAY" type="array">
+         <obj_property name="ElementShortName">RANDOM_OUT_DELAY[31:0]</obj_property>
+         <obj_property name="ObjectShortName">RANDOM_OUT_DELAY[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/RANDOM_SEED" type="array">
+         <obj_property name="ElementShortName">RANDOM_SEED[31:0]</obj_property>
+         <obj_property name="ObjectShortName">RANDOM_SEED[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/RDQSEN_PRE" type="array">
+         <obj_property name="ElementShortName">RDQSEN_PRE[31:0]</obj_property>
+         <obj_property name="ObjectShortName">RDQSEN_PRE[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/RDQSEN_PST" type="array">
+         <obj_property name="ElementShortName">RDQSEN_PST[31:0]</obj_property>
+         <obj_property name="ObjectShortName">RDQSEN_PST[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/RDQS_PRE" type="array">
+         <obj_property name="ElementShortName">RDQS_PRE[31:0]</obj_property>
+         <obj_property name="ObjectShortName">RDQS_PRE[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/RDQS_PST" type="array">
+         <obj_property name="ElementShortName">RDQS_PST[31:0]</obj_property>
+         <obj_property name="ObjectShortName">RDQS_PST[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/RDQEN_PRE" type="array">
+         <obj_property name="ElementShortName">RDQEN_PRE[31:0]</obj_property>
+         <obj_property name="ObjectShortName">RDQEN_PRE[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/RDQEN_PST" type="array">
+         <obj_property name="ElementShortName">RDQEN_PST[31:0]</obj_property>
+         <obj_property name="ObjectShortName">RDQEN_PST[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/WDQS_PRE" type="array">
+         <obj_property name="ElementShortName">WDQS_PRE[31:0]</obj_property>
+         <obj_property name="ObjectShortName">WDQS_PRE[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/WDQS_PST" type="array">
+         <obj_property name="ElementShortName">WDQS_PST[31:0]</obj_property>
+         <obj_property name="ObjectShortName">WDQS_PST[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/LOAD_MODE" type="array">
+         <obj_property name="ElementShortName">LOAD_MODE[3:0]</obj_property>
+         <obj_property name="ObjectShortName">LOAD_MODE[3:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/REFRESH" type="array">
+         <obj_property name="ElementShortName">REFRESH[3:0]</obj_property>
+         <obj_property name="ObjectShortName">REFRESH[3:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/PRECHARGE" type="array">
+         <obj_property name="ElementShortName">PRECHARGE[3:0]</obj_property>
+         <obj_property name="ObjectShortName">PRECHARGE[3:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/ACTIVATE" type="array">
+         <obj_property name="ElementShortName">ACTIVATE[3:0]</obj_property>
+         <obj_property name="ObjectShortName">ACTIVATE[3:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/WRITE" type="array">
+         <obj_property name="ElementShortName">WRITE[3:0]</obj_property>
+         <obj_property name="ObjectShortName">WRITE[3:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/READ" type="array">
+         <obj_property name="ElementShortName">READ[3:0]</obj_property>
+         <obj_property name="ObjectShortName">READ[3:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/NOP" type="array">
+         <obj_property name="ElementShortName">NOP[3:0]</obj_property>
+         <obj_property name="ObjectShortName">NOP[3:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/PWR_DOWN" type="array">
+         <obj_property name="ElementShortName">PWR_DOWN[3:0]</obj_property>
+         <obj_property name="ObjectShortName">PWR_DOWN[3:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sensor_to_FPGA_tb/uut/Nexys_DDR2/SELF_REF" type="array">
+         <obj_property name="ElementShortName">SELF_REF[3:0]</obj_property>
+         <obj_property name="ObjectShortName">SELF_REF[3:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group9372" type="group">
+      <obj_property name="label">AXI_PERIPHERAL_INTC</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+</wave_config>
