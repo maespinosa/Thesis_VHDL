@@ -92,14 +92,26 @@ End Sub
 
 <H2>DRC Report File - Convolution_Layer_Top.bde</H2>
 
-Created on Sat 2017-08-12 at 16:47:45
+Created on Son 2017-09-03 at 12:44:13
 <HR NOSHADE COLOR="#008080">
-<SPAN class=Info1>Checking file 'C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\Convolution_Layer_Top.bde'.</SPAN><BR>
+<SPAN class=Info1>Checking file 'c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\Convolution_Layer_Top.bde'.</SPAN><BR>
+<SPAN class=Info1>
+	<p class = Warn1 style=font-weight:bold;margin-top:0px;margin-bottom:0px>Ambiguous range in net mapping
+	</p><ul style=margin-left:30px;margin-top:0px;margin-bottom:0px>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\Convolution_Layer_Top.bde','','-errorid=18,1268');>	'CONVOLUTION' instance: 'i_inbuff_dout(15:0)' input bus pin and 'inbuff_dout(g_data_width-1:0)' bus signal</a></li>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\Convolution_Layer_Top.bde','','-errorid=20,575');>	'CONVOLUTION' instance: 'o_conv_out(g_conv_width-1:0)' output bus pin and 'BUS575(7:0)' bus signal</a></li>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\Convolution_Layer_Top.bde','','-errorid=14,1261');>	'INPUT_BUFFER' instance: 'din(15:0)' input bus pin and 'inbuff_din(g_data_width-1:0)' bus signal</a></li>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\Convolution_Layer_Top.bde','','-errorid=4,1268');>	'INPUT_BUFFER' instance: 'dout(15:0)' output bus pin and 'inbuff_dout(g_data_width-1:0)' bus signal</a></li>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\Convolution_Layer_Top.bde','','-errorid=14,1285');>	'OUTPUT_BUFFER' instance: 'din(15:0)' input bus pin and 'outbuff_din(g_data_width-1:0)' bus signal</a></li>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\Convolution_Layer_Top.bde','','-errorid=4,1274');>	'OUTPUT_BUFFER' instance: 'dout(15:0)' output bus pin and 'outbuff_dout(g_data_width-1:0)' bus signal</a></li>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\Convolution_Layer_Top.bde','','-errorid=10,575');>	'RELU' instance: 'i_conv_out(g_conv_width-1:0)' input bus pin and 'BUS575(7:0)' bus signal</a></li>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\Convolution_Layer_Top.bde','','-errorid=4,1285');>	'RELU' instance: 'o_relu_out(g_relu_width-1:0)' output bus pin and 'outbuff_din(g_data_width-1:0)' bus signal</a></li>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\Convolution_Layer_Top.bde','','-errorid=64,1274');>	'ROUTER' instance: 'i_conv_relu_output(g_relu_width-1:0)' input bus pin and 'outbuff_dout(g_data_width-1:0)' bus signal</a></li></ul></SPAN><BR>
 <SPAN class=Info1>
 	<p class = Warn1 style=font-weight:bold;margin-top:0px;margin-bottom:0px>Unconnected symbol pins
 	</p><ul style=margin-left:30px;margin-top:0px;margin-bottom:0px>
-	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','C:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\Convolution_Layer_Top.bde','','-errorid=1,1,,1,,,1,,,,1,,,,,1,,,,,,1,,,,,,,1,,,,,,,,1,,,,,,,,,1,,,,,,,,,,1,,,,,,,,,,,1,,,,,,,,,,,,1,,,,,,,,,,,,,1,,,,,,,,,,,,,,1,,,,,,,,,,,,,,,1,,,,,,,,,,,,,,,,1,,,,,,,,,,,,,,,,,1,,,,,,,,,,,,,,,,,,1,,,,,,,,,,,,,,,,,,,1,,,,,,,,,,,,,,,,,,,,1,,,,,,,,,,,,,,,,,,,,,1,,,,,,,,,,,,,,,,,,,,,,1,,,,,,,,,,,,,,,,,,,,,,,1,,,,,,,,,,,,,,,,,,,,,,,,1,,,,,,,,,,,,,,,,,,,,,,,,,1');>	In instance 'U1': 'i_clear_reg', 'i_clk', 'i_conv_parameters_reg', 'i_filter_data_addr_reg', 'i_filter_data_reg', 'i_input_data_addr_reg', 'i_input_data_reg', 'i_output_data_addr_reg', 'i_output_data_reg', 'i_relu_control_reg', 'i_repeat_reg', 'i_reset_n', 'i_start_reg', 'i_status_reg', 'o_clear_reg', 'o_conv_parameters_reg', 'o_filter_data_addr_reg', 'o_filter_data_reg', 'o_input_data_addr_reg', 'o_input_data_reg', 'o_output_data_addr_reg', 'o_output_data_reg', 'o_relu_control_reg', 'o_repeat_reg', 'o_start_reg', 'o_status_reg'</a></li></ul></SPAN><BR>
-<SPAN class=Warn1>Convolution_Layer_Top.bde - 0 error(s), 1 warning(s)</SPAN><BR>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\Convolution_Layer_Top.bde','','-errorid=1,1,,1,,,1,,,,1,,,,,1,,,,,,1,,,,,,,1,,,,,,,,1,,,,,,,,,1');>	In instance 'ROUTER': 'o_enable', 'o_input_image_height', 'o_input_image_width', 'o_number_of_filters', 'o_output_image_height', 'o_output_image_width', 'o_pad', 'o_relu_en', 'o_stride', 'o_weight_filter_size'</a></li></ul></SPAN><BR>
+<SPAN class=Warn1>Convolution_Layer_Top.bde - 0 error(s), 10 warning(s)</SPAN><BR>
 <SPAN class=Info1>DRC process completed in 1 second(s).</SPAN><BR>
 </tt>
 </FONT>

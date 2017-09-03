@@ -55,7 +55,6 @@ Selected=
 
 [Files]
 /Convolution_Controller.vhd=-1
-/Convolution_Layer_Top.bde=-1
 /filter_top.bde=-1
 /input_fifo_network.bde=-1
 /conv_input_buffer.vhd=-1
@@ -68,10 +67,10 @@ Selected=
 /multiplier_bank.bde=-1
 /accumulator.vhd=-1
 /relu_unit.vhd=-1
+/Convolution_Layer_Top.bde=-1
 
 [Files.Data]
 .\src\Convolution_Controller.vhd=VHDL Source Code
-.\src\Convolution_Layer_Top.bde=Block Diagram
 .\src\filter_top.bde=Block Diagram
 .\src\input_fifo_network.bde=Block Diagram
 .\src\conv_input_buffer.vhd=VHDL Source Code
@@ -84,12 +83,8 @@ Selected=
 .\src\multiplier_bank.bde=Block Diagram
 .\src\accumulator.vhd=VHDL Source Code
 .\src\relu_unit.vhd=VHDL Source Code
+.\src\Convolution_Layer_Top.bde=Block Diagram
 
-[file_out:/Convolution_Layer_Top.bde]
-/..\compile\Convolution_Layer_Top.vhd=-1
-
-[file_out:/filter_top.bde]
-/..\compile\filter_top.vhd=-1
 
 [file_out:/input_fifo_network.bde]
 /..\compile\input_fifo_network.vhd=-1
@@ -97,3 +92,8 @@ Selected=
 [file_out:/multiplier_bank.bde]
 /..\compile\multiplier_bank.vhd=-1
 
+[file_out:/Convolution_Layer_Top.bde]
+/..\compile\Convolution_Layer_Top.vhd=-1
+
+[file_out:/filter_top.bde]
+/..\compile\filter_top.vhd=-1

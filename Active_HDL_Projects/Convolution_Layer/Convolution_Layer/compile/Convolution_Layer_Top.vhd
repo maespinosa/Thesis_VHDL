@@ -7,9 +7,9 @@
 --
 -------------------------------------------------------------------------------
 --
--- File        : C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\compile\Convolution_Layer_Top.vhd
--- Generated   : Sat Aug 12 16:47:46 2017
--- From        : C:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\Convolution_Layer_Top.bde
+-- File        : c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\compile\Convolution_Layer_Top.vhd
+-- Generated   : Sun Sep  3 12:44:14 2017
+-- From        : c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\Convolution_Layer_Top.bde
 -- By          : Bde2Vhdl ver. 2.6
 --
 -------------------------------------------------------------------------------
@@ -25,447 +25,348 @@ use IEEE.std_logic_signed.all;
 use IEEE.std_logic_unsigned.all;
 
 
-entity Convolution_Layer_Top is 
+entity Convolution_Layer_Top is
+  generic(
+       -- name : type := value
+       g_axi_bus_width : integer := 16;
+       g_data_width : integer := 16;
+       g_red_bits : integer := 4;
+       g_green_bits : integer := 4;
+       g_blue_bits : integer := 4;
+       g_weight_width : integer := 16;
+       g_multiplier_width : integer := 16;
+       g_product_width : integer := 32;
+       g_conv_width : integer := 16;
+       g_relu_width : integer := 16
+  );
+  port(
+       i_ext_reset_n : in STD_LOGIC;
+       i_master_clk : in STD_LOGIC;
+       i_slave_clk : in STD_LOGIC;
+       i_control_reg : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+       i_conv_params_reg : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+       i_filter_weights_addr_reg : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+       i_input_data_addr_reg : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+       i_input_image_params_reg : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+       i_output_data_addr_reg : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+       i_output_image_params_reg : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+       i_status_reg : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+       o_control_reg : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+       o_conv_params_reg : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+       o_filter_weights_addr_reg : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+       o_input_data_addr_reg : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+       o_input_image_params_reg : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+       o_output_data_addr_reg : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+       o_output_image_params_reg : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+       o_status_reg : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0)
+  );
 end Convolution_Layer_Top;
 
 architecture arch of Convolution_Layer_Top is
 
 ---- Component declarations -----
 
-component Convolution_Controller
+component conv_input_buffer
   port (
-       i_clear_reg : in STD_LOGIC_VECTOR(31 downto 0);
+       din : in STD_LOGIC_VECTOR(15 downto 0);
+       prog_empty_thresh : in STD_LOGIC_VECTOR(9 downto 0);
+       prog_full_thresh : in STD_LOGIC_VECTOR(9 downto 0);
+       rd_clk : in STD_LOGIC;
+       rd_en : in STD_LOGIC;
+       rst : in STD_LOGIC;
+       wr_clk : in STD_LOGIC;
+       wr_en : in STD_LOGIC;
+       almost_empty : out STD_LOGIC;
+       almost_full : out STD_LOGIC;
+       dout : out STD_LOGIC_VECTOR(15 downto 0);
+       empty : out STD_LOGIC;
+       full : out STD_LOGIC;
+       prog_empty : out STD_LOGIC;
+       prog_full : out STD_LOGIC;
+       valid : out STD_LOGIC
+  );
+end component;
+component conv_output_buffer
+  port (
+       din : in STD_LOGIC_VECTOR(15 downto 0);
+       prog_empty_thresh : in STD_LOGIC_VECTOR(9 downto 0);
+       prog_full_thresh : in STD_LOGIC_VECTOR(9 downto 0);
+       rd_clk : in STD_LOGIC;
+       rd_en : in STD_LOGIC;
+       rst : in STD_LOGIC;
+       wr_clk : in STD_LOGIC;
+       wr_en : in STD_LOGIC;
+       almost_empty : out STD_LOGIC;
+       almost_full : out STD_LOGIC;
+       dout : out STD_LOGIC_VECTOR(15 downto 0);
+       empty : out STD_LOGIC;
+       full : out STD_LOGIC;
+       prog_empty : out STD_LOGIC;
+       prog_full : out STD_LOGIC;
+       valid : out STD_LOGIC
+  );
+end component;
+component filter_top
+  generic(
+       g_data_width : integer := 16;
+       g_red_bits : integer := 4;
+       g_green_bits : integer := 4;
+       g_blue_bits : integer := 4;
+       g_weight_width : integer := 16;
+       g_multiplier_width : integer := 16;
+       g_product_width : integer := 32;
+       g_conv_width : integer := 16
+  );
+  port (
        i_clk : in STD_LOGIC;
-       i_conv_parameters_reg : in STD_LOGIC_VECTOR(31 downto 0);
-       i_filter_data_addr_reg : in STD_LOGIC_VECTOR(31 downto 0);
-       i_filter_data_reg : in STD_LOGIC_VECTOR(31 downto 0);
-       i_input_data_addr_reg : in STD_LOGIC_VECTOR(31 downto 0);
-       i_input_data_reg : in STD_LOGIC_VECTOR(31 downto 0);
-       i_output_data_addr_reg : in STD_LOGIC_VECTOR(31 downto 0);
-       i_output_data_reg : in STD_LOGIC_VECTOR(31 downto 0);
-       i_relu_control_reg : in STD_LOGIC_VECTOR(31 downto 0);
-       i_repeat_reg : in STD_LOGIC_VECTOR(31 downto 0);
+       i_inbuff_almost_empty : in STD_LOGIC;
+       i_inbuff_dout : in STD_LOGIC_VECTOR(15 downto 0);
+       i_inbuff_empty : in STD_LOGIC;
+       i_inbuff_prog_empty : in STD_LOGIC;
+       i_inbuff_valid : in STD_LOGIC;
        i_reset_n : in STD_LOGIC;
-       i_start_reg : in STD_LOGIC_VECTOR(31 downto 0);
-       i_status_reg : in STD_LOGIC_VECTOR(31 downto 0);
-       o_clear_reg : out STD_LOGIC_VECTOR(31 downto 0);
-       o_conv_parameters_reg : out STD_LOGIC_VECTOR(31 downto 0);
-       o_filter_data_addr_reg : out STD_LOGIC_VECTOR(31 downto 0);
-       o_filter_data_reg : out STD_LOGIC_VECTOR(31 downto 0);
-       o_input_data_addr_reg : out STD_LOGIC_VECTOR(31 downto 0);
-       o_input_data_reg : out STD_LOGIC_VECTOR(31 downto 0);
-       o_output_data_addr_reg : out STD_LOGIC_VECTOR(31 downto 0);
-       o_output_data_reg : out STD_LOGIC_VECTOR(31 downto 0);
-       o_relu_control_reg : out STD_LOGIC_VECTOR(31 downto 0);
-       o_repeat_reg : out STD_LOGIC_VECTOR(31 downto 0);
-       o_start_reg : out STD_LOGIC_VECTOR(31 downto 0);
-       o_status_reg : out STD_LOGIC_VECTOR(31 downto 0)
+       o_conv_out : out STD_LOGIC_VECTOR(g_conv_width-1 downto 0);
+       o_inbuff_prog_empty_thresh : out STD_LOGIC_VECTOR(9 downto 0);
+       o_inbuff_rd_en : out STD_LOGIC
+  );
+end component;
+component relu_unit
+  generic(
+       g_conv_width : INTEGER := 16;
+       g_relu_width : INTEGER := 16
+  );
+  port (
+       i_clk : in STD_LOGIC;
+       i_conv_out : in STD_LOGIC_VECTOR(g_conv_width-1 downto 0);
+       i_fifo_almost_full : in STD_LOGIC;
+       i_fifo_full : in STD_LOGIC;
+       i_fifo_prog_full : in STD_LOGIC;
+       i_reset_n : in STD_LOGIC;
+       o_fifo_prog_full_thresh : out STD_LOGIC_VECTOR(9 downto 0);
+       o_relu_out : out STD_LOGIC_VECTOR(g_relu_width-1 downto 0);
+       o_wr_en : out STD_LOGIC
+  );
+end component;
+component Convolution_Controller
+  generic(
+       g_axi_bus_width : INTEGER := 32;
+       g_relu_width : INTEGER := 16;
+       g_data_width : INTEGER := 16
+  );
+  port (
+       i_control_reg : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+       i_conv_params_reg : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+       i_conv_relu_output : in STD_LOGIC_VECTOR(g_relu_width-1 downto 0);
+       i_ext_reset_n : in STD_LOGIC;
+       i_filter_weights_addr_reg : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+       i_inbuff_almost_empty : in STD_LOGIC;
+       i_inbuff_almost_full : in STD_LOGIC;
+       i_inbuff_empty : in STD_LOGIC;
+       i_inbuff_full : in STD_LOGIC;
+       i_inbuff_prog_empty : in STD_LOGIC;
+       i_inbuff_prog_full : in STD_LOGIC;
+       i_input_data_addr_reg : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+       i_input_image_params_reg : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+       i_master_clk : in STD_LOGIC;
+       i_outbuff_almost_empty : in STD_LOGIC;
+       i_outbuff_almost_full : in STD_LOGIC;
+       i_outbuff_empty : in STD_LOGIC;
+       i_outbuff_full : in STD_LOGIC;
+       i_outbuff_prog_empty : in STD_LOGIC;
+       i_outbuff_prog_full : in STD_LOGIC;
+       i_outbuff_valid : in STD_LOGIC;
+       i_output_data_addr_reg : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+       i_output_image_params_reg : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+       i_slave_clk : in STD_LOGIC;
+       i_status_reg : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+       o_control_reg : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+       o_conv_params_reg : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+       o_enable : out STD_LOGIC;
+       o_filter_weights_addr_reg : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+       o_image_data : out STD_LOGIC_VECTOR(g_data_width-1 downto 0);
+       o_inbuff_prog_full_thresh : out STD_LOGIC_VECTOR(9 downto 0);
+       o_inbuff_wr_en : out STD_LOGIC;
+       o_input_data_addr_reg : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+       o_input_image_height : out STD_LOGIC_VECTOR(15 downto 0);
+       o_input_image_params_reg : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+       o_input_image_width : out STD_LOGIC_VECTOR(15 downto 0);
+       o_number_of_filters : out STD_LOGIC_VECTOR(7 downto 0);
+       o_outbuff_prog_empty_thresh : out STD_LOGIC_VECTOR(9 downto 0);
+       o_outbuff_rd_en : out STD_LOGIC;
+       o_output_data_addr_reg : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+       o_output_image_height : out STD_LOGIC_VECTOR(15 downto 0);
+       o_output_image_params_reg : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+       o_output_image_width : out STD_LOGIC_VECTOR(15 downto 0);
+       o_pad : out STD_LOGIC_VECTOR(3 downto 0);
+       o_relu_en : out STD_LOGIC;
+       o_status_reg : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+       o_stride : out STD_LOGIC_VECTOR(3 downto 0);
+       o_weight_filter_size : out STD_LOGIC_VECTOR(7 downto 0)
   );
 end component;
 
-----     Constants     -----
-constant DANGLING_INPUT_CONSTANT : STD_LOGIC := 'Z';
+---- Signal declarations used on the diagram ----
 
----- Declaration for Dangling input ----
-signal Dangling_Input_Signal : STD_LOGIC;
+signal inbuff_almost_empty : STD_LOGIC;
+signal inbuff_almost_full : STD_LOGIC;
+signal inbuff_empty : STD_LOGIC;
+signal inbuff_full : STD_LOGIC;
+signal inbuff_prog_empty : STD_LOGIC;
+signal inbuff_prog_full : STD_LOGIC;
+signal inbuff_rd_en : STD_LOGIC;
+signal inbuff_valid : STD_LOGIC;
+signal inbuff_wr_en : STD_LOGIC;
+signal NET1194 : STD_LOGIC;
+signal NET861 : STD_LOGIC;
+signal outbuff_almost_empty : STD_LOGIC;
+signal outbuff_almost_full : STD_LOGIC;
+signal outbuff_empty : STD_LOGIC;
+signal outbuff_full : STD_LOGIC;
+signal outbuff_prog_empty : STD_LOGIC;
+signal outbuff_prog_full : STD_LOGIC;
+signal outbuff_rd_en : STD_LOGIC;
+signal outbuff_wr_en : STD_LOGIC;
+signal BUS575 : STD_LOGIC_VECTOR(7 downto 0);
+signal inbuff_din : STD_LOGIC_VECTOR(g_data_width-1 downto 0);
+signal inbuff_dout : STD_LOGIC_VECTOR(g_data_width-1 downto 0);
+signal inbuff_prog_empty_thresh : STD_LOGIC_VECTOR(9 downto 0);
+signal inbuff_prog_full_thresh : STD_LOGIC_VECTOR(9 downto 0);
+signal outbuff_din : STD_LOGIC_VECTOR(g_data_width-1 downto 0);
+signal outbuff_dout : STD_LOGIC_VECTOR(g_data_width-1 downto 0);
+signal outbuff_prog_empty_thresh : STD_LOGIC_VECTOR(9 downto 0);
+signal outbuff_prog_full_thresh : STD_LOGIC_VECTOR(9 downto 0);
 
 begin
 
 ----  Component instantiations  ----
 
-U1 : Convolution_Controller
+CONVOLUTION : filter_top
+  generic map(
+       g_data_width => g_data_width,
+       g_red_bits => g_red_bits,
+       g_green_bits => g_green_bits,
+       g_blue_bits => g_blue_bits,
+       g_weight_width => g_weight_width,
+       g_multiplier_width => g_multiplier_width,
+       g_product_width => g_product_width,
+       g_conv_width => g_conv_width
+  )
   port map(
-       i_clear_reg(0) => Dangling_Input_Signal,
-       i_clear_reg(1) => Dangling_Input_Signal,
-       i_clear_reg(2) => Dangling_Input_Signal,
-       i_clear_reg(3) => Dangling_Input_Signal,
-       i_clear_reg(4) => Dangling_Input_Signal,
-       i_clear_reg(5) => Dangling_Input_Signal,
-       i_clear_reg(6) => Dangling_Input_Signal,
-       i_clear_reg(7) => Dangling_Input_Signal,
-       i_clear_reg(8) => Dangling_Input_Signal,
-       i_clear_reg(9) => Dangling_Input_Signal,
-       i_clear_reg(10) => Dangling_Input_Signal,
-       i_clear_reg(11) => Dangling_Input_Signal,
-       i_clear_reg(12) => Dangling_Input_Signal,
-       i_clear_reg(13) => Dangling_Input_Signal,
-       i_clear_reg(14) => Dangling_Input_Signal,
-       i_clear_reg(15) => Dangling_Input_Signal,
-       i_clear_reg(16) => Dangling_Input_Signal,
-       i_clear_reg(17) => Dangling_Input_Signal,
-       i_clear_reg(18) => Dangling_Input_Signal,
-       i_clear_reg(19) => Dangling_Input_Signal,
-       i_clear_reg(20) => Dangling_Input_Signal,
-       i_clear_reg(21) => Dangling_Input_Signal,
-       i_clear_reg(22) => Dangling_Input_Signal,
-       i_clear_reg(23) => Dangling_Input_Signal,
-       i_clear_reg(24) => Dangling_Input_Signal,
-       i_clear_reg(25) => Dangling_Input_Signal,
-       i_clear_reg(26) => Dangling_Input_Signal,
-       i_clear_reg(27) => Dangling_Input_Signal,
-       i_clear_reg(28) => Dangling_Input_Signal,
-       i_clear_reg(29) => Dangling_Input_Signal,
-       i_clear_reg(30) => Dangling_Input_Signal,
-       i_clear_reg(31) => Dangling_Input_Signal,
-       i_conv_parameters_reg(0) => Dangling_Input_Signal,
-       i_conv_parameters_reg(1) => Dangling_Input_Signal,
-       i_conv_parameters_reg(2) => Dangling_Input_Signal,
-       i_conv_parameters_reg(3) => Dangling_Input_Signal,
-       i_conv_parameters_reg(4) => Dangling_Input_Signal,
-       i_conv_parameters_reg(5) => Dangling_Input_Signal,
-       i_conv_parameters_reg(6) => Dangling_Input_Signal,
-       i_conv_parameters_reg(7) => Dangling_Input_Signal,
-       i_conv_parameters_reg(8) => Dangling_Input_Signal,
-       i_conv_parameters_reg(9) => Dangling_Input_Signal,
-       i_conv_parameters_reg(10) => Dangling_Input_Signal,
-       i_conv_parameters_reg(11) => Dangling_Input_Signal,
-       i_conv_parameters_reg(12) => Dangling_Input_Signal,
-       i_conv_parameters_reg(13) => Dangling_Input_Signal,
-       i_conv_parameters_reg(14) => Dangling_Input_Signal,
-       i_conv_parameters_reg(15) => Dangling_Input_Signal,
-       i_conv_parameters_reg(16) => Dangling_Input_Signal,
-       i_conv_parameters_reg(17) => Dangling_Input_Signal,
-       i_conv_parameters_reg(18) => Dangling_Input_Signal,
-       i_conv_parameters_reg(19) => Dangling_Input_Signal,
-       i_conv_parameters_reg(20) => Dangling_Input_Signal,
-       i_conv_parameters_reg(21) => Dangling_Input_Signal,
-       i_conv_parameters_reg(22) => Dangling_Input_Signal,
-       i_conv_parameters_reg(23) => Dangling_Input_Signal,
-       i_conv_parameters_reg(24) => Dangling_Input_Signal,
-       i_conv_parameters_reg(25) => Dangling_Input_Signal,
-       i_conv_parameters_reg(26) => Dangling_Input_Signal,
-       i_conv_parameters_reg(27) => Dangling_Input_Signal,
-       i_conv_parameters_reg(28) => Dangling_Input_Signal,
-       i_conv_parameters_reg(29) => Dangling_Input_Signal,
-       i_conv_parameters_reg(30) => Dangling_Input_Signal,
-       i_conv_parameters_reg(31) => Dangling_Input_Signal,
-       i_filter_data_addr_reg(0) => Dangling_Input_Signal,
-       i_filter_data_addr_reg(1) => Dangling_Input_Signal,
-       i_filter_data_addr_reg(2) => Dangling_Input_Signal,
-       i_filter_data_addr_reg(3) => Dangling_Input_Signal,
-       i_filter_data_addr_reg(4) => Dangling_Input_Signal,
-       i_filter_data_addr_reg(5) => Dangling_Input_Signal,
-       i_filter_data_addr_reg(6) => Dangling_Input_Signal,
-       i_filter_data_addr_reg(7) => Dangling_Input_Signal,
-       i_filter_data_addr_reg(8) => Dangling_Input_Signal,
-       i_filter_data_addr_reg(9) => Dangling_Input_Signal,
-       i_filter_data_addr_reg(10) => Dangling_Input_Signal,
-       i_filter_data_addr_reg(11) => Dangling_Input_Signal,
-       i_filter_data_addr_reg(12) => Dangling_Input_Signal,
-       i_filter_data_addr_reg(13) => Dangling_Input_Signal,
-       i_filter_data_addr_reg(14) => Dangling_Input_Signal,
-       i_filter_data_addr_reg(15) => Dangling_Input_Signal,
-       i_filter_data_addr_reg(16) => Dangling_Input_Signal,
-       i_filter_data_addr_reg(17) => Dangling_Input_Signal,
-       i_filter_data_addr_reg(18) => Dangling_Input_Signal,
-       i_filter_data_addr_reg(19) => Dangling_Input_Signal,
-       i_filter_data_addr_reg(20) => Dangling_Input_Signal,
-       i_filter_data_addr_reg(21) => Dangling_Input_Signal,
-       i_filter_data_addr_reg(22) => Dangling_Input_Signal,
-       i_filter_data_addr_reg(23) => Dangling_Input_Signal,
-       i_filter_data_addr_reg(24) => Dangling_Input_Signal,
-       i_filter_data_addr_reg(25) => Dangling_Input_Signal,
-       i_filter_data_addr_reg(26) => Dangling_Input_Signal,
-       i_filter_data_addr_reg(27) => Dangling_Input_Signal,
-       i_filter_data_addr_reg(28) => Dangling_Input_Signal,
-       i_filter_data_addr_reg(29) => Dangling_Input_Signal,
-       i_filter_data_addr_reg(30) => Dangling_Input_Signal,
-       i_filter_data_addr_reg(31) => Dangling_Input_Signal,
-       i_filter_data_reg(0) => Dangling_Input_Signal,
-       i_filter_data_reg(1) => Dangling_Input_Signal,
-       i_filter_data_reg(2) => Dangling_Input_Signal,
-       i_filter_data_reg(3) => Dangling_Input_Signal,
-       i_filter_data_reg(4) => Dangling_Input_Signal,
-       i_filter_data_reg(5) => Dangling_Input_Signal,
-       i_filter_data_reg(6) => Dangling_Input_Signal,
-       i_filter_data_reg(7) => Dangling_Input_Signal,
-       i_filter_data_reg(8) => Dangling_Input_Signal,
-       i_filter_data_reg(9) => Dangling_Input_Signal,
-       i_filter_data_reg(10) => Dangling_Input_Signal,
-       i_filter_data_reg(11) => Dangling_Input_Signal,
-       i_filter_data_reg(12) => Dangling_Input_Signal,
-       i_filter_data_reg(13) => Dangling_Input_Signal,
-       i_filter_data_reg(14) => Dangling_Input_Signal,
-       i_filter_data_reg(15) => Dangling_Input_Signal,
-       i_filter_data_reg(16) => Dangling_Input_Signal,
-       i_filter_data_reg(17) => Dangling_Input_Signal,
-       i_filter_data_reg(18) => Dangling_Input_Signal,
-       i_filter_data_reg(19) => Dangling_Input_Signal,
-       i_filter_data_reg(20) => Dangling_Input_Signal,
-       i_filter_data_reg(21) => Dangling_Input_Signal,
-       i_filter_data_reg(22) => Dangling_Input_Signal,
-       i_filter_data_reg(23) => Dangling_Input_Signal,
-       i_filter_data_reg(24) => Dangling_Input_Signal,
-       i_filter_data_reg(25) => Dangling_Input_Signal,
-       i_filter_data_reg(26) => Dangling_Input_Signal,
-       i_filter_data_reg(27) => Dangling_Input_Signal,
-       i_filter_data_reg(28) => Dangling_Input_Signal,
-       i_filter_data_reg(29) => Dangling_Input_Signal,
-       i_filter_data_reg(30) => Dangling_Input_Signal,
-       i_filter_data_reg(31) => Dangling_Input_Signal,
-       i_input_data_addr_reg(0) => Dangling_Input_Signal,
-       i_input_data_addr_reg(1) => Dangling_Input_Signal,
-       i_input_data_addr_reg(2) => Dangling_Input_Signal,
-       i_input_data_addr_reg(3) => Dangling_Input_Signal,
-       i_input_data_addr_reg(4) => Dangling_Input_Signal,
-       i_input_data_addr_reg(5) => Dangling_Input_Signal,
-       i_input_data_addr_reg(6) => Dangling_Input_Signal,
-       i_input_data_addr_reg(7) => Dangling_Input_Signal,
-       i_input_data_addr_reg(8) => Dangling_Input_Signal,
-       i_input_data_addr_reg(9) => Dangling_Input_Signal,
-       i_input_data_addr_reg(10) => Dangling_Input_Signal,
-       i_input_data_addr_reg(11) => Dangling_Input_Signal,
-       i_input_data_addr_reg(12) => Dangling_Input_Signal,
-       i_input_data_addr_reg(13) => Dangling_Input_Signal,
-       i_input_data_addr_reg(14) => Dangling_Input_Signal,
-       i_input_data_addr_reg(15) => Dangling_Input_Signal,
-       i_input_data_addr_reg(16) => Dangling_Input_Signal,
-       i_input_data_addr_reg(17) => Dangling_Input_Signal,
-       i_input_data_addr_reg(18) => Dangling_Input_Signal,
-       i_input_data_addr_reg(19) => Dangling_Input_Signal,
-       i_input_data_addr_reg(20) => Dangling_Input_Signal,
-       i_input_data_addr_reg(21) => Dangling_Input_Signal,
-       i_input_data_addr_reg(22) => Dangling_Input_Signal,
-       i_input_data_addr_reg(23) => Dangling_Input_Signal,
-       i_input_data_addr_reg(24) => Dangling_Input_Signal,
-       i_input_data_addr_reg(25) => Dangling_Input_Signal,
-       i_input_data_addr_reg(26) => Dangling_Input_Signal,
-       i_input_data_addr_reg(27) => Dangling_Input_Signal,
-       i_input_data_addr_reg(28) => Dangling_Input_Signal,
-       i_input_data_addr_reg(29) => Dangling_Input_Signal,
-       i_input_data_addr_reg(30) => Dangling_Input_Signal,
-       i_input_data_addr_reg(31) => Dangling_Input_Signal,
-       i_input_data_reg(0) => Dangling_Input_Signal,
-       i_input_data_reg(1) => Dangling_Input_Signal,
-       i_input_data_reg(2) => Dangling_Input_Signal,
-       i_input_data_reg(3) => Dangling_Input_Signal,
-       i_input_data_reg(4) => Dangling_Input_Signal,
-       i_input_data_reg(5) => Dangling_Input_Signal,
-       i_input_data_reg(6) => Dangling_Input_Signal,
-       i_input_data_reg(7) => Dangling_Input_Signal,
-       i_input_data_reg(8) => Dangling_Input_Signal,
-       i_input_data_reg(9) => Dangling_Input_Signal,
-       i_input_data_reg(10) => Dangling_Input_Signal,
-       i_input_data_reg(11) => Dangling_Input_Signal,
-       i_input_data_reg(12) => Dangling_Input_Signal,
-       i_input_data_reg(13) => Dangling_Input_Signal,
-       i_input_data_reg(14) => Dangling_Input_Signal,
-       i_input_data_reg(15) => Dangling_Input_Signal,
-       i_input_data_reg(16) => Dangling_Input_Signal,
-       i_input_data_reg(17) => Dangling_Input_Signal,
-       i_input_data_reg(18) => Dangling_Input_Signal,
-       i_input_data_reg(19) => Dangling_Input_Signal,
-       i_input_data_reg(20) => Dangling_Input_Signal,
-       i_input_data_reg(21) => Dangling_Input_Signal,
-       i_input_data_reg(22) => Dangling_Input_Signal,
-       i_input_data_reg(23) => Dangling_Input_Signal,
-       i_input_data_reg(24) => Dangling_Input_Signal,
-       i_input_data_reg(25) => Dangling_Input_Signal,
-       i_input_data_reg(26) => Dangling_Input_Signal,
-       i_input_data_reg(27) => Dangling_Input_Signal,
-       i_input_data_reg(28) => Dangling_Input_Signal,
-       i_input_data_reg(29) => Dangling_Input_Signal,
-       i_input_data_reg(30) => Dangling_Input_Signal,
-       i_input_data_reg(31) => Dangling_Input_Signal,
-       i_output_data_addr_reg(0) => Dangling_Input_Signal,
-       i_output_data_addr_reg(1) => Dangling_Input_Signal,
-       i_output_data_addr_reg(2) => Dangling_Input_Signal,
-       i_output_data_addr_reg(3) => Dangling_Input_Signal,
-       i_output_data_addr_reg(4) => Dangling_Input_Signal,
-       i_output_data_addr_reg(5) => Dangling_Input_Signal,
-       i_output_data_addr_reg(6) => Dangling_Input_Signal,
-       i_output_data_addr_reg(7) => Dangling_Input_Signal,
-       i_output_data_addr_reg(8) => Dangling_Input_Signal,
-       i_output_data_addr_reg(9) => Dangling_Input_Signal,
-       i_output_data_addr_reg(10) => Dangling_Input_Signal,
-       i_output_data_addr_reg(11) => Dangling_Input_Signal,
-       i_output_data_addr_reg(12) => Dangling_Input_Signal,
-       i_output_data_addr_reg(13) => Dangling_Input_Signal,
-       i_output_data_addr_reg(14) => Dangling_Input_Signal,
-       i_output_data_addr_reg(15) => Dangling_Input_Signal,
-       i_output_data_addr_reg(16) => Dangling_Input_Signal,
-       i_output_data_addr_reg(17) => Dangling_Input_Signal,
-       i_output_data_addr_reg(18) => Dangling_Input_Signal,
-       i_output_data_addr_reg(19) => Dangling_Input_Signal,
-       i_output_data_addr_reg(20) => Dangling_Input_Signal,
-       i_output_data_addr_reg(21) => Dangling_Input_Signal,
-       i_output_data_addr_reg(22) => Dangling_Input_Signal,
-       i_output_data_addr_reg(23) => Dangling_Input_Signal,
-       i_output_data_addr_reg(24) => Dangling_Input_Signal,
-       i_output_data_addr_reg(25) => Dangling_Input_Signal,
-       i_output_data_addr_reg(26) => Dangling_Input_Signal,
-       i_output_data_addr_reg(27) => Dangling_Input_Signal,
-       i_output_data_addr_reg(28) => Dangling_Input_Signal,
-       i_output_data_addr_reg(29) => Dangling_Input_Signal,
-       i_output_data_addr_reg(30) => Dangling_Input_Signal,
-       i_output_data_addr_reg(31) => Dangling_Input_Signal,
-       i_output_data_reg(0) => Dangling_Input_Signal,
-       i_output_data_reg(1) => Dangling_Input_Signal,
-       i_output_data_reg(2) => Dangling_Input_Signal,
-       i_output_data_reg(3) => Dangling_Input_Signal,
-       i_output_data_reg(4) => Dangling_Input_Signal,
-       i_output_data_reg(5) => Dangling_Input_Signal,
-       i_output_data_reg(6) => Dangling_Input_Signal,
-       i_output_data_reg(7) => Dangling_Input_Signal,
-       i_output_data_reg(8) => Dangling_Input_Signal,
-       i_output_data_reg(9) => Dangling_Input_Signal,
-       i_output_data_reg(10) => Dangling_Input_Signal,
-       i_output_data_reg(11) => Dangling_Input_Signal,
-       i_output_data_reg(12) => Dangling_Input_Signal,
-       i_output_data_reg(13) => Dangling_Input_Signal,
-       i_output_data_reg(14) => Dangling_Input_Signal,
-       i_output_data_reg(15) => Dangling_Input_Signal,
-       i_output_data_reg(16) => Dangling_Input_Signal,
-       i_output_data_reg(17) => Dangling_Input_Signal,
-       i_output_data_reg(18) => Dangling_Input_Signal,
-       i_output_data_reg(19) => Dangling_Input_Signal,
-       i_output_data_reg(20) => Dangling_Input_Signal,
-       i_output_data_reg(21) => Dangling_Input_Signal,
-       i_output_data_reg(22) => Dangling_Input_Signal,
-       i_output_data_reg(23) => Dangling_Input_Signal,
-       i_output_data_reg(24) => Dangling_Input_Signal,
-       i_output_data_reg(25) => Dangling_Input_Signal,
-       i_output_data_reg(26) => Dangling_Input_Signal,
-       i_output_data_reg(27) => Dangling_Input_Signal,
-       i_output_data_reg(28) => Dangling_Input_Signal,
-       i_output_data_reg(29) => Dangling_Input_Signal,
-       i_output_data_reg(30) => Dangling_Input_Signal,
-       i_output_data_reg(31) => Dangling_Input_Signal,
-       i_relu_control_reg(0) => Dangling_Input_Signal,
-       i_relu_control_reg(1) => Dangling_Input_Signal,
-       i_relu_control_reg(2) => Dangling_Input_Signal,
-       i_relu_control_reg(3) => Dangling_Input_Signal,
-       i_relu_control_reg(4) => Dangling_Input_Signal,
-       i_relu_control_reg(5) => Dangling_Input_Signal,
-       i_relu_control_reg(6) => Dangling_Input_Signal,
-       i_relu_control_reg(7) => Dangling_Input_Signal,
-       i_relu_control_reg(8) => Dangling_Input_Signal,
-       i_relu_control_reg(9) => Dangling_Input_Signal,
-       i_relu_control_reg(10) => Dangling_Input_Signal,
-       i_relu_control_reg(11) => Dangling_Input_Signal,
-       i_relu_control_reg(12) => Dangling_Input_Signal,
-       i_relu_control_reg(13) => Dangling_Input_Signal,
-       i_relu_control_reg(14) => Dangling_Input_Signal,
-       i_relu_control_reg(15) => Dangling_Input_Signal,
-       i_relu_control_reg(16) => Dangling_Input_Signal,
-       i_relu_control_reg(17) => Dangling_Input_Signal,
-       i_relu_control_reg(18) => Dangling_Input_Signal,
-       i_relu_control_reg(19) => Dangling_Input_Signal,
-       i_relu_control_reg(20) => Dangling_Input_Signal,
-       i_relu_control_reg(21) => Dangling_Input_Signal,
-       i_relu_control_reg(22) => Dangling_Input_Signal,
-       i_relu_control_reg(23) => Dangling_Input_Signal,
-       i_relu_control_reg(24) => Dangling_Input_Signal,
-       i_relu_control_reg(25) => Dangling_Input_Signal,
-       i_relu_control_reg(26) => Dangling_Input_Signal,
-       i_relu_control_reg(27) => Dangling_Input_Signal,
-       i_relu_control_reg(28) => Dangling_Input_Signal,
-       i_relu_control_reg(29) => Dangling_Input_Signal,
-       i_relu_control_reg(30) => Dangling_Input_Signal,
-       i_relu_control_reg(31) => Dangling_Input_Signal,
-       i_repeat_reg(0) => Dangling_Input_Signal,
-       i_repeat_reg(1) => Dangling_Input_Signal,
-       i_repeat_reg(2) => Dangling_Input_Signal,
-       i_repeat_reg(3) => Dangling_Input_Signal,
-       i_repeat_reg(4) => Dangling_Input_Signal,
-       i_repeat_reg(5) => Dangling_Input_Signal,
-       i_repeat_reg(6) => Dangling_Input_Signal,
-       i_repeat_reg(7) => Dangling_Input_Signal,
-       i_repeat_reg(8) => Dangling_Input_Signal,
-       i_repeat_reg(9) => Dangling_Input_Signal,
-       i_repeat_reg(10) => Dangling_Input_Signal,
-       i_repeat_reg(11) => Dangling_Input_Signal,
-       i_repeat_reg(12) => Dangling_Input_Signal,
-       i_repeat_reg(13) => Dangling_Input_Signal,
-       i_repeat_reg(14) => Dangling_Input_Signal,
-       i_repeat_reg(15) => Dangling_Input_Signal,
-       i_repeat_reg(16) => Dangling_Input_Signal,
-       i_repeat_reg(17) => Dangling_Input_Signal,
-       i_repeat_reg(18) => Dangling_Input_Signal,
-       i_repeat_reg(19) => Dangling_Input_Signal,
-       i_repeat_reg(20) => Dangling_Input_Signal,
-       i_repeat_reg(21) => Dangling_Input_Signal,
-       i_repeat_reg(22) => Dangling_Input_Signal,
-       i_repeat_reg(23) => Dangling_Input_Signal,
-       i_repeat_reg(24) => Dangling_Input_Signal,
-       i_repeat_reg(25) => Dangling_Input_Signal,
-       i_repeat_reg(26) => Dangling_Input_Signal,
-       i_repeat_reg(27) => Dangling_Input_Signal,
-       i_repeat_reg(28) => Dangling_Input_Signal,
-       i_repeat_reg(29) => Dangling_Input_Signal,
-       i_repeat_reg(30) => Dangling_Input_Signal,
-       i_repeat_reg(31) => Dangling_Input_Signal,
-       i_start_reg(0) => Dangling_Input_Signal,
-       i_start_reg(1) => Dangling_Input_Signal,
-       i_start_reg(2) => Dangling_Input_Signal,
-       i_start_reg(3) => Dangling_Input_Signal,
-       i_start_reg(4) => Dangling_Input_Signal,
-       i_start_reg(5) => Dangling_Input_Signal,
-       i_start_reg(6) => Dangling_Input_Signal,
-       i_start_reg(7) => Dangling_Input_Signal,
-       i_start_reg(8) => Dangling_Input_Signal,
-       i_start_reg(9) => Dangling_Input_Signal,
-       i_start_reg(10) => Dangling_Input_Signal,
-       i_start_reg(11) => Dangling_Input_Signal,
-       i_start_reg(12) => Dangling_Input_Signal,
-       i_start_reg(13) => Dangling_Input_Signal,
-       i_start_reg(14) => Dangling_Input_Signal,
-       i_start_reg(15) => Dangling_Input_Signal,
-       i_start_reg(16) => Dangling_Input_Signal,
-       i_start_reg(17) => Dangling_Input_Signal,
-       i_start_reg(18) => Dangling_Input_Signal,
-       i_start_reg(19) => Dangling_Input_Signal,
-       i_start_reg(20) => Dangling_Input_Signal,
-       i_start_reg(21) => Dangling_Input_Signal,
-       i_start_reg(22) => Dangling_Input_Signal,
-       i_start_reg(23) => Dangling_Input_Signal,
-       i_start_reg(24) => Dangling_Input_Signal,
-       i_start_reg(25) => Dangling_Input_Signal,
-       i_start_reg(26) => Dangling_Input_Signal,
-       i_start_reg(27) => Dangling_Input_Signal,
-       i_start_reg(28) => Dangling_Input_Signal,
-       i_start_reg(29) => Dangling_Input_Signal,
-       i_start_reg(30) => Dangling_Input_Signal,
-       i_start_reg(31) => Dangling_Input_Signal,
-       i_status_reg(0) => Dangling_Input_Signal,
-       i_status_reg(1) => Dangling_Input_Signal,
-       i_status_reg(2) => Dangling_Input_Signal,
-       i_status_reg(3) => Dangling_Input_Signal,
-       i_status_reg(4) => Dangling_Input_Signal,
-       i_status_reg(5) => Dangling_Input_Signal,
-       i_status_reg(6) => Dangling_Input_Signal,
-       i_status_reg(7) => Dangling_Input_Signal,
-       i_status_reg(8) => Dangling_Input_Signal,
-       i_status_reg(9) => Dangling_Input_Signal,
-       i_status_reg(10) => Dangling_Input_Signal,
-       i_status_reg(11) => Dangling_Input_Signal,
-       i_status_reg(12) => Dangling_Input_Signal,
-       i_status_reg(13) => Dangling_Input_Signal,
-       i_status_reg(14) => Dangling_Input_Signal,
-       i_status_reg(15) => Dangling_Input_Signal,
-       i_status_reg(16) => Dangling_Input_Signal,
-       i_status_reg(17) => Dangling_Input_Signal,
-       i_status_reg(18) => Dangling_Input_Signal,
-       i_status_reg(19) => Dangling_Input_Signal,
-       i_status_reg(20) => Dangling_Input_Signal,
-       i_status_reg(21) => Dangling_Input_Signal,
-       i_status_reg(22) => Dangling_Input_Signal,
-       i_status_reg(23) => Dangling_Input_Signal,
-       i_status_reg(24) => Dangling_Input_Signal,
-       i_status_reg(25) => Dangling_Input_Signal,
-       i_status_reg(26) => Dangling_Input_Signal,
-       i_status_reg(27) => Dangling_Input_Signal,
-       i_status_reg(28) => Dangling_Input_Signal,
-       i_status_reg(29) => Dangling_Input_Signal,
-       i_status_reg(30) => Dangling_Input_Signal,
-       i_status_reg(31) => Dangling_Input_Signal,
-       i_clk => Dangling_Input_Signal,
-       i_reset_n => Dangling_Input_Signal
+       i_clk => i_master_clk,
+       i_inbuff_almost_empty => inbuff_almost_empty,
+       i_inbuff_dout => inbuff_dout(g_data_width-1 downto 0),
+       i_inbuff_empty => inbuff_empty,
+       i_inbuff_prog_empty => inbuff_prog_empty,
+       i_inbuff_valid => inbuff_valid,
+       i_reset_n => i_ext_reset_n,
+       o_conv_out => BUS575(7 downto 0),
+       o_inbuff_prog_empty_thresh => inbuff_prog_empty_thresh,
+       o_inbuff_rd_en => inbuff_rd_en
   );
 
+INPUT_BUFFER : conv_input_buffer
+  port map(
+       almost_empty => inbuff_almost_empty,
+       almost_full => inbuff_almost_full,
+       din => inbuff_din(g_data_width-1 downto 0),
+       dout => inbuff_dout(g_data_width-1 downto 0),
+       empty => inbuff_empty,
+       full => inbuff_full,
+       prog_empty => inbuff_prog_empty,
+       prog_empty_thresh => inbuff_prog_empty_thresh,
+       prog_full => inbuff_prog_full,
+       prog_full_thresh => inbuff_prog_full_thresh,
+       rd_clk => i_master_clk,
+       rd_en => inbuff_rd_en,
+       rst => i_ext_reset_n,
+       valid => inbuff_valid,
+       wr_clk => i_master_clk,
+       wr_en => inbuff_wr_en
+  );
 
----- Dangling input signal assignment ----
+OUTPUT_BUFFER : conv_output_buffer
+  port map(
+       almost_empty => outbuff_almost_empty,
+       almost_full => outbuff_almost_full,
+       din => outbuff_din(g_data_width-1 downto 0),
+       dout => outbuff_dout(g_data_width-1 downto 0),
+       empty => outbuff_empty,
+       full => outbuff_full,
+       prog_empty => outbuff_prog_empty,
+       prog_empty_thresh => outbuff_prog_empty_thresh,
+       prog_full => outbuff_prog_full,
+       prog_full_thresh => outbuff_prog_full_thresh,
+       rd_clk => i_master_clk,
+       rd_en => outbuff_rd_en,
+       rst => i_ext_reset_n,
+       valid => NET861,
+       wr_clk => i_master_clk,
+       wr_en => outbuff_wr_en
+  );
 
-Dangling_Input_Signal <= DANGLING_INPUT_CONSTANT;
+RELU : relu_unit
+  generic map(
+       g_conv_width => g_conv_width,
+       g_relu_width => g_relu_width
+  )
+  port map(
+       i_clk => i_master_clk,
+       i_conv_out => BUS575(7 downto 0),
+       i_fifo_almost_full => outbuff_almost_full,
+       i_fifo_full => outbuff_full,
+       i_fifo_prog_full => outbuff_prog_full,
+       i_reset_n => i_ext_reset_n,
+       o_fifo_prog_full_thresh => outbuff_prog_full_thresh,
+       o_relu_out => outbuff_din(g_data_width-1 downto 0),
+       o_wr_en => outbuff_wr_en
+  );
+
+ROUTER : Convolution_Controller
+  generic map(
+       g_axi_bus_width => g_axi_bus_width,
+       g_relu_width => g_relu_width,
+       g_data_width => g_data_width
+  )
+  port map(
+       i_control_reg => i_control_reg(g_axi_bus_width-1 downto 0),
+       i_conv_params_reg => i_conv_params_reg(g_axi_bus_width-1 downto 0),
+       i_conv_relu_output => outbuff_dout(g_data_width-1 downto 0),
+       i_ext_reset_n => i_ext_reset_n,
+       i_filter_weights_addr_reg => i_filter_weights_addr_reg(g_axi_bus_width-1 downto 0),
+       i_inbuff_almost_empty => inbuff_almost_empty,
+       i_inbuff_almost_full => inbuff_almost_full,
+       i_inbuff_empty => inbuff_prog_empty,
+       i_inbuff_full => inbuff_full,
+       i_inbuff_prog_empty => inbuff_empty,
+       i_inbuff_prog_full => inbuff_prog_full,
+       i_input_data_addr_reg => i_input_data_addr_reg(g_axi_bus_width-1 downto 0),
+       i_input_image_params_reg => i_input_image_params_reg(g_axi_bus_width-1 downto 0),
+       i_master_clk => i_master_clk,
+       i_outbuff_almost_empty => outbuff_almost_empty,
+       i_outbuff_almost_full => outbuff_almost_full,
+       i_outbuff_empty => outbuff_empty,
+       i_outbuff_full => outbuff_full,
+       i_outbuff_prog_empty => outbuff_prog_empty,
+       i_outbuff_prog_full => outbuff_prog_full,
+       i_outbuff_valid => NET861,
+       i_output_data_addr_reg => i_output_data_addr_reg(g_axi_bus_width-1 downto 0),
+       i_output_image_params_reg => i_output_image_params_reg(g_axi_bus_width-1 downto 0),
+       i_slave_clk => i_slave_clk,
+       i_status_reg => i_status_reg(g_axi_bus_width-1 downto 0),
+       o_control_reg => o_control_reg(g_axi_bus_width-1 downto 0),
+       o_conv_params_reg => o_conv_params_reg(g_axi_bus_width-1 downto 0),
+       o_filter_weights_addr_reg => o_filter_weights_addr_reg(g_axi_bus_width-1 downto 0),
+       o_image_data => inbuff_din(g_data_width-1 downto 0),
+       o_inbuff_prog_full_thresh => inbuff_prog_full_thresh,
+       o_inbuff_wr_en => inbuff_wr_en,
+       o_input_data_addr_reg => o_input_data_addr_reg(g_axi_bus_width-1 downto 0),
+       o_input_image_params_reg => o_input_image_params_reg(g_axi_bus_width-1 downto 0),
+       o_outbuff_prog_empty_thresh => outbuff_prog_empty_thresh,
+       o_outbuff_rd_en => outbuff_rd_en,
+       o_output_data_addr_reg => o_output_data_addr_reg(g_axi_bus_width-1 downto 0),
+       o_output_image_params_reg => o_output_image_params_reg(g_axi_bus_width-1 downto 0),
+       o_status_reg => o_status_reg(g_axi_bus_width-1 downto 0)
+  );
+
 
 end arch;

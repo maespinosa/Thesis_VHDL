@@ -5,7 +5,7 @@ use ieee.numeric_std.all;
 entity Convolution_Layer_v1_0_S00_AXI is
 	generic (
 		-- Users to add parameters here
-
+        g_axi_bus_width     : integer := 32; 
 		-- User parameters ends
 		-- Do not modify the parameters beyond this line
 
@@ -16,7 +16,32 @@ entity Convolution_Layer_v1_0_S00_AXI is
 	);
 	port (
 		-- Users to add ports here
-
+           i_clear_reg              : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+        i_conv_parameters_reg    : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+        i_filter_control_reg     : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+        i_filter_data_addr_reg   : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+        i_filter_data_reg        : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+        i_input_data_addr_reg    : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+        i_input_data_reg         : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+        i_output_data_addr_reg   : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+        i_output_data_reg        : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+        i_relu_control_reg       : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+        i_repeat_reg             : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+        i_start_reg              : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+        i_status_reg             : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+        o_clear_reg              : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+        o_conv_parameters_reg    : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+        o_filter_contro_reg      : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+        o_filter_data_addr_reg   : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+        o_filter_data_reg        : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+        o_input_data_addr_reg    : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+        o_input_data_reg         : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+        o_output_data_addr_reg   : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+        o_output_data_reg        : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+        o_relu_control_reg       : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+        o_repeat_reg             : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+        o_start_reg              : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+        o_status_reg             : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
 		-- User ports ends
 		-- Do not modify the ports beyond this line
 
