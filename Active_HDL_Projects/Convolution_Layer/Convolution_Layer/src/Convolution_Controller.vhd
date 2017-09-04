@@ -30,7 +30,8 @@ entity Convolution_Controller is
 	generic(  
 	g_axi_bus_width : integer := 32; 
 	g_relu_width : integer := 16; 
-	g_data_width : integer := 16
+	g_data_width : integer := 16; 
+	g_weight_width : integer := 16
 	); 
 	port(
 	i_slave_clk	: in std_logic; 
@@ -42,7 +43,8 @@ entity Convolution_Controller is
 	i_status_reg 				: in std_logic_vector(g_axi_bus_width-1 downto 0); 
 	i_input_data_addr_reg		: in std_logic_vector(g_axi_bus_width-1 downto 0);
 	i_output_data_addr_reg	 	: in std_logic_vector(g_axi_bus_width-1 downto 0);
-	i_filter_weights_addr_reg	: in std_logic_vector(g_axi_bus_width-1 downto 0);	
+	i_filter_weights_addr_reg	: in std_logic_vector(g_axi_bus_width-1 downto 0);
+	i_filter_bytes_reg			: in std_logic_vector(g_axi_bus_width-1 downto 0); 
 	i_input_image_params_reg	: in std_logic_vector(g_axi_bus_width-1 downto 0);	
 	i_output_image_params_reg 	: in std_logic_vector(g_axi_bus_width-1 downto 0);	   
 	i_conv_params_reg			: in std_logic_vector(g_axi_bus_width-1 downto 0);	 
@@ -53,6 +55,7 @@ entity Convolution_Controller is
 	o_input_data_addr_reg		: out std_logic_vector(g_axi_bus_width-1 downto 0);
 	o_output_data_addr_reg	 	: out std_logic_vector(g_axi_bus_width-1 downto 0);
 	o_filter_weights_addr_reg	: out std_logic_vector(g_axi_bus_width-1 downto 0);	
+	o_filter_bytes_reg			: out std_logic_vector(g_axi_bus_width-1 downto 0); 
 	o_input_image_params_reg	: out std_logic_vector(g_axi_bus_width-1 downto 0);	
 	o_output_image_params_reg 	: out std_logic_vector(g_axi_bus_width-1 downto 0);	   
 	o_conv_params_reg			: out std_logic_vector(g_axi_bus_width-1 downto 0);	 
@@ -86,17 +89,21 @@ entity Convolution_Controller is
 	o_outbuff_prog_empty_thresh : out std_logic_vector(9 downto 0); 
 	
 	o_relu_en 					: out std_logic; 
-	o_enable					: out std_logic; 
+	o_enable					: out std_logic; 	  
+	o_start						: out std_logic; 
 	
 	o_input_image_height	  	: out std_logic_vector(15 downto 0); 
 	o_input_image_width			: out std_logic_vector(15 downto 0);  
 	o_output_image_height	  	: out std_logic_vector(15 downto 0); 
 	o_output_image_width		: out std_logic_vector(15 downto 0); 
-	o_weight_filter_size		: out std_logic_vector(7 downto 0); 
+--	o_weight_filter_size		: out std_logic_vector(7 downto 0); 
+	o_weight_filter_height		: out std_logic_vector(3 downto 0); 
+	o_weight_filter_width		: out std_logic_vector(3 downto 0); 
 	o_number_of_filters			: out std_logic_vector(7 downto 0); 
 	
 	o_stride					: out std_logic_vector(3 downto 0); 
-	o_pad						: out std_logic_vector(3 downto 0)
+	o_pad						: out std_logic_vector(3 downto 0); 
+	o_filter_weights			: out std_logic_vector(g_weight_width-1 downto 0)
 	); 
 	
 end Convolution_Controller;
@@ -107,7 +114,9 @@ architecture arch of Convolution_Controller is
 	signal clear 		: std_logic; 
 	signal get_weights 	: std_logic;  
 	signal weights_loaded: std_logic;  
-	signal repeat_count	: std_logic_vector(7 downto 0); 
+	signal repeat_count	: std_logic_vector(7 downto 0);   
+	signal layer_number	: std_logic_vector(7 downto 0);  
+	signal start		: std_logic; 
 begin  
 	
 	--BACK TO AXI SLAVE INTERFACE
@@ -145,9 +154,11 @@ begin
 	o_conv_params_reg			<= i_conv_params_reg; 
 	
 	--TO LOGIC 
-	o_relu_en 					<= i_control_reg(12);  
-	get_weights 				<= i_control_reg(8); 
-	clear 						<= i_control_reg(4); 
+ 	layer_number				<= i_control_reg(23 downto 16); 
+	get_weights 				<= i_control_reg(4);  
+	o_relu_en 					<= i_control_reg(3); 
+	clear 						<= i_control_reg(2); 
+	start						<= i_control_reg(1);
 	o_enable 					<= i_control_reg(0);    
 	
 	o_input_image_height 		<= i_input_image_params_reg(31 downto 16);
@@ -156,14 +167,16 @@ begin
 	o_output_image_height 		<= i_output_image_params_reg(31 downto 16);
 	o_output_image_width 		<= i_output_image_params_reg(15 downto 0); 	  
 	
-	o_weight_filter_size		<= i_conv_params_reg(31 downto 24); 
+	--o_weight_filter_size		<= i_conv_params_reg(31 downto 24); 
+	o_weight_filter_height		<= i_conv_params_reg(31 downto 28); 
+	o_weight_filter_width		<= i_conv_params_reg(27 downto 24); 
 	o_number_of_filters 		<= i_conv_params_reg(23 downto 16); 
 	
 	o_stride 					<= i_conv_params_reg(11 downto 8); 
 	o_pad 						<= i_conv_params_reg(3 downto 0);
 	
 	
-	
+ 	
 	
 	
 							

@@ -8,7 +8,7 @@
 -------------------------------------------------------------------------------
 --
 -- File        : c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\compile\filter_top.vhd
--- Generated   : Sun Sep  3 09:27:55 2017
+-- Generated   : Mon Sep  4 16:12:07 2017
 -- From        : c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\filter_top.bde
 -- By          : Bde2Vhdl ver. 2.6
 --
@@ -39,13 +39,18 @@ entity filter_top is
   );
   port(
        i_clk : in STD_LOGIC;
+       i_enable : in STD_LOGIC;
        i_inbuff_almost_empty : in STD_LOGIC;
        i_inbuff_empty : in STD_LOGIC;
        i_inbuff_prog_empty : in STD_LOGIC;
        i_inbuff_valid : in STD_LOGIC;
        i_reset_n : in STD_LOGIC;
+       i_filter_height : in STD_LOGIC_VECTOR(3 downto 0);
+       i_filter_weights : in STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
+       i_filter_width : in STD_LOGIC_VECTOR(3 downto 0);
        i_inbuff_dout : in STD_LOGIC_VECTOR(15 downto 0);
        o_inbuff_rd_en : out STD_LOGIC;
+       o_weights_loaded : out STD_LOGIC;
        o_conv_out : out STD_LOGIC_VECTOR(g_conv_width-1 downto 0);
        o_inbuff_prog_empty_thresh : out STD_LOGIC_VECTOR(9 downto 0)
   );
@@ -104,6 +109,7 @@ component accumulator
   );
   port (
        i_clk : in STD_LOGIC;
+       i_enable : in STD_LOGIC;
        i_product0_blue : in STD_LOGIC_VECTOR(g_product_width-1 downto 0);
        i_product0_green : in STD_LOGIC_VECTOR(g_product_width-1 downto 0);
        i_product0_red : in STD_LOGIC_VECTOR(g_product_width-1 downto 0);
@@ -141,6 +147,53 @@ component accumulator
        o_conv_out : out STD_LOGIC_VECTOR(g_conv_width-1 downto 0)
   );
 end component;
+component filter_weight_controller
+  generic(
+       g_weight_width : INTEGER := 16
+  );
+  port (
+       i_clk : in STD_LOGIC;
+       i_enable : in STD_LOGIC;
+       i_filter_height : in STD_LOGIC_VECTOR(3 downto 0);
+       i_filter_weights : in STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
+       i_filter_width : in STD_LOGIC_VECTOR(3 downto 0);
+       i_reset_n : in STD_LOGIC;
+       o_w0_blue : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
+       o_w0_green : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
+       o_w0_red : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
+       o_w10_blue : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
+       o_w10_green : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
+       o_w10_red : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
+       o_w1_blue : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
+       o_w1_green : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
+       o_w1_red : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
+       o_w2_blue : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
+       o_w2_green : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
+       o_w2_red : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
+       o_w3_blue : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
+       o_w3_green : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
+       o_w3_red : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
+       o_w4_blue : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
+       o_w4_green : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
+       o_w4_red : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
+       o_w5_blue : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
+       o_w5_green : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
+       o_w5_red : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
+       o_w6_blue : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
+       o_w6_green : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
+       o_w6_red : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
+       o_w7_blue : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
+       o_w7_green : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
+       o_w7_red : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
+       o_w8_blue : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
+       o_w8_green : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
+       o_w8_red : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
+       o_w9_blue : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
+       o_w9_green : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
+       o_w9_red : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
+       o_weights_loaded : out STD_LOGIC
+  );
+end component;
 component input_fifo_network
   generic(
        g_data_width : integer := 16;
@@ -150,6 +203,7 @@ component input_fifo_network
   );
   port (
        din : in STD_LOGIC_VECTOR(g_data_width-1 downto 0);
+       i_enable : in STD_LOGIC;
        i_rd_clk : in STD_LOGIC;
        i_reset_n : in STD_LOGIC;
        i_wr_clk : in STD_LOGIC;
@@ -209,6 +263,7 @@ component input_fifo_net_controller
        i_almost_full : in STD_LOGIC_VECTOR(10 downto 0);
        i_clk : in STD_LOGIC;
        i_empty : in STD_LOGIC_VECTOR(10 downto 0);
+       i_enable : in STD_LOGIC;
        i_full : in STD_LOGIC_VECTOR(10 downto 0);
        i_inbuff_almost_empty : in STD_LOGIC;
        i_inbuff_dout : in STD_LOGIC_VECTOR(15 downto 0);
@@ -225,46 +280,14 @@ component input_fifo_net_controller
        o_prog_empty_thresh : out STD_LOGIC_VECTOR(9 downto 0);
        o_prog_full_thresh : out STD_LOGIC_VECTOR(9 downto 0);
        o_rd_en : out STD_LOGIC_VECTOR(10 downto 0);
-       o_wr_en : out STD_LOGIC_VECTOR(10 downto 0);
-       w0_blue : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
-       w0_green : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
-       w0_red : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
-       w10_blue : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
-       w10_green : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
-       w10_red : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
-       w1_blue : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
-       w1_green : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
-       w1_red : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
-       w2_blue : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
-       w2_green : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
-       w2_red : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
-       w3_blue : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
-       w3_green : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
-       w3_red : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
-       w4_blue : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
-       w4_green : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
-       w4_red : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
-       w5_blue : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
-       w5_green : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
-       w5_red : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
-       w6_blue : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
-       w6_green : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
-       w6_red : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
-       w7_blue : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
-       w7_green : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
-       w7_red : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
-       w8_blue : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
-       w8_green : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
-       w8_red : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
-       w9_blue : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
-       w9_green : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
-       w9_red : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0)
+       o_wr_en : out STD_LOGIC_VECTOR(10 downto 0)
   );
 end component;
 
 ---- Signal declarations used on the diagram ----
 
 signal i_rd_clk : STD_LOGIC;
+signal NET7318 : STD_LOGIC;
 signal almost_empty : STD_LOGIC_VECTOR(10 downto 0);
 signal almost_full : STD_LOGIC_VECTOR(10 downto 0);
 signal data0_blue : STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
@@ -520,6 +543,7 @@ U1 : input_fifo_network
        din => din(g_data_width-1 downto 0),
        empty => empty,
        full => full,
+       i_enable => i_enable,
        i_rd_clk => i_rd_clk,
        i_reset_n => i_reset_n,
        i_wr_clk => i_rd_clk,
@@ -575,6 +599,7 @@ U13 : input_fifo_net_controller
        i_almost_full => almost_full,
        i_clk => i_rd_clk,
        i_empty => empty,
+       i_enable => i_enable,
        i_full => full,
        i_inbuff_almost_empty => i_inbuff_almost_empty,
        i_inbuff_dout => i_inbuff_dout,
@@ -591,40 +616,7 @@ U13 : input_fifo_net_controller
        o_prog_empty_thresh => prog_empty_thresh,
        o_prog_full_thresh => prog_full_thresh,
        o_rd_en => rd_en,
-       o_wr_en => wr_en,
-       w0_blue => w0_blue(g_multiplier_width-1 downto 0),
-       w0_green => w0_green(g_multiplier_width-1 downto 0),
-       w0_red => w0_red(g_multiplier_width-1 downto 0),
-       w10_blue => w10_blue(g_multiplier_width-1 downto 0),
-       w10_green => w10_green(g_multiplier_width-1 downto 0),
-       w10_red => w10_red(g_multiplier_width-1 downto 0),
-       w1_blue => w1_blue(g_multiplier_width-1 downto 0),
-       w1_green => w1_green(g_multiplier_width-1 downto 0),
-       w1_red => w1_red(g_multiplier_width-1 downto 0),
-       w2_blue => w2_blue(g_multiplier_width-1 downto 0),
-       w2_green => w2_green(g_multiplier_width-1 downto 0),
-       w2_red => w2_red(g_multiplier_width-1 downto 0),
-       w3_blue => w3_blue(g_multiplier_width-1 downto 0),
-       w3_green => w3_green(g_multiplier_width-1 downto 0),
-       w3_red => w3_red(g_multiplier_width-1 downto 0),
-       w4_blue => w4_blue(g_multiplier_width-1 downto 0),
-       w4_green => w4_green(g_multiplier_width-1 downto 0),
-       w4_red => w4_red(g_multiplier_width-1 downto 0),
-       w5_blue => w5_blue(g_multiplier_width-1 downto 0),
-       w5_green => w5_green(g_multiplier_width-1 downto 0),
-       w5_red => w5_red(g_multiplier_width-1 downto 0),
-       w6_blue => w6_blue(g_multiplier_width-1 downto 0),
-       w6_green => w6_green(g_multiplier_width-1 downto 0),
-       w6_red => w6_red(g_multiplier_width-1 downto 0),
-       w7_blue => w7_blue(g_multiplier_width-1 downto 0),
-       w7_green => w7_green(g_multiplier_width-1 downto 0),
-       w7_red => w7_red(g_multiplier_width-1 downto 0),
-       w8_blue => w8_blue(g_multiplier_width-1 downto 0),
-       w8_green => w8_green(g_multiplier_width-1 downto 0),
-       w8_red => w8_red(g_multiplier_width-1 downto 0),
-       w9_blue => w9_blue(g_multiplier_width-1 downto 0),
-       w9_green => w9_green(g_multiplier_width-1 downto 0),
-       w9_red => w9_red(g_multiplier_width-1 downto 0)
+       o_wr_en => wr_en
   );
 
 U2 : accumulator
@@ -634,6 +626,7 @@ U2 : accumulator
   )
   port map(
        i_clk => i_clk,
+       i_enable => i_enable,
        i_product0_blue => product0_blue(g_product_width-1 downto 0),
        i_product0_green => product0_green(g_product_width-1 downto 0),
        i_product0_red => product0_red(g_product_width-1 downto 0),
@@ -669,6 +662,53 @@ U2 : accumulator
        i_product9_red => product9_red(g_product_width-1 downto 0),
        i_reset_n => i_reset_n,
        o_conv_out => o_conv_out(g_conv_width-1 downto 0)
+  );
+
+U3 : filter_weight_controller
+  generic map(
+       g_weight_width => g_weight_width
+  )
+  port map(
+       i_clk => i_clk,
+       i_enable => NET7318,
+       i_filter_height => i_filter_height,
+       i_filter_weights => i_filter_weights(g_weight_width-1 downto 0),
+       i_filter_width => i_filter_width,
+       i_reset_n => i_reset_n,
+       o_w0_blue => w0_blue(g_multiplier_width-1 downto 0),
+       o_w0_green => w0_green(g_multiplier_width-1 downto 0),
+       o_w0_red => w0_red(g_multiplier_width-1 downto 0),
+       o_w10_blue => w10_blue(g_multiplier_width-1 downto 0),
+       o_w10_green => w10_green(g_multiplier_width-1 downto 0),
+       o_w10_red => w10_red(g_multiplier_width-1 downto 0),
+       o_w1_blue => w1_blue(g_multiplier_width-1 downto 0),
+       o_w1_green => w1_green(g_multiplier_width-1 downto 0),
+       o_w1_red => w1_red(g_multiplier_width-1 downto 0),
+       o_w2_blue => w2_blue(g_multiplier_width-1 downto 0),
+       o_w2_green => w2_green(g_multiplier_width-1 downto 0),
+       o_w2_red => w2_red(g_multiplier_width-1 downto 0),
+       o_w3_blue => w3_blue(g_multiplier_width-1 downto 0),
+       o_w3_green => w3_green(g_multiplier_width-1 downto 0),
+       o_w3_red => w3_red(g_multiplier_width-1 downto 0),
+       o_w4_blue => w4_blue(g_multiplier_width-1 downto 0),
+       o_w4_green => w4_green(g_multiplier_width-1 downto 0),
+       o_w4_red => w4_red(g_multiplier_width-1 downto 0),
+       o_w5_blue => w5_blue(g_multiplier_width-1 downto 0),
+       o_w5_green => w5_green(g_multiplier_width-1 downto 0),
+       o_w5_red => w5_red(g_multiplier_width-1 downto 0),
+       o_w6_blue => w6_blue(g_multiplier_width-1 downto 0),
+       o_w6_green => w6_green(g_multiplier_width-1 downto 0),
+       o_w6_red => w6_red(g_multiplier_width-1 downto 0),
+       o_w7_blue => w7_blue(g_multiplier_width-1 downto 0),
+       o_w7_green => w7_green(g_multiplier_width-1 downto 0),
+       o_w7_red => w7_red(g_multiplier_width-1 downto 0),
+       o_w8_blue => w8_blue(g_multiplier_width-1 downto 0),
+       o_w8_green => w8_green(g_multiplier_width-1 downto 0),
+       o_w8_red => w8_red(g_multiplier_width-1 downto 0),
+       o_w9_blue => w9_blue(g_multiplier_width-1 downto 0),
+       o_w9_green => w9_green(g_multiplier_width-1 downto 0),
+       o_w9_red => w9_red(g_multiplier_width-1 downto 0),
+       o_weights_loaded => o_weights_loaded
   );
 
 

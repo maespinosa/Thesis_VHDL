@@ -31,45 +31,45 @@ preplace inst VGA_IF_0 -pg 1 -lvl 4 -y 390 -defaultsOSRD
 preplace inst clk_wiz_0 -pg 1 -lvl 3 -y 830 -defaultsOSRD
 preplace inst axi_mem_intercon -pg 1 -lvl 3 -y 290 -defaultsOSRD
 preplace netloc axi_mem_intercon_M01_AXI 1 3 1 N
-preplace netloc mig_7series_0_mmcm_locked 1 0 5 30 880 NJ 850 NJ 740 NJ 790 1540
+preplace netloc mig_7series_0_mmcm_locked 1 0 5 30 950 NJ 950 NJ 950 NJ 810 1540
 preplace netloc mig_7series_0_DDR2 1 4 1 NJ
-preplace netloc OV5642_IF_0_o_write_done_irq 1 3 2 1200 820 1540
-preplace netloc clk_wiz_0_locked 1 3 2 NJ 810 NJ
+preplace netloc OV5642_IF_0_o_write_done_irq 1 3 2 1200 570 1580
+preplace netloc clk_wiz_0_locked 1 3 2 NJ 820 NJ
 preplace netloc OV5642_IF_0_o_sioc_state_debug 1 4 1 NJ
 preplace netloc i_btn_config_1 1 0 4 NJ 970 NJ 970 NJ 970 NJ
-preplace netloc i_VSYNC_1 1 0 4 NJ 950 NJ 950 NJ 950 NJ
-preplace netloc i_PCLK_1 1 0 4 NJ 930 NJ 930 NJ 930 NJ
+preplace netloc i_VSYNC_1 1 0 4 NJ 940 NJ 940 NJ 940 NJ
+preplace netloc i_PCLK_1 1 0 4 NJ 920 NJ 930 NJ 930 NJ
 preplace netloc Convolution_Layer_0_M00_AXI 1 2 1 700
 preplace netloc axi_mem_intercon_M03_AXI 1 3 1 1100
 preplace netloc OV5642_IF_0_o_capture_state_debug 1 4 1 NJ
-preplace netloc axi_mem_intercon_M05_AXI 1 1 3 400 570 NJ 600 1090
-preplace netloc OV5642_IF_0_M00_AXI 1 2 3 770 590 NJ 590 1560
-preplace netloc sys_clk_1 1 0 3 NJ 890 NJ 870 NJ
+preplace netloc axi_mem_intercon_M05_AXI 1 1 3 390 570 NJ 570 1090
+preplace netloc OV5642_IF_0_M00_AXI 1 2 3 730 600 NJ 600 1570
+preplace netloc sys_clk_1 1 0 3 NJ 890 NJ 820 NJ
 preplace netloc axi_mem_intercon_M00_AXI 1 3 1 1190
 preplace netloc OV5642_IF_0_o_debug_state 1 4 1 NJ
 preplace netloc OV5642_IF_0_o_SIOC 1 4 1 NJ
 preplace netloc i_SDATA_1 1 0 4 NJ 1090 NJ 1090 NJ 1090 NJ
 preplace netloc axi_mem_intercon_M02_AXI 1 3 1 N
-preplace netloc mig_7series_0_ui_clk 1 0 5 20 680 390 810 720 570 1160 780 1550
+preplace netloc mig_7series_0_ui_clk 1 0 5 20 690 380 560 710 580 1150 790 1550
 preplace netloc i_config_bypass_1 1 0 4 NJ 1030 NJ 1030 NJ 1030 NJ
 preplace netloc OV5642_IF_0_o_PWDN 1 4 1 NJ
-preplace netloc clk_wiz_0_clk_out1 1 1 3 400 860 NJ 750 1090
+preplace netloc clk_wiz_0_clk_out1 1 1 3 390 920 NJ 920 1110
 preplace netloc VGA_IF_0_o_vsync 1 4 1 NJ
 preplace netloc VGA_IF_0_o_vga_data 1 4 1 NJ
-preplace netloc clk_wiz_0_clk_out2 1 3 1 1140
-preplace netloc rst_mig_7series_0_150M_peripheral_aresetn 1 1 3 370 840 750 580 1170
-preplace netloc mig_7series_0_ui_clk_sync_rst 1 0 5 30 690 NJ 820 NJ 610 NJ 600 1540
+preplace netloc clk_wiz_0_clk_out2 1 3 1 1130
+preplace netloc rst_mig_7series_0_150M_peripheral_aresetn 1 1 3 360 540 720 590 1170
+preplace netloc mig_7series_0_ui_clk_sync_rst 1 0 5 20 880 NJ 880 NJ 750 NJ 780 1560
 preplace netloc Net 1 4 1 NJ
-preplace netloc clk_wiz_0_clk_out3 1 3 2 1110 800 NJ
+preplace netloc clk_wiz_0_clk_out3 1 3 2 1120 800 NJ
 preplace netloc VGA_IF_0_o_hsync 1 4 1 NJ
-preplace netloc VGA_IF_0_M00_AXI 1 2 3 700 10 NJ 10 1560
+preplace netloc VGA_IF_0_M00_AXI 1 2 3 700 10 NJ 10 1580
 preplace netloc OV5642_IF_0_o_siod_state_debug 1 4 1 NJ
 preplace netloc OV5642_IF_0_o_i2c_busy 1 4 1 NJ
-preplace netloc i_HREF_1 1 0 4 NJ 910 NJ 910 NJ 920 NJ
-preplace netloc rst_mig_7series_0_150M_interconnect_aresetn 1 1 2 NJ 830 730
-preplace netloc axi_mem_intercon_M04_AXI 1 3 1 1130
-preplace netloc reset_rtl_1 1 0 4 NJ 870 360 880 790 910 1180
-levelinfo -pg 1 0 190 550 940 1370 1590 -top 0 -bot 1280
+preplace netloc i_HREF_1 1 0 4 NJ 900 NJ 900 NJ 910 NJ
+preplace netloc rst_mig_7series_0_150M_interconnect_aresetn 1 1 2 NJ 150 N
+preplace netloc axi_mem_intercon_M04_AXI 1 3 1 1140
+preplace netloc reset_rtl_1 1 0 4 NJ 870 370 830 720 740 1180
+levelinfo -pg 1 0 190 550 940 1370 1600 -top 0 -bot 1280
 ",
 }
 {

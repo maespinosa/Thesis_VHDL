@@ -8,7 +8,7 @@
 -------------------------------------------------------------------------------
 --
 -- File        : c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\compile\Convolution_Layer_Top.vhd
--- Generated   : Sun Sep  3 12:44:14 2017
+-- Generated   : Mon Sep  4 16:09:53 2017
 -- From        : c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\Convolution_Layer_Top.bde
 -- By          : Bde2Vhdl ver. 2.6
 --
@@ -45,6 +45,7 @@ entity Convolution_Layer_Top is
        i_slave_clk : in STD_LOGIC;
        i_control_reg : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
        i_conv_params_reg : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+       i_filter_bytes_reg : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
        i_filter_weights_addr_reg : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
        i_input_data_addr_reg : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
        i_input_image_params_reg : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
@@ -53,6 +54,7 @@ entity Convolution_Layer_Top is
        i_status_reg : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
        o_control_reg : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
        o_conv_params_reg : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+       o_filter_bytes_reg : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
        o_filter_weights_addr_reg : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
        o_input_data_addr_reg : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
        o_input_image_params_reg : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
@@ -106,47 +108,6 @@ component conv_output_buffer
        valid : out STD_LOGIC
   );
 end component;
-component filter_top
-  generic(
-       g_data_width : integer := 16;
-       g_red_bits : integer := 4;
-       g_green_bits : integer := 4;
-       g_blue_bits : integer := 4;
-       g_weight_width : integer := 16;
-       g_multiplier_width : integer := 16;
-       g_product_width : integer := 32;
-       g_conv_width : integer := 16
-  );
-  port (
-       i_clk : in STD_LOGIC;
-       i_inbuff_almost_empty : in STD_LOGIC;
-       i_inbuff_dout : in STD_LOGIC_VECTOR(15 downto 0);
-       i_inbuff_empty : in STD_LOGIC;
-       i_inbuff_prog_empty : in STD_LOGIC;
-       i_inbuff_valid : in STD_LOGIC;
-       i_reset_n : in STD_LOGIC;
-       o_conv_out : out STD_LOGIC_VECTOR(g_conv_width-1 downto 0);
-       o_inbuff_prog_empty_thresh : out STD_LOGIC_VECTOR(9 downto 0);
-       o_inbuff_rd_en : out STD_LOGIC
-  );
-end component;
-component relu_unit
-  generic(
-       g_conv_width : INTEGER := 16;
-       g_relu_width : INTEGER := 16
-  );
-  port (
-       i_clk : in STD_LOGIC;
-       i_conv_out : in STD_LOGIC_VECTOR(g_conv_width-1 downto 0);
-       i_fifo_almost_full : in STD_LOGIC;
-       i_fifo_full : in STD_LOGIC;
-       i_fifo_prog_full : in STD_LOGIC;
-       i_reset_n : in STD_LOGIC;
-       o_fifo_prog_full_thresh : out STD_LOGIC_VECTOR(9 downto 0);
-       o_relu_out : out STD_LOGIC_VECTOR(g_relu_width-1 downto 0);
-       o_wr_en : out STD_LOGIC
-  );
-end component;
 component Convolution_Controller
   generic(
        g_axi_bus_width : INTEGER := 32;
@@ -158,6 +119,7 @@ component Convolution_Controller
        i_conv_params_reg : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
        i_conv_relu_output : in STD_LOGIC_VECTOR(g_relu_width-1 downto 0);
        i_ext_reset_n : in STD_LOGIC;
+       i_filter_bytes_reg : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
        i_filter_weights_addr_reg : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
        i_inbuff_almost_empty : in STD_LOGIC;
        i_inbuff_almost_full : in STD_LOGIC;
@@ -182,6 +144,8 @@ component Convolution_Controller
        o_control_reg : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
        o_conv_params_reg : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
        o_enable : out STD_LOGIC;
+       o_filter_bytes_reg : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+       o_filter_weights : out STD_LOGIC_VECTOR(16 downto 0);
        o_filter_weights_addr_reg : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
        o_image_data : out STD_LOGIC_VECTOR(g_data_width-1 downto 0);
        o_inbuff_prog_full_thresh : out STD_LOGIC_VECTOR(9 downto 0);
@@ -199,14 +163,68 @@ component Convolution_Controller
        o_output_image_width : out STD_LOGIC_VECTOR(15 downto 0);
        o_pad : out STD_LOGIC_VECTOR(3 downto 0);
        o_relu_en : out STD_LOGIC;
+       o_start : out STD_LOGIC;
        o_status_reg : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
        o_stride : out STD_LOGIC_VECTOR(3 downto 0);
-       o_weight_filter_size : out STD_LOGIC_VECTOR(7 downto 0)
+       o_weight_filter_height : out STD_LOGIC_VECTOR(3 downto 0);
+       o_weight_filter_width : out STD_LOGIC_VECTOR(3 downto 0)
+  );
+end component;
+component filter_top
+  generic(
+       g_data_width : integer := 16;
+       g_red_bits : integer := 4;
+       g_green_bits : integer := 4;
+       g_blue_bits : integer := 4;
+       g_weight_width : integer := 16;
+       g_multiplier_width : integer := 16;
+       g_product_width : integer := 32;
+       g_conv_width : integer := 16
+  );
+  port (
+       i_clk : in STD_LOGIC;
+       i_enable : in STD_LOGIC;
+       i_filter_height : in STD_LOGIC_VECTOR(3 downto 0);
+       i_filter_weights : in STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
+       i_filter_width : in STD_LOGIC_VECTOR(3 downto 0);
+       i_inbuff_almost_empty : in STD_LOGIC;
+       i_inbuff_dout : in STD_LOGIC_VECTOR(15 downto 0);
+       i_inbuff_empty : in STD_LOGIC;
+       i_inbuff_prog_empty : in STD_LOGIC;
+       i_inbuff_valid : in STD_LOGIC;
+       i_reset_n : in STD_LOGIC;
+       o_conv_out : out STD_LOGIC_VECTOR(g_conv_width-1 downto 0);
+       o_inbuff_prog_empty_thresh : out STD_LOGIC_VECTOR(9 downto 0);
+       o_inbuff_rd_en : out STD_LOGIC;
+       o_weights_loaded : out STD_LOGIC
+  );
+end component;
+component relu_unit
+  generic(
+       g_conv_width : INTEGER := 16;
+       g_relu_width : INTEGER := 16
+  );
+  port (
+       i_clk : in STD_LOGIC;
+       i_conv_out : in STD_LOGIC_VECTOR(g_conv_width-1 downto 0);
+       i_enable : in STD_LOGIC;
+       i_fifo_almost_full : in STD_LOGIC;
+       i_fifo_full : in STD_LOGIC;
+       i_fifo_prog_full : in STD_LOGIC;
+       i_relu_en : in STD_LOGIC;
+       i_reset_n : in STD_LOGIC;
+       o_fifo_prog_full_thresh : out STD_LOGIC_VECTOR(9 downto 0);
+       o_relu_out : out STD_LOGIC_VECTOR(g_relu_width-1 downto 0);
+       o_wr_en : out STD_LOGIC
   );
 end component;
 
+----     Constants     -----
+constant DANGLING_INPUT_CONSTANT : STD_LOGIC := 'Z';
+
 ---- Signal declarations used on the diagram ----
 
+signal enable : STD_LOGIC;
 signal inbuff_almost_empty : STD_LOGIC;
 signal inbuff_almost_full : STD_LOGIC;
 signal inbuff_empty : STD_LOGIC;
@@ -217,6 +235,7 @@ signal inbuff_rd_en : STD_LOGIC;
 signal inbuff_valid : STD_LOGIC;
 signal inbuff_wr_en : STD_LOGIC;
 signal NET1194 : STD_LOGIC;
+signal NET2508 : STD_LOGIC;
 signal NET861 : STD_LOGIC;
 signal outbuff_almost_empty : STD_LOGIC;
 signal outbuff_almost_full : STD_LOGIC;
@@ -236,6 +255,9 @@ signal outbuff_dout : STD_LOGIC_VECTOR(g_data_width-1 downto 0);
 signal outbuff_prog_empty_thresh : STD_LOGIC_VECTOR(9 downto 0);
 signal outbuff_prog_full_thresh : STD_LOGIC_VECTOR(9 downto 0);
 
+---- Declaration for Dangling input ----
+signal Dangling_Input_Signal : STD_LOGIC;
+
 begin
 
 ----  Component instantiations  ----
@@ -252,7 +274,16 @@ CONVOLUTION : filter_top
        g_conv_width => g_conv_width
   )
   port map(
+       i_filter_height(0) => Dangling_Input_Signal,
+       i_filter_height(1) => Dangling_Input_Signal,
+       i_filter_height(2) => Dangling_Input_Signal,
+       i_filter_height(3) => Dangling_Input_Signal,
+       i_filter_width(0) => Dangling_Input_Signal,
+       i_filter_width(1) => Dangling_Input_Signal,
+       i_filter_width(2) => Dangling_Input_Signal,
+       i_filter_width(3) => Dangling_Input_Signal,
        i_clk => i_master_clk,
+       i_enable => enable,
        i_inbuff_almost_empty => inbuff_almost_empty,
        i_inbuff_dout => inbuff_dout(g_data_width-1 downto 0),
        i_inbuff_empty => inbuff_empty,
@@ -312,9 +343,11 @@ RELU : relu_unit
   port map(
        i_clk => i_master_clk,
        i_conv_out => BUS575(7 downto 0),
+       i_enable => enable,
        i_fifo_almost_full => outbuff_almost_full,
        i_fifo_full => outbuff_full,
        i_fifo_prog_full => outbuff_prog_full,
+       i_relu_en => NET2508,
        i_reset_n => i_ext_reset_n,
        o_fifo_prog_full_thresh => outbuff_prog_full_thresh,
        o_relu_out => outbuff_din(g_data_width-1 downto 0),
@@ -332,6 +365,7 @@ ROUTER : Convolution_Controller
        i_conv_params_reg => i_conv_params_reg(g_axi_bus_width-1 downto 0),
        i_conv_relu_output => outbuff_dout(g_data_width-1 downto 0),
        i_ext_reset_n => i_ext_reset_n,
+       i_filter_bytes_reg => i_filter_bytes_reg(g_axi_bus_width-1 downto 0),
        i_filter_weights_addr_reg => i_filter_weights_addr_reg(g_axi_bus_width-1 downto 0),
        i_inbuff_almost_empty => inbuff_almost_empty,
        i_inbuff_almost_full => inbuff_almost_full,
@@ -355,6 +389,8 @@ ROUTER : Convolution_Controller
        i_status_reg => i_status_reg(g_axi_bus_width-1 downto 0),
        o_control_reg => o_control_reg(g_axi_bus_width-1 downto 0),
        o_conv_params_reg => o_conv_params_reg(g_axi_bus_width-1 downto 0),
+       o_enable => enable,
+       o_filter_bytes_reg => o_filter_bytes_reg(g_axi_bus_width-1 downto 0),
        o_filter_weights_addr_reg => o_filter_weights_addr_reg(g_axi_bus_width-1 downto 0),
        o_image_data => inbuff_din(g_data_width-1 downto 0),
        o_inbuff_prog_full_thresh => inbuff_prog_full_thresh,
@@ -365,8 +401,13 @@ ROUTER : Convolution_Controller
        o_outbuff_rd_en => outbuff_rd_en,
        o_output_data_addr_reg => o_output_data_addr_reg(g_axi_bus_width-1 downto 0),
        o_output_image_params_reg => o_output_image_params_reg(g_axi_bus_width-1 downto 0),
+       o_relu_en => NET2508,
        o_status_reg => o_status_reg(g_axi_bus_width-1 downto 0)
   );
 
+
+---- Dangling input signal assignment ----
+
+Dangling_Input_Signal <= DANGLING_INPUT_CONSTANT;
 
 end arch;

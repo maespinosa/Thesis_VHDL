@@ -29,19 +29,21 @@ use ieee.numeric_std.all;
 
 entity relu_unit is	 
 	generic(
-	g_conv_width : integer := 16; 
-	g_relu_width : integer := 16
+	g_conv_width 			: integer := 16; 
+	g_relu_width 			: integer := 16
 	); 
 	port(
-	i_clk 		: in std_logic; 
-	i_reset_n	: in std_logic; 	
-	i_conv_out : in std_logic_vector(g_conv_width-1 downto 0); 	 	
-	i_fifo_full	: in std_logic; 
-	i_fifo_almost_full : in std_logic; 
-	i_fifo_prog_full	: in std_logic; 
+	i_clk 					: in std_logic; 
+	i_reset_n				: in std_logic; 
+	i_relu_en				: in std_logic; 
+	i_enable				: in std_logic; 
+	i_conv_out 				: in std_logic_vector(g_conv_width-1 downto 0); 	 	
+	i_fifo_full				: in std_logic; 
+	i_fifo_almost_full 		: in std_logic; 
+	i_fifo_prog_full		: in std_logic; 
 	
-	o_relu_out : out std_logic_vector(g_relu_width-1 downto 0); 
-	o_wr_en 		: out std_logic; 	  
+	o_relu_out 				: out std_logic_vector(g_relu_width-1 downto 0); 
+	o_wr_en 				: out std_logic; 	  
 	o_fifo_prog_full_thresh : out std_logic_vector(9 downto 0)
 	); 
 	

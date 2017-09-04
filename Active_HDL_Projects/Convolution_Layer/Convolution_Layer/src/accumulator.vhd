@@ -33,7 +33,8 @@ entity accumulator is
 	); 
 	port(
 	i_clk 				: in std_logic; 
-	i_reset_n 			: in std_logic; 	
+	i_reset_n 			: in std_logic; 
+	i_enable			: in std_logic; 
 	
 	i_product0_red 		: in std_logic_vector(g_product_width-1 downto 0); 
 	i_product1_red 		: in std_logic_vector(g_product_width-1 downto 0); 

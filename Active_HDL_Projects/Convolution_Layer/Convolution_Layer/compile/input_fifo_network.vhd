@@ -8,7 +8,7 @@
 -------------------------------------------------------------------------------
 --
 -- File        : c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\compile\input_fifo_network.vhd
--- Generated   : Sat Sep  2 22:40:19 2017
+-- Generated   : Mon Sep  4 15:34:48 2017
 -- From        : c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\input_fifo_network.bde
 -- By          : Bde2Vhdl ver. 2.6
 --
@@ -34,6 +34,7 @@ entity input_fifo_network is
        g_blue_bits : integer := 4
   );
   port(
+       i_enable : in STD_LOGIC;
        i_rd_clk : in STD_LOGIC;
        i_reset_n : in STD_LOGIC;
        i_wr_clk : in STD_LOGIC;
@@ -109,6 +110,7 @@ component input_network_colors
        i_dout7 : in STD_LOGIC_VECTOR(g_data_width-1 downto 0);
        i_dout8 : in STD_LOGIC_VECTOR(g_data_width-1 downto 0);
        i_dout9 : in STD_LOGIC_VECTOR(g_data_width-1 downto 0);
+       i_enable : in STD_LOGIC;
        i_reset_n : in STD_LOGIC;
        o_dout0_blue : out STD_LOGIC_VECTOR(g_blue_bits-1 downto 0);
        o_dout0_green : out STD_LOGIC_VECTOR(g_green_bits-1 downto 0);
@@ -168,6 +170,7 @@ end component;
 
 ---- Signal declarations used on the diagram ----
 
+signal Input1 : STD_LOGIC;
 signal dout0 : STD_LOGIC_VECTOR(g_data_width-1 downto 0);
 signal dout1 : STD_LOGIC_VECTOR(g_data_width-1 downto 0);
 signal dout10 : STD_LOGIC_VECTOR(g_data_width-1 downto 0);
@@ -299,6 +302,7 @@ U2 : input_network_colors
        i_dout7 => dout7(g_data_width-1 downto 0),
        i_dout8 => dout8(g_data_width-1 downto 0),
        i_dout9 => dout9(g_data_width-1 downto 0),
+       i_enable => i_enable,
        i_reset_n => i_reset_n,
        o_dout0_blue => o_dout0_blue(g_blue_bits-1 downto 0),
        o_dout0_green => o_dout0_green(g_green_bits-1 downto 0),
@@ -474,6 +478,12 @@ U9 : input_network_fifo
        wr_clk => i_wr_clk,
        wr_en => wr_en(7)
   );
+
+
+---- Terminal assignment ----
+
+    -- Inputs terminals
+	Input1 <= i_enable;
 
 
 end arch;
