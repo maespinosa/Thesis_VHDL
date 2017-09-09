@@ -16,32 +16,38 @@ entity Convolution_Layer_v1_0_S00_AXI is
 	);
 	port (
 		-- Users to add ports here
-           i_clear_reg              : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-        i_conv_parameters_reg    : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-        i_filter_control_reg     : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-        i_filter_data_addr_reg   : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-        i_filter_data_reg        : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-        i_input_data_addr_reg    : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-        i_input_data_reg         : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-        i_output_data_addr_reg   : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-        i_output_data_reg        : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-        i_relu_control_reg       : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-        i_repeat_reg             : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-        i_start_reg              : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-        i_status_reg             : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-        o_clear_reg              : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-        o_conv_parameters_reg    : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-        o_filter_contro_reg      : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-        o_filter_data_addr_reg   : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-        o_filter_data_reg        : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-        o_input_data_addr_reg    : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-        o_input_data_reg         : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-        o_output_data_addr_reg   : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-        o_output_data_reg        : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-        o_relu_control_reg       : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-        o_repeat_reg             : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-        o_start_reg              : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-        o_status_reg             : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+
+		o_wd 					: out std_logic_vector((C_S_AXI_DATA_WIDTH*20)-1 downto 0); 
+		o_we					: out std_logic_vector(19 downto 0); 
+
+		i_rd 					: in std_logic_vector((C_S_AXI_DATA_WIDTH*20)-1 downto 0); 
+
+        --   i_clear_reg              : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+        --i_conv_parameters_reg    : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+        --i_filter_control_reg     : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+        --i_filter_data_addr_reg   : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+        --i_filter_data_reg        : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+        --i_input_data_addr_reg    : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+        --i_input_data_reg         : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+        --i_output_data_addr_reg   : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+        --i_output_data_reg        : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+        --i_relu_control_reg       : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+        --i_repeat_reg             : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+        --i_start_reg              : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+        --i_status_reg             : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+        --o_clear_reg              : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+        --o_conv_parameters_reg    : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+        --o_filter_contro_reg      : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+        --o_filter_data_addr_reg   : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+        --o_filter_data_reg        : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+        --o_input_data_addr_reg    : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+        --o_input_data_reg         : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+        --o_output_data_addr_reg   : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+        --o_output_data_reg        : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+        --o_relu_control_reg       : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+        --o_repeat_reg             : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+        --o_start_reg              : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+        --o_status_reg             : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
 		-- User ports ends
 		-- Do not modify the ports beyond this line
 
@@ -158,6 +164,9 @@ architecture arch_imp of Convolution_Layer_v1_0_S00_AXI is
 	signal reg_data_out	:std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0);
 	signal byte_index	: integer;
 
+	signal wd 			: std_logic_vector((C_S_AXI_DATA_WIDTH*20)-1 downto 0); 
+	signal we 			: std_logic; 
+
 begin
 	-- I/O Connections assignments
 
@@ -269,8 +278,10 @@ begin
 	      slv_reg17 <= (others => '0');
 	      slv_reg18 <= (others => '0');
 	      slv_reg19 <= (others => '0');
+	      we <= (others => '0'); 
 	    else
 	      loc_addr := axi_awaddr(ADDR_LSB + OPT_MEM_ADDR_BITS downto ADDR_LSB);
+	      we <= (others => '0'); 
 	      if (slv_reg_wren = '1') then
 	        case loc_addr is
 	          when b"00000" =>
@@ -279,6 +290,9 @@ begin
 	                -- Respective byte enables are asserted as per write strobes                   
 	                -- slave registor 0
 	                slv_reg0(byte_index*8+7 downto byte_index*8) <= S_AXI_WDATA(byte_index*8+7 downto byte_index*8);
+	                if(byte_index = (C_S_AXI_DATA_WIDTH/8-1)) then 
+	                	we(0) <= '1'; 
+	                end if; 
 	              end if;
 	            end loop;
 	          when b"00001" =>
@@ -287,6 +301,9 @@ begin
 	                -- Respective byte enables are asserted as per write strobes                   
 	                -- slave registor 1
 	                slv_reg1(byte_index*8+7 downto byte_index*8) <= S_AXI_WDATA(byte_index*8+7 downto byte_index*8);
+	                if(byte_index = (C_S_AXI_DATA_WIDTH/8-1)) then 
+	                	we(1) <= '1'; 
+	                end if; 
 	              end if;
 	            end loop;
 	          when b"00010" =>
@@ -295,6 +312,9 @@ begin
 	                -- Respective byte enables are asserted as per write strobes                   
 	                -- slave registor 2
 	                slv_reg2(byte_index*8+7 downto byte_index*8) <= S_AXI_WDATA(byte_index*8+7 downto byte_index*8);
+	                if(byte_index = (C_S_AXI_DATA_WIDTH/8-1)) then 
+	                	we(2) <= '1'; 
+	                end if; 
 	              end if;
 	            end loop;
 	          when b"00011" =>
@@ -303,6 +323,9 @@ begin
 	                -- Respective byte enables are asserted as per write strobes                   
 	                -- slave registor 3
 	                slv_reg3(byte_index*8+7 downto byte_index*8) <= S_AXI_WDATA(byte_index*8+7 downto byte_index*8);
+	                if(byte_index = (C_S_AXI_DATA_WIDTH/8-1)) then 
+	                	we(3) <= '1'; 
+	                end if; 
 	              end if;
 	            end loop;
 	          when b"00100" =>
@@ -311,6 +334,9 @@ begin
 	                -- Respective byte enables are asserted as per write strobes                   
 	                -- slave registor 4
 	                slv_reg4(byte_index*8+7 downto byte_index*8) <= S_AXI_WDATA(byte_index*8+7 downto byte_index*8);
+	                if(byte_index = (C_S_AXI_DATA_WIDTH/8-1)) then 
+	                	we(4) <= '1';
+	                end if; 
 	              end if;
 	            end loop;
 	          when b"00101" =>
@@ -319,6 +345,9 @@ begin
 	                -- Respective byte enables are asserted as per write strobes                   
 	                -- slave registor 5
 	                slv_reg5(byte_index*8+7 downto byte_index*8) <= S_AXI_WDATA(byte_index*8+7 downto byte_index*8);
+	                if(byte_index = (C_S_AXI_DATA_WIDTH/8-1)) then 
+	                	we(5) <= '1';
+	                end if;  
 	              end if;
 	            end loop;
 	          when b"00110" =>
@@ -327,6 +356,9 @@ begin
 	                -- Respective byte enables are asserted as per write strobes                   
 	                -- slave registor 6
 	                slv_reg6(byte_index*8+7 downto byte_index*8) <= S_AXI_WDATA(byte_index*8+7 downto byte_index*8);
+	                if(byte_index = (C_S_AXI_DATA_WIDTH/8-1)) then 
+	                	we(6) <= '1'; 
+	                end if; 
 	              end if;
 	            end loop;
 	          when b"00111" =>
@@ -335,6 +367,9 @@ begin
 	                -- Respective byte enables are asserted as per write strobes                   
 	                -- slave registor 7
 	                slv_reg7(byte_index*8+7 downto byte_index*8) <= S_AXI_WDATA(byte_index*8+7 downto byte_index*8);
+	                if(byte_index = (C_S_AXI_DATA_WIDTH/8-1)) then 
+	                	we(7) <= '1'; 
+	                end if; 
 	              end if;
 	            end loop;
 	          when b"01000" =>
@@ -343,6 +378,9 @@ begin
 	                -- Respective byte enables are asserted as per write strobes                   
 	                -- slave registor 8
 	                slv_reg8(byte_index*8+7 downto byte_index*8) <= S_AXI_WDATA(byte_index*8+7 downto byte_index*8);
+	                if(byte_index = (C_S_AXI_DATA_WIDTH/8-1)) then 
+	               		we(8) <= '1'; 
+	               	end if; 
 	              end if;
 	            end loop;
 	          when b"01001" =>
@@ -351,6 +389,9 @@ begin
 	                -- Respective byte enables are asserted as per write strobes                   
 	                -- slave registor 9
 	                slv_reg9(byte_index*8+7 downto byte_index*8) <= S_AXI_WDATA(byte_index*8+7 downto byte_index*8);
+	                if(byte_index = (C_S_AXI_DATA_WIDTH/8-1)) then 
+	                	we(9) <= '1'; 
+	                end if; 
 	              end if;
 	            end loop;
 	          when b"01010" =>
@@ -359,6 +400,9 @@ begin
 	                -- Respective byte enables are asserted as per write strobes                   
 	                -- slave registor 10
 	                slv_reg10(byte_index*8+7 downto byte_index*8) <= S_AXI_WDATA(byte_index*8+7 downto byte_index*8);
+	                if(byte_index = (C_S_AXI_DATA_WIDTH/8-1)) then 
+	                	we(10) <= '1'; 
+	                end if; 
 	              end if;
 	            end loop;
 	          when b"01011" =>
@@ -367,6 +411,9 @@ begin
 	                -- Respective byte enables are asserted as per write strobes                   
 	                -- slave registor 11
 	                slv_reg11(byte_index*8+7 downto byte_index*8) <= S_AXI_WDATA(byte_index*8+7 downto byte_index*8);
+	                if(byte_index = (C_S_AXI_DATA_WIDTH/8-1)) then 
+	                	we(11) <= '1'; 
+	                end if; 
 	              end if;
 	            end loop;
 	          when b"01100" =>
@@ -375,6 +422,9 @@ begin
 	                -- Respective byte enables are asserted as per write strobes                   
 	                -- slave registor 12
 	                slv_reg12(byte_index*8+7 downto byte_index*8) <= S_AXI_WDATA(byte_index*8+7 downto byte_index*8);
+	                if(byte_index = (C_S_AXI_DATA_WIDTH/8-1)) then 
+	                	we(12) <= '1'; 
+	                end if; 
 	              end if;
 	            end loop;
 	          when b"01101" =>
@@ -383,6 +433,9 @@ begin
 	                -- Respective byte enables are asserted as per write strobes                   
 	                -- slave registor 13
 	                slv_reg13(byte_index*8+7 downto byte_index*8) <= S_AXI_WDATA(byte_index*8+7 downto byte_index*8);
+	                if(byte_index = (C_S_AXI_DATA_WIDTH/8-1)) then 
+	                	we(13) <= '1';
+	                end if;  
 	              end if;
 	            end loop;
 	          when b"01110" =>
@@ -391,6 +444,9 @@ begin
 	                -- Respective byte enables are asserted as per write strobes                   
 	                -- slave registor 14
 	                slv_reg14(byte_index*8+7 downto byte_index*8) <= S_AXI_WDATA(byte_index*8+7 downto byte_index*8);
+	                if(byte_index = (C_S_AXI_DATA_WIDTH/8-1)) then 
+	                	we(14) <= '1'; 
+	                end if; 
 	              end if;
 	            end loop;
 	          when b"01111" =>
@@ -399,6 +455,9 @@ begin
 	                -- Respective byte enables are asserted as per write strobes                   
 	                -- slave registor 15
 	                slv_reg15(byte_index*8+7 downto byte_index*8) <= S_AXI_WDATA(byte_index*8+7 downto byte_index*8);
+	                if(byte_index = (C_S_AXI_DATA_WIDTH/8-1)) then 
+	                	we(15) <= '1'; 
+	                end if; 
 	              end if;
 	            end loop;
 	          when b"10000" =>
@@ -407,6 +466,9 @@ begin
 	                -- Respective byte enables are asserted as per write strobes                   
 	                -- slave registor 16
 	                slv_reg16(byte_index*8+7 downto byte_index*8) <= S_AXI_WDATA(byte_index*8+7 downto byte_index*8);
+	                if(byte_index = (C_S_AXI_DATA_WIDTH/8-1)) then 
+	                	we(16) <= '1'; 
+	                end if; 
 	              end if;
 	            end loop;
 	          when b"10001" =>
@@ -415,6 +477,9 @@ begin
 	                -- Respective byte enables are asserted as per write strobes                   
 	                -- slave registor 17
 	                slv_reg17(byte_index*8+7 downto byte_index*8) <= S_AXI_WDATA(byte_index*8+7 downto byte_index*8);
+	                if(byte_index = (C_S_AXI_DATA_WIDTH/8-1)) then 
+	                	we(17) <= '1'; 
+	                end if; 
 	              end if;
 	            end loop;
 	          when b"10010" =>
@@ -423,6 +488,9 @@ begin
 	                -- Respective byte enables are asserted as per write strobes                   
 	                -- slave registor 18
 	                slv_reg18(byte_index*8+7 downto byte_index*8) <= S_AXI_WDATA(byte_index*8+7 downto byte_index*8);
+	                if(byte_index = (C_S_AXI_DATA_WIDTH/8-1)) then 
+	                	we(18) <= '1'; 
+	                end if; 
 	              end if;
 	            end loop;
 	          when b"10011" =>
@@ -431,6 +499,9 @@ begin
 	                -- Respective byte enables are asserted as per write strobes                   
 	                -- slave registor 19
 	                slv_reg19(byte_index*8+7 downto byte_index*8) <= S_AXI_WDATA(byte_index*8+7 downto byte_index*8);
+	                if(byte_index = (C_S_AXI_DATA_WIDTH/8-1)) then 
+	                	we(19) <= '1'; 
+	                end if; 
 	              end if;
 	            end loop;
 	          when others =>
@@ -454,6 +525,7 @@ begin
 	            slv_reg17 <= slv_reg17;
 	            slv_reg18 <= slv_reg18;
 	            slv_reg19 <= slv_reg19;
+	            we <= (others => '0');
 	        end case;
 	      end if;
 	    end if;
@@ -541,52 +613,54 @@ begin
 	-- and the slave is ready to accept the read address.
 	slv_reg_rden <= axi_arready and S_AXI_ARVALID and (not axi_rvalid) ;
 
-	process (slv_reg0, slv_reg1, slv_reg2, slv_reg3, slv_reg4, slv_reg5, slv_reg6, slv_reg7, slv_reg8, slv_reg9, slv_reg10, slv_reg11, slv_reg12, slv_reg13, slv_reg14, slv_reg15, slv_reg16, slv_reg17, slv_reg18, slv_reg19, axi_araddr, S_AXI_ARESETN, slv_reg_rden)
+--	process (slv_reg0, slv_reg1, slv_reg2, slv_reg3, slv_reg4, slv_reg5, slv_reg6, slv_reg7, slv_reg8, slv_reg9, slv_reg10, slv_reg11, slv_reg12, slv_reg13, slv_reg14, slv_reg15, slv_reg16, slv_reg17, slv_reg18, slv_reg19, axi_araddr, S_AXI_ARESETN, slv_reg_rden)
+
+	process (i_rd, axi_araddr, S_AXI_ARESETN, slv_reg_rden)
 	variable loc_addr :std_logic_vector(OPT_MEM_ADDR_BITS downto 0);
 	begin
 	    -- Address decoding for reading registers
 	    loc_addr := axi_araddr(ADDR_LSB + OPT_MEM_ADDR_BITS downto ADDR_LSB);
 	    case loc_addr is
 	      when b"00000" =>
-	        reg_data_out <= slv_reg0;
+	        reg_data_out <= i_rd(0); --slv_reg0;
 	      when b"00001" =>
-	        reg_data_out <= slv_reg1;
+	        reg_data_out <= i_rd(1); --slv_reg1;
 	      when b"00010" =>
-	        reg_data_out <= slv_reg2;
+	        reg_data_out <= i_rd(2); --slv_reg2;
 	      when b"00011" =>
-	        reg_data_out <= slv_reg3;
+	        reg_data_out <= i_rd(3); --slv_reg3;
 	      when b"00100" =>
-	        reg_data_out <= slv_reg4;
+	        reg_data_out <= i_rd(4); --slv_reg4;
 	      when b"00101" =>
-	        reg_data_out <= slv_reg5;
+	        reg_data_out <= i_rd(5); --slv_reg5;
 	      when b"00110" =>
-	        reg_data_out <= slv_reg6;
+	        reg_data_out <= i_rd(6); --slv_reg6;
 	      when b"00111" =>
-	        reg_data_out <= slv_reg7;
+	        reg_data_out <= i_rd(7); --slv_reg7;
 	      when b"01000" =>
-	        reg_data_out <= slv_reg8;
+	        reg_data_out <= i_rd(8); --slv_reg8;
 	      when b"01001" =>
-	        reg_data_out <= slv_reg9;
+	        reg_data_out <= i_rd(9); --slv_reg9;
 	      when b"01010" =>
-	        reg_data_out <= slv_reg10;
+	        reg_data_out <= i_rd(10); --slv_reg10;
 	      when b"01011" =>
-	        reg_data_out <= slv_reg11;
+	        reg_data_out <= i_rd(11); --slv_reg11;
 	      when b"01100" =>
-	        reg_data_out <= slv_reg12;
+	        reg_data_out <= i_rd(12); --slv_reg12;
 	      when b"01101" =>
-	        reg_data_out <= slv_reg13;
+	        reg_data_out <= i_rd(13); --slv_reg13;
 	      when b"01110" =>
-	        reg_data_out <= slv_reg14;
+	        reg_data_out <= i_rd(14); --slv_reg14;
 	      when b"01111" =>
-	        reg_data_out <= slv_reg15;
+	        reg_data_out <= i_rd(15); --slv_reg15;
 	      when b"10000" =>
-	        reg_data_out <= slv_reg16;
+	        reg_data_out <= i_rd(16); --slv_reg16;
 	      when b"10001" =>
-	        reg_data_out <= slv_reg17;
+	        reg_data_out <= i_rd(17); --slv_reg17;
 	      when b"10010" =>
-	        reg_data_out <= slv_reg18;
+	        reg_data_out <= i_rd(18); --slv_reg18;
 	      when b"10011" =>
-	        reg_data_out <= slv_reg19;
+	        reg_data_out <= i_rd(19); --slv_reg19;
 	      when others =>
 	        reg_data_out  <= (others => '0');
 	    end case;
@@ -612,6 +686,30 @@ begin
 
 
 	-- Add user logic here
+	o_wd(31+32*0 downto 0+32*0) <= slv_reg0; 
+	o_wd(31+32*1 downto 0+32*1) <= slv_reg1; 
+	o_wd(31+32*2 downto 0+32*2) <= slv_reg2; 
+	o_wd(31+32*3 downto 0+32*3) <= slv_reg3; 
+	o_wd(31+32*4 downto 0+32*4) <= slv_reg4; 
+	o_wd(31+32*5 downto 0+32*5) <= slv_reg5; 
+	o_wd(31+32*6 downto 0+32*6) <= slv_reg6; 
+	o_wd(31+32*7 downto 0+32*7) <= slv_reg7; 
+	o_wd(31+32*8 downto 0+32*8) <= slv_reg8; 
+	o_wd(31+32*9 downto 0+32*9) <= slv_reg9; 
+	o_wd(31+32*10 downto 0+32*10) <= slv_reg10; 
+	o_wd(31+32*11 downto 0+32*11) <= slv_reg11; 
+	o_wd(31+32*12 downto 0+32*12) <= slv_reg12; 
+	o_wd(31+32*13 downto 0+32*13) <= slv_reg13; 
+	o_wd(31+32*14 downto 0+32*14) <= slv_reg14; 
+	o_wd(31+32*15 downto 0+32*15) <= slv_reg15; 
+	o_wd(31+32*16 downto 0+32*16) <= slv_reg16; 	
+	o_wd(31+32*17 downto 0+32*17) <= slv_reg17; 
+	o_wd(31+32*18 downto 0+32*18) <= slv_reg18; 
+	o_wd(31+32*19 downto 0+32*19) <= slv_reg19; 
+
+	o_we <= we; 
+
+
 
 	-- User logic ends
 

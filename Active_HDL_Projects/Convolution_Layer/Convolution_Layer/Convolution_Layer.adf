@@ -49,7 +49,7 @@ UCF=
 WindowVisible=0
 
 [HierarchyViewer]
-HierarchyInformation=convolution_controller|arch|0  
+HierarchyInformation=convolution_controller|arch|0 
 ShowHide=ShowTopLevel
 Selected=
 
@@ -87,14 +87,15 @@ Selected=
 .\src\Convolution_Layer_Top.bde=Block Diagram
 .\src\filter_weight_controller.vhd=VHDL Source Code
 
-[file_out:/filter_top.bde]
-/..\compile\filter_top.vhd=-1
 
-[file_out:/input_fifo_network.bde]
-/..\compile\input_fifo_network.vhd=-1
 
-[file_out:/multiplier_bank.bde]
-/..\compile\multiplier_bank.vhd=-1
 
 [file_out:/Convolution_Layer_Top.bde]
 /..\compile\Convolution_Layer_Top.vhd=-1
+
+[file_out:/filter_top.bde]
+/..\compile\filter_top.vhd=-1
+[file_out:/multiplier_bank.bde]
+/..\compile\multiplier_bank.vhd=-1
+[file_out:/input_fifo_network.bde]
+/..\compile\input_fifo_network.vhd=-1

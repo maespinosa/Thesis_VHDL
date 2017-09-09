@@ -6,7 +6,7 @@
 <Project Version="7" Minor="10" Path="c:/sourcetree_local/thesis_vhdl/xilinx_projects/thesis_cnn/thesis_cnn.tmp/convolution_layer_v1_0_project/Convolution_Layer_v1_0_project.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
-    <Option Name="Id" Val="86b968202e554e3e8d93f20b08c108c1"/>
+    <Option Name="Id" Val="2769234aebe0476f9632dd4f8688450f"/>
     <Option Name="Part" Val="xc7a100tcsg324-1"/>
     <Option Name="CompiledLibDir" Val="$PCACHEDIR/compile_simlib"/>
     <Option Name="CompiledLibDirModelSim" Val="$PCACHEDIR/compile_simlib/modelsim"/>
@@ -110,12 +110,6 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PPRDIR/../../../ip_repo/convolution_layer_1.0/hdl/Convolution_Layer_v1_0_M00_AXI.vhd">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
       <File Path="$PPRDIR/../../../../../../Sourcetree_Local/Thesis_VHDL/Active_HDL_Projects/Convolution_Layer/Convolution_Layer/compile/Convolution_Layer_Top.vhd">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -124,6 +118,13 @@
       </File>
       <File Path="$PPRDIR/../../../ip_repo/convolution_layer_1.0/hdl/Convolution_Layer_v1_0.vhd">
         <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../../../ip_repo/convolution_layer_1.0/hdl/Convolution_Layer_v1_0_M00_AXI.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>

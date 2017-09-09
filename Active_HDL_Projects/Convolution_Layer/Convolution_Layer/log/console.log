@@ -1,2 +1,48 @@
 # ELBREAD: Elaboration process.
-# ELBREAD: Elaboration time 0.1 [s].
+# ELBREAD: Elaboration time 1.4 [s].
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/Convolution_Layer_Top.bde
+# DRC: Checking file 'c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\Convolution_Layer_Top.bde'.
+# DRC: Warning: Convolution_Layer_Top.bde - 0 error(s), 40 warning(s)
+# DRC: DRC process completed in 1 second(s).
+# DRC: The results have been written to the log file. Double click on this line to view the log.
+# Generating c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\compile\Convolution_Layer_Top.vhd from c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\Convolution_Layer_Top.bde ...
+# Generation successful
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: .\..\compile\Convolution_Layer_Top.vhd
+# Compile Entity "Convolution_Layer_Top"
+# Compile Architecture "arch" of Entity "Convolution_Layer_Top"
+# Error: COMP96_0413: Convolution_Layer_Top.bde(Convolution_Layer_Top.vhd) : (367, 25): Actual of mode 'in' cannot be assigned to formal "o_control_reg" of mode 'out'.
+# Error: COMP96_0413: Convolution_Layer_Top.bde(Convolution_Layer_Top.vhd) : (368, 29): Actual of mode 'in' cannot be assigned to formal "o_conv_params_reg" of mode 'out'.
+# Error: COMP96_0413: Convolution_Layer_Top.bde(Convolution_Layer_Top.vhd) : (370, 30): Actual of mode 'in' cannot be assigned to formal "o_filter_bytes_reg" of mode 'out'.
+# Error: COMP96_0413: Convolution_Layer_Top.bde(Convolution_Layer_Top.vhd) : (372, 37): Actual of mode 'in' cannot be assigned to formal "o_filter_weights_addr_reg" of mode 'out'.
+# Error: COMP96_0413: Convolution_Layer_Top.bde(Convolution_Layer_Top.vhd) : (376, 33): Actual of mode 'in' cannot be assigned to formal "o_input_data_addr_reg" of mode 'out'.
+# Error: COMP96_0413: Convolution_Layer_Top.bde(Convolution_Layer_Top.vhd) : (377, 36): Actual of mode 'in' cannot be assigned to formal "o_input_image_params_reg" of mode 'out'.
+# Error: COMP96_0413: Convolution_Layer_Top.bde(Convolution_Layer_Top.vhd) : (380, 34): Actual of mode 'in' cannot be assigned to formal "o_output_data_addr_reg" of mode 'out'.
+# Error: COMP96_0413: Convolution_Layer_Top.bde(Convolution_Layer_Top.vhd) : (381, 37): Actual of mode 'in' cannot be assigned to formal "o_output_image_params_reg" of mode 'out'.
+# Error: COMP96_0413: Convolution_Layer_Top.bde(Convolution_Layer_Top.vhd) : (383, 24): Actual of mode 'in' cannot be assigned to formal "o_status_reg" of mode 'out'.
+# Compile failure 9 Errors 0 Warnings  Analysis time :  2.0 [s]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/Convolution_Layer_Top.bde
+# DRC: Checking file 'c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\Convolution_Layer_Top.bde'.
+# DRC: Warning: Convolution_Layer_Top.bde - 0 error(s), 31 warning(s)
+# DRC: DRC process completed in 2 second(s).
+# DRC: The results have been written to the log file. Double click on this line to view the log.
+# Generating c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\compile\Convolution_Layer_Top.vhd from c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\Convolution_Layer_Top.bde ...
+# Generation successful
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: .\..\compile\Convolution_Layer_Top.vhd
+# Compile Entity "Convolution_Layer_Top"
+# Compile Architecture "arch" of Entity "Convolution_Layer_Top"
+# Compile success 0 Errors 0 Warnings  Analysis time :  2.0 [s]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/Convolution_Controller.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\Convolution_Controller.vhd
+# Compile Entity "Convolution_Controller"
+# Compile Architecture "arch" of Entity "Convolution_Controller"
+# Compile success 0 Errors 0 Warnings  Analysis time :  1.0 [s]
+# Convolution_Layer_Top.bde: Updating instances of symbol 'Convolution_Controller' from library 'Convolution_Layer' (ROUTER)
+# DRC: Checking file 'c:/Sourcetree_Local/Thesis_VHDL/Active_HDL_Projects/Convolution_Layer/Convolution_Layer/src/Convolution_Layer_Top.bde'.
+# DRC: Warning: Convolution_Layer_Top.bde - 0 error(s), 31 warning(s)
+# DRC: DRC process completed in 1 second(s).
+# DRC: The results have been written to the log file. Double click on this line to view the log.
+# Generating c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\compile\Convolution_Layer_Top.vhd from c:/Sourcetree_Local/Thesis_VHDL/Active_HDL_Projects/Convolution_Layer/Convolution_Layer/src/Convolution_Layer_Top.bde ...
+# Generation successful

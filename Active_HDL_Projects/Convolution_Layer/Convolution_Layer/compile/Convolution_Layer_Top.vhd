@@ -8,8 +8,8 @@
 -------------------------------------------------------------------------------
 --
 -- File        : c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\compile\Convolution_Layer_Top.vhd
--- Generated   : Mon Sep  4 16:09:53 2017
--- From        : c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\Convolution_Layer_Top.bde
+-- Generated   : Fri Sep  8 14:13:14 2017
+-- From        : c:/Sourcetree_Local/Thesis_VHDL/Active_HDL_Projects/Convolution_Layer/Convolution_Layer/src/Convolution_Layer_Top.bde
 -- By          : Bde2Vhdl ver. 2.6
 --
 -------------------------------------------------------------------------------
@@ -43,24 +43,9 @@ entity Convolution_Layer_Top is
        i_ext_reset_n : in STD_LOGIC;
        i_master_clk : in STD_LOGIC;
        i_slave_clk : in STD_LOGIC;
-       i_control_reg : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-       i_conv_params_reg : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-       i_filter_bytes_reg : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-       i_filter_weights_addr_reg : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-       i_input_data_addr_reg : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-       i_input_image_params_reg : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-       i_output_data_addr_reg : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-       i_output_image_params_reg : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-       i_status_reg : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-       o_control_reg : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-       o_conv_params_reg : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-       o_filter_bytes_reg : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-       o_filter_weights_addr_reg : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-       o_input_data_addr_reg : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-       o_input_image_params_reg : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-       o_output_data_addr_reg : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-       o_output_image_params_reg : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-       o_status_reg : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0)
+       i_we : in STD_LOGIC_VECTOR(19 downto 0);
+       o_wd : in STD_LOGIC_VECTOR((32*20)-1 downto 0);
+       i_rd : out STD_LOGIC_VECTOR((32*20)-1 downto 0)
   );
 end Convolution_Layer_Top;
 
@@ -112,7 +97,8 @@ component Convolution_Controller
   generic(
        g_axi_bus_width : INTEGER := 32;
        g_relu_width : INTEGER := 16;
-       g_data_width : INTEGER := 16
+       g_data_width : INTEGER := 16;
+       g_weight_width : INTEGER := 16
   );
   port (
        i_control_reg : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
@@ -141,11 +127,12 @@ component Convolution_Controller
        i_output_image_params_reg : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
        i_slave_clk : in STD_LOGIC;
        i_status_reg : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
+       i_we : in STD_LOGIC_VECTOR(19 downto 0);
        o_control_reg : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
        o_conv_params_reg : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
        o_enable : out STD_LOGIC;
        o_filter_bytes_reg : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-       o_filter_weights : out STD_LOGIC_VECTOR(16 downto 0);
+       o_filter_weights : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
        o_filter_weights_addr_reg : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
        o_image_data : out STD_LOGIC_VECTOR(g_data_width-1 downto 0);
        o_inbuff_prog_full_thresh : out STD_LOGIC_VECTOR(9 downto 0);
@@ -219,9 +206,6 @@ component relu_unit
   );
 end component;
 
-----     Constants     -----
-constant DANGLING_INPUT_CONSTANT : STD_LOGIC := 'Z';
-
 ---- Signal declarations used on the diagram ----
 
 signal enable : STD_LOGIC;
@@ -245,6 +229,9 @@ signal outbuff_prog_empty : STD_LOGIC;
 signal outbuff_prog_full : STD_LOGIC;
 signal outbuff_rd_en : STD_LOGIC;
 signal outbuff_wr_en : STD_LOGIC;
+signal BUS2701 : STD_LOGIC_VECTOR(7 downto 0);
+signal BUS2705 : STD_LOGIC_VECTOR(3 downto 0);
+signal BUS2709 : STD_LOGIC_VECTOR(3 downto 0);
 signal BUS575 : STD_LOGIC_VECTOR(7 downto 0);
 signal inbuff_din : STD_LOGIC_VECTOR(g_data_width-1 downto 0);
 signal inbuff_dout : STD_LOGIC_VECTOR(g_data_width-1 downto 0);
@@ -254,9 +241,6 @@ signal outbuff_din : STD_LOGIC_VECTOR(g_data_width-1 downto 0);
 signal outbuff_dout : STD_LOGIC_VECTOR(g_data_width-1 downto 0);
 signal outbuff_prog_empty_thresh : STD_LOGIC_VECTOR(9 downto 0);
 signal outbuff_prog_full_thresh : STD_LOGIC_VECTOR(9 downto 0);
-
----- Declaration for Dangling input ----
-signal Dangling_Input_Signal : STD_LOGIC;
 
 begin
 
@@ -274,16 +258,11 @@ CONVOLUTION : filter_top
        g_conv_width => g_conv_width
   )
   port map(
-       i_filter_height(0) => Dangling_Input_Signal,
-       i_filter_height(1) => Dangling_Input_Signal,
-       i_filter_height(2) => Dangling_Input_Signal,
-       i_filter_height(3) => Dangling_Input_Signal,
-       i_filter_width(0) => Dangling_Input_Signal,
-       i_filter_width(1) => Dangling_Input_Signal,
-       i_filter_width(2) => Dangling_Input_Signal,
-       i_filter_width(3) => Dangling_Input_Signal,
        i_clk => i_master_clk,
        i_enable => enable,
+       i_filter_height => BUS2705,
+       i_filter_weights => BUS2701(7 downto 0),
+       i_filter_width => BUS2709,
        i_inbuff_almost_empty => inbuff_almost_empty,
        i_inbuff_dout => inbuff_dout(g_data_width-1 downto 0),
        i_inbuff_empty => inbuff_empty,
@@ -361,20 +340,20 @@ ROUTER : Convolution_Controller
        g_data_width => g_data_width
   )
   port map(
-       i_control_reg => i_control_reg(g_axi_bus_width-1 downto 0),
-       i_conv_params_reg => i_conv_params_reg(g_axi_bus_width-1 downto 0),
+       i_control_reg => o_wd(31 downto 0),
+       i_conv_params_reg => o_wd(31+32*7 downto 0+32*7),
        i_conv_relu_output => outbuff_dout(g_data_width-1 downto 0),
        i_ext_reset_n => i_ext_reset_n,
-       i_filter_bytes_reg => i_filter_bytes_reg(g_axi_bus_width-1 downto 0),
-       i_filter_weights_addr_reg => i_filter_weights_addr_reg(g_axi_bus_width-1 downto 0),
+       i_filter_bytes_reg => o_wd(31+32*8 downto 0+32*8),
+       i_filter_weights_addr_reg => o_wd(31+32*4 downto 0+32*4),
        i_inbuff_almost_empty => inbuff_almost_empty,
        i_inbuff_almost_full => inbuff_almost_full,
        i_inbuff_empty => inbuff_prog_empty,
        i_inbuff_full => inbuff_full,
        i_inbuff_prog_empty => inbuff_empty,
        i_inbuff_prog_full => inbuff_prog_full,
-       i_input_data_addr_reg => i_input_data_addr_reg(g_axi_bus_width-1 downto 0),
-       i_input_image_params_reg => i_input_image_params_reg(g_axi_bus_width-1 downto 0),
+       i_input_data_addr_reg => o_wd(31+32*2 downto 0+32*2),
+       i_input_image_params_reg => o_wd(31+32*5 downto 0+32*5),
        i_master_clk => i_master_clk,
        i_outbuff_almost_empty => outbuff_almost_empty,
        i_outbuff_almost_full => outbuff_almost_full,
@@ -383,31 +362,31 @@ ROUTER : Convolution_Controller
        i_outbuff_prog_empty => outbuff_prog_empty,
        i_outbuff_prog_full => outbuff_prog_full,
        i_outbuff_valid => NET861,
-       i_output_data_addr_reg => i_output_data_addr_reg(g_axi_bus_width-1 downto 0),
-       i_output_image_params_reg => i_output_image_params_reg(g_axi_bus_width-1 downto 0),
+       i_output_data_addr_reg => o_wd(31+32*3 downto 0+32*3),
+       i_output_image_params_reg => o_wd(31+32*6 downto 0+32*6),
        i_slave_clk => i_slave_clk,
-       i_status_reg => i_status_reg(g_axi_bus_width-1 downto 0),
-       o_control_reg => o_control_reg(g_axi_bus_width-1 downto 0),
-       o_conv_params_reg => o_conv_params_reg(g_axi_bus_width-1 downto 0),
+       i_status_reg => o_wd(31+32*1 downto 0+32*1),
+       i_we => i_we,
+       o_control_reg => i_rd(31+32*8 downto 0+32*8),
+       o_conv_params_reg => i_rd(31+32*1 downto 0+32*1),
        o_enable => enable,
-       o_filter_bytes_reg => o_filter_bytes_reg(g_axi_bus_width-1 downto 0),
-       o_filter_weights_addr_reg => o_filter_weights_addr_reg(g_axi_bus_width-1 downto 0),
+       o_filter_bytes_reg => i_rd(31 downto 0),
+       o_filter_weights => BUS2701(7 downto 0),
+       o_filter_weights_addr_reg => i_rd(31+32*4 downto 0+32*4),
        o_image_data => inbuff_din(g_data_width-1 downto 0),
        o_inbuff_prog_full_thresh => inbuff_prog_full_thresh,
        o_inbuff_wr_en => inbuff_wr_en,
-       o_input_data_addr_reg => o_input_data_addr_reg(g_axi_bus_width-1 downto 0),
-       o_input_image_params_reg => o_input_image_params_reg(g_axi_bus_width-1 downto 0),
+       o_input_data_addr_reg => i_rd(31+32*6 downto 0+32*6),
+       o_input_image_params_reg => i_rd(31+32*3 downto 0+32*3),
        o_outbuff_prog_empty_thresh => outbuff_prog_empty_thresh,
        o_outbuff_rd_en => outbuff_rd_en,
-       o_output_data_addr_reg => o_output_data_addr_reg(g_axi_bus_width-1 downto 0),
-       o_output_image_params_reg => o_output_image_params_reg(g_axi_bus_width-1 downto 0),
+       o_output_data_addr_reg => i_rd(31+32*5 downto 0+32*5),
+       o_output_image_params_reg => i_rd(31+32*2 downto 0+32*2),
        o_relu_en => NET2508,
-       o_status_reg => o_status_reg(g_axi_bus_width-1 downto 0)
+       o_status_reg => i_rd(31+32*7 downto 0+32*7),
+       o_weight_filter_height => BUS2705,
+       o_weight_filter_width => BUS2709
   );
 
-
----- Dangling input signal assignment ----
-
-Dangling_Input_Signal <= DANGLING_INPUT_CONSTANT;
 
 end arch;

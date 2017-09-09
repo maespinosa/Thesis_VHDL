@@ -39,6 +39,7 @@ entity Convolution_Controller is
 	i_ext_reset_n : in std_logic; 	
 	
 	-- FROM AXI SLAVE INTERFACE 
+	i_we						: in std_logic_vector(19 downto 0); 
 	i_control_reg				: in std_logic_vector(g_axi_bus_width-1 downto 0); 
 	i_status_reg 				: in std_logic_vector(g_axi_bus_width-1 downto 0); 
 	i_input_data_addr_reg		: in std_logic_vector(g_axi_bus_width-1 downto 0);

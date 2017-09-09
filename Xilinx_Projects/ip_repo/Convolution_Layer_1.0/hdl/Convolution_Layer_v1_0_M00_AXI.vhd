@@ -11,6 +11,7 @@ entity Convolution_Layer_v1_0_M00_AXI is
 
 		-- Base address of targeted slave
 		C_M_TARGET_SLAVE_BASE_ADDR	: std_logic_vector	:= x"40000000";
+
 		-- Burst Length. Supports 1, 2, 4, 8, 16, 32, 64, 128, 256 burst lengths
 		C_M_AXI_BURST_LEN	: integer	:= 16;
 		-- Thread ID Width
@@ -32,6 +33,24 @@ entity Convolution_Layer_v1_0_M00_AXI is
 	);
 	port (
 		-- Users to add ports here
+		i_layer_number	: in std_logic_vector(7 downto 0); 
+		i_get_weights	: in std_logic; 
+		i_filter_weights_addr : in std_logic_vector(31 downto 0);
+		o_filter_weights_rxd  : out std_logic; 
+
+		i_get_input_image	: in std_logic;
+		i_input_image_addr	: in std_logic_vector(31 downto 0); 
+		o_input_image_rxd	: out std_logic;  
+
+		i_save_conv_output	: in std_logic; 
+		i_output_image_addr	: in std_logic_vector(31 downto 0); 
+		o_output_image_saved: out std_logic; 
+
+
+
+
+
+
 
 		-- User ports ends
 		-- Do not modify the ports beyond this line
@@ -206,6 +225,10 @@ architecture implementation of Convolution_Layer_v1_0_M00_AXI is
 	 							-- of the written data with the read data
 
 	 signal mst_exec_state  : state ; 
+
+	 type master_user_state is (IDLE, READ, WRITE);
+	 signal current_state : master_user_state; 
+	 signal next_state : master_user_state 
 
 	-- AXI4FULL signals
 	--AXI4 internal temp signals
@@ -742,8 +765,12 @@ begin
 	           when IDLE =>                                                                              
 	             -- This state is responsible to initiate                               
 	             -- AXI transaction when init_txn_pulse is asserted 
-	               if ( init_txn_pulse = '1') then       
+	               if (init_txn_pulse = '1' and master_user_state = WRITE) then       
 	                 mst_exec_state  <= INIT_WRITE;                                                              
+	                 ERROR <= '0'; 
+	                 compare_done <= '0'; 
+	               elsif (init_txn_pulse = '1' and master_user_state = READ) then       
+	                 mst_exec_state  <= INIT_READ;                                                              
 	                 ERROR <= '0'; 
 	                 compare_done <= '0'; 
 	               else                                                                                          
@@ -757,7 +784,7 @@ begin
 	              -- write controller                                                                            
 	                                                                                                             
 	                if (writes_done = '1') then                                                                  
-	                  mst_exec_state <= INIT_READ;                                                               
+	                  mst_exec_state <= IDLE;                                                               
 	                else                                                                                         
 	                  mst_exec_state  <= INIT_WRITE;                                                             
 	                                                                                                             
@@ -774,7 +801,7 @@ begin
 	              -- issued until burst_read_active signal is asserted.                                          
 	              -- read controller                                                                             
 	                if (reads_done = '1') then                                                                   
-	                  mst_exec_state <= INIT_COMPARE;                                                            
+	                  mst_exec_state <= IDLE;                                                            
 	                else                                                                                         
 	                  mst_exec_state  <= INIT_READ;                                                              
 	                                                                                                             
@@ -884,6 +911,90 @@ begin
 	  end process;                                                                                               
 
 	-- Add user logic here
+
+
+
+
+
+	state_transitions: process(M_AXI_ACLK, M_AXI_ARESETN) is 
+	begin 
+		if(M_AXI_ARESETN = '0') then 
+			current_state <= IDLE; 
+		elsif(rising_edge(M_AXI_ARESETN)) then 
+			current_state <= next_state; 
+		end if; 
+	end process; 
+
+		i_layer_number	: in std_logic_vector(7 downto 0); 
+		i_get_weights	: in std_logic; 
+		i_filter_weights_addr : in std_logic_vector(31 downto 0);
+		o_filter_weights_rxd  : out std_logic; 
+
+		i_get_input_image	: in std_logic;
+		i_input_image_addr	: in std_logic_vector(31 downto 0); 
+		o_input_image_rxd	: out std_logic;  
+
+		i_save_conv_output	: in std_logic; 
+		i_output_image_addr	: in std_logic_vector(31 downto 0); 
+		o_output_image_saved: out std_logic; 
+
+
+	next_state_comb: process(all) is 
+	begin 
+		case master_user_state is 
+			when IDLE => 
+
+				if(i_get_weights = '1' or i_get_input_image = '1') then 
+					next_state <= READ; 
+				elsif(i_save_conv_output = '1') then 
+					next_state <= WRITE; 
+				else 
+					next_state <= IDLE: 
+				end if; 
+
+
+			when WRITE => 
+				if(i_save_conv_output = '1') then 
+					M_AXI_AWADDR	<=  std_logic_vector( unsigned(i_output_image_addr) + unsigned( axi_araddr ) );
+					M_AXI_ARADDR	<= (others => '0'); 
+
+
+
+
+			when READ => 
+				if(i_get_weights = '1') then 
+					--The AXI address is a concatenation of the target base address + active offset range
+					M_AXI_ARADDR	<=  std_logic_vector( unsigned(i_filter_weights_addr) + 1024*unsigned(i_layer_number));
+					M_AXI_AWADDR	<= (others => '0'); 
+				elsif(i_get_input_image = '1') then 
+					M_AXI_ARADDR	<=  std_logic_vector( unsigned(i_input_image_addr) + unsigned( axi_araddr ) );
+					M_AXI_AWADDR	<= (others => '0'); 
+				else 
+					M_AXI_AWADDR	<= (others => '0');
+ 					M_AXI_ARADDR	<= (others => '0'); 
+ 			  	end if; 	
+
+
+			when others => 
+
+		end case; 
+
+
+
+	end process; 
+
+	--sequential_logic: process(M_AXI_ACLK, M_AXI_ARESETN) is 
+	--begin 
+
+
+
+	--end process; 
+
+
+
+
+
+
 
 	-- User logic ends
 
