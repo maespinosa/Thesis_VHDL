@@ -93,18 +93,20 @@ entity Convolution_Controller is
 	o_enable					: out std_logic; 	  
 	o_start						: out std_logic; 
 	
-	o_input_image_height	  	: out std_logic_vector(15 downto 0); 
-	o_input_image_width			: out std_logic_vector(15 downto 0);  
-	o_output_image_height	  	: out std_logic_vector(15 downto 0); 
-	o_output_image_width		: out std_logic_vector(15 downto 0); 
+	--o_input_image_height	  	: out std_logic_vector(15 downto 0); 
+	o_input_volume_size	  	    : out std_logic_vector(7 downto 0);  
+	o_input_volume_channels		: out std_logic_vector(11 downto 0); 
+	o_output_volume_size 		: out std_logic_vector(3 downto 0); 
+	o_output_volume_channels	: out std_logic_vector(11 downto 0); 
 --	o_weight_filter_size		: out std_logic_vector(7 downto 0); 
-	o_weight_filter_height		: out std_logic_vector(3 downto 0); 
-	o_weight_filter_width		: out std_logic_vector(3 downto 0); 
-	o_number_of_filters			: out std_logic_vector(7 downto 0); 
+	--o_weight_filter_height		: out std_logic_vector(3 downto 0); 
+	o_weight_filter_size		: out std_logic_vector(3 downto 0); 
+	o_weight_filter_channels	: out std_logic_vector(11 downto 0); 
+	o_number_of_filters			: out std_logic_vector(11 downto 0); 
 	
 	o_stride					: out std_logic_vector(3 downto 0); 
-	o_pad						: out std_logic_vector(3 downto 0); 
-	o_filter_weights			: out std_logic_vector(g_weight_width-1 downto 0)
+	o_pad						: out std_logic_vector(3 downto 0)
+	--o_filter_weights			: out std_logic_vector(g_weight_width-1 downto 0)
 	); 
 	
 end Convolution_Controller;
@@ -162,16 +164,16 @@ begin
 	start						<= i_control_reg(1);
 	o_enable 					<= i_control_reg(0);    
 	
-	o_input_image_height 		<= i_input_image_params_reg(31 downto 16);
-	o_input_image_width 		<= i_input_image_params_reg(15 downto 0); 
+	--o_input_image_height 		<= i_input_image_params_reg(31 downto 16);
+	o_input_volume_size 		<= i_input_image_params_reg(7 downto 0); 
 	
-	o_output_image_height 		<= i_output_image_params_reg(31 downto 16);
-	o_output_image_width 		<= i_output_image_params_reg(15 downto 0); 	  
+	--o_output_image_height 		<= i_output_image_params_reg(31 downto 16);
+	o_output_volume_size 		<= i_output_image_params_reg(3 downto 0); 	  
 	
 	--o_weight_filter_size		<= i_conv_params_reg(31 downto 24); 
-	o_weight_filter_height		<= i_conv_params_reg(31 downto 28); 
-	o_weight_filter_width		<= i_conv_params_reg(27 downto 24); 
-	o_number_of_filters 		<= i_conv_params_reg(23 downto 16); 
+	--o_weight_filter_height		<= i_conv_params_reg(31 downto 28); 
+	o_weight_filter_size		<= i_conv_params_reg(27 downto 24); 
+	o_number_of_filters 		<= i_conv_params_reg(23 downto 12); 
 	
 	o_stride 					<= i_conv_params_reg(11 downto 8); 
 	o_pad 						<= i_conv_params_reg(3 downto 0);

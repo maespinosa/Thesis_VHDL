@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+
+<!----------------------------------------------------------------------------->
+<!--                          BEGIN HTML HEAD                                -->
+<!--                                                                         -->
+
+<HEAD>
+<TITLE>DRC Report File - input_fifo_network_3.bde</TITLE>
+<STYLE>
+.Err	{color:#FF0000;cursor:hand;text-decoration:underline;}
+.Warn	{color:#0000FF;cursor:hand;text-decoration:underline;}
+.Info	{color:#000000;cursor:hand;text-decoration:underline;}
+.Sccss  {color:#009600;cursor:hand;text-decoration:underline;}
+.ErrH	{color:#FF0000;cursor:hand;text-decoration:underline;}
+.WarnH	{color:#0000FF;cursor:hand;text-decoration:underline;}
+.InfoH	{color:#000000;cursor:hand;text-decoration:underline;}
+.Err1	{color:#FF0000;}
+.Warn1	{color:#0000FF;}
+.Info1	{color:#000000;}
+.Sccss1 {color:#009600;}
+</STYLE>
+</HEAD>
+<BODY BGCOLOR="white" TEXT="black" LINK="blue" VLINK="purple" BACKGROUND="C:\Aldec\Active-HDL-Student-Edition\\Flows\Res\default.bmp">
+<FONT FACE="Serif">
+<tt>
+<!--                                                                         -->
+<!--                             END HEADER                                  -->
+<!----------------------------------------------------------------------------->
+
+<!----------------------------------------------------------------------------->
+<!--                            BEGIN VBSCRIPT                               -->
+<!--                                                                         -->
+<SCRIPT LANGUAGE=JSCRIPT>
+	function RollOn() {
+		switch(window.event.srcElement.className) {
+			case 'Err':
+				window.event.srcElement.className = 'ErrH'; break;
+			case 'Warn':
+				window.event.srcElement.className = 'WarnH'; break;
+			case 'Info':
+				window.event.srcElement.className = 'InfoH'; break;
+		}
+	}
+	function RollOff() {
+		switch(window.event.srcElement.className) {
+			case 'ErrH':
+				window.event.srcElement.className = 'Err'; break;
+			case 'WarnH':
+				window.event.srcElement.className = 'Warn'; break;
+			case 'InfoH':
+				window.event.srcElement.className = 'Info'; break;
+		}
+	}
+	function OnError(sMsg,sUrl,sLine) {
+		return true;
+	}
+	
+	document.onmouseover = RollOn;
+	document.onmouseout = RollOff;
+	window.onerror = OnError;
+</SCRIPT>
+
+<SCRIPT LANGUAGE=VBSCRIPT>
+
+Function IID_IDispatch
+	IID_IDispatch = "{00020400-0000-0000-C000-000000000046}"
+End Function
+
+Function CLSID_Executor
+	CLSID_Executor = "Aldec.ExePlugIn.Generic.7"
+End Function
+
+
+Sub OpenPlugIn (progid, template, document, element, string)
+
+	Dim executor, command
+
+	Set executor = window.external.aldec.connector.OpenPlugIn(CLSID_Executor, IID_IDispatch)
+
+	command = "?Activate[<"+progid+">][<"+template+">][<"+document+">][<"+element+">][<"+string+">]"
+
+	executor.ExecuteCommand command, ""
+
+End Sub
+
+
+</SCRIPT>
+<!--                                                                         -->
+<!--                             END VBSCRIPT                                -->
+<!----------------------------------------------------------------------------->
+
+<H2>DRC Report File - input_fifo_network_3.bde</H2>
+
+Created on Sat 2017-09-16 at 21:47:43
+<HR NOSHADE COLOR="#008080">
+<SPAN class=Info1>Checking file 'c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\input_fifo_network_3.bde'.</SPAN><BR>
+<SPAN class=Info1>
+	<p class = Warn1 style=font-weight:bold;margin-top:0px;margin-bottom:0px>Ambiguous range in net mapping
+	</p><ul style=margin-left:30px;margin-top:0px;margin-bottom:0px>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\input_fifo_network_3.bde','','-errorid=14,563');>	'U1' instance: 'din(15:0)' input bus pin and 'din(g_data_width-1:0)' input bus terminal</a></li>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\input_fifo_network_3.bde','','-errorid=4,290');>	'U1' instance: 'dout(15:0)' output bus pin and 'dout0(g_data_width-1:0)' bus signal</a></li>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\input_fifo_network_3.bde','','-errorid=14,290');>	'U2' instance: 'din(15:0)' input bus pin and 'dout0(g_data_width-1:0)' bus signal</a></li>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\input_fifo_network_3.bde','','-errorid=4,264');>	'U2' instance: 'dout(15:0)' output bus pin and 'dout1(g_data_width-1:0)' bus signal</a></li>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\input_fifo_network_3.bde','','-errorid=14,264');>	'U3' instance: 'din(15:0)' input bus pin and 'dout1(g_data_width-1:0)' bus signal</a></li>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\input_fifo_network_3.bde','','-errorid=4,269');>	'U3' instance: 'dout(15:0)' output bus pin and 'dout2(g_data_width-1:0)' bus signal</a></li></ul></SPAN><BR>
+<SPAN class=Info1>
+	<p class = Warn1 style=font-weight:bold;margin-top:0px;margin-bottom:0px>Nets without source
+	</p><ul style=margin-left:30px;margin-top:0px;margin-bottom:0px>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\input_fifo_network_3.bde','','-errorid=589,604');>	'o_dout0' output bus terminal</a></li>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\input_fifo_network_3.bde','','-errorid=586,602');>	'o_dout1' output bus terminal</a></li>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\input_fifo_network_3.bde','','-errorid=583,600');>	'o_dout2' output bus terminal</a></li></ul></SPAN><BR>
+<SPAN class=Info1>
+	<p class = Warn1 style=font-weight:bold;margin-top:0px;margin-bottom:0px>Nets without load
+	</p><ul style=margin-left:30px;margin-top:0px;margin-bottom:0px>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\input_fifo_network_3.bde','','-errorid=269');>	'dout2' bus signal</a></li>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\input_fifo_network_3.bde','','-errorid=566,569');>	'i_enable' input wire terminal</a></li></ul></SPAN><BR>
+<SPAN class=Info1>
+	<p class = Warn1 style=font-weight:bold;margin-top:0px;margin-bottom:0px>Unconnected terminals
+	</p><ul style=margin-left:30px;margin-top:0px;margin-bottom:0px>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\input_fifo_network_3.bde','','-errorid=566,569');>	'i_enable' input wire terminal</a></li>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\input_fifo_network_3.bde','','-errorid=589,604');>	'o_dout0' output bus terminal</a></li>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\input_fifo_network_3.bde','','-errorid=586,602');>	'o_dout1' output bus terminal</a></li>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\input_fifo_network_3.bde','','-errorid=583,600');>	'o_dout2' output bus terminal</a></li></ul></SPAN><BR>
+<SPAN class=Warn1>input_fifo_network_3.bde - 0 error(s), 15 warning(s)</SPAN><BR>
+<SPAN class=Info1>DRC process completed in 1 second(s).</SPAN><BR>
+</tt>
+</FONT>
+       
+        </BODY>
+</HTML>

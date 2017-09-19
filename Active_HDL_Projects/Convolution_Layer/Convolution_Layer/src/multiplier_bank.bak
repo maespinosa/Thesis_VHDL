@@ -2,58 +2,54 @@ SCHM0106
 
 HEADER
 {
- FREEID 1886
+ FREEID 2005
  VARIABLES
  {
   #ARCHITECTURE="arch"
   #BLOCKTABLE_FILE="#table.bde"
   #BLOCKTABLE_INCLUDED="1"
   #DEFAULT_RANGE0="<range<index=\"0\"><name=\"i_data0\"><left=\"g_multiplier_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE1="<range<index=\"0\"><name=\"i_data10\"><left=\"g_multiplier_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE2="<range<index=\"0\"><name=\"i_data1\"><left=\"g_multiplier_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE3="<range<index=\"0\"><name=\"i_data2\"><left=\"g_multiplier_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE4="<range<index=\"0\"><name=\"i_data3\"><left=\"g_multiplier_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE5="<range<index=\"0\"><name=\"i_data4\"><left=\"g_multiplier_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE6="<range<index=\"0\"><name=\"i_data5\"><left=\"g_multiplier_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE7="<range<index=\"0\"><name=\"i_data6\"><left=\"g_multiplier_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE8="<range<index=\"0\"><name=\"i_data7\"><left=\"g_multiplier_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE9="<range<index=\"0\"><name=\"i_data7_red\"><left=\"g_multiplier_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE10="<range<index=\"0\"><name=\"i_data8\"><left=\"g_multiplier_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE11="<range<index=\"0\"><name=\"i_data9\"><left=\"g_multiplier_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE12="<range<index=\"0\"><name=\"i_w0\"><left=\"g_multiplier_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE13="<range<index=\"0\"><name=\"i_w10\"><left=\"g_multiplier_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE14="<range<index=\"0\"><name=\"i_w1\"><left=\"g_multiplier_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE15="<range<index=\"0\"><name=\"i_w2\"><left=\"g_multiplier_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE16="<range<index=\"0\"><name=\"i_w2_red\"><left=\"g_multiplier_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE17="<range<index=\"0\"><name=\"i_w3\"><left=\"g_multiplier_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE18="<range<index=\"0\"><name=\"i_w4\"><left=\"g_multiplier_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE19="<range<index=\"0\"><name=\"i_w5\"><left=\"g_multiplier_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE20="<range<index=\"0\"><name=\"i_w6\"><left=\"g_multiplier_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE21="<range<index=\"0\"><name=\"i_w7\"><left=\"g_multiplier_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE22="<range<index=\"0\"><name=\"i_w8\"><left=\"g_multiplier_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE23="<range<index=\"0\"><name=\"i_w9\"><left=\"g_multiplier_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE24="<range<index=\"0\"><name=\"o_product0\"><left=\"g_product_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE25="<range<index=\"0\"><name=\"o_product0_red\"><left=\"g_product_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE26="<range<index=\"0\"><name=\"o_product10\"><left=\"g_product_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE27="<range<index=\"0\"><name=\"o_product10_red\"><left=\"g_product_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE28="<range<index=\"0\"><name=\"o_product1\"><left=\"g_product_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE29="<range<index=\"0\"><name=\"o_product1_red\"><left=\"g_product_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE30="<range<index=\"0\"><name=\"o_product2\"><left=\"g_product_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE31="<range<index=\"0\"><name=\"o_product2_red\"><left=\"g_product_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE32="<range<index=\"0\"><name=\"o_product3\"><left=\"g_product_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE33="<range<index=\"0\"><name=\"o_product3_red\"><left=\"g_product_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE34="<range<index=\"0\"><name=\"o_product4\"><left=\"g_product_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE35="<range<index=\"0\"><name=\"o_product4_red\"><left=\"g_product_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE36="<range<index=\"0\"><name=\"o_product5\"><left=\"g_product_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE37="<range<index=\"0\"><name=\"o_product5_red\"><left=\"g_product_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE38="<range<index=\"0\"><name=\"o_product6\"><left=\"g_product_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE39="<range<index=\"0\"><name=\"o_product6_red\"><left=\"g_product_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE40="<range<index=\"0\"><name=\"o_product7\"><left=\"g_product_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE41="<range<index=\"0\"><name=\"o_product7_red\"><left=\"g_product_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE42="<range<index=\"0\"><name=\"o_product8\"><left=\"g_product_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE43="<range<index=\"0\"><name=\"o_product8_red\"><left=\"g_product_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE44="<range<index=\"0\"><name=\"o_product9\"><left=\"g_product_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE45="<range<index=\"0\"><name=\"o_product9_red\"><left=\"g_product_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE1="<range<index=\"0\"><name=\"i_data1\"><left=\"g_multiplier_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE2="<range<index=\"0\"><name=\"i_data2\"><left=\"g_multiplier_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE3="<range<index=\"0\"><name=\"i_data3\"><left=\"g_multiplier_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE4="<range<index=\"0\"><name=\"i_data4\"><left=\"g_multiplier_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE5="<range<index=\"0\"><name=\"i_data5\"><left=\"g_multiplier_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE6="<range<index=\"0\"><name=\"i_data6\"><left=\"g_multiplier_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE7="<range<index=\"0\"><name=\"i_data7\"><left=\"g_multiplier_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE8="<range<index=\"0\"><name=\"i_data7_red\"><left=\"g_multiplier_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE9="<range<index=\"0\"><name=\"i_data8\"><left=\"g_multiplier_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE10="<range<index=\"0\"><name=\"i_data9\"><left=\"g_multiplier_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE11="<range<index=\"0\"><name=\"i_w0\"><left=\"g_multiplier_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE12="<range<index=\"0\"><name=\"i_w1\"><left=\"g_multiplier_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE13="<range<index=\"0\"><name=\"i_w2\"><left=\"g_multiplier_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE14="<range<index=\"0\"><name=\"i_w2_red\"><left=\"g_multiplier_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE15="<range<index=\"0\"><name=\"i_w3\"><left=\"g_multiplier_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE16="<range<index=\"0\"><name=\"i_w4\"><left=\"g_multiplier_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE17="<range<index=\"0\"><name=\"i_w5\"><left=\"g_multiplier_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE18="<range<index=\"0\"><name=\"i_w6\"><left=\"g_multiplier_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE19="<range<index=\"0\"><name=\"i_w7\"><left=\"g_multiplier_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE20="<range<index=\"0\"><name=\"i_w8\"><left=\"g_multiplier_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE21="<range<index=\"0\"><name=\"i_w9\"><left=\"g_multiplier_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE22="<range<index=\"0\"><name=\"o_product0\"><left=\"g_product_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE23="<range<index=\"0\"><name=\"o_product0_red\"><left=\"g_product_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE24="<range<index=\"0\"><name=\"o_product1\"><left=\"g_product_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE25="<range<index=\"0\"><name=\"o_product1_red\"><left=\"g_product_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE26="<range<index=\"0\"><name=\"o_product2\"><left=\"g_product_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE27="<range<index=\"0\"><name=\"o_product2_red\"><left=\"g_product_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE28="<range<index=\"0\"><name=\"o_product3\"><left=\"g_product_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE29="<range<index=\"0\"><name=\"o_product3_red\"><left=\"g_product_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE30="<range<index=\"0\"><name=\"o_product4\"><left=\"g_product_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE31="<range<index=\"0\"><name=\"o_product4_red\"><left=\"g_product_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE32="<range<index=\"0\"><name=\"o_product5\"><left=\"g_product_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE33="<range<index=\"0\"><name=\"o_product5_red\"><left=\"g_product_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE34="<range<index=\"0\"><name=\"o_product6\"><left=\"g_product_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE35="<range<index=\"0\"><name=\"o_product6_red\"><left=\"g_product_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE36="<range<index=\"0\"><name=\"o_product7\"><left=\"g_product_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE37="<range<index=\"0\"><name=\"o_product7_red\"><left=\"g_product_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE38="<range<index=\"0\"><name=\"o_product8\"><left=\"g_product_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE39="<range<index=\"0\"><name=\"o_product8_red\"><left=\"g_product_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE40="<range<index=\"0\"><name=\"o_product9\"><left=\"g_product_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE41="<range<index=\"0\"><name=\"o_product9_red\"><left=\"g_product_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
   #ENTITY="multiplier_bank"
   #LANGUAGE="VHDL"
   AUTHOR="Marks-M3800"
@@ -1049,83 +1045,6 @@ PAGE ""
    MARGINS (1,1)
    PARENT 242
   }
-  INSTANCE  244, 0, 0
-  {
-   VARIABLES
-   {
-    #COMPONENT="conv_multiplier"
-    #CUSTOM_NAME=""
-    #LIBRARY="#default"
-    #REFERENCE="R10"
-    #SYMBOL="conv_multiplier"
-    #SYMBOL_GLOBALLY_UNIQUE_IDENTIFIER="04334e75-238a-4f54-bd52-ad78891df2fb"
-   }
-   COORD (1580,3540)
-   VERTEXES ( (2,1750), (6,1788), (8,1790), (4,1791) )
-  }
-  TEXT  245, 0, 0
-  {
-   TEXT "$#REFERENCE"
-   RECT (1580,3504,1635,3539)
-   ALIGN 8
-   MARGINS (1,1)
-   PARENT 244
-  }
-  TEXT  246, 0, 0
-  {
-   TEXT "$#COMPONENT"
-   RECT (1580,3700,1777,3735)
-   MARGINS (1,1)
-   PARENT 244
-  }
-  INSTANCE  251, 0, 0
-  {
-   VARIABLES
-   {
-    #COMPONENT="BusInput"
-    #CUSTOM_NAME=""
-    #DOWNTO="1"
-    #LIBRARY="#terminals"
-    #REFERENCE="i_data10(g_multiplier_width-1:0)"
-    #SYMBOL="BusInput"
-    #SYMBOL_GLOBALLY_UNIQUE_IDENTIFIER=""
-    #VHDL_TYPE="STD_LOGIC_VECTOR"
-   }
-   COORD (1280,3620)
-   VERTEXES ( (2,1787) )
-  }
-  TEXT  252, 0, 0
-  {
-   TEXT "$#REFERENCE"
-   RECT (811,3603,1229,3638)
-   ALIGN 6
-   MARGINS (1,1)
-   PARENT 251
-  }
-  INSTANCE  253, 0, 0
-  {
-   VARIABLES
-   {
-    #COMPONENT="BusInput"
-    #CUSTOM_NAME=""
-    #DOWNTO="1"
-    #LIBRARY="#terminals"
-    #REFERENCE="i_w10(g_multiplier_width-1:0)"
-    #SYMBOL="BusInput"
-    #SYMBOL_GLOBALLY_UNIQUE_IDENTIFIER=""
-    #VHDL_TYPE="STD_LOGIC_VECTOR"
-   }
-   COORD (1280,3660)
-   VERTEXES ( (2,1789) )
-  }
-  TEXT  254, 0, 0
-  {
-   TEXT "$#REFERENCE"
-   RECT (846,3643,1229,3678)
-   ALIGN 6
-   MARGINS (1,1)
-   PARENT 253
-  }
   NET BUS  257, 0, 0
   NET BUS  261, 0, 0
   NET BUS  265, 0, 0
@@ -1158,8 +1077,6 @@ PAGE ""
   NET BUS  323, 0, 0
   NET BUS  327, 0, 0
   NET BUS  331, 0, 0
-  NET BUS  335, 0, 0
-  NET BUS  339, 0, 0
   INSTANCE  341, 0, 0
   {
    VARIABLES
@@ -1400,38 +1317,6 @@ PAGE ""
    MARGINS (1,1)
    PARENT 376
   }
-  INSTANCE  378, 0, 0
-  {
-   VARIABLES
-   {
-    #COMPONENT="BusOutput"
-    #CUSTOM_NAME=""
-    #DOWNTO="1"
-    #LIBRARY="#terminals"
-    #REFERENCE="o_product10(g_product_width-1:0)"
-    #SYMBOL="BusOutput"
-    #SYMBOL_GLOBALLY_UNIQUE_IDENTIFIER=""
-    #VHDL_TYPE="STD_LOGIC_VECTOR"
-   }
-   COORD (1920,3580)
-   VERTEXES ( (2,1792) )
-  }
-  TEXT  379, 0, 0
-  {
-   TEXT "$#REFERENCE"
-   RECT (1972,3563,2418,3598)
-   ALIGN 4
-   MARGINS (1,1)
-   PARENT 378
-  }
-  NET BUS  384, 0, 0
-  {
-   VARIABLES
-   {
-    #DOWNTO="1"
-    #NAME="o_product10_red(g_product_width-1:0)"
-   }
-  }
   NET BUS  388, 0, 0
   {
    VARIABLES
@@ -1612,10 +1497,6 @@ PAGE ""
   {
    COORD (1580,1040)
   }
-  VTX  1750, 0, 0
-  {
-   COORD (1580,3580)
-  }
   VTX  1751, 0, 0
   {
    COORD (1280,1260)
@@ -1759,30 +1640,6 @@ PAGE ""
   VTX  1786, 0, 0
   {
    COORD (1580,3380)
-  }
-  VTX  1787, 0, 0
-  {
-   COORD (1280,3620)
-  }
-  VTX  1788, 0, 0
-  {
-   COORD (1580,3620)
-  }
-  VTX  1789, 0, 0
-  {
-   COORD (1280,3660)
-  }
-  VTX  1790, 0, 0
-  {
-   COORD (1580,3660)
-  }
-  VTX  1791, 0, 0
-  {
-   COORD (1740,3580)
-  }
-  VTX  1792, 0, 0
-  {
-   COORD (1920,3580)
   }
   VTX  1793, 0, 0
   {
@@ -1974,20 +1831,6 @@ PAGE ""
    NET 206
    VTX 1748, 1749
   }
-  VTX  1835, 0, 0
-  {
-   COORD (1500,3580)
-  }
-  WIRE  1836, 0, 0
-  {
-   NET 39
-   VTX 1750, 1835
-  }
-  WIRE  1837, 0, 0
-  {
-   NET 39
-   VTX 1835, 1744
-  }
   BUS  1838, 0, 0
   {
    NET 257
@@ -2078,21 +1921,6 @@ PAGE ""
    NET 331
    VTX 1785, 1786
   }
-  BUS  1856, 0, 0
-  {
-   NET 335
-   VTX 1787, 1788
-  }
-  BUS  1857, 0, 0
-  {
-   NET 339
-   VTX 1789, 1790
-  }
-  BUS  1858, 0, 0
-  {
-   NET 384
-   VTX 1791, 1792
-  }
   BUS  1859, 0, 0
   {
    NET 388
@@ -2168,7 +1996,7 @@ PAGE ""
  
  BODY
  {
-  TEXT  1869, 0, 0
+  TEXT  1988, 0, 0
   {
    PAGEALIGN 10
    OUTLINE 5,1, (0,0,0)
@@ -2179,7 +2007,7 @@ PAGE ""
    COLOR (0,0,0)
    FONT (12,0,0,700,0,0,0,"Arial")
   }
-  TEXT  1870, 0, 0
+  TEXT  1989, 0, 0
   {
    PAGEALIGN 10
    TEXT "$CREATIONDATE"
@@ -2190,7 +2018,7 @@ PAGE ""
    FONT (12,0,0,700,0,128,0,"Arial")
    UPDATE 0
   }
-  TEXT  1871, 0, 0
+  TEXT  1990, 0, 0
   {
    PAGEALIGN 10
    TEXT "Title:"
@@ -2200,7 +2028,7 @@ PAGE ""
    COLOR (0,0,0)
    FONT (12,0,0,700,0,0,0,"Arial")
   }
-  TEXT  1872, 0, 0
+  TEXT  1991, 0, 0
   {
    PAGEALIGN 10
    OUTLINE 5,1, (0,0,0)
@@ -2212,7 +2040,7 @@ PAGE ""
    FONT (12,0,0,700,0,128,0,"Arial")
    UPDATE 0
   }
-  TEXT  1873, 0, 0
+  TEXT  1992, 0, 0
   {
    PAGEALIGN 10
    TEXT 
@@ -2225,7 +2053,7 @@ PAGE ""
    FONT (12,0,0,700,0,0,0,"Arial")
    MULTILINE
   }
-  TEXT  1874, 0, 0
+  TEXT  1993, 0, 0
   {
    PAGEALIGN 10
    TEXT "Page:"
@@ -2235,7 +2063,7 @@ PAGE ""
    COLOR (0,0,0)
    FONT (12,0,0,700,0,0,0,"Arial")
   }
-  TEXT  1875, 0, 0
+  TEXT  1994, 0, 0
   {
    PAGEALIGN 10
    OUTLINE 5,1, (0,0,0)
@@ -2247,7 +2075,7 @@ PAGE ""
    FONT (12,0,0,700,0,128,0,"Arial")
    UPDATE 0
   }
-  TEXT  1876, 0, 0
+  TEXT  1995, 0, 0
   {
    PAGEALIGN 10
    TEXT "Revision:"
@@ -2257,7 +2085,7 @@ PAGE ""
    COLOR (0,0,0)
    FONT (12,0,0,700,0,0,0,"Arial")
   }
-  TEXT  1877, 0, 0
+  TEXT  1996, 0, 0
   {
    PAGEALIGN 10
    TEXT "$Revision"
@@ -2268,7 +2096,7 @@ PAGE ""
    FONT (12,0,0,700,0,204,0,"Arial")
    UPDATE 0
   }
-  GROUP  1878, 0, 0
+  GROUP  1997, 0, 0
   {
    PAGEALIGN 10
    RECT (2320,3820,3201,4201)
@@ -2280,7 +2108,7 @@ PAGE ""
     FILL (1,(0,0,0),0)
    }
   }
-  GROUP  1879, 0, 0
+  GROUP  1998, 0, 0
   {
    PAGEALIGN 10
    RECT (2320,4020,3201,4021)
@@ -2292,7 +2120,7 @@ PAGE ""
     FILL (1,(0,0,0),0)
    }
   }
-  GROUP  1880, 0, 0
+  GROUP  1999, 0, 0
   {
    PAGEALIGN 10
    RECT (2320,3960,3201,3961)
@@ -2304,7 +2132,7 @@ PAGE ""
     FILL (1,(0,0,0),0)
    }
   }
-  GROUP  1881, 0, 0
+  GROUP  2000, 0, 0
   {
    PAGEALIGN 10
    RECT (2320,4080,3201,4081)
@@ -2316,7 +2144,7 @@ PAGE ""
     FILL (1,(0,0,0),0)
    }
   }
-  GROUP  1882, 0, 0
+  GROUP  2001, 0, 0
   {
    PAGEALIGN 10
    RECT (2320,4140,3201,4141)
@@ -2328,7 +2156,7 @@ PAGE ""
     FILL (1,(0,0,0),0)
    }
   }
-  GROUP  1883, 0, 0
+  GROUP  2002, 0, 0
   {
    PAGEALIGN 10
    RECT (2500,3820,2501,3961)
@@ -2339,7 +2167,7 @@ PAGE ""
     POINTS ( (0,0), (0,140) )
    }
   }
-  GROUP  1884, 0, 0
+  GROUP  2003, 0, 0
   {
    PAGEALIGN 10
    RECT (2500,3960,2501,4201)
@@ -2350,7 +2178,7 @@ PAGE ""
     POINTS ( (0,0), (0,240) )
    }
   }
-  BMPPICT  1885, 0, 0
+  BMPPICT  2004, 0, 0
   {
    PAGEALIGN 10
    RECT (2340,3880,2479,3925)

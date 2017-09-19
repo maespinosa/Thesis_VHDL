@@ -8,7 +8,7 @@
 -------------------------------------------------------------------------------
 --
 -- File        : c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\compile\multiplier_bank.vhd
--- Generated   : Sun Sep  3 09:55:33 2017
+-- Generated   : Sat Sep 16 21:47:41 2017
 -- From        : c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\multiplier_bank.bde
 -- By          : Bde2Vhdl ver. 2.6
 --
@@ -35,7 +35,6 @@ entity multiplier_bank is
        i_clk : in STD_LOGIC;
        i_data0 : in STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
        i_data1 : in STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-       i_data10 : in STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
        i_data2 : in STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
        i_data3 : in STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
        i_data4 : in STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
@@ -46,7 +45,6 @@ entity multiplier_bank is
        i_data9 : in STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
        i_w0 : in STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
        i_w1 : in STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-       i_w10 : in STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
        i_w2 : in STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
        i_w3 : in STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
        i_w4 : in STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
@@ -57,7 +55,6 @@ entity multiplier_bank is
        i_w9 : in STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
        o_product0 : out STD_LOGIC_VECTOR(g_product_width-1 downto 0);
        o_product1 : out STD_LOGIC_VECTOR(g_product_width-1 downto 0);
-       o_product10 : out STD_LOGIC_VECTOR(g_product_width-1 downto 0);
        o_product2 : out STD_LOGIC_VECTOR(g_product_width-1 downto 0);
        o_product3 : out STD_LOGIC_VECTOR(g_product_width-1 downto 0);
        o_product4 : out STD_LOGIC_VECTOR(g_product_width-1 downto 0);
@@ -87,7 +84,6 @@ end component;
 signal i_data7_red : STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
 signal i_w2_red : STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
 signal o_product0_red : STD_LOGIC_VECTOR(g_product_width-1 downto 0);
-signal o_product10_red : STD_LOGIC_VECTOR(g_product_width-1 downto 0);
 signal o_product1_red : STD_LOGIC_VECTOR(g_product_width-1 downto 0);
 signal o_product2_red : STD_LOGIC_VECTOR(g_product_width-1 downto 0);
 signal o_product3_red : STD_LOGIC_VECTOR(g_product_width-1 downto 0);
@@ -116,14 +112,6 @@ R1 : conv_multiplier
        b => i_w1(g_multiplier_width-1 downto 0),
        clk => i_clk,
        p => o_product1_red(g_product_width-1 downto 0)
-  );
-
-R10 : conv_multiplier
-  port map(
-       a => i_data10(g_multiplier_width-1 downto 0),
-       b => i_w10(g_multiplier_width-1 downto 0),
-       clk => i_clk,
-       p => o_product10_red(g_product_width-1 downto 0)
   );
 
 R2 : conv_multiplier
@@ -200,7 +188,6 @@ R9 : conv_multiplier
     -- Output\buffer terminals
 	o_product0 <= o_product0_red( g_product_width-1 downto 0 );
 	o_product1 <= o_product1_red( g_product_width-1 downto 0 );
-	o_product10 <= o_product10_red( g_product_width-1 downto 0 );
 	o_product2 <= o_product2_red( g_product_width-1 downto 0 );
 	o_product3 <= o_product3_red( g_product_width-1 downto 0 );
 	o_product4 <= o_product4_red( g_product_width-1 downto 0 );

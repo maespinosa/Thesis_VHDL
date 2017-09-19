@@ -8,7 +8,7 @@
 -------------------------------------------------------------------------------
 --
 -- File        : c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\compile\filter_top.vhd
--- Generated   : Mon Sep  4 16:12:07 2017
+-- Generated   : Mon Sep 18 20:23:48 2017
 -- From        : c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\filter_top.bde
 -- By          : Bde2Vhdl ver. 2.6
 --
@@ -24,6 +24,26 @@ use IEEE.std_logic_arith.all;
 use IEEE.std_logic_signed.all;
 use IEEE.std_logic_unsigned.all;
 
+library convolution_layer; 
+use convolution_layer.types_pkg.all;
+
+
+library Convolution_Layer;
+library Convolution_Layer;
+library Convolution_Layer;
+library Convolution_Layer;
+library Convolution_Layer;
+library Convolution_Layer;
+library Convolution_Layer;
+use Convolution_Layer.types_pkg.all;
+use Convolution_Layer.types_pkg.all;
+use Convolution_Layer.types_pkg.all;
+use Convolution_Layer.types_pkg.all;
+use Convolution_Layer.types_pkg.all;
+use Convolution_Layer.types_pkg.all;
+use Convolution_Layer.types_pkg.all;
+use Convolution_Layer.types_pkg.all;
+use Convolution_Layer.types_pkg.all;
 
 entity filter_top is
   generic(
@@ -35,7 +55,8 @@ entity filter_top is
        g_weight_width : integer := 16;
        g_multiplier_width : integer := 16;
        g_product_width : integer := 32;
-       g_conv_width : integer := 16
+       g_conv_width : integer := 16;
+       g_dsps_used : integer := 200
   );
   port(
        i_clk : in STD_LOGIC;
@@ -45,13 +66,18 @@ entity filter_top is
        i_inbuff_prog_empty : in STD_LOGIC;
        i_inbuff_valid : in STD_LOGIC;
        i_reset_n : in STD_LOGIC;
-       i_filter_height : in STD_LOGIC_VECTOR(3 downto 0);
-       i_filter_weights : in STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
-       i_filter_width : in STD_LOGIC_VECTOR(3 downto 0);
+       i_start : in STD_LOGIC;
        i_inbuff_dout : in STD_LOGIC_VECTOR(15 downto 0);
+       i_input_volume_channels : in STD_LOGIC_VECTOR(11 downto 0);
+       i_input_volume_size : in STD_LOGIC_VECTOR(3 downto 0);
+       i_number_of_filters : in STD_LOGIC_VECTOR(11 downto 0);
+       i_pad : in STD_LOGIC_VECTOR(3 downto 0);
+       i_stride : in STD_LOGIC_VECTOR(3 downto 0);
+       i_weight_filter_bytes : in STD_LOGIC_VECTOR(31 downto 0);
+       i_weight_filter_channels : in STD_LOGIC_VECTOR(11 downto 0);
+       i_weight_filter_size : in STD_LOGIC_VECTOR(3 downto 0);
        o_inbuff_rd_en : out STD_LOGIC;
-       o_weights_loaded : out STD_LOGIC;
-       o_conv_out : out STD_LOGIC_VECTOR(g_conv_width-1 downto 0);
+       o_conv_volume_out : out STD_LOGIC_VECTOR(31 downto 0);
        o_inbuff_prog_empty_thresh : out STD_LOGIC_VECTOR(9 downto 0)
   );
 end filter_top;
@@ -60,655 +86,438 @@ architecture arch of filter_top is
 
 ---- Component declarations -----
 
-component multiplier_bank
-  generic(
-       g_multiplier_width : INTEGER := 16;
-       g_product_width : INTEGER := 32
-  );
+component conv_multiplier
   port (
-       i_clk : in STD_LOGIC;
-       i_data0 : in STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-       i_data1 : in STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-       i_data10 : in STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-       i_data2 : in STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-       i_data3 : in STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-       i_data4 : in STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-       i_data5 : in STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-       i_data6 : in STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-       i_data7 : in STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-       i_data8 : in STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-       i_data9 : in STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-       i_w0 : in STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-       i_w1 : in STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-       i_w10 : in STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-       i_w2 : in STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-       i_w3 : in STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-       i_w4 : in STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-       i_w5 : in STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-       i_w6 : in STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-       i_w7 : in STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-       i_w8 : in STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-       i_w9 : in STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-       o_product0 : out STD_LOGIC_VECTOR(g_product_width-1 downto 0);
-       o_product1 : out STD_LOGIC_VECTOR(g_product_width-1 downto 0);
-       o_product10 : out STD_LOGIC_VECTOR(g_product_width-1 downto 0);
-       o_product2 : out STD_LOGIC_VECTOR(g_product_width-1 downto 0);
-       o_product3 : out STD_LOGIC_VECTOR(g_product_width-1 downto 0);
-       o_product4 : out STD_LOGIC_VECTOR(g_product_width-1 downto 0);
-       o_product5 : out STD_LOGIC_VECTOR(g_product_width-1 downto 0);
-       o_product6 : out STD_LOGIC_VECTOR(g_product_width-1 downto 0);
-       o_product7 : out STD_LOGIC_VECTOR(g_product_width-1 downto 0);
-       o_product8 : out STD_LOGIC_VECTOR(g_product_width-1 downto 0);
-       o_product9 : out STD_LOGIC_VECTOR(g_product_width-1 downto 0)
+       a : in STD_LOGIC_VECTOR(15 downto 0);
+       b : in STD_LOGIC_VECTOR(15 downto 0);
+       clk : in STD_LOGIC;
+       p : out STD_LOGIC_VECTOR(31 downto 0)
+  );
+end component;
+component filter_accumulator_fifo
+  port (
+       clk : in STD_LOGIC;
+       din : in STD_LOGIC_VECTOR(31 downto 0);
+       prog_empty_thresh : in STD_LOGIC_VECTOR(10 downto 0);
+       prog_full_thresh : in STD_LOGIC_VECTOR(10 downto 0);
+       rd_en : in STD_LOGIC;
+       rst : in STD_LOGIC;
+       wr_en : in STD_LOGIC;
+       almost_empty : out STD_LOGIC;
+       almost_full : out STD_LOGIC;
+       dout : out STD_LOGIC_VECTOR(31 downto 0);
+       empty : out STD_LOGIC;
+       full : out STD_LOGIC;
+       prog_empty : out STD_LOGIC;
+       prog_full : out STD_LOGIC;
+       valid : out STD_LOGIC
+  );
+end component;
+component input_network_fifo
+  port (
+       din : in STD_LOGIC_VECTOR(15 downto 0);
+       prog_empty_thresh : in STD_LOGIC_VECTOR(9 downto 0);
+       prog_full_thresh : in STD_LOGIC_VECTOR(9 downto 0);
+       rd_clk : in STD_LOGIC;
+       rd_en : in STD_LOGIC;
+       rst : in STD_LOGIC;
+       wr_clk : in STD_LOGIC;
+       wr_en : in STD_LOGIC;
+       almost_empty : out STD_LOGIC;
+       almost_full : out STD_LOGIC;
+       dout : out STD_LOGIC_VECTOR(15 downto 0);
+       empty : out STD_LOGIC;
+       full : out STD_LOGIC;
+       prog_empty : out STD_LOGIC;
+       prog_full : out STD_LOGIC;
+       valid : out STD_LOGIC
+  );
+end component;
+component weight_fifo
+  port (
+       clk : in STD_LOGIC;
+       din : in STD_LOGIC_VECTOR(15 downto 0);
+       prog_empty_thresh : in STD_LOGIC_VECTOR(12 downto 0);
+       prog_full_thresh : in STD_LOGIC_VECTOR(12 downto 0);
+       rd_en : in STD_LOGIC;
+       rst : in STD_LOGIC;
+       wr_en : in STD_LOGIC;
+       almost_empty : out STD_LOGIC;
+       almost_full : out STD_LOGIC;
+       dout : out STD_LOGIC_VECTOR(15 downto 0);
+       empty : out STD_LOGIC;
+       full : out STD_LOGIC;
+       prog_empty : out STD_LOGIC;
+       prog_full : out STD_LOGIC;
+       valid : out STD_LOGIC
   );
 end component;
 component accumulator
   generic(
        g_product_width : INTEGER := 32;
-       g_conv_width : INTEGER := 16
+       g_accumulator_width : INTEGER := 32;
+       g_dsps_used : INTEGER := 200
   );
   port (
        i_clk : in STD_LOGIC;
        i_enable : in STD_LOGIC;
-       i_product0_blue : in STD_LOGIC_VECTOR(g_product_width-1 downto 0);
-       i_product0_green : in STD_LOGIC_VECTOR(g_product_width-1 downto 0);
-       i_product0_red : in STD_LOGIC_VECTOR(g_product_width-1 downto 0);
-       i_product10_blue : in STD_LOGIC_VECTOR(g_product_width-1 downto 0);
-       i_product10_green : in STD_LOGIC_VECTOR(g_product_width-1 downto 0);
-       i_product10_red : in STD_LOGIC_VECTOR(g_product_width-1 downto 0);
-       i_product1_blue : in STD_LOGIC_VECTOR(g_product_width-1 downto 0);
-       i_product1_green : in STD_LOGIC_VECTOR(g_product_width-1 downto 0);
-       i_product1_red : in STD_LOGIC_VECTOR(g_product_width-1 downto 0);
-       i_product2_blue : in STD_LOGIC_VECTOR(g_product_width-1 downto 0);
-       i_product2_green : in STD_LOGIC_VECTOR(g_product_width-1 downto 0);
-       i_product2_red : in STD_LOGIC_VECTOR(g_product_width-1 downto 0);
-       i_product3_blue : in STD_LOGIC_VECTOR(g_product_width-1 downto 0);
-       i_product3_green : in STD_LOGIC_VECTOR(g_product_width-1 downto 0);
-       i_product3_red : in STD_LOGIC_VECTOR(g_product_width-1 downto 0);
-       i_product4_blue : in STD_LOGIC_VECTOR(g_product_width-1 downto 0);
-       i_product4_green : in STD_LOGIC_VECTOR(g_product_width-1 downto 0);
-       i_product4_red : in STD_LOGIC_VECTOR(g_product_width-1 downto 0);
-       i_product5_blue : in STD_LOGIC_VECTOR(g_product_width-1 downto 0);
-       i_product5_green : in STD_LOGIC_VECTOR(g_product_width-1 downto 0);
-       i_product5_red : in STD_LOGIC_VECTOR(g_product_width-1 downto 0);
-       i_product6_blue : in STD_LOGIC_VECTOR(g_product_width-1 downto 0);
-       i_product6_green : in STD_LOGIC_VECTOR(g_product_width-1 downto 0);
-       i_product6_red : in STD_LOGIC_VECTOR(g_product_width-1 downto 0);
-       i_product7_blue : in STD_LOGIC_VECTOR(g_product_width-1 downto 0);
-       i_product7_green : in STD_LOGIC_VECTOR(g_product_width-1 downto 0);
-       i_product7_red : in STD_LOGIC_VECTOR(g_product_width-1 downto 0);
-       i_product8_blue : in STD_LOGIC_VECTOR(g_product_width-1 downto 0);
-       i_product8_green : in STD_LOGIC_VECTOR(g_product_width-1 downto 0);
-       i_product8_red : in STD_LOGIC_VECTOR(g_product_width-1 downto 0);
-       i_product9_blue : in STD_LOGIC_VECTOR(g_product_width-1 downto 0);
-       i_product9_green : in STD_LOGIC_VECTOR(g_product_width-1 downto 0);
-       i_product9_red : in STD_LOGIC_VECTOR(g_product_width-1 downto 0);
+       i_filter_size : in STD_LOGIC_VECTOR(3 downto 0);
+       i_products_array : in array_type_varx32bit(g_dsps_used-1 downto 0);
        i_reset_n : in STD_LOGIC;
-       o_conv_out : out STD_LOGIC_VECTOR(g_conv_width-1 downto 0)
+       o_acc_data : out STD_LOGIC_VECTOR(g_accumulator_width-1 downto 0);
+       o_acc_valid : out STD_LOGIC
   );
 end component;
-component filter_weight_controller
-  generic(
-       g_weight_width : INTEGER := 16
-  );
+component accumulator_relay
   port (
+       i_acc_filter_data : in STD_LOGIC_VECTOR(31 downto 0);
+       i_almost_empty : in STD_LOGIC;
        i_clk : in STD_LOGIC;
-       i_enable : in STD_LOGIC;
-       i_filter_height : in STD_LOGIC_VECTOR(3 downto 0);
-       i_filter_weights : in STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
-       i_filter_width : in STD_LOGIC_VECTOR(3 downto 0);
+       i_data_valid : in STD_LOGIC;
+       i_empty : in STD_LOGIC;
+       i_prog_empty : in STD_LOGIC;
        i_reset_n : in STD_LOGIC;
-       o_w0_blue : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
-       o_w0_green : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
-       o_w0_red : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
-       o_w10_blue : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
-       o_w10_green : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
-       o_w10_red : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
-       o_w1_blue : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
-       o_w1_green : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
-       o_w1_red : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
-       o_w2_blue : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
-       o_w2_green : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
-       o_w2_red : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
-       o_w3_blue : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
-       o_w3_green : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
-       o_w3_red : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
-       o_w4_blue : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
-       o_w4_green : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
-       o_w4_red : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
-       o_w5_blue : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
-       o_w5_green : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
-       o_w5_red : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
-       o_w6_blue : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
-       o_w6_green : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
-       o_w6_red : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
-       o_w7_blue : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
-       o_w7_green : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
-       o_w7_red : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
-       o_w8_blue : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
-       o_w8_green : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
-       o_w8_red : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
-       o_w9_blue : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
-       o_w9_green : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
-       o_w9_red : out STD_LOGIC_VECTOR(g_weight_width-1 downto 0);
-       o_weights_loaded : out STD_LOGIC
+       o_conv_volume_out : out STD_LOGIC_VECTOR(31 downto 0);
+       o_prog_emtpy_thresh : out STD_LOGIC_VECTOR(10 downto 0);
+       o_rd_en : out STD_LOGIC;
+       o_recycled_acc_data : out STD_LOGIC_VECTOR(31 downto 0);
+       o_recycled_acc_data_en : out STD_LOGIC
   );
 end component;
-component input_fifo_network
-  generic(
-       g_data_width : integer := 16;
-       g_red_bits : integer := 4;
-       g_green_bits : integer := 4;
-       g_blue_bits : integer := 4
-  );
+component filter_accumulator
   port (
-       din : in STD_LOGIC_VECTOR(g_data_width-1 downto 0);
-       i_enable : in STD_LOGIC;
-       i_rd_clk : in STD_LOGIC;
+       i_acc_data : in STD_LOGIC_VECTOR(31 downto 0);
+       i_acc_data_valid : in STD_LOGIC;
+       i_almost_full : in STD_LOGIC;
+       i_clk : in STD_LOGIC;
+       i_full : in STD_LOGIC;
+       i_prog_full : in STD_LOGIC;
+       i_recycled_acc_data : in STD_LOGIC_VECTOR(31 downto 0);
+       i_recycled_acc_data_en : in STD_LOGIC;
        i_reset_n : in STD_LOGIC;
-       i_wr_clk : in STD_LOGIC;
-       prog_empty_thresh : in STD_LOGIC_VECTOR(9 downto 0);
-       prog_full_thresh : in STD_LOGIC_VECTOR(9 downto 0);
-       rd_en : in STD_LOGIC_VECTOR(10 downto 0);
-       wr_en : in STD_LOGIC_VECTOR(10 downto 0);
-       almost_empty : out STD_LOGIC_VECTOR(10 downto 0);
-       almost_full : out STD_LOGIC_VECTOR(10 downto 0);
-       empty : out STD_LOGIC_VECTOR(10 downto 0);
-       full : out STD_LOGIC_VECTOR(10 downto 0);
-       o_dout0_blue : out STD_LOGIC_VECTOR(g_blue_bits-1 downto 0);
-       o_dout0_green : out STD_LOGIC_VECTOR(g_green_bits-1 downto 0);
-       o_dout0_red : out STD_LOGIC_VECTOR(g_red_bits-1 downto 0);
-       o_dout10_blue : out STD_LOGIC_VECTOR(g_blue_bits-1 downto 0);
-       o_dout10_green : out STD_LOGIC_VECTOR(g_green_bits-1 downto 0);
-       o_dout10_red : out STD_LOGIC_VECTOR(g_red_bits-1 downto 0);
-       o_dout1_blue : out STD_LOGIC_VECTOR(g_blue_bits-1 downto 0);
-       o_dout1_green : out STD_LOGIC_VECTOR(g_green_bits-1 downto 0);
-       o_dout1_red : out STD_LOGIC_VECTOR(g_red_bits-1 downto 0);
-       o_dout2_blue : out STD_LOGIC_VECTOR(g_blue_bits-1 downto 0);
-       o_dout2_green : out STD_LOGIC_VECTOR(g_green_bits-1 downto 0);
-       o_dout2_red : out STD_LOGIC_VECTOR(g_red_bits-1 downto 0);
-       o_dout3_blue : out STD_LOGIC_VECTOR(g_blue_bits-1 downto 0);
-       o_dout3_green : out STD_LOGIC_VECTOR(g_green_bits-1 downto 0);
-       o_dout3_red : out STD_LOGIC_VECTOR(g_red_bits-1 downto 0);
-       o_dout4_blue : out STD_LOGIC_VECTOR(g_blue_bits-1 downto 0);
-       o_dout4_green : out STD_LOGIC_VECTOR(g_green_bits-1 downto 0);
-       o_dout4_red : out STD_LOGIC_VECTOR(g_red_bits-1 downto 0);
-       o_dout5_blue : out STD_LOGIC_VECTOR(g_blue_bits-1 downto 0);
-       o_dout5_green : out STD_LOGIC_VECTOR(g_green_bits-1 downto 0);
-       o_dout5_red : out STD_LOGIC_VECTOR(g_red_bits-1 downto 0);
-       o_dout6_blue : out STD_LOGIC_VECTOR(g_blue_bits-1 downto 0);
-       o_dout6_green : out STD_LOGIC_VECTOR(g_green_bits-1 downto 0);
-       o_dout6_red : out STD_LOGIC_VECTOR(g_red_bits-1 downto 0);
-       o_dout7_blue : out STD_LOGIC_VECTOR(g_blue_bits-1 downto 0);
-       o_dout7_green : out STD_LOGIC_VECTOR(g_green_bits-1 downto 0);
-       o_dout7_red : out STD_LOGIC_VECTOR(g_red_bits-1 downto 0);
-       o_dout8_blue : out STD_LOGIC_VECTOR(g_blue_bits-1 downto 0);
-       o_dout8_green : out STD_LOGIC_VECTOR(g_green_bits-1 downto 0);
-       o_dout8_red : out STD_LOGIC_VECTOR(g_red_bits-1 downto 0);
-       o_dout9_blue : out STD_LOGIC_VECTOR(g_blue_bits-1 downto 0);
-       o_dout9_green : out STD_LOGIC_VECTOR(g_green_bits-1 downto 0);
-       o_dout9_red : out STD_LOGIC_VECTOR(g_red_bits-1 downto 0);
-       prog_empty : out STD_LOGIC_VECTOR(10 downto 0);
-       prog_full : out STD_LOGIC_VECTOR(10 downto 0);
-       valid : out STD_LOGIC_VECTOR(10 downto 0)
+       o_acc_filter_data : out STD_LOGIC_VECTOR(31 downto 0);
+       o_data_valid : out STD_LOGIC;
+       o_prog_full_thresh : out STD_LOGIC_VECTOR(10 downto 0)
   );
 end component;
 component input_fifo_net_controller
   generic(
        g_weight_width : INTEGER := 16;
-       g_data_width : INTEGER := 16
+       g_data_width : INTEGER := 16;
+       g_dsps_used : INTEGER := 200;
+       g_num_11_filters : INTEGER := 18;
+       g_num_7_filters : INTEGER := 28;
+       g_num_3_filters : INTEGER := 66
   );
   port (
-       i_almost_empty : in STD_LOGIC_VECTOR(10 downto 0);
-       i_almost_full : in STD_LOGIC_VECTOR(10 downto 0);
        i_clk : in STD_LOGIC;
-       i_empty : in STD_LOGIC_VECTOR(10 downto 0);
        i_enable : in STD_LOGIC;
-       i_full : in STD_LOGIC_VECTOR(10 downto 0);
+       i_filter_kernal_loaded : in STD_LOGIC_VECTOR(g_dsps_used-1 downto 0);
+       i_get_volume_row : in STD_LOGIC_VECTOR(g_dsps_used-1 downto 0);
+       i_get_weight_row : in STD_LOGIC_VECTOR(g_dsps_used-1 downto 0);
        i_inbuff_almost_empty : in STD_LOGIC;
        i_inbuff_dout : in STD_LOGIC_VECTOR(15 downto 0);
        i_inbuff_empty : in STD_LOGIC;
        i_inbuff_prog_empty : in STD_LOGIC;
        i_inbuff_valid : in STD_LOGIC;
-       i_prog_empty : in STD_LOGIC_VECTOR(10 downto 0);
-       i_prog_full : in STD_LOGIC_VECTOR(10 downto 0);
+       i_input_volume_channels : in STD_LOGIC_VECTOR(11 downto 0);
+       i_input_volume_size : in STD_LOGIC_VECTOR(3 downto 0);
+       i_number_of_filters : in STD_LOGIC_VECTOR(11 downto 0);
+       i_pad : in STD_LOGIC_VECTOR(3 downto 0);
        i_reset_n : in STD_LOGIC;
-       i_valid : in STD_LOGIC_VECTOR(10 downto 0);
-       o_fifo_net_din : out STD_LOGIC_VECTOR(g_data_width-1 downto 0);
+       i_start : in STD_LOGIC;
+       i_stride : in STD_LOGIC_VECTOR(3 downto 0);
+       i_voluem_fifo_almost_full : in STD_LOGIC_VECTOR(g_dsps_used-1 downto 0);
+       i_volume_fifo_full : in STD_LOGIC_VECTOR(g_dsps_used-1 downto 0);
+       i_volume_fifo_prog_full : in STD_LOGIC_VECTOR(g_dsps_used-1 downto 0);
+       i_weight_filter_bytes : in STD_LOGIC_VECTOR(31 downto 0);
+       i_weight_filter_channels : in STD_LOGIC_VECTOR(11 downto 0);
+       i_weight_filter_size : in STD_LOGIC_VECTOR(3 downto 0);
        o_inbuff_prog_empty_thresh : out STD_LOGIC_VECTOR(9 downto 0);
        o_inbuff_rd_en : out STD_LOGIC;
+       o_volume_data : out array_type_varx16bit(g_dsps_used-1 downto 0);
+       o_volume_fifo_prog_full_thresh : out STD_LOGIC_VECTOR(9 downto 0);
+       o_volume_fifo_wr_en : out STD_LOGIC_VECTOR(g_dsps_used-1 downto 0);
+       o_weight_data : out array_type_varx16bit(g_dsps_used-1 downto 0)
+  );
+end component;
+component volume_mux
+  generic(
+       g_mux_id : INTEGER := 0
+  );
+  port (
+       i_almost_full : in STD_LOGIC;
+       i_clk : in STD_LOGIC;
+       i_enable : in STD_LOGIC;
+       i_fifo_prog_full_thresh : in STD_LOGIC_VECTOR(9 downto 0);
+       i_fifo_we : in STD_LOGIC;
+       i_filter_size : in STD_LOGIC_VECTOR(3 downto 0);
+       i_filters_processed : in STD_LOGIC;
+       i_full : in STD_LOGIC;
+       i_new_data : in STD_LOGIC_VECTOR(15 downto 0);
+       i_prev_data : in STD_LOGIC_VECTOR(15 downto 0);
+       i_prog_full : in STD_LOGIC;
+       i_recycled_data : in STD_LOGIC_VECTOR(15 downto 0);
+       i_reset_n : in STD_LOGIC;
+       o_data : out STD_LOGIC_VECTOR(15 downto 0);
+       o_data_valid : out STD_LOGIC;
+       o_fifo_almost_full : out STD_LOGIC;
+       o_fifo_full : out STD_LOGIC;
+       o_fifo_prog_full : out STD_LOGIC;
+       o_get_volume_row : out STD_LOGIC;
+       o_prog_full_thresh : out STD_LOGIC_VECTOR(9 downto 0)
+  );
+end component;
+component volume_router
+  port (
+       i_almost_empty : in STD_LOGIC;
+       i_clk : in STD_LOGIC;
+       i_empty : in STD_LOGIC;
+       i_enable : in STD_LOGIC;
+       i_fifo_data_valid : in STD_LOGIC;
+       i_filters_loaded : in STD_LOGIC;
+       i_is_last_volume_primed : in STD_LOGIC;
+       i_prog_empty : in STD_LOGIC;
+       i_reset_n : in STD_LOGIC;
+       i_volume_data : in STD_LOGIC_VECTOR(15 downto 0);
+       o_data_mult : out STD_LOGIC_VECTOR(15 downto 0);
+       o_data_valid : out STD_LOGIC;
        o_prog_empty_thresh : out STD_LOGIC_VECTOR(9 downto 0);
-       o_prog_full_thresh : out STD_LOGIC_VECTOR(9 downto 0);
-       o_rd_en : out STD_LOGIC_VECTOR(10 downto 0);
-       o_wr_en : out STD_LOGIC_VECTOR(10 downto 0)
+       o_rd_en : out STD_LOGIC;
+       o_recycled_data : out STD_LOGIC_VECTOR(15 downto 0);
+       o_rows_complete : out STD_LOGIC;
+       o_this_last_volume_primed : out STD_LOGIC
+  );
+end component;
+component weights_router
+  port (
+       i_almost_empty : in STD_LOGIC;
+       i_clk : in STD_LOGIC;
+       i_empty : in STD_LOGIC;
+       i_enable : in STD_LOGIC;
+       i_fifo_data_valid : in STD_LOGIC;
+       i_filter_data : in STD_LOGIC_VECTOR(15 downto 0);
+       i_num_filters : in STD_LOGIC_VECTOR(11 downto 0);
+       i_prog_empty : in STD_LOGIC;
+       i_reset_n : in STD_LOGIC;
+       i_volume_primed : in STD_LOGIC;
+       o_data_valid : out STD_LOGIC;
+       o_filter_loaded : out STD_LOGIC;
+       o_filters_processed : out STD_LOGIC;
+       o_prog_empty_thresh : out STD_LOGIC_VECTOR(12 downto 0);
+       o_rd_en : out STD_LOGIC;
+       o_recycle_filter_data : out STD_LOGIC_VECTOR(15 downto 0);
+       o_recycle_filter_en : out STD_LOGIC;
+       o_weights_mult : out STD_LOGIC_VECTOR(15 downto 0)
+  );
+end component;
+component weight_mux
+  generic(
+       g_mux_id : INTEGER := 0
+  );
+  port (
+       i_almost_full : in STD_LOGIC;
+       i_clk : in STD_LOGIC;
+       i_enable : in STD_LOGIC;
+       i_filter_size : in STD_LOGIC_VECTOR(3 downto 0);
+       i_full : in STD_LOGIC;
+       i_new_filter_data : in STD_LOGIC_VECTOR(15 downto 0);
+       i_num_filters : in STD_LOGIC_VECTOR(11 downto 0);
+       i_prog_full : in STD_LOGIC;
+       i_recycled_filter : in STD_LOGIC_VECTOR(15 downto 0);
+       i_recycled_filter_en : in STD_LOGIC;
+       i_reset_n : in STD_LOGIC;
+       o_current_filter_num : out STD_LOGIC_VECTOR(11 downto 0);
+       o_data_valid : out STD_LOGIC;
+       o_filter_data : out STD_LOGIC_VECTOR(15 downto 0);
+       o_get_weight_row : out STD_LOGIC;
+       o_prog_full_thresh : out STD_LOGIC_VECTOR(12 downto 0)
   );
 end component;
 
+----     Constants     -----
+constant DANGLING_INPUT_CONSTANT : STD_LOGIC := 'Z';
+
 ---- Signal declarations used on the diagram ----
 
+signal acc_fifo_almost_empty : STD_LOGIC;
+signal acc_fifo_almost_full : STD_LOGIC;
+signal acc_fifo_empty : STD_LOGIC;
+signal acc_fifo_full : STD_LOGIC;
+signal acc_fifo_prog_empty : STD_LOGIC;
+signal acc_fifo_prog_full : STD_LOGIC;
+signal acc_fifo_rd_en : STD_LOGIC;
+signal acc_fifo_valid : STD_LOGIC;
+signal acc_fifo_wr_en : STD_LOGIC;
+signal acc_valid : STD_LOGIC;
+signal all_filters_processed : STD_LOGIC;
 signal i_rd_clk : STD_LOGIC;
-signal NET7318 : STD_LOGIC;
-signal almost_empty : STD_LOGIC_VECTOR(10 downto 0);
-signal almost_full : STD_LOGIC_VECTOR(10 downto 0);
-signal data0_blue : STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-signal data0_green : STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-signal data0_red : STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-signal data10_blue : STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-signal data10_green : STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-signal data10_red : STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-signal data1_blue : STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-signal data1_green : STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-signal data1_red : STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-signal data2_blue : STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-signal data2_green : STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-signal data2_red : STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-signal data3_blue : STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-signal data3_green : STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-signal data3_red : STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-signal data4_blue : STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-signal data4_green : STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-signal data4_red : STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-signal data5_blue : STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-signal data5_green : STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-signal data5_red : STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-signal data6_blue : STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-signal data6_green : STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-signal data6_red : STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-signal data7_blue : STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-signal data7_green : STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-signal data7_red : STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-signal data8_blue : STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-signal data8_green : STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-signal data8_red : STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-signal data9_blue : STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-signal data9_green : STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-signal data9_red : STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-signal din : STD_LOGIC_VECTOR(g_data_width-1 downto 0);
-signal empty : STD_LOGIC_VECTOR(10 downto 0);
-signal full : STD_LOGIC_VECTOR(10 downto 0);
-signal product0_blue : STD_LOGIC_VECTOR(g_product_width-1 downto 0);
-signal product0_green : STD_LOGIC_VECTOR(g_product_width-1 downto 0);
-signal product0_red : STD_LOGIC_VECTOR(g_product_width-1 downto 0);
-signal product10_blue : STD_LOGIC_VECTOR(g_product_width-1 downto 0);
-signal product10_green : STD_LOGIC_VECTOR(g_product_width-1 downto 0);
-signal product10_red : STD_LOGIC_VECTOR(g_product_width-1 downto 0);
-signal product1_blue : STD_LOGIC_VECTOR(g_product_width-1 downto 0);
-signal product1_green : STD_LOGIC_VECTOR(g_product_width-1 downto 0);
-signal product1_red : STD_LOGIC_VECTOR(g_product_width-1 downto 0);
-signal product2_blue : STD_LOGIC_VECTOR(g_product_width-1 downto 0);
-signal product2_green : STD_LOGIC_VECTOR(g_product_width-1 downto 0);
-signal product2_red : STD_LOGIC_VECTOR(g_product_width-1 downto 0);
-signal product3_blue : STD_LOGIC_VECTOR(g_product_width-1 downto 0);
-signal product3_green : STD_LOGIC_VECTOR(g_product_width-1 downto 0);
-signal product3_red : STD_LOGIC_VECTOR(g_product_width-1 downto 0);
-signal product4_blue : STD_LOGIC_VECTOR(g_product_width-1 downto 0);
-signal product4_green : STD_LOGIC_VECTOR(g_product_width-1 downto 0);
-signal product4_red : STD_LOGIC_VECTOR(g_product_width-1 downto 0);
-signal product5_blue : STD_LOGIC_VECTOR(g_product_width-1 downto 0);
-signal product5_green : STD_LOGIC_VECTOR(g_product_width-1 downto 0);
-signal product5_red : STD_LOGIC_VECTOR(g_product_width-1 downto 0);
-signal product6_blue : STD_LOGIC_VECTOR(g_product_width-1 downto 0);
-signal product6_green : STD_LOGIC_VECTOR(g_product_width-1 downto 0);
-signal product6_red : STD_LOGIC_VECTOR(g_product_width-1 downto 0);
-signal product7_blue : STD_LOGIC_VECTOR(g_product_width-1 downto 0);
-signal product7_green : STD_LOGIC_VECTOR(g_product_width-1 downto 0);
-signal product7_red : STD_LOGIC_VECTOR(g_product_width-1 downto 0);
-signal product8_blue : STD_LOGIC_VECTOR(g_product_width-1 downto 0);
-signal product8_green : STD_LOGIC_VECTOR(g_product_width-1 downto 0);
-signal product8_red : STD_LOGIC_VECTOR(g_product_width-1 downto 0);
-signal product9_blue : STD_LOGIC_VECTOR(g_product_width-1 downto 0);
-signal product9_green : STD_LOGIC_VECTOR(g_product_width-1 downto 0);
-signal product9_red : STD_LOGIC_VECTOR(g_product_width-1 downto 0);
-signal prog_empty : STD_LOGIC_VECTOR(10 downto 0);
-signal prog_empty_thresh : STD_LOGIC_VECTOR(9 downto 0);
-signal prog_full : STD_LOGIC_VECTOR(10 downto 0);
-signal prog_full_thresh : STD_LOGIC_VECTOR(9 downto 0);
-signal rd_en : STD_LOGIC_VECTOR(10 downto 0);
-signal valid : STD_LOGIC_VECTOR(10 downto 0);
-signal w0_blue : STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-signal w0_green : STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-signal w0_red : STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-signal w10_blue : STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-signal w10_green : STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-signal w10_red : STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-signal w1_blue : STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-signal w1_green : STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-signal w1_red : STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-signal w2_blue : STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-signal w2_green : STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-signal w2_red : STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-signal w3_blue : STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-signal w3_green : STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-signal w3_red : STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-signal w4_blue : STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-signal w4_green : STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-signal w4_red : STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-signal w5_blue : STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-signal w5_green : STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-signal w5_red : STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-signal w6_blue : STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-signal w6_green : STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-signal w6_red : STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-signal w7_blue : STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-signal w7_green : STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-signal w7_red : STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-signal w8_blue : STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-signal w8_green : STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-signal w8_red : STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-signal w9_blue : STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-signal w9_green : STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-signal w9_red : STD_LOGIC_VECTOR(g_multiplier_width-1 downto 0);
-signal wr_en : STD_LOGIC_VECTOR(10 downto 0);
+signal loaded_rows_processed : STD_LOGIC;
+signal NET10078 : STD_LOGIC;
+signal NET10086 : STD_LOGIC;
+signal recycled_acc_data_en : STD_LOGIC;
+signal recycle_filter_en : STD_LOGIC;
+signal volume_fifo_almost_full : STD_LOGIC;
+signal volume_fifo_full : STD_LOGIC;
+signal volume_fifo_prog_full : STD_LOGIC;
+signal vol_fifo_almost_empty : STD_LOGIC;
+signal vol_fifo_empty : STD_LOGIC;
+signal vol_fifo_prog_empty : STD_LOGIC;
+signal vol_fifo_rd_en : STD_LOGIC;
+signal vol_fifo_valid : STD_LOGIC;
+signal vr_fifo_wr_en : STD_LOGIC;
+signal weight_fifo_almost_full : STD_LOGIC;
+signal weight_fifo_full : STD_LOGIC;
+signal weight_fifo_prog_full : STD_LOGIC;
+signal weight_fifo_wr_en : STD_LOGIC;
+signal w_fifo_almost_empty : STD_LOGIC;
+signal w_fifo_empty : STD_LOGIC;
+signal w_fifo_prog_empty : STD_LOGIC;
+signal w_fifo_rd_en : STD_LOGIC;
+signal w_fifo_valid : STD_LOGIC;
+signal accu_fifo_input : STD_LOGIC_VECTOR(31 downto 0);
+signal acc_data : STD_LOGIC_VECTOR(31 downto 0);
+signal acc_fifo_dout : STD_LOGIC_VECTOR(31 downto 0);
+signal acc_fifo_prog_empty_thresh : STD_LOGIC_VECTOR(10 downto 0);
+signal acc_fifo_prog_full_thresh : STD_LOGIC_VECTOR(10 downto 0);
+signal filter_kernal_loaded : STD_LOGIC_VECTOR(g_dsps_used-1 downto 0);
+signal filter_size : STD_LOGIC_VECTOR(3 downto 0);
+signal get_volume_row : STD_LOGIC_VECTOR(g_dsps_used-1 downto 0);
+signal get_weight_row : STD_LOGIC_VECTOR(g_dsps_used-1 downto 0);
+signal multiplicand_a : STD_LOGIC_VECTOR(15 downto 0);
+signal multiplicand_b : STD_LOGIC_VECTOR(15 downto 0);
+signal number_of_filters : STD_LOGIC_VECTOR(11 downto 0);
+signal products_array : array_type_varx32bit(199 downto 0);
+signal recycled_acc_data : STD_LOGIC_VECTOR(31 downto 0);
+signal recycled_data : array_type_varx16bit(199 downto 0);
+signal recycle_filter_data : STD_LOGIC_VECTOR(15 downto 0);
+signal volume_data : array_type_varx16bit(199 downto 0);
+signal volume_data_valid : STD_LOGIC_VECTOR(199 downto 0);
+signal volume_fifo_full_prog_thresh : STD_LOGIC_VECTOR(9 downto 0);
+signal volume_fifo_input : STD_LOGIC_VECTOR(15 downto 0);
+signal volume_stack_fifo_almost_full : STD_LOGIC_VECTOR(g_dsps_used-1 downto 0);
+signal volume_stack_fifo_full : STD_LOGIC_VECTOR(g_dsps_used-1 downto 0);
+signal volume_stack_fifo_prog_full : STD_LOGIC_VECTOR(g_dsps_used-1 downto 0);
+signal volume_stack_fifo_prog_full_thresh : STD_LOGIC_VECTOR(9 downto 0);
+signal volume_stack_fifo_wr_en : STD_LOGIC_VECTOR(g_dsps_used-1 downto 0);
+signal vol_fifo_dout : STD_LOGIC_VECTOR(15 downto 0);
+signal vol_fifo_prog_empty_thresh : STD_LOGIC_VECTOR(9 downto 0);
+signal weight_data : array_type_varx16bit(199 downto 0);
+signal weight_data_valid : STD_LOGIC_VECTOR(7 downto 0);
+signal weight_fifo_input : STD_LOGIC_VECTOR(15 downto 0);
+signal weight_fifo_prog_full_thresh : STD_LOGIC_VECTOR(12 downto 0);
+signal w_fifo_dout : STD_LOGIC_VECTOR(15 downto 0);
+signal w_fifo_prog_empty_thresh : STD_LOGIC_VECTOR(12 downto 0);
+
+---- Declaration for Dangling input ----
+signal Dangling_Input_Signal : STD_LOGIC;
 
 begin
 
 ----  Component instantiations  ----
 
-BLUE : multiplier_bank
-  generic map(
-       g_multiplier_width => g_multiplier_width,
-       g_product_width => g_product_width
-  )
+ACCUMULATOR_RELAY_UNIT : accumulator_relay
   port map(
+       i_acc_filter_data => acc_fifo_dout,
+       i_almost_empty => acc_fifo_almost_empty,
        i_clk => i_clk,
-       i_data0 => data0_blue(g_multiplier_width-1 downto 0),
-       i_data1 => data1_blue(g_multiplier_width-1 downto 0),
-       i_data10 => data10_blue(g_multiplier_width-1 downto 0),
-       i_data2 => data2_blue(g_multiplier_width-1 downto 0),
-       i_data3 => data3_blue(g_multiplier_width-1 downto 0),
-       i_data4 => data4_blue(g_multiplier_width-1 downto 0),
-       i_data5 => data5_blue(g_multiplier_width-1 downto 0),
-       i_data6 => data6_blue(g_multiplier_width-1 downto 0),
-       i_data7 => data7_blue(g_multiplier_width-1 downto 0),
-       i_data8 => data8_blue(g_multiplier_width-1 downto 0),
-       i_data9 => data9_blue(g_multiplier_width-1 downto 0),
-       i_w0 => w0_blue(g_multiplier_width-1 downto 0),
-       i_w1 => w1_blue(g_multiplier_width-1 downto 0),
-       i_w10 => w10_blue(g_multiplier_width-1 downto 0),
-       i_w2 => w2_blue(g_multiplier_width-1 downto 0),
-       i_w3 => w3_blue(g_multiplier_width-1 downto 0),
-       i_w4 => w4_blue(g_multiplier_width-1 downto 0),
-       i_w5 => w5_blue(g_multiplier_width-1 downto 0),
-       i_w6 => w6_blue(g_multiplier_width-1 downto 0),
-       i_w7 => w7_blue(g_multiplier_width-1 downto 0),
-       i_w8 => w8_blue(g_multiplier_width-1 downto 0),
-       i_w9 => w9_blue(g_multiplier_width-1 downto 0),
-       o_product0 => product0_blue(g_product_width-1 downto 0),
-       o_product1 => product1_blue(g_product_width-1 downto 0),
-       o_product10 => product10_blue(g_product_width-1 downto 0),
-       o_product2 => product2_blue(g_product_width-1 downto 0),
-       o_product3 => product3_blue(g_product_width-1 downto 0),
-       o_product4 => product4_blue(g_product_width-1 downto 0),
-       o_product5 => product5_blue(g_product_width-1 downto 0),
-       o_product6 => product6_blue(g_product_width-1 downto 0),
-       o_product7 => product7_blue(g_product_width-1 downto 0),
-       o_product8 => product8_blue(g_product_width-1 downto 0),
-       o_product9 => product9_blue(g_product_width-1 downto 0)
-  );
-
-GREEN : multiplier_bank
-  generic map(
-       g_multiplier_width => g_multiplier_width,
-       g_product_width => g_product_width
-  )
-  port map(
-       i_clk => i_clk,
-       i_data0 => data0_green(g_multiplier_width-1 downto 0),
-       i_data1 => data1_green(g_multiplier_width-1 downto 0),
-       i_data10 => data10_green(g_multiplier_width-1 downto 0),
-       i_data2 => data2_green(g_multiplier_width-1 downto 0),
-       i_data3 => data3_green(g_multiplier_width-1 downto 0),
-       i_data4 => data4_green(g_multiplier_width-1 downto 0),
-       i_data5 => data5_green(g_multiplier_width-1 downto 0),
-       i_data6 => data6_green(g_multiplier_width-1 downto 0),
-       i_data7 => data7_green(g_multiplier_width-1 downto 0),
-       i_data8 => data8_green(g_multiplier_width-1 downto 0),
-       i_data9 => data9_green(g_multiplier_width-1 downto 0),
-       i_w0 => w0_green(g_multiplier_width-1 downto 0),
-       i_w1 => w1_green(g_multiplier_width-1 downto 0),
-       i_w10 => w10_green(g_multiplier_width-1 downto 0),
-       i_w2 => w2_green(g_multiplier_width-1 downto 0),
-       i_w3 => w3_green(g_multiplier_width-1 downto 0),
-       i_w4 => w4_green(g_multiplier_width-1 downto 0),
-       i_w5 => w5_green(g_multiplier_width-1 downto 0),
-       i_w6 => w6_green(g_multiplier_width-1 downto 0),
-       i_w7 => w7_green(g_multiplier_width-1 downto 0),
-       i_w8 => w8_green(g_multiplier_width-1 downto 0),
-       i_w9 => w9_green(g_multiplier_width-1 downto 0),
-       o_product0 => product0_green(g_product_width-1 downto 0),
-       o_product1 => product1_green(g_product_width-1 downto 0),
-       o_product10 => product10_green(g_product_width-1 downto 0),
-       o_product2 => product2_green(g_product_width-1 downto 0),
-       o_product3 => product3_green(g_product_width-1 downto 0),
-       o_product4 => product4_green(g_product_width-1 downto 0),
-       o_product5 => product5_green(g_product_width-1 downto 0),
-       o_product6 => product6_green(g_product_width-1 downto 0),
-       o_product7 => product7_green(g_product_width-1 downto 0),
-       o_product8 => product8_green(g_product_width-1 downto 0),
-       o_product9 => product9_green(g_product_width-1 downto 0)
-  );
-
-RED : multiplier_bank
-  generic map(
-       g_multiplier_width => g_multiplier_width,
-       g_product_width => g_product_width
-  )
-  port map(
-       i_clk => i_clk,
-       i_data0 => data0_red(g_multiplier_width-1 downto 0),
-       i_data1 => data1_red(g_multiplier_width-1 downto 0),
-       i_data10 => data10_red(g_multiplier_width-1 downto 0),
-       i_data2 => data2_red(g_multiplier_width-1 downto 0),
-       i_data3 => data3_red(g_multiplier_width-1 downto 0),
-       i_data4 => data4_red(g_multiplier_width-1 downto 0),
-       i_data5 => data5_red(g_multiplier_width-1 downto 0),
-       i_data6 => data6_red(g_multiplier_width-1 downto 0),
-       i_data7 => data7_red(g_multiplier_width-1 downto 0),
-       i_data8 => data8_red(g_multiplier_width-1 downto 0),
-       i_data9 => data9_red(g_multiplier_width-1 downto 0),
-       i_w0 => w0_red(g_multiplier_width-1 downto 0),
-       i_w1 => w1_red(g_multiplier_width-1 downto 0),
-       i_w10 => w10_red(g_multiplier_width-1 downto 0),
-       i_w2 => w2_red(g_multiplier_width-1 downto 0),
-       i_w3 => w3_red(g_multiplier_width-1 downto 0),
-       i_w4 => w4_red(g_multiplier_width-1 downto 0),
-       i_w5 => w5_red(g_multiplier_width-1 downto 0),
-       i_w6 => w6_red(g_multiplier_width-1 downto 0),
-       i_w7 => w7_red(g_multiplier_width-1 downto 0),
-       i_w8 => w8_red(g_multiplier_width-1 downto 0),
-       i_w9 => w9_red(g_multiplier_width-1 downto 0),
-       o_product0 => product0_red(g_product_width-1 downto 0),
-       o_product1 => product1_red(g_product_width-1 downto 0),
-       o_product10 => product10_red(g_product_width-1 downto 0),
-       o_product2 => product2_red(g_product_width-1 downto 0),
-       o_product3 => product3_red(g_product_width-1 downto 0),
-       o_product4 => product4_red(g_product_width-1 downto 0),
-       o_product5 => product5_red(g_product_width-1 downto 0),
-       o_product6 => product6_red(g_product_width-1 downto 0),
-       o_product7 => product7_red(g_product_width-1 downto 0),
-       o_product8 => product8_red(g_product_width-1 downto 0),
-       o_product9 => product9_red(g_product_width-1 downto 0)
-  );
-
-U1 : input_fifo_network
-  generic map(
-       g_data_width => g_data_width,
-       g_red_bits => g_red_bits,
-       g_green_bits => g_green_bits,
-       g_blue_bits => g_blue_bits
-  )
-  port map(
-       almost_empty => almost_empty,
-       almost_full => almost_full,
-       din => din(g_data_width-1 downto 0),
-       empty => empty,
-       full => full,
-       i_enable => i_enable,
-       i_rd_clk => i_rd_clk,
+       i_data_valid => acc_fifo_valid,
+       i_empty => acc_fifo_empty,
+       i_prog_empty => acc_fifo_prog_empty,
        i_reset_n => i_reset_n,
-       i_wr_clk => i_rd_clk,
-       o_dout0_blue => data0_blue(g_multiplier_width-1 downto 0),
-       o_dout0_green => data0_green(g_multiplier_width-1 downto 0),
-       o_dout0_red => data0_red(g_multiplier_width-1 downto 0),
-       o_dout10_blue => data10_blue(g_multiplier_width-1 downto 0),
-       o_dout10_green => data10_green(g_multiplier_width-1 downto 0),
-       o_dout10_red => data10_red(g_multiplier_width-1 downto 0),
-       o_dout1_blue => data1_blue(g_multiplier_width-1 downto 0),
-       o_dout1_green => data1_green(g_multiplier_width-1 downto 0),
-       o_dout1_red => data1_red(g_multiplier_width-1 downto 0),
-       o_dout2_blue => data2_blue(g_multiplier_width-1 downto 0),
-       o_dout2_green => data2_green(g_multiplier_width-1 downto 0),
-       o_dout2_red => data2_red(g_multiplier_width-1 downto 0),
-       o_dout3_blue => data3_blue(g_multiplier_width-1 downto 0),
-       o_dout3_green => data3_green(g_multiplier_width-1 downto 0),
-       o_dout3_red => data3_red(g_multiplier_width-1 downto 0),
-       o_dout4_blue => data4_blue(g_multiplier_width-1 downto 0),
-       o_dout4_green => data4_green(g_multiplier_width-1 downto 0),
-       o_dout4_red => data4_red(g_multiplier_width-1 downto 0),
-       o_dout5_blue => data5_blue(g_multiplier_width-1 downto 0),
-       o_dout5_green => data5_green(g_multiplier_width-1 downto 0),
-       o_dout5_red => data5_red(g_multiplier_width-1 downto 0),
-       o_dout6_blue => data6_blue(g_multiplier_width-1 downto 0),
-       o_dout6_green => data6_green(g_multiplier_width-1 downto 0),
-       o_dout6_red => data6_red(g_multiplier_width-1 downto 0),
-       o_dout7_blue => data7_blue(g_multiplier_width-1 downto 0),
-       o_dout7_green => data7_green(g_multiplier_width-1 downto 0),
-       o_dout7_red => data7_red(g_multiplier_width-1 downto 0),
-       o_dout8_blue => data8_blue(g_multiplier_width-1 downto 0),
-       o_dout8_green => data8_green(g_multiplier_width-1 downto 0),
-       o_dout8_red => data8_red(g_multiplier_width-1 downto 0),
-       o_dout9_blue => data9_blue(g_multiplier_width-1 downto 0),
-       o_dout9_green => data9_green(g_multiplier_width-1 downto 0),
-       o_dout9_red => data9_red(g_multiplier_width-1 downto 0),
-       prog_empty => prog_empty,
-       prog_empty_thresh => prog_empty_thresh,
-       prog_full => prog_full,
-       prog_full_thresh => prog_full_thresh,
-       rd_en => rd_en,
-       valid => valid,
-       wr_en => wr_en
+       o_conv_volume_out => o_conv_volume_out,
+       o_prog_emtpy_thresh => acc_fifo_prog_empty_thresh,
+       o_rd_en => acc_fifo_rd_en,
+       o_recycled_acc_data => recycled_acc_data,
+       o_recycled_acc_data_en => recycled_acc_data_en
   );
 
-U13 : input_fifo_net_controller
+DSP_ACCUMULATOR : accumulator
+  generic map(
+       g_product_width => g_product_width,
+       g_accumulator_width => g_dsps_used
+  )
+  port map(
+       i_clk => i_clk,
+       i_enable => i_enable,
+       i_filter_size => filter_size,
+       i_products_array => products_array(199 downto 0),
+       i_reset_n => i_reset_n,
+       o_acc_data => acc_data(31 downto 0),
+       o_acc_valid => acc_valid
+  );
+
+FILTER_ACCUMULATOR_UNIT : filter_accumulator
+  port map(
+       i_acc_data => acc_data,
+       i_acc_data_valid => acc_valid,
+       i_almost_full => acc_fifo_almost_full,
+       i_clk => Dangling_Input_Signal,
+       i_full => acc_fifo_full,
+       i_prog_full => acc_fifo_prog_full,
+       i_recycled_acc_data => recycled_acc_data,
+       i_recycled_acc_data_en => recycled_acc_data_en,
+       i_reset_n => Dangling_Input_Signal,
+       o_acc_filter_data => accu_fifo_input,
+       o_data_valid => acc_fifo_wr_en,
+       o_prog_full_thresh => acc_fifo_prog_full_thresh
+  );
+
+FILTER_ACCU_FIFO : filter_accumulator_fifo
+  port map(
+       almost_empty => acc_fifo_almost_empty,
+       almost_full => acc_fifo_almost_full,
+       clk => Dangling_Input_Signal,
+       din => accu_fifo_input,
+       dout => acc_fifo_dout,
+       empty => acc_fifo_empty,
+       full => acc_fifo_full,
+       prog_empty => acc_fifo_prog_empty,
+       prog_empty_thresh => acc_fifo_prog_empty_thresh,
+       prog_full => acc_fifo_prog_full,
+       prog_full_thresh => acc_fifo_prog_full_thresh,
+       rd_en => acc_fifo_rd_en,
+       rst => Dangling_Input_Signal,
+       valid => acc_fifo_valid,
+       wr_en => acc_fifo_wr_en
+  );
+
+ROW_CONTROLLER : input_fifo_net_controller
   generic map(
        g_weight_width => g_weight_width,
-       g_data_width => g_data_width
+       g_data_width => g_data_width,
+       g_dsps_used => g_dsps_used
   )
   port map(
-       i_almost_empty => almost_empty,
-       i_almost_full => almost_full,
        i_clk => i_rd_clk,
-       i_empty => empty,
        i_enable => i_enable,
-       i_full => full,
+       i_filter_kernal_loaded => filter_kernal_loaded(g_dsps_used-1 downto 0),
+       i_get_volume_row => get_volume_row(g_dsps_used-1 downto 0),
+       i_get_weight_row => get_weight_row(g_dsps_used-1 downto 0),
        i_inbuff_almost_empty => i_inbuff_almost_empty,
        i_inbuff_dout => i_inbuff_dout,
        i_inbuff_empty => i_inbuff_empty,
        i_inbuff_prog_empty => i_inbuff_prog_empty,
        i_inbuff_valid => i_inbuff_valid,
-       i_prog_empty => prog_empty,
-       i_prog_full => prog_full,
+       i_input_volume_channels => i_input_volume_channels,
+       i_input_volume_size => i_input_volume_size,
+       i_number_of_filters => i_number_of_filters,
+       i_pad => i_pad,
        i_reset_n => i_reset_n,
-       i_valid => valid,
-       o_fifo_net_din => din(g_data_width-1 downto 0),
+       i_start => i_start,
+       i_stride => i_stride,
+       i_voluem_fifo_almost_full => volume_stack_fifo_almost_full(g_dsps_used-1 downto 0),
+       i_volume_fifo_full => volume_stack_fifo_full(g_dsps_used-1 downto 0),
+       i_volume_fifo_prog_full => volume_stack_fifo_prog_full(g_dsps_used-1 downto 0),
+       i_weight_filter_bytes => i_weight_filter_bytes,
+       i_weight_filter_channels => i_weight_filter_channels,
+       i_weight_filter_size => i_weight_filter_size,
        o_inbuff_prog_empty_thresh => o_inbuff_prog_empty_thresh,
        o_inbuff_rd_en => o_inbuff_rd_en,
-       o_prog_empty_thresh => prog_empty_thresh,
-       o_prog_full_thresh => prog_full_thresh,
-       o_rd_en => rd_en,
-       o_wr_en => wr_en
-  );
-
-U2 : accumulator
-  generic map(
-       g_product_width => g_product_width,
-       g_conv_width => g_conv_width
-  )
-  port map(
-       i_clk => i_clk,
-       i_enable => i_enable,
-       i_product0_blue => product0_blue(g_product_width-1 downto 0),
-       i_product0_green => product0_green(g_product_width-1 downto 0),
-       i_product0_red => product0_red(g_product_width-1 downto 0),
-       i_product10_blue => product10_blue(g_product_width-1 downto 0),
-       i_product10_green => product10_green(g_product_width-1 downto 0),
-       i_product10_red => product10_red(g_product_width-1 downto 0),
-       i_product1_blue => product1_blue(g_product_width-1 downto 0),
-       i_product1_green => product1_green(g_product_width-1 downto 0),
-       i_product1_red => product1_red(g_product_width-1 downto 0),
-       i_product2_blue => product2_blue(g_product_width-1 downto 0),
-       i_product2_green => product2_green(g_product_width-1 downto 0),
-       i_product2_red => product2_red(g_product_width-1 downto 0),
-       i_product3_blue => product3_blue(g_product_width-1 downto 0),
-       i_product3_green => product3_green(g_product_width-1 downto 0),
-       i_product3_red => product3_red(g_product_width-1 downto 0),
-       i_product4_blue => product4_blue(g_product_width-1 downto 0),
-       i_product4_green => product4_green(g_product_width-1 downto 0),
-       i_product4_red => product4_red(g_product_width-1 downto 0),
-       i_product5_blue => product5_blue(g_product_width-1 downto 0),
-       i_product5_green => product5_green(g_product_width-1 downto 0),
-       i_product5_red => product5_red(g_product_width-1 downto 0),
-       i_product6_blue => product6_blue(g_product_width-1 downto 0),
-       i_product6_green => product6_green(g_product_width-1 downto 0),
-       i_product6_red => product6_red(g_product_width-1 downto 0),
-       i_product7_blue => product7_blue(g_product_width-1 downto 0),
-       i_product7_green => product7_green(g_product_width-1 downto 0),
-       i_product7_red => product7_red(g_product_width-1 downto 0),
-       i_product8_blue => product8_blue(g_product_width-1 downto 0),
-       i_product8_green => product8_green(g_product_width-1 downto 0),
-       i_product8_red => product8_red(g_product_width-1 downto 0),
-       i_product9_blue => product9_blue(g_product_width-1 downto 0),
-       i_product9_green => product9_green(g_product_width-1 downto 0),
-       i_product9_red => product9_red(g_product_width-1 downto 0),
-       i_reset_n => i_reset_n,
-       o_conv_out => o_conv_out(g_conv_width-1 downto 0)
-  );
-
-U3 : filter_weight_controller
-  generic map(
-       g_weight_width => g_weight_width
-  )
-  port map(
-       i_clk => i_clk,
-       i_enable => NET7318,
-       i_filter_height => i_filter_height,
-       i_filter_weights => i_filter_weights(g_weight_width-1 downto 0),
-       i_filter_width => i_filter_width,
-       i_reset_n => i_reset_n,
-       o_w0_blue => w0_blue(g_multiplier_width-1 downto 0),
-       o_w0_green => w0_green(g_multiplier_width-1 downto 0),
-       o_w0_red => w0_red(g_multiplier_width-1 downto 0),
-       o_w10_blue => w10_blue(g_multiplier_width-1 downto 0),
-       o_w10_green => w10_green(g_multiplier_width-1 downto 0),
-       o_w10_red => w10_red(g_multiplier_width-1 downto 0),
-       o_w1_blue => w1_blue(g_multiplier_width-1 downto 0),
-       o_w1_green => w1_green(g_multiplier_width-1 downto 0),
-       o_w1_red => w1_red(g_multiplier_width-1 downto 0),
-       o_w2_blue => w2_blue(g_multiplier_width-1 downto 0),
-       o_w2_green => w2_green(g_multiplier_width-1 downto 0),
-       o_w2_red => w2_red(g_multiplier_width-1 downto 0),
-       o_w3_blue => w3_blue(g_multiplier_width-1 downto 0),
-       o_w3_green => w3_green(g_multiplier_width-1 downto 0),
-       o_w3_red => w3_red(g_multiplier_width-1 downto 0),
-       o_w4_blue => w4_blue(g_multiplier_width-1 downto 0),
-       o_w4_green => w4_green(g_multiplier_width-1 downto 0),
-       o_w4_red => w4_red(g_multiplier_width-1 downto 0),
-       o_w5_blue => w5_blue(g_multiplier_width-1 downto 0),
-       o_w5_green => w5_green(g_multiplier_width-1 downto 0),
-       o_w5_red => w5_red(g_multiplier_width-1 downto 0),
-       o_w6_blue => w6_blue(g_multiplier_width-1 downto 0),
-       o_w6_green => w6_green(g_multiplier_width-1 downto 0),
-       o_w6_red => w6_red(g_multiplier_width-1 downto 0),
-       o_w7_blue => w7_blue(g_multiplier_width-1 downto 0),
-       o_w7_green => w7_green(g_multiplier_width-1 downto 0),
-       o_w7_red => w7_red(g_multiplier_width-1 downto 0),
-       o_w8_blue => w8_blue(g_multiplier_width-1 downto 0),
-       o_w8_green => w8_green(g_multiplier_width-1 downto 0),
-       o_w8_red => w8_red(g_multiplier_width-1 downto 0),
-       o_w9_blue => w9_blue(g_multiplier_width-1 downto 0),
-       o_w9_green => w9_green(g_multiplier_width-1 downto 0),
-       o_w9_red => w9_red(g_multiplier_width-1 downto 0),
-       o_weights_loaded => o_weights_loaded
+       o_volume_data => volume_data(199 downto 0),
+       o_volume_fifo_prog_full_thresh => volume_stack_fifo_prog_full_thresh,
+       o_volume_fifo_wr_en => volume_stack_fifo_wr_en(g_dsps_used-1 downto 0),
+       o_weight_data => weight_data(199 downto 0)
   );
 
 
@@ -717,5 +526,153 @@ U3 : filter_weight_controller
     -- Inputs terminals
 	i_rd_clk <= i_clk;
 
+
+---- Dangling input signal assignment ----
+
+Dangling_Input_Signal <= DANGLING_INPUT_CONSTANT;
+
+----  Generate statements  ----
+
+g0 : for i in g_dsps_used-1 downto 0 generate
+begin
+  DSP_MULTIPLIER : conv_multiplier
+    port map(
+         a => multiplicand_a,
+         b => multiplicand_b,
+         clk => i_clk,
+         p => products_array(i)
+    );
+  
+  VOLUME_ROW_FIFO : input_network_fifo
+    port map(
+         almost_empty => vol_fifo_almost_empty,
+         almost_full => volume_fifo_almost_full,
+         din => volume_fifo_input,
+         dout => vol_fifo_dout,
+         empty => vol_fifo_empty,
+         full => volume_fifo_full,
+         prog_empty => vol_fifo_prog_empty,
+         prog_empty_thresh => vol_fifo_prog_empty_thresh,
+         prog_full => volume_fifo_prog_full,
+         prog_full_thresh => volume_fifo_full_prog_thresh,
+         rd_clk => i_clk,
+         rd_en => vol_fifo_rd_en,
+         rst => i_reset_n,
+         valid => vol_fifo_valid,
+         wr_clk => i_clk,
+         wr_en => vr_fifo_wr_en
+    );
+  
+  VOLUME_ROW_MUX : volume_mux
+    generic map(
+         g_mux_id => i
+    )
+    port map(
+         i_almost_full => volume_fifo_almost_full,
+         i_clk => i_clk,
+         i_enable => i_enable,
+         i_fifo_prog_full_thresh => volume_stack_fifo_prog_full_thresh,
+         i_fifo_we => volume_stack_fifo_wr_en(i),
+         i_filter_size => filter_size,
+         i_filters_processed => Dangling_Input_Signal,
+         i_full => volume_fifo_full,
+         i_new_data => volume_data(i),
+         i_prev_data => recycled_data(i-1),
+         i_prog_full => volume_fifo_prog_full,
+         i_recycled_data => recycled_data(i),
+         i_reset_n => i_reset_n,
+         o_data => volume_fifo_input,
+         o_data_valid => vr_fifo_wr_en,
+         o_fifo_almost_full => volume_stack_fifo_almost_full(i),
+         o_fifo_full => volume_stack_fifo_full(i),
+         o_fifo_prog_full => volume_stack_fifo_prog_full(i),
+         o_get_volume_row => get_volume_row(i),
+         o_prog_full_thresh => volume_fifo_full_prog_thresh
+    );
+  
+  VOLUME_ROW_ROUTER : volume_router
+    port map(
+         i_almost_empty => vol_fifo_almost_empty,
+         i_clk => i_clk,
+         i_empty => vol_fifo_empty,
+         i_enable => i_enable,
+         i_fifo_data_valid => vol_fifo_valid,
+         i_filters_loaded => filter_kernal_loaded(i),
+         i_is_last_volume_primed => NET10086,
+         i_prog_empty => vol_fifo_prog_empty,
+         i_reset_n => i_reset_n,
+         i_volume_data => vol_fifo_dout,
+         o_data_mult => multiplicand_a,
+         o_data_valid => volume_data_valid(i),
+         o_prog_empty_thresh => vol_fifo_prog_empty_thresh,
+         o_rd_en => vol_fifo_rd_en,
+         o_recycled_data => recycled_data(i),
+         o_rows_complete => loaded_rows_processed,
+         o_this_last_volume_primed => NET10078
+    );
+  
+  WEIGHTS_ROW_ROUTER : weights_router
+    port map(
+         i_almost_empty => w_fifo_almost_empty,
+         i_clk => i_clk,
+         i_empty => w_fifo_empty,
+         i_enable => i_enable,
+         i_fifo_data_valid => w_fifo_valid,
+         i_filter_data => w_fifo_dout,
+         i_num_filters => number_of_filters,
+         i_prog_empty => w_fifo_prog_empty,
+         i_reset_n => i_reset_n,
+         i_volume_primed => Dangling_Input_Signal,
+         o_data_valid => weight_data_valid(0),
+         o_filter_loaded => filter_kernal_loaded(i),
+         o_filters_processed => all_filters_processed,
+         o_prog_empty_thresh => w_fifo_prog_empty_thresh,
+         o_rd_en => w_fifo_rd_en,
+         o_recycle_filter_data => recycle_filter_data,
+         o_recycle_filter_en => recycle_filter_en,
+         o_weights_mult => multiplicand_b
+    );
+  
+  WEIGHT_ROW_FIFO : weight_fifo
+    port map(
+         almost_empty => w_fifo_almost_empty,
+         almost_full => weight_fifo_almost_full,
+         clk => i_clk,
+         din => weight_fifo_input,
+         dout => w_fifo_dout,
+         empty => w_fifo_empty,
+         full => weight_fifo_full,
+         prog_empty => w_fifo_prog_empty,
+         prog_empty_thresh => w_fifo_prog_empty_thresh,
+         prog_full => weight_fifo_prog_full,
+         prog_full_thresh => weight_fifo_prog_full_thresh,
+         rd_en => w_fifo_rd_en,
+         rst => i_reset_n,
+         valid => w_fifo_valid,
+         wr_en => weight_fifo_wr_en
+    );
+  
+  WEIGHT_ROW_MUX : weight_mux
+    generic map(
+         g_mux_id => i
+    )
+    port map(
+         i_almost_full => weight_fifo_almost_full,
+         i_clk => i_clk,
+         i_enable => i_enable,
+         i_filter_size => filter_size,
+         i_full => weight_fifo_full,
+         i_new_filter_data => weight_data(i),
+         i_num_filters => number_of_filters,
+         i_prog_full => weight_fifo_prog_full,
+         i_recycled_filter => recycle_filter_data,
+         i_recycled_filter_en => recycle_filter_en,
+         i_reset_n => i_reset_n,
+         o_data_valid => weight_fifo_wr_en,
+         o_filter_data => weight_fifo_input,
+         o_get_weight_row => get_weight_row(i),
+         o_prog_full_thresh => weight_fifo_prog_full_thresh
+    );
+end generate g0;
 
 end arch;

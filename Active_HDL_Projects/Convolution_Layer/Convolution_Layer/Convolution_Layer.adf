@@ -53,49 +53,86 @@ HierarchyInformation=convolution_controller|arch|0
 ShowHide=ShowTopLevel
 Selected=
 
+[file_out:/input_fifo_network.bde]
+/..\compile\input_fifo_network.vhd=-1
+
+[file_out:/output_fifo_network.bde]
+/..\compile\output_fifo_network.vhd=-1
+
+[file_out:/multiplier_bank.bde]
+/..\compile\multiplier_bank.vhd=-1
+/..\compile\multiplier_10.vhd=-1
+
+[file_out:/input_fifo_network_7.bde]
+/..\compile\input_fifo_network_7.vhd=-1
+
+[file_out:/input_fifo_network_11.bde]
+/..\compile\input_fifo_network_11.vhd=-1
+
+[file_out:/input_fifo_network_3.bde]
+/..\compile\input_fifo_network_3.vhd=-1
+
+
+
 [Files]
 /Convolution_Controller.vhd=-1
-/filter_top.bde=-1
 /input_fifo_network.bde=-1
 /conv_input_buffer.vhd=-1
 /conv_output_buffer.vhd=-1
-/input_network_fifo.vhd=-1
+/input_fifo_network.vhd=-1
 /conv_multiplier.vhd=-1
-/input_fifo_net_controller.vhd=-1
 /output_fifo_network.bde=-1
 /input_network_colors.vhd=-1
 /multiplier_bank.bde=-1
 /accumulator.vhd=-1
 /relu_unit.vhd=-1
-/Convolution_Layer_Top.bde=-1
 /filter_weight_controller.vhd=-1
+/input_fifo_network_7.bde=-1
+/input_fifo_network_11.bde=-1
+/input_fifo_network_3.bde=-1
+/types_pkg.vhd=-1
+/input_fifo_net_controller.vhd=-1
+/volume_mux.vhd=-1
+/volume_router.vhd=-1
+/weight_mux.vhd=-1
+/weights_router.vhd=-1
+/weight_fifo.vhd=-1
+/filter_accumulator.vhd=-1
+/filter_accumulator_fifo.vhd=-1
+/accumulator_relay.vhd=-1
+/filter_top.bde=-1
+/Convolution_Layer_Top.bde=-1
 
 [Files.Data]
 .\src\Convolution_Controller.vhd=VHDL Source Code
-.\src\filter_top.bde=Block Diagram
 .\src\input_fifo_network.bde=Block Diagram
 .\src\conv_input_buffer.vhd=VHDL Source Code
 .\src\conv_output_buffer.vhd=VHDL Source Code
-.\src\input_network_fifo.vhd=VHDL Source Code
+.\src\input_fifo_network.vhd=VHDL Source Code
 .\src\conv_multiplier.vhd=VHDL Source Code
-.\src\input_fifo_net_controller.vhd=VHDL Source Code
 .\src\output_fifo_network.bde=Block Diagram
 .\src\input_network_colors.vhd=VHDL Source Code
 .\src\multiplier_bank.bde=Block Diagram
 .\src\accumulator.vhd=VHDL Source Code
 .\src\relu_unit.vhd=VHDL Source Code
-.\src\Convolution_Layer_Top.bde=Block Diagram
 .\src\filter_weight_controller.vhd=VHDL Source Code
-
-
-
-
-[file_out:/Convolution_Layer_Top.bde]
-/..\compile\Convolution_Layer_Top.vhd=-1
+.\src\input_fifo_network_7.bde=Block Diagram
+.\src\input_fifo_network_11.bde=Block Diagram
+.\src\input_fifo_network_3.bde=Block Diagram
+.\src\types_pkg.vhd=VHDL Source Code
+.\src\input_fifo_net_controller.vhd=VHDL Source Code
+.\src\volume_mux.vhd=VHDL Source Code
+.\src\volume_router.vhd=VHDL Source Code
+.\src\weight_mux.vhd=VHDL Source Code
+.\src\weights_router.vhd=VHDL Source Code
+.\src\weight_fifo.vhd=VHDL Source Code
+.\src\filter_accumulator.vhd=VHDL Source Code
+.\src\filter_accumulator_fifo.vhd=VHDL Source Code
+.\src\accumulator_relay.vhd=VHDL Source Code
+.\src\filter_top.bde=Block Diagram
+.\src\Convolution_Layer_Top.bde=Block Diagram
 
 [file_out:/filter_top.bde]
 /..\compile\filter_top.vhd=-1
-[file_out:/multiplier_bank.bde]
-/..\compile\multiplier_bank.vhd=-1
-[file_out:/input_fifo_network.bde]
-/..\compile\input_fifo_network.vhd=-1
+[file_out:/Convolution_Layer_Top.bde]
+/..\compile\Convolution_Layer_Top.vhd=-1

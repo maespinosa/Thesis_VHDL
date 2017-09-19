@@ -24,55 +24,26 @@
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;  
-use ieee.numeric_std.all; 
+use ieee.numeric_std.all;  
+
+library Convolution_Layer; 
+use Convolution_Layer.types_pkg.all;
 
 entity accumulator is
 	generic( 
 	g_product_width : integer := 32; 
-	g_conv_width	: integer := 16
+	g_accumulator_width	: integer := 32; 
+	g_dsps_used	: integer := 200
 	); 
 	port(
 	i_clk 				: in std_logic; 
 	i_reset_n 			: in std_logic; 
 	i_enable			: in std_logic; 
 	
-	i_product0_red 		: in std_logic_vector(g_product_width-1 downto 0); 
-	i_product1_red 		: in std_logic_vector(g_product_width-1 downto 0); 
-	i_product2_red 		: in std_logic_vector(g_product_width-1 downto 0); 
-	i_product3_red 		: in std_logic_vector(g_product_width-1 downto 0); 
-	i_product4_red 		: in std_logic_vector(g_product_width-1 downto 0); 
-	i_product5_red 		: in std_logic_vector(g_product_width-1 downto 0); 
-	i_product6_red 		: in std_logic_vector(g_product_width-1 downto 0); 
-	i_product7_red 		: in std_logic_vector(g_product_width-1 downto 0); 
-	i_product8_red 		: in std_logic_vector(g_product_width-1 downto 0); 
-	i_product9_red 		: in std_logic_vector(g_product_width-1 downto 0); 
-	i_product10_red 	: in std_logic_vector(g_product_width-1 downto 0); 
-	
-    i_product0_green 	: in std_logic_vector(g_product_width-1 downto 0); 
-	i_product1_green 	: in std_logic_vector(g_product_width-1 downto 0); 
-	i_product2_green 	: in std_logic_vector(g_product_width-1 downto 0); 
-	i_product3_green 	: in std_logic_vector(g_product_width-1 downto 0); 
-	i_product4_green 	: in std_logic_vector(g_product_width-1 downto 0); 
-	i_product5_green 	: in std_logic_vector(g_product_width-1 downto 0); 
-	i_product6_green 	: in std_logic_vector(g_product_width-1 downto 0); 
-	i_product7_green 	: in std_logic_vector(g_product_width-1 downto 0); 
-	i_product8_green 	: in std_logic_vector(g_product_width-1 downto 0); 
-	i_product9_green 	: in std_logic_vector(g_product_width-1 downto 0); 
-	i_product10_green 	: in std_logic_vector(g_product_width-1 downto 0); 
-		
-	i_product0_blue 	: in std_logic_vector(g_product_width-1 downto 0); 
-	i_product1_blue 	: in std_logic_vector(g_product_width-1 downto 0); 
-	i_product2_blue 	: in std_logic_vector(g_product_width-1 downto 0); 
-	i_product3_blue 	: in std_logic_vector(g_product_width-1 downto 0); 
-	i_product4_blue 	: in std_logic_vector(g_product_width-1 downto 0); 
-	i_product5_blue 	: in std_logic_vector(g_product_width-1 downto 0); 
-	i_product6_blue 	: in std_logic_vector(g_product_width-1 downto 0); 
-	i_product7_blue 	: in std_logic_vector(g_product_width-1 downto 0); 
-	i_product8_blue 	: in std_logic_vector(g_product_width-1 downto 0); 
-	i_product9_blue 	: in std_logic_vector(g_product_width-1 downto 0); 
-	i_product10_blue 	: in std_logic_vector(g_product_width-1 downto 0);
-	
-	o_conv_out			: out std_logic_vector(g_conv_width -1 downto 0)
+	i_products_array	: in array_type_varx32bit(g_dsps_used-1 downto 0); 
+	i_filter_size		: in std_logic_vector(3 downto 0); 
+	o_acc_valid			: out std_logic; 
+	o_acc_data			: out std_logic_vector(g_accumulator_width-1 downto 0)
 	); 
 end accumulator;
 
