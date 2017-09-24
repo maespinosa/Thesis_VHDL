@@ -92,9 +92,17 @@ End Sub
 
 <H2>DRC Report File - filter_top.bde</H2>
 
-Created on Mon 2017-09-18 at 20:23:46
+Created on Son 2017-09-24 at 10:00:10
 <HR NOSHADE COLOR="#008080">
 <SPAN class=Info1>Checking file 'c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\filter_top.bde'.</SPAN><BR>
+<SPAN class=Info1>
+	<p class = Warn1 style=font-weight:bold;margin-top:0px;margin-bottom:0px>Incompatible range in mapping of nets
+	</p><ul style=margin-left:30px;margin-top:0px;margin-bottom:0px>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\filter_top.bde','','-errorid=142,18637');>	'ROW_CONTROLLER' instance: 'i_input_volume_size(7:0)' input bus pin and 'i_input_volume_size(3:0)' input bus terminal</a></li>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\filter_top.bde','','-errorid=44,22654');>	'U3' instance: 'i_fifo_prog_full_thresh(9:0)' input bus pin and 'weight_prog_full_thresh(12:0)' bus signal</a></li>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\filter_top.bde','','-errorid=16,18503');>	'U3' instance: 'o_data(15:0)' output bus pin and 'weight_fifo_wr_en' wire signal</a></li>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\filter_top.bde','','-errorid=28,18511');>	'U3' instance: 'o_prog_full_thresh(9:0)' output bus pin and 'weight_fifo_prog_full_thresh(12:0)' bus signal</a></li>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\filter_top.bde','','-errorid=58,18501');>	'U3' instance: 'o_wr_en' output wire pin and 'weight_fifo_input(15:0)' bus signal</a></li></ul></SPAN><BR>
 <SPAN class=Info1>
 	<p class = Warn1 style=font-weight:bold;margin-top:0px;margin-bottom:0px>Ambiguous range in net mapping
 	</p><ul style=margin-left:30px;margin-top:0px;margin-bottom:0px>
@@ -105,26 +113,26 @@ Created on Mon 2017-09-18 at 20:23:46
 <SPAN class=Info1>
 	<p class = Warn1 style=font-weight:bold;margin-top:0px;margin-bottom:0px>Nets without source
 	</p><ul style=margin-left:30px;margin-top:0px;margin-bottom:0px>
-	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\filter_top.bde','','-errorid=10086');>	'NET10086' wire signal</a></li>
 	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\filter_top.bde','','-errorid=9081');>	'filter_size' bus signal</a></li>
-	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\filter_top.bde','','-errorid=9075');>	'number_of_filters' bus signal</a></li></ul></SPAN><BR>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\filter_top.bde','','-errorid=26032');>	'i_clear_weights' wire signal</a></li>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\filter_top.bde','','-errorid=21591');>	'i_loaded_rows_processed' bus signal</a></li>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\filter_top.bde','','-errorid=22545');>	'prev_weight_data' bus signal</a></li>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\filter_top.bde','','-errorid=22544');>	'prev_weight_data_wr_en' wire signal</a></li>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\filter_top.bde','','-errorid=22589');>	'weight_prev_data_en' wire signal</a></li></ul></SPAN><BR>
 <SPAN class=Info1>
 	<p class = Warn1 style=font-weight:bold;margin-top:0px;margin-bottom:0px>Nets without load
 	</p><ul style=margin-left:30px;margin-top:0px;margin-bottom:0px>
-	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\filter_top.bde','','-errorid=10078');>	'NET10078' wire signal</a></li>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\filter_top.bde','','-errorid=25953');>	'all_channels_processed' wire signal</a></li>
 	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\filter_top.bde','','-errorid=9039');>	'all_filters_processed' wire signal</a></li>
-	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\filter_top.bde','','-errorid=10095');>	'loaded_rows_processed' wire signal</a></li>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\filter_top.bde','','-errorid=21558');>	'loaded_rows_processed' bus signal</a></li>
 	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\filter_top.bde','','-errorid=17271');>	'volume_data_valid' bus signal</a></li>
 	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\filter_top.bde','','-errorid=17269');>	'weight_data_valid' bus signal</a></li></ul></SPAN><BR>
 <SPAN class=Info1>
 	<p class = Warn1 style=font-weight:bold;margin-top:0px;margin-bottom:0px>Unconnected symbol pins
 	</p><ul style=margin-left:30px;margin-top:0px;margin-bottom:0px>
 	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\filter_top.bde','','-errorid=11657,11657');>	In instance 'FILTER_ACCUMULATOR_UNIT': 'i_clk', 'i_reset_n'</a></li>
-	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\filter_top.bde','','-errorid=11714,11714');>	In instance 'FILTER_ACCU_FIFO': 'clk', 'rst'</a></li>
-	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\filter_top.bde','','-errorid=8748');>	In instance 'VOLUME_ROW_MUX': 'i_filters_processed'</a></li>
-	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\filter_top.bde','','-errorid=8915');>	In instance 'WEIGHTS_ROW_ROUTER': 'i_volume_primed'</a></li>
-	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\filter_top.bde','','-errorid=8912');>	In instance 'WEIGHT_ROW_MUX': 'o_current_filter_num'</a></li></ul></SPAN><BR>
-<SPAN class=Warn1>filter_top.bde - 0 error(s), 17 warning(s)</SPAN><BR>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\filter_top.bde','','-errorid=11714,11714');>	In instance 'FILTER_ACCU_FIFO': 'clk', 'rst'</a></li></ul></SPAN><BR>
+<SPAN class=Warn1>filter_top.bde - 0 error(s), 22 warning(s)</SPAN><BR>
 <SPAN class=Info1>DRC process completed in 2 second(s).</SPAN><BR>
 </tt>
 </FONT>

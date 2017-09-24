@@ -2,7 +2,7 @@ SCHM0106
 
 HEADER
 {
- FREEID 3340
+ FREEID 3409
  VARIABLES
  {
   #ARCHITECTURE="arch"
@@ -15,7 +15,7 @@ HEADER
   #DEFAULT_RANGE4="<range<index=\"0\"><name=\"inbuff_prog_empty_thresh\"><left=\"9\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
   #DEFAULT_RANGE5="<range<index=\"0\"><name=\"inbuff_prog_full_thresh\"><left=\"9\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
   #DEFAULT_RANGE6="<range<index=\"0\"><name=\"o_input_volume_channels\"><left=\"11\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE7="<range<index=\"0\"><name=\"o_input_volume_size\"><left=\"11\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE7="<range<index=\"0\"><name=\"o_input_volume_size\"><left=\"7\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
   #DEFAULT_RANGE8="<range<index=\"0\"><name=\"o_output_volume_channels\"><left=\"11\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
   #DEFAULT_RANGE9="<range<index=\"0\"><name=\"o_output_volume_size\"><left=\"3\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
   #DEFAULT_RANGE10="<range<index=\"0\"><name=\"o_pad\"><left=\"3\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
@@ -943,7 +943,7 @@ HEADER
 "library IEEE;\n"+
 "use ieee.std_logic_1164.all;"
     #LANGUAGE="VHDL"
-    #MODIFIED="1505639872"
+    #MODIFIED="1505797683"
     #NAME="Convolution_Controller"
     #PRAGMED_GENERICS="g_axi_bus_width;g_relu_width;g_data_width;g_weight_width;"
     #SYMBOL_GLOBALLY_UNIQUE_IDENTIFIER="134f9a27-375d-4463-b0bf-92fc296b8588"
@@ -2209,7 +2209,7 @@ HEADER
      {
       #DIRECTION="OUT"
       #LENGTH="20"
-      #NAME="o_input_volume_size(3:0)"
+      #NAME="o_input_volume_size(7:0)"
      }
      LINE  2, 0, 0
      {
@@ -3106,7 +3106,7 @@ PAGE ""
     #SYMBOL_GLOBALLY_UNIQUE_IDENTIFIER="134f9a27-375d-4463-b0bf-92fc296b8588"
    }
    COORD (1260,780)
-   VERTEXES ( (12,2963), (18,2835), (28,2956), (34,2842), (36,2949), (42,2849), (58,2123), (60,2125), (62,2131), (64,2155), (66,2163), (68,2157), (70,2159), (72,2167), (76,2127), (78,2129), (80,2133), (82,2161), (84,2165), (86,2137), (88,2139), (90,2141), (92,2828), (94,2856), (96,2863), (98,2880), (100,2886), (102,2151), (104,2154), (106,2144), (108,2194), (110,2196), (112,2195), (114,2970), (116,2942), (118,2935), (120,2928), (122,2921), (124,2668), (126,2679), (138,3166), (144,2893), (146,2914), (150,3177), (156,3064), (158,2707), (164,3189), (166,3193), (160,3214), (168,3220), (140,3223), (142,3226), (162,3248) )
+   VERTEXES ( (12,2963), (18,2835), (28,2956), (34,2842), (36,2949), (42,2849), (58,2123), (60,2125), (62,2131), (64,2155), (66,2163), (68,2157), (70,2159), (72,2167), (76,2127), (78,2129), (80,2133), (82,2161), (84,2165), (86,2137), (88,2139), (90,2141), (92,2828), (94,2856), (96,2863), (98,2880), (100,2886), (102,2151), (104,2154), (106,2144), (108,2194), (110,2196), (112,2195), (114,2970), (116,2942), (118,2935), (120,2928), (122,2921), (124,2668), (126,2679), (138,3166), (140,3223), (142,3226), (144,2893), (146,2914), (150,3177), (156,3064), (158,2707), (160,3214), (162,3248), (164,3189), (166,3193), (168,3220) )
   }
   TEXT  2, 0, 0
   {
@@ -5593,7 +5593,7 @@ PAGE ""
   TEXT  3204, 0, 0
   {
    TEXT "$#NAME"
-   RECT (2456,1431,2745,1460)
+   RECT (2462,1431,2738,1460)
    ALIGN 9
    MARGINS (1,1)
    PARENT 3216
@@ -5658,13 +5658,6 @@ PAGE ""
     #NAME="o_input_volume_channels(11:0)"
    }
   }
-  NET BUS  3213, 0, 0
-  {
-   VARIABLES
-   {
-    #NAME="o_input_volume_size(11:0)"
-   }
-  }
   VTX  3214, 0, 0
   {
    COORD (2060,1460)
@@ -5675,7 +5668,7 @@ PAGE ""
   }
   BUS  3216, 0, 0
   {
-   NET 3213
+   NET 3340
    VTX 3214, 3215
   }
   VTX  3220, 0, 0
@@ -5775,6 +5768,13 @@ PAGE ""
    NET 575
    VTX 3272, 3269
   }
+  NET BUS  3340, 0, 0
+  {
+   VARIABLES
+   {
+    #NAME="o_input_volume_size(7:0)"
+   }
+  }
  }
  
 }
@@ -5800,7 +5800,7 @@ PAGE ""
  
  BODY
  {
-  TEXT  3323, 0, 0
+  TEXT  3392, 0, 0
   {
    PAGEALIGN 10
    OUTLINE 5,1, (0,0,0)
@@ -5811,7 +5811,7 @@ PAGE ""
    COLOR (0,0,0)
    FONT (12,0,0,700,0,0,0,"Arial")
   }
-  TEXT  3324, 0, 0
+  TEXT  3393, 0, 0
   {
    PAGEALIGN 10
    TEXT "$CREATIONDATE"
@@ -5822,7 +5822,7 @@ PAGE ""
    FONT (12,0,0,700,0,128,0,"Arial")
    UPDATE 0
   }
-  TEXT  3325, 0, 0
+  TEXT  3394, 0, 0
   {
    PAGEALIGN 10
    TEXT "Title:"
@@ -5832,7 +5832,7 @@ PAGE ""
    COLOR (0,0,0)
    FONT (12,0,0,700,0,0,0,"Arial")
   }
-  TEXT  3326, 0, 0
+  TEXT  3395, 0, 0
   {
    PAGEALIGN 10
    OUTLINE 5,1, (0,0,0)
@@ -5844,7 +5844,7 @@ PAGE ""
    FONT (12,0,0,700,0,128,0,"Arial")
    UPDATE 0
   }
-  TEXT  3327, 0, 0
+  TEXT  3396, 0, 0
   {
    PAGEALIGN 10
    TEXT 
@@ -5857,7 +5857,7 @@ PAGE ""
    FONT (12,0,0,700,0,0,0,"Arial")
    MULTILINE
   }
-  TEXT  3328, 0, 0
+  TEXT  3397, 0, 0
   {
    PAGEALIGN 10
    TEXT "Page:"
@@ -5867,7 +5867,7 @@ PAGE ""
    COLOR (0,0,0)
    FONT (12,0,0,700,0,0,0,"Arial")
   }
-  TEXT  3329, 0, 0
+  TEXT  3398, 0, 0
   {
    PAGEALIGN 10
    OUTLINE 5,1, (0,0,0)
@@ -5879,7 +5879,7 @@ PAGE ""
    FONT (12,0,0,700,0,128,0,"Arial")
    UPDATE 0
   }
-  TEXT  3330, 0, 0
+  TEXT  3399, 0, 0
   {
    PAGEALIGN 10
    TEXT "Revision:"
@@ -5889,7 +5889,7 @@ PAGE ""
    COLOR (0,0,0)
    FONT (12,0,0,700,0,0,0,"Arial")
   }
-  TEXT  3331, 0, 0
+  TEXT  3400, 0, 0
   {
    PAGEALIGN 10
    TEXT "$Revision"
@@ -5900,7 +5900,7 @@ PAGE ""
    FONT (12,0,0,700,0,204,0,"Arial")
    UPDATE 0
   }
-  GROUP  3332, 0, 0
+  GROUP  3401, 0, 0
   {
    PAGEALIGN 10
    RECT (3320,2820,4201,3201)
@@ -5912,7 +5912,7 @@ PAGE ""
     FILL (1,(0,0,0),0)
    }
   }
-  GROUP  3333, 0, 0
+  GROUP  3402, 0, 0
   {
    PAGEALIGN 10
    RECT (3320,3020,4201,3021)
@@ -5924,7 +5924,7 @@ PAGE ""
     FILL (1,(0,0,0),0)
    }
   }
-  GROUP  3334, 0, 0
+  GROUP  3403, 0, 0
   {
    PAGEALIGN 10
    RECT (3320,2960,4201,2961)
@@ -5936,7 +5936,7 @@ PAGE ""
     FILL (1,(0,0,0),0)
    }
   }
-  GROUP  3335, 0, 0
+  GROUP  3404, 0, 0
   {
    PAGEALIGN 10
    RECT (3320,3080,4201,3081)
@@ -5948,7 +5948,7 @@ PAGE ""
     FILL (1,(0,0,0),0)
    }
   }
-  GROUP  3336, 0, 0
+  GROUP  3405, 0, 0
   {
    PAGEALIGN 10
    RECT (3320,3140,4201,3141)
@@ -5960,7 +5960,7 @@ PAGE ""
     FILL (1,(0,0,0),0)
    }
   }
-  GROUP  3337, 0, 0
+  GROUP  3406, 0, 0
   {
    PAGEALIGN 10
    RECT (3500,2820,3501,2961)
@@ -5971,7 +5971,7 @@ PAGE ""
     POINTS ( (0,0), (0,140) )
    }
   }
-  GROUP  3338, 0, 0
+  GROUP  3407, 0, 0
   {
    PAGEALIGN 10
    RECT (3500,2960,3501,3201)
@@ -5982,7 +5982,7 @@ PAGE ""
     POINTS ( (0,0), (0,240) )
    }
   }
-  BMPPICT  3339, 0, 0
+  BMPPICT  3408, 0, 0
   {
    PAGEALIGN 10
    RECT (3340,2880,3479,2925)

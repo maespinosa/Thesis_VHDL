@@ -1,886 +1,5 @@
 # ELBREAD: Elaboration process.
-# ELBREAD: Elaboration time 0.0 [s].
-acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/volume_mux.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\volume_mux.vhd
-# Compile Entity "volume_mux"
-# Compile Architecture "arch" of Entity "volume_mux"
-# Compile success 0 Errors 0 Warnings  Analysis time :  31.0 [ms]
-# filter_top.bde: Updating instances of symbol 'volume_mux' from library 'Convolution_Layer' (VOLUME_ROW_MUX)
-acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/volume_mux.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\volume_mux.vhd
-# Compile Entity "volume_mux"
-# Compile Architecture "arch" of Entity "volume_mux"
-# Compile success 0 Errors 0 Warnings  Analysis time :  0.0 [ms]
-# filter_top.bde: Updating instances of symbol 'volume_mux' from library 'Convolution_Layer' (VOLUME_ROW_MUX)
-acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/input_fifo_net_controller.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\input_fifo_net_controller.vhd
-# Compile Entity "input_fifo_net_controller"
-# Compile Architecture "arch" of Entity "input_fifo_net_controller"
-# Error: COMP96_0026: input_fifo_net_controller.vhd : (86, 20): Type definition expected.
-# Error: COMP96_0015: input_fifo_net_controller.vhd : (148, 21): ';' expected.
-# Error: COMP96_0019: input_fifo_net_controller.vhd : (148, 21): Keyword 'end' expected.
-# Error: COMP96_0019: input_fifo_net_controller.vhd : (149, 3): Keyword 'end' expected.
-# Error: COMP96_0019: input_fifo_net_controller.vhd : (151, 3): Keyword 'end' expected.
-# Error: COMP96_0016: input_fifo_net_controller.vhd : (151, 8): Design unit declaration expected.
-# Compile failure 6 Errors 0 Warnings  Analysis time :  0.1 [s]
-acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/input_fifo_net_controller.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\input_fifo_net_controller.vhd
-# Compile Entity "input_fifo_net_controller"
-# Compile Architecture "arch" of Entity "input_fifo_net_controller"
-# Error: COMP96_0026: input_fifo_net_controller.vhd : (86, 20): Type definition expected.
-# Error: COMP96_0015: input_fifo_net_controller.vhd : (148, 21): ';' expected.
-# Error: COMP96_0019: input_fifo_net_controller.vhd : (148, 21): Keyword 'end' expected.
-# Error: COMP96_0019: input_fifo_net_controller.vhd : (149, 3): Keyword 'end' expected.
-# Error: COMP96_0019: input_fifo_net_controller.vhd : (151, 3): Keyword 'end' expected.
-# Error: COMP96_0016: input_fifo_net_controller.vhd : (151, 8): Design unit declaration expected.
-# Compile failure 6 Errors 0 Warnings  Analysis time :  47.0 [ms]
-acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/input_fifo_net_controller.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\input_fifo_net_controller.vhd
-# Compile Entity "input_fifo_net_controller"
-# Compile Architecture "arch" of Entity "input_fifo_net_controller"
-# Error: COMP96_0026: input_fifo_net_controller.vhd : (86, 20): Type definition expected.
-# Error: COMP96_0015: input_fifo_net_controller.vhd : (148, 21): ';' expected.
-# Error: COMP96_0019: input_fifo_net_controller.vhd : (148, 21): Keyword 'end' expected.
-# Error: COMP96_0019: input_fifo_net_controller.vhd : (149, 3): Keyword 'end' expected.
-# Error: COMP96_0019: input_fifo_net_controller.vhd : (151, 3): Keyword 'end' expected.
-# Error: COMP96_0016: input_fifo_net_controller.vhd : (151, 8): Design unit declaration expected.
-# Compile failure 6 Errors 0 Warnings  Analysis time :  31.0 [ms]
-acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/input_fifo_net_controller.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\input_fifo_net_controller.vhd
-# Compile Entity "input_fifo_net_controller"
-# Compile Architecture "arch" of Entity "input_fifo_net_controller"
-# Error: COMP96_0015: input_fifo_net_controller.vhd : (148, 21): ';' expected.
-# Error: COMP96_0019: input_fifo_net_controller.vhd : (148, 21): Keyword 'end' expected.
-# Error: COMP96_0019: input_fifo_net_controller.vhd : (149, 3): Keyword 'end' expected.
-# Error: COMP96_0019: input_fifo_net_controller.vhd : (151, 3): Keyword 'end' expected.
-# Error: COMP96_0016: input_fifo_net_controller.vhd : (151, 8): Design unit declaration expected.
-# Compile failure 5 Errors 0 Warnings  Analysis time :  31.0 [ms]
-acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/input_fifo_net_controller.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\input_fifo_net_controller.vhd
-# Compile Entity "input_fifo_net_controller"
-# Compile Architecture "arch" of Entity "input_fifo_net_controller"
-# Error: COMP96_0015: input_fifo_net_controller.vhd : (148, 21): ';' expected.
-# Error: COMP96_0019: input_fifo_net_controller.vhd : (148, 21): Keyword 'end' expected.
-# Error: COMP96_0019: input_fifo_net_controller.vhd : (149, 3): Keyword 'end' expected.
-# Error: COMP96_0019: input_fifo_net_controller.vhd : (151, 3): Keyword 'end' expected.
-# Error: COMP96_0016: input_fifo_net_controller.vhd : (151, 8): Design unit declaration expected.
-# Compile failure 5 Errors 0 Warnings  Analysis time :  47.0 [ms]
-acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/input_fifo_net_controller.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\input_fifo_net_controller.vhd
-# Compile Entity "input_fifo_net_controller"
-# Compile Architecture "arch" of Entity "input_fifo_net_controller"
-# Error: COMP96_0015: input_fifo_net_controller.vhd : (148, 21): ';' expected.
-# Error: COMP96_0019: input_fifo_net_controller.vhd : (148, 21): Keyword 'end' expected.
-# Error: COMP96_0019: input_fifo_net_controller.vhd : (149, 3): Keyword 'end' expected.
-# Error: COMP96_0019: input_fifo_net_controller.vhd : (151, 3): Keyword 'end' expected.
-# Error: COMP96_0016: input_fifo_net_controller.vhd : (151, 8): Design unit declaration expected.
-# Compile failure 5 Errors 0 Warnings  Analysis time :  47.0 [ms]
-acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/input_fifo_net_controller.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\input_fifo_net_controller.vhd
-# Compile Entity "input_fifo_net_controller"
-# Compile Architecture "arch" of Entity "input_fifo_net_controller"
-# Error: COMP96_0015: input_fifo_net_controller.vhd : (253, 31): ';' expected.
-# Error: COMP96_0019: input_fifo_net_controller.vhd : (253, 31): Keyword 'end' expected.
-# Error: COMP96_0019: input_fifo_net_controller.vhd : (285, 10): Keyword 'case' expected.
-# Error: COMP96_0036: input_fifo_net_controller.vhd : (285, 12): Boolean expression expected.
-# Error: COMP96_0019: input_fifo_net_controller.vhd : (288, 5): Keyword 'end' expected.
-# Error: COMP96_0015: input_fifo_net_controller.vhd : (301, 31): ';' expected.
-# Error: COMP96_0019: input_fifo_net_controller.vhd : (301, 31): Keyword 'end' expected.
-# Error: COMP96_0019: input_fifo_net_controller.vhd : (333, 10): Keyword 'process' expected.
-# Error: COMP96_0019: input_fifo_net_controller.vhd : (337, 5): Keyword 'end' expected.
-# Error: COMP96_0016: input_fifo_net_controller.vhd : (337, 10): Design unit declaration expected.
-# Compile failure 10 Errors 0 Warnings  Analysis time :  78.0 [ms]
-acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/input_fifo_net_controller.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\input_fifo_net_controller.vhd
-# Compile Entity "input_fifo_net_controller"
-# Compile Architecture "arch" of Entity "input_fifo_net_controller"
-# Error: COMP96_0015: input_fifo_net_controller.vhd : (253, 31): ';' expected.
-# Error: COMP96_0019: input_fifo_net_controller.vhd : (253, 31): Keyword 'end' expected.
-# Error: COMP96_0019: input_fifo_net_controller.vhd : (255, 19): Keyword 'end' expected.
-# Error: COMP96_0019: input_fifo_net_controller.vhd : (256, 7): Keyword 'end' expected.
-# Error: COMP96_0019: input_fifo_net_controller.vhd : (256, 12): Keyword 'case' expected.
-# Error: COMP96_0019: input_fifo_net_controller.vhd : (285, 10): Keyword 'process' expected.
-# Error: COMP96_0019: input_fifo_net_controller.vhd : (288, 5): Keyword 'end' expected.
-# Error: COMP96_0016: input_fifo_net_controller.vhd : (288, 10): Design unit declaration expected.
-# Compile failure 8 Errors 0 Warnings  Analysis time :  62.0 [ms]
-acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/input_fifo_net_controller.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\input_fifo_net_controller.vhd
-# Compile Entity "input_fifo_net_controller"
-# Compile Architecture "arch" of Entity "input_fifo_net_controller"
-# Error: COMP96_0019: input_fifo_net_controller.vhd : (255, 19): Keyword 'end' expected.
-# Error: COMP96_0019: input_fifo_net_controller.vhd : (285, 10): Keyword 'case' expected.
-# Error: COMP96_0036: input_fifo_net_controller.vhd : (285, 12): Boolean expression expected.
-# Error: COMP96_0019: input_fifo_net_controller.vhd : (288, 5): Keyword 'end' expected.
-# Error: COMP96_0015: input_fifo_net_controller.vhd : (301, 31): ';' expected.
-# Error: COMP96_0019: input_fifo_net_controller.vhd : (301, 31): Keyword 'end' expected.
-# Error: COMP96_0019: input_fifo_net_controller.vhd : (333, 10): Keyword 'process' expected.
-# Error: COMP96_0019: input_fifo_net_controller.vhd : (337, 5): Keyword 'end' expected.
-# Error: COMP96_0016: input_fifo_net_controller.vhd : (337, 10): Design unit declaration expected.
-# Compile failure 9 Errors 0 Warnings  Analysis time :  47.0 [ms]
-acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/volume_mux.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\volume_mux.vhd
-# Compile Entity "volume_mux"
-# Compile Architecture "arch" of Entity "volume_mux"
-# Compile success 0 Errors 0 Warnings  Analysis time :  16.0 [ms]
-acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/input_fifo_net_controller.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\input_fifo_net_controller.vhd
-# Compile Entity "input_fifo_net_controller"
-# Compile Architecture "arch" of Entity "input_fifo_net_controller"
-# Error: COMP96_0015: input_fifo_net_controller.vhd : (301, 31): ';' expected.
-# Error: COMP96_0019: input_fifo_net_controller.vhd : (301, 31): Keyword 'end' expected.
-# Error: COMP96_0019: input_fifo_net_controller.vhd : (333, 10): Keyword 'case' expected.
-# Error: COMP96_0036: input_fifo_net_controller.vhd : (333, 12): Boolean expression expected.
-# Error: COMP96_0019: input_fifo_net_controller.vhd : (337, 5): Keyword 'end' expected.
-# Error: COMP96_0019: input_fifo_net_controller.vhd : (339, 8): Keyword 'process' expected.
-# Error: COMP96_0015: input_fifo_net_controller.vhd : (340, 7): ';' expected.
-# Error: COMP96_0016: input_fifo_net_controller.vhd : (340, 9): Design unit declaration expected.
-# Compile failure 8 Errors 0 Warnings  Analysis time :  63.0 [ms]
-acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/input_fifo_net_controller.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\input_fifo_net_controller.vhd
-# Compile Entity "input_fifo_net_controller"
-# Compile Architecture "arch" of Entity "input_fifo_net_controller"
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (144, 58): Unknown identifier "i_start".
-# Error: COMP96_0348: input_fifo_net_controller.vhd : (144, 58): Name on sensitivity list must denote a signal.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (159, 8): Unknown identifier "i_start".
-# Error: COMP96_0133: input_fifo_net_controller.vhd : (159, 8): Cannot find object declaration.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (159, 7): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (177, 25): Operator "<" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (177, 7): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (186, 34): Operator "=" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (186, 8): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (244, 56): Operator ">=" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (244, 9): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (248, 29): Operator "<" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (248, 10): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (251, 32): Operator "=" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (251, 13): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (256, 58): Operator "<" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (256, 12): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (258, 36): Operator "*" is not defined for such operands.
-# Error: COMP96_0138: input_fifo_net_controller.vhd : (258, 20): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (261, 58): Operator "<" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (261, 12): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (263, 36): Operator "*" is not defined for such operands.
-# Error: COMP96_0138: input_fifo_net_controller.vhd : (263, 20): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (266, 58): Operator "=" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (266, 12): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (268, 36): Operator "*" is not defined for such operands.
-# Error: COMP96_0138: input_fifo_net_controller.vhd : (268, 20): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (274, 56): Operator "-" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (274, 9): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (276, 54): Operator "-" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (276, 10): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (292, 56): Operator ">=" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (292, 9): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (296, 29): Operator "<" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (296, 10): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (298, 9): Unknown identifier "volume_column_counter".
-# Error: COMP96_0133: input_fifo_net_controller.vhd : (298, 9): Cannot find object declaration.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (298, 34): Unknown identifier "volume_column_counter".
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (299, 32): Operator "=" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (299, 13): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (301, 9): Unknown identifier "volume_column_counter".
-# Error: COMP96_0133: input_fifo_net_controller.vhd : (301, 9): Cannot find object declaration.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (301, 34): Unknown identifier "volume_column_counter".
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (304, 58): Operator "<" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (304, 12): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (306, 58): Unknown identifier "volume_row_counter".
-# Error: COMP96_0133: input_fifo_net_controller.vhd : (306, 58): Cannot find object declaration.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (306, 36): Operator "*" is not defined for such operands.
-# Error: COMP96_0138: input_fifo_net_controller.vhd : (306, 20): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (307, 8): Unknown identifier "volume_column_counter".
-# Error: COMP96_0133: input_fifo_net_controller.vhd : (307, 8): Cannot find object declaration.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (307, 33): Unknown identifier "volume_column_counter".
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (309, 58): Operator "<" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (309, 12): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (311, 58): Unknown identifier "volume_row_counter".
-# Error: COMP96_0133: input_fifo_net_controller.vhd : (311, 58): Cannot find object declaration.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (311, 36): Operator "*" is not defined for such operands.
-# Error: COMP96_0138: input_fifo_net_controller.vhd : (311, 20): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (312, 8): Unknown identifier "volume_column_counter".
-# Error: COMP96_0133: input_fifo_net_controller.vhd : (312, 8): Cannot find object declaration.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (312, 33): Unknown identifier "volume_column_counter".
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (314, 58): Operator "=" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (314, 12): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (316, 58): Unknown identifier "volume_row_counter".
-# Error: COMP96_0133: input_fifo_net_controller.vhd : (316, 58): Cannot find object declaration.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (316, 36): Operator "*" is not defined for such operands.
-# Error: COMP96_0138: input_fifo_net_controller.vhd : (316, 20): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (317, 8): Unknown identifier "volume_column_counter".
-# Error: COMP96_0133: input_fifo_net_controller.vhd : (317, 8): Cannot find object declaration.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (317, 33): Unknown identifier "volume_column_counter".
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (322, 10): Unknown identifier "volume_column_counter".
-# Error: COMP96_0133: input_fifo_net_controller.vhd : (322, 10): Cannot find object declaration.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (322, 9): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (323, 8): Unknown identifier "volume_column_counter".
-# Error: COMP96_0133: input_fifo_net_controller.vhd : (323, 8): Cannot find object declaration.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (324, 11): Unknown identifier "volume_row_counter".
-# Error: COMP96_0133: input_fifo_net_controller.vhd : (324, 11): Cannot find object declaration.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (324, 10): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (325, 9): Unknown identifier "volume_row_counter".
-# Error: COMP96_0133: input_fifo_net_controller.vhd : (325, 9): Cannot find object declaration.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (328, 9): Unknown identifier "volume_row_counter".
-# Error: COMP96_0133: input_fifo_net_controller.vhd : (328, 9): Cannot find object declaration.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (328, 31): Unknown identifier "volume_row_counter".
-# Compile failure 83 Errors 0 Warnings  Analysis time :  0.1 [s]
-acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/input_fifo_net_controller.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\input_fifo_net_controller.vhd
-# Compile Entity "input_fifo_net_controller"
-# Compile Architecture "arch" of Entity "input_fifo_net_controller"
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (178, 25): Operator "<" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (178, 7): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (187, 34): Operator "=" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (187, 8): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (245, 56): Operator ">=" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (245, 9): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (249, 29): Operator "<" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (249, 10): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (252, 32): Operator "=" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (252, 13): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (257, 58): Operator "<" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (257, 12): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (259, 36): Operator "*" is not defined for such operands.
-# Error: COMP96_0138: input_fifo_net_controller.vhd : (259, 20): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (262, 58): Operator "<" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (262, 12): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (264, 36): Operator "*" is not defined for such operands.
-# Error: COMP96_0138: input_fifo_net_controller.vhd : (264, 20): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (267, 58): Operator "=" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (267, 12): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (269, 36): Operator "*" is not defined for such operands.
-# Error: COMP96_0138: input_fifo_net_controller.vhd : (269, 20): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (275, 56): Operator "-" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (275, 9): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (277, 54): Operator "-" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (277, 10): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (293, 56): Operator ">=" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (293, 9): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (297, 29): Operator "<" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (297, 10): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (299, 9): Unknown identifier "volume_column_counter".
-# Error: COMP96_0133: input_fifo_net_controller.vhd : (299, 9): Cannot find object declaration.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (299, 34): Unknown identifier "volume_column_counter".
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (300, 32): Operator "=" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (300, 13): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (302, 9): Unknown identifier "volume_column_counter".
-# Error: COMP96_0133: input_fifo_net_controller.vhd : (302, 9): Cannot find object declaration.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (302, 34): Unknown identifier "volume_column_counter".
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (305, 58): Operator "<" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (305, 12): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (307, 58): Unknown identifier "volume_row_counter".
-# Error: COMP96_0133: input_fifo_net_controller.vhd : (307, 58): Cannot find object declaration.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (307, 36): Operator "*" is not defined for such operands.
-# Error: COMP96_0138: input_fifo_net_controller.vhd : (307, 20): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (308, 8): Unknown identifier "volume_column_counter".
-# Error: COMP96_0133: input_fifo_net_controller.vhd : (308, 8): Cannot find object declaration.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (308, 33): Unknown identifier "volume_column_counter".
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (310, 58): Operator "<" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (310, 12): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (312, 58): Unknown identifier "volume_row_counter".
-# Error: COMP96_0133: input_fifo_net_controller.vhd : (312, 58): Cannot find object declaration.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (312, 36): Operator "*" is not defined for such operands.
-# Error: COMP96_0138: input_fifo_net_controller.vhd : (312, 20): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (313, 8): Unknown identifier "volume_column_counter".
-# Error: COMP96_0133: input_fifo_net_controller.vhd : (313, 8): Cannot find object declaration.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (313, 33): Unknown identifier "volume_column_counter".
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (315, 58): Operator "=" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (315, 12): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (317, 58): Unknown identifier "volume_row_counter".
-# Error: COMP96_0133: input_fifo_net_controller.vhd : (317, 58): Cannot find object declaration.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (317, 36): Operator "*" is not defined for such operands.
-# Error: COMP96_0138: input_fifo_net_controller.vhd : (317, 20): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (318, 8): Unknown identifier "volume_column_counter".
-# Error: COMP96_0133: input_fifo_net_controller.vhd : (318, 8): Cannot find object declaration.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (318, 33): Unknown identifier "volume_column_counter".
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (323, 10): Unknown identifier "volume_column_counter".
-# Error: COMP96_0133: input_fifo_net_controller.vhd : (323, 10): Cannot find object declaration.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (323, 9): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (324, 8): Unknown identifier "volume_column_counter".
-# Error: COMP96_0133: input_fifo_net_controller.vhd : (324, 8): Cannot find object declaration.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (325, 11): Unknown identifier "volume_row_counter".
-# Error: COMP96_0133: input_fifo_net_controller.vhd : (325, 11): Cannot find object declaration.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (325, 10): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (326, 9): Unknown identifier "volume_row_counter".
-# Error: COMP96_0133: input_fifo_net_controller.vhd : (326, 9): Cannot find object declaration.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (329, 9): Unknown identifier "volume_row_counter".
-# Error: COMP96_0133: input_fifo_net_controller.vhd : (329, 9): Cannot find object declaration.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (329, 31): Unknown identifier "volume_row_counter".
-# Compile failure 78 Errors 0 Warnings  Analysis time :  78.0 [ms]
-acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/input_fifo_net_controller.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\input_fifo_net_controller.vhd
-# Compile Entity "input_fifo_net_controller"
-# Compile Architecture "arch" of Entity "input_fifo_net_controller"
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (187, 34): Operator "=" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (187, 8): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (245, 56): Operator ">=" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (245, 9): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (249, 29): Operator "<" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (249, 10): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (252, 32): Operator "=" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (252, 13): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (257, 58): Operator "<" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (257, 12): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (259, 36): Operator "*" is not defined for such operands.
-# Error: COMP96_0138: input_fifo_net_controller.vhd : (259, 20): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (262, 58): Operator "<" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (262, 12): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (264, 36): Operator "*" is not defined for such operands.
-# Error: COMP96_0138: input_fifo_net_controller.vhd : (264, 20): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (267, 58): Operator "=" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (267, 12): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (269, 36): Operator "*" is not defined for such operands.
-# Error: COMP96_0138: input_fifo_net_controller.vhd : (269, 20): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (275, 56): Operator "-" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (275, 9): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (277, 54): Operator "-" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (277, 10): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (293, 56): Operator ">=" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (293, 9): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (297, 29): Operator "<" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (297, 10): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (299, 9): Unknown identifier "volume_column_counter".
-# Error: COMP96_0133: input_fifo_net_controller.vhd : (299, 9): Cannot find object declaration.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (299, 34): Unknown identifier "volume_column_counter".
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (300, 32): Operator "=" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (300, 13): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (302, 9): Unknown identifier "volume_column_counter".
-# Error: COMP96_0133: input_fifo_net_controller.vhd : (302, 9): Cannot find object declaration.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (302, 34): Unknown identifier "volume_column_counter".
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (305, 58): Operator "<" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (305, 12): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (307, 58): Unknown identifier "volume_row_counter".
-# Error: COMP96_0133: input_fifo_net_controller.vhd : (307, 58): Cannot find object declaration.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (307, 36): Operator "*" is not defined for such operands.
-# Error: COMP96_0138: input_fifo_net_controller.vhd : (307, 20): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (308, 8): Unknown identifier "volume_column_counter".
-# Error: COMP96_0133: input_fifo_net_controller.vhd : (308, 8): Cannot find object declaration.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (308, 33): Unknown identifier "volume_column_counter".
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (310, 58): Operator "<" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (310, 12): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (312, 58): Unknown identifier "volume_row_counter".
-# Error: COMP96_0133: input_fifo_net_controller.vhd : (312, 58): Cannot find object declaration.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (312, 36): Operator "*" is not defined for such operands.
-# Error: COMP96_0138: input_fifo_net_controller.vhd : (312, 20): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (313, 8): Unknown identifier "volume_column_counter".
-# Error: COMP96_0133: input_fifo_net_controller.vhd : (313, 8): Cannot find object declaration.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (313, 33): Unknown identifier "volume_column_counter".
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (315, 58): Operator "=" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (315, 12): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (317, 58): Unknown identifier "volume_row_counter".
-# Error: COMP96_0133: input_fifo_net_controller.vhd : (317, 58): Cannot find object declaration.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (317, 36): Operator "*" is not defined for such operands.
-# Error: COMP96_0138: input_fifo_net_controller.vhd : (317, 20): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (318, 8): Unknown identifier "volume_column_counter".
-# Error: COMP96_0133: input_fifo_net_controller.vhd : (318, 8): Cannot find object declaration.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (318, 33): Unknown identifier "volume_column_counter".
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (323, 10): Unknown identifier "volume_column_counter".
-# Error: COMP96_0133: input_fifo_net_controller.vhd : (323, 10): Cannot find object declaration.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (323, 9): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (324, 8): Unknown identifier "volume_column_counter".
-# Error: COMP96_0133: input_fifo_net_controller.vhd : (324, 8): Cannot find object declaration.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (325, 11): Unknown identifier "volume_row_counter".
-# Error: COMP96_0133: input_fifo_net_controller.vhd : (325, 11): Cannot find object declaration.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (325, 10): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (326, 9): Unknown identifier "volume_row_counter".
-# Error: COMP96_0133: input_fifo_net_controller.vhd : (326, 9): Cannot find object declaration.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (329, 9): Unknown identifier "volume_row_counter".
-# Error: COMP96_0133: input_fifo_net_controller.vhd : (329, 9): Cannot find object declaration.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (329, 31): Unknown identifier "volume_row_counter".
-# Compile failure 76 Errors 0 Warnings  Analysis time :  62.0 [ms]
-acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/input_fifo_net_controller.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\input_fifo_net_controller.vhd
-# Compile Entity "input_fifo_net_controller"
-# Error: COMP96_0122: input_fifo_net_controller.vhd : (82, 2): Symbol "i_filter_kernal_loaded" has already been declared in this scope.
-# Compile Architecture "arch" of Entity "input_fifo_net_controller"
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (189, 34): Operator "=" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (189, 8): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (247, 56): Operator ">=" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (247, 9): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (251, 29): Operator "<" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (251, 10): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (254, 32): Operator "=" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (254, 13): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (259, 58): Operator "<" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (259, 12): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (261, 36): Operator "*" is not defined for such operands.
-# Error: COMP96_0138: input_fifo_net_controller.vhd : (261, 20): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (264, 58): Operator "<" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (264, 12): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (266, 36): Operator "*" is not defined for such operands.
-# Error: COMP96_0138: input_fifo_net_controller.vhd : (266, 20): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (269, 58): Operator "=" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (269, 12): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (271, 36): Operator "*" is not defined for such operands.
-# Error: COMP96_0138: input_fifo_net_controller.vhd : (271, 20): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (277, 56): Operator "-" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (277, 9): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (279, 54): Operator "-" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (279, 10): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (295, 56): Operator ">=" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (295, 9): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (299, 29): Operator "<" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (299, 10): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (301, 9): Unknown identifier "volume_column_counter".
-# Error: COMP96_0133: input_fifo_net_controller.vhd : (301, 9): Cannot find object declaration.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (301, 34): Unknown identifier "volume_column_counter".
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (302, 32): Operator "=" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (302, 13): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (304, 9): Unknown identifier "volume_column_counter".
-# Error: COMP96_0133: input_fifo_net_controller.vhd : (304, 9): Cannot find object declaration.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (304, 34): Unknown identifier "volume_column_counter".
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (307, 58): Operator "<" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (307, 12): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (309, 58): Unknown identifier "volume_row_counter".
-# Error: COMP96_0133: input_fifo_net_controller.vhd : (309, 58): Cannot find object declaration.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (309, 36): Operator "*" is not defined for such operands.
-# Error: COMP96_0138: input_fifo_net_controller.vhd : (309, 20): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (310, 8): Unknown identifier "volume_column_counter".
-# Error: COMP96_0133: input_fifo_net_controller.vhd : (310, 8): Cannot find object declaration.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (310, 33): Unknown identifier "volume_column_counter".
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (312, 58): Operator "<" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (312, 12): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (314, 58): Unknown identifier "volume_row_counter".
-# Error: COMP96_0133: input_fifo_net_controller.vhd : (314, 58): Cannot find object declaration.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (314, 36): Operator "*" is not defined for such operands.
-# Error: COMP96_0138: input_fifo_net_controller.vhd : (314, 20): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (315, 8): Unknown identifier "volume_column_counter".
-# Error: COMP96_0133: input_fifo_net_controller.vhd : (315, 8): Cannot find object declaration.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (315, 33): Unknown identifier "volume_column_counter".
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (317, 58): Operator "=" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (317, 12): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (319, 58): Unknown identifier "volume_row_counter".
-# Error: COMP96_0133: input_fifo_net_controller.vhd : (319, 58): Cannot find object declaration.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (319, 36): Operator "*" is not defined for such operands.
-# Error: COMP96_0138: input_fifo_net_controller.vhd : (319, 20): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (320, 8): Unknown identifier "volume_column_counter".
-# Error: COMP96_0133: input_fifo_net_controller.vhd : (320, 8): Cannot find object declaration.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (320, 33): Unknown identifier "volume_column_counter".
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (325, 10): Unknown identifier "volume_column_counter".
-# Error: COMP96_0133: input_fifo_net_controller.vhd : (325, 10): Cannot find object declaration.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (325, 9): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (326, 8): Unknown identifier "volume_column_counter".
-# Error: COMP96_0133: input_fifo_net_controller.vhd : (326, 8): Cannot find object declaration.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (327, 11): Unknown identifier "volume_row_counter".
-# Error: COMP96_0133: input_fifo_net_controller.vhd : (327, 11): Cannot find object declaration.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (327, 10): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (328, 9): Unknown identifier "volume_row_counter".
-# Error: COMP96_0133: input_fifo_net_controller.vhd : (328, 9): Cannot find object declaration.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (331, 9): Unknown identifier "volume_row_counter".
-# Error: COMP96_0133: input_fifo_net_controller.vhd : (331, 9): Cannot find object declaration.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (331, 31): Unknown identifier "volume_row_counter".
-# Compile failure 77 Errors 0 Warnings  Analysis time :  0.1 [s]
-acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/input_fifo_net_controller.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\input_fifo_net_controller.vhd
-# Compile Entity "input_fifo_net_controller"
-# Compile Architecture "arch" of Entity "input_fifo_net_controller"
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (188, 34): Operator "=" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (188, 8): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (246, 56): Operator ">=" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (246, 9): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (250, 29): Operator "<" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (250, 10): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (253, 32): Operator "=" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (253, 13): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (258, 58): Operator "<" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (258, 12): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (260, 36): Operator "*" is not defined for such operands.
-# Error: COMP96_0138: input_fifo_net_controller.vhd : (260, 20): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (263, 58): Operator "<" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (263, 12): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (265, 36): Operator "*" is not defined for such operands.
-# Error: COMP96_0138: input_fifo_net_controller.vhd : (265, 20): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (268, 58): Operator "=" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (268, 12): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (270, 36): Operator "*" is not defined for such operands.
-# Error: COMP96_0138: input_fifo_net_controller.vhd : (270, 20): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (276, 56): Operator "-" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (276, 9): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (278, 54): Operator "-" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (278, 10): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (294, 56): Operator ">=" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (294, 9): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (298, 29): Operator "<" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (298, 10): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (300, 9): Unknown identifier "volume_column_counter".
-# Error: COMP96_0133: input_fifo_net_controller.vhd : (300, 9): Cannot find object declaration.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (300, 34): Unknown identifier "volume_column_counter".
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (301, 32): Operator "=" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (301, 13): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (303, 9): Unknown identifier "volume_column_counter".
-# Error: COMP96_0133: input_fifo_net_controller.vhd : (303, 9): Cannot find object declaration.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (303, 34): Unknown identifier "volume_column_counter".
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (306, 58): Operator "<" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (306, 12): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (308, 58): Unknown identifier "volume_row_counter".
-# Error: COMP96_0133: input_fifo_net_controller.vhd : (308, 58): Cannot find object declaration.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (308, 36): Operator "*" is not defined for such operands.
-# Error: COMP96_0138: input_fifo_net_controller.vhd : (308, 20): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (309, 8): Unknown identifier "volume_column_counter".
-# Error: COMP96_0133: input_fifo_net_controller.vhd : (309, 8): Cannot find object declaration.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (309, 33): Unknown identifier "volume_column_counter".
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (311, 58): Operator "<" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (311, 12): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (313, 58): Unknown identifier "volume_row_counter".
-# Error: COMP96_0133: input_fifo_net_controller.vhd : (313, 58): Cannot find object declaration.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (313, 36): Operator "*" is not defined for such operands.
-# Error: COMP96_0138: input_fifo_net_controller.vhd : (313, 20): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (314, 8): Unknown identifier "volume_column_counter".
-# Error: COMP96_0133: input_fifo_net_controller.vhd : (314, 8): Cannot find object declaration.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (314, 33): Unknown identifier "volume_column_counter".
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (316, 58): Operator "=" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (316, 12): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (318, 58): Unknown identifier "volume_row_counter".
-# Error: COMP96_0133: input_fifo_net_controller.vhd : (318, 58): Cannot find object declaration.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (318, 36): Operator "*" is not defined for such operands.
-# Error: COMP96_0138: input_fifo_net_controller.vhd : (318, 20): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (319, 8): Unknown identifier "volume_column_counter".
-# Error: COMP96_0133: input_fifo_net_controller.vhd : (319, 8): Cannot find object declaration.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (319, 33): Unknown identifier "volume_column_counter".
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (324, 10): Unknown identifier "volume_column_counter".
-# Error: COMP96_0133: input_fifo_net_controller.vhd : (324, 10): Cannot find object declaration.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (324, 9): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (325, 8): Unknown identifier "volume_column_counter".
-# Error: COMP96_0133: input_fifo_net_controller.vhd : (325, 8): Cannot find object declaration.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (326, 11): Unknown identifier "volume_row_counter".
-# Error: COMP96_0133: input_fifo_net_controller.vhd : (326, 11): Cannot find object declaration.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (326, 10): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (327, 9): Unknown identifier "volume_row_counter".
-# Error: COMP96_0133: input_fifo_net_controller.vhd : (327, 9): Cannot find object declaration.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (330, 9): Unknown identifier "volume_row_counter".
-# Error: COMP96_0133: input_fifo_net_controller.vhd : (330, 9): Cannot find object declaration.
-# Error: COMP96_0078: input_fifo_net_controller.vhd : (330, 31): Unknown identifier "volume_row_counter".
-# Compile failure 76 Errors 0 Warnings  Analysis time :  94.0 [ms]
-acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/input_fifo_net_controller.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\input_fifo_net_controller.vhd
-# Compile Entity "input_fifo_net_controller"
-# Compile Architecture "arch" of Entity "input_fifo_net_controller"
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (190, 34): Operator "=" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (190, 8): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (248, 56): Operator ">=" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (248, 9): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (252, 29): Operator "<" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (252, 10): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (255, 32): Operator "=" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (255, 13): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (260, 58): Operator "<" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (260, 12): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (262, 36): Operator "*" is not defined for such operands.
-# Error: COMP96_0138: input_fifo_net_controller.vhd : (262, 20): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (265, 58): Operator "<" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (265, 12): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (267, 36): Operator "*" is not defined for such operands.
-# Error: COMP96_0138: input_fifo_net_controller.vhd : (267, 20): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (270, 58): Operator "=" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (270, 12): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (272, 36): Operator "*" is not defined for such operands.
-# Error: COMP96_0138: input_fifo_net_controller.vhd : (272, 20): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (278, 56): Operator "-" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (278, 9): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (280, 54): Operator "-" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (280, 10): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (296, 56): Operator ">=" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (296, 9): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (300, 29): Operator "<" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (300, 10): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (303, 32): Operator "=" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (303, 13): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (308, 58): Operator "<" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (308, 12): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (310, 36): Operator "*" is not defined for such operands.
-# Error: COMP96_0138: input_fifo_net_controller.vhd : (310, 20): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (313, 58): Operator "<" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (313, 12): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (315, 36): Operator "*" is not defined for such operands.
-# Error: COMP96_0138: input_fifo_net_controller.vhd : (315, 20): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (318, 58): Operator "=" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (318, 12): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (320, 36): Operator "*" is not defined for such operands.
-# Error: COMP96_0138: input_fifo_net_controller.vhd : (320, 20): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (326, 55): Operator "-" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (326, 9): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (328, 53): Operator "-" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (328, 10): Undefined type of expression. Expected type 'BOOLEAN'.
-# Compile failure 46 Errors 0 Warnings  Analysis time :  94.0 [ms]
-acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/input_fifo_net_controller.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\input_fifo_net_controller.vhd
-# Compile Entity "input_fifo_net_controller"
-# Compile Architecture "arch" of Entity "input_fifo_net_controller"
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (190, 34): Operator "=" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (190, 8): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (248, 56): Operator ">=" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (248, 9): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (252, 29): Operator "<" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (252, 10): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (255, 32): Operator "=" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (255, 13): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (260, 58): Operator "<" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (260, 12): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (262, 36): Operator "*" is not defined for such operands.
-# Error: COMP96_0138: input_fifo_net_controller.vhd : (262, 20): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (265, 58): Operator "<" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (265, 12): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (267, 36): Operator "*" is not defined for such operands.
-# Error: COMP96_0138: input_fifo_net_controller.vhd : (267, 20): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (270, 58): Operator "=" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (270, 12): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (272, 36): Operator "*" is not defined for such operands.
-# Error: COMP96_0138: input_fifo_net_controller.vhd : (272, 20): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (278, 56): Operator "-" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (278, 9): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (280, 54): Operator "-" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (280, 10): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (296, 56): Operator ">=" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (296, 9): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (308, 58): Operator "<" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (308, 12): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0651: input_fifo_net_controller.vhd : (310, 68): Operator "+" returning 'INTEGER' is not defined for such operands.
-# Error: COMP96_0138: input_fifo_net_controller.vhd : (310, 20): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0651: input_fifo_net_controller.vhd : (315, 68): Operator "+" returning 'INTEGER' is not defined for such operands.
-# Error: COMP96_0138: input_fifo_net_controller.vhd : (315, 20): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0651: input_fifo_net_controller.vhd : (320, 68): Operator "+" returning 'INTEGER' is not defined for such operands.
-# Error: COMP96_0138: input_fifo_net_controller.vhd : (320, 20): The index types in the reference to the array object are incompatible with its range type.
-# Compile failure 34 Errors 0 Warnings  Analysis time :  47.0 [ms]
-acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/input_fifo_net_controller.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\input_fifo_net_controller.vhd
-# Compile Entity "input_fifo_net_controller"
-# Compile Architecture "arch" of Entity "input_fifo_net_controller"
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (248, 56): Operator ">=" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (248, 9): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (252, 29): Operator "<" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (252, 10): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (255, 32): Operator "=" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (255, 13): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (260, 58): Operator "<" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (260, 12): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (262, 36): Operator "*" is not defined for such operands.
-# Error: COMP96_0138: input_fifo_net_controller.vhd : (262, 20): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (265, 58): Operator "<" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (265, 12): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (267, 36): Operator "*" is not defined for such operands.
-# Error: COMP96_0138: input_fifo_net_controller.vhd : (267, 20): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (270, 58): Operator "=" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (270, 12): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (272, 36): Operator "*" is not defined for such operands.
-# Error: COMP96_0138: input_fifo_net_controller.vhd : (272, 20): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (278, 56): Operator "-" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (278, 9): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (280, 54): Operator "-" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (280, 10): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (296, 56): Operator ">=" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (296, 9): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (308, 58): Operator "<" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (308, 12): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0651: input_fifo_net_controller.vhd : (310, 68): Operator "+" returning 'INTEGER' is not defined for such operands.
-# Error: COMP96_0138: input_fifo_net_controller.vhd : (310, 20): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0651: input_fifo_net_controller.vhd : (315, 68): Operator "+" returning 'INTEGER' is not defined for such operands.
-# Error: COMP96_0138: input_fifo_net_controller.vhd : (315, 20): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0651: input_fifo_net_controller.vhd : (320, 68): Operator "+" returning 'INTEGER' is not defined for such operands.
-# Error: COMP96_0138: input_fifo_net_controller.vhd : (320, 20): The index types in the reference to the array object are incompatible with its range type.
-# Compile failure 32 Errors 0 Warnings  Analysis time :  47.0 [ms]
-acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/input_fifo_net_controller.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\input_fifo_net_controller.vhd
-# Compile Entity "input_fifo_net_controller"
-# Compile Architecture "arch" of Entity "input_fifo_net_controller"
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (248, 56): Operator ">=" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (248, 9): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (260, 58): Operator "<" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (260, 12): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0651: input_fifo_net_controller.vhd : (262, 69): Operator "+" returning 'INTEGER' is not defined for such operands.
-# Error: COMP96_0138: input_fifo_net_controller.vhd : (262, 20): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (265, 58): Operator "<" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (265, 12): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0651: input_fifo_net_controller.vhd : (267, 69): Operator "+" returning 'INTEGER' is not defined for such operands.
-# Error: COMP96_0138: input_fifo_net_controller.vhd : (267, 20): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (270, 58): Operator "=" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (270, 12): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0651: input_fifo_net_controller.vhd : (272, 69): Operator "+" returning 'INTEGER' is not defined for such operands.
-# Error: COMP96_0138: input_fifo_net_controller.vhd : (272, 20): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (296, 56): Operator ">=" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (296, 9): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (308, 58): Operator "<" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (308, 12): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0651: input_fifo_net_controller.vhd : (310, 68): Operator "+" returning 'INTEGER' is not defined for such operands.
-# Error: COMP96_0138: input_fifo_net_controller.vhd : (310, 20): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0651: input_fifo_net_controller.vhd : (315, 68): Operator "+" returning 'INTEGER' is not defined for such operands.
-# Error: COMP96_0138: input_fifo_net_controller.vhd : (315, 20): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0651: input_fifo_net_controller.vhd : (320, 68): Operator "+" returning 'INTEGER' is not defined for such operands.
-# Error: COMP96_0138: input_fifo_net_controller.vhd : (320, 20): The index types in the reference to the array object are incompatible with its range type.
-# Compile failure 24 Errors 0 Warnings  Analysis time :  62.0 [ms]
-acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/input_fifo_net_controller.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\input_fifo_net_controller.vhd
-# Compile Entity "input_fifo_net_controller"
-# Compile Architecture "arch" of Entity "input_fifo_net_controller"
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (248, 56): Operator ">=" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (248, 9): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (260, 58): Operator "<" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (260, 12): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0651: input_fifo_net_controller.vhd : (262, 69): Operator "+" returning 'INTEGER' is not defined for such operands.
-# Error: COMP96_0138: input_fifo_net_controller.vhd : (262, 20): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (265, 58): Operator "<" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (265, 12): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0651: input_fifo_net_controller.vhd : (267, 69): Operator "+" returning 'INTEGER' is not defined for such operands.
-# Error: COMP96_0138: input_fifo_net_controller.vhd : (267, 20): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (270, 58): Operator "=" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (270, 12): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0651: input_fifo_net_controller.vhd : (272, 69): Operator "+" returning 'INTEGER' is not defined for such operands.
-# Error: COMP96_0138: input_fifo_net_controller.vhd : (272, 20): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (296, 56): Operator ">=" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (296, 9): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (308, 58): Operator "<" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (308, 12): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0651: input_fifo_net_controller.vhd : (310, 68): Operator "+" returning 'INTEGER' is not defined for such operands.
-# Error: COMP96_0138: input_fifo_net_controller.vhd : (310, 20): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0651: input_fifo_net_controller.vhd : (315, 68): Operator "+" returning 'INTEGER' is not defined for such operands.
-# Error: COMP96_0138: input_fifo_net_controller.vhd : (315, 20): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0651: input_fifo_net_controller.vhd : (320, 68): Operator "+" returning 'INTEGER' is not defined for such operands.
-# Error: COMP96_0138: input_fifo_net_controller.vhd : (320, 20): The index types in the reference to the array object are incompatible with its range type.
-# Compile failure 24 Errors 0 Warnings  Analysis time :  31.0 [ms]
-acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/input_fifo_net_controller.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\input_fifo_net_controller.vhd
-# Compile Entity "input_fifo_net_controller"
-# Compile Architecture "arch" of Entity "input_fifo_net_controller"
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (248, 56): Operator ">=" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (248, 9): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (260, 58): Operator "<" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (260, 12): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0138: input_fifo_net_controller.vhd : (262, 20): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (265, 58): Operator "<" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (265, 12): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0138: input_fifo_net_controller.vhd : (267, 20): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (270, 58): Operator "=" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (270, 12): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0138: input_fifo_net_controller.vhd : (272, 20): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (296, 56): Operator ">=" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (296, 9): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (308, 58): Operator "<" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (308, 12): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0651: input_fifo_net_controller.vhd : (310, 68): Operator "+" returning 'INTEGER' is not defined for such operands.
-# Error: COMP96_0138: input_fifo_net_controller.vhd : (310, 20): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0651: input_fifo_net_controller.vhd : (315, 68): Operator "+" returning 'INTEGER' is not defined for such operands.
-# Error: COMP96_0138: input_fifo_net_controller.vhd : (315, 20): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0651: input_fifo_net_controller.vhd : (320, 68): Operator "+" returning 'INTEGER' is not defined for such operands.
-# Error: COMP96_0138: input_fifo_net_controller.vhd : (320, 20): The index types in the reference to the array object are incompatible with its range type.
-# Compile failure 21 Errors 0 Warnings  Analysis time :  47.0 [ms]
-acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/input_fifo_net_controller.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\input_fifo_net_controller.vhd
-# Compile Entity "input_fifo_net_controller"
-# Compile Architecture "arch" of Entity "input_fifo_net_controller"
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (248, 56): Operator ">=" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (248, 9): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (260, 58): Operator "<" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (260, 12): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0138: input_fifo_net_controller.vhd : (262, 20): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0138: input_fifo_net_controller.vhd : (267, 20): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0138: input_fifo_net_controller.vhd : (272, 20): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (296, 56): Operator ">=" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (296, 9): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (308, 58): Operator "<" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (308, 12): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0651: input_fifo_net_controller.vhd : (310, 68): Operator "+" returning 'INTEGER' is not defined for such operands.
-# Error: COMP96_0138: input_fifo_net_controller.vhd : (310, 20): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0651: input_fifo_net_controller.vhd : (315, 68): Operator "+" returning 'INTEGER' is not defined for such operands.
-# Error: COMP96_0138: input_fifo_net_controller.vhd : (315, 20): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0651: input_fifo_net_controller.vhd : (320, 68): Operator "+" returning 'INTEGER' is not defined for such operands.
-# Error: COMP96_0138: input_fifo_net_controller.vhd : (320, 20): The index types in the reference to the array object are incompatible with its range type.
-# Compile failure 17 Errors 0 Warnings  Analysis time :  47.0 [ms]
-acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/input_fifo_net_controller.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\input_fifo_net_controller.vhd
-# Compile Entity "input_fifo_net_controller"
-# Compile Architecture "arch" of Entity "input_fifo_net_controller"
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (248, 56): Operator ">=" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (248, 9): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (260, 58): Operator "<" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (260, 12): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (296, 56): Operator ">=" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (296, 9): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (308, 58): Operator "<" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (308, 12): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0651: input_fifo_net_controller.vhd : (310, 68): Operator "+" returning 'INTEGER' is not defined for such operands.
-# Error: COMP96_0138: input_fifo_net_controller.vhd : (310, 20): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0651: input_fifo_net_controller.vhd : (315, 68): Operator "+" returning 'INTEGER' is not defined for such operands.
-# Error: COMP96_0138: input_fifo_net_controller.vhd : (315, 20): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0651: input_fifo_net_controller.vhd : (320, 68): Operator "+" returning 'INTEGER' is not defined for such operands.
-# Error: COMP96_0138: input_fifo_net_controller.vhd : (320, 20): The index types in the reference to the array object are incompatible with its range type.
-# Compile failure 14 Errors 0 Warnings  Analysis time :  47.0 [ms]
-acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/input_fifo_net_controller.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\input_fifo_net_controller.vhd
-# Compile Entity "input_fifo_net_controller"
-# Compile Architecture "arch" of Entity "input_fifo_net_controller"
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (248, 56): Operator ">=" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (248, 9): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (260, 58): Operator "<" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (260, 12): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (296, 56): Operator ">=" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (296, 9): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (308, 58): Operator "<" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (308, 12): Undefined type of expression. Expected type 'BOOLEAN'.
-# Compile failure 8 Errors 0 Warnings  Analysis time :  47.0 [ms]
-acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/input_fifo_net_controller.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\input_fifo_net_controller.vhd
-# Compile Entity "input_fifo_net_controller"
-# Compile Architecture "arch" of Entity "input_fifo_net_controller"
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (248, 66): Operator ">=" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (248, 9): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (260, 68): Operator "<" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (260, 12): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (296, 66): Operator ">=" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (296, 9): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (308, 68): Operator "<" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (308, 12): Undefined type of expression. Expected type 'BOOLEAN'.
-# Compile failure 8 Errors 0 Warnings  Analysis time :  46.0 [ms]
-acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/input_fifo_net_controller.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\input_fifo_net_controller.vhd
-# Compile Entity "input_fifo_net_controller"
-# Compile Architecture "arch" of Entity "input_fifo_net_controller"
-# Error: COMP96_0617: input_fifo_net_controller.vhd : (152, 24): Assignment target incompatible with right side. Cannot convert 'UNSIGNED' to 'STD_LOGIC_VECTOR'.
-# Error: COMP96_0617: input_fifo_net_controller.vhd : (154, 24): Assignment target incompatible with right side. Cannot convert 'UNSIGNED' to 'STD_LOGIC_VECTOR'.
-# Error: COMP96_0617: input_fifo_net_controller.vhd : (156, 24): Assignment target incompatible with right side. Cannot convert 'UNSIGNED' to 'STD_LOGIC_VECTOR'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (248, 56): Operator ">=" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (248, 9): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (260, 58): Operator "<" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (260, 12): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (296, 66): Operator ">=" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (296, 9): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (308, 68): Operator "<" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (308, 12): Undefined type of expression. Expected type 'BOOLEAN'.
-# Compile failure 11 Errors 0 Warnings  Analysis time :  62.0 [ms]
-acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/input_fifo_net_controller.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\input_fifo_net_controller.vhd
-# Compile Entity "input_fifo_net_controller"
-# Compile Architecture "arch" of Entity "input_fifo_net_controller"
-# Error: COMP96_0071: input_fifo_net_controller.vhd : (237, 28): Operator ">" is not defined for such operands.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (237, 8): Undefined type of expression. Expected type 'BOOLEAN'.
-# Compile failure 2 Errors 0 Warnings  Analysis time :  46.0 [ms]
+# ELBREAD: Elaboration time 0.1 [s].
 acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/input_fifo_net_controller.vhd
 # Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
 # File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\input_fifo_net_controller.vhd
@@ -888,19 +7,313 @@ acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/input_fifo_net_controlle
 # Compile Architecture "arch" of Entity "input_fifo_net_controller"
 # Compile success 0 Errors 0 Warnings  Analysis time :  0.3 [s]
 # filter_top.bde: Updating instances of symbol 'input_fifo_net_controller' from library 'Convolution_Layer' (ROW_CONTROLLER)
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/weights_router.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\weights_router.vhd
+# Compile Entity "weights_router"
+# Compile Architecture "arch" of Entity "weights_router"
+# Error: COMP96_0025: weights_router.vhd : (97, 27): Identifier or string literal expected.
+# Error: COMP96_0019: weights_router.vhd : (103, 3): Keyword 'end' expected.
+# Error: COMP96_0016: weights_router.vhd : (103, 8): Design unit declaration expected.
+# Compile failure 3 Errors 0 Warnings  Analysis time :  31.0 [ms]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/weights_router.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\weights_router.vhd
+# Compile Entity "weights_router"
+# Compile Architecture "arch" of Entity "weights_router"
+# Error: COMP96_0015: weights_router.vhd : (220, 31): ';' expected.
+# Error: COMP96_0019: weights_router.vhd : (220, 31): Keyword 'end' expected.
+# Error: COMP96_0019: weights_router.vhd : (221, 7): Keyword 'end' expected.
+# Error: COMP96_0019: weights_router.vhd : (222, 8): Keyword 'case' expected.
+# Error: COMP96_0019: weights_router.vhd : (240, 10): Keyword 'process' expected.
+# Error: COMP96_0019: weights_router.vhd : (242, 5): Keyword 'end' expected.
+# Error: COMP96_0016: weights_router.vhd : (242, 10): Design unit declaration expected.
+# Compile failure 7 Errors 0 Warnings  Analysis time :  15.0 [ms]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/weights_router.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\weights_router.vhd
+# Compile Entity "weights_router"
+# Compile Architecture "arch" of Entity "weights_router"
+# Error: COMP96_0015: weights_router.vhd : (220, 31): ';' expected.
+# Error: COMP96_0019: weights_router.vhd : (220, 31): Keyword 'end' expected.
+# Error: COMP96_0019: weights_router.vhd : (221, 7): Keyword 'end' expected.
+# Error: COMP96_0019: weights_router.vhd : (222, 8): Keyword 'case' expected.
+# Error: COMP96_0019: weights_router.vhd : (240, 10): Keyword 'process' expected.
+# Error: COMP96_0019: weights_router.vhd : (242, 5): Keyword 'end' expected.
+# Error: COMP96_0016: weights_router.vhd : (242, 10): Design unit declaration expected.
+# Compile failure 7 Errors 0 Warnings  Analysis time :  15.0 [ms]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/weights_router.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\weights_router.vhd
+# Compile Entity "weights_router"
+# Compile Architecture "arch" of Entity "weights_router"
+# Error: COMP96_0078: weights_router.vhd : (97, 112): Unknown identifier "i_clear_weights".
+# Error: COMP96_0348: weights_router.vhd : (97, 112): Name on sensitivity list must denote a signal.
+# Error: COMP96_0071: weights_router.vhd : (123, 34): Operator "=" is not defined for such operands.
+# Error: COMP96_0077: weights_router.vhd : (123, 8): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0078: weights_router.vhd : (133, 8): Unknown identifier "i_clear_weights".
+# Error: COMP96_0133: weights_router.vhd : (133, 8): Cannot find object declaration.
+# Error: COMP96_0077: weights_router.vhd : (133, 7): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0071: weights_router.vhd : (138, 31): Operator "=" is not defined for such operands.
+# Error: COMP96_0077: weights_router.vhd : (138, 8): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0078: weights_router.vhd : (162, 4): Unknown identifier "reset_weight_fifo_n".
+# Error: COMP96_0133: weights_router.vhd : (162, 4): Cannot find object declaration.
+# Error: COMP96_0078: weights_router.vhd : (163, 4): Unknown identifier "weight_mult".
+# Error: COMP96_0133: weights_router.vhd : (163, 4): Cannot find object declaration.
+# Error: COMP96_0078: weights_router.vhd : (165, 4): Unknown identifier "filter_number".
+# Error: COMP96_0133: weights_router.vhd : (165, 4): Cannot find object declaration.
+# Error: COMP96_0078: weights_router.vhd : (172, 4): Unknown identifier "reset_weight_fifo_n".
+# Error: COMP96_0133: weights_router.vhd : (172, 4): Cannot find object declaration.
+# Error: COMP96_0078: weights_router.vhd : (172, 28): Unknown identifier "reset_weight_fifo_n".
+# Error: COMP96_0078: weights_router.vhd : (173, 4): Unknown identifier "weight_mult".
+# Error: COMP96_0133: weights_router.vhd : (173, 4): Cannot find object declaration.
+# Error: COMP96_0078: weights_router.vhd : (173, 22): Unknown identifier "weight_mult".
+# Error: COMP96_0078: weights_router.vhd : (175, 4): Unknown identifier "filter_number".
+# Error: COMP96_0133: weights_router.vhd : (175, 4): Cannot find object declaration.
+# Error: COMP96_0078: weights_router.vhd : (175, 24): Unknown identifier "filter_number".
+# Error: COMP96_0078: weights_router.vhd : (183, 6): Unknown identifier "reset_weight_fifo_n".
+# Error: COMP96_0133: weights_router.vhd : (183, 6): Cannot find object declaration.
+# Error: COMP96_0078: weights_router.vhd : (184, 6): Unknown identifier "weight_mult".
+# Error: COMP96_0133: weights_router.vhd : (184, 6): Cannot find object declaration.
+# Error: COMP96_0078: weights_router.vhd : (186, 6): Unknown identifier "filter_number".
+# Error: COMP96_0133: weights_router.vhd : (186, 6): Cannot find object declaration.
+# Error: COMP96_0078: weights_router.vhd : (193, 6): Unknown identifier "reset_weight_fifo_n".
+# Error: COMP96_0133: weights_router.vhd : (193, 6): Cannot find object declaration.
+# Error: COMP96_0078: weights_router.vhd : (194, 6): Unknown identifier "weight_mult".
+# Error: COMP96_0133: weights_router.vhd : (194, 6): Cannot find object declaration.
+# Error: COMP96_0078: weights_router.vhd : (196, 6): Unknown identifier "filter_number".
+# Error: COMP96_0133: weights_router.vhd : (196, 6): Cannot find object declaration.
+# Error: COMP96_0071: weights_router.vhd : (199, 34): Operator "=" is not defined for such operands.
+# Error: COMP96_0077: weights_router.vhd : (199, 8): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0078: weights_router.vhd : (213, 9): Unknown identifier "i_clear_weights".
+# Error: COMP96_0133: weights_router.vhd : (213, 9): Cannot find object declaration.
+# Error: COMP96_0077: weights_router.vhd : (213, 8): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0078: weights_router.vhd : (214, 7): Unknown identifier "reset_weight_fifo_n".
+# Error: COMP96_0133: weights_router.vhd : (214, 7): Cannot find object declaration.
+# Error: COMP96_0138: weights_router.vhd : (217, 44): The index types in the reference to the array object are incompatible with its range type.
+# Error: COMP96_0617: weights_router.vhd : (220, 34): Assignment target incompatible with right side. Cannot convert 'STD_LOGIC_VECTOR' to 'UNSIGNED'.
+# Error: COMP96_0071: weights_router.vhd : (225, 32): Operator "=" is not defined for such operands.
+# Error: COMP96_0077: weights_router.vhd : (225, 9): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0078: weights_router.vhd : (228, 11): Unknown identifier "filter_number".
+# Error: COMP96_0133: weights_router.vhd : (228, 11): Cannot find object declaration.
+# Error: COMP96_0077: weights_router.vhd : (228, 10): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0078: weights_router.vhd : (229, 9): Unknown identifier "filter_number".
+# Error: COMP96_0133: weights_router.vhd : (229, 9): Cannot find object declaration.
+# Error: COMP96_0078: weights_router.vhd : (232, 9): Unknown identifier "filter_number".
+# Error: COMP96_0133: weights_router.vhd : (232, 9): Cannot find object declaration.
+# Error: COMP96_0078: weights_router.vhd : (232, 26): Unknown identifier "filter_number".
+# Error: COMP96_0078: weights_router.vhd : (237, 8): Unknown identifier "filter_number".
+# Error: COMP96_0133: weights_router.vhd : (237, 8): Cannot find object declaration.
+# Error: COMP96_0078: weights_router.vhd : (237, 25): Unknown identifier "filter_number".
+# Error: COMP96_0078: weights_router.vhd : (247, 6): Unknown identifier "reset_weight_fifo_n".
+# Error: COMP96_0133: weights_router.vhd : (247, 6): Cannot find object declaration.
+# Error: COMP96_0078: weights_router.vhd : (248, 6): Unknown identifier "weight_mult".
+# Error: COMP96_0133: weights_router.vhd : (248, 6): Cannot find object declaration.
+# Error: COMP96_0078: weights_router.vhd : (250, 6): Unknown identifier "filter_number".
+# Error: COMP96_0133: weights_router.vhd : (250, 6): Cannot find object declaration.
+# Compile failure 64 Errors 0 Warnings  Analysis time :  46.0 [ms]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/weights_router.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\weights_router.vhd
+# Compile Entity "weights_router"
+# Compile Architecture "arch" of Entity "weights_router"
+# Error: COMP96_0071: weights_router.vhd : (139, 31): Operator "=" is not defined for such operands.
+# Error: COMP96_0077: weights_router.vhd : (139, 8): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0078: weights_router.vhd : (163, 4): Unknown identifier "reset_weight_fifo_n".
+# Error: COMP96_0133: weights_router.vhd : (163, 4): Cannot find object declaration.
+# Error: COMP96_0078: weights_router.vhd : (164, 4): Unknown identifier "weight_mult".
+# Error: COMP96_0133: weights_router.vhd : (164, 4): Cannot find object declaration.
+# Error: COMP96_0078: weights_router.vhd : (166, 4): Unknown identifier "filter_number".
+# Error: COMP96_0133: weights_router.vhd : (166, 4): Cannot find object declaration.
+# Error: COMP96_0078: weights_router.vhd : (173, 4): Unknown identifier "reset_weight_fifo_n".
+# Error: COMP96_0133: weights_router.vhd : (173, 4): Cannot find object declaration.
+# Error: COMP96_0078: weights_router.vhd : (173, 28): Unknown identifier "reset_weight_fifo_n".
+# Error: COMP96_0078: weights_router.vhd : (174, 4): Unknown identifier "weight_mult".
+# Error: COMP96_0133: weights_router.vhd : (174, 4): Cannot find object declaration.
+# Error: COMP96_0078: weights_router.vhd : (174, 22): Unknown identifier "weight_mult".
+# Error: COMP96_0078: weights_router.vhd : (176, 4): Unknown identifier "filter_number".
+# Error: COMP96_0133: weights_router.vhd : (176, 4): Cannot find object declaration.
+# Error: COMP96_0078: weights_router.vhd : (176, 24): Unknown identifier "filter_number".
+# Error: COMP96_0078: weights_router.vhd : (184, 6): Unknown identifier "reset_weight_fifo_n".
+# Error: COMP96_0133: weights_router.vhd : (184, 6): Cannot find object declaration.
+# Error: COMP96_0078: weights_router.vhd : (185, 6): Unknown identifier "weight_mult".
+# Error: COMP96_0133: weights_router.vhd : (185, 6): Cannot find object declaration.
+# Error: COMP96_0078: weights_router.vhd : (187, 6): Unknown identifier "filter_number".
+# Error: COMP96_0133: weights_router.vhd : (187, 6): Cannot find object declaration.
+# Error: COMP96_0078: weights_router.vhd : (194, 6): Unknown identifier "reset_weight_fifo_n".
+# Error: COMP96_0133: weights_router.vhd : (194, 6): Cannot find object declaration.
+# Error: COMP96_0078: weights_router.vhd : (195, 6): Unknown identifier "weight_mult".
+# Error: COMP96_0133: weights_router.vhd : (195, 6): Cannot find object declaration.
+# Error: COMP96_0078: weights_router.vhd : (197, 6): Unknown identifier "filter_number".
+# Error: COMP96_0133: weights_router.vhd : (197, 6): Cannot find object declaration.
+# Error: COMP96_0071: weights_router.vhd : (200, 34): Operator "=" is not defined for such operands.
+# Error: COMP96_0077: weights_router.vhd : (200, 8): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0078: weights_router.vhd : (215, 7): Unknown identifier "reset_weight_fifo_n".
+# Error: COMP96_0133: weights_router.vhd : (215, 7): Cannot find object declaration.
+# Error: COMP96_0138: weights_router.vhd : (218, 44): The index types in the reference to the array object are incompatible with its range type.
+# Error: COMP96_0617: weights_router.vhd : (221, 34): Assignment target incompatible with right side. Cannot convert 'STD_LOGIC_VECTOR' to 'UNSIGNED'.
+# Error: COMP96_0071: weights_router.vhd : (226, 32): Operator "=" is not defined for such operands.
+# Error: COMP96_0077: weights_router.vhd : (226, 9): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0078: weights_router.vhd : (229, 11): Unknown identifier "filter_number".
+# Error: COMP96_0133: weights_router.vhd : (229, 11): Cannot find object declaration.
+# Error: COMP96_0077: weights_router.vhd : (229, 10): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0078: weights_router.vhd : (230, 9): Unknown identifier "filter_number".
+# Error: COMP96_0133: weights_router.vhd : (230, 9): Cannot find object declaration.
+# Error: COMP96_0078: weights_router.vhd : (233, 9): Unknown identifier "filter_number".
+# Error: COMP96_0133: weights_router.vhd : (233, 9): Cannot find object declaration.
+# Error: COMP96_0078: weights_router.vhd : (233, 26): Unknown identifier "filter_number".
+# Error: COMP96_0078: weights_router.vhd : (238, 8): Unknown identifier "filter_number".
+# Error: COMP96_0133: weights_router.vhd : (238, 8): Cannot find object declaration.
+# Error: COMP96_0078: weights_router.vhd : (238, 25): Unknown identifier "filter_number".
+# Error: COMP96_0078: weights_router.vhd : (248, 6): Unknown identifier "reset_weight_fifo_n".
+# Error: COMP96_0133: weights_router.vhd : (248, 6): Cannot find object declaration.
+# Error: COMP96_0078: weights_router.vhd : (249, 6): Unknown identifier "weight_mult".
+# Error: COMP96_0133: weights_router.vhd : (249, 6): Cannot find object declaration.
+# Error: COMP96_0078: weights_router.vhd : (251, 6): Unknown identifier "filter_number".
+# Error: COMP96_0133: weights_router.vhd : (251, 6): Cannot find object declaration.
+# Compile failure 54 Errors 0 Warnings  Analysis time :  16.0 [ms]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/weights_router.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\weights_router.vhd
+# Compile Entity "weights_router"
+# Compile Architecture "arch" of Entity "weights_router"
+# Error: COMP96_0071: weights_router.vhd : (139, 31): Operator "=" is not defined for such operands.
+# Error: COMP96_0077: weights_router.vhd : (139, 8): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0078: weights_router.vhd : (163, 4): Unknown identifier "reset_weight_fifo_n".
+# Error: COMP96_0133: weights_router.vhd : (163, 4): Cannot find object declaration.
+# Error: COMP96_0078: weights_router.vhd : (166, 4): Unknown identifier "filter_number".
+# Error: COMP96_0133: weights_router.vhd : (166, 4): Cannot find object declaration.
+# Error: COMP96_0078: weights_router.vhd : (173, 4): Unknown identifier "reset_weight_fifo_n".
+# Error: COMP96_0133: weights_router.vhd : (173, 4): Cannot find object declaration.
+# Error: COMP96_0078: weights_router.vhd : (173, 28): Unknown identifier "reset_weight_fifo_n".
+# Error: COMP96_0078: weights_router.vhd : (174, 23): Unknown identifier "weight_mult".
+# Error: COMP96_0133: weights_router.vhd : (174, 23): Cannot find object declaration.
+# Error: COMP96_0077: weights_router.vhd : (174, 23): Undefined type of expression. Expected type 'STD_LOGIC_VECTOR'.
+# Error: COMP96_0078: weights_router.vhd : (176, 4): Unknown identifier "filter_number".
+# Error: COMP96_0133: weights_router.vhd : (176, 4): Cannot find object declaration.
+# Error: COMP96_0078: weights_router.vhd : (176, 24): Unknown identifier "filter_number".
+# Error: COMP96_0078: weights_router.vhd : (184, 6): Unknown identifier "reset_weight_fifo_n".
+# Error: COMP96_0133: weights_router.vhd : (184, 6): Cannot find object declaration.
+# Error: COMP96_0078: weights_router.vhd : (187, 6): Unknown identifier "filter_number".
+# Error: COMP96_0133: weights_router.vhd : (187, 6): Cannot find object declaration.
+# Error: COMP96_0078: weights_router.vhd : (194, 6): Unknown identifier "reset_weight_fifo_n".
+# Error: COMP96_0133: weights_router.vhd : (194, 6): Cannot find object declaration.
+# Error: COMP96_0078: weights_router.vhd : (197, 6): Unknown identifier "filter_number".
+# Error: COMP96_0133: weights_router.vhd : (197, 6): Cannot find object declaration.
+# Error: COMP96_0071: weights_router.vhd : (200, 34): Operator "=" is not defined for such operands.
+# Error: COMP96_0077: weights_router.vhd : (200, 8): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0078: weights_router.vhd : (215, 7): Unknown identifier "reset_weight_fifo_n".
+# Error: COMP96_0133: weights_router.vhd : (215, 7): Cannot find object declaration.
+# Error: COMP96_0138: weights_router.vhd : (218, 44): The index types in the reference to the array object are incompatible with its range type.
+# Error: COMP96_0617: weights_router.vhd : (221, 34): Assignment target incompatible with right side. Cannot convert 'STD_LOGIC_VECTOR' to 'UNSIGNED'.
+# Error: COMP96_0071: weights_router.vhd : (226, 32): Operator "=" is not defined for such operands.
+# Error: COMP96_0077: weights_router.vhd : (226, 9): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0078: weights_router.vhd : (229, 11): Unknown identifier "filter_number".
+# Error: COMP96_0133: weights_router.vhd : (229, 11): Cannot find object declaration.
+# Error: COMP96_0077: weights_router.vhd : (229, 10): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0078: weights_router.vhd : (230, 9): Unknown identifier "filter_number".
+# Error: COMP96_0133: weights_router.vhd : (230, 9): Cannot find object declaration.
+# Error: COMP96_0078: weights_router.vhd : (233, 9): Unknown identifier "filter_number".
+# Error: COMP96_0133: weights_router.vhd : (233, 9): Cannot find object declaration.
+# Error: COMP96_0078: weights_router.vhd : (233, 26): Unknown identifier "filter_number".
+# Error: COMP96_0078: weights_router.vhd : (238, 8): Unknown identifier "filter_number".
+# Error: COMP96_0133: weights_router.vhd : (238, 8): Cannot find object declaration.
+# Error: COMP96_0078: weights_router.vhd : (238, 25): Unknown identifier "filter_number".
+# Error: COMP96_0078: weights_router.vhd : (248, 6): Unknown identifier "reset_weight_fifo_n".
+# Error: COMP96_0133: weights_router.vhd : (248, 6): Cannot find object declaration.
+# Error: COMP96_0078: weights_router.vhd : (251, 6): Unknown identifier "filter_number".
+# Error: COMP96_0133: weights_router.vhd : (251, 6): Cannot find object declaration.
+# Compile failure 46 Errors 0 Warnings  Analysis time :  15.0 [ms]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/weights_router.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\weights_router.vhd
+# Compile Entity "weights_router"
+# Compile Architecture "arch" of Entity "weights_router"
+# Error: COMP96_0078: weights_router.vhd : (176, 23): Unknown identifier "weight_mult".
+# Error: COMP96_0133: weights_router.vhd : (176, 23): Cannot find object declaration.
+# Error: COMP96_0077: weights_router.vhd : (176, 23): Undefined type of expression. Expected type 'STD_LOGIC_VECTOR'.
+# Error: COMP96_0071: weights_router.vhd : (202, 34): Operator "=" is not defined for such operands.
+# Error: COMP96_0077: weights_router.vhd : (202, 8): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0138: weights_router.vhd : (220, 44): The index types in the reference to the array object are incompatible with its range type.
+# Error: COMP96_0617: weights_router.vhd : (223, 34): Assignment target incompatible with right side. Cannot convert 'STD_LOGIC_VECTOR' to 'UNSIGNED'.
+# Error: COMP96_0071: weights_router.vhd : (228, 32): Operator "=" is not defined for such operands.
+# Error: COMP96_0077: weights_router.vhd : (228, 9): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0071: weights_router.vhd : (235, 42): Operator "+" is not defined for such operands.
+# Error: COMP96_0077: weights_router.vhd : (235, 26): Undefined type of expression. Expected type 'STD_LOGIC_VECTOR'.
+# Compile failure 11 Errors 0 Warnings  Analysis time :  32.0 [ms]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/weights_router.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\weights_router.vhd
+# Compile Entity "weights_router"
+# Compile Architecture "arch" of Entity "weights_router"
+# Error: COMP96_0071: weights_router.vhd : (202, 34): Operator "=" is not defined for such operands.
+# Error: COMP96_0077: weights_router.vhd : (202, 8): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0617: weights_router.vhd : (223, 34): Assignment target incompatible with right side. Cannot convert 'STD_LOGIC_VECTOR' to 'UNSIGNED'.
+# Error: COMP96_0071: weights_router.vhd : (235, 42): Operator "+" is not defined for such operands.
+# Error: COMP96_0077: weights_router.vhd : (235, 26): Undefined type of expression. Expected type 'STD_LOGIC_VECTOR'.
+# Compile failure 5 Errors 0 Warnings  Analysis time :  15.0 [ms]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/weights_router.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\weights_router.vhd
+# Compile Entity "weights_router"
+# Compile Architecture "arch" of Entity "weights_router"
+# Error: COMP96_0617: weights_router.vhd : (223, 34): Assignment target incompatible with right side. Cannot convert 'STD_LOGIC_VECTOR' to 'UNSIGNED'.
+# Error: COMP96_0071: weights_router.vhd : (235, 42): Operator "+" is not defined for such operands.
+# Error: COMP96_0077: weights_router.vhd : (235, 26): Undefined type of expression. Expected type 'STD_LOGIC_VECTOR'.
+# Compile failure 3 Errors 0 Warnings  Analysis time :  16.0 [ms]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/weights_router.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\weights_router.vhd
+# Compile Entity "weights_router"
+# Compile Architecture "arch" of Entity "weights_router"
+# Error: COMP96_0071: weights_router.vhd : (235, 42): Operator "+" is not defined for such operands.
+# Error: COMP96_0077: weights_router.vhd : (235, 26): Undefined type of expression. Expected type 'STD_LOGIC_VECTOR'.
+# Compile failure 2 Errors 0 Warnings  Analysis time :  16.0 [ms]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/weights_router.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\weights_router.vhd
+# Compile Entity "weights_router"
+# Compile Architecture "arch" of Entity "weights_router"
+# Error: COMP96_0071: weights_router.vhd : (231, 27): Operator "=" is not defined for such operands.
+# Error: COMP96_0077: weights_router.vhd : (231, 10): Undefined type of expression. Expected type 'BOOLEAN'.
+# Compile failure 2 Errors 0 Warnings  Analysis time :  31.0 [ms]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/weights_router.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\weights_router.vhd
+# Compile Entity "weights_router"
+# Compile Architecture "arch" of Entity "weights_router"
+# Compile success 0 Errors 0 Warnings  Analysis time :  0.1 [s]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/weights_router.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\weights_router.vhd
+# Compile Entity "weights_router"
+# Compile Architecture "arch" of Entity "weights_router"
+# Error: COMP96_0617: weights_router.vhd : (93, 27): Assignment target incompatible with right side. Cannot convert 'STD_ULOGIC' to 'STD_LOGIC_VECTOR'.
+# Compile failure 1 Errors 0 Warnings  Analysis time :  31.0 [ms]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/weights_router.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\weights_router.vhd
+# Compile Entity "weights_router"
+# Compile Architecture "arch" of Entity "weights_router"
+# Compile success 0 Errors 0 Warnings  Analysis time :  0.1 [s]
+# filter_top.bde: Updating instances of symbol 'weights_router' from library 'Convolution_Layer' (WEIGHTS_ROW_ROUTER)
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/weights_router.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\weights_router.vhd
+# Compile Entity "weights_router"
+# Compile Architecture "arch" of Entity "weights_router"
+# Compile success 0 Errors 0 Warnings  Analysis time :  0.1 [s]
+# filter_top.bde: Updating instances of symbol 'weights_router' from library 'Convolution_Layer' (WEIGHTS_ROW_ROUTER)
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/weights_router.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\weights_router.vhd
+# Compile Entity "weights_router"
+# Compile Architecture "arch" of Entity "weights_router"
+# Compile success 0 Errors 0 Warnings  Analysis time :  0.1 [s]
+# filter_top.bde: Updating instances of symbol 'weights_router' from library 'Convolution_Layer' (WEIGHTS_ROW_ROUTER)
 acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/filter_top.bde
 # DRC: Checking file 'c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\filter_top.bde'.
-# DRC: Error: filter_top.bde - 4 error(s), 17 warning(s)
-# DRC: DRC process completed in 1 second(s).
-# DRC: The results have been written to the log file. Double click on this line to view the log.
-acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/filter_top.bde
-# DRC: Checking file 'c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\filter_top.bde'.
-# DRC: Error: filter_top.bde - 1 error(s), 17 warning(s)
-# DRC: DRC process completed in 2 second(s).
-# DRC: The results have been written to the log file. Double click on this line to view the log.
-acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/filter_top.bde
-# DRC: Checking file 'c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\filter_top.bde'.
-# DRC: Warning: filter_top.bde - 0 error(s), 17 warning(s)
+# DRC: Warning: filter_top.bde - 0 error(s), 22 warning(s)
 # DRC: DRC process completed in 2 second(s).
 # DRC: The results have been written to the log file. Double click on this line to view the log.
 # Generating c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\compile\filter_top.vhd from c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\filter_top.bde ...
@@ -910,33 +323,85 @@ acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/filter_top.bde
 # Compile Entity "filter_top"
 # Compile Architecture "arch" of Entity "filter_top"
 # Compile success 0 Errors 0 Warnings  Analysis time :  0.3 [s]
-acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/volume_mux.vhd
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/weights_router.vhd
 # Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\volume_mux.vhd
-# Compile Entity "volume_mux"
-# Compile Architecture "arch" of Entity "volume_mux"
-# Compile success 0 Errors 0 Warnings  Analysis time :  16.0 [ms]
-# filter_top.bde: Updating instances of symbol 'volume_mux' from library 'Convolution_Layer' (VOLUME_ROW_MUX)
-acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/input_fifo_net_controller.vhd
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\weights_router.vhd
+# Compile Entity "weights_router"
+# Compile Architecture "arch" of Entity "weights_router"
+# Error: COMP96_0078: weights_router.vhd : (228, 8): Unknown identifier "recycled_filter_data".
+# Error: COMP96_0133: weights_router.vhd : (228, 8): Cannot find object declaration.
+# Error: COMP96_0078: weights_router.vhd : (232, 8): Unknown identifier "recycled_filter_data".
+# Error: COMP96_0133: weights_router.vhd : (232, 8): Cannot find object declaration.
+# Error: COMP96_0078: weights_router.vhd : (232, 32): Unknown identifier "recycled_filter_data".
+# Compile failure 5 Errors 0 Warnings  Analysis time :  16.0 [ms]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/weights_router.vhd
 # Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\input_fifo_net_controller.vhd
-# Compile Entity "input_fifo_net_controller"
-# Compile Architecture "arch" of Entity "input_fifo_net_controller"
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (91, 50): Undefined type of expression. Expected type 'UNSIGNED'.
-# Error: COMP96_0079: input_fifo_net_controller.vhd : (91, 49): Invalid aggregate.
-# Error: COMP96_0077: input_fifo_net_controller.vhd : (91, 49): Undefined type of expression. Expected type 'dsps_11x11'.
-# Compile failure 3 Errors 0 Warnings  Analysis time :  0.1 [s]
-acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/input_fifo_net_controller.vhd
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\weights_router.vhd
+# Compile Entity "weights_router"
+# Compile Architecture "arch" of Entity "weights_router"
+# Compile success 0 Errors 0 Warnings  Analysis time :  0.2 [s]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/types_pkg.vhd
 # Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\input_fifo_net_controller.vhd
-# Compile Entity "input_fifo_net_controller"
-# Compile Architecture "arch" of Entity "input_fifo_net_controller"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\types_pkg.vhd
+# Compile Package "types_pkg"
+# Compile success 0 Errors 0 Warnings  Analysis time :  47.0 [ms]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/accumulator.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\accumulator.vhd
+# Compile Entity "accumulator"
+# Compile Architecture "arch" of Entity "accumulator"
+# Error: COMP96_0019: accumulator.vhd : (58, 62): Keyword 'begin' expected.
+# Error: COMP96_0015: accumulator.vhd : (63, 8): ';' expected.
+# Error: COMP96_0016: accumulator.vhd : (63, 12): Design unit declaration expected.
+# Compile failure 3 Errors 0 Warnings  Analysis time :  31.0 [ms]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/accumulator.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\accumulator.vhd
+# Compile Entity "accumulator"
+# Compile Architecture "arch" of Entity "accumulator"
+# Error: COMP96_0019: accumulator.vhd : (58, 62): Keyword 'begin' expected.
+# Error: COMP96_0015: accumulator.vhd : (63, 8): ';' expected.
+# Error: COMP96_0016: accumulator.vhd : (63, 12): Design unit declaration expected.
+# Compile failure 3 Errors 0 Warnings  Analysis time :  16.0 [ms]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/accumulator.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\accumulator.vhd
+# Compile Entity "accumulator"
+# Compile Architecture "arch" of Entity "accumulator"
+# Error: COMP96_0031: accumulator.vhd : (61, 13): Simple expression expected.
+# Compile failure 1 Errors 0 Warnings  Analysis time :  31.0 [ms]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/accumulator.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\accumulator.vhd
+# Compile Entity "accumulator"
+# Compile Architecture "arch" of Entity "accumulator"
 # Compile success 0 Errors 0 Warnings  Analysis time :  0.1 [s]
-# filter_top.bde: Updating instances of symbol 'input_fifo_net_controller' from library 'Convolution_Layer' (ROW_CONTROLLER)
-acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/Convolution_Controller.vhd
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/accumulator.vhd
 # Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\Convolution_Controller.vhd
-# Compile Entity "Convolution_Controller"
-# Compile Architecture "arch" of Entity "Convolution_Controller"
-# Compile success 0 Errors 0 Warnings  Analysis time :  0.1 [s]
-# Convolution_Layer_Top.bde: Updating instances of symbol 'Convolution_Controller' from library 'Convolution_Layer' (ROUTER)
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\accumulator.vhd
+# Compile Entity "accumulator"
+# Compile Architecture "arch" of Entity "accumulator"
+# Compile success 0 Errors 0 Warnings  Analysis time :  93.0 [ms]
+# filter_top.bde: Updating instances of symbol 'accumulator' from library 'Convolution_Layer' (DSP_ACCUMULATOR)
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/accumulator.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\accumulator.vhd
+# Compile Entity "accumulator"
+# Compile Architecture "arch" of Entity "accumulator"
+# Error: COMP96_0617: accumulator.vhd : (65, 16): Assignment target incompatible with right side. Cannot convert 'UNSIGNED' to 'STD_LOGIC_VECTOR'.
+# Error: COMP96_0071: accumulator.vhd : (95, 33): Operator "=" is not defined for such operands.
+# Error: COMP96_0077: accumulator.vhd : (95, 7): Undefined type of expression. Expected type 'BOOLEAN'.
+# Compile failure 3 Errors 0 Warnings  Analysis time :  31.0 [ms]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/accumulator.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\accumulator.vhd
+# Compile Entity "accumulator"
+# Compile Architecture "arch" of Entity "accumulator"
+# Compile success 0 Errors 0 Warnings  Analysis time :  0.2 [s]
+# filter_top.bde: Updating instances of symbol 'accumulator' from library 'Convolution_Layer' (DSP_ACCUMULATOR)
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/accumulator.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\accumulator.vhd
+# Compile Entity "accumulator"
+# Compile Architecture "arch" of Entity "accumulator"
+# Compile success 0 Errors 0 Warnings  Analysis time :  0.2 [s]

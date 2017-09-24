@@ -36,7 +36,8 @@ type array_type_varx16bit is array(integer range <>) of std_logic_vector(15 down
 
 type array_type_varx11bit is array(integer range <>) of std_logic_vector(10 downto 0); 
 type array_type_varx7bit is array(integer range <>) of std_logic_vector(6 downto 0); 
-type array_type_varx3bit is array(integer range <>) of std_logic_vector(2 downto 0); 
+type array_type_varx3bit is array(integer range <>) of std_logic_vector(2 downto 0);  
+type array_type_varx64bit is array(integer range <>) of std_logic_vector(63 downto 0); 
 	
 	
 	
