@@ -92,12 +92,13 @@ End Sub
 
 <H2>DRC Report File - filter_top.bde</H2>
 
-Created on Son 2017-09-24 at 10:00:10
+Created on Son 2017-10-01 at 17:09:58
 <HR NOSHADE COLOR="#008080">
 <SPAN class=Info1>Checking file 'c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\filter_top.bde'.</SPAN><BR>
 <SPAN class=Info1>
 	<p class = Warn1 style=font-weight:bold;margin-top:0px;margin-bottom:0px>Incompatible range in mapping of nets
 	</p><ul style=margin-left:30px;margin-top:0px;margin-bottom:0px>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\filter_top.bde','','-errorid=4,17458');>	'MULTIPLIER' instance: 'result(15:0)' output bus pin and 'products_array(i)(31:0)' bus bus tap signal</a></li>
 	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\filter_top.bde','','-errorid=142,18637');>	'ROW_CONTROLLER' instance: 'i_input_volume_size(7:0)' input bus pin and 'i_input_volume_size(3:0)' input bus terminal</a></li>
 	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\filter_top.bde','','-errorid=44,22654');>	'U3' instance: 'i_fifo_prog_full_thresh(9:0)' input bus pin and 'weight_prog_full_thresh(12:0)' bus signal</a></li>
 	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\filter_top.bde','','-errorid=16,18503');>	'U3' instance: 'o_data(15:0)' output bus pin and 'weight_fifo_wr_en' wire signal</a></li>
@@ -106,8 +107,14 @@ Created on Son 2017-09-24 at 10:00:10
 <SPAN class=Info1>
 	<p class = Warn1 style=font-weight:bold;margin-top:0px;margin-bottom:0px>Ambiguous range in net mapping
 	</p><ul style=margin-left:30px;margin-top:0px;margin-bottom:0px>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\filter_top.bde','','-errorid=26,11958');>	'ACCUMULATOR_RELAY_UNIT' instance: 'o_conv_volume_out(g_data_width-1:0)' output bus pin and 'o_conv_volume_out(31:0)' output bus terminal</a></li>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\filter_top.bde','','-errorid=24,18581');>	'ACCUMULATOR_RELAY_UNIT' instance: 'o_recycled_acc_data(g_data_width-1:0)' output bus pin and 'recycled_acc_data(31:0)' bus signal</a></li>
 	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\filter_top.bde','','-errorid=76,10260');>	'DSP_ACCUMULATOR' instance: 'i_products_array(g_dsps_used-1:0)' input array pin and 'products_array(199:0)' array signal</a></li>
 	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\filter_top.bde','','-errorid=82,18577');>	'DSP_ACCUMULATOR' instance: 'o_acc_data(g_accumulator_width-1:0)' output bus pin and 'acc_data(31:0)' bus signal</a></li>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\filter_top.bde','','-errorid=10,18577');>	'FILTER_ACCUMULATOR_UNIT' instance: 'i_acc_data(g_data_width-1:0)' input bus pin and 'acc_data(31:0)' bus signal</a></li>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\filter_top.bde','','-errorid=12,18581');>	'FILTER_ACCUMULATOR_UNIT' instance: 'i_recycled_acc_data(g_data_width-1:0)' input bus pin and 'recycled_acc_data(31:0)' bus signal</a></li>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\filter_top.bde','','-errorid=10,26754');>	'FILTER_ACCU_FIFO' instance: 'din(31:0)' input bus pin and 'accu_fifo_input(g_data_width-1:0)' bus signal</a></li>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\filter_top.bde','','-errorid=4,26755');>	'FILTER_ACCU_FIFO' instance: 'dout(31:0)' output bus pin and 'acc_fifo_dout(g_data_width-1:0)' bus signal</a></li>
 	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\filter_top.bde','','-errorid=138,14131');>	'ROW_CONTROLLER' instance: 'o_volume_data(g_dsps_used-1:0)' output array pin and 'volume_data(199:0)' array signal</a></li>
 	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\filter_top.bde','','-errorid=140,15247');>	'ROW_CONTROLLER' instance: 'o_weight_data(g_dsps_used-1:0)' output array pin and 'weight_data(199:0)' array signal</a></li></ul></SPAN><BR>
 <SPAN class=Info1>
@@ -116,8 +123,10 @@ Created on Son 2017-09-24 at 10:00:10
 	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\filter_top.bde','','-errorid=9081');>	'filter_size' bus signal</a></li>
 	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\filter_top.bde','','-errorid=26032');>	'i_clear_weights' wire signal</a></li>
 	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\filter_top.bde','','-errorid=21591');>	'i_loaded_rows_processed' bus signal</a></li>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\filter_top.bde','','-errorid=26465');>	'num_iterations' bus signal</a></li>
 	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\filter_top.bde','','-errorid=22545');>	'prev_weight_data' bus signal</a></li>
 	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\filter_top.bde','','-errorid=22544');>	'prev_weight_data_wr_en' wire signal</a></li>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\filter_top.bde','','-errorid=26416');>	'products_array_valid' bus signal</a></li>
 	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\filter_top.bde','','-errorid=22589');>	'weight_prev_data_en' wire signal</a></li></ul></SPAN><BR>
 <SPAN class=Info1>
 	<p class = Warn1 style=font-weight:bold;margin-top:0px;margin-bottom:0px>Nets without load
@@ -126,13 +135,8 @@ Created on Son 2017-09-24 at 10:00:10
 	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\filter_top.bde','','-errorid=9039');>	'all_filters_processed' wire signal</a></li>
 	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\filter_top.bde','','-errorid=21558');>	'loaded_rows_processed' bus signal</a></li>
 	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\filter_top.bde','','-errorid=17271');>	'volume_data_valid' bus signal</a></li>
-	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\filter_top.bde','','-errorid=17269');>	'weight_data_valid' bus signal</a></li></ul></SPAN><BR>
-<SPAN class=Info1>
-	<p class = Warn1 style=font-weight:bold;margin-top:0px;margin-bottom:0px>Unconnected symbol pins
-	</p><ul style=margin-left:30px;margin-top:0px;margin-bottom:0px>
-	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\filter_top.bde','','-errorid=11657,11657');>	In instance 'FILTER_ACCUMULATOR_UNIT': 'i_clk', 'i_reset_n'</a></li>
-	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\filter_top.bde','','-errorid=11714,11714');>	In instance 'FILTER_ACCU_FIFO': 'clk', 'rst'</a></li></ul></SPAN><BR>
-<SPAN class=Warn1>filter_top.bde - 0 error(s), 22 warning(s)</SPAN><BR>
+	<li ;text-align:left><a class = Warn onclick=OpenPlugin('Aldec.BDE.7','0','c:\\Sourcetree_Local\\Thesis_VHDL\\Active_HDL_Projects\\Convolution_Layer\\Convolution_Layer\\src\\filter_top.bde','','-errorid=26075');>	'weight_data_valid' bus signal</a></li></ul></SPAN><BR>
+<SPAN class=Warn1>filter_top.bde - 0 error(s), 29 warning(s)</SPAN><BR>
 <SPAN class=Info1>DRC process completed in 2 second(s).</SPAN><BR>
 </tt>
 </FONT>

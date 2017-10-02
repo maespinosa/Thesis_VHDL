@@ -8,7 +8,7 @@
 -------------------------------------------------------------------------------
 --
 -- File        : c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\compile\filter_top.vhd
--- Generated   : Sun Sep 24 10:00:13 2017
+-- Generated   : Sun Oct  1 17:10:02 2017
 -- From        : c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\filter_top.bde
 -- By          : Bde2Vhdl ver. 2.6
 --
@@ -49,12 +49,9 @@ entity filter_top is
   generic(
        -- name : type := value
        g_data_width : integer := 16;
-       g_red_bits : integer := 4;
-       g_green_bits : integer := 4;
-       g_blue_bits : integer := 4;
        g_weight_width : integer := 16;
        g_multiplier_width : integer := 16;
-       g_product_width : integer := 32;
+       g_product_width : integer := 16;
        g_conv_width : integer := 16;
        g_dsps_used : integer := 200
   );
@@ -65,6 +62,7 @@ entity filter_top is
        i_inbuff_empty : in STD_LOGIC;
        i_inbuff_prog_empty : in STD_LOGIC;
        i_inbuff_valid : in STD_LOGIC;
+       i_normalizer_ready : in STD_LOGIC;
        i_reset_n : in STD_LOGIC;
        i_start : in STD_LOGIC;
        i_inbuff_dout : in STD_LOGIC_VECTOR(15 downto 0);
@@ -76,8 +74,9 @@ entity filter_top is
        i_weight_filter_bytes : in STD_LOGIC_VECTOR(31 downto 0);
        i_weight_filter_channels : in STD_LOGIC_VECTOR(11 downto 0);
        i_weight_filter_size : in STD_LOGIC_VECTOR(3 downto 0);
+       o_conv_data_valid : out STD_LOGIC;
        o_inbuff_rd_en : out STD_LOGIC;
-       o_conv_volume_out : out STD_LOGIC_VECTOR(31 downto 0);
+       o_conv_volume_out : out STD_LOGIC_VECTOR(g_data_width-1 downto 0);
        o_inbuff_prog_empty_thresh : out STD_LOGIC_VECTOR(9 downto 0)
   );
 end filter_top;
@@ -86,12 +85,12 @@ architecture arch of filter_top is
 
 ---- Component declarations -----
 
-component conv_multiplier
+component conv_fp_multiplier
   port (
        a : in STD_LOGIC_VECTOR(15 downto 0);
        b : in STD_LOGIC_VECTOR(15 downto 0);
        clk : in STD_LOGIC;
-       p : out STD_LOGIC_VECTOR(31 downto 0)
+       result : out STD_LOGIC_VECTOR(15 downto 0)
   );
 end component;
 component filter_accumulator_fifo
@@ -155,7 +154,7 @@ end component;
 component accumulator
   generic(
        g_product_width : INTEGER := 32;
-       g_accumulator_width : INTEGER := 32;
+       g_accumulator_width : INTEGER := 64;
        g_dsps_used : INTEGER := 200
   );
   port (
@@ -163,40 +162,56 @@ component accumulator
        i_enable : in STD_LOGIC;
        i_filter_size : in STD_LOGIC_VECTOR(3 downto 0);
        i_products_array : in array_type_varx32bit(g_dsps_used-1 downto 0);
+       i_products_array_valid : in STD_LOGIC_VECTOR(g_dsps_used-1 downto 0);
        i_reset_n : in STD_LOGIC;
        o_acc_data : out STD_LOGIC_VECTOR(g_accumulator_width-1 downto 0);
        o_acc_valid : out STD_LOGIC
   );
 end component;
 component accumulator_relay
+  generic(
+       g_data_width : INTEGER := 16
+  );
   port (
-       i_acc_filter_data : in STD_LOGIC_VECTOR(31 downto 0);
+       i_acc_filter_data : in STD_LOGIC_VECTOR(g_data_width-1 downto 0);
        i_almost_empty : in STD_LOGIC;
        i_clk : in STD_LOGIC;
        i_data_valid : in STD_LOGIC;
        i_empty : in STD_LOGIC;
+       i_hold : in STD_LOGIC;
+       i_normalizer_ready : in STD_LOGIC;
        i_prog_empty : in STD_LOGIC;
+       i_prog_full : in STD_LOGIC;
        i_reset_n : in STD_LOGIC;
-       o_conv_volume_out : out STD_LOGIC_VECTOR(31 downto 0);
+       o_conv_data_valid : out STD_LOGIC;
+       o_conv_volume_out : out STD_LOGIC_VECTOR(g_data_width-1 downto 0);
+       o_hold_clear : out STD_LOGIC;
        o_prog_emtpy_thresh : out STD_LOGIC_VECTOR(10 downto 0);
        o_rd_en : out STD_LOGIC;
-       o_recycled_acc_data : out STD_LOGIC_VECTOR(31 downto 0);
+       o_recycled_acc_data : out STD_LOGIC_VECTOR(g_data_width-1 downto 0);
        o_recycled_acc_data_en : out STD_LOGIC
   );
 end component;
 component filter_accumulator
+  generic(
+       g_data_width : INTEGER := 16
+  );
   port (
-       i_acc_data : in STD_LOGIC_VECTOR(31 downto 0);
+       i_acc_data : in STD_LOGIC_VECTOR(g_data_width-1 downto 0);
        i_acc_data_valid : in STD_LOGIC;
        i_almost_full : in STD_LOGIC;
        i_clk : in STD_LOGIC;
        i_full : in STD_LOGIC;
+       i_hold_clear : in STD_LOGIC;
+       i_num_filters : in STD_LOGIC_VECTOR(11 downto 0);
+       i_num_iterations : in STD_LOGIC_VECTOR(7 downto 0);
        i_prog_full : in STD_LOGIC;
-       i_recycled_acc_data : in STD_LOGIC_VECTOR(31 downto 0);
+       i_recycled_acc_data : in STD_LOGIC_VECTOR(g_data_width-1 downto 0);
        i_recycled_acc_data_en : in STD_LOGIC;
        i_reset_n : in STD_LOGIC;
-       o_acc_filter_data : out STD_LOGIC_VECTOR(31 downto 0);
+       o_acc_filter_data : out STD_LOGIC_VECTOR(g_data_width-1 downto 0);
        o_data_valid : out STD_LOGIC;
+       o_hold : out STD_LOGIC;
        o_prog_full_thresh : out STD_LOGIC_VECTOR(10 downto 0)
   );
 end component;
@@ -356,6 +371,8 @@ signal acc_valid : STD_LOGIC;
 signal all_channels_processed : STD_LOGIC;
 signal all_filters_processed : STD_LOGIC;
 signal convolution_en : STD_LOGIC;
+signal hold : STD_LOGIC;
+signal hold_clear : STD_LOGIC;
 signal i_clear_weights : STD_LOGIC;
 signal i_rd_clk : STD_LOGIC;
 signal NET25957 : STD_LOGIC;
@@ -382,9 +399,9 @@ signal w_fifo_empty : STD_LOGIC;
 signal w_fifo_prog_empty : STD_LOGIC;
 signal w_fifo_rd_en : STD_LOGIC;
 signal w_fifo_valid : STD_LOGIC;
-signal accu_fifo_input : STD_LOGIC_VECTOR(31 downto 0);
+signal accu_fifo_input : STD_LOGIC_VECTOR(g_data_width-1 downto 0);
 signal acc_data : STD_LOGIC_VECTOR(31 downto 0);
-signal acc_fifo_dout : STD_LOGIC_VECTOR(31 downto 0);
+signal acc_fifo_dout : STD_LOGIC_VECTOR(g_data_width-1 downto 0);
 signal acc_fifo_prog_empty_thresh : STD_LOGIC_VECTOR(10 downto 0);
 signal acc_fifo_prog_full_thresh : STD_LOGIC_VECTOR(10 downto 0);
 signal data_return : array_type_varx16bit(199 downto 0);
@@ -397,8 +414,10 @@ signal i_loaded_rows_processed : STD_LOGIC_VECTOR(g_dsps_used-1 downto 0);
 signal loaded_rows_processed : STD_LOGIC_VECTOR(199 downto 0);
 signal multiplicand_a : STD_LOGIC_VECTOR(15 downto 0);
 signal multiplicand_b : STD_LOGIC_VECTOR(15 downto 0);
+signal num_iterations : STD_LOGIC_VECTOR(7 downto 0);
 signal prev_weight_data : STD_LOGIC_VECTOR(15 downto 0) := (others => '0');
 signal products_array : array_type_varx32bit(199 downto 0);
+signal products_array_valid : STD_LOGIC_VECTOR(g_dsps_used-1 downto 0);
 signal recycled_acc_data : STD_LOGIC_VECTOR(31 downto 0);
 signal recycle_filter_data : STD_LOGIC_VECTOR(15 downto 0);
 signal stop_stack_en : STD_LOGIC_VECTOR(g_dsps_used-1 downto 0);
@@ -418,7 +437,7 @@ signal vol_fifo_dout : STD_LOGIC_VECTOR(15 downto 0);
 signal vol_fifo_prog_empty_thresh : STD_LOGIC_VECTOR(9 downto 0);
 signal weight_almost_full : STD_LOGIC_VECTOR(g_dsps_used-1 downto 0);
 signal weight_data : array_type_varx16bit(199 downto 0);
-signal weight_data_valid : STD_LOGIC_VECTOR(7 downto 0);
+signal weight_data_valid : STD_LOGIC_VECTOR(199 downto 0);
 signal weight_fifo_input : STD_LOGIC_VECTOR(15 downto 0);
 signal weight_fifo_prog_full_thresh : STD_LOGIC_VECTOR(12 downto 0);
 signal weight_full : STD_LOGIC_VECTOR(g_dsps_used-1 downto 0);
@@ -455,49 +474,66 @@ begin
 ----  Component instantiations  ----
 
 ACCUMULATOR_RELAY_UNIT : accumulator_relay
+  generic map(
+       g_data_width => g_data_width
+  )
   port map(
-       i_acc_filter_data => acc_fifo_dout,
+       i_acc_filter_data => acc_fifo_dout(g_data_width-1 downto 0),
        i_almost_empty => acc_fifo_almost_empty,
        i_clk => i_clk,
        i_data_valid => acc_fifo_valid,
        i_empty => acc_fifo_empty,
+       i_hold => hold,
+       i_normalizer_ready => i_normalizer_ready,
        i_prog_empty => acc_fifo_prog_empty,
+       i_prog_full => acc_fifo_prog_full,
        i_reset_n => i_reset_n,
-       o_conv_volume_out => o_conv_volume_out,
+       o_conv_data_valid => o_conv_data_valid,
+       o_conv_volume_out => o_conv_volume_out(31 downto 0),
+       o_hold_clear => hold_clear,
        o_prog_emtpy_thresh => acc_fifo_prog_empty_thresh,
        o_rd_en => acc_fifo_rd_en,
-       o_recycled_acc_data => recycled_acc_data,
+       o_recycled_acc_data => recycled_acc_data(31 downto 0),
        o_recycled_acc_data_en => recycled_acc_data_en
   );
 
 DSP_ACCUMULATOR : accumulator
   generic map(
        g_product_width => g_product_width,
-       g_accumulator_width => g_dsps_used
+       g_accumulator_width => 64,
+       g_dsps_used => g_dsps_used
   )
   port map(
        i_clk => i_clk,
        i_enable => i_enable,
        i_filter_size => filter_size,
        i_products_array => products_array(199 downto 0),
+       i_products_array_valid => products_array_valid(g_dsps_used-1 downto 0),
        i_reset_n => i_reset_n,
        o_acc_data => acc_data(31 downto 0),
        o_acc_valid => acc_valid
   );
 
 FILTER_ACCUMULATOR_UNIT : filter_accumulator
+  generic map(
+       g_data_width => g_data_width
+  )
   port map(
-       i_acc_data => acc_data,
+       i_acc_data => acc_data(31 downto 0),
        i_acc_data_valid => acc_valid,
        i_almost_full => acc_fifo_almost_full,
-       i_clk => Dangling_Input_Signal,
+       i_clk => i_clk,
        i_full => acc_fifo_full,
+       i_hold_clear => hold_clear,
+       i_num_filters => i_number_of_filters,
+       i_num_iterations => num_iterations,
        i_prog_full => acc_fifo_prog_full,
-       i_recycled_acc_data => recycled_acc_data,
+       i_recycled_acc_data => recycled_acc_data(31 downto 0),
        i_recycled_acc_data_en => recycled_acc_data_en,
-       i_reset_n => Dangling_Input_Signal,
-       o_acc_filter_data => accu_fifo_input,
+       i_reset_n => i_reset_n,
+       o_acc_filter_data => accu_fifo_input(g_data_width-1 downto 0),
        o_data_valid => acc_fifo_wr_en,
+       o_hold => hold,
        o_prog_full_thresh => acc_fifo_prog_full_thresh
   );
 
@@ -505,9 +541,9 @@ FILTER_ACCU_FIFO : filter_accumulator_fifo
   port map(
        almost_empty => acc_fifo_almost_empty,
        almost_full => acc_fifo_almost_full,
-       clk => Dangling_Input_Signal,
-       din => accu_fifo_input,
-       dout => acc_fifo_dout,
+       clk => i_clk,
+       din => accu_fifo_input(g_data_width-1 downto 0),
+       dout => acc_fifo_dout(g_data_width-1 downto 0),
        empty => acc_fifo_empty,
        full => acc_fifo_full,
        prog_empty => acc_fifo_prog_empty,
@@ -515,7 +551,7 @@ FILTER_ACCU_FIFO : filter_accumulator_fifo
        prog_full => acc_fifo_prog_full,
        prog_full_thresh => acc_fifo_prog_full_thresh,
        rd_en => acc_fifo_rd_en,
-       rst => Dangling_Input_Signal,
+       rst => i_reset_n,
        valid => acc_fifo_valid,
        wr_en => acc_fifo_wr_en
   );
@@ -594,12 +630,27 @@ Dangling_Input_Signal <= DANGLING_INPUT_CONSTANT;
 
 g0 : for i in g_dsps_used-1 downto 0 generate
 begin
-  DSP_MULTIPLIER : conv_multiplier
+  MULTIPLIER : conv_fp_multiplier
     port map(
+         result(0) => products_array(i)(16),
+         result(1) => products_array(i)(17),
+         result(2) => products_array(i)(18),
+         result(3) => products_array(i)(19),
+         result(4) => products_array(i)(20),
+         result(5) => products_array(i)(21),
+         result(6) => products_array(i)(22),
+         result(7) => products_array(i)(23),
+         result(8) => products_array(i)(24),
+         result(9) => products_array(i)(25),
+         result(10) => products_array(i)(26),
+         result(11) => products_array(i)(27),
+         result(12) => products_array(i)(28),
+         result(13) => products_array(i)(29),
+         result(14) => products_array(i)(30),
+         result(15) => products_array(i)(31),
          a => multiplicand_a,
          b => multiplicand_b,
-         clk => i_clk,
-         p => products_array(i)
+         clk => i_clk
     );
   
   NET25957 <= i_reset_n or reset_weight_fifo_n;
@@ -758,7 +809,7 @@ begin
          i_reset_n => i_reset_n,
          i_volume_row_size => volume_fifo_full_prog_thresh,
          i_weight_filter_size => i_weight_filter_size,
-         o_data_valid => weight_data_valid(0),
+         o_data_valid => weight_data_valid(i),
          o_filters_loaded => filter_kernal_loaded(i),
          o_filters_processed => all_filters_processed,
          o_prog_empty_thresh => w_fifo_prog_empty_thresh,

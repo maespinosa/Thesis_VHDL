@@ -1,319 +1,859 @@
 # ELBREAD: Elaboration process.
-# ELBREAD: Elaboration time 0.1 [s].
-acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/input_fifo_net_controller.vhd
+# ELBREAD: Elaboration time 0.0 [s].
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/divider_multiplier.vhd
 # Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\input_fifo_net_controller.vhd
-# Compile Entity "input_fifo_net_controller"
-# Compile Architecture "arch" of Entity "input_fifo_net_controller"
-# Compile success 0 Errors 0 Warnings  Analysis time :  0.3 [s]
-# filter_top.bde: Updating instances of symbol 'input_fifo_net_controller' from library 'Convolution_Layer' (ROW_CONTROLLER)
-acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/weights_router.vhd
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\divider_multiplier.vhd
+# Compile Entity "divider_multiplier"
+# Compile Architecture "divider_multiplier_a" of Entity "divider_multiplier"
+# Compile success 0 Errors 0 Warnings  Analysis time :  0.2 [s]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/divider_subract_shift.vhd
 # Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\weights_router.vhd
-# Compile Entity "weights_router"
-# Compile Architecture "arch" of Entity "weights_router"
-# Error: COMP96_0025: weights_router.vhd : (97, 27): Identifier or string literal expected.
-# Error: COMP96_0019: weights_router.vhd : (103, 3): Keyword 'end' expected.
-# Error: COMP96_0016: weights_router.vhd : (103, 8): Design unit declaration expected.
-# Compile failure 3 Errors 0 Warnings  Analysis time :  31.0 [ms]
-acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/weights_router.vhd
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\divider_subract_shift.vhd
+# Compile Entity "divider_subract_shift"
+# Compile Architecture "arch" of Entity "divider_subract_shift"
+# Compile success 0 Errors 0 Warnings  Analysis time :  0.2 [s]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/division_by_mutiplication.bde
+# DRC: Checking file 'c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\division_by_mutiplication.bde'.
+# DRC: Warning: division_by_mutiplication.bde - 0 error(s), 3 warning(s)
+# DRC: DRC process completed in 1 second(s).
+# DRC: The results have been written to the log file. Double click on this line to view the log.
+# Generating c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\compile\division_by_mutiplication.vhd from c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\division_by_mutiplication.bde ...
+# Generation successful
 # Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\weights_router.vhd
-# Compile Entity "weights_router"
-# Compile Architecture "arch" of Entity "weights_router"
-# Error: COMP96_0015: weights_router.vhd : (220, 31): ';' expected.
-# Error: COMP96_0019: weights_router.vhd : (220, 31): Keyword 'end' expected.
-# Error: COMP96_0019: weights_router.vhd : (221, 7): Keyword 'end' expected.
-# Error: COMP96_0019: weights_router.vhd : (222, 8): Keyword 'case' expected.
-# Error: COMP96_0019: weights_router.vhd : (240, 10): Keyword 'process' expected.
-# Error: COMP96_0019: weights_router.vhd : (242, 5): Keyword 'end' expected.
-# Error: COMP96_0016: weights_router.vhd : (242, 10): Design unit declaration expected.
-# Compile failure 7 Errors 0 Warnings  Analysis time :  15.0 [ms]
-acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/weights_router.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\weights_router.vhd
-# Compile Entity "weights_router"
-# Compile Architecture "arch" of Entity "weights_router"
-# Error: COMP96_0015: weights_router.vhd : (220, 31): ';' expected.
-# Error: COMP96_0019: weights_router.vhd : (220, 31): Keyword 'end' expected.
-# Error: COMP96_0019: weights_router.vhd : (221, 7): Keyword 'end' expected.
-# Error: COMP96_0019: weights_router.vhd : (222, 8): Keyword 'case' expected.
-# Error: COMP96_0019: weights_router.vhd : (240, 10): Keyword 'process' expected.
-# Error: COMP96_0019: weights_router.vhd : (242, 5): Keyword 'end' expected.
-# Error: COMP96_0016: weights_router.vhd : (242, 10): Design unit declaration expected.
-# Compile failure 7 Errors 0 Warnings  Analysis time :  15.0 [ms]
-acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/weights_router.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\weights_router.vhd
-# Compile Entity "weights_router"
-# Compile Architecture "arch" of Entity "weights_router"
-# Error: COMP96_0078: weights_router.vhd : (97, 112): Unknown identifier "i_clear_weights".
-# Error: COMP96_0348: weights_router.vhd : (97, 112): Name on sensitivity list must denote a signal.
-# Error: COMP96_0071: weights_router.vhd : (123, 34): Operator "=" is not defined for such operands.
-# Error: COMP96_0077: weights_router.vhd : (123, 8): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0078: weights_router.vhd : (133, 8): Unknown identifier "i_clear_weights".
-# Error: COMP96_0133: weights_router.vhd : (133, 8): Cannot find object declaration.
-# Error: COMP96_0077: weights_router.vhd : (133, 7): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: weights_router.vhd : (138, 31): Operator "=" is not defined for such operands.
-# Error: COMP96_0077: weights_router.vhd : (138, 8): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0078: weights_router.vhd : (162, 4): Unknown identifier "reset_weight_fifo_n".
-# Error: COMP96_0133: weights_router.vhd : (162, 4): Cannot find object declaration.
-# Error: COMP96_0078: weights_router.vhd : (163, 4): Unknown identifier "weight_mult".
-# Error: COMP96_0133: weights_router.vhd : (163, 4): Cannot find object declaration.
-# Error: COMP96_0078: weights_router.vhd : (165, 4): Unknown identifier "filter_number".
-# Error: COMP96_0133: weights_router.vhd : (165, 4): Cannot find object declaration.
-# Error: COMP96_0078: weights_router.vhd : (172, 4): Unknown identifier "reset_weight_fifo_n".
-# Error: COMP96_0133: weights_router.vhd : (172, 4): Cannot find object declaration.
-# Error: COMP96_0078: weights_router.vhd : (172, 28): Unknown identifier "reset_weight_fifo_n".
-# Error: COMP96_0078: weights_router.vhd : (173, 4): Unknown identifier "weight_mult".
-# Error: COMP96_0133: weights_router.vhd : (173, 4): Cannot find object declaration.
-# Error: COMP96_0078: weights_router.vhd : (173, 22): Unknown identifier "weight_mult".
-# Error: COMP96_0078: weights_router.vhd : (175, 4): Unknown identifier "filter_number".
-# Error: COMP96_0133: weights_router.vhd : (175, 4): Cannot find object declaration.
-# Error: COMP96_0078: weights_router.vhd : (175, 24): Unknown identifier "filter_number".
-# Error: COMP96_0078: weights_router.vhd : (183, 6): Unknown identifier "reset_weight_fifo_n".
-# Error: COMP96_0133: weights_router.vhd : (183, 6): Cannot find object declaration.
-# Error: COMP96_0078: weights_router.vhd : (184, 6): Unknown identifier "weight_mult".
-# Error: COMP96_0133: weights_router.vhd : (184, 6): Cannot find object declaration.
-# Error: COMP96_0078: weights_router.vhd : (186, 6): Unknown identifier "filter_number".
-# Error: COMP96_0133: weights_router.vhd : (186, 6): Cannot find object declaration.
-# Error: COMP96_0078: weights_router.vhd : (193, 6): Unknown identifier "reset_weight_fifo_n".
-# Error: COMP96_0133: weights_router.vhd : (193, 6): Cannot find object declaration.
-# Error: COMP96_0078: weights_router.vhd : (194, 6): Unknown identifier "weight_mult".
-# Error: COMP96_0133: weights_router.vhd : (194, 6): Cannot find object declaration.
-# Error: COMP96_0078: weights_router.vhd : (196, 6): Unknown identifier "filter_number".
-# Error: COMP96_0133: weights_router.vhd : (196, 6): Cannot find object declaration.
-# Error: COMP96_0071: weights_router.vhd : (199, 34): Operator "=" is not defined for such operands.
-# Error: COMP96_0077: weights_router.vhd : (199, 8): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0078: weights_router.vhd : (213, 9): Unknown identifier "i_clear_weights".
-# Error: COMP96_0133: weights_router.vhd : (213, 9): Cannot find object declaration.
-# Error: COMP96_0077: weights_router.vhd : (213, 8): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0078: weights_router.vhd : (214, 7): Unknown identifier "reset_weight_fifo_n".
-# Error: COMP96_0133: weights_router.vhd : (214, 7): Cannot find object declaration.
-# Error: COMP96_0138: weights_router.vhd : (217, 44): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0617: weights_router.vhd : (220, 34): Assignment target incompatible with right side. Cannot convert 'STD_LOGIC_VECTOR' to 'UNSIGNED'.
-# Error: COMP96_0071: weights_router.vhd : (225, 32): Operator "=" is not defined for such operands.
-# Error: COMP96_0077: weights_router.vhd : (225, 9): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0078: weights_router.vhd : (228, 11): Unknown identifier "filter_number".
-# Error: COMP96_0133: weights_router.vhd : (228, 11): Cannot find object declaration.
-# Error: COMP96_0077: weights_router.vhd : (228, 10): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0078: weights_router.vhd : (229, 9): Unknown identifier "filter_number".
-# Error: COMP96_0133: weights_router.vhd : (229, 9): Cannot find object declaration.
-# Error: COMP96_0078: weights_router.vhd : (232, 9): Unknown identifier "filter_number".
-# Error: COMP96_0133: weights_router.vhd : (232, 9): Cannot find object declaration.
-# Error: COMP96_0078: weights_router.vhd : (232, 26): Unknown identifier "filter_number".
-# Error: COMP96_0078: weights_router.vhd : (237, 8): Unknown identifier "filter_number".
-# Error: COMP96_0133: weights_router.vhd : (237, 8): Cannot find object declaration.
-# Error: COMP96_0078: weights_router.vhd : (237, 25): Unknown identifier "filter_number".
-# Error: COMP96_0078: weights_router.vhd : (247, 6): Unknown identifier "reset_weight_fifo_n".
-# Error: COMP96_0133: weights_router.vhd : (247, 6): Cannot find object declaration.
-# Error: COMP96_0078: weights_router.vhd : (248, 6): Unknown identifier "weight_mult".
-# Error: COMP96_0133: weights_router.vhd : (248, 6): Cannot find object declaration.
-# Error: COMP96_0078: weights_router.vhd : (250, 6): Unknown identifier "filter_number".
-# Error: COMP96_0133: weights_router.vhd : (250, 6): Cannot find object declaration.
-# Compile failure 64 Errors 0 Warnings  Analysis time :  46.0 [ms]
-acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/weights_router.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\weights_router.vhd
-# Compile Entity "weights_router"
-# Compile Architecture "arch" of Entity "weights_router"
-# Error: COMP96_0071: weights_router.vhd : (139, 31): Operator "=" is not defined for such operands.
-# Error: COMP96_0077: weights_router.vhd : (139, 8): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0078: weights_router.vhd : (163, 4): Unknown identifier "reset_weight_fifo_n".
-# Error: COMP96_0133: weights_router.vhd : (163, 4): Cannot find object declaration.
-# Error: COMP96_0078: weights_router.vhd : (164, 4): Unknown identifier "weight_mult".
-# Error: COMP96_0133: weights_router.vhd : (164, 4): Cannot find object declaration.
-# Error: COMP96_0078: weights_router.vhd : (166, 4): Unknown identifier "filter_number".
-# Error: COMP96_0133: weights_router.vhd : (166, 4): Cannot find object declaration.
-# Error: COMP96_0078: weights_router.vhd : (173, 4): Unknown identifier "reset_weight_fifo_n".
-# Error: COMP96_0133: weights_router.vhd : (173, 4): Cannot find object declaration.
-# Error: COMP96_0078: weights_router.vhd : (173, 28): Unknown identifier "reset_weight_fifo_n".
-# Error: COMP96_0078: weights_router.vhd : (174, 4): Unknown identifier "weight_mult".
-# Error: COMP96_0133: weights_router.vhd : (174, 4): Cannot find object declaration.
-# Error: COMP96_0078: weights_router.vhd : (174, 22): Unknown identifier "weight_mult".
-# Error: COMP96_0078: weights_router.vhd : (176, 4): Unknown identifier "filter_number".
-# Error: COMP96_0133: weights_router.vhd : (176, 4): Cannot find object declaration.
-# Error: COMP96_0078: weights_router.vhd : (176, 24): Unknown identifier "filter_number".
-# Error: COMP96_0078: weights_router.vhd : (184, 6): Unknown identifier "reset_weight_fifo_n".
-# Error: COMP96_0133: weights_router.vhd : (184, 6): Cannot find object declaration.
-# Error: COMP96_0078: weights_router.vhd : (185, 6): Unknown identifier "weight_mult".
-# Error: COMP96_0133: weights_router.vhd : (185, 6): Cannot find object declaration.
-# Error: COMP96_0078: weights_router.vhd : (187, 6): Unknown identifier "filter_number".
-# Error: COMP96_0133: weights_router.vhd : (187, 6): Cannot find object declaration.
-# Error: COMP96_0078: weights_router.vhd : (194, 6): Unknown identifier "reset_weight_fifo_n".
-# Error: COMP96_0133: weights_router.vhd : (194, 6): Cannot find object declaration.
-# Error: COMP96_0078: weights_router.vhd : (195, 6): Unknown identifier "weight_mult".
-# Error: COMP96_0133: weights_router.vhd : (195, 6): Cannot find object declaration.
-# Error: COMP96_0078: weights_router.vhd : (197, 6): Unknown identifier "filter_number".
-# Error: COMP96_0133: weights_router.vhd : (197, 6): Cannot find object declaration.
-# Error: COMP96_0071: weights_router.vhd : (200, 34): Operator "=" is not defined for such operands.
-# Error: COMP96_0077: weights_router.vhd : (200, 8): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0078: weights_router.vhd : (215, 7): Unknown identifier "reset_weight_fifo_n".
-# Error: COMP96_0133: weights_router.vhd : (215, 7): Cannot find object declaration.
-# Error: COMP96_0138: weights_router.vhd : (218, 44): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0617: weights_router.vhd : (221, 34): Assignment target incompatible with right side. Cannot convert 'STD_LOGIC_VECTOR' to 'UNSIGNED'.
-# Error: COMP96_0071: weights_router.vhd : (226, 32): Operator "=" is not defined for such operands.
-# Error: COMP96_0077: weights_router.vhd : (226, 9): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0078: weights_router.vhd : (229, 11): Unknown identifier "filter_number".
-# Error: COMP96_0133: weights_router.vhd : (229, 11): Cannot find object declaration.
-# Error: COMP96_0077: weights_router.vhd : (229, 10): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0078: weights_router.vhd : (230, 9): Unknown identifier "filter_number".
-# Error: COMP96_0133: weights_router.vhd : (230, 9): Cannot find object declaration.
-# Error: COMP96_0078: weights_router.vhd : (233, 9): Unknown identifier "filter_number".
-# Error: COMP96_0133: weights_router.vhd : (233, 9): Cannot find object declaration.
-# Error: COMP96_0078: weights_router.vhd : (233, 26): Unknown identifier "filter_number".
-# Error: COMP96_0078: weights_router.vhd : (238, 8): Unknown identifier "filter_number".
-# Error: COMP96_0133: weights_router.vhd : (238, 8): Cannot find object declaration.
-# Error: COMP96_0078: weights_router.vhd : (238, 25): Unknown identifier "filter_number".
-# Error: COMP96_0078: weights_router.vhd : (248, 6): Unknown identifier "reset_weight_fifo_n".
-# Error: COMP96_0133: weights_router.vhd : (248, 6): Cannot find object declaration.
-# Error: COMP96_0078: weights_router.vhd : (249, 6): Unknown identifier "weight_mult".
-# Error: COMP96_0133: weights_router.vhd : (249, 6): Cannot find object declaration.
-# Error: COMP96_0078: weights_router.vhd : (251, 6): Unknown identifier "filter_number".
-# Error: COMP96_0133: weights_router.vhd : (251, 6): Cannot find object declaration.
-# Compile failure 54 Errors 0 Warnings  Analysis time :  16.0 [ms]
-acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/weights_router.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\weights_router.vhd
-# Compile Entity "weights_router"
-# Compile Architecture "arch" of Entity "weights_router"
-# Error: COMP96_0071: weights_router.vhd : (139, 31): Operator "=" is not defined for such operands.
-# Error: COMP96_0077: weights_router.vhd : (139, 8): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0078: weights_router.vhd : (163, 4): Unknown identifier "reset_weight_fifo_n".
-# Error: COMP96_0133: weights_router.vhd : (163, 4): Cannot find object declaration.
-# Error: COMP96_0078: weights_router.vhd : (166, 4): Unknown identifier "filter_number".
-# Error: COMP96_0133: weights_router.vhd : (166, 4): Cannot find object declaration.
-# Error: COMP96_0078: weights_router.vhd : (173, 4): Unknown identifier "reset_weight_fifo_n".
-# Error: COMP96_0133: weights_router.vhd : (173, 4): Cannot find object declaration.
-# Error: COMP96_0078: weights_router.vhd : (173, 28): Unknown identifier "reset_weight_fifo_n".
-# Error: COMP96_0078: weights_router.vhd : (174, 23): Unknown identifier "weight_mult".
-# Error: COMP96_0133: weights_router.vhd : (174, 23): Cannot find object declaration.
-# Error: COMP96_0077: weights_router.vhd : (174, 23): Undefined type of expression. Expected type 'STD_LOGIC_VECTOR'.
-# Error: COMP96_0078: weights_router.vhd : (176, 4): Unknown identifier "filter_number".
-# Error: COMP96_0133: weights_router.vhd : (176, 4): Cannot find object declaration.
-# Error: COMP96_0078: weights_router.vhd : (176, 24): Unknown identifier "filter_number".
-# Error: COMP96_0078: weights_router.vhd : (184, 6): Unknown identifier "reset_weight_fifo_n".
-# Error: COMP96_0133: weights_router.vhd : (184, 6): Cannot find object declaration.
-# Error: COMP96_0078: weights_router.vhd : (187, 6): Unknown identifier "filter_number".
-# Error: COMP96_0133: weights_router.vhd : (187, 6): Cannot find object declaration.
-# Error: COMP96_0078: weights_router.vhd : (194, 6): Unknown identifier "reset_weight_fifo_n".
-# Error: COMP96_0133: weights_router.vhd : (194, 6): Cannot find object declaration.
-# Error: COMP96_0078: weights_router.vhd : (197, 6): Unknown identifier "filter_number".
-# Error: COMP96_0133: weights_router.vhd : (197, 6): Cannot find object declaration.
-# Error: COMP96_0071: weights_router.vhd : (200, 34): Operator "=" is not defined for such operands.
-# Error: COMP96_0077: weights_router.vhd : (200, 8): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0078: weights_router.vhd : (215, 7): Unknown identifier "reset_weight_fifo_n".
-# Error: COMP96_0133: weights_router.vhd : (215, 7): Cannot find object declaration.
-# Error: COMP96_0138: weights_router.vhd : (218, 44): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0617: weights_router.vhd : (221, 34): Assignment target incompatible with right side. Cannot convert 'STD_LOGIC_VECTOR' to 'UNSIGNED'.
-# Error: COMP96_0071: weights_router.vhd : (226, 32): Operator "=" is not defined for such operands.
-# Error: COMP96_0077: weights_router.vhd : (226, 9): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0078: weights_router.vhd : (229, 11): Unknown identifier "filter_number".
-# Error: COMP96_0133: weights_router.vhd : (229, 11): Cannot find object declaration.
-# Error: COMP96_0077: weights_router.vhd : (229, 10): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0078: weights_router.vhd : (230, 9): Unknown identifier "filter_number".
-# Error: COMP96_0133: weights_router.vhd : (230, 9): Cannot find object declaration.
-# Error: COMP96_0078: weights_router.vhd : (233, 9): Unknown identifier "filter_number".
-# Error: COMP96_0133: weights_router.vhd : (233, 9): Cannot find object declaration.
-# Error: COMP96_0078: weights_router.vhd : (233, 26): Unknown identifier "filter_number".
-# Error: COMP96_0078: weights_router.vhd : (238, 8): Unknown identifier "filter_number".
-# Error: COMP96_0133: weights_router.vhd : (238, 8): Cannot find object declaration.
-# Error: COMP96_0078: weights_router.vhd : (238, 25): Unknown identifier "filter_number".
-# Error: COMP96_0078: weights_router.vhd : (248, 6): Unknown identifier "reset_weight_fifo_n".
-# Error: COMP96_0133: weights_router.vhd : (248, 6): Cannot find object declaration.
-# Error: COMP96_0078: weights_router.vhd : (251, 6): Unknown identifier "filter_number".
-# Error: COMP96_0133: weights_router.vhd : (251, 6): Cannot find object declaration.
-# Compile failure 46 Errors 0 Warnings  Analysis time :  15.0 [ms]
-acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/weights_router.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\weights_router.vhd
-# Compile Entity "weights_router"
-# Compile Architecture "arch" of Entity "weights_router"
-# Error: COMP96_0078: weights_router.vhd : (176, 23): Unknown identifier "weight_mult".
-# Error: COMP96_0133: weights_router.vhd : (176, 23): Cannot find object declaration.
-# Error: COMP96_0077: weights_router.vhd : (176, 23): Undefined type of expression. Expected type 'STD_LOGIC_VECTOR'.
-# Error: COMP96_0071: weights_router.vhd : (202, 34): Operator "=" is not defined for such operands.
-# Error: COMP96_0077: weights_router.vhd : (202, 8): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0138: weights_router.vhd : (220, 44): The index types in the reference to the array object are incompatible with its range type.
-# Error: COMP96_0617: weights_router.vhd : (223, 34): Assignment target incompatible with right side. Cannot convert 'STD_LOGIC_VECTOR' to 'UNSIGNED'.
-# Error: COMP96_0071: weights_router.vhd : (228, 32): Operator "=" is not defined for such operands.
-# Error: COMP96_0077: weights_router.vhd : (228, 9): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0071: weights_router.vhd : (235, 42): Operator "+" is not defined for such operands.
-# Error: COMP96_0077: weights_router.vhd : (235, 26): Undefined type of expression. Expected type 'STD_LOGIC_VECTOR'.
+# File: .\..\compile\division_by_mutiplication.vhd
+# Compile Entity "division_by_mutiplication"
+# Error: COMP96_0078: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (33, 44): Unknown identifier "g_div_input_width".
+# Error: COMP96_0133: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (33, 44): Cannot find object declaration.
+# Error: COMP96_0094: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (33, 44): Locally static expression is required in the range definition.
+# Error: COMP96_0078: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (34, 42): Unknown identifier "g_div_input_width".
+# Error: COMP96_0133: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (34, 42): Cannot find object declaration.
+# Error: COMP96_0094: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (34, 42): Locally static expression is required in the range definition.
+# Error: COMP96_0078: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (35, 42): Unknown identifier "g_div_output_width".
+# Error: COMP96_0133: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (35, 42): Cannot find object declaration.
+# Error: COMP96_0094: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (35, 42): Locally static expression is required in the range definition.
+# Compile Architecture "arch" of Entity "division_by_mutiplication"
+# Error: VLM_0029: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (39, 1): Entity "division_by_mutiplication" not found.
+# Error: COMP96_0056: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (39, 1): Cannot find referenced entity declaration "division_by_mutiplication".
 # Compile failure 11 Errors 0 Warnings  Analysis time :  32.0 [ms]
-acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/weights_router.vhd
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/division_by_mutiplication.bde
+# DRC: Checking file 'c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\division_by_mutiplication.bde'.
+# DRC: Warning: division_by_mutiplication.bde - 0 error(s), 3 warning(s)
+# DRC: DRC process completed in 1 second(s).
+# DRC: The results have been written to the log file. Double click on this line to view the log.
+# Generating c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\compile\division_by_mutiplication.vhd from c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\division_by_mutiplication.bde ...
+# Generation successful
 # Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\weights_router.vhd
-# Compile Entity "weights_router"
-# Compile Architecture "arch" of Entity "weights_router"
-# Error: COMP96_0071: weights_router.vhd : (202, 34): Operator "=" is not defined for such operands.
-# Error: COMP96_0077: weights_router.vhd : (202, 8): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0617: weights_router.vhd : (223, 34): Assignment target incompatible with right side. Cannot convert 'STD_LOGIC_VECTOR' to 'UNSIGNED'.
-# Error: COMP96_0071: weights_router.vhd : (235, 42): Operator "+" is not defined for such operands.
-# Error: COMP96_0077: weights_router.vhd : (235, 26): Undefined type of expression. Expected type 'STD_LOGIC_VECTOR'.
-# Compile failure 5 Errors 0 Warnings  Analysis time :  15.0 [ms]
-acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/weights_router.vhd
+# File: .\..\compile\division_by_mutiplication.vhd
+# Compile Entity "division_by_mutiplication"
+# Compile Architecture "arch" of Entity "division_by_mutiplication"
+# Compile success 0 Errors 0 Warnings  Analysis time :  0.1 [s]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/divider_subract_shift.vhd
 # Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\weights_router.vhd
-# Compile Entity "weights_router"
-# Compile Architecture "arch" of Entity "weights_router"
-# Error: COMP96_0617: weights_router.vhd : (223, 34): Assignment target incompatible with right side. Cannot convert 'STD_LOGIC_VECTOR' to 'UNSIGNED'.
-# Error: COMP96_0071: weights_router.vhd : (235, 42): Operator "+" is not defined for such operands.
-# Error: COMP96_0077: weights_router.vhd : (235, 26): Undefined type of expression. Expected type 'STD_LOGIC_VECTOR'.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\divider_subract_shift.vhd
+# Compile Entity "divider_subract_shift"
+# Compile Architecture "arch" of Entity "divider_subract_shift"
+# Error: COMP96_0015: divider_subract_shift.vhd : (186, 6): ';' expected.
+# Compile failure 1 Errors 0 Warnings  Analysis time :  32.0 [ms]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/divider_subract_shift.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\divider_subract_shift.vhd
+# Compile Entity "divider_subract_shift"
+# Compile Architecture "arch" of Entity "divider_subract_shift"
+# Error: COMP96_0122: divider_subract_shift.vhd : (64, 1): Symbol "done" has already been declared in this scope.
+# Error: COMP96_0617: divider_subract_shift.vhd : (109, 20): Assignment target incompatible with right side. Cannot convert 'STD_ULOGIC' to 'divider_state'.
+# Error: COMP96_0547: divider_subract_shift.vhd : (130, 9): Choice in selected assignments and case statements must be locally static. Use -relax to allow nonstatic expressions and discrete ranges.
+# Error: COMP96_0083: divider_subract_shift.vhd : (130, 9): The type of a choice expression does not match the case expression.
+# Error: COMP96_0279: divider_subract_shift.vhd : (202, 10): Choice in selected assignments and case statements must be locally static.
+# Error: COMP96_0083: divider_subract_shift.vhd : (202, 10): The type of a choice expression does not match the case expression.
+# Error: COMP96_0301: divider_subract_shift.vhd : (165, 4): The choice 'others' must be present when all alternatives are not covered.
+# Compile failure 7 Errors 0 Warnings  Analysis time :  47.0 [ms]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/divider_subract_shift.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\divider_subract_shift.vhd
+# Compile Entity "divider_subract_shift"
+# Compile Architecture "arch" of Entity "divider_subract_shift"
+# Error: COMP96_0122: divider_subract_shift.vhd : (64, 1): Symbol "done" has already been declared in this scope.
+# Error: COMP96_0078: divider_subract_shift.vhd : (109, 20): Unknown identifier "DIVISION_DONE".
+# Error: COMP96_0133: divider_subract_shift.vhd : (109, 20): Cannot find object declaration.
+# Error: COMP96_0077: divider_subract_shift.vhd : (109, 20): Undefined type of expression. Expected type 'divider_state'.
+# Error: COMP96_0078: divider_subract_shift.vhd : (130, 9): Unknown identifier "DIVISION_DONE".
+# Error: COMP96_0078: divider_subract_shift.vhd : (202, 10): Unknown identifier "DIVISION_DONE".
+# Compile failure 6 Errors 0 Warnings  Analysis time :  31.0 [ms]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/divider_subract_shift.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\divider_subract_shift.vhd
+# Compile Entity "divider_subract_shift"
+# Compile Architecture "arch" of Entity "divider_subract_shift"
+# Compile success 0 Errors 0 Warnings  Analysis time :  0.2 [s]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/divider_subract_shift.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\divider_subract_shift.vhd
+# Compile Entity "divider_subract_shift"
+# Compile Architecture "arch" of Entity "divider_subract_shift"
+# Compile success 0 Errors 0 Warnings  Analysis time :  94.0 [ms]
+# division_by_mutiplication.bde: Updating instances of symbol 'divider_subract_shift' from library 'Convolution_Layer' (SHIFT_SUBTRACT)
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/divider_multiplier.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\divider_multiplier.vhd
+# Compile Entity "divider_multiplier"
+# Compile Architecture "divider_multiplier_a" of Entity "divider_multiplier"
+# Compile success 0 Errors 0 Warnings  Analysis time :  31.0 [ms]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/division_by_mutiplication.bde
+# DRC: Checking file 'c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\division_by_mutiplication.bde'.
+# DRC: Warning: division_by_mutiplication.bde - 0 error(s), 8 warning(s)
+# DRC: DRC process completed in 1 second(s).
+# DRC: The results have been written to the log file. Double click on this line to view the log.
+# Generating c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\compile\division_by_mutiplication.vhd from c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\division_by_mutiplication.bde ...
+# Conversion functions added: 8
+# Generation successful
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: .\..\compile\division_by_mutiplication.vhd
+# Compile Entity "division_by_mutiplication"
+# Compile Architecture "arch" of Entity "division_by_mutiplication"
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (126, 0): Types do not match for port "i_denominator".
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (126, 0): Types do not match for port "i_numerator".
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (126, 0): Types do not match for port "i_product_a".
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (126, 0): Types do not match for port "i_product_b".
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (126, 0): Types do not match for port "o_multiplicand_a".
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (126, 0): Types do not match for port "o_multiplicand_b".
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (126, 0): Types do not match for port "o_multiplicand_c".
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (126, 0): Types do not match for port "o_multiplicand_d".
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (126, 0): Types do not match for port "o_quotient".
+# Compile failure 9 Errors 0 Warnings  Analysis time :  63.0 [ms]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/division_by_mutiplication.bde
+# DRC: Checking file 'c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\division_by_mutiplication.bde'.
+# DRC: Warning: division_by_mutiplication.bde - 0 error(s), 8 warning(s)
+# DRC: DRC process completed in 1 second(s).
+# DRC: The results have been written to the log file. Double click on this line to view the log.
+# Generating c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\compile\division_by_mutiplication.vhd from c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\division_by_mutiplication.bde ...
+# Conversion functions added: 6
+# Generation successful
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: .\..\compile\division_by_mutiplication.vhd
+# Compile Entity "division_by_mutiplication"
+# Compile Architecture "arch" of Entity "division_by_mutiplication"
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (126, 0): Types do not match for port "i_denominator".
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (126, 0): Types do not match for port "i_numerator".
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (126, 0): Types do not match for port "i_product_a".
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (126, 0): Types do not match for port "i_product_b".
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (126, 0): Types do not match for port "o_multiplicand_a".
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (126, 0): Types do not match for port "o_multiplicand_b".
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (126, 0): Types do not match for port "o_multiplicand_c".
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (126, 0): Types do not match for port "o_multiplicand_d".
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (126, 0): Types do not match for port "o_quotient".
+# Compile failure 9 Errors 0 Warnings  Analysis time :  31.0 [ms]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/division_by_mutiplication.bde
+# DRC: Checking file 'c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\division_by_mutiplication.bde'.
+# DRC: Warning: division_by_mutiplication.bde - 0 error(s), 14 warning(s)
+# DRC: DRC process completed in 1 second(s).
+# DRC: The results have been written to the log file. Double click on this line to view the log.
+# Generating c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\compile\division_by_mutiplication.vhd from c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\division_by_mutiplication.bde ...
+# Conversion functions added: 6
+# Generation successful
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: .\..\compile\division_by_mutiplication.vhd
+# Compile Entity "division_by_mutiplication"
+# Compile Architecture "arch" of Entity "division_by_mutiplication"
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (126, 0): Types do not match for port "i_denominator".
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (126, 0): Types do not match for port "i_numerator".
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (126, 0): Types do not match for port "i_product_a".
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (126, 0): Types do not match for port "i_product_b".
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (126, 0): Types do not match for port "o_multiplicand_a".
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (126, 0): Types do not match for port "o_multiplicand_b".
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (126, 0): Types do not match for port "o_multiplicand_c".
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (126, 0): Types do not match for port "o_multiplicand_d".
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (126, 0): Types do not match for port "o_quotient".
+# Compile failure 9 Errors 0 Warnings  Analysis time :  31.0 [ms]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/divider_subract_shift.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\divider_subract_shift.vhd
+# Compile Entity "divider_subract_shift"
+# Compile Architecture "arch" of Entity "divider_subract_shift"
+# Compile success 0 Errors 0 Warnings  Analysis time :  93.0 [ms]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/division_by_mutiplication.bde
+# DRC: Checking file 'c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\division_by_mutiplication.bde'.
+# DRC: Warning: division_by_mutiplication.bde - 0 error(s), 14 warning(s)
+# DRC: DRC process completed in 1 second(s).
+# DRC: The results have been written to the log file. Double click on this line to view the log.
+# Generating c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\compile\division_by_mutiplication.vhd from c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\division_by_mutiplication.bde ...
+# Conversion functions added: 6
+# Generation successful
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: .\..\compile\division_by_mutiplication.vhd
+# Compile Entity "division_by_mutiplication"
+# Compile Architecture "arch" of Entity "division_by_mutiplication"
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (126, 0): Types do not match for port "i_denominator".
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (126, 0): Types do not match for port "i_numerator".
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (126, 0): Types do not match for port "i_product_a".
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (126, 0): Types do not match for port "i_product_b".
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (126, 0): Types do not match for port "o_multiplicand_a".
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (126, 0): Types do not match for port "o_multiplicand_b".
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (126, 0): Types do not match for port "o_multiplicand_c".
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (126, 0): Types do not match for port "o_multiplicand_d".
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (126, 0): Types do not match for port "o_quotient".
+# Compile failure 9 Errors 0 Warnings  Analysis time :  32.0 [ms]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/division_by_mutiplication.bde
+# DRC: Checking file 'c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\division_by_mutiplication.bde'.
+# DRC: Warning: division_by_mutiplication.bde - 0 error(s), 8 warning(s)
+# DRC: DRC process completed in 1 second(s).
+# DRC: The results have been written to the log file. Double click on this line to view the log.
+# Generating c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\compile\division_by_mutiplication.vhd from c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\division_by_mutiplication.bde ...
+# Conversion functions added: 6
+# Generation successful
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: .\..\compile\division_by_mutiplication.vhd
+# Compile Entity "division_by_mutiplication"
+# Compile Architecture "arch" of Entity "division_by_mutiplication"
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (126, 0): Types do not match for port "i_denominator".
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (126, 0): Types do not match for port "i_numerator".
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (126, 0): Types do not match for port "i_product_a".
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (126, 0): Types do not match for port "i_product_b".
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (126, 0): Types do not match for port "o_multiplicand_a".
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (126, 0): Types do not match for port "o_multiplicand_b".
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (126, 0): Types do not match for port "o_multiplicand_c".
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (126, 0): Types do not match for port "o_multiplicand_d".
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (126, 0): Types do not match for port "o_quotient".
+# Compile failure 9 Errors 0 Warnings  Analysis time :  31.0 [ms]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/division_by_mutiplication.bde
+# DRC: Checking file 'c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\division_by_mutiplication.bde'.
+# DRC: Warning: division_by_mutiplication.bde - 0 error(s), 8 warning(s)
+# DRC: DRC process completed in 1 second(s).
+# DRC: The results have been written to the log file. Double click on this line to view the log.
+# Generating c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\compile\division_by_mutiplication.vhd from c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\division_by_mutiplication.bde ...
+# Conversion functions added: 6
+# Generation successful
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: .\..\compile\division_by_mutiplication.vhd
+# Compile Entity "division_by_mutiplication"
+# Compile Architecture "arch" of Entity "division_by_mutiplication"
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (126, 0): Types do not match for port "i_denominator".
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (126, 0): Types do not match for port "i_numerator".
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (126, 0): Types do not match for port "i_product_a".
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (126, 0): Types do not match for port "i_product_b".
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (126, 0): Types do not match for port "o_multiplicand_a".
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (126, 0): Types do not match for port "o_multiplicand_b".
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (126, 0): Types do not match for port "o_multiplicand_c".
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (126, 0): Types do not match for port "o_multiplicand_d".
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (126, 0): Types do not match for port "o_quotient".
+# Compile failure 9 Errors 0 Warnings  Analysis time :  31.0 [ms]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/division_by_mutiplication.bde
+# DRC: Checking file 'c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\division_by_mutiplication.bde'.
+# DRC: Warning: division_by_mutiplication.bde - 0 error(s), 6 warning(s)
+# DRC: DRC process completed in 1 second(s).
+# DRC: The results have been written to the log file. Double click on this line to view the log.
+# Generating c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\compile\division_by_mutiplication.vhd from c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\division_by_mutiplication.bde ...
+# Conversion functions added: 6
+# Generation successful
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: .\..\compile\division_by_mutiplication.vhd
+# Compile Entity "division_by_mutiplication"
+# Compile Architecture "arch" of Entity "division_by_mutiplication"
+# Error: COMP96_0019: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (51, 23): Keyword 'return' expected.
+# Error: COMP96_0019: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (53, 1): Keyword 'end' expected.
+# Error: COMP96_0016: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (53, 8): Design unit declaration expected.
 # Compile failure 3 Errors 0 Warnings  Analysis time :  16.0 [ms]
-acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/weights_router.vhd
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/divider_subract_shift.vhd
 # Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\weights_router.vhd
-# Compile Entity "weights_router"
-# Compile Architecture "arch" of Entity "weights_router"
-# Error: COMP96_0071: weights_router.vhd : (235, 42): Operator "+" is not defined for such operands.
-# Error: COMP96_0077: weights_router.vhd : (235, 26): Undefined type of expression. Expected type 'STD_LOGIC_VECTOR'.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\divider_subract_shift.vhd
+# Compile Entity "divider_subract_shift"
+# Compile Architecture "arch" of Entity "divider_subract_shift"
+# Compile success 0 Errors 0 Warnings  Analysis time :  94.0 [ms]
+# division_by_mutiplication.bde: Updating instances of symbol 'divider_subract_shift' from library 'Convolution_Layer' (SHIFT_SUBTRACT)
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/division_by_mutiplication.bde
+# DRC: Checking file 'c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\division_by_mutiplication.bde'.
+# DRC: Warning: division_by_mutiplication.bde - 0 error(s), 6 warning(s)
+# DRC: DRC process completed in 1 second(s).
+# DRC: The results have been written to the log file. Double click on this line to view the log.
+# Generating c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\compile\division_by_mutiplication.vhd from c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\division_by_mutiplication.bde ...
+# Generation successful
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: .\..\compile\division_by_mutiplication.vhd
+# Compile Entity "division_by_mutiplication"
+# Compile Architecture "arch" of Entity "division_by_mutiplication"
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (113, 0): Types do not match for port "i_denominator".
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (113, 0): Types do not match for port "i_numerator".
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (113, 0): Types do not match for port "o_quotient".
+# Compile failure 3 Errors 0 Warnings  Analysis time :  16.0 [ms]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/division_by_mutiplication.bde
+# DRC: Checking file 'c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\division_by_mutiplication.bde'.
+# DRC: Warning: division_by_mutiplication.bde - 0 error(s), 6 warning(s)
+# DRC: DRC process completed in 1 second(s).
+# DRC: The results have been written to the log file. Double click on this line to view the log.
+# Generating c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\compile\division_by_mutiplication.vhd from c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\division_by_mutiplication.bde ...
+# Generation successful
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: .\..\compile\division_by_mutiplication.vhd
+# Compile Entity "division_by_mutiplication"
+# Compile Architecture "arch" of Entity "division_by_mutiplication"
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (113, 0): Types do not match for port "i_denominator".
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (113, 0): Types do not match for port "i_numerator".
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (113, 0): Types do not match for port "o_quotient".
+# Compile failure 3 Errors 0 Warnings  Analysis time :  31.0 [ms]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/divider_subract_shift.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\divider_subract_shift.vhd
+# Compile Entity "divider_subract_shift"
+# Compile Architecture "arch" of Entity "divider_subract_shift"
+# Compile success 0 Errors 0 Warnings  Analysis time :  93.0 [ms]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/division_by_mutiplication.bde
+# DRC: Checking file 'c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\division_by_mutiplication.bde'.
+# DRC: Warning: division_by_mutiplication.bde - 0 error(s), 6 warning(s)
+# DRC: DRC process completed in 1 second(s).
+# DRC: The results have been written to the log file. Double click on this line to view the log.
+# Generating c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\compile\division_by_mutiplication.vhd from c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\division_by_mutiplication.bde ...
+# Generation successful
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: .\..\compile\division_by_mutiplication.vhd
+# Compile Entity "division_by_mutiplication"
+# Compile Architecture "arch" of Entity "division_by_mutiplication"
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (113, 0): Types do not match for port "i_denominator".
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (113, 0): Types do not match for port "i_numerator".
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (113, 0): Types do not match for port "o_quotient".
+# Compile failure 3 Errors 0 Warnings  Analysis time :  31.0 [ms]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/division_by_mutiplication.bde
+# DRC: Checking file 'c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\division_by_mutiplication.bde'.
+# DRC: Warning: division_by_mutiplication.bde - 0 error(s), 6 warning(s)
+# DRC: DRC process completed in 1 second(s).
+# DRC: The results have been written to the log file. Double click on this line to view the log.
+# Generating c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\compile\division_by_mutiplication.vhd from c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\division_by_mutiplication.bde ...
+# Generation successful
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: .\..\compile\division_by_mutiplication.vhd
+# Compile Entity "division_by_mutiplication"
+# Compile Architecture "arch" of Entity "division_by_mutiplication"
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (113, 0): Types do not match for port "i_denominator".
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (113, 0): Types do not match for port "i_numerator".
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (113, 0): Types do not match for port "o_quotient".
+# Compile failure 3 Errors 0 Warnings  Analysis time :  15.0 [ms]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/division_by_mutiplication.bde
+# DRC: Checking file 'c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\division_by_mutiplication.bde'.
+# DRC: Warning: division_by_mutiplication.bde - 0 error(s), 6 warning(s)
+# DRC: DRC process completed in 2 second(s).
+# DRC: The results have been written to the log file. Double click on this line to view the log.
+# Generating c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\compile\division_by_mutiplication.vhd from c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\division_by_mutiplication.bde ...
+# Generation successful
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: .\..\compile\division_by_mutiplication.vhd
+# Compile Entity "division_by_mutiplication"
+# Compile Architecture "arch" of Entity "division_by_mutiplication"
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (113, 0): Types do not match for port "i_denominator".
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (113, 0): Types do not match for port "i_numerator".
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (113, 0): Types do not match for port "o_quotient".
+# Compile failure 3 Errors 0 Warnings  Analysis time :  15.0 [ms]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/division_by_mutiplication.bde
+# DRC: Checking file 'c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\division_by_mutiplication.bde'.
+# DRC: Warning: division_by_mutiplication.bde - 0 error(s), 6 warning(s)
+# DRC: DRC process completed in 2 second(s).
+# DRC: The results have been written to the log file. Double click on this line to view the log.
+# Generating c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\compile\division_by_mutiplication.vhd from c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\division_by_mutiplication.bde ...
+# Generation successful
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: .\..\compile\division_by_mutiplication.vhd
+# Compile Entity "division_by_mutiplication"
+# Compile Architecture "arch" of Entity "division_by_mutiplication"
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (113, 0): Types do not match for port "i_denominator".
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (113, 0): Types do not match for port "i_numerator".
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (113, 0): Types do not match for port "o_quotient".
+# Compile failure 3 Errors 0 Warnings  Analysis time :  31.0 [ms]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/divider_subract_shift.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\divider_subract_shift.vhd
+# Compile Entity "divider_subract_shift"
+# Compile Architecture "arch" of Entity "divider_subract_shift"
+# Compile success 0 Errors 0 Warnings  Analysis time :  0.2 [s]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/division_by_mutiplication.bde
+# DRC: Checking file 'c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\division_by_mutiplication.bde'.
+# DRC: Warning: division_by_mutiplication.bde - 0 error(s), 6 warning(s)
+# DRC: DRC process completed in 2 second(s).
+# DRC: The results have been written to the log file. Double click on this line to view the log.
+# Generating c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\compile\division_by_mutiplication.vhd from c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\division_by_mutiplication.bde ...
+# Generation successful
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: .\..\compile\division_by_mutiplication.vhd
+# Compile Entity "division_by_mutiplication"
+# Compile Architecture "arch" of Entity "division_by_mutiplication"
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (113, 0): Types do not match for port "i_denominator".
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (113, 0): Types do not match for port "i_numerator".
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (113, 0): Types do not match for port "o_quotient".
+# Compile failure 3 Errors 0 Warnings  Analysis time :  16.0 [ms]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/division_by_mutiplication.bde
+# DRC: Checking file 'c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\division_by_mutiplication.bde'.
+# DRC: Warning: division_by_mutiplication.bde - 0 error(s), 6 warning(s)
+# DRC: DRC process completed in 1 second(s).
+# DRC: The results have been written to the log file. Double click on this line to view the log.
+# Generating c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\compile\division_by_mutiplication.vhd from c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\division_by_mutiplication.bde ...
+# Generation successful
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: .\..\compile\division_by_mutiplication.vhd
+# Compile Entity "division_by_mutiplication"
+# Compile Architecture "arch" of Entity "division_by_mutiplication"
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (113, 0): Types do not match for port "i_denominator".
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (113, 0): Types do not match for port "i_numerator".
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (113, 0): Types do not match for port "o_quotient".
+# Compile failure 3 Errors 0 Warnings  Analysis time :  31.0 [ms]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/divider_subract_shift.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\divider_subract_shift.vhd
+# Compile Entity "divider_subract_shift"
+# Compile Architecture "arch" of Entity "divider_subract_shift"
+# Compile success 0 Errors 0 Warnings  Analysis time :  0.1 [s]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/division_by_mutiplication.bde
+# DRC: Checking file 'c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\division_by_mutiplication.bde'.
+# DRC: Warning: division_by_mutiplication.bde - 0 error(s), 6 warning(s)
+# DRC: DRC process completed in 1 second(s).
+# DRC: The results have been written to the log file. Double click on this line to view the log.
+# Generating c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\compile\division_by_mutiplication.vhd from c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\division_by_mutiplication.bde ...
+# Generation successful
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: .\..\compile\division_by_mutiplication.vhd
+# Compile Entity "division_by_mutiplication"
+# Compile Architecture "arch" of Entity "division_by_mutiplication"
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (113, 0): Types do not match for port "i_denominator".
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (113, 0): Types do not match for port "i_numerator".
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (113, 0): Types do not match for port "o_quotient".
+# Compile failure 3 Errors 0 Warnings  Analysis time :  16.0 [ms]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/division_by_mutiplication.bde
+# DRC: Checking file 'c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\division_by_mutiplication.bde'.
+# DRC: Warning: division_by_mutiplication.bde - 0 error(s), 6 warning(s)
+# DRC: DRC process completed in 1 second(s).
+# DRC: The results have been written to the log file. Double click on this line to view the log.
+# Generating c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\compile\division_by_mutiplication.vhd from c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\division_by_mutiplication.bde ...
+# Generation successful
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: .\..\compile\division_by_mutiplication.vhd
+# Compile Entity "division_by_mutiplication"
+# Compile Architecture "arch" of Entity "division_by_mutiplication"
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (113, 0): Types do not match for port "i_denominator".
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (113, 0): Types do not match for port "i_numerator".
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (113, 0): Types do not match for port "o_quotient".
+# Compile failure 3 Errors 0 Warnings  Analysis time :  31.0 [ms]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/division_by_mutiplication.bde
+# DRC: Checking file 'c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\division_by_mutiplication.bde'.
+# DRC: Warning: division_by_mutiplication.bde - 0 error(s), 6 warning(s)
+# DRC: DRC process completed in 1 second(s).
+# DRC: The results have been written to the log file. Double click on this line to view the log.
+# Generating c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\compile\division_by_mutiplication.vhd from c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\division_by_mutiplication.bde ...
+# Generation successful
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: .\..\compile\division_by_mutiplication.vhd
+# Compile Entity "division_by_mutiplication"
+# Compile Architecture "arch" of Entity "division_by_mutiplication"
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (113, 0): Types do not match for port "i_denominator".
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (113, 0): Types do not match for port "i_numerator".
+# Error: ELAB1_0021: division_by_mutiplication.bde(division_by_mutiplication.vhd) : (113, 0): Types do not match for port "o_quotient".
+# Compile failure 3 Errors 0 Warnings  Analysis time :  31.0 [ms]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/divider_subract_shift.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\divider_subract_shift.vhd
+# Compile Entity "divider_subract_shift"
+# Compile Architecture "arch" of Entity "divider_subract_shift"
+# Error: COMP96_0617: divider_subract_shift.vhd : (182, 11): Assignment target incompatible with right side. Cannot convert 'SIGNED' to 'STD_LOGIC_VECTOR'.
+# Error: COMP96_0077: divider_subract_shift.vhd : (192, 22): Undefined type of expression. Expected type 'STD_LOGIC_VECTOR'.
+# Error: COMP96_0077: divider_subract_shift.vhd : (193, 20): Undefined type of expression. Expected type 'STD_LOGIC_VECTOR'.
+# Compile failure 3 Errors 0 Warnings  Analysis time :  16.0 [ms]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/divider_subract_shift.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\divider_subract_shift.vhd
+# Compile Entity "divider_subract_shift"
+# Compile Architecture "arch" of Entity "divider_subract_shift"
+# Error: COMP96_0617: divider_subract_shift.vhd : (182, 11): Assignment target incompatible with right side. Cannot convert 'SIGNED' to 'STD_LOGIC_VECTOR'.
+# Compile failure 1 Errors 0 Warnings  Analysis time :  15.0 [ms]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/divider_subract_shift.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\divider_subract_shift.vhd
+# Compile Entity "divider_subract_shift"
+# Compile Architecture "arch" of Entity "divider_subract_shift"
+# Compile success 0 Errors 0 Warnings  Analysis time :  78.0 [ms]
+# division_by_mutiplication.bde: Updating instances of symbol 'divider_subract_shift' from library 'Convolution_Layer' (SHIFT_SUBTRACT)
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/division_by_mutiplication.bde
+# DRC: Checking file 'c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\division_by_mutiplication.bde'.
+# DRC: Warning: division_by_mutiplication.bde - 0 error(s), 6 warning(s)
+# DRC: DRC process completed in 2 second(s).
+# DRC: The results have been written to the log file. Double click on this line to view the log.
+# Generating c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\compile\division_by_mutiplication.vhd from c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\division_by_mutiplication.bde ...
+# Generation successful
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: .\..\compile\division_by_mutiplication.vhd
+# Compile Entity "division_by_mutiplication"
+# Compile Architecture "arch" of Entity "division_by_mutiplication"
+# Compile success 0 Errors 0 Warnings  Analysis time :  94.0 [ms]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/divider_subract_shift.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\divider_subract_shift.vhd
+# Compile Entity "divider_subract_shift"
+# Compile Architecture "arch" of Entity "divider_subract_shift"
+# Compile success 0 Errors 0 Warnings  Analysis time :  93.0 [ms]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/divider_fp.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\divider_fp.vhd
+# Compile Entity "divider_fp"
+# Compile Architecture "divider_fp_a" of Entity "divider_fp"
+# Compile success 0 Errors 0 Warnings  Analysis time :  0.1 [s]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/conv_fp_multiplier.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\conv_fp_multiplier.vhd
+# Compile Entity "conv_fp_multiplier"
+# Compile Architecture "conv_fp_multiplier_a" of Entity "conv_fp_multiplier"
+# Compile success 0 Errors 0 Warnings  Analysis time :  62.0 [ms]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/square_root_fp.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\square_root_fp.vhd
+# Compile Entity "square_root_fp"
+# Compile Architecture "square_root_fp_a" of Entity "square_root_fp"
+# Compile success 0 Errors 0 Warnings  Analysis time :  47.0 [ms]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/norm_router.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\norm_router.vhd
+# Compile Entity "norm_router"
+# Compile Architecture "arch" of Entity "norm_router"
+# Error: COMP96_0019: norm_router.vhd : (92, 6): Keyword 'process' expected.
+# Error: COMP96_0025: norm_router.vhd : (95, 27): Identifier or string literal expected.
+# Error: COMP96_0015: norm_router.vhd : (109, 6): ';' expected.
+# Error: COMP96_0016: norm_router.vhd : (109, 8): Design unit declaration expected.
+# Compile failure 4 Errors 0 Warnings  Analysis time :  31.0 [ms]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/norm_router.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\norm_router.vhd
+# Compile Entity "norm_router"
+# Compile Architecture "arch" of Entity "norm_router"
+# Error: COMP96_0019: norm_router.vhd : (92, 6): Keyword 'process' expected.
+# Error: COMP96_0025: norm_router.vhd : (95, 27): Identifier or string literal expected.
+# Error: COMP96_0015: norm_router.vhd : (109, 6): ';' expected.
+# Error: COMP96_0016: norm_router.vhd : (109, 8): Design unit declaration expected.
+# Compile failure 4 Errors 0 Warnings  Analysis time :  16.0 [ms]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/norm_router.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\norm_router.vhd
+# Compile Entity "norm_router"
+# Compile Architecture "arch" of Entity "norm_router"
+# Error: COMP96_0046: norm_router.vhd : (97, 19): Sequential statement expected.
+# Error: COMP96_0015: norm_router.vhd : (120, 4): ';' expected.
+# Error: COMP96_0019: norm_router.vhd : (125, 6): Keyword 'then' expected.
+# Error: COMP96_0019: norm_router.vhd : (130, 5): Keyword 'end' expected.
+# Error: COMP96_0019: norm_router.vhd : (131, 6): Keyword 'case' expected.
+# Error: COMP96_0019: norm_router.vhd : (136, 9): Keyword 'process' expected.
+# Error: COMP96_0019: norm_router.vhd : (139, 4): Keyword 'end' expected.
+# Error: COMP96_0016: norm_router.vhd : (139, 9): Design unit declaration expected.
+# Compile failure 8 Errors 0 Warnings  Analysis time :  31.0 [ms]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/norm_router.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\norm_router.vhd
+# Compile Entity "norm_router"
+# Compile Architecture "arch" of Entity "norm_router"
+# Error: COMP96_0046: norm_router.vhd : (111, 19): Sequential statement expected.
+# Error: COMP96_0015: norm_router.vhd : (134, 4): ';' expected.
+# Error: COMP96_0019: norm_router.vhd : (139, 6): Keyword 'then' expected.
+# Error: COMP96_0019: norm_router.vhd : (145, 5): Keyword 'end' expected.
+# Error: COMP96_0019: norm_router.vhd : (146, 6): Keyword 'case' expected.
+# Error: COMP96_0019: norm_router.vhd : (152, 9): Keyword 'process' expected.
+# Error: COMP96_0019: norm_router.vhd : (155, 4): Keyword 'end' expected.
+# Error: COMP96_0016: norm_router.vhd : (155, 9): Design unit declaration expected.
+# Compile failure 8 Errors 0 Warnings  Analysis time :  16.0 [ms]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/norm_router.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\norm_router.vhd
+# Compile Entity "norm_router"
+# Compile Architecture "arch" of Entity "norm_router"
+# Error: COMP96_0046: norm_router.vhd : (111, 19): Sequential statement expected.
+# Error: COMP96_0015: norm_router.vhd : (134, 4): ';' expected.
+# Error: COMP96_0019: norm_router.vhd : (139, 6): Keyword 'then' expected.
+# Error: COMP96_0019: norm_router.vhd : (145, 5): Keyword 'end' expected.
+# Error: COMP96_0019: norm_router.vhd : (146, 6): Keyword 'case' expected.
+# Error: COMP96_0019: norm_router.vhd : (152, 9): Keyword 'process' expected.
+# Error: COMP96_0019: norm_router.vhd : (155, 4): Keyword 'end' expected.
+# Error: COMP96_0016: norm_router.vhd : (155, 9): Design unit declaration expected.
+# Compile failure 8 Errors 0 Warnings  Analysis time :  15.0 [ms]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/norm_router.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\norm_router.vhd
+# Compile Entity "norm_router"
+# Compile Architecture "arch" of Entity "norm_router"
+# Error: COMP96_0046: norm_router.vhd : (111, 19): Sequential statement expected.
+# Error: COMP96_0019: norm_router.vhd : (139, 6): Keyword 'then' expected.
+# Error: COMP96_0019: norm_router.vhd : (145, 5): Keyword 'end' expected.
+# Error: COMP96_0019: norm_router.vhd : (146, 6): Keyword 'case' expected.
+# Error: COMP96_0019: norm_router.vhd : (152, 9): Keyword 'process' expected.
+# Error: COMP96_0019: norm_router.vhd : (155, 4): Keyword 'end' expected.
+# Error: COMP96_0016: norm_router.vhd : (155, 9): Design unit declaration expected.
+# Compile failure 7 Errors 0 Warnings  Analysis time :  15.0 [ms]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/norm_router.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\norm_router.vhd
+# Compile Entity "norm_router"
+# Compile Architecture "arch" of Entity "norm_router"
+# Error: COMP96_0046: norm_router.vhd : (111, 19): Sequential statement expected.
+# Error: COMP96_0019: norm_router.vhd : (164, 6): Keyword 'process' expected.
+# Error: COMP96_0015: norm_router.vhd : (203, 5): ';' expected.
+# Compile failure 3 Errors 0 Warnings  Analysis time :  15.0 [ms]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/norm_router.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\norm_router.vhd
+# Compile Entity "norm_router"
+# Compile Architecture "arch" of Entity "norm_router"
+# Error: COMP96_0046: norm_router.vhd : (111, 19): Sequential statement expected.
+# Error: COMP96_0019: norm_router.vhd : (164, 6): Keyword 'process' expected.
 # Compile failure 2 Errors 0 Warnings  Analysis time :  16.0 [ms]
-acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/weights_router.vhd
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/norm_router.vhd
 # Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\weights_router.vhd
-# Compile Entity "weights_router"
-# Compile Architecture "arch" of Entity "weights_router"
-# Error: COMP96_0071: weights_router.vhd : (231, 27): Operator "=" is not defined for such operands.
-# Error: COMP96_0077: weights_router.vhd : (231, 10): Undefined type of expression. Expected type 'BOOLEAN'.
-# Compile failure 2 Errors 0 Warnings  Analysis time :  31.0 [ms]
-acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/weights_router.vhd
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\norm_router.vhd
+# Compile Entity "norm_router"
+# Compile Architecture "arch" of Entity "norm_router"
+# Error: COMP96_0019: norm_router.vhd : (108, 6): Keyword 'process' expected.
+# Error: COMP96_0019: norm_router.vhd : (164, 6): Keyword 'process' expected.
+# Compile failure 2 Errors 0 Warnings  Analysis time :  16.0 [ms]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/norm_router.vhd
 # Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\weights_router.vhd
-# Compile Entity "weights_router"
-# Compile Architecture "arch" of Entity "weights_router"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\norm_router.vhd
+# Compile Entity "norm_router"
+# Compile Architecture "arch" of Entity "norm_router"
+# Error: COMP96_0019: norm_router.vhd : (164, 6): Keyword 'process' expected.
+# Compile failure 1 Errors 0 Warnings  Analysis time :  16.0 [ms]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/norm_router.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\norm_router.vhd
+# Compile Entity "norm_router"
+# Compile Architecture "arch" of Entity "norm_router"
+# Error: COMP96_0078: norm_router.vhd : (88, 19): Unknown identifier "radicand".
+# Error: COMP96_0133: norm_router.vhd : (88, 19): Cannot find object declaration.
+# Error: COMP96_0077: norm_router.vhd : (88, 19): Undefined type of expression. Expected type 'STD_LOGIC_VECTOR'.
+# Error: COMP96_0078: norm_router.vhd : (90, 21): Unknown identifier "denominator".
+# Error: COMP96_0133: norm_router.vhd : (90, 21): Cannot find object declaration.
+# Error: COMP96_0077: norm_router.vhd : (90, 21): Undefined type of expression. Expected type 'STD_LOGIC_VECTOR'.
+# Error: COMP96_0078: norm_router.vhd : (93, 20): Unknown identifier "diva_valid".
+# Error: COMP96_0133: norm_router.vhd : (93, 20): Cannot find object declaration.
+# Error: COMP96_0077: norm_router.vhd : (93, 20): Undefined type of expression. Expected type 'STD_ULOGIC'.
+# Error: COMP96_0078: norm_router.vhd : (94, 20): Unknown identifier "divb_valid".
+# Error: COMP96_0133: norm_router.vhd : (94, 20): Cannot find object declaration.
+# Error: COMP96_0077: norm_router.vhd : (94, 20): Undefined type of expression. Expected type 'STD_ULOGIC'.
+# Error: COMP96_0078: norm_router.vhd : (95, 24): Unknown identifier "div_result_ready".
+# Error: COMP96_0133: norm_router.vhd : (95, 24): Cannot find object declaration.
+# Error: COMP96_0077: norm_router.vhd : (95, 24): Undefined type of expression. Expected type 'STD_ULOGIC'.
+# Error: COMP96_0078: norm_router.vhd : (96, 22): Unknown identifier "sqrt_rad_valid".
+# Error: COMP96_0133: norm_router.vhd : (96, 22): Cannot find object declaration.
+# Error: COMP96_0077: norm_router.vhd : (96, 22): Undefined type of expression. Expected type 'STD_ULOGIC'.
+# Error: COMP96_0078: norm_router.vhd : (97, 25): Unknown identifier "sqrt_result_ready".
+# Error: COMP96_0133: norm_router.vhd : (97, 25): Cannot find object declaration.
+# Error: COMP96_0077: norm_router.vhd : (97, 25): Undefined type of expression. Expected type 'STD_ULOGIC'.
+# Error: COMP96_0617: norm_router.vhd : (99, 15): Assignment target incompatible with right side. Cannot convert 'norm_state' to 'STD_ULOGIC'.
+# Error: COMP96_0078: norm_router.vhd : (123, 6): Unknown identifier "sqrt_rad_valid".
+# Error: COMP96_0133: norm_router.vhd : (123, 6): Cannot find object declaration.
+# Error: COMP96_0078: norm_router.vhd : (124, 6): Unknown identifier "sqrt_result_ready".
+# Error: COMP96_0133: norm_router.vhd : (124, 6): Cannot find object declaration.
+# Error: COMP96_0078: norm_router.vhd : (125, 6): Unknown identifier "radicand".
+# Error: COMP96_0133: norm_router.vhd : (125, 6): Cannot find object declaration.
+# Error: COMP96_0078: norm_router.vhd : (128, 6): Unknown identifier "sqrt_rad_valid".
+# Error: COMP96_0133: norm_router.vhd : (128, 6): Cannot find object declaration.
+# Error: COMP96_0078: norm_router.vhd : (129, 6): Unknown identifier "sqrt_result_ready".
+# Error: COMP96_0133: norm_router.vhd : (129, 6): Cannot find object declaration.
+# Error: COMP96_0078: norm_router.vhd : (130, 20): Unknown identifier "SUBTRACT".
+# Error: COMP96_0133: norm_router.vhd : (130, 20): Cannot find object declaration.
+# Error: COMP96_0077: norm_router.vhd : (130, 20): Undefined type of expression. Expected type 'norm_state'.
+# Error: COMP96_0078: norm_router.vhd : (139, 6): Unknown identifier "diva_valid".
+# Error: COMP96_0133: norm_router.vhd : (139, 6): Cannot find object declaration.
+# Error: COMP96_0078: norm_router.vhd : (140, 6): Unknown identifier "divb_valid".
+# Error: COMP96_0133: norm_router.vhd : (140, 6): Cannot find object declaration.
+# Error: COMP96_0078: norm_router.vhd : (141, 6): Unknown identifier "div_result_ready".
+# Error: COMP96_0133: norm_router.vhd : (141, 6): Cannot find object declaration.
+# Error: COMP96_0078: norm_router.vhd : (143, 6): Unknown identifier "denominator".
+# Error: COMP96_0133: norm_router.vhd : (143, 6): Cannot find object declaration.
+# Error: COMP96_0078: norm_router.vhd : (146, 6): Unknown identifier "diva_valid".
+# Error: COMP96_0133: norm_router.vhd : (146, 6): Cannot find object declaration.
+# Error: COMP96_0078: norm_router.vhd : (147, 6): Unknown identifier "divb_valid".
+# Error: COMP96_0133: norm_router.vhd : (147, 6): Cannot find object declaration.
+# Error: COMP96_0078: norm_router.vhd : (148, 6): Unknown identifier "div_result_ready".
+# Error: COMP96_0133: norm_router.vhd : (148, 6): Cannot find object declaration.
+# Error: COMP96_0078: norm_router.vhd : (150, 6): Unknown identifier "denominator".
+# Error: COMP96_0133: norm_router.vhd : (150, 6): Cannot find object declaration.
+# Error: COMP96_0123: norm_router.vhd : (175, 4): Variable or constant cannot be the target of a signal assignment.
+# Error: COMP96_0143: norm_router.vhd : (175, 4): Object "DONE" cannot be written
+# Error: COMP96_0077: norm_router.vhd : (175, 15): Undefined type of expression. Expected type 'norm_state'.
+# Error: COMP96_0123: norm_router.vhd : (184, 4): Variable or constant cannot be the target of a signal assignment.
+# Error: COMP96_0143: norm_router.vhd : (184, 4): Object "DONE" cannot be written
+# Error: COMP96_0123: norm_router.vhd : (193, 6): Variable or constant cannot be the target of a signal assignment.
+# Error: COMP96_0143: norm_router.vhd : (193, 6): Object "DONE" cannot be written
+# Error: COMP96_0077: norm_router.vhd : (193, 17): Undefined type of expression. Expected type 'norm_state'.
+# Error: COMP96_0071: norm_router.vhd : (204, 35): Operator "-" is not defined for such operands.
+# Error: COMP96_0077: norm_router.vhd : (204, 20): Undefined type of expression. Expected type 'STD_LOGIC_VECTOR'.
+# Error: COMP96_0123: norm_router.vhd : (215, 6): Variable or constant cannot be the target of a signal assignment.
+# Error: COMP96_0143: norm_router.vhd : (215, 6): Object "DONE" cannot be written
+# Error: COMP96_0077: norm_router.vhd : (215, 14): Undefined type of expression. Expected type 'norm_state'.
+# Error: COMP96_0123: norm_router.vhd : (224, 6): Variable or constant cannot be the target of a signal assignment.
+# Error: COMP96_0143: norm_router.vhd : (224, 6): Object "DONE" cannot be written
+# Error: COMP96_0077: norm_router.vhd : (224, 17): Undefined type of expression. Expected type 'norm_state'.
+# Compile failure 67 Errors 0 Warnings  Analysis time :  15.0 [ms]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/norm_router.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\norm_router.vhd
+# Compile Entity "norm_router"
+# Compile Architecture "arch" of Entity "norm_router"
+# Error: COMP96_0122: norm_router.vhd : (90, 1): Symbol "done" has already been declared in this scope.
+# Error: COMP96_0078: norm_router.vhd : (97, 21): Unknown identifier "denominator".
+# Error: COMP96_0133: norm_router.vhd : (97, 21): Cannot find object declaration.
+# Error: COMP96_0077: norm_router.vhd : (97, 21): Undefined type of expression. Expected type 'STD_LOGIC_VECTOR'.
+# Error: COMP96_0078: norm_router.vhd : (127, 3): Unknown identifier "denominator".
+# Error: COMP96_0133: norm_router.vhd : (127, 3): Cannot find object declaration.
+# Error: COMP96_0078: norm_router.vhd : (146, 20): Unknown identifier "SUBTRACT".
+# Error: COMP96_0133: norm_router.vhd : (146, 20): Cannot find object declaration.
+# Error: COMP96_0077: norm_router.vhd : (146, 20): Undefined type of expression. Expected type 'norm_state'.
+# Error: COMP96_0078: norm_router.vhd : (159, 6): Unknown identifier "denominator".
+# Error: COMP96_0133: norm_router.vhd : (159, 6): Cannot find object declaration.
+# Error: COMP96_0078: norm_router.vhd : (166, 6): Unknown identifier "denominator".
+# Error: COMP96_0133: norm_router.vhd : (166, 6): Cannot find object declaration.
+# Error: COMP96_0617: norm_router.vhd : (167, 20): Assignment target incompatible with right side. Cannot convert 'STD_ULOGIC' to 'norm_state'.
+# Error: COMP96_0547: norm_router.vhd : (171, 9): Choice in selected assignments and case statements must be locally static. Use -relax to allow nonstatic expressions and discrete ranges.
+# Error: COMP96_0083: norm_router.vhd : (171, 9): The type of a choice expression does not match the case expression.
+# Error: COMP96_0071: norm_router.vhd : (220, 35): Operator "-" is not defined for such operands.
+# Error: COMP96_0077: norm_router.vhd : (220, 20): Undefined type of expression. Expected type 'STD_LOGIC_VECTOR'.
+# Error: COMP96_0547: norm_router.vhd : (230, 10): Choice in selected assignments and case statements must be locally static. Use -relax to allow nonstatic expressions and discrete ranges.
+# Error: COMP96_0083: norm_router.vhd : (230, 10): The type of a choice expression does not match the case expression.
+# Compile failure 20 Errors 0 Warnings  Analysis time :  31.0 [ms]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/norm_router.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\norm_router.vhd
+# Compile Entity "norm_router"
+# Compile Architecture "arch" of Entity "norm_router"
+# Error: COMP96_0078: norm_router.vhd : (97, 21): Unknown identifier "denominator".
+# Error: COMP96_0133: norm_router.vhd : (97, 21): Cannot find object declaration.
+# Error: COMP96_0077: norm_router.vhd : (97, 21): Undefined type of expression. Expected type 'STD_LOGIC_VECTOR'.
+# Error: COMP96_0078: norm_router.vhd : (127, 3): Unknown identifier "denominator".
+# Error: COMP96_0133: norm_router.vhd : (127, 3): Cannot find object declaration.
+# Error: COMP96_0078: norm_router.vhd : (146, 20): Unknown identifier "SUBTRACT".
+# Error: COMP96_0133: norm_router.vhd : (146, 20): Cannot find object declaration.
+# Error: COMP96_0077: norm_router.vhd : (146, 20): Undefined type of expression. Expected type 'norm_state'.
+# Error: COMP96_0078: norm_router.vhd : (159, 6): Unknown identifier "denominator".
+# Error: COMP96_0133: norm_router.vhd : (159, 6): Cannot find object declaration.
+# Error: COMP96_0078: norm_router.vhd : (166, 6): Unknown identifier "denominator".
+# Error: COMP96_0133: norm_router.vhd : (166, 6): Cannot find object declaration.
+# Error: COMP96_0071: norm_router.vhd : (220, 35): Operator "-" is not defined for such operands.
+# Error: COMP96_0077: norm_router.vhd : (220, 20): Undefined type of expression. Expected type 'STD_LOGIC_VECTOR'.
+# Compile failure 14 Errors 0 Warnings  Analysis time :  16.0 [ms]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/norm_router.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\norm_router.vhd
+# Compile Entity "norm_router"
+# Compile Architecture "arch" of Entity "norm_router"
+# Error: COMP96_0078: norm_router.vhd : (147, 20): Unknown identifier "SUBTRACT".
+# Error: COMP96_0133: norm_router.vhd : (147, 20): Cannot find object declaration.
+# Error: COMP96_0077: norm_router.vhd : (147, 20): Undefined type of expression. Expected type 'norm_state'.
+# Error: COMP96_0071: norm_router.vhd : (221, 35): Operator "-" is not defined for such operands.
+# Error: COMP96_0077: norm_router.vhd : (221, 20): Undefined type of expression. Expected type 'STD_LOGIC_VECTOR'.
+# Compile failure 5 Errors 0 Warnings  Analysis time :  16.0 [ms]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/norm_router.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\norm_router.vhd
+# Compile Entity "norm_router"
+# Compile Architecture "arch" of Entity "norm_router"
+# Error: COMP96_0071: norm_router.vhd : (221, 35): Operator "-" is not defined for such operands.
+# Error: COMP96_0077: norm_router.vhd : (221, 20): Undefined type of expression. Expected type 'STD_LOGIC_VECTOR'.
+# Compile failure 2 Errors 0 Warnings  Analysis time :  16.0 [ms]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/norm_router.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\norm_router.vhd
+# Compile Entity "norm_router"
+# Compile Architecture "arch" of Entity "norm_router"
+# Compile success 0 Errors 0 Warnings  Analysis time :  94.0 [ms]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/norm_router.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\norm_router.vhd
+# Compile Entity "norm_router"
+# Compile Architecture "arch" of Entity "norm_router"
 # Compile success 0 Errors 0 Warnings  Analysis time :  0.1 [s]
-acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/weights_router.vhd
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/filter_accumulator.vhd
 # Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\weights_router.vhd
-# Compile Entity "weights_router"
-# Compile Architecture "arch" of Entity "weights_router"
-# Error: COMP96_0617: weights_router.vhd : (93, 27): Assignment target incompatible with right side. Cannot convert 'STD_ULOGIC' to 'STD_LOGIC_VECTOR'.
-# Compile failure 1 Errors 0 Warnings  Analysis time :  31.0 [ms]
-acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/weights_router.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\weights_router.vhd
-# Compile Entity "weights_router"
-# Compile Architecture "arch" of Entity "weights_router"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\filter_accumulator.vhd
+# Compile Entity "filter_accumulator"
+# Compile Architecture "arch" of Entity "filter_accumulator"
 # Compile success 0 Errors 0 Warnings  Analysis time :  0.1 [s]
-# filter_top.bde: Updating instances of symbol 'weights_router' from library 'Convolution_Layer' (WEIGHTS_ROW_ROUTER)
-acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/weights_router.vhd
+# filter_top.bde: Updating instances of symbol 'filter_accumulator' from library 'Convolution_Layer' (FILTER_ACCUMULATOR_UNIT)
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/accumulator_relay.vhd
 # Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\weights_router.vhd
-# Compile Entity "weights_router"
-# Compile Architecture "arch" of Entity "weights_router"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\accumulator_relay.vhd
+# Compile Entity "accumulator_relay"
+# Compile Architecture "arch" of Entity "accumulator_relay"
 # Compile success 0 Errors 0 Warnings  Analysis time :  0.1 [s]
-# filter_top.bde: Updating instances of symbol 'weights_router' from library 'Convolution_Layer' (WEIGHTS_ROW_ROUTER)
-acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/weights_router.vhd
+# filter_top.bde: Updating instances of symbol 'accumulator_relay' from library 'Convolution_Layer' (ACCUMULATOR_RELAY_UNIT)
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/normalizer.bde
+# DRC: Checking file 'c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\normalizer.bde'.
+# DRC: Warning: normalizer.bde - 0 error(s), 10 warning(s)
+# DRC: DRC process completed in 2 second(s).
+# DRC: The results have been written to the log file. Double click on this line to view the log.
+# Generating c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\compile\normalizer.vhd from c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\normalizer.bde ...
+# Generation successful
 # Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\weights_router.vhd
-# Compile Entity "weights_router"
-# Compile Architecture "arch" of Entity "weights_router"
+# File: .\..\compile\normalizer.vhd
+# Compile Entity "normalizer"
+# Compile Architecture "arch" of Entity "normalizer"
 # Compile success 0 Errors 0 Warnings  Analysis time :  0.1 [s]
-# filter_top.bde: Updating instances of symbol 'weights_router' from library 'Convolution_Layer' (WEIGHTS_ROW_ROUTER)
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/norm_router.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\norm_router.vhd
+# Compile Entity "norm_router"
+# Compile Architecture "arch" of Entity "norm_router"
+# Compile success 0 Errors 0 Warnings  Analysis time :  0.1 [s]
+# normalizer.bde: Updating instances of symbol 'norm_router' from library 'Convolution_Layer' (ROUTER)
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/normalizer.bde
+# DRC: Checking file 'c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\normalizer.bde'.
+# DRC: Warning: normalizer.bde - 0 error(s), 10 warning(s)
+# DRC: DRC process completed in 1 second(s).
+# DRC: The results have been written to the log file. Double click on this line to view the log.
+# Generating c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\compile\normalizer.vhd from c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\normalizer.bde ...
+# Generation successful
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: .\..\compile\normalizer.vhd
+# Compile Entity "normalizer"
+# Compile Architecture "arch" of Entity "normalizer"
+# Compile success 0 Errors 0 Warnings  Analysis time :  0.1 [s]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/normalizer.bde
+# DRC: Checking file 'c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\normalizer.bde'.
+# DRC: Warning: normalizer.bde - 0 error(s), 10 warning(s)
+# DRC: DRC process completed in 2 second(s).
+# DRC: The results have been written to the log file. Double click on this line to view the log.
+# Generating c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\compile\normalizer.vhd from c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\normalizer.bde ...
+# Generation successful
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: .\..\compile\normalizer.vhd
+# Compile Entity "normalizer"
+# Compile Architecture "arch" of Entity "normalizer"
+# Compile success 0 Errors 0 Warnings  Analysis time :  0.1 [s]
+# Convolution_Layer_Top.bde: Updating instances of symbol 'normalizer' from library 'Convolution_Layer' (U1)
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/norm_router.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\norm_router.vhd
+# Compile Entity "norm_router"
+# Compile Architecture "arch" of Entity "norm_router"
+# Compile success 0 Errors 0 Warnings  Analysis time :  94.0 [ms]
+# normalizer.bde: Updating instances of symbol 'norm_router' from library 'Convolution_Layer' (ROUTER)
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/normalizer.bde
+# DRC: Checking file 'c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\normalizer.bde'.
+# DRC: Warning: normalizer.bde - 0 error(s), 10 warning(s)
+# DRC: DRC process completed in 1 second(s).
+# DRC: The results have been written to the log file. Double click on this line to view the log.
+# Generating c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\compile\normalizer.vhd from c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\normalizer.bde ...
+# Generation successful
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: .\..\compile\normalizer.vhd
+# Compile Entity "normalizer"
+# Compile Architecture "arch" of Entity "normalizer"
+# Compile success 0 Errors 0 Warnings  Analysis time :  93.0 [ms]
+# Convolution_Layer_Top.bde: Updating instances of symbol 'normalizer' from library 'Convolution_Layer' (U1)
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/accumulator_relay.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\accumulator_relay.vhd
+# Compile Entity "accumulator_relay"
+# Compile Architecture "arch" of Entity "accumulator_relay"
+# Error: COMP96_0078: accumulator_relay.vhd : (103, 89): Unknown identifier "i_outbuff_prog_full".
+# Error: COMP96_0348: accumulator_relay.vhd : (103, 89): Name on sensitivity list must denote a signal.
+# Compile failure 2 Errors 0 Warnings  Analysis time :  62.0 [ms]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/accumulator_relay.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\accumulator_relay.vhd
+# Compile Entity "accumulator_relay"
+# Compile Architecture "arch" of Entity "accumulator_relay"
+# Compile success 0 Errors 0 Warnings  Analysis time :  93.0 [ms]
+# filter_top.bde: Updating instances of symbol 'accumulator_relay' from library 'Convolution_Layer' (ACCUMULATOR_RELAY_UNIT)
 acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/filter_top.bde
 # DRC: Checking file 'c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\filter_top.bde'.
-# DRC: Warning: filter_top.bde - 0 error(s), 22 warning(s)
+# DRC: Warning: filter_top.bde - 0 error(s), 29 warning(s)
 # DRC: DRC process completed in 2 second(s).
 # DRC: The results have been written to the log file. Double click on this line to view the log.
 # Generating c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\compile\filter_top.vhd from c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\filter_top.bde ...
@@ -323,85 +863,249 @@ acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/filter_top.bde
 # Compile Entity "filter_top"
 # Compile Architecture "arch" of Entity "filter_top"
 # Compile success 0 Errors 0 Warnings  Analysis time :  0.3 [s]
-acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/weights_router.vhd
+# Convolution_Layer_Top.bde: Updating instances of symbol 'filter_top' from library 'Convolution_Layer' (CONVOLUTION)
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/norm_router.vhd
 # Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\weights_router.vhd
-# Compile Entity "weights_router"
-# Compile Architecture "arch" of Entity "weights_router"
-# Error: COMP96_0078: weights_router.vhd : (228, 8): Unknown identifier "recycled_filter_data".
-# Error: COMP96_0133: weights_router.vhd : (228, 8): Cannot find object declaration.
-# Error: COMP96_0078: weights_router.vhd : (232, 8): Unknown identifier "recycled_filter_data".
-# Error: COMP96_0133: weights_router.vhd : (232, 8): Cannot find object declaration.
-# Error: COMP96_0078: weights_router.vhd : (232, 32): Unknown identifier "recycled_filter_data".
-# Compile failure 5 Errors 0 Warnings  Analysis time :  16.0 [ms]
-acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/weights_router.vhd
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\norm_router.vhd
+# Compile Entity "norm_router"
+# Error: COMP96_0018: norm_router.vhd : (70, 2): Identifier expected.
+# Compile Architecture "arch" of Entity "norm_router"
+# Error: COMP96_0078: norm_router.vhd : (113, 2): Unknown identifier "o_normalizer_ready".
+# Error: COMP96_0133: norm_router.vhd : (113, 2): Cannot find object declaration.
+# Error: COMP96_0078: norm_router.vhd : (138, 27): Unknown identifier "i_fresh_params".
+# Error: COMP96_0133: norm_router.vhd : (138, 27): Cannot find object declaration.
+# Error: COMP96_0077: norm_router.vhd : (138, 7): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0078: norm_router.vhd : (158, 8): Unknown identifier "i_input_data_valid".
+# Error: COMP96_0133: norm_router.vhd : (158, 8): Cannot find object declaration.
+# Error: COMP96_0077: norm_router.vhd : (158, 7): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0078: norm_router.vhd : (245, 9): Unknown identifier "i_input_data_valid".
+# Error: COMP96_0133: norm_router.vhd : (245, 9): Cannot find object declaration.
+# Error: COMP96_0077: norm_router.vhd : (245, 8): Undefined type of expression. Expected type 'BOOLEAN'.
+# Compile failure 12 Errors 0 Warnings  Analysis time :  31.0 [ms]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/norm_router.vhd
 # Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\weights_router.vhd
-# Compile Entity "weights_router"
-# Compile Architecture "arch" of Entity "weights_router"
-# Compile success 0 Errors 0 Warnings  Analysis time :  0.2 [s]
-acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/types_pkg.vhd
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\norm_router.vhd
+# Compile Entity "norm_router"
+# Compile Architecture "arch" of Entity "norm_router"
+# Error: COMP96_0078: norm_router.vhd : (125, 52): Unknown identifier "i_restart".
+# Error: COMP96_0348: norm_router.vhd : (125, 52): Name on sensitivity list must denote a signal.
+# Error: COMP96_0078: norm_router.vhd : (158, 8): Unknown identifier "i_input_data_valid".
+# Error: COMP96_0133: norm_router.vhd : (158, 8): Cannot find object declaration.
+# Error: COMP96_0077: norm_router.vhd : (158, 7): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0078: norm_router.vhd : (184, 8): Unknown identifier "i_restart".
+# Error: COMP96_0133: norm_router.vhd : (184, 8): Cannot find object declaration.
+# Error: COMP96_0077: norm_router.vhd : (184, 7): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0078: norm_router.vhd : (245, 9): Unknown identifier "i_input_data_valid".
+# Error: COMP96_0133: norm_router.vhd : (245, 9): Cannot find object declaration.
+# Error: COMP96_0077: norm_router.vhd : (245, 8): Undefined type of expression. Expected type 'BOOLEAN'.
+# Compile failure 11 Errors 0 Warnings  Analysis time :  31.0 [ms]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/norm_router.vhd
 # Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\types_pkg.vhd
-# Compile Package "types_pkg"
-# Compile success 0 Errors 0 Warnings  Analysis time :  47.0 [ms]
-acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/accumulator.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\accumulator.vhd
-# Compile Entity "accumulator"
-# Compile Architecture "arch" of Entity "accumulator"
-# Error: COMP96_0019: accumulator.vhd : (58, 62): Keyword 'begin' expected.
-# Error: COMP96_0015: accumulator.vhd : (63, 8): ';' expected.
-# Error: COMP96_0016: accumulator.vhd : (63, 12): Design unit declaration expected.
-# Compile failure 3 Errors 0 Warnings  Analysis time :  31.0 [ms]
-acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/accumulator.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\accumulator.vhd
-# Compile Entity "accumulator"
-# Compile Architecture "arch" of Entity "accumulator"
-# Error: COMP96_0019: accumulator.vhd : (58, 62): Keyword 'begin' expected.
-# Error: COMP96_0015: accumulator.vhd : (63, 8): ';' expected.
-# Error: COMP96_0016: accumulator.vhd : (63, 12): Design unit declaration expected.
-# Compile failure 3 Errors 0 Warnings  Analysis time :  16.0 [ms]
-acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/accumulator.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\accumulator.vhd
-# Compile Entity "accumulator"
-# Compile Architecture "arch" of Entity "accumulator"
-# Error: COMP96_0031: accumulator.vhd : (61, 13): Simple expression expected.
-# Compile failure 1 Errors 0 Warnings  Analysis time :  31.0 [ms]
-acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/accumulator.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\accumulator.vhd
-# Compile Entity "accumulator"
-# Compile Architecture "arch" of Entity "accumulator"
-# Compile success 0 Errors 0 Warnings  Analysis time :  0.1 [s]
-acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/accumulator.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\accumulator.vhd
-# Compile Entity "accumulator"
-# Compile Architecture "arch" of Entity "accumulator"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\norm_router.vhd
+# Compile Entity "norm_router"
+# Compile Architecture "arch" of Entity "norm_router"
 # Compile success 0 Errors 0 Warnings  Analysis time :  93.0 [ms]
-# filter_top.bde: Updating instances of symbol 'accumulator' from library 'Convolution_Layer' (DSP_ACCUMULATOR)
-acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/accumulator.vhd
+# normalizer.bde: Updating instances of symbol 'norm_router' from library 'Convolution_Layer' (ROUTER)
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/normalizer.bde
+# DRC: Checking file 'c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\normalizer.bde'.
+# DRC: Warning: normalizer.bde - 0 error(s), 10 warning(s)
+# DRC: DRC process completed in 1 second(s).
+# DRC: The results have been written to the log file. Double click on this line to view the log.
+# Generating c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\compile\normalizer.vhd from c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\normalizer.bde ...
+# Generation successful
 # Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\accumulator.vhd
-# Compile Entity "accumulator"
-# Compile Architecture "arch" of Entity "accumulator"
-# Error: COMP96_0617: accumulator.vhd : (65, 16): Assignment target incompatible with right side. Cannot convert 'UNSIGNED' to 'STD_LOGIC_VECTOR'.
-# Error: COMP96_0071: accumulator.vhd : (95, 33): Operator "=" is not defined for such operands.
-# Error: COMP96_0077: accumulator.vhd : (95, 7): Undefined type of expression. Expected type 'BOOLEAN'.
-# Compile failure 3 Errors 0 Warnings  Analysis time :  31.0 [ms]
-acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/accumulator.vhd
+# File: .\..\compile\normalizer.vhd
+# Compile Entity "normalizer"
+# Compile Architecture "arch" of Entity "normalizer"
+# Compile success 0 Errors 0 Warnings  Analysis time :  0.1 [s]
+# Convolution_Layer_Top.bde: Updating instances of symbol 'normalizer' from library 'Convolution_Layer' (U1)
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/accumulator_relay.vhd
 # Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\accumulator.vhd
-# Compile Entity "accumulator"
-# Compile Architecture "arch" of Entity "accumulator"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\accumulator_relay.vhd
+# Compile Entity "accumulator_relay"
+# Compile Architecture "arch" of Entity "accumulator_relay"
+# Compile success 0 Errors 0 Warnings  Analysis time :  78.0 [ms]
+# filter_top.bde: Updating instances of symbol 'accumulator_relay' from library 'Convolution_Layer' (ACCUMULATOR_RELAY_UNIT)
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/filter_top.bde
+# DRC: Checking file 'c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\filter_top.bde'.
+# DRC: Warning: filter_top.bde - 0 error(s), 29 warning(s)
+# DRC: DRC process completed in 1 second(s).
+# DRC: The results have been written to the log file. Double click on this line to view the log.
+# Generating c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\compile\filter_top.vhd from c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\filter_top.bde ...
+# Generation successful
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: .\..\compile\filter_top.vhd
+# Compile Entity "filter_top"
+# Compile Architecture "arch" of Entity "filter_top"
+# Compile success 0 Errors 0 Warnings  Analysis time :  0.1 [s]
+# Convolution_Layer_Top.bde: Updating instances of symbol 'filter_top' from library 'Convolution_Layer' (CONVOLUTION)
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/norm_router.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\norm_router.vhd
+# Compile Entity "norm_router"
+# Error: COMP96_0018: norm_router.vhd : (72, 2): Identifier expected.
+# Compile Architecture "arch" of Entity "norm_router"
+# Error: COMP96_0078: norm_router.vhd : (107, 2): Unknown identifier "o_normalized_data_valid".
+# Error: COMP96_0133: norm_router.vhd : (107, 2): Cannot find object declaration.
+# Compile failure 3 Errors 0 Warnings  Analysis time :  32.0 [ms]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/norm_router.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\norm_router.vhd
+# Compile Entity "norm_router"
+# Error: COMP96_0018: norm_router.vhd : (72, 2): Identifier expected.
+# Compile Architecture "arch" of Entity "norm_router"
+# Error: COMP96_0078: norm_router.vhd : (107, 2): Unknown identifier "o_normalized_data_valid".
+# Error: COMP96_0133: norm_router.vhd : (107, 2): Cannot find object declaration.
+# Compile failure 3 Errors 0 Warnings  Analysis time :  16.0 [ms]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/norm_router.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\norm_router.vhd
+# Compile Entity "norm_router"
+# Compile Architecture "arch" of Entity "norm_router"
+# Compile success 0 Errors 0 Warnings  Analysis time :  93.0 [ms]
+# DRC: Checking file 'c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\normalizer.bde'.
+# DRC: Warning: normalizer.bde - 0 error(s), 10 warning(s)
+# DRC: DRC process completed in 1 second(s).
+# DRC: The results have been written to the log file. Double click on this line to view the log.
+# Generating c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\compile\normalizer.vhd from c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\normalizer.bde ...
+# Generation successful
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: .\..\compile\normalizer.vhd
+# Compile Entity "normalizer"
+# Compile Architecture "arch" of Entity "normalizer"
+# Warning: ELAB1_0026: normalizer.bde(normalizer.vhd) : (168, 0): There is no default binding for component "norm_router". (Port "o_done" is not on the entity).
+# Compile success 0 Errors 1 Warnings  Analysis time :  0.1 [s]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/norm_router.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\norm_router.vhd
+# Compile Entity "norm_router"
+# Compile Architecture "arch" of Entity "norm_router"
+# Compile success 0 Errors 0 Warnings  Analysis time :  0.1 [s]
+# normalizer.bde: Updating instances of symbol 'norm_router' from library 'Convolution_Layer' (ROUTER)
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/normalizer.bde
+# DRC: Checking file 'c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\normalizer.bde'.
+# DRC: Warning: normalizer.bde - 0 error(s), 10 warning(s)
+# DRC: DRC process completed in 1 second(s).
+# DRC: The results have been written to the log file. Double click on this line to view the log.
+# Generating c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\compile\normalizer.vhd from c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\normalizer.bde ...
+# Generation successful
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: .\..\compile\normalizer.vhd
+# Compile Entity "normalizer"
+# Compile Architecture "arch" of Entity "normalizer"
+# Compile success 0 Errors 0 Warnings  Analysis time :  0.1 [s]
+# Convolution_Layer_Top.bde: Updating instances of symbol 'normalizer' from library 'Convolution_Layer' (U1)
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/norm_router.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\norm_router.vhd
+# Compile Entity "norm_router"
+# Compile Architecture "arch" of Entity "norm_router"
+# Compile success 0 Errors 0 Warnings  Analysis time :  78.0 [ms]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/normalizer.bde
+# DRC: Checking file 'c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\normalizer.bde'.
+# DRC: Warning: normalizer.bde - 0 error(s), 10 warning(s)
+# DRC: DRC process completed in 1 second(s).
+# DRC: The results have been written to the log file. Double click on this line to view the log.
+# Generating c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\compile\normalizer.vhd from c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\normalizer.bde ...
+# Generation successful
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: .\..\compile\normalizer.vhd
+# Compile Entity "normalizer"
+# Compile Architecture "arch" of Entity "normalizer"
+# Compile success 0 Errors 0 Warnings  Analysis time :  94.0 [ms]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/filter_top.bde
+# DRC: Checking file 'c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\filter_top.bde'.
+# DRC: Warning: filter_top.bde - 0 error(s), 29 warning(s)
+# DRC: DRC process completed in 2 second(s).
+# DRC: The results have been written to the log file. Double click on this line to view the log.
+# Generating c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\compile\filter_top.vhd from c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\filter_top.bde ...
+# Generation successful
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: .\..\compile\filter_top.vhd
+# Compile Entity "filter_top"
+# Compile Architecture "arch" of Entity "filter_top"
 # Compile success 0 Errors 0 Warnings  Analysis time :  0.2 [s]
-# filter_top.bde: Updating instances of symbol 'accumulator' from library 'Convolution_Layer' (DSP_ACCUMULATOR)
-acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/accumulator.vhd
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/relu_unit.vhd
 # Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\accumulator.vhd
-# Compile Entity "accumulator"
-# Compile Architecture "arch" of Entity "accumulator"
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\relu_unit.vhd
+# Compile Entity "relu_unit"
+# Compile Architecture "arch" of Entity "relu_unit"
+# Compile success 0 Errors 0 Warnings  Analysis time :  0.1 [s]
+# Convolution_Layer_Top.bde: Updating instances of symbol 'relu_unit' from library 'Convolution_Layer' (RELU_ACTIVATION)
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/norm_router.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\norm_router.vhd
+# Compile Entity "norm_router"
+# Compile Architecture "arch" of Entity "norm_router"
+# Error: COMP96_0078: norm_router.vhd : (183, 8): Unknown identifier "i_outbuff_prog_full".
+# Error: COMP96_0133: norm_router.vhd : (183, 8): Cannot find object declaration.
+# Error: COMP96_0077: norm_router.vhd : (183, 7): Undefined type of expression. Expected type 'BOOLEAN'.
+# Compile failure 3 Errors 0 Warnings  Analysis time :  31.0 [ms]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/norm_router.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\norm_router.vhd
+# Compile Entity "norm_router"
+# Compile Architecture "arch" of Entity "norm_router"
+# Compile success 0 Errors 0 Warnings  Analysis time :  0.1 [s]
+# normalizer.bde: Updating instances of symbol 'norm_router' from library 'Convolution_Layer' (ROUTER)
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/normalizer.bde
+# DRC: Checking file 'c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\normalizer.bde'.
+# DRC: Warning: normalizer.bde - 0 error(s), 10 warning(s)
+# DRC: DRC process completed in 2 second(s).
+# DRC: The results have been written to the log file. Double click on this line to view the log.
+# Generating c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\compile\normalizer.vhd from c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\normalizer.bde ...
+# Generation successful
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: .\..\compile\normalizer.vhd
+# Compile Entity "normalizer"
+# Compile Architecture "arch" of Entity "normalizer"
+# Compile success 0 Errors 0 Warnings  Analysis time :  0.1 [s]
+# Convolution_Layer_Top.bde: Updating instances of symbol 'normalizer' from library 'Convolution_Layer' (BATCH_NORMALIZER)
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/relu_unit.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\relu_unit.vhd
+# Compile Entity "relu_unit"
+# Compile Architecture "arch" of Entity "relu_unit"
+# Compile success 0 Errors 0 Warnings  Analysis time :  78.0 [ms]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/normalizer.bde
+# DRC: Checking file 'c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\normalizer.bde'.
+# DRC: Warning: normalizer.bde - 0 error(s), 10 warning(s)
+# DRC: DRC process completed in 1 second(s).
+# DRC: The results have been written to the log file. Double click on this line to view the log.
+# Generating c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\compile\normalizer.vhd from c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\normalizer.bde ...
+# Generation successful
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: .\..\compile\normalizer.vhd
+# Compile Entity "normalizer"
+# Compile Architecture "arch" of Entity "normalizer"
+# Compile success 0 Errors 0 Warnings  Analysis time :  94.0 [ms]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/filter_top.bde
+# DRC: Checking file 'c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\filter_top.bde'.
+# DRC: Warning: filter_top.bde - 0 error(s), 29 warning(s)
+# DRC: DRC process completed in 2 second(s).
+# DRC: The results have been written to the log file. Double click on this line to view the log.
+# Generating c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\compile\filter_top.vhd from c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\filter_top.bde ...
+# Generation successful
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: .\..\compile\filter_top.vhd
+# Compile Entity "filter_top"
+# Compile Architecture "arch" of Entity "filter_top"
+# Compile success 0 Errors 0 Warnings  Analysis time :  0.2 [s]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/Convolution_Layer_Top.bde
+# DRC: Checking file 'c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\Convolution_Layer_Top.bde'.
+# DRC: Warning: Convolution_Layer_Top.bde - 0 error(s), 40 warning(s)
+# DRC: DRC process completed in 2 second(s).
+# DRC: The results have been written to the log file. Double click on this line to view the log.
+# Generating c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\compile\Convolution_Layer_Top.vhd from c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\Convolution_Layer_Top.bde ...
+# Generation successful
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: .\..\compile\Convolution_Layer_Top.vhd
+# Compile Entity "Convolution_Layer_Top"
+# Compile Architecture "arch" of Entity "Convolution_Layer_Top"
+# Compile success 0 Errors 0 Warnings  Analysis time :  0.2 [s]
+acom -O3 -e 100 -work Convolution_Layer -2002  $dsn/src/input_fifo_net_controller.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\input_fifo_net_controller.vhd
+# Compile Entity "input_fifo_net_controller"
+# Compile Architecture "arch" of Entity "input_fifo_net_controller"
 # Compile success 0 Errors 0 Warnings  Analysis time :  0.2 [s]

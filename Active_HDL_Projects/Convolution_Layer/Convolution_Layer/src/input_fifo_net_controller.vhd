@@ -111,12 +111,6 @@ architecture arch of input_fifo_net_controller is
 type dsps_11x11 is array (g_num_11_filters-1 downto 0) of integer range 0 to 219;
 constant base_volume_fifo_11x11 : dsps_11x11 := (0,11,22,33,44,55,66,77,88,99,110,121,132,143,154,165,176,187);	  
 
---type dsps_7x7 is array (g_num_11_filters-1 downto 0) of unsigned(7 downto 0);
---constant base_volume_fifo_11x11 : dsps_11x11 := (0,7,14,21,28,35,42,49,56,63,70,77,84,91,98,105,112,119,126,133,140,147,154);	  
---
---type dsps_3x3 is array (g_num_11_filters-1 downto 0) of unsigned(7 downto 0);
---constant base_volume_fifo_11x11 : dsps_11x11 := (0,11,22,33,44,55,66,77,88,99,110,121,132,143,154,165,176,187);	  
-
 type state_type is (IDLE, IS_NET_READY, CALC_PARAMETERS, FETCH_AND_LOAD_WEIGHTS, PAD_VOLUME_TOP, FETCH_VOLUME, PAD_VOLUME_BOTTOM, CONVOLUTION); 
 signal current_state 				: state_type; 
 signal next_state 					: state_type;  

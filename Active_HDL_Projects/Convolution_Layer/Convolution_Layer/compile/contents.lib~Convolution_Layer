@@ -1,8 +1,10 @@
-916
+1180
 ~E 1 "./../src/accumulator.vhd" 33 accumulator
 ~A 1 "./../src/accumulator.vhd" 54 arch
 ~E 1 "./../src/accumulator_relay.vhd" 29 accumulator_relay
-~A 1 "./../src/accumulator_relay.vhd" 51 arch
+~A 1 "./../src/accumulator_relay.vhd" 63 arch
+~E 1 "./../src/conv_fp_multiplier.vhd" 43 conv_fp_multiplier
+~A 1 "./../src/conv_fp_multiplier.vhd" 52 conv_fp_multiplier_a
 ~E 1 "./../src/conv_input_buffer.vhd" 43 conv_input_buffer
 ~A 1 "./../src/conv_input_buffer.vhd" 64 conv_input_buffer_a
 ~E 1 "./../src/conv_multiplier.vhd" 43 conv_multiplier
@@ -12,13 +14,21 @@
 ~E 1 "./../src/Convolution_Controller.vhd" 29 Convolution_Controller
 ~A 1 "./../src/Convolution_Controller.vhd" 116 arch
 ~E 1 "./../compile/Convolution_Layer_Top.vhd" 28 Convolution_Layer_Top
-~A 1 "./../compile/Convolution_Layer_Top.vhd" 53 arch
+~A 1 "./../compile/Convolution_Layer_Top.vhd" 51 arch
+~E 1 "./../src/divider_fp.vhd" 43 divider_fp
+~A 1 "./../src/divider_fp.vhd" 61 divider_fp_a
+~E 1 "./../src/divider_multiplier.vhd" 43 divider_multiplier
+~A 1 "./../src/divider_multiplier.vhd" 52 divider_multiplier_a
+~E 1 "./../src/divider_subract_shift.vhd" 30 divider_subract_shift
+~A 1 "./../src/divider_subract_shift.vhd" 58 arch
+~E 1 "./../compile/division_by_mutiplication.vhd" 28 division_by_mutiplication
+~A 1 "./../compile/division_by_mutiplication.vhd" 47 arch
 ~E 1 "./../src/filter_accumulator.vhd" 30 filter_accumulator
-~A 1 "./../src/filter_accumulator.vhd" 53 arch
+~A 1 "./../src/filter_accumulator.vhd" 60 arch
 ~E 1 "./../src/filter_accumulator_fifo.vhd" 43 filter_accumulator_fifo
 ~A 1 "./../src/filter_accumulator_fifo.vhd" 63 filter_accumulator_fifo_a
 ~E 1 "./../compile/filter_top.vhd" 48 filter_top
-~A 1 "./../compile/filter_top.vhd" 85 arch
+~A 1 "./../compile/filter_top.vhd" 84 arch
 ~E 1 "./../src/filter_weight_controller.vhd" 29 filter_weight_controller
 ~A 1 "./../src/filter_weight_controller.vhd" 84 arch
 ~E 1 "./../src/input_fifo_net_controller.vhd" 34 input_fifo_net_controller
@@ -37,10 +47,16 @@
 ~A 1 "./../src/input_fifo_network.vhd" 64 input_network_fifo_a
 ~E 1 "./../compile/multiplier_10.vhd" 28 multiplier_bank
 ~A 1 "./../compile/multiplier_bank.vhd" 69 arch
+~E 1 "./../src/norm_router.vhd" 29 norm_router
+~A 1 "./../src/norm_router.vhd" 74 arch
+~E 1 "./../compile/normalizer.vhd" 28 normalizer
+~A 1 "./../compile/normalizer.vhd" 52 arch
 ~E 1 "./../compile/output_fifo_network.vhd" 28 output_fifo_network
 ~A 1 "./../compile/output_fifo_network.vhd" 31 arch
-~E 1 "./../src/relu_unit.vhd" 30 relu_unit
-~A 1 "./../src/relu_unit.vhd" 54 arch
+~E 1 "./../src/relu_unit.vhd" 27 relu_unit
+~A 1 "./../src/relu_unit.vhd" 55 arch
+~E 1 "./../src/square_root_fp.vhd" 43 square_root_fp
+~A 1 "./../src/square_root_fp.vhd" 59 square_root_fp_a
 ~E 1 "./../src/volume_mux.vhd" 28 volume_mux
 ~A 1 "./../src/volume_mux.vhd" 66 arch
 ~E 1 "./../src/volume_router.vhd" 30 volume_router

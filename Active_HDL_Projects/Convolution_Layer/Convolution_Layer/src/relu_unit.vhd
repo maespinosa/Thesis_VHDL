@@ -18,9 +18,6 @@
 --
 -------------------------------------------------------------------------------
 
---{{ Section below this comment is automatically maintained
---   and may be overwritten
---{entity {relu_unit} architecture {arch}}
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;  
@@ -37,23 +34,63 @@ entity relu_unit is
 	i_reset_n				: in std_logic; 
 	i_relu_en				: in std_logic; 
 	i_enable				: in std_logic; 
-	i_conv_out 				: in std_logic_vector(g_conv_width-1 downto 0); 	 	
+	i_normalized_data  		: in std_logic_vector(g_conv_width-1 downto 0); 	 	
 	i_fifo_full				: in std_logic; 
 	i_fifo_almost_full 		: in std_logic; 
 	i_fifo_prog_full		: in std_logic; 
 	
+	i_normalized_data_valid : in std_logic; 
+	
 	o_relu_out 				: out std_logic_vector(g_relu_width-1 downto 0); 
 	o_wr_en 				: out std_logic; 	  
-	o_fifo_prog_full_thresh : out std_logic_vector(9 downto 0)
+	o_fifo_prog_full_thresh : out std_logic_vector(9 downto 0); 
+	
+	o_outbuff_prog_full		: out std_logic
 	); 
 	
 end relu_unit;
 
---}} End of automatically maintained section
+
 
 architecture arch of relu_unit is
 begin
-
-	 -- enter your statements here --
-
+	
+	activation: process(i_fifo_prog_full,i_enable, i_relu_en,i_normalized_data_valid,i_normalized_data) is 
+	begin
+		
+		o_outbuff_prog_full <= i_fifo_prog_full;
+		o_fifo_prog_full_thresh <= (others => '1'); 
+		
+		
+		if(i_enable = '1') then    
+			if(i_relu_en = '1') then  
+				if(i_fifo_prog_full = '0' and i_normalized_data_valid = '1') then  
+					if(signed(i_normalized_data) >= 0) then 
+						o_relu_out <= i_normalized_data; 
+						o_wr_en <= i_normalized_data_valid; 
+					else 
+						o_relu_out <= (others => '0'); 
+						o_wr_en <= '1';  
+					end if; 
+				else 
+					o_relu_out <= (others => '0'); 
+					o_wr_en <= '0';  
+				end if; 
+			else
+				if(i_fifo_prog_full = '0' and i_normalized_data_valid = '1') then  
+					o_relu_out <= i_normalized_data; 
+					o_wr_en <= i_normalized_data_valid; 
+				else 
+					o_relu_out <= (others => '0'); 
+					o_wr_en <= '0';  
+				end if; 	
+			end if; 
+		else 
+			o_relu_out <= (others => '0'); 
+			o_wr_en <= '0'; 
+		end if; 
+		
+		
+	end process; 
+	
 end arch;

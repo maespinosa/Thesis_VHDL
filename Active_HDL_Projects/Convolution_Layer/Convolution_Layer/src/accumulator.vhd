@@ -41,7 +41,7 @@ entity accumulator is
 	i_reset_n 				: in std_logic; 
 	i_enable				: in std_logic; 
 	
-	i_products_array		: in array_type_varx64bit(g_dsps_used-1 downto 0); 
+	i_products_array		: in array_type_varx32bit(g_dsps_used-1 downto 0); 
 	i_products_array_valid 	: in std_logic_vector(g_dsps_used-1 downto 0); 
 	i_filter_size			: in std_logic_vector(3 downto 0); 
 	o_acc_valid				: out std_logic; 
