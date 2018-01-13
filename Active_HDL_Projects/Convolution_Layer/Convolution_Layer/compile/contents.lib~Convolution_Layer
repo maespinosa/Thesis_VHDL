@@ -1,6 +1,6 @@
-1180
+1683
 ~E 1 "./../src/accumulator.vhd" 33 accumulator
-~A 1 "./../src/accumulator.vhd" 54 arch
+~A 1 "./../src/accumulator.vhd" 55 arch
 ~E 1 "./../src/accumulator_relay.vhd" 29 accumulator_relay
 ~A 1 "./../src/accumulator_relay.vhd" 63 arch
 ~E 1 "./../src/conv_fp_multiplier.vhd" 43 conv_fp_multiplier
@@ -23,16 +23,22 @@
 ~A 1 "./../src/divider_subract_shift.vhd" 58 arch
 ~E 1 "./../compile/division_by_mutiplication.vhd" 28 division_by_mutiplication
 ~A 1 "./../compile/division_by_mutiplication.vhd" 47 arch
+~E 1 "./../src/exponential_function.vhd" 29 exponential_function
+~A 1 "./../src/exponential_function.vhd" 47 arch
+~E 1 "./../src/exponential_multiplier.vhd" 43 exponential_multiplier
+~A 1 "./../src/exponential_multiplier.vhd" 52 exponential_multiplier_a
 ~E 1 "./../src/filter_accumulator.vhd" 30 filter_accumulator
 ~A 1 "./../src/filter_accumulator.vhd" 60 arch
 ~E 1 "./../src/filter_accumulator_fifo.vhd" 43 filter_accumulator_fifo
 ~A 1 "./../src/filter_accumulator_fifo.vhd" 63 filter_accumulator_fifo_a
 ~E 1 "./../compile/filter_top.vhd" 48 filter_top
-~A 1 "./../compile/filter_top.vhd" 84 arch
+~A 1 "./../compile/filter_top.vhd" 83 arch
+~E 1 "./../src/filter_top_tb.vhd" 34 filter_top_tb
+~A 1 "./../src/filter_top_tb.vhd" 39 arch
 ~E 1 "./../src/filter_weight_controller.vhd" 29 filter_weight_controller
 ~A 1 "./../src/filter_weight_controller.vhd" 84 arch
 ~E 1 "./../src/input_fifo_net_controller.vhd" 34 input_fifo_net_controller
-~A 1 "./../src/input_fifo_net_controller.vhd" 108 arch
+~A 1 "./../src/input_fifo_net_controller.vhd" 110 arch
 ~E 1 "./../compile/input_fifo_network.vhd" 28 input_fifo_network
 ~A 1 "./../compile/input_fifo_network.vhd" 64 arch
 ~E 1 "./../compile/input_fifo_network_11.vhd" 28 input_fifo_network_11
@@ -57,8 +63,10 @@
 ~A 1 "./../src/relu_unit.vhd" 55 arch
 ~E 1 "./../src/square_root_fp.vhd" 43 square_root_fp
 ~A 1 "./../src/square_root_fp.vhd" 59 square_root_fp_a
+~E 1 "./../src/Testbench_BRAM.vhd" 43 Testbench_BRAM
+~A 1 "./../src/Testbench_BRAM.vhd" 53 Testbench_BRAM_a
 ~E 1 "./../src/volume_mux.vhd" 28 volume_mux
-~A 1 "./../src/volume_mux.vhd" 66 arch
+~A 1 "./../src/volume_mux.vhd" 63 arch
 ~E 1 "./../src/volume_router.vhd" 30 volume_router
 ~A 1 "./../src/volume_router.vhd" 70 arch
 ~E 1 "./../src/weight_fifo.vhd" 43 weight_fifo

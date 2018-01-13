@@ -8,7 +8,7 @@
 -------------------------------------------------------------------------------
 --
 -- File        : c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\compile\Convolution_Layer_Top.vhd
--- Generated   : Sun Oct  1 17:10:11 2017
+-- Generated   : Tue Dec 12 02:00:15 2017
 -- From        : c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\Convolution_Layer_Top.bde
 -- By          : Bde2Vhdl ver. 2.6
 --
@@ -180,11 +180,10 @@ component filter_top
        i_reset_n : in STD_LOGIC;
        i_start : in STD_LOGIC;
        i_stride : in STD_LOGIC_VECTOR(3 downto 0);
-       i_weight_filter_bytes : in STD_LOGIC_VECTOR(31 downto 0);
        i_weight_filter_channels : in STD_LOGIC_VECTOR(11 downto 0);
        i_weight_filter_size : in STD_LOGIC_VECTOR(3 downto 0);
        o_conv_data_valid : out STD_LOGIC;
-       o_conv_volume_out : out STD_LOGIC_VECTOR(31 downto 0);
+       o_conv_volume_out : out STD_LOGIC_VECTOR(g_data_width-1 downto 0);
        o_inbuff_prog_empty_thresh : out STD_LOGIC_VECTOR(9 downto 0);
        o_inbuff_rd_en : out STD_LOGIC
   );
@@ -250,8 +249,6 @@ signal inbuff_rd_en : STD_LOGIC;
 signal inbuff_valid : STD_LOGIC;
 signal inbuff_wr_en : STD_LOGIC;
 signal i_fresh_params : STD_LOGIC;
-signal NET2508 : STD_LOGIC;
-signal NET861 : STD_LOGIC;
 signal normalized_data_valid : STD_LOGIC;
 signal normalizer_ready : STD_LOGIC;
 signal outbuff_almost_empty : STD_LOGIC;
@@ -261,8 +258,10 @@ signal outbuff_full : STD_LOGIC;
 signal outbuff_prog_empty : STD_LOGIC;
 signal outbuff_prog_full : STD_LOGIC;
 signal outbuff_rd_en : STD_LOGIC;
+signal outbuff_valid : STD_LOGIC;
 signal outbuff_wr_en : STD_LOGIC;
 signal o_start : STD_LOGIC;
+signal relu_en : STD_LOGIC;
 signal BUS3154 : STD_LOGIC_VECTOR(11 downto 0);
 signal conv_volume_out : STD_LOGIC_VECTOR(g_conv_width-1 downto 0);
 signal inbuff_din : STD_LOGIC_VECTOR(g_data_width-1 downto 0);
@@ -327,38 +326,6 @@ CONVOLUTION : filter_top
        g_dsps_used => g_dsps_used
   )
   port map(
-       i_weight_filter_bytes(0) => Dangling_Input_Signal,
-       i_weight_filter_bytes(1) => Dangling_Input_Signal,
-       i_weight_filter_bytes(2) => Dangling_Input_Signal,
-       i_weight_filter_bytes(3) => Dangling_Input_Signal,
-       i_weight_filter_bytes(4) => Dangling_Input_Signal,
-       i_weight_filter_bytes(5) => Dangling_Input_Signal,
-       i_weight_filter_bytes(6) => Dangling_Input_Signal,
-       i_weight_filter_bytes(7) => Dangling_Input_Signal,
-       i_weight_filter_bytes(8) => Dangling_Input_Signal,
-       i_weight_filter_bytes(9) => Dangling_Input_Signal,
-       i_weight_filter_bytes(10) => Dangling_Input_Signal,
-       i_weight_filter_bytes(11) => Dangling_Input_Signal,
-       i_weight_filter_bytes(12) => Dangling_Input_Signal,
-       i_weight_filter_bytes(13) => Dangling_Input_Signal,
-       i_weight_filter_bytes(14) => Dangling_Input_Signal,
-       i_weight_filter_bytes(15) => Dangling_Input_Signal,
-       i_weight_filter_bytes(16) => Dangling_Input_Signal,
-       i_weight_filter_bytes(17) => Dangling_Input_Signal,
-       i_weight_filter_bytes(18) => Dangling_Input_Signal,
-       i_weight_filter_bytes(19) => Dangling_Input_Signal,
-       i_weight_filter_bytes(20) => Dangling_Input_Signal,
-       i_weight_filter_bytes(21) => Dangling_Input_Signal,
-       i_weight_filter_bytes(22) => Dangling_Input_Signal,
-       i_weight_filter_bytes(23) => Dangling_Input_Signal,
-       i_weight_filter_bytes(24) => Dangling_Input_Signal,
-       i_weight_filter_bytes(25) => Dangling_Input_Signal,
-       i_weight_filter_bytes(26) => Dangling_Input_Signal,
-       i_weight_filter_bytes(27) => Dangling_Input_Signal,
-       i_weight_filter_bytes(28) => Dangling_Input_Signal,
-       i_weight_filter_bytes(29) => Dangling_Input_Signal,
-       i_weight_filter_bytes(30) => Dangling_Input_Signal,
-       i_weight_filter_bytes(31) => Dangling_Input_Signal,
        i_clk => i_master_clk,
        i_enable => enable,
        i_inbuff_almost_empty => inbuff_almost_empty,
@@ -417,7 +384,7 @@ OUTPUT_BUFFER : conv_output_buffer
        rd_clk => i_master_clk,
        rd_en => outbuff_rd_en,
        rst => i_ext_reset_n,
-       valid => NET861,
+       valid => outbuff_valid,
        wr_clk => i_master_clk,
        wr_en => outbuff_wr_en
   );
@@ -435,7 +402,7 @@ RELU_ACTIVATION : relu_unit
        i_fifo_prog_full => outbuff_prog_full,
        i_normalized_data => normalized_data(g_norm_width-1 downto 0),
        i_normalized_data_valid => normalized_data_valid,
-       i_relu_en => NET2508,
+       i_relu_en => relu_en,
        i_reset_n => i_ext_reset_n,
        o_fifo_prog_full_thresh => outbuff_prog_full_thresh,
        o_outbuff_prog_full => outbuff_prog_full,
@@ -471,7 +438,7 @@ ROUTER : Convolution_Controller
        i_outbuff_full => outbuff_full,
        i_outbuff_prog_empty => outbuff_prog_empty,
        i_outbuff_prog_full => outbuff_prog_full,
-       i_outbuff_valid => NET861,
+       i_outbuff_valid => outbuff_valid,
        i_output_data_addr_reg => o_wd(31+32*3 downto 0+32*3),
        i_output_image_params_reg => o_wd(31+32*6 downto 0+32*6),
        i_slave_clk => i_slave_clk,
@@ -497,7 +464,7 @@ ROUTER : Convolution_Controller
        o_output_volume_channels => o_output_volume_channels,
        o_output_volume_size => o_output_volume_size,
        o_pad => o_pad,
-       o_relu_en => NET2508,
+       o_relu_en => relu_en,
        o_start => o_start,
        o_status_reg => i_rd(31+32*7 downto 0+32*7),
        o_stride => o_stride,

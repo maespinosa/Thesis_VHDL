@@ -26,9 +26,6 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.all;
 
 entity volume_mux is	
-	generic(
-	g_mux_id	: integer := 0
-	); 
 	port(
 	i_clk 					: in std_logic; 
 	i_reset_n 				: in std_logic;  
@@ -68,6 +65,8 @@ architecture arch of volume_mux is
 
 signal wr_en 	: std_logic; 
 signal data		: std_logic_vector(15 downto 0); 
+signal get_volume_row : std_logic; 
+
 
 begin 
 	
@@ -76,15 +75,21 @@ begin
 	o_prog_full_thresh 	<= i_fifo_prog_full_thresh; 
 	o_fifo_full			<= i_full; 
 	o_fifo_almost_full 	<= i_almost_full; 
-	o_fifo_prog_full 	<= i_prog_full; 
+	o_fifo_prog_full 	<= i_prog_full;    
+	o_get_volume_row 	<= get_volume_row; 
 	
 	
-	muxing: process(i_new_data_en,i_prev_data_en,i_recycled_data_en,i_fifo_we,i_new_data,i_prev_data,i_recycled_data_wr_en,i_recycled_data) is 
+	muxing: process(i_new_data_en,i_prev_data_en,i_recycled_data_en,i_fifo_we,i_new_data,i_prev_data,i_recycled_data_wr_en,i_recycled_data, get_volume_row) is 
 	begin  
+		
+		get_volume_row <= '0'; 	 
+		data <= (others => '0'); 
+		
 	
 		if(i_new_data_en = '1' and i_prev_data_en = '0' and i_recycled_data_en = '0') then   
 			wr_en <= i_fifo_we; 
-			data <= i_new_data;   
+			data <= i_new_data;    
+			get_volume_row <= '1'; 
 		elsif(i_new_data_en = '0' and i_prev_data_en = '1' and i_recycled_data_en = '0') then   
 			wr_en <=  i_prev_data_wr_en; 
 			data <= i_prev_data; 
@@ -92,8 +97,9 @@ begin
 			wr_en <= i_recycled_data_wr_en;
 			data <= i_recycled_data; 
 		else 
-			data <= data; 
-			wr_en <= '0'; 
+			data <= (others => '0'); 
+			wr_en <= '0';  
+			get_volume_row <= '1'; 
 		end if; 
 		
 	end process; 

@@ -32,8 +32,9 @@ use Convolution_Layer.types_pkg.all;
 
 entity accumulator is
 	generic( 
+	g_data_width  : integer := 16; 
 	g_product_width : integer := 32; 
-	g_accumulator_width	: integer := 64; 
+	g_accumulator_width	: integer := 32; 
 	g_dsps_used	: integer := 200
 	); 
 	port(
@@ -41,11 +42,11 @@ entity accumulator is
 	i_reset_n 				: in std_logic; 
 	i_enable				: in std_logic; 
 	
-	i_products_array		: in array_type_varx32bit(g_dsps_used-1 downto 0); 
+	i_products_array		: in array_type_varx16bit(g_dsps_used-1 downto 0); 
 	i_products_array_valid 	: in std_logic_vector(g_dsps_used-1 downto 0); 
 	i_filter_size			: in std_logic_vector(3 downto 0); 
 	o_acc_valid				: out std_logic; 
-	o_acc_data				: out std_logic_vector(g_accumulator_width-1 downto 0)
+	o_acc_data				: out std_logic_vector(g_data_width-1 downto 0)
 	); 
 end accumulator;
 
@@ -53,9 +54,9 @@ end accumulator;
 
 architecture arch of accumulator is	 
 
-signal dsp_sums : signed(g_accumulator_width-1 downto 0);   
+signal dsp_sums : signed(g_data_width-1 downto 0);   
 signal filter_element_counter : unsigned(3 downto 0); 
-signal kernel_sum : signed(g_accumulator_width-1 downto 0); 	 
+signal kernel_sum : signed(g_data_width-1 downto 0); 	 
 signal kernel_sum_valid : std_logic; 
 
 

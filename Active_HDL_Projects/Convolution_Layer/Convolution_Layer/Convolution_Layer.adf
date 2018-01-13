@@ -49,9 +49,19 @@ UCF=
 WindowVisible=0
 
 [HierarchyViewer]
-HierarchyInformation=convolution_controller|arch|0 
+HierarchyInformation=convolution_controller|arch|0
 ShowHide=ShowTopLevel
 Selected=
+
+
+
+
+
+
+
+
+
+
 
 [Files]
 /Convolution_Controller.vhd=-1
@@ -89,6 +99,11 @@ Selected=
 /normalizer.bde=-1
 /filter_top.bde=-1
 /Convolution_Layer_Top.bde=-1
+/exponential_function.vhd=-1
+/exponential_multiplier.vhd=-1
+/Testbench_BRAM.vhd=-1
+/Testbench_BRAM.mif=-1
+/filter_top_tb.vhd=-1
 
 [Files.Data]
 .\src\Convolution_Controller.vhd=VHDL Source Code
@@ -126,35 +141,40 @@ Selected=
 .\src\normalizer.bde=Block Diagram
 .\src\filter_top.bde=Block Diagram
 .\src\Convolution_Layer_Top.bde=Block Diagram
+.\src\exponential_function.vhd=VHDL Source Code
+.\src\exponential_multiplier.vhd=VHDL Source Code
+.\src\Testbench_BRAM.vhd=VHDL Source Code
+.\src\Testbench_BRAM.mif=Memory File
+.\src\filter_top_tb.vhd=VHDL Source Code
+.\compile\filter_top.vhd=VHDL Source Code
+.\compile\input_fifo_network.vhd=VHDL Source Code
+.\compile\output_fifo_network.vhd=VHDL Source Code
+.\compile\multiplier_bank.vhd=VHDL Source Code
+.\compile\input_fifo_network_7.vhd=VHDL Source Code
+.\compile\input_fifo_network_11.vhd=VHDL Source Code
+.\compile\input_fifo_network_3.vhd=VHDL Source Code
+.\compile\division_by_mutiplication.vhd=VHDL Source Code
+.\compile\normalizer.vhd=VHDL Source Code
+.\compile\Convolution_Layer_Top.vhd=VHDL Source Code
 
 [file_out:/input_fifo_network.bde]
 /..\compile\input_fifo_network.vhd=-1
-
 [file_out:/output_fifo_network.bde]
 /..\compile\output_fifo_network.vhd=-1
-
 [file_out:/multiplier_bank.bde]
 /..\compile\multiplier_bank.vhd=-1
 /..\compile\multiplier_10.vhd=-1
-
 [file_out:/input_fifo_network_7.bde]
 /..\compile\input_fifo_network_7.vhd=-1
-
 [file_out:/input_fifo_network_11.bde]
 /..\compile\input_fifo_network_11.vhd=-1
-
 [file_out:/input_fifo_network_3.bde]
 /..\compile\input_fifo_network_3.vhd=-1
-
 [file_out:/division_by_mutiplication.bde]
 /..\compile\division_by_mutiplication.vhd=-1
-
 [file_out:/normalizer.bde]
 /..\compile\normalizer.vhd=-1
-
 [file_out:/filter_top.bde]
 /..\compile\filter_top.vhd=-1
-
 [file_out:/Convolution_Layer_Top.bde]
 /..\compile\Convolution_Layer_Top.vhd=-1
-

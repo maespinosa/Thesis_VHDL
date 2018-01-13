@@ -62,7 +62,7 @@ entity input_fifo_net_controller is
 	i_weight_filter_size		: in std_logic_vector(3 downto 0); 
 	i_weight_filter_channels	: in std_logic_vector(11 downto 0); 
 	i_number_of_filters			: in std_logic_vector(11 downto 0);
-	i_weight_filter_bytes		: in std_logic_vector(31 downto 0); 
+	--i_weight_filter_bytes		: in std_logic_vector(31 downto 0); 
 	i_stride					: in std_logic_vector(3 downto 0); 
 	i_pad					    : in std_logic_vector(3 downto 0); 	
 	
@@ -98,6 +98,8 @@ entity input_fifo_net_controller is
 	
 	o_weights_new_data_en		: out std_logic_vector(g_dsps_used-1 downto 0); 
 	o_weights_recycled_data_en	: out std_logic_vector(g_dsps_used-1 downto 0); 
+	o_weights_prev_data_wr_en		: out std_logic_vector(g_dsps_used-1 downto 0);  
+	o_weights_prev_data_en	   	: out std_logic_vector(g_dsps_used-1 downto 0); 
 	o_all_channels_processed	: out std_logic
 	
 
@@ -109,7 +111,7 @@ architecture arch of input_fifo_net_controller is
 
 
 type dsps_11x11 is array (g_num_11_filters-1 downto 0) of integer range 0 to 219;
-constant base_volume_fifo_11x11 : dsps_11x11 := (0,11,22,33,44,55,66,77,88,99,110,121,132,143,154,165,176,187);	  
+--constant base_volume_fifo_11x11 : dsps_11x11 := (0,11,22,33,44,55,66,77,88,99,110,121,132,143,154,165,176,187);	  
 
 type state_type is (IDLE, IS_NET_READY, CALC_PARAMETERS, FETCH_AND_LOAD_WEIGHTS, PAD_VOLUME_TOP, FETCH_VOLUME, PAD_VOLUME_BOTTOM, CONVOLUTION); 
 signal current_state 				: state_type; 
@@ -121,7 +123,8 @@ signal weight_data 					: array_type_varx16bit(g_dsps_used-1 downto 0);
 
 signal input_volume_row_counter 	: unsigned(7 downto 0); 
 signal channel_counter				: unsigned(11 downto 0); 
-signal channels_remaining			: unsigned(11 downto 0); 	
+signal weight_channel_counter		: unsigned(11 downto 0); 
+--signal channels_remaining			: unsigned(11 downto 0); 	
 signal more_dsps_needed				: std_logic; 
 signal dsp_counter 					: unsigned(7 downto 0); 
 signal channels_allowed 			: unsigned(7 downto 0);
@@ -129,15 +132,15 @@ signal filter_row_counter 			: unsigned(3 downto 0);
 signal filter_column_counter 		: unsigned(3 downto 0);  
 signal filter_counter				: unsigned(11 downto 0); 
 		 
-signal volume_row_counter 			: unsigned(3 downto 0);  
-signal volume_column_counter 		: unsigned(3 downto 0);  
-signal volume_counter				: unsigned(11 downto 0); 
+--signal volume_row_counter 			: unsigned(3 downto 0);  
+--signal volume_column_counter 		: unsigned(3 downto 0);  
+--signal volume_counter				: unsigned(11 downto 0); 
 signal volume_fifo_wr_en			: std_logic_vector(g_dsps_used-1 downto 0);   
 signal volume_fifo_prog_full_thresh	: std_logic_vector(9 downto 0); 
 signal padded_volume_row_size 		: unsigned(7 downto 0); 
 signal padded_volume_column_size 	: unsigned(7 downto 0);  
 
-signal base_volume_fifo				: unsigned(7 downto 0); 
+--signal base_volume_fifo				: unsigned(7 downto 0); 
 
 signal volume_rows_processed 		: unsigned(7 downto 0); 
 signal volume_new_data_en			: std_logic_vector(g_dsps_used-1 downto 0);	 
@@ -145,12 +148,23 @@ signal volume_prev_data_en			: std_logic_vector(g_dsps_used-1 downto 0);
 signal volume_recycled_data_en		: std_logic_vector(g_dsps_used-1 downto 0);
 signal weights_new_data_en			: std_logic_vector(g_dsps_used-1 downto 0);
 signal weights_recycled_data_en		: std_logic_vector(g_dsps_used-1 downto 0);
+signal weight_fifo_wr_en			: std_logic_vector(g_dsps_used-1 downto 0); 
 signal stop_stack_en				: std_logic_vector(g_dsps_used-1 downto 0); 
 signal element_counter				: unsigned(7 downto 0); 
 signal pad_counter					: unsigned(3 downto 0);
 
 signal channels_processed			: unsigned(11 downto 0); 
 signal convolution_en				: std_logic; 
+signal pad_8bit						: std_logic_vector(7 downto 0);	
+signal pad_10bit					: std_logic_vector(9 downto 0); 
+signal input_volume_size_10bit 		: std_logic_vector(9 downto 0);   
+
+signal weights_prev_data_en	   		: std_logic_vector(g_dsps_used-1 downto 0); 
+signal weights_prev_data_wr_en	   		: std_logic_vector(g_dsps_used-1 downto 0);    
+
+signal all_channels_processed		: std_logic; 
+
+
 
 
 
@@ -179,7 +193,7 @@ begin
 	o_inbuff_rd_en 					<= inbuff_rd_en;  
 	o_volume_data 					<= volume_data; 
 	o_weight_data 					<= weight_data; 
-	o_inbuff_prog_empty_thresh  	<= std_logic_vector(to_unsigned(0,10)); 
+	o_inbuff_prog_empty_thresh  	<= std_logic_vector(to_unsigned(1000,10)); 
 	o_volume_new_data_en			<= volume_new_data_en;
 	o_volume_prev_data_en			<= volume_prev_data_en; 
 	o_volume_recycled_data_en		<= volume_recycled_data_en; 
@@ -190,9 +204,21 @@ begin
 	
 	o_volume_fifo_wr_en			 	<= volume_fifo_wr_en; 
 	o_volume_fifo_prog_full_thresh 	<= volume_fifo_prog_full_thresh;  
-	o_convolution_en 				<= convolution_en; 
+	o_convolution_en 				<= convolution_en; 	   
+	
+	o_weight_fifo_prog_full_thresh <= "1111000011110"; 
+	o_weight_fifo_wr_en <= weight_fifo_wr_en; 	
+	
+	o_weights_prev_data_en <= weights_prev_data_en; 
+	o_weights_prev_data_wr_en <= weights_prev_data_wr_en; 
+
 	
 	
+	pad_8bit <= "0000" & i_pad;    
+	pad_10bit <= "000000" & i_pad; 
+	input_volume_size_10bit <= "00" & i_input_volume_size; 
+	
+	o_all_channels_processed 		<= all_channels_processed; 
 	
 	
 	state_transitions: process(i_clk,i_reset_n) is 
@@ -206,7 +232,7 @@ begin
 	
 	
 	
- 	next_state_combinational: process(i_weight_filter_size,i_start,i_enable,i_get_volume_row, i_get_weight_row, filter_counter, i_number_of_filters,i_inbuff_almost_empty,i_filter_kernal_loaded) is 
+ 	next_state_combinational: process(current_state, i_weight_filter_size,i_start,i_enable,i_get_volume_row, i_get_weight_row, filter_counter, i_number_of_filters,i_inbuff_almost_empty,i_filter_kernal_loaded, channel_counter, weight_channel_counter) is 
 	begin  
 		
 		if(unsigned(i_weight_filter_size) = 11) then 	
@@ -220,12 +246,24 @@ begin
 		inbuff_rd_en <= '0';   
 		volume_fifo_wr_en <= (others => '0');
 		
-		volume_new_data_en <= (others => '0'); 
-		volume_prev_data_en <= (others => '1'); 
-		volume_recycled_data_en <= (others => '0'); 
+		volume_new_data_en 			<= (others => '0'); 
+		volume_prev_data_en 		<= (others => '1'); 
+		volume_recycled_data_en 	<= (others => '0'); 
+		weights_recycled_data_en 	<= (others => '0'); 	
+		weights_new_data_en			<= (others => '0');  
+		weights_prev_data_en 		<= (others => '0'); 
+	    weights_prev_data_wr_en 	<= (others => '0');  
+		--weight_fifo_wr_en 			<= (others => '0'); 	 
+		stop_stack_en 				<= (others => '0'); 	
+		convolution_en 				<= '0';  
+		all_channels_processed 		<= '0'; 
 		
 		case current_state is 
 			when IDLE => 
+				volume_new_data_en <= (others => '1');  
+				weights_new_data_en <= (others => '1');  
+				--weight_fifo_wr_en <= (others => '0'); 
+				
 				if(i_start = '1' and i_enable = '1') then 
 					next_state <= IS_NET_READY; 
 				else 
@@ -233,6 +271,10 @@ begin
 				end if; 
 			
 			when IS_NET_READY => 
+				volume_new_data_en <= (others => '1'); 
+				weights_new_data_en <= (others => '1'); 
+				--weight_fifo_wr_en <= (others => '0'); 
+				
 				if(and_reduce(i_get_volume_row) = '1' and and_reduce(i_get_weight_row) = '1') then 
 					next_state <= CALC_PARAMETERS; 
 				else
@@ -240,25 +282,70 @@ begin
 				end if; 
 			
 			when CALC_PARAMETERS => 
+				volume_new_data_en <= (others => '1'); 
+				weights_new_data_en <= (others => '1');  
+				--weight_fifo_wr_en <= (others => '0'); 
 				next_state <= FETCH_AND_LOAD_WEIGHTS; 
 			
 			when FETCH_AND_LOAD_WEIGHTS => 
-			
-				if(filter_counter < unsigned(i_number_of_filters)) then  
-					next_state <= FETCH_AND_LOAD_WEIGHTS;
-					if(i_inbuff_almost_empty = '0' and i_weight_fifo_prog_full(to_integer(channel_counter*unsigned(i_weight_filter_size) + unsigned(filter_row_counter))) = '0') then 	   
-						inbuff_rd_en <= '1'; 
+				volume_new_data_en <= (others => '1'); 
+				weights_new_data_en <= (others => '1');  
+				
+--				if(filter_counter < unsigned(i_number_of_filters)) then  
+--					next_state <= FETCH_AND_LOAD_WEIGHTS;
+--					if(i_inbuff_valid = '1' and i_weight_fifo_prog_full(to_integer(channel_counter*unsigned(i_weight_filter_size) + unsigned(filter_row_counter))) = '0') then 	   
+--						inbuff_rd_en <= '1'; 
+--					else 
+--						inbuff_rd_en <= '0'; 
+--					end if;	  
+--				else 	 
+--					inbuff_rd_en <= '0'; 
+--					if(and_reduce(i_filter_kernal_loaded) = '1') then  
+--						next_state <= PAD_VOLUME_TOP;   
+--					else 
+--						next_state <= FETCH_AND_LOAD_WEIGHTS; 
+--					end if; 
+--				end if;   
+--				
+				next_state <= FETCH_AND_LOAD_WEIGHTS; 
+				inbuff_rd_en <= '0'; 
+				
+				if(i_inbuff_valid = '1' and i_inbuff_almost_empty = '0') then 	 
+					
+					if(filter_column_counter = unsigned(i_weight_filter_size)-1 and filter_row_counter = unsigned(i_weight_filter_size)-1) then 
+--						inbuff_rd_en <= '0';  
+--						next_state <= PAD_VOLUME_TOP; 	  
+--						
+						
+						if(more_dsps_needed = '0' and weight_channel_counter < unsigned(i_weight_filter_channels)-1) then  
+							inbuff_rd_en <= '1'; 
+							next_state <= FETCH_AND_LOAD_WEIGHTS; 
+						elsif(more_dsps_needed = '0' and weight_channel_counter >= unsigned(i_weight_filter_channels)-1) then 	 
+							inbuff_rd_en <= '0'; 
+							next_state <= PAD_VOLUME_TOP; 
+						elsif(more_dsps_needed = '1' and weight_channel_counter < channels_allowed) then 
+							inbuff_rd_en <= '1'; 
+							next_state <= FETCH_AND_LOAD_WEIGHTS; 
+						elsif(more_dsps_needed = '1' and weight_channel_counter >= channels_allowed) then 
+							inbuff_rd_en <= '0'; 
+							next_state <= PAD_VOLUME_TOP; 
+						else
+							inbuff_rd_en <= '0';	 
+							next_state <= FETCH_AND_LOAD_WEIGHTS; 
+						end if;
+
+						
 					else 
-						inbuff_rd_en <= '0'; 
-					end if;	  
-				else 	 
-					inbuff_rd_en <= '0'; 
-					if(and_reduce(i_filter_kernal_loaded) = '1') then  
-						next_state <= PAD_VOLUME_TOP;   
-					else 
+						inbuff_rd_en <= '1';   
 						next_state <= FETCH_AND_LOAD_WEIGHTS; 
-					end if; 
+					end if;		 
+					
+					
 				end if; 
+					
+				
+				
+				
 			
 			when PAD_VOLUME_TOP => 
 				next_state <= PAD_VOLUME_TOP; 
@@ -337,14 +424,23 @@ begin
 			weight_data					<= (others => (others => '0'));  
 			volume_data 				<= (others => (others => '0'));  
 			dsp_counter 				<= (others => '0'); 
-			channel_counter 			<= (others => '0');  
+			channel_counter 			<= (others => '0');
+			weight_channel_counter		<= (others => '0'); 
 			filter_row_counter 			<= (others => '0'); 
 			filter_column_counter 		<= (others => '0'); 
 			padded_volume_row_size 		<= (others => '0'); 
 			padded_volume_column_size 	<= (others => '0');    
 			--new_data_en				<= (others => '0');		
-			--base_volume_fifo 			<= (others => '0'); 
+			--base_volume_fifo 			<= (others => '0');    
+			input_volume_row_counter	<= (others => '0'); 
+			filter_counter				<= (others => '0'); 
+			volume_rows_processed		<= (others => '0');    
+			element_counter				<= (others => '0'); 
+			pad_counter					<= (others => '0');  
+			channels_processed			<= (others => '0');    
+			volume_fifo_prog_full_thresh <= (others => '0'); 
 			
+			weight_fifo_wr_en <= (others => '0');
 			
 		elsif(rising_edge(i_clk)) then 
 			more_dsps_needed 			<= more_dsps_needed; 
@@ -352,15 +448,24 @@ begin
 			volume_data 				<= volume_data; 
 			dsp_counter 				<= dsp_counter; 
 			channel_counter 			<= channel_counter; 
+			weight_channel_counter		<= weight_channel_counter; 
 			filter_row_counter 			<= filter_row_counter; 
 			filter_column_counter 		<= filter_column_counter; 
 			padded_volume_row_size 		<= padded_volume_row_size; 
 			padded_volume_column_size 	<= padded_volume_column_size; 
 			--new_data_en				<= new_data_en;   
 			--base_volume_fifo			<= base_volume_fifo; 
+			input_volume_row_counter	<= input_volume_row_counter; 
+			filter_counter				<= filter_counter; 
+			element_counter				<= element_counter;   
+			pad_counter					<= pad_counter; 	
+			channels_processed			<= channels_processed; 	 
+			weight_data 				<= weight_data; 	 
+			weight_fifo_wr_en 			<= weight_fifo_wr_en; 
 			
 			case current_state is 
-				when IDLE => 
+				when IDLE =>   
+				
 				
 				when IS_NET_READY => 
 				
@@ -371,55 +476,95 @@ begin
 						more_dsps_needed <= '1'; 
 					end if;  
 					
-					padded_volume_row_size 		<= unsigned(i_input_volume_size) + unsigned("0000" & i_pad) + unsigned("0000" & i_pad); 
-					padded_volume_column_size 	<= unsigned(i_input_volume_size) + unsigned("0000" & i_pad) + unsigned("0000" & i_pad); 
+					padded_volume_row_size 		<= unsigned(i_input_volume_size) + unsigned(pad_8bit) + unsigned(pad_8bit);--to_unsigned(to_integer(unsigned(i_input_volume_size)) + to_integer(unsigned("0000" & i_pad)) + to_integer(unsigned("0000" & i_pad)),8); 
+					padded_volume_column_size 	<= unsigned(i_input_volume_size) + unsigned(pad_8bit) + unsigned(pad_8bit); 
 					
-					volume_fifo_prog_full_thresh <= std_logic_vector(unsigned("00" & i_input_volume_size) + unsigned("000000" & i_pad) + unsigned("000000" & i_pad)); 
+					volume_fifo_prog_full_thresh <= std_logic_vector(unsigned(input_volume_size_10bit) + unsigned(pad_10bit) + unsigned(pad_10bit)); 
 					
 				
-				when FETCH_AND_LOAD_WEIGHTS => 
+				when FETCH_AND_LOAD_WEIGHTS => 	 
+					weight_fifo_wr_en <= (others => '0'); 
 				
-					if(i_inbuff_valid = '1') then
-
-						if(more_dsps_needed = '1' and channel_counter >= channels_allowed) then 
-							
-							weight_data <= weight_data;
-							
-							if(channel_counter < unsigned(i_weight_filter_channels)) then 
-								channel_counter <= channel_counter + 1;	
-								filter_column_counter <= filter_column_counter; 
-							elsif(channel_counter = unsigned(i_weight_filter_channels)) then 
-								channel_counter <= (others => '0');	
-								filter_column_counter <= filter_column_counter + 1; 
-							end if; 
-							 								  
-						elsif(more_dsps_needed = '1' and channel_counter < channels_allowed) then 
-							channel_counter <= channel_counter + 1;
-							weight_data(to_integer(channel_counter)*to_integer(unsigned(i_weight_filter_size)) + to_integer(unsigned(filter_row_counter))) <= i_inbuff_dout; 
-							filter_column_counter <= filter_column_counter; 
-							
-						elsif(more_dsps_needed = '0' and channel_counter < unsigned(i_weight_filter_channels)) then 
-							channel_counter <= channel_counter + 1; 
-							weight_data(to_integer(channel_counter)*to_integer(unsigned(i_weight_filter_size)) + to_integer(unsigned(filter_row_counter))) <= i_inbuff_dout; 	  
-							filter_column_counter <= filter_column_counter; 	 
-							
-						elsif(more_dsps_needed = '0' and channel_counter = unsigned(i_weight_filter_channels)) then 
-							channel_counter <= (others => '0'); 
-							weight_data(to_integer(channel_counter)*to_integer(unsigned(i_weight_filter_size)) + to_integer(unsigned(filter_row_counter))) <= i_inbuff_dout; 
+					if(i_inbuff_valid = '1' and i_inbuff_almost_empty = '0') then  	 
+						
+						if(filter_column_counter < unsigned(i_weight_filter_size)-1) then 
 							filter_column_counter <= filter_column_counter + 1; 
+							weight_data(to_integer(weight_channel_counter)*to_integer(unsigned(i_weight_filter_size)) + to_integer(unsigned(filter_row_counter))) <= i_inbuff_dout; 	
+							weight_fifo_wr_en(to_integer(weight_channel_counter)*to_integer(unsigned(i_weight_filter_size)) + to_integer(unsigned(filter_row_counter))) <= '1'; 
+						else 
+							filter_column_counter <= (others => '0'); 
+							weight_data(to_integer(weight_channel_counter)*to_integer(unsigned(i_weight_filter_size)) + to_integer(unsigned(filter_row_counter))) <= i_inbuff_dout;
+							weight_fifo_wr_en(to_integer(weight_channel_counter)*to_integer(unsigned(i_weight_filter_size)) + to_integer(unsigned(filter_row_counter))) <= '1'; 
 							
-						end if;
-						
-						
-						if(filter_column_counter >= unsigned(i_weight_filter_size)-1) then 
-							filter_column_counter <= (others => '0');
-							if(filter_row_counter >= unsigned(i_weight_filter_size)-1) then 
-								filter_row_counter <= (others => '0'); 
-								filter_counter <= filter_counter + 1; 
+							if(filter_row_counter < unsigned(i_weight_filter_size)-1) then
+								filter_row_counter <= filter_row_counter + 1; 
 							else 
-								filter_row_counter <= filter_row_counter + 1;
-							end if; 
+								filter_row_counter <= (others => '0'); 
+								filter_counter <= filter_counter + 1;  
+								
+								if(more_dsps_needed = '0' and weight_channel_counter < unsigned(i_weight_filter_channels)-1) then  
+									weight_channel_counter <= weight_channel_counter + 1; 
+								elsif(more_dsps_needed = '0' and weight_channel_counter >= unsigned(i_weight_filter_channels)-1) then 	 
+									weight_channel_counter <= weight_channel_counter;
+								elsif(more_dsps_needed = '1' and weight_channel_counter < channels_allowed) then 
+									weight_channel_counter <= weight_channel_counter + 1; 
+								elsif(more_dsps_needed = '1' and weight_channel_counter >= channels_allowed) then 
+									weight_channel_counter <= weight_channel_counter; 
+								else
+									weight_channel_counter <= weight_channel_counter; 
+								end if; 
+
+								
+							end if;   
 						end if; 
+				
+																		 
+						
+						
+						
+						
+						
+						
+
+--						if(more_dsps_needed = '1' and channel_counter >= channels_allowed) then 
+--							
+--							weight_data <= weight_data;
+--							
+--							if(channel_counter < unsigned(i_weight_filter_channels)) then 
+--								channel_counter <= channel_counter + 1;	
+--								filter_column_counter <= filter_column_counter; 
+--							elsif(channel_counter = unsigned(i_weight_filter_channels)) then 
+--								channel_counter <= (others => '0');	
+--								filter_column_counter <= filter_column_counter + 1; 
+--							end if; 
+--							 								  
+--						elsif(more_dsps_needed = '1' and channel_counter < channels_allowed) then 
+--							channel_counter <= channel_counter + 1;
+--							weight_data(to_integer(channel_counter)*to_integer(unsigned(i_weight_filter_size)) + to_integer(unsigned(filter_row_counter))) <= i_inbuff_dout; 
+--							filter_column_counter <= filter_column_counter; 
+--							
+--						elsif(more_dsps_needed = '0' and channel_counter < unsigned(i_weight_filter_channels)) then 
+--							channel_counter <= channel_counter + 1; 
+--							weight_data(to_integer(channel_counter)*to_integer(unsigned(i_weight_filter_size)) + to_integer(unsigned(filter_row_counter))) <= i_inbuff_dout; 	  
+--							filter_column_counter <= filter_column_counter; 	 
+--							
+--						elsif(more_dsps_needed = '0' and channel_counter = unsigned(i_weight_filter_channels)) then 
+--							channel_counter <= (others => '0'); 
+--							--weight_data(to_integer(channel_counter)*to_integer(unsigned(i_weight_filter_size)) + to_integer(unsigned(filter_row_counter))) <= i_inbuff_dout; 
+--							filter_column_counter <= filter_column_counter + 1; 
+--							
+--						end if;
+						
+						
+--						if(filter_column_counter >= unsigned(i_weight_filter_size)-1) then 
+--							filter_column_counter <= (others => '0');
+--							if(filter_row_counter >= unsigned(i_weight_filter_size)-1) then 
+--								filter_row_counter <= (others => '0'); 
+--								filter_counter <= filter_counter + 1; 
+--							else 
+--								filter_row_counter <= filter_row_counter + 1;
+--							end if; 
+--						end if; 
 
 					end if; 
 					
@@ -550,7 +695,7 @@ begin
 						--new_data_en(to_integer(channel_counter*unsigned(i_weight_filter_size))) <= '1'; 
 					
 						if(i_volume_fifo_prog_full(to_integer(channel_counter*unsigned(i_weight_filter_size))) = '0' and element_counter <= padded_volume_row_size-1 and pad_counter < unsigned(i_pad)) then 
-							volume_data(to_integer(base_volume_fifo+channel_counter*unsigned(i_weight_filter_size))) <= (others => '0'); 
+							volume_data(to_integer(channel_counter*unsigned(i_weight_filter_size))) <= (others => '0'); 
 							--volume_fifo_wr_en <= '1'; 
 							element_counter <= element_counter + 1; 
 							if(element_counter = padded_volume_row_size-1) then 

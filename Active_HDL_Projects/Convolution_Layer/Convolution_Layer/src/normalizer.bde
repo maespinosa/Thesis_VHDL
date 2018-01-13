@@ -2,7 +2,7 @@ SCHM0106
 
 HEADER
 {
- FREEID 431
+ FREEID 553
  VARIABLES
  {
   #ARCHITECTURE="arch"
@@ -405,7 +405,7 @@ HEADER
     #LANGUAGE="VHDL"
     #MODIFIED="1506900885"
     #NAME="norm_router"
-    #PRAGMED_GENERICS="g_data_width"
+    #PRAGMED_GENERICS="g_data_width;"
     #SYMBOL_GLOBALLY_UNIQUE_IDENTIFIER="452fa7ec-0ab7-4409-b6c2-8365fbb23ea3"
    }
   }
@@ -1698,10 +1698,9 @@ PAGE ""
   {
    COORD (2760,1140)
   }
-  NET WIRE  66, 0, 0
   WIRE  67, 0, 0
   {
-   NET 66
+   NET 465
    VTX 64, 65
   }
   VTX  68, 0, 0
@@ -1712,10 +1711,9 @@ PAGE ""
   {
    COORD (2760,1180)
   }
-  NET WIRE  70, 0, 0
   WIRE  71, 0, 0
   {
-   NET 70
+   NET 467
    VTX 68, 69
   }
   VTX  72, 0, 0
@@ -1726,10 +1724,9 @@ PAGE ""
   {
    COORD (2760,1300)
   }
-  NET WIRE  74, 0, 0
   WIRE  75, 0, 0
   {
-   NET 74
+   NET 469
    VTX 72, 73
   }
   VTX  76, 0, 0
@@ -1740,10 +1737,9 @@ PAGE ""
   {
    COORD (2760,1340)
   }
-  NET WIRE  78, 0, 0
   WIRE  79, 0, 0
   {
-   NET 78
+   NET 471
    VTX 76, 77
   }
   VTX  80, 0, 0
@@ -1754,10 +1750,9 @@ PAGE ""
   {
    COORD (2760,1460)
   }
-  NET WIRE  82, 0, 0
   WIRE  83, 0, 0
   {
-   NET 82
+   NET 473
    VTX 80, 81
   }
   VTX  84, 0, 0
@@ -1768,10 +1763,9 @@ PAGE ""
   {
    COORD (2760,1500)
   }
-  NET WIRE  86, 0, 0
   WIRE  87, 0, 0
   {
-   NET 86
+   NET 475
    VTX 84, 85
   }
   VTX  88, 0, 0
@@ -1782,10 +1776,9 @@ PAGE ""
   {
    COORD (2760,2020)
   }
-  NET WIRE  90, 0, 0
   WIRE  91, 0, 0
   {
-   NET 90
+   NET 477
    VTX 88, 89
   }
   VTX  92, 0, 0
@@ -1796,10 +1789,9 @@ PAGE ""
   {
    COORD (2760,2060)
   }
-  NET WIRE  94, 0, 0
   WIRE  95, 0, 0
   {
-   NET 94
+   NET 479
    VTX 92, 93
   }
   VTX  96, 0, 0
@@ -1810,10 +1802,9 @@ PAGE ""
   {
    COORD (2760,2220)
   }
-  NET WIRE  98, 0, 0
   WIRE  99, 0, 0
   {
-   NET 98
+   NET 481
    VTX 96, 97
   }
   VTX  100, 0, 0
@@ -1824,10 +1815,9 @@ PAGE ""
   {
    COORD (2760,2260)
   }
-  NET WIRE  102, 0, 0
   WIRE  103, 0, 0
   {
-   NET 102
+   NET 483
    VTX 100, 101
   }
   VTX  104, 0, 0
@@ -2052,9 +2042,11 @@ PAGE ""
    VARIABLES
    {
     #COMPONENT="Input"
+    #CUSTOM_NAME=""
     #LIBRARY="#terminals"
     #REFERENCE="i_clk"
     #SYMBOL="Input"
+    #SYMBOL_GLOBALLY_UNIQUE_IDENTIFIER=""
     #VHDL_TYPE="STD_LOGIC"
    }
    COORD (1620,1100)
@@ -2065,9 +2057,11 @@ PAGE ""
    VARIABLES
    {
     #COMPONENT="Input"
+    #CUSTOM_NAME=""
     #LIBRARY="#terminals"
     #REFERENCE="i_reset_n"
     #SYMBOL="Input"
+    #SYMBOL_GLOBALLY_UNIQUE_IDENTIFIER=""
     #VHDL_TYPE="STD_LOGIC"
    }
    COORD (1620,1140)
@@ -2078,9 +2072,11 @@ PAGE ""
    VARIABLES
    {
     #COMPONENT="Input"
+    #CUSTOM_NAME=""
     #LIBRARY="#terminals"
     #REFERENCE="i_enable"
     #SYMBOL="Input"
+    #SYMBOL_GLOBALLY_UNIQUE_IDENTIFIER=""
     #VHDL_TYPE="STD_LOGIC"
    }
    COORD (1620,1180)
@@ -2091,10 +2087,12 @@ PAGE ""
    VARIABLES
    {
     #COMPONENT="BusOutput"
+    #CUSTOM_NAME=""
     #DOWNTO="1"
     #LIBRARY="#terminals"
     #REFERENCE="o_normalized_data(g_data_width-1:0)"
     #SYMBOL="BusOutput"
+    #SYMBOL_GLOBALLY_UNIQUE_IDENTIFIER=""
     #VHDL_TYPE="STD_LOGIC_VECTOR"
    }
    COORD (1620,1620)
@@ -2106,10 +2104,12 @@ PAGE ""
    VARIABLES
    {
     #COMPONENT="BusInput"
+    #CUSTOM_NAME=""
     #DOWNTO="1"
     #LIBRARY="#terminals"
     #REFERENCE="i_mean(g_data_width-1:0)"
     #SYMBOL="BusInput"
+    #SYMBOL_GLOBALLY_UNIQUE_IDENTIFIER=""
     #VHDL_TYPE="STD_LOGIC_VECTOR"
    }
    COORD (1620,1380)
@@ -2120,10 +2120,12 @@ PAGE ""
    VARIABLES
    {
     #COMPONENT="BusInput"
+    #CUSTOM_NAME=""
     #DOWNTO="1"
     #LIBRARY="#terminals"
     #REFERENCE="i_variance(g_data_width-1:0)"
     #SYMBOL="BusInput"
+    #SYMBOL_GLOBALLY_UNIQUE_IDENTIFIER=""
     #VHDL_TYPE="STD_LOGIC_VECTOR"
    }
    COORD (1620,1420)
@@ -2134,10 +2136,12 @@ PAGE ""
    VARIABLES
    {
     #COMPONENT="BusInput"
+    #CUSTOM_NAME=""
     #DOWNTO="1"
     #LIBRARY="#terminals"
     #REFERENCE="i_gamma(g_data_width-1:0)"
     #SYMBOL="BusInput"
+    #SYMBOL_GLOBALLY_UNIQUE_IDENTIFIER=""
     #VHDL_TYPE="STD_LOGIC_VECTOR"
    }
    COORD (1620,1460)
@@ -2148,10 +2152,12 @@ PAGE ""
    VARIABLES
    {
     #COMPONENT="BusInput"
+    #CUSTOM_NAME=""
     #DOWNTO="1"
     #LIBRARY="#terminals"
     #REFERENCE="i_beta(g_data_width-1:0)"
     #SYMBOL="BusInput"
+    #SYMBOL_GLOBALLY_UNIQUE_IDENTIFIER=""
     #VHDL_TYPE="STD_LOGIC_VECTOR"
    }
    COORD (1620,1500)
@@ -2162,10 +2168,12 @@ PAGE ""
    VARIABLES
    {
     #COMPONENT="BusInput"
+    #CUSTOM_NAME=""
     #DOWNTO="1"
     #LIBRARY="#terminals"
     #REFERENCE="i_epsilon(g_data_width-1:0)"
     #SYMBOL="BusInput"
+    #SYMBOL_GLOBALLY_UNIQUE_IDENTIFIER=""
     #VHDL_TYPE="STD_LOGIC_VECTOR"
    }
    COORD (1620,1540)
@@ -2176,10 +2184,12 @@ PAGE ""
    VARIABLES
    {
     #COMPONENT="BusInput"
+    #CUSTOM_NAME=""
     #DOWNTO="1"
     #LIBRARY="#terminals"
     #REFERENCE="i_input_data(g_data_width-1:0)"
     #SYMBOL="BusInput"
+    #SYMBOL_GLOBALLY_UNIQUE_IDENTIFIER=""
     #VHDL_TYPE="STD_LOGIC_VECTOR"
    }
    COORD (1620,1580)
@@ -2474,9 +2484,11 @@ PAGE ""
    VARIABLES
    {
     #COMPONENT="Input"
+    #CUSTOM_NAME=""
     #LIBRARY="#terminals"
     #REFERENCE="i_fresh_params"
     #SYMBOL="Input"
+    #SYMBOL_GLOBALLY_UNIQUE_IDENTIFIER=""
    }
    COORD (1620,1220)
    VERTEXES ( (2,300) )
@@ -2486,9 +2498,11 @@ PAGE ""
    VARIABLES
    {
     #COMPONENT="Input"
+    #CUSTOM_NAME=""
     #LIBRARY="#terminals"
     #REFERENCE="i_input_data_valid"
     #SYMBOL="Input"
+    #SYMBOL_GLOBALLY_UNIQUE_IDENTIFIER=""
    }
    COORD (1620,1340)
    VERTEXES ( (2,304) )
@@ -2498,9 +2512,11 @@ PAGE ""
    VARIABLES
    {
     #COMPONENT="Output"
+    #CUSTOM_NAME=""
     #LIBRARY="#terminals"
     #REFERENCE="o_normalizer_ready"
     #SYMBOL="Output"
+    #SYMBOL_GLOBALLY_UNIQUE_IDENTIFIER=""
    }
    COORD (2500,2340)
    VERTEXES ( (2,308) )
@@ -2554,9 +2570,11 @@ PAGE ""
    VARIABLES
    {
     #COMPONENT="Output"
+    #CUSTOM_NAME=""
     #LIBRARY="#terminals"
     #REFERENCE="o_normalized_data_valid"
     #SYMBOL="Output"
+    #SYMBOL_GLOBALLY_UNIQUE_IDENTIFIER=""
    }
    COORD (1620,1660)
    ORIENTATION 4
@@ -2595,9 +2613,11 @@ PAGE ""
    VARIABLES
    {
     #COMPONENT="Input"
+    #CUSTOM_NAME=""
     #LIBRARY="#terminals"
     #REFERENCE="i_outbuff_prog_full"
     #SYMBOL="Input"
+    #SYMBOL_GLOBALLY_UNIQUE_IDENTIFIER=""
    }
    COORD (1620,1700)
    VERTEXES ( (2,392) )
@@ -2609,6 +2629,146 @@ PAGE ""
    ALIGN 6
    MARGINS (1,1)
    PARENT 395
+  }
+  NET WIRE  465, 0, 0
+  {
+   VARIABLES
+   {
+    #NAME="NET66"
+   }
+  }
+  TEXT  466, 0, 0
+  {
+   TEXT "$#NAME"
+   RECT (2524,1112,2597,1139)
+   ALIGN 9
+   PARENT 67
+  }
+  NET WIRE  467, 0, 0
+  {
+   VARIABLES
+   {
+    #NAME="NET70"
+   }
+  }
+  TEXT  468, 0, 0
+  {
+   TEXT "$#NAME"
+   RECT (2524,1152,2597,1179)
+   ALIGN 9
+   PARENT 71
+  }
+  NET WIRE  469, 0, 0
+  {
+   VARIABLES
+   {
+    #NAME="NET74"
+   }
+  }
+  TEXT  470, 0, 0
+  {
+   TEXT "$#NAME"
+   RECT (2524,1272,2597,1299)
+   ALIGN 9
+   PARENT 75
+  }
+  NET WIRE  471, 0, 0
+  {
+   VARIABLES
+   {
+    #NAME="NET78"
+   }
+  }
+  TEXT  472, 0, 0
+  {
+   TEXT "$#NAME"
+   RECT (2524,1312,2597,1339)
+   ALIGN 9
+   PARENT 79
+  }
+  NET WIRE  473, 0, 0
+  {
+   VARIABLES
+   {
+    #NAME="NET82"
+   }
+  }
+  TEXT  474, 0, 0
+  {
+   TEXT "$#NAME"
+   RECT (2524,1432,2597,1459)
+   ALIGN 9
+   PARENT 83
+  }
+  NET WIRE  475, 0, 0
+  {
+   VARIABLES
+   {
+    #NAME="NET86"
+   }
+  }
+  TEXT  476, 0, 0
+  {
+   TEXT "$#NAME"
+   RECT (2524,1472,2597,1499)
+   ALIGN 9
+   PARENT 87
+  }
+  NET WIRE  477, 0, 0
+  {
+   VARIABLES
+   {
+    #NAME="NET90"
+   }
+  }
+  TEXT  478, 0, 0
+  {
+   TEXT "$#NAME"
+   RECT (2524,1992,2597,2019)
+   ALIGN 9
+   PARENT 91
+  }
+  NET WIRE  479, 0, 0
+  {
+   VARIABLES
+   {
+    #NAME="NET94"
+   }
+  }
+  TEXT  480, 0, 0
+  {
+   TEXT "$#NAME"
+   RECT (2524,2032,2597,2059)
+   ALIGN 9
+   PARENT 95
+  }
+  NET WIRE  481, 0, 0
+  {
+   VARIABLES
+   {
+    #NAME="NET98"
+   }
+  }
+  TEXT  482, 0, 0
+  {
+   TEXT "$#NAME"
+   RECT (2524,2192,2597,2219)
+   ALIGN 9
+   PARENT 99
+  }
+  NET WIRE  483, 0, 0
+  {
+   VARIABLES
+   {
+    #NAME="NET102"
+   }
+  }
+  TEXT  484, 0, 0
+  {
+   TEXT "$#NAME"
+   RECT (2517,2232,2603,2259)
+   ALIGN 9
+   PARENT 103
   }
  }
  
@@ -2635,7 +2795,7 @@ PAGE ""
  
  BODY
  {
-  TEXT  414, 0, 0
+  TEXT  536, 0, 0
   {
    PAGEALIGN 10
    OUTLINE 5,1, (0,0,0)
@@ -2646,7 +2806,7 @@ PAGE ""
    COLOR (0,0,0)
    FONT (12,0,0,700,0,0,0,"Arial")
   }
-  TEXT  415, 0, 0
+  TEXT  537, 0, 0
   {
    PAGEALIGN 10
    TEXT "$CREATIONDATE"
@@ -2657,7 +2817,7 @@ PAGE ""
    FONT (12,0,0,700,0,128,0,"Arial")
    UPDATE 0
   }
-  TEXT  416, 0, 0
+  TEXT  538, 0, 0
   {
    PAGEALIGN 10
    TEXT "Title:"
@@ -2667,7 +2827,7 @@ PAGE ""
    COLOR (0,0,0)
    FONT (12,0,0,700,0,0,0,"Arial")
   }
-  TEXT  417, 0, 0
+  TEXT  539, 0, 0
   {
    PAGEALIGN 10
    OUTLINE 5,1, (0,0,0)
@@ -2679,7 +2839,7 @@ PAGE ""
    FONT (12,0,0,700,0,128,0,"Arial")
    UPDATE 0
   }
-  TEXT  418, 0, 0
+  TEXT  540, 0, 0
   {
    PAGEALIGN 10
    TEXT 
@@ -2692,7 +2852,7 @@ PAGE ""
    FONT (12,0,0,700,0,0,0,"Arial")
    MULTILINE
   }
-  TEXT  419, 0, 0
+  TEXT  541, 0, 0
   {
    PAGEALIGN 10
    TEXT "Page:"
@@ -2702,7 +2862,7 @@ PAGE ""
    COLOR (0,0,0)
    FONT (12,0,0,700,0,0,0,"Arial")
   }
-  TEXT  420, 0, 0
+  TEXT  542, 0, 0
   {
    PAGEALIGN 10
    OUTLINE 5,1, (0,0,0)
@@ -2714,7 +2874,7 @@ PAGE ""
    FONT (12,0,0,700,0,128,0,"Arial")
    UPDATE 0
   }
-  TEXT  421, 0, 0
+  TEXT  543, 0, 0
   {
    PAGEALIGN 10
    TEXT "Revision:"
@@ -2724,7 +2884,7 @@ PAGE ""
    COLOR (0,0,0)
    FONT (12,0,0,700,0,0,0,"Arial")
   }
-  TEXT  422, 0, 0
+  TEXT  544, 0, 0
   {
    PAGEALIGN 10
    TEXT "$Revision"
@@ -2735,7 +2895,7 @@ PAGE ""
    FONT (12,0,0,700,0,204,0,"Arial")
    UPDATE 0
   }
-  GROUP  423, 0, 0
+  GROUP  545, 0, 0
   {
    PAGEALIGN 10
    RECT (3596,2727,4477,3108)
@@ -2747,7 +2907,7 @@ PAGE ""
     FILL (1,(0,0,0),0)
    }
   }
-  GROUP  424, 0, 0
+  GROUP  546, 0, 0
   {
    PAGEALIGN 10
    RECT (3596,2927,4477,2928)
@@ -2759,7 +2919,7 @@ PAGE ""
     FILL (1,(0,0,0),0)
    }
   }
-  GROUP  425, 0, 0
+  GROUP  547, 0, 0
   {
    PAGEALIGN 10
    RECT (3596,2867,4477,2868)
@@ -2771,7 +2931,7 @@ PAGE ""
     FILL (1,(0,0,0),0)
    }
   }
-  GROUP  426, 0, 0
+  GROUP  548, 0, 0
   {
    PAGEALIGN 10
    RECT (3596,2987,4477,2988)
@@ -2783,7 +2943,7 @@ PAGE ""
     FILL (1,(0,0,0),0)
    }
   }
-  GROUP  427, 0, 0
+  GROUP  549, 0, 0
   {
    PAGEALIGN 10
    RECT (3596,3047,4477,3048)
@@ -2795,7 +2955,7 @@ PAGE ""
     FILL (1,(0,0,0),0)
    }
   }
-  GROUP  428, 0, 0
+  GROUP  550, 0, 0
   {
    PAGEALIGN 10
    RECT (3776,2727,3777,2868)
@@ -2806,7 +2966,7 @@ PAGE ""
     POINTS ( (0,0), (0,140) )
    }
   }
-  GROUP  429, 0, 0
+  GROUP  551, 0, 0
   {
    PAGEALIGN 10
    RECT (3776,2867,3777,3108)
@@ -2817,7 +2977,7 @@ PAGE ""
     POINTS ( (0,0), (0,240) )
    }
   }
-  BMPPICT  430, 0, 0
+  BMPPICT  552, 0, 0
   {
    PAGEALIGN 10
    RECT (3616,2787,3755,2832)

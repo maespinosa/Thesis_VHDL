@@ -47,7 +47,7 @@ entity weights_router is
 	i_empty					: in std_logic; 
 	i_almost_empty 			: in std_logic; 
 	i_prog_empty			: in std_logic; 
-	o_prog_empty_thresh 	: out std_logic_vector(12 downto 0); 
+	o_prog_empty_thresh 	: out std_logic_vector(9 downto 0); 
 	
 	i_prog_full				: in std_logic; 
 	i_weight_filter_size	: in std_logic_vector(3 downto 0); 
@@ -80,7 +80,7 @@ signal weights_mult			: std_logic_vector(15 downto 0);
 signal filters_loaded		: std_logic; 
 signal filters_processed	: std_logic; 
 signal rd_en				: std_logic; 
-signal prog_empty_thresh	: std_logic_vector(12 downto 0); 
+--signal prog_empty_thresh	: std_logic_vector(9 downto 0); 
 signal reset_weight_fifo_n  : std_logic; 	 
 signal filter_number		: unsigned(11 downto 0); 
 
@@ -95,7 +95,7 @@ begin
 	o_filters_loaded	    <= filters_loaded; 
 	o_filters_processed		<= filters_processed; 
 	o_rd_en					<= rd_en; 
-	o_prog_empty_thresh		<= prog_empty_thresh;  
+	o_prog_empty_thresh		<= "0000001111";  
 	o_reset_weight_fifo_n	<= reset_weight_fifo_n;
 	
 	
@@ -111,7 +111,8 @@ begin
 	next_state_comb: process(i_empty, current_state, filter_element_counter,i_weight_filter_size,i_convolution_en,i_clear_weights,row_element_counter,i_volume_row_size) is 
 	begin 
 		rd_en 		<= '0'; 	
-		data_valid 	<= '0'; 
+		data_valid 	<= '0';   
+		recycle_filter_en <= '0'; 
 		
 		
 		case current_state is 
