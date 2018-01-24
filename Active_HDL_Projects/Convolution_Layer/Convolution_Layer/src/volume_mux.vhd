@@ -79,7 +79,7 @@ begin
 	o_get_volume_row 	<= get_volume_row; 
 	
 	
-	muxing: process(i_new_data_en,i_prev_data_en,i_recycled_data_en,i_fifo_we,i_new_data,i_prev_data,i_recycled_data_wr_en,i_recycled_data, get_volume_row) is 
+	muxing: process(all) is 
 	begin  
 		
 		get_volume_row <= '0'; 	 
@@ -90,7 +90,7 @@ begin
 			wr_en <= i_fifo_we; 
 			data <= i_new_data;    
 			get_volume_row <= '1'; 
-		elsif(i_new_data_en = '0' and i_prev_data_en = '1' and i_recycled_data_en = '0') then   
+		elsif(i_new_data_en = '0' and (i_prev_data_en = '1' or i_prev_data_wr_en = '1') and i_recycled_data_en = '0') then   
 			wr_en <=  i_prev_data_wr_en; 
 			data <= i_prev_data; 
 		elsif(i_new_data_en = '0' and i_prev_data_en = '0' and i_recycled_data_en = '1') then 

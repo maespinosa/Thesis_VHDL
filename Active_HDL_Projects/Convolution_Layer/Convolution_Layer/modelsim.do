@@ -42,6 +42,7 @@ vcom -2008 -work modelsim ./compile/convolution_layer_top.vhd
 vcom -2008 -work modelsim ./src/exponential_function.vhd
 vcom -2008 -work modelsim ./src/exponential_multiplier.vhd
 vcom -2008 -work modelsim ./src/Testbench_BRAM.vhd
+vcom -2008 -work modelsim ./src/Input_BRAM.vhd
 vcom -2008 -work modelsim ./src/filter_top_tb.vhd
 vsim modelsim.filter_top_tb
 view -undock wave

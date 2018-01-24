@@ -8,7 +8,7 @@
 -------------------------------------------------------------------------------
 --
 -- File        : c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\compile\normalizer.vhd
--- Generated   : Tue Dec 12 02:00:14 2017
+-- Generated   : Mon Jan 22 01:40:56 2018
 -- From        : c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\normalizer.bde
 -- By          : Bde2Vhdl ver. 2.6
 --

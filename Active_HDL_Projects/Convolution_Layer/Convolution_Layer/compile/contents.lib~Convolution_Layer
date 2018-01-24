@@ -1,4 +1,4 @@
-1683
+2023
 ~E 1 "./../src/accumulator.vhd" 33 accumulator
 ~A 1 "./../src/accumulator.vhd" 55 arch
 ~E 1 "./../src/accumulator_relay.vhd" 29 accumulator_relay
@@ -37,8 +37,10 @@
 ~A 1 "./../src/filter_top_tb.vhd" 39 arch
 ~E 1 "./../src/filter_weight_controller.vhd" 29 filter_weight_controller
 ~A 1 "./../src/filter_weight_controller.vhd" 84 arch
+~E 1 "./../src/Input_BRAM.vhd" 43 Input_BRAM
+~A 1 "./../src/Input_BRAM.vhd" 53 Input_BRAM_a
 ~E 1 "./../src/input_fifo_net_controller.vhd" 34 input_fifo_net_controller
-~A 1 "./../src/input_fifo_net_controller.vhd" 110 arch
+~A 1 "./../src/input_fifo_net_controller.vhd" 122 arch
 ~E 1 "./../compile/input_fifo_network.vhd" 28 input_fifo_network
 ~A 1 "./../compile/input_fifo_network.vhd" 64 arch
 ~E 1 "./../compile/input_fifo_network_11.vhd" 28 input_fifo_network_11
@@ -67,11 +69,11 @@
 ~A 1 "./../src/Testbench_BRAM.vhd" 53 Testbench_BRAM_a
 ~E 1 "./../src/volume_mux.vhd" 28 volume_mux
 ~A 1 "./../src/volume_mux.vhd" 63 arch
-~E 1 "./../src/volume_router.vhd" 30 volume_router
-~A 1 "./../src/volume_router.vhd" 70 arch
+~E 1 "./../src/volume_router.vhd" 33 volume_router
+~A 1 "./../src/volume_router.vhd" 80 arch
 ~E 1 "./../src/weight_fifo.vhd" 43 weight_fifo
 ~A 1 "./../src/weight_fifo.vhd" 63 weight_fifo_a
 ~E 1 "./../src/weight_mux.vhd" 29 weight_mux
 ~A 1 "./../src/weight_mux.vhd" 64 arch
 ~E 1 "./../src/weights_router.vhd" 29 weights_router
-~A 1 "./../src/weights_router.vhd" 64 arch
+~A 1 "./../src/weights_router.vhd" 67 arch

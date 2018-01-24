@@ -54,7 +54,10 @@ entity weights_router is
 	i_volume_row_size		: in std_logic_vector(9 downto 0); 
 	i_convolution_en		: in std_logic; 
 	i_clear_weights			: in std_logic; 
-	o_reset_weight_fifo_n	: out std_logic
+	o_reset_weight_fifo_n	: out std_logic; 
+	
+	i_volume_ready 			: in std_logic; 
+	i_conv_complete			: in std_logic
 	
 	); 
 end weights_router;
@@ -108,24 +111,26 @@ begin
 		end if;
 	end process; 
 	
-	next_state_comb: process(i_empty, current_state, filter_element_counter,i_weight_filter_size,i_convolution_en,i_clear_weights,row_element_counter,i_volume_row_size) is 
+	next_state_comb: process(i_empty, current_state, filter_element_counter,i_weight_filter_size,i_convolution_en,row_element_counter,i_volume_row_size, i_volume_ready) is 
 	begin 
 		rd_en 		<= '0'; 	
-		data_valid 	<= '0';   
 		recycle_filter_en <= '0'; 
 		
 		
 		case current_state is 
-			when IDLE =>  
-				if(i_empty = '0') then 
+			when IDLE =>   
+				filters_loaded <= '0'; 	
+				rd_en <= '0'; 
+				if(i_empty = '0' and i_convolution_en = '1') then 
 					next_state <= PRIMING; 
 				else 
 					next_state <= IDLE; 
 				end if; 
 			
 			
-			when PRIMING =>    
-				if(i_prog_full = '1') then 	
+			when PRIMING =>
+				filters_loaded <= '0'; 
+				if(i_almost_empty = '0') then 	
 					next_state <= LOAD_KERNEL; 
 				else 
 					next_state <= PRIMING; 
@@ -133,31 +138,32 @@ begin
 			
 				
 			when LOAD_KERNEL =>  
-					data_valid <= '0';	
-					
 			
 					if(filter_element_counter = unsigned(i_weight_filter_size) and i_convolution_en = '1') then 	 
 						rd_en 		<= '0';  
 						recycle_filter_en <= '0'; 
+						filters_loaded <= '1'; 
 						next_state 	<= PROCESSING; 	 
 					else				
 						rd_en 		<= '1';  
 						recycle_filter_en <= '1'; 
 						next_state 	<= LOAD_KERNEL; 
-					end if;
+					end if;	
+					
 					
 			when PROCESSING => 	 
+				filters_loaded <= not(i_conv_complete); 
  
 				if(i_clear_weights = '1') then 
-					data_valid <= '0'; 
+					--data_valid <= '0'; 
 					next_state <= IDLE; 
-				else  
-					data_valid <= '1';
-					if(row_element_counter = unsigned(i_volume_row_size)) then   
-						next_state <= LOAD_KERNEL;
+				else  	 
+					if(i_conv_complete = '1') then 
+						next_state <= IDLE; 
 					else 
-						next_state <= PROCESSING; 
-					end if;   
+						next_state <= PROCESSING;
+					end if; 
+
 				end if; 
 			when others => 
 				next_state <= IDLE; 
@@ -175,53 +181,41 @@ begin
 		if(i_reset_n = '0') then   
 			filter_element_counter 	<= (others => '0');	
 			row_element_counter 	<= (others => '0');   
-			filters_loaded 			<= '0'; 	
+			--filters_loaded 			<= '0'; 	
 			filter_row_shift_reg 	<= (others => (others => '0')); 
 			reset_weight_fifo_n 	<= '0';  
 			weights_mult 			<= (others => '0');   
 			filters_processed 		<= '0'; 			
 			filter_number 			<= (others => '0');    
-			recycle_filter_data		<= (others => '0'); 
+			recycle_filter_data		<= (others => '0');   
+			data_valid 				<= '0'; 
 			
 		elsif(rising_edge(i_clk)) then 
 			filter_element_counter 	<= filter_element_counter; 
 			row_element_counter 	<= row_element_counter;  
-			filters_loaded 			<= filters_loaded; 
+			--filters_loaded 			<= filters_loaded; 
 			filter_row_shift_reg 	<= filter_row_shift_reg; 
 			reset_weight_fifo_n 	<= reset_weight_fifo_n;  
 			weights_mult 			<= weights_mult;   
 			filters_processed 		<= filters_processed; 			
 			filter_number 			<= filter_number;  
-			recycle_filter_data		<= recycle_filter_data;
+			recycle_filter_data		<= recycle_filter_data;	  
+			data_valid 				<= data_valid; 
 			
 			case current_state is 
 				when IDLE => 
-					filter_element_counter 	<= (others => '0');	
-					row_element_counter 	<= (others => '0');   
-					filters_loaded 			<= '0'; 	
-					filter_row_shift_reg 	<= (others => (others => '0')); 
-					reset_weight_fifo_n 	<= '0';  
-					weights_mult 			<= (others => '0');   
-					filters_processed 		<= '0'; 			
-					filter_number 			<= (others => '0'); 
-					recycle_filter_data		<= (others => '0');	
+					data_valid <= '0'; 
 					
 				when PRIMING => 
-					filter_element_counter 	<= (others => '0');	
-					row_element_counter 	<= (others => '0');   
-					filters_loaded 			<= '0'; 	
-					filter_row_shift_reg 	<= (others => (others => '0')); 
-					reset_weight_fifo_n 	<= '0';  
-					weights_mult 			<= (others => '0');   
-					filters_processed 		<= '0'; 			
-					filter_number 			<= (others => '0'); 
-					recycle_filter_data		<= (others => '0');	
+
+					data_valid <= '0'; 
 					
-				when LOAD_KERNEL => 	 
+				when LOAD_KERNEL => 
+					data_valid <= '0'; 
 				
-					if(filter_element_counter = unsigned(i_weight_filter_size)) then 	 
-						filter_element_counter <= filter_element_counter;
-						filters_loaded <= '1'; 
+					if(filter_element_counter >= unsigned(i_weight_filter_size)) then 	 
+						filter_element_counter <= x"1";
+						--filters_loaded <= '1'; 
 					else
 						if(i_fifo_data_valid = '1') then
 							filter_element_counter <= filter_element_counter + 1; 
@@ -236,38 +230,41 @@ begin
 					
 				when PROCESSING =>	
 					if(i_clear_weights = '1') then 	  	 
-						reset_weight_fifo_n <= '1';
+						reset_weight_fifo_n <= '1';	
+						data_valid <= '0'; 
 	
-					else 
-						weights_mult <= filter_row_shift_reg(to_integer(filter_element_counter-1));    
+					else
+						--filters_loaded <= not(i_conv_complete); 
 						
-						if(filter_element_counter = 0) then 
-							filter_element_counter <= unsigned(i_weight_filter_size);
+						if(filter_element_counter > unsigned(i_weight_filter_size) and i_volume_ready = '0') then 
+							if(i_conv_complete = '1') then 	 
+								filter_element_counter <= (others => '0'); 
+							else 
+								filter_element_counter <= x"1"; 
+							end if;  
+							data_valid <= '0'; 
+							weights_mult <= (others => '0'); 
+						elsif(filter_element_counter <= unsigned(i_weight_filter_size) and i_volume_ready = '1') then  
+							filter_element_counter <= filter_element_counter + 1; 
+							data_valid <= '1'; 
+							weights_mult <= filter_row_shift_reg(to_integer(filter_element_counter)-1);	
 						else 
-							filter_element_counter <= filter_element_counter - 1; 
+							if(i_conv_complete = '1') then 	 
+								filter_element_counter <= (others => '0'); 
+							else 
+								filter_element_counter <= filter_element_counter; 
+							end if; 
+							
+							data_valid <= '0'; 
+							weights_mult <= (others => '0');	
 						end if;    
 						
-						if(row_element_counter = unsigned(i_volume_row_size)) then   
-							row_element_counter <= (others => '0'); 
-							
-							if(filter_number = unsigned(i_num_filters)) then 
-								filter_number <= (others => '0'); 
-								filters_processed <= '1'; 
-							else 
-								filter_number <= filter_number + 1;  
-								filters_processed <= '0'; 
-							end if; 
-	
-						else 
-							filter_number <= filter_number; 
-							row_element_counter <= row_element_counter + 1; 
-						end if; 
 					end if; 
 					
 				when others => 	
 					filter_element_counter 	<= (others => '0');	
 					row_element_counter 	<= (others => '0');   
-					filters_loaded 			<= '0'; 	
+					--filters_loaded 			<= '0'; 	
 					filter_row_shift_reg 	<= (others => (others => '0')); 
 					reset_weight_fifo_n 	<= '0';  
 					weights_mult 			<= (others => '0');   

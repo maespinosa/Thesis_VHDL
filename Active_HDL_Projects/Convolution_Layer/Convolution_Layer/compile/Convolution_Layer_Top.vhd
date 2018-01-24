@@ -8,7 +8,7 @@
 -------------------------------------------------------------------------------
 --
 -- File        : c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\compile\Convolution_Layer_Top.vhd
--- Generated   : Tue Dec 12 02:00:15 2017
+-- Generated   : Mon Jan 22 01:40:58 2018
 -- From        : c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\Convolution_Layer_Top.bde
 -- By          : Bde2Vhdl ver. 2.6
 --

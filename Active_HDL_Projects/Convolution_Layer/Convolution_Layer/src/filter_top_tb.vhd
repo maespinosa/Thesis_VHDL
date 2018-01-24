@@ -110,6 +110,16 @@ component Testbench_BRAM IS
   );
 END component;
 
+component Input_BRAM IS
+  PORT (
+    clka : IN STD_LOGIC;
+    wea : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
+    addra : IN STD_LOGIC_VECTOR(17 DOWNTO 0);
+    dina : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+    douta : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
+  );
+END component;
+
 
 signal clk : std_logic := '0';
 signal reset_n : std_logic := '0'; 
@@ -157,12 +167,20 @@ signal close_flag : std_logic;
 signal data_read : std_logic_vector(data_width-1 downto 0);   
 
 
-signal memory_unit : array_type_varx16bit(40000-1 downto 0);   
-signal addr_counter : integer := 0;    
-signal mem_addr : std_logic_vector(15 downto 0); 
-signal weight_data : std_logic_vector(15 downto 0);   
-signal bram_data 	: std_logic_vector(15 downto 0);   
-signal dout : std_logic_vector(15 downto 0); 
+--signal memory_unit : array_type_varx16bit(40000-1 downto 0);   
+signal weight_addr_counter : integer := 0;    
+signal mem_addr : std_logic_vector(15 downto 0);  
+signal dout : std_logic_vector(15 downto 0);   
+
+signal input_mem_addr : std_logic_vector(17 downto 0);  
+signal image_data	: std_logic_vector(15 downto 0);  
+signal loop_counter : integer := 0; 
+
+signal weight_channel : integer := 0;  
+signal input_channel : integer := 0; 
+signal input_addr_counter : integer := 0;  
+signal filter_number : integer := 0; 
+
 
 begin 
 	
@@ -230,7 +248,16 @@ begin
     dina       			=> x"0000",
     douta 				=> dout
   );
-
+  
+  input_memory : Input_BRAM
+  PORT MAP(
+    clka 				=> clk,							
+    wea  				=> (others =>'0'), 
+    addra  				=> input_mem_addr, 
+    dina       			=> x"0000",
+    douta 				=> image_data
+  );
+  
   
    clk_process :process
    begin
@@ -243,19 +270,30 @@ begin
    -- Stimulus process, Apply inputs here.
   stim_proc: process
   begin  
-	  inbuff_din <= (others => '0'); 
-	  mem_addr <= (others => '0'); 	
-	  bram_data <= (others => '0');
+	  inbuff_din 				<= (others => '0'); 
+	  mem_addr 					<= (others => '0'); 	
+	  input_mem_addr 			<= (others => '0');
+	  weight_channel 			<= 0; 
+	  input_channel 			<= 0; 
+	  loop_counter				<= 0; 
+	  filter_number 			<= 0; 
 	  
-	  input_volume_size <= std_logic_vector(to_unsigned(224,8)); 
-	  input_volume_channels <= std_logic_vector(to_unsigned(3,12)); 
-	  weight_filter_size <= std_logic_vector(to_unsigned(11,4)); 
-	  weight_filter_channels <= std_logic_vector(to_unsigned(3,12)); 
-	  number_of_filters <= std_logic_vector(to_unsigned(96,12)); 
-	  stride <= std_logic_vector(to_unsigned(1,4)); 
-	  pad <= std_logic_vector(to_unsigned(1,4));  
-	  
-	  inbuff_prog_full_thresh <= "1111100000"; 
+--	  input_volume_size 		<= std_logic_vector(to_unsigned(227,8)); 
+--	  input_volume_channels 	<= std_logic_vector(to_unsigned(3,12)); 
+--	  weight_filter_size 		<= std_logic_vector(to_unsigned(11,4)); 
+--	  weight_filter_channels 	<= std_logic_vector(to_unsigned(3,12)); 
+--	  number_of_filters 		<= std_logic_vector(to_unsigned(96,12)); 
+--	  stride 					<= std_logic_vector(to_unsigned(1,4)); 
+--	  pad 						<= std_logic_vector(to_unsigned(1,4));  
+	  input_volume_size 		<= std_logic_vector(to_unsigned(12,8)); 
+	  input_volume_channels 	<= std_logic_vector(to_unsigned(3,12)); 
+	  weight_filter_size 		<= std_logic_vector(to_unsigned(3,4)); 
+	  weight_filter_channels 	<= std_logic_vector(to_unsigned(3,12)); 
+	  number_of_filters 		<= std_logic_vector(to_unsigned(5,12)); 
+	  stride 					<= std_logic_vector(to_unsigned(1,4)); 
+	  pad 						<= std_logic_vector(to_unsigned(2,4));  
+	    
+	  inbuff_prog_full_thresh 	<= "1111100000"; 
 	  
 	  wait until rising_edge(clk); 
 	  
@@ -268,35 +306,105 @@ begin
 	  en <= '1'; 	
 	  start <= '1'; 
 	  
-	  input_volume_size <= std_logic_vector(to_unsigned(224,8)); 
-	  input_volume_channels <= std_logic_vector(to_unsigned(3,12)); 
-	  weight_filter_size <= std_logic_vector(to_unsigned(11,4)); 
-	  weight_filter_channels <= std_logic_vector(to_unsigned(3,12)); 
-	  number_of_filters <= std_logic_vector(to_unsigned(96,12)); 
-	  stride <= std_logic_vector(to_unsigned(1,4)); 
-	  pad <= std_logic_vector(to_unsigned(1,4));  
+	  input_volume_size 		<= std_logic_vector(to_unsigned(12,8)); 
+	  input_volume_channels 	<= std_logic_vector(to_unsigned(3,12)); 
+	  weight_filter_size 		<= std_logic_vector(to_unsigned(3,4)); 
+	  weight_filter_channels 	<= std_logic_vector(to_unsigned(3,12)); 
+	  number_of_filters 		<= std_logic_vector(to_unsigned(5,12)); 
+	  stride 					<= std_logic_vector(to_unsigned(1,4)); 
+	  pad 						<= std_logic_vector(to_unsigned(2,4));  
 	  
-	  inbuff_prog_full_thresh <= "1111100000"; 
+	  inbuff_prog_full_thresh 	<= "1111100000"; 
 	  
-	  wait for CLK_PERIOD*10;	
+	  wait for CLK_PERIOD*10;	 
 	  
-	  while (inbuff_almost_full = '0') loop	
-
-		  mem_addr <= std_logic_vector(to_unsigned(addr_counter,16));
-		  
+	  
+	  --while (inbuff_almost_full = '0') loop
+	  for i in 0 to 5-1 loop
 		  wait until rising_edge(clk); 
-		  inbuff_wr_en <= '0'; 
-		  addr_counter <= addr_counter + 1;	 
-		  
-		  wait until rising_edge(clk);   
-		  inbuff_wr_en <= '1'; 	
-		  inbuff_din <= dout;
-		   
+		  for j in 0 to 2 loop   	 
+			  weight_channel <= j; 
+			  filter_number <= i; 
+			  
+			  wait until rising_edge(clk); 
+			  
+			  loop_counter <= 0;
+			  while (loop_counter <= 3*3) loop
+		
+				  if(inbuff_almost_full = '0') then 
+				  
+					  mem_addr <= std_logic_vector(to_unsigned(weight_addr_counter,16));
+					  
+					  wait until rising_edge(clk); 
+					  inbuff_wr_en <= '0'; 
+					  weight_addr_counter <= weight_addr_counter + 1;	 
+					  
+					  wait until rising_edge(clk);   
+					  inbuff_wr_en <= '1'; 	
+					  inbuff_din <= dout;
+					  
+					  if (loop_counter <= 3*3)	then 
+					  	loop_counter <= loop_counter + 1; 	  
+					  --else 
+						--loop_counter <= loop_counter; 	  
+						--weight_channel <= weight_channel + 1; 
+					  end if;  											  
+					  
+				   end if; 
+			   end loop; 
+			   loop_counter <= 0;
+		 end loop; 
+			 
+	  end loop;  
+	  
+	  loop_counter <= 0; 
+	  
+	  for i in 0 to 2 loop   	 
+		  input_channel <= i; 
 
+			  
+		  wait until rising_edge(clk); 
+		  
+		  loop_counter <= 0;
+		  
+		  while (loop_counter <= 12*12) loop
+	
+			  if(inbuff_almost_full = '0') then 
+			  
+				  input_mem_addr <= std_logic_vector(to_unsigned(input_addr_counter,18));
+				  
+				  wait until rising_edge(clk); 
+				  inbuff_wr_en <= '0'; 
+				  input_addr_counter <= input_addr_counter + 1;	 
+				  
+				  wait until rising_edge(clk);   
+				  inbuff_wr_en <= '1'; 	
+				  inbuff_din <= image_data;
+				  
+				  if (loop_counter <= 12*12)	then 
+				  	loop_counter <= loop_counter + 1; 	  
+				  --else 
+					--loop_counter <= 0; 	  
+
+				  end if;  											  
+				  
+			   end if;
+			   
+		   end loop;  
+		   
+		   loop_counter <= 0; 
+
+			
+			 
 	  end loop; 
 	  
+	  wait until rising_edge(clk);
 	  
-
+	  inbuff_wr_en <= '0'; 	
+	  inbuff_din <= (others => '0');
+	  
+	  while(inbuff_wr_en = '0')	 loop
+	  end loop; 
 	  
 	  
 	  
