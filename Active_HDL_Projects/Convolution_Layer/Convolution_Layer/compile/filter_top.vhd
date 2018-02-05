@@ -8,7 +8,7 @@
 -------------------------------------------------------------------------------
 --
 -- File        : c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\compile\filter_top.vhd
--- Generated   : Mon Jan 22 01:42:19 2018
+-- Generated   : Thu Feb  1 16:55:25 2018
 -- From        : c:\Sourcetree_Local\Thesis_VHDL\Active_HDL_Projects\Convolution_Layer\Convolution_Layer\src\filter_top.bde
 -- By          : Bde2Vhdl ver. 2.6
 --
@@ -69,6 +69,7 @@ entity filter_top is
        i_input_volume_channels : in STD_LOGIC_VECTOR(11 downto 0);
        i_input_volume_size : in STD_LOGIC_VECTOR(7 downto 0);
        i_number_of_filters : in STD_LOGIC_VECTOR(11 downto 0);
+       i_output_volume_size : in STD_LOGIC_VECTOR(7 downto 0);
        i_pad : in STD_LOGIC_VECTOR(3 downto 0);
        i_stride : in STD_LOGIC_VECTOR(3 downto 0);
        i_weight_filter_channels : in STD_LOGIC_VECTOR(11 downto 0);
@@ -117,16 +118,27 @@ component accumulator
        g_data_width : INTEGER := 16;
        g_product_width : INTEGER := 32;
        g_accumulator_width : INTEGER := 32;
-       g_dsps_used : INTEGER := 200
+       g_dsps_used : INTEGER := 200;
+       g_layer_1_adders : INTEGER := 16;
+       g_layer_2_adders : INTEGER := 8;
+       g_layer_3_adders : INTEGER := 4;
+       g_layer_4_adders : INTEGER := 2;
+       g_layer_5_adders : INTEGER := 1;
+       g_layer_6_adders : INTEGER := 1;
+       g_layer_7_adders : INTEGER := 2;
+       g_num_adder_layers : INTEGER := 6;
+       g_adder_delay : INTEGER := 8
   );
   port (
        i_clk : in STD_LOGIC;
        i_enable : in STD_LOGIC;
+       i_filter_acc_ready : in STD_LOGIC;
        i_filter_size : in STD_LOGIC_VECTOR(3 downto 0);
        i_products_array : in array_type_varx16bit(g_dsps_used-1 downto 0);
        i_products_array_valid : in STD_LOGIC_VECTOR(g_dsps_used-1 downto 0);
        i_reset_n : in STD_LOGIC;
        o_acc_data : out STD_LOGIC_VECTOR(g_data_width-1 downto 0);
+       o_acc_ready : out STD_LOGIC;
        o_acc_valid : out STD_LOGIC
   );
 end component;
@@ -140,23 +152,28 @@ component accumulator_relay
        i_clk : in STD_LOGIC;
        i_data_valid : in STD_LOGIC;
        i_empty : in STD_LOGIC;
-       i_hold : in STD_LOGIC;
        i_normalizer_ready : in STD_LOGIC;
+       i_num_filters : in STD_LOGIC_VECTOR(11 downto 0);
+       i_num_iterations : in STD_LOGIC_VECTOR(7 downto 0);
+       i_output_volume_size : in STD_LOGIC_VECTOR(7 downto 0);
        i_prog_empty : in STD_LOGIC;
        i_prog_full : in STD_LOGIC;
+       i_recycle_en : in STD_LOGIC;
        i_reset_n : in STD_LOGIC;
+       i_send : in STD_LOGIC;
        o_conv_data_valid : out STD_LOGIC;
        o_conv_volume_out : out STD_LOGIC_VECTOR(g_data_width-1 downto 0);
-       o_hold_clear : out STD_LOGIC;
-       o_prog_emtpy_thresh : out STD_LOGIC_VECTOR(10 downto 0);
+       o_prog_emtpy_thresh : out STD_LOGIC_VECTOR(9 downto 0);
        o_rd_en : out STD_LOGIC;
        o_recycled_acc_data : out STD_LOGIC_VECTOR(g_data_width-1 downto 0);
-       o_recycled_acc_data_en : out STD_LOGIC
+       o_recycled_acc_data_en : out STD_LOGIC;
+       o_send_done : out STD_LOGIC
   );
 end component;
 component filter_accumulator
   generic(
-       g_data_width : INTEGER := 16
+       g_data_width : INTEGER := 16;
+       g_adder_delay : INTEGER := 6
   );
   port (
        i_acc_data : in STD_LOGIC_VECTOR(g_data_width-1 downto 0);
@@ -164,17 +181,20 @@ component filter_accumulator
        i_almost_full : in STD_LOGIC;
        i_clk : in STD_LOGIC;
        i_full : in STD_LOGIC;
-       i_hold_clear : in STD_LOGIC;
        i_num_filters : in STD_LOGIC_VECTOR(11 downto 0);
        i_num_iterations : in STD_LOGIC_VECTOR(7 downto 0);
+       i_output_volume_size : in STD_LOGIC_VECTOR(7 downto 0);
        i_prog_full : in STD_LOGIC;
        i_recycled_acc_data : in STD_LOGIC_VECTOR(g_data_width-1 downto 0);
        i_recycled_acc_data_en : in STD_LOGIC;
        i_reset_n : in STD_LOGIC;
+       i_send_done : in STD_LOGIC;
        o_acc_filter_data : out STD_LOGIC_VECTOR(g_data_width-1 downto 0);
        o_data_valid : out STD_LOGIC;
-       o_hold : out STD_LOGIC;
-       o_prog_full_thresh : out STD_LOGIC_VECTOR(10 downto 0)
+       o_filter_accumulator_ready : out STD_LOGIC;
+       o_prog_full_thresh : out STD_LOGIC_VECTOR(9 downto 0);
+       o_recycle_en : out STD_LOGIC;
+       o_send : out STD_LOGIC
   );
 end component;
 component input_fifo_net_controller
@@ -220,6 +240,7 @@ component input_fifo_net_controller
        o_convolution_en : out STD_LOGIC;
        o_inbuff_prog_empty_thresh : out STD_LOGIC_VECTOR(9 downto 0);
        o_inbuff_rd_en : out STD_LOGIC;
+       o_num_iterations : out STD_LOGIC_VECTOR(7 downto 0);
        o_padded_volume_size : out STD_LOGIC_VECTOR(7 downto 0);
        o_prev_data : out array_type_varx16bit(g_dsps_used-1 downto 0);
        o_prev_data_wr_en : out STD_LOGIC_VECTOR(g_dsps_used-1 downto 0);
@@ -269,7 +290,11 @@ component volume_mux
   );
 end component;
 component volume_router
+  generic(
+       g_mult_delay : INTEGER := 6
+  );
   port (
+       i_acc_ready : in STD_LOGIC;
        i_almost_empty : in STD_LOGIC;
        i_clk : in STD_LOGIC;
        i_convolution_en : in STD_LOGIC;
@@ -343,28 +368,30 @@ signal acc_fifo_prog_full : STD_LOGIC;
 signal acc_fifo_rd_en : STD_LOGIC;
 signal acc_fifo_valid : STD_LOGIC;
 signal acc_fifo_wr_en : STD_LOGIC;
+signal acc_ready : STD_LOGIC;
 signal acc_valid : STD_LOGIC;
 signal all_channels_processed : STD_LOGIC;
 signal all_filters_processed : STD_LOGIC;
 signal convolution_en : STD_LOGIC;
-signal hold : STD_LOGIC;
-signal hold_clear : STD_LOGIC;
+signal filter_acc_ready : STD_LOGIC;
 signal i_clear_weights : STD_LOGIC;
 signal i_rd_clk : STD_LOGIC;
 signal i_reset : STD_LOGIC;
 signal recycled_acc_data_en : STD_LOGIC;
+signal recycle_en : STD_LOGIC;
 signal reset_weight_fifo_n : STD_LOGIC;
+signal send : STD_LOGIC;
+signal send_done : STD_LOGIC;
 signal weight_rst : STD_LOGIC;
 signal accu_fifo_input : STD_LOGIC_VECTOR(g_data_width-1 downto 0);
 signal acc_data : STD_LOGIC_VECTOR(g_data_width-1 downto 0);
 signal acc_fifo_dout : STD_LOGIC_VECTOR(g_data_width-1 downto 0);
-signal acc_fifo_prog_empty_thresh : STD_LOGIC_VECTOR(10 downto 0);
-signal acc_fifo_prog_full_thresh : STD_LOGIC_VECTOR(10 downto 0);
+signal acc_fifo_prog_empty_thresh : STD_LOGIC_VECTOR(9 downto 0);
+signal acc_fifo_prog_full_thresh : STD_LOGIC_VECTOR(9 downto 0);
 signal conv_complete : STD_LOGIC_VECTOR(g_dsps_used-1 downto 0);
 signal data_return : array_type_varx16bit(g_dsps_used-1 downto 0);
 signal data_return_wr_en : STD_LOGIC_VECTOR(g_dsps_used-1 downto 0);
 signal filter_kernal_loaded : STD_LOGIC_VECTOR(g_dsps_used-1 downto 0);
-signal filter_size : STD_LOGIC_VECTOR(3 downto 0);
 signal get_volume_row : STD_LOGIC_VECTOR(g_dsps_used-1 downto 0);
 signal get_weight_row : STD_LOGIC_VECTOR(g_dsps_used-1 downto 0);
 signal loaded_rows_processed : STD_LOGIC_VECTOR(g_dsps_used-1 downto 0);
@@ -442,34 +469,21 @@ begin
 
 ACCUMULATOR_FIFO : input_network_fifo
   port map(
-       prog_empty_thresh(0) => Dangling_Input_Signal,
-       prog_empty_thresh(1) => Dangling_Input_Signal,
-       prog_empty_thresh(2) => Dangling_Input_Signal,
-       prog_empty_thresh(3) => Dangling_Input_Signal,
-       prog_empty_thresh(4) => Dangling_Input_Signal,
-       prog_empty_thresh(5) => Dangling_Input_Signal,
-       prog_empty_thresh(6) => Dangling_Input_Signal,
-       prog_empty_thresh(7) => Dangling_Input_Signal,
-       prog_empty_thresh(8) => Dangling_Input_Signal,
-       prog_empty_thresh(9) => Dangling_Input_Signal,
-       prog_full_thresh(0) => acc_fifo_prog_full_thresh(1),
-       prog_full_thresh(1) => acc_fifo_prog_full_thresh(2),
-       prog_full_thresh(2) => acc_fifo_prog_full_thresh(3),
-       prog_full_thresh(3) => acc_fifo_prog_full_thresh(4),
-       prog_full_thresh(4) => acc_fifo_prog_full_thresh(5),
-       prog_full_thresh(5) => acc_fifo_prog_full_thresh(6),
-       prog_full_thresh(6) => acc_fifo_prog_full_thresh(7),
-       prog_full_thresh(7) => acc_fifo_prog_full_thresh(8),
-       prog_full_thresh(8) => acc_fifo_prog_full_thresh(9),
-       prog_full_thresh(9) => acc_fifo_prog_full_thresh(10),
+       almost_empty => acc_fifo_almost_empty,
        almost_full => acc_fifo_almost_full,
        din => accu_fifo_input(g_data_width-1 downto 0),
+       dout => acc_fifo_dout(g_data_width-1 downto 0),
+       empty => acc_fifo_empty,
        full => acc_fifo_full,
+       prog_empty => acc_fifo_prog_empty,
+       prog_empty_thresh => acc_fifo_prog_empty_thresh,
        prog_full => acc_fifo_prog_full,
-       rd_clk => Dangling_Input_Signal,
-       rd_en => Dangling_Input_Signal,
-       rst => i_clk,
-       wr_clk => i_reset_n,
+       prog_full_thresh => acc_fifo_prog_full_thresh,
+       rd_clk => i_clk,
+       rd_en => acc_fifo_rd_en,
+       rst => i_reset,
+       valid => acc_fifo_valid,
+       wr_clk => i_clk,
        wr_en => acc_fifo_wr_en
   );
 
@@ -483,35 +497,48 @@ ACCUMULATOR_RELAY_UNIT : accumulator_relay
        i_clk => i_clk,
        i_data_valid => acc_fifo_valid,
        i_empty => acc_fifo_empty,
-       i_hold => hold,
        i_normalizer_ready => i_normalizer_ready,
+       i_num_filters => i_number_of_filters,
+       i_num_iterations => num_iterations,
+       i_output_volume_size => i_output_volume_size,
        i_prog_empty => acc_fifo_prog_empty,
        i_prog_full => acc_fifo_prog_full,
+       i_recycle_en => recycle_en,
        i_reset_n => i_reset_n,
+       i_send => send,
        o_conv_data_valid => o_conv_data_valid,
        o_conv_volume_out => o_conv_volume_out(g_data_width-1 downto 0),
-       o_hold_clear => hold_clear,
        o_prog_emtpy_thresh => acc_fifo_prog_empty_thresh,
        o_rd_en => acc_fifo_rd_en,
        o_recycled_acc_data => recycled_acc_data(g_data_width-1 downto 0),
-       o_recycled_acc_data_en => recycled_acc_data_en
+       o_recycled_acc_data_en => recycled_acc_data_en,
+       o_send_done => send_done
   );
 
 DSP_ACCUMULATOR : accumulator
   generic map(
        g_data_width => g_data_width,
        g_product_width => g_product_width,
-       g_accumulator_width => 32,
-       g_dsps_used => g_dsps_used
+       g_accumulator_width => g_data_width,
+       g_dsps_used => g_dsps_used,
+       g_layer_1_adders => 16,
+       g_layer_2_adders => 8,
+       g_layer_3_adders => 4,
+       g_layer_4_adders => 2,
+       g_layer_5_adders => 1,
+       g_layer_6_adders => 1,
+       g_layer_7_adders => 1
   )
   port map(
        i_clk => i_clk,
        i_enable => i_enable,
-       i_filter_size => filter_size,
+       i_filter_acc_ready => filter_acc_ready,
+       i_filter_size => i_weight_filter_size,
        i_products_array => products_array(g_dsps_used-1 downto 0),
        i_products_array_valid => products_array_valid(g_dsps_used-1 downto 0),
        i_reset_n => i_reset_n,
        o_acc_data => acc_data(g_data_width-1 downto 0),
+       o_acc_ready => acc_ready,
        o_acc_valid => acc_valid
   );
 
@@ -525,17 +552,20 @@ FILTER_ACCUMULATOR_UNIT : filter_accumulator
        i_almost_full => acc_fifo_almost_full,
        i_clk => i_clk,
        i_full => acc_fifo_full,
-       i_hold_clear => hold_clear,
        i_num_filters => i_number_of_filters,
        i_num_iterations => num_iterations,
+       i_output_volume_size => i_output_volume_size,
        i_prog_full => acc_fifo_prog_full,
        i_recycled_acc_data => recycled_acc_data(g_data_width-1 downto 0),
        i_recycled_acc_data_en => recycled_acc_data_en,
        i_reset_n => i_reset_n,
+       i_send_done => send_done,
        o_acc_filter_data => accu_fifo_input(g_data_width-1 downto 0),
        o_data_valid => acc_fifo_wr_en,
-       o_hold => hold,
-       o_prog_full_thresh => acc_fifo_prog_full_thresh
+       o_filter_accumulator_ready => filter_acc_ready,
+       o_prog_full_thresh => acc_fifo_prog_full_thresh,
+       o_recycle_en => recycle_en,
+       o_send => send
   );
 
 ROW_CONTROLLER : input_fifo_net_controller
@@ -579,6 +609,7 @@ ROW_CONTROLLER : input_fifo_net_controller
        o_convolution_en => convolution_en,
        o_inbuff_prog_empty_thresh => o_inbuff_prog_empty_thresh,
        o_inbuff_rd_en => o_inbuff_rd_en,
+       o_num_iterations => num_iterations,
        o_padded_volume_size => padded_volume_size,
        o_prev_data => prev_data(g_dsps_used-1 downto 0),
        o_prev_data_wr_en => prev_data_wr_en(g_dsps_used-1 downto 0),
@@ -624,6 +655,8 @@ begin
     );
   
   i_reset <= not(i_reset_n);
+  
+  products_array_valid(i) <= weight_data_valid(i) and volume_data_valid(i);
   
   weight_rst <= not(reset_weight_fifo_n or i_reset_n);
   
@@ -676,6 +709,7 @@ begin
   
   VOLUME_ROW_ROUTER : volume_router
     port map(
+         i_acc_ready => acc_ready,
          i_almost_empty => volume_fifo_almost_empty(i),
          i_clk => i_clk,
          i_convolution_en => convolution_en,

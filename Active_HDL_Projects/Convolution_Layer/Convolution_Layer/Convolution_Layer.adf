@@ -78,6 +78,8 @@ Selected=
 [file_out:/normalizer.bde]
 /..\compile\normalizer.vhd=-1
 
+[file_out:/filter_top.bde]
+/..\compile\filter_top.vhd=-1
 
 [file_out:/Convolution_Layer_Top.bde]
 /..\compile\Convolution_Layer_Top.vhd=-1
@@ -124,6 +126,7 @@ Selected=
 /Testbench_BRAM.mif=-1
 /Input_BRAM.vhd=-1
 /Input_BRAM.mif=-1
+/FP_ADDER_8E_8F.vhd=-1
 /filter_top_tb.vhd=-1
 
 [Files.Data]
@@ -168,7 +171,6 @@ Selected=
 .\src\Testbench_BRAM.mif=Memory File
 .\src\Input_BRAM.vhd=VHDL Source Code
 .\src\Input_BRAM.mif=Memory File
+.\src\FP_ADDER_8E_8F.vhd=VHDL Source Code
 .\src\filter_top_tb.vhd=VHDL Source Code
 
-[file_out:/filter_top.bde]
-/..\compile\filter_top.vhd=-1

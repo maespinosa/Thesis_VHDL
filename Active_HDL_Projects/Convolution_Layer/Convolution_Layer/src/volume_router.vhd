@@ -30,7 +30,10 @@ use ieee.numeric_std.all;
 library convolution_layer; 
 use convolution_layer.types_pkg.all;
 
-entity volume_router is		
+entity volume_router is
+	generic(
+		g_mult_delay : integer := 6
+	); 
 	port(
 	i_clk						: in std_logic; 
 	i_reset_n 					: in std_logic; 
@@ -70,7 +73,9 @@ entity volume_router is
 	
 	o_sending					: out std_logic; 
 	o_conv_complete				: out std_logic; 
-	o_snake_fill_complete		: out std_logic
+	o_snake_fill_complete		: out std_logic;
+	
+	i_acc_ready					: in std_logic
 	
 	); 
 end volume_router;
@@ -79,7 +84,7 @@ end volume_router;
 
 architecture arch of volume_router is	 
 																			 
-type router_state is (IDLE, FILL, SEND, SHIFT, PROCESSING,SNAKE_FILL); --PRIMING, PROCESSING); 
+type router_state is (IDLE, FILL, SEND, SHIFT, PROCESSING,SNAKE_FILL,ACC_HOLD); --PRIMING, PROCESSING); 
 signal current_state 		: router_state; 
 signal next_state			: router_state; 
 
@@ -100,8 +105,11 @@ signal sending 				: std_logic;
 signal column_counter		: unsigned(7 downto 0);   
 signal conv_complete		: std_logic; 	 
 
-signal snake_fill_complete : std_logic;
+signal snake_fill_complete : std_logic;	
 
+signal delay_shift_register : std_logic_vector(g_mult_delay-1 downto 0);  
+signal stride_counter		: unsigned(3 downto 0); 
+signal mult_counter			: unsigned(3 downto 0); 
 
 begin
 	
@@ -109,7 +117,7 @@ begin
 	o_data_return_wr_en <= data_return_wr_en; 
 	
 	o_data_mult 		<= data_mult; 
-	o_data_valid 		<= data_valid; 
+	o_data_valid 		<= delay_shift_register(g_mult_delay-1); --data_valid; 
 	
 	o_prog_empty_thresh <= (others => '0');
 	o_rd_en				<= rd_en; 
@@ -117,7 +125,20 @@ begin
 	
 	o_sending <= sending; 	  
 	o_conv_complete <= conv_complete;  
-	o_snake_fill_complete <= snake_fill_complete;
+	o_snake_fill_complete <= snake_fill_complete;	
+	
+	
+	delay_unit : process(i_clk, i_reset_n) is
+	begin
+		if(i_reset_n = '0') then
+			delay_shift_register <= (others => '0');
+		elsif(rising_edge(i_clk)) then 
+			delay_shift_register <= delay_shift_register(g_mult_delay-2 downto 0) & data_valid; 
+		end if; 
+		
+	end process;  
+		
+		
 	
 	
 	
@@ -131,7 +152,7 @@ begin
 	end process; 
 	
 	
-	next_state_comb: process(current_state, i_empty, i_stop_stack_en, i_next_fifo_full, i_fifo_data_valid, i_filters_loaded, i_convolution_en,element_counter, column_counter, conv_complete,snake_fill_complete) is 
+	next_state_comb: process(current_state, i_empty, i_stop_stack_en, i_next_fifo_full, i_fifo_data_valid, i_filters_loaded, i_convolution_en,element_counter, column_counter, conv_complete,snake_fill_complete,i_acc_ready,mult_counter) is 
 	begin 
 		rd_en <= '0'; 
 		sending <= '0'; 
@@ -179,7 +200,7 @@ begin
 					if(column_counter = unsigned(i_padded_volume_size))then 
 						next_state <= IDLE; 
 					else
-						next_state <= SHIFT; 
+						next_state <= ACC_HOLD;--SHIFT; 
 					end if; 
 				end if; 
 				
@@ -205,13 +226,30 @@ begin
 						next_state <= SNAKE_FILL; 
 					else 
 						rd_en <= '0'; 
-						next_state <= IDLE; 
+						--next_state <= IDLE; 	
+						
+						if(stride_counter < unsigned(i_stride)-1) then 
+							next_state <= SNAKE_FILL; 
+						else 
+							next_state <= IDLE; 
+						end if; 
+							
+						
+						
 					end if; 
 					
 				else
 					rd_en <= '0';
 					next_state <= SNAKE_FILL; 
 				end if; 
+				
+			when ACC_HOLD => 
+				if(i_acc_ready = '1' and to_integer(mult_counter) >= g_mult_delay) then 
+					next_state <= SHIFT; 
+				else
+					next_state <= ACC_HOLD; 
+				end if; 
+			
 					
 				
 			when others => 
@@ -237,7 +275,9 @@ begin
 			data_array 			<= (others => (others => '0'));    
 			column_counter		<= (others => '0'); 
 			conv_complete 		<= '0'; 
-			snake_fill_complete <= '0';
+			snake_fill_complete <= '0';	 
+			stride_counter		<= (others =>'0'); 
+			mult_counter		<= (others => '0'); 
 			
 			
 		elsif(rising_edge(i_clk)) then 
@@ -251,8 +291,9 @@ begin
 			data_array 			<= data_array; 
 			column_counter		<= column_counter; 
 			conv_complete		<= conv_complete; 
-			snake_fill_complete <= snake_fill_complete;
-			
+			snake_fill_complete <= snake_fill_complete;	
+			stride_counter		<= stride_counter; 
+			mult_counter		<= mult_counter; 
 			
 			case current_state is 
 				when IDLE => 
@@ -264,7 +305,8 @@ begin
 					data_return 		<= (others => '0'); 
 					data_return_wr_en 	<= '0';    
 					column_counter 		<= (others => '0'); 
-					conv_complete		<= '0'; 	 
+					conv_complete		<= '0'; 
+					stride_counter		<= (others => '0'); 
 					
 					
 					if(i_empty = '0' and i_filters_loaded = '1' and i_convolution_en = '1') then 
@@ -326,7 +368,8 @@ begin
 						end if; 
 					end if; 
 				
-			    when SHIFT => 
+			    when SHIFT =>  
+					mult_counter <= (others => '0');
 					if(i_empty = '0') then 
 						if(element_counter < unsigned(i_stride) and i_fifo_data_valid = '1') then 
 							data_array <= data_array(9 downto 0) & i_volume_data; 	
@@ -371,7 +414,16 @@ begin
 							element_counter <= (others => '0'); 
 							data_return_wr_en <= '0'; 
 							data_return <= (others => '0');	 
-							snake_fill_complete <= '1';
+
+							
+							if(stride_counter < unsigned(i_stride)-1) then 
+								stride_counter <= stride_counter + 1; 
+							else 
+								stride_counter <= (others => '0'); 
+								snake_fill_complete <= '1';	
+							end if; 
+							
+							
 							--column_counter <= column_counter;
 							--filter_counter <= filter_counter + 1; 
 						end if; 
@@ -387,6 +439,13 @@ begin
 							snake_fill_complete <= '1'; 
 						end if; 
 
+					end if;   
+					
+				when ACC_HOLD => 
+					if(i_acc_ready = '1' and to_integer(mult_counter) >= g_mult_delay) then 
+						mult_counter <= mult_counter; 
+					else
+						mult_counter <= mult_counter + 1; 
 					end if; 
 					
 				when others => 

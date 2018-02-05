@@ -26,7 +26,10 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.all;  
 use ieee.numeric_std.all;
 
-entity weights_router is	  
+entity weights_router is	
+	generic(
+		g_mult_delay : integer := 6
+	); 
 	port(
 	i_clk					: in std_logic; 
 	i_reset_n 				: in std_logic;   
@@ -58,6 +61,7 @@ entity weights_router is
 	
 	i_volume_ready 			: in std_logic; 
 	i_conv_complete			: in std_logic
+	--i_acc_ready				: in std_logic
 	
 	); 
 end weights_router;
@@ -66,7 +70,7 @@ end weights_router;
 
 architecture arch of weights_router is	 
 
-type router_state is (IDLE, PRIMING, LOAD_KERNEL, PROCESSING); 
+type router_state is (IDLE, PRIMING, LOAD_KERNEL, PROCESSING, ACC_HOLD); 
 signal current_state 	: router_state;
 signal next_state 		: router_state;
 
@@ -87,11 +91,11 @@ signal rd_en				: std_logic;
 signal reset_weight_fifo_n  : std_logic; 	 
 signal filter_number		: unsigned(11 downto 0); 
 
-
+signal delay_shift_register : std_logic_vector(g_mult_delay-1 downto 0);
 
 begin
 	
-	o_data_valid			<= data_valid;  
+	o_data_valid			<= delay_shift_register(g_mult_delay-1); --data_valid;  
 	o_recycle_filter_en		<= recycle_filter_en; 
 	o_recycle_filter_data	<= recycle_filter_data; 
 	o_weights_mult			<= weights_mult;
@@ -99,7 +103,17 @@ begin
 	o_filters_processed		<= filters_processed; 
 	o_rd_en					<= rd_en; 
 	o_prog_empty_thresh		<= "0000001111";  
-	o_reset_weight_fifo_n	<= reset_weight_fifo_n;
+	o_reset_weight_fifo_n	<= reset_weight_fifo_n;		
+	
+	delay_unit : process(i_clk, i_reset_n) is
+	begin
+		if(i_reset_n = '0') then
+			delay_shift_register <= (others => '0');
+		elsif(rising_edge(i_clk)) then 
+			delay_shift_register <= delay_shift_register(g_mult_delay-2 downto 0) & data_valid; 
+		end if; 
+		
+	end process;  
 	
 	
 	state_transitions: process(i_clk,i_reset_n) is 
@@ -165,6 +179,10 @@ begin
 					end if; 
 
 				end if; 
+				
+				
+	
+				
 			when others => 
 				next_state <= IDLE; 
 

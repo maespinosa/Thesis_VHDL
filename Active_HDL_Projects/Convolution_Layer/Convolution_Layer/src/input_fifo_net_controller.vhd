@@ -112,7 +112,8 @@ entity input_fifo_net_controller is
 	o_prev_data						: out array_type_varx16bit(g_dsps_used-1 downto 0); 
 	o_prev_data_wr_en				: out std_logic_vector(g_dsps_used-1 downto 0); 
 	
-	o_padded_volume_size			: out std_logic_vector(7 downto 0)
+	o_padded_volume_size			: out std_logic_vector(7 downto 0); 
+	o_num_iterations 				: out std_logic_vector(7 downto 0)
 	
 
 	); 	
@@ -125,7 +126,7 @@ architecture arch of input_fifo_net_controller is
 type dsps_11x11 is array (g_num_11_filters-1 downto 0) of integer range 0 to 219;
 --constant base_volume_fifo_11x11 : dsps_11x11 := (0,11,22,33,44,55,66,77,88,99,110,121,132,143,154,165,176,187);	  
 
-type state_type is (IDLE, WAIT_ONE_PAD, WAIT_ONE_CONV, IS_NET_READY, CALC_PARAMETERS, FETCH_AND_LOAD_WEIGHTS, PAD_VOLUME_TOP, PAD_VOLUME_LEFT, FETCH_VOLUME, PAD_VOLUME_RIGHT, PAD_VOLUME_BOTTOM, CONVOLUTION, PVL_SINGLE,FV_SINGLE, PVR_SINGLE, SNAKE_FILL,DWELL); 
+type state_type is (IDLE, WAIT_ONE_PAD, WAIT_ONE_CONV, IS_NET_READY, CALC_PARAMETERS, FETCH_AND_LOAD_WEIGHTS, PAD_VOLUME_TOP, PAD_VOLUME_LEFT, FETCH_VOLUME, PAD_VOLUME_RIGHT, PAD_VOLUME_BOTTOM, CONVOLUTION, PVL_SINGLE,FV_SINGLE, PVR_SINGLE, SNAKE_FILL,DWELL,PAD_SINGLE); 
 signal current_state 				: state_type; 
 signal next_state 					: state_type;  
 signal resume_state					: state_type; 
@@ -184,7 +185,10 @@ signal recycled_data 				: array_type_varx16bit(g_dsps_used-1 downto 0);
 
 signal volume_row					: unsigned(7 downto 0);	  
 
-				
+signal iteration_calc				: unsigned(23 downto 0); 
+signal iterations_required			: unsigned(7 downto 0);   
+signal stride_counter				: unsigned(3 downto 0);  
+signal pad_row_counter	  			: unsigned(3 downto 0); 
 
 begin
 
@@ -240,7 +244,8 @@ begin
 	input_volume_size_10bit 		<= "00" & i_input_volume_size; 
 	
 	o_all_channels_processed 		<= all_channels_processed; 	  
-	o_padded_volume_size			<= std_logic_vector(padded_volume_column_size); 
+	o_padded_volume_size			<= std_logic_vector(padded_volume_column_size);   
+	o_num_iterations				<= std_logic_vector(iterations_required); 
 	
 	
 	state_transitions: process(i_clk,i_reset_n) is 
@@ -310,8 +315,16 @@ begin
 				volume_new_data_en <= (others => '1'); 
 				weights_new_data_en <= (others => '1');  
 				--weight_fifo_wr_en <= (others => '0'); 
-				next_state <= FETCH_AND_LOAD_WEIGHTS; 
+				--next_state <= FETCH_AND_LOAD_WEIGHTS; 
 				stop_stack_en 				<= (others => '1'); 
+				
+				if(iteration_calc < unsigned(i_input_volume_channels)) then 
+					next_state <= CALC_PARAMETERS;
+				else 	  
+					next_state <= FETCH_AND_LOAD_WEIGHTS; 
+				end if; 
+				
+				
 				
 			when FETCH_AND_LOAD_WEIGHTS => 
 				volume_new_data_en <= (others => '1'); 
@@ -320,7 +333,8 @@ begin
 				next_state <= FETCH_AND_LOAD_WEIGHTS; 
 				inbuff_rd_en <= '0'; 
 				
-				if(i_inbuff_valid = '1' and i_inbuff_almost_empty = '0') then 	 
+				if(i_inbuff_valid = '1' and i_inbuff_empty = '0') then 	
+					--inbuff_rd_en <= '1'; 
 					
 					if(filter_column_counter = unsigned(i_weight_filter_size)-1 and filter_row_counter = unsigned(i_weight_filter_size)-1) then 				
 						
@@ -364,31 +378,31 @@ begin
 				weights_new_data_en 		<= (others => '1');  
 				 
 				
-				if(i_inbuff_valid = '1' and i_inbuff_almost_empty = '0'and i_volume_fifo_almost_full(to_integer(volume_channel_counter)*to_integer(unsigned(i_weight_filter_size)) + to_integer(unsigned(volume_row_counter))) = '0') then  	 
+				if(i_inbuff_valid = '1' and i_inbuff_empty = '0'and i_volume_fifo_almost_full(to_integer(volume_channel_counter)*to_integer(unsigned(i_weight_filter_size)) + to_integer(unsigned(volume_row_counter))) = '0') then  	 
 						 
 					
 					if(volume_column_counter = unsigned(padded_volume_column_size)-1 and volume_row_counter >= unsigned(pad_8bit)-1) then 				
 						
 						if(more_dsps_needed = '0' and volume_channel_counter < unsigned(i_weight_filter_channels)-1) then  
-							inbuff_rd_en <= '1'; 
+							--inbuff_rd_en <= '1'; 
 							next_state <= PAD_VOLUME_TOP; 
 						elsif(more_dsps_needed = '0' and volume_channel_counter >= unsigned(i_weight_filter_channels)-1) then 	 
-							inbuff_rd_en <= '0'; 
+							--inbuff_rd_en <= '0'; 
 							next_state <= PAD_VOLUME_LEFT; 
 						elsif(more_dsps_needed = '1' and volume_channel_counter < channels_allowed) then 
-							inbuff_rd_en <= '1'; 
+							--inbuff_rd_en <= '1'; 
 							next_state <= PAD_VOLUME_TOP; 
 						elsif(more_dsps_needed = '1' and volume_channel_counter >= channels_allowed) then 
-							inbuff_rd_en <= '0'; 
+							--inbuff_rd_en <= '0'; 
 							next_state <= PAD_VOLUME_LEFT; 
 						else
-							inbuff_rd_en <= '0';	 
+							--inbuff_rd_en <= '0';	 
 							next_state <= PAD_VOLUME_TOP; 
 						end if;
 
 						
 					else 
-						inbuff_rd_en <= '1';   
+						--inbuff_rd_en <= '1';   
 						next_state <= PAD_VOLUME_TOP; 
 					end if;		 
 					
@@ -409,31 +423,31 @@ begin
 				weights_new_data_en 		<= (others => '1');  
 				 
 				
-				if(i_inbuff_valid = '1' and i_inbuff_almost_empty = '0'and i_volume_fifo_almost_full(to_integer(volume_channel_counter)*to_integer(unsigned(i_weight_filter_size)) + to_integer(unsigned(volume_row_counter))) = '0') then  	 
+				if(i_inbuff_valid = '1' and i_inbuff_empty = '0'and i_volume_fifo_almost_full(to_integer(volume_channel_counter)*to_integer(unsigned(i_weight_filter_size)) + to_integer(unsigned(volume_row_counter))) = '0') then  	 
 					 
 					
 					if(volume_column_counter = unsigned(pad_8bit)-1 and volume_row_counter = unsigned(i_weight_filter_size)-1) then 				
 						
 						if(more_dsps_needed = '0' and volume_channel_counter < unsigned(i_weight_filter_channels)-1) then  
-							inbuff_rd_en <= '1'; 
+							--inbuff_rd_en <= '1'; 
 							next_state <= PAD_VOLUME_LEFT; 
 						elsif(more_dsps_needed = '0' and volume_channel_counter >= unsigned(i_weight_filter_channels)-1) then 	 
-							inbuff_rd_en <= '0'; 
+							inbuff_rd_en <= '1'; 
 							next_state <= FETCH_VOLUME; 
 						elsif(more_dsps_needed = '1' and volume_channel_counter < channels_allowed) then 
-							inbuff_rd_en <= '1'; 
+							--inbuff_rd_en <= '1'; 
 							next_state <= PAD_VOLUME_LEFT; 
 						elsif(more_dsps_needed = '1' and volume_channel_counter >= channels_allowed) then 
-							inbuff_rd_en <= '0'; 
+							inbuff_rd_en <= '1'; 
 							next_state <= FETCH_VOLUME; 
 						else
-							inbuff_rd_en <= '0';	 
+							--inbuff_rd_en <= '0';	 
 							next_state <= PAD_VOLUME_LEFT; 
 						end if;
 
 						
 					else 
-						inbuff_rd_en <= '1';   
+						--inbuff_rd_en <= '1';   
 						next_state <= PAD_VOLUME_LEFT; 
 					end if;		 
 					
@@ -455,7 +469,7 @@ begin
 				weights_new_data_en 		<= (others => '1');  
 				 
 				
-				if(i_inbuff_valid = '1' and i_inbuff_almost_empty = '0'and i_volume_fifo_almost_full(to_integer(volume_channel_counter)*to_integer(unsigned(i_weight_filter_size)) + to_integer(unsigned(volume_row_counter))) = '0') then  	 
+				if(i_inbuff_valid = '1' and i_inbuff_empty = '0'and i_volume_fifo_almost_full(to_integer(volume_channel_counter)*to_integer(unsigned(i_weight_filter_size)) + to_integer(unsigned(volume_row_counter))) = '0') then  	 
 					 
 					
 					if(volume_column_counter = unsigned(i_input_volume_size)-1 and volume_row_counter = unsigned(i_weight_filter_size)-1) then 				
@@ -485,31 +499,7 @@ begin
 					
 					
 				end if; 
-			
-	
---				volume_new_data_en(to_integer(volume_channel_counter*unsigned(i_weight_filter_size))) <= '1';  
---				volume_prev_data_en(to_integer(volume_channel_counter*unsigned(i_weight_filter_size))) <= '0';   
---				volume_recycled_data_en(to_integer(volume_channel_counter*unsigned(i_weight_filter_size))) <= '0';	
---				stop_stack_en(to_integer(volume_channel_counter*unsigned(i_weight_filter_size) + unsigned(i_weight_filter_size))) <= '1'; 
---			
---				if(volume_rows_processed = padded_volume_column_size-unsigned(i_pad) and element_counter = padded_volume_row_size) then 
---					next_state <= PAD_VOLUME_BOTTOM; 
---				elsif(and_reduce(i_volume_fifo_prog_full) = '1') then 
---					next_state <= CONVOLUTION; 
---				else 
---					next_state <= FETCH_VOLUME; 
---					if(i_volume_fifo_prog_full(to_integer(volume_channel_counter*unsigned(i_weight_filter_size))) = '0') then
---						if(pad_counter < unsigned(i_pad) and element_counter < padded_volume_row_size) then 
---							volume_fifo_wr_en(to_integer(volume_channel_counter*unsigned(i_weight_filter_size))) <= '1'; 	
---						elsif(pad_counter = unsigned(i_pad) and element_counter < padded_volume_row_size-unsigned(i_pad)) then 
---							inbuff_rd_en <= '1'; 
---							volume_fifo_wr_en(to_integer(volume_channel_counter*unsigned(i_weight_filter_size))) <= '1'; 
---						else
---							volume_fifo_wr_en(to_integer(volume_channel_counter*unsigned(i_weight_filter_size))) <= '0'; 	 
---							inbuff_rd_en <= '0'; 
---						end if; 	
---					end if; 
---				end if; 
+		
 				
 			when PAD_VOLUME_RIGHT => 
 
@@ -524,35 +514,35 @@ begin
 				weights_new_data_en 		<= (others => '1');  
 				 
 				
-				if(i_inbuff_valid = '1' and i_inbuff_almost_empty = '0'and i_volume_fifo_almost_full(to_integer(volume_channel_counter)*to_integer(unsigned(i_weight_filter_size)) + to_integer(unsigned(volume_row_counter))) = '0') then  	 
+				if(i_inbuff_valid = '1' and i_inbuff_empty = '0'and i_volume_fifo_almost_full(to_integer(volume_channel_counter)*to_integer(unsigned(i_weight_filter_size)) + to_integer(unsigned(volume_row_counter))) = '0') then  	 
 					 
 					
 					if(volume_column_counter = unsigned(pad_8bit)-1 and volume_row_counter = unsigned(i_weight_filter_size)-1) then 				
 						
 						if(more_dsps_needed = '0' and volume_channel_counter < unsigned(i_weight_filter_channels)-1) then  
-							inbuff_rd_en <= '1'; 
+							--inbuff_rd_en <= '1'; 
 							next_state <= PAD_VOLUME_RIGHT; 
 						elsif(more_dsps_needed = '0' and volume_channel_counter >= unsigned(i_weight_filter_channels)-1) then 	 
-							inbuff_rd_en <= '0'; 
+							--inbuff_rd_en <= '0'; 
 							next_state <= WAIT_ONE_PAD; 
 							--resume_state <= CONVOLUTION; 
 							weights_new_data_en 		<= (others => '0'); 
 						elsif(more_dsps_needed = '1' and volume_channel_counter < channels_allowed) then 
-							inbuff_rd_en <= '1'; 
+							--inbuff_rd_en <= '1'; 
 							next_state <= PAD_VOLUME_RIGHT; 
 						elsif(more_dsps_needed = '1' and volume_channel_counter >= channels_allowed) then 
-							inbuff_rd_en <= '0'; 
+							--inbuff_rd_en <= '0'; 
 							next_state <= WAIT_ONE_PAD; 
 							--resume_state <= CONVOLUTION; 	
 							weights_new_data_en 		<= (others => '0'); 
 						else
-							inbuff_rd_en <= '0';	 
+							--inbuff_rd_en <= '0';	 
 							next_state <= PAD_VOLUME_RIGHT; 
 						end if;
 
 						
 					else 
-						inbuff_rd_en <= '1';   
+						--inbuff_rd_en <= '1';   
 						next_state <= PAD_VOLUME_RIGHT; 
 					end if;		 
 					
@@ -582,14 +572,13 @@ begin
 			
 			
 				if(or_reduce(i_loaded_rows_processed) = '1') then 
-					next_state <= PVL_SINGLE; 
---					convolution_en <= '0'; 	   
---					volume_new_data_en 			<= (others => '0');	
---					volume_prev_data_en 		<= (others => '0');	
---					volume_recycled_data_en 	<= (others => '0');	
---					stop_stack_en 				<= (others => '1');	
---					weights_new_data_en 		<= (others => '0');
---					weights_recycled_data_en 	<= (others => '0'); 
+					if(volume_rows_processed = unsigned(i_input_volume_size) and pad_row_counter < unsigned(pad_8bit)) then	
+						next_state <= PAD_SINGLE;
+					elsif(volume_rows_processed = unsigned(i_input_volume_size) and pad_row_counter = unsigned(pad_8bit)) then	 
+						next_state <= IDLE; 
+					else
+						next_state <= PVL_SINGLE; 	
+					end if;
 					
 				else 
 					next_state <= CONVOLUTION;
@@ -619,7 +608,7 @@ begin
 				weights_new_data_en 		<= (others => '0');  
 				 
 				
-				if(i_inbuff_valid = '1' and i_inbuff_almost_empty = '0'and i_volume_fifo_almost_full(to_integer(volume_channel_counter)*to_integer(unsigned(i_weight_filter_size)) + to_integer(unsigned(volume_row_counter))) = '0') then  	 
+				if(i_inbuff_valid = '1' and i_inbuff_empty = '0'and i_volume_fifo_almost_full(to_integer(volume_channel_counter)*to_integer(unsigned(i_weight_filter_size)) + to_integer(unsigned(volume_row_counter))) = '0') then  	 
 					 
 					
 					if(volume_column_counter >= unsigned(pad_8bit)-1 and volume_row_counter >= unsigned(i_weight_filter_size)-1) then 				
@@ -628,13 +617,13 @@ begin
 							--inbuff_rd_en <= '1'; 
 							next_state <= PVL_SINGLE; 
 						elsif(more_dsps_needed = '0' and volume_channel_counter >= unsigned(i_weight_filter_channels)-1) then 	 
-							--inbuff_rd_en <= '0'; 
+							inbuff_rd_en <= '1'; 
 							next_state <= FV_SINGLE; 
 						elsif(more_dsps_needed = '1' and volume_channel_counter < channels_allowed) then 
 							--inbuff_rd_en <= '1'; 
 							next_state <= PVL_SINGLE; 
 						elsif(more_dsps_needed = '1' and volume_channel_counter >= channels_allowed) then 
-							--inbuff_rd_en <= '0'; 
+							inbuff_rd_en <= '1'; 
 							next_state <= FV_SINGLE; 
 						else
 							--inbuff_rd_en <= '0';	 
@@ -665,7 +654,7 @@ begin
 				stop_stack_en 				<= (others => '1'); 	 
 				weights_new_data_en 		<= (others => '0');  
 				
-				if(i_inbuff_valid = '1' and i_inbuff_almost_empty = '0'and i_volume_fifo_almost_full(to_integer(volume_channel_counter)*to_integer(unsigned(i_weight_filter_size)) + to_integer(unsigned(volume_row_counter))) = '0') then  	 
+				if(i_inbuff_valid = '1' and i_inbuff_empty = '0'and i_volume_fifo_almost_full(to_integer(volume_channel_counter)*to_integer(unsigned(i_weight_filter_size)) + to_integer(unsigned(volume_row_counter))) = '0') then  	 
 					 
 					
 					if(volume_column_counter = unsigned(i_input_volume_size)-1 and volume_row_counter = unsigned(i_weight_filter_size)-1) then 				
@@ -706,7 +695,7 @@ begin
 				stop_stack_en 				<= (others => '1'); 	 
 				weights_new_data_en 		<= (others => '0');  
 				
-				if(i_inbuff_valid = '1' and i_inbuff_almost_empty = '0'and i_volume_fifo_almost_full(to_integer(volume_channel_counter)*to_integer(unsigned(i_weight_filter_size)) + to_integer(unsigned(volume_row_counter))) = '0') then  	 
+				if(i_inbuff_valid = '1' and i_inbuff_empty = '0'and i_volume_fifo_almost_full(to_integer(volume_channel_counter)*to_integer(unsigned(i_weight_filter_size)) + to_integer(unsigned(volume_row_counter))) = '0') then  	 
 					 
 					
 					if(volume_column_counter = unsigned(pad_8bit)-1 and volume_row_counter = unsigned(i_weight_filter_size)-1) then 				
@@ -716,8 +705,15 @@ begin
 							next_state <= PVR_SINGLE; 
 						elsif(more_dsps_needed = '0' and volume_channel_counter >= unsigned(i_weight_filter_channels)-1) then 	 
 							--inbuff_rd_en <= '0'; 
-							next_state <= SNAKE_FILL; 
-							weights_new_data_en 		<= (others => '0'); 
+							--next_state <= SNAKE_FILL; 
+							weights_new_data_en 		<= (others => '0'); 	
+									
+							if(stride_counter < unsigned(i_stride)-1) then 
+								next_state <= PVL_SINGLE; --stride_counter <= stride_counter + 1; 
+							else 
+								next_state <= SNAKE_FILL; --stride_counter <= (others => '0'); 
+							end if; 
+							
 						elsif(more_dsps_needed = '1' and volume_channel_counter < channels_allowed) then 
 							--inbuff_rd_en <= '1'; 
 							next_state <= PVR_SINGLE; 
@@ -757,34 +753,90 @@ begin
 				if(i_volume_fifo_almost_full(to_integer(volume_channel_counter)*to_integer(unsigned(i_weight_filter_size)) + to_integer(unsigned(volume_row_counter))) = '0' and i_data_return_wr_en(to_integer(volume_channel_counter)*to_integer(unsigned(i_weight_filter_size)) + to_integer(unsigned(volume_row_counter)+1))='1') then  	 
 					 
 					
-					if(volume_column_counter = unsigned(padded_volume_column_size)-1 and volume_row_counter = 0) then --unsigned(i_weight_filter_size)-2) then 				
-						
-						if(more_dsps_needed = '0' and volume_channel_counter < unsigned(i_weight_filter_channels)-1) then  
-							--inbuff_rd_en <= '1'; 
+					if(volume_column_counter = unsigned(padded_volume_column_size)-1) then 
+						if (volume_row_counter > 0) then 
 							next_state <= SNAKE_FILL; 
-						elsif(more_dsps_needed = '0' and volume_channel_counter >= unsigned(i_weight_filter_channels)-1) then 	 
-							--inbuff_rd_en <= '0'; 
-							next_state <= CONVOLUTION; 
-						elsif(more_dsps_needed = '1' and volume_channel_counter < channels_allowed) then 
-							--inbuff_rd_en <= '1'; 
-							next_state <= SNAKE_FILL; 
-						elsif(more_dsps_needed = '1' and volume_channel_counter >= channels_allowed) then 
-							--inbuff_rd_en <= '0'; 
-							next_state <= CONVOLUTION; 
-						else
-							--inbuff_rd_en <= '0';	 
-							next_state <= SNAKE_FILL; 
-						end if;
+						else 
+							
+							if(stride_counter < unsigned(i_stride)-1) then 	
+								next_state <= SNAKE_FILL; 
+							else 
+								
+								if(more_dsps_needed = '0' and volume_channel_counter < unsigned(i_weight_filter_channels)-1) then    
+									--inbuff_rd_en <= '1'; 
+									next_state <= SNAKE_FILL; 		
+								elsif(more_dsps_needed = '0' and volume_channel_counter >= unsigned(i_weight_filter_channels)-1) then   
+									--inbuff_rd_en <= '0'; 
+									next_state <= CONVOLUTION; 	
+								elsif(more_dsps_needed = '1' and volume_channel_counter < channels_allowed) then 
+									--inbuff_rd_en <= '1'; 
+									next_state <= SNAKE_FILL; 
+								elsif(more_dsps_needed = '1' and volume_channel_counter >= channels_allowed) then 
+									--inbuff_rd_en <= '0'; 
+									next_state <= CONVOLUTION; 
+								else
+									--inbuff_rd_en <= '0';	 
+									next_state <= SNAKE_FILL; 
+								end if;	
+							end if; 
+								
+						end if; 
+							
 
 						
 					else 
-						--inbuff_rd_en <= '1';   
 						next_state <= SNAKE_FILL; 
 					end if;		 
 					
 					
 				end if; 
 				
+			when PAD_SINGLE =>  
+			
+				next_state 					<= PAD_SINGLE;  
+			
+				volume_new_data_en<= (others => '1'); 
+				--volume_new_data_en(to_integer(volume_channel_counter)*to_integer(unsigned(i_weight_filter_size)) + to_integer(unsigned(volume_row_counter)))<= '1'; 
+				volume_prev_data_en 		<= (others => '0'); 
+				--volume_prev_data_en(to_integer(volume_channel_counter)*to_integer(unsigned(i_weight_filter_size)) + to_integer(unsigned(volume_row_counter)))<='0';
+				volume_recycled_data_en 	<= (others => '0'); 
+				stop_stack_en 				<= (others => '1'); 	 
+				weights_new_data_en 		<= (others => '0');  
+				
+				if(i_inbuff_valid = '1' and i_inbuff_empty = '0'and i_volume_fifo_almost_full(to_integer(volume_channel_counter)*to_integer(unsigned(i_weight_filter_size)) + to_integer(unsigned(volume_row_counter))) = '0') then  	 
+					 
+					
+					if(volume_column_counter = unsigned(padded_volume_column_size)-1 and volume_row_counter = unsigned(i_weight_filter_size)-1) then 				
+						
+						if(more_dsps_needed = '0' and volume_channel_counter < unsigned(i_weight_filter_channels)-1) then  
+							
+							next_state <= PAD_SINGLE; 
+						elsif(more_dsps_needed = '0' and volume_channel_counter >= unsigned(i_weight_filter_channels)-1) then 	 
+							
+							if(stride_counter < unsigned(i_stride)-1) then 
+								next_state <= PAD_SINGLE; --stride_counter <= stride_counter + 1; 
+							else 
+								next_state <= SNAKE_FILL; --stride_counter <= (others => '0'); 
+							end if; 
+						elsif(more_dsps_needed = '1' and volume_channel_counter < channels_allowed) then 
+							
+							next_state <= PAD_SINGLE; 
+						elsif(more_dsps_needed = '1' and volume_channel_counter >= channels_allowed) then 
+							
+							next_state <= SNAKE_FILL; 
+						else
+							
+							next_state <= PAD_SINGLE; 
+						end if;
+
+						
+					else 
+						
+						next_state <= PAD_SINGLE; 
+					end if;		 
+					
+					
+				end if; 
 				
 			when DWELL => 
 				next_state <= DWELL; 
@@ -833,6 +885,10 @@ begin
 			volume_column_counter		<= (others => '0'); 	
 			volume_row					<= (others => '0');   
 			resume_state				<= IDLE; 
+			iteration_calc				<= (others => '0'); 
+			iterations_required			<= (others => '0');    
+			stride_counter				<= (others => '0'); 
+			pad_row_counter	   			<= (others => '0');
 				
 			
 		elsif(rising_edge(i_clk)) then 
@@ -868,7 +924,10 @@ begin
 			volume_row					<= volume_row;	 
 			resume_state				<= resume_state; 
 				
-				
+			iteration_calc				<= iteration_calc; 
+			iterations_required			<= iterations_required; 	   
+			stride_counter				<= stride_counter; 
+			pad_row_counter				<= pad_row_counter;
 			
 			case current_state is
 
@@ -884,8 +943,18 @@ begin
 					if(channels_allowed > unsigned(i_input_volume_channels)) then 
 						more_dsps_needed <= '0'; 
 					else  
-						more_dsps_needed <= '1'; 
+						more_dsps_needed <= '1';  
 					end if;  
+					
+					
+					if(iteration_calc < unsigned(i_input_volume_channels)) then 
+						iteration_calc <= iteration_calc + channels_allowed; 
+						iterations_required <= iterations_required + 1; 
+					else 	  
+						iteration_calc <= iteration_calc; 
+						iterations_required <= iterations_required; 
+					end if; 
+					
 					
 					padded_volume_row_size 		<= unsigned(i_input_volume_size) + unsigned(pad_8bit) + unsigned(pad_8bit);--to_unsigned(to_integer(unsigned(i_input_volume_size)) + to_integer(unsigned("0000" & i_pad)) + to_integer(unsigned("0000" & i_pad)),8); 
 					padded_volume_column_size 	<= unsigned(i_input_volume_size) + unsigned(pad_8bit) + unsigned(pad_8bit); 
@@ -897,7 +966,7 @@ begin
 					weight_fifo_wr_en <= (others => '0'); 
 					volume_fifo_wr_en <= (others => '0'); 
 				
-					if(i_inbuff_valid = '1' and i_inbuff_almost_empty = '0') then  	 
+					if(i_inbuff_valid = '1' and i_inbuff_empty = '0') then  	 
 						
 						if(filter_column_counter < unsigned(i_weight_filter_size)-1) then 
 							filter_column_counter <= filter_column_counter + 1; 
@@ -938,7 +1007,7 @@ begin
 					weight_fifo_wr_en <= (others => '0'); 
 					volume_fifo_wr_en <= (others => '0'); 
 				
-					if(i_inbuff_valid = '1' and i_inbuff_almost_empty = '0'and i_volume_fifo_almost_full(to_integer(volume_channel_counter)*to_integer(unsigned(i_weight_filter_size)) + to_integer(unsigned(volume_row_counter))) = '0') then  	 
+					if(i_inbuff_valid = '1' and i_inbuff_empty = '0'and i_volume_fifo_almost_full(to_integer(volume_channel_counter)*to_integer(unsigned(i_weight_filter_size)) + to_integer(unsigned(volume_row_counter))) = '0') then  	 
 						
 						if(volume_column_counter < unsigned(padded_volume_column_size)-1) then 
 							volume_column_counter <= volume_column_counter + 1; 
@@ -982,7 +1051,7 @@ begin
 					weight_fifo_wr_en <= (others => '0'); 
 					volume_fifo_wr_en <= (others => '0'); 
 				
-					if(i_inbuff_valid = '1' and i_inbuff_almost_empty = '0'and i_volume_fifo_almost_full(to_integer(volume_channel_counter)*to_integer(unsigned(i_weight_filter_size)) + to_integer(unsigned(volume_row_counter))) = '0') then  	 
+					if(i_inbuff_valid = '1' and i_inbuff_empty = '0'and i_volume_fifo_almost_full(to_integer(volume_channel_counter)*to_integer(unsigned(i_weight_filter_size)) + to_integer(unsigned(volume_row_counter))) = '0') then  	 
 						
 						if(volume_column_counter < unsigned(pad_8bit)-1) then 
 							volume_column_counter <= volume_column_counter + 1; 
@@ -1010,12 +1079,8 @@ begin
 								else
 									volume_channel_counter <= volume_channel_counter; 
 								end if; 
-								
-								
-								
 							end if;   
 						end if; 
-
 					end if; 
 				
 			
@@ -1023,7 +1088,7 @@ begin
 					weight_fifo_wr_en <= (others => '0'); 
 					volume_fifo_wr_en <= (others => '0'); 
 				
-					if(i_inbuff_valid = '1' and i_inbuff_almost_empty = '0'and i_volume_fifo_almost_full(to_integer(volume_channel_counter)*to_integer(unsigned(i_weight_filter_size)) + to_integer(unsigned(volume_row_counter))) = '0') then  	 
+					if(i_inbuff_valid = '1' and i_inbuff_empty = '0'and i_volume_fifo_almost_full(to_integer(volume_channel_counter)*to_integer(unsigned(i_weight_filter_size)) + to_integer(unsigned(volume_row_counter))) = '0') then  	 
 						
 						if(volume_column_counter < unsigned(i_input_volume_size)-1) then 
 							volume_column_counter <= volume_column_counter + 1; 
@@ -1051,12 +1116,8 @@ begin
 								else
 									volume_channel_counter <= volume_channel_counter; 
 								end if; 
-								
-								
-								
 							end if;   
 						end if; 
-
 					end if; 
 				
 					
@@ -1064,7 +1125,7 @@ begin
 					weight_fifo_wr_en <= (others => '0'); 
 					volume_fifo_wr_en <= (others => '0'); 
 				
-					if(i_inbuff_valid = '1' and i_inbuff_almost_empty = '0'and i_volume_fifo_almost_full(to_integer(volume_channel_counter)*to_integer(unsigned(i_weight_filter_size)) + to_integer(unsigned(volume_row_counter))) = '0') then  	 
+					if(i_inbuff_valid = '1' and i_inbuff_empty = '0'and i_volume_fifo_almost_full(to_integer(volume_channel_counter)*to_integer(unsigned(i_weight_filter_size)) + to_integer(unsigned(volume_row_counter))) = '0') then  	 
 						
 						if(volume_column_counter < unsigned(pad_8bit)-1) then 
 							volume_column_counter <= volume_column_counter + 1; 
@@ -1079,34 +1140,24 @@ begin
 								volume_row_counter <= volume_row_counter + 1; 
 							else 
 								volume_row_counter <= volume_row;	
-								
-								
+
 								if(more_dsps_needed = '0' and volume_channel_counter < unsigned(i_weight_filter_channels)-1) then  
 									volume_channel_counter <= volume_channel_counter + 1; 
 								elsif(more_dsps_needed = '0' and volume_channel_counter >= unsigned(i_weight_filter_channels)-1) then 	 
 									volume_channel_counter <= (others => '0'); --volume_channel_counter;
-									resume_state <= CONVOLUTION;
+									volume_rows_processed <= ("0000" & unsigned(i_weight_filter_size)) - unsigned(pad_8bit); 
 								elsif(more_dsps_needed = '1' and volume_channel_counter < channels_allowed) then 
 									volume_channel_counter <= volume_channel_counter + 1; 
 								elsif(more_dsps_needed = '1' and volume_channel_counter >= channels_allowed) then 
 									volume_channel_counter <= (others => '0'); --volume_channel_counter;  
-									resume_state <= CONVOLUTION;
+									volume_rows_processed <= ("0000" & unsigned(i_weight_filter_size)) - unsigned(pad_8bit); 
 								else
 									volume_channel_counter <= volume_channel_counter; 
 								end if; 
-								
-								
-								
 							end if;   
 						end if; 
 
 					end if; 
-
-
-
-
-
-
 
 					
 				when PAD_VOLUME_BOTTOM =>	
@@ -1138,6 +1189,9 @@ begin
 						pad_counter <= (others => '0'); 
 					end if;  
 					
+					
+					
+					
 				when WAIT_ONE_PAD => 		 
 					weight_fifo_wr_en <= (others => '0'); 
 					volume_fifo_wr_en <= (others => '0');  	
@@ -1160,7 +1214,7 @@ begin
 					weight_fifo_wr_en <= (others => '0'); 
 					volume_fifo_wr_en <= (others => '0'); 
 				
-					if(i_inbuff_valid = '1' and i_inbuff_almost_empty = '0'and i_volume_fifo_almost_full(to_integer(volume_channel_counter)*to_integer(unsigned(i_weight_filter_size)) + to_integer(unsigned(volume_row_counter))) = '0') then  	 
+					if(i_inbuff_valid = '1' and i_inbuff_empty = '0'and i_volume_fifo_almost_full(to_integer(volume_channel_counter)*to_integer(unsigned(i_weight_filter_size)) + to_integer(unsigned(volume_row_counter))) = '0') then  	 
 						
 						if(volume_column_counter < unsigned(pad_8bit)-1) then 
 							volume_column_counter <= volume_column_counter + 1; 
@@ -1202,7 +1256,7 @@ begin
 					weight_fifo_wr_en <= (others => '0'); 
 					volume_fifo_wr_en <= (others => '0'); 
 				
-					if(i_inbuff_valid = '1' and i_inbuff_almost_empty = '0'and i_volume_fifo_almost_full(to_integer(volume_channel_counter)*to_integer(unsigned(i_weight_filter_size)) + to_integer(unsigned(volume_row_counter))) = '0') then  	 
+					if(i_inbuff_valid = '1' and i_inbuff_empty = '0'and i_volume_fifo_almost_full(to_integer(volume_channel_counter)*to_integer(unsigned(i_weight_filter_size)) + to_integer(unsigned(volume_row_counter))) = '0') then  	 
 						
 						if(volume_column_counter < unsigned(i_input_volume_size)-1) then 
 							volume_column_counter <= volume_column_counter + 1; 
@@ -1242,7 +1296,7 @@ begin
 					weight_fifo_wr_en <= (others => '0'); 
 					volume_fifo_wr_en <= (others => '0'); 
 				
-					if(i_inbuff_valid = '1' and i_inbuff_almost_empty = '0'and i_volume_fifo_almost_full(to_integer(volume_channel_counter)*to_integer(unsigned(i_weight_filter_size)) + to_integer(unsigned(volume_row_counter))) = '0') then  	 
+					if(i_inbuff_valid = '1' and i_inbuff_empty = '0'and i_volume_fifo_almost_full(to_integer(volume_channel_counter)*to_integer(unsigned(i_weight_filter_size)) + to_integer(unsigned(volume_row_counter))) = '0') then  	 
 						
 						if(volume_column_counter < unsigned(pad_8bit)-1) then 
 							volume_column_counter <= volume_column_counter + 1; 
@@ -1256,28 +1310,32 @@ begin
 							if(volume_row_counter < unsigned(i_weight_filter_size)-1) then
 								--volume_row_counter <= volume_row_counter + 1; 
 							else 
-								--volume_row_counter <= volume_row;	
-								
 								
 								if(more_dsps_needed = '0' and volume_channel_counter < unsigned(i_weight_filter_channels)-1) then  
 									volume_channel_counter 	<= volume_channel_counter + 1; 
 								elsif(more_dsps_needed = '0' and volume_channel_counter >= unsigned(i_weight_filter_channels)-1) then 	 
 									volume_channel_counter 	<= (others => '0'); --volume_channel_counter;  
-									volume_row_counter 		<= "0000" & unsigned(i_weight_filter_size)-2;--(others => '0');
-									volume_row				<= "0000" & unsigned(i_weight_filter_size)-2;--(others =>'0'); 
+
+									
+									if(stride_counter < unsigned(i_stride)-1) then 
+										stride_counter <= stride_counter + 1; 
+										volume_rows_processed <= volume_rows_processed + 1; 
+									else 
+										stride_counter <= (others => '0'); 	
+										volume_row_counter 		<= "0000" & unsigned(i_weight_filter_size)-2;--(others => '0');
+										volume_row				<= "0000" & unsigned(i_weight_filter_size)-2;--(others =>'0');
+										volume_rows_processed <= volume_rows_processed + 1; 
+									end if; 
+									
 								elsif(more_dsps_needed = '1' and volume_channel_counter < channels_allowed) then 
 									volume_channel_counter 	<= volume_channel_counter + 1; 
 								elsif(more_dsps_needed = '1' and volume_channel_counter >= channels_allowed) then 
 									volume_channel_counter 	<= (others => '0'); --volume_channel_counter; 
+									volume_rows_processed <= volume_rows_processed + 1;
 								else
 									volume_channel_counter 	<= volume_channel_counter; 
 								end if; 
-								
---								volume_row_counter <= (others => '0');
---								volume_row	<= (others =>'0'); 
---								
-								
-								
+							
 							end if;   
 						end if; 
 
@@ -1287,7 +1345,8 @@ begin
 				
 					weight_fifo_wr_en <= (others => '0'); 
 					volume_fifo_wr_en <= (others => '0'); 	  
-					prev_data_wr_en <= (others => '0'); 
+					prev_data_wr_en <= (others => '0');  
+					
 				
 					if(i_volume_fifo_almost_full(to_integer(volume_channel_counter)*to_integer(unsigned(i_weight_filter_size)) + to_integer(unsigned(volume_row_counter))) = '0' and i_data_return_wr_en(to_integer(volume_channel_counter)*to_integer(unsigned(i_weight_filter_size)) + to_integer(unsigned(volume_row_counter)+1)) = '1') then  	 
 						
@@ -1301,21 +1360,82 @@ begin
 							prev_data_wr_en(to_integer(volume_channel_counter)*to_integer(unsigned(i_weight_filter_size)) + to_integer(unsigned(volume_row_counter))) <= i_data_return_wr_en(to_integer(volume_channel_counter)*to_integer(unsigned(i_weight_filter_size)) + to_integer(unsigned(volume_row_counter)+1)); 	
 							
 							if(volume_row_counter > 0) then
-								volume_row_counter <= volume_row_counter - 1; 
+								--volume_row_counter <= volume_row_counter - 1; 
+								
+								if(stride_counter < unsigned(i_stride)-1) then 
+									stride_counter <= stride_counter + 1;  
+									volume_row_counter <= volume_row_counter; 
+								else 
+									stride_counter <= (others => '0');
+									volume_row_counter <= volume_row_counter - 1; 
+								end if; 
+								
 							else 
-								volume_row_counter <= volume_row;		
+								if(stride_counter < unsigned(i_stride)-1) then 
+									stride_counter <= stride_counter + 1;  
+								else 
+									stride_counter <= (others => '0');	 
+									
+									if(more_dsps_needed = '0' and volume_channel_counter < unsigned(i_weight_filter_channels)-1) then  
+										volume_row_counter 		<= "0000" & unsigned(i_weight_filter_size)-2;--(others => '0');
+										volume_row				<= "0000" & unsigned(i_weight_filter_size)-2;--(others =>'0');
+										volume_channel_counter <= volume_channel_counter + 1; 	
+									elsif(more_dsps_needed = '0' and volume_channel_counter >= unsigned(i_weight_filter_channels)-1) then   
+										volume_channel_counter <= (others => '0'); --volume_channel_counter;		
+										volume_row_counter 		<= (others => '0');
+										volume_row				<= (others =>'0'); 
+									elsif(more_dsps_needed = '1' and volume_channel_counter < channels_allowed) then 
+										volume_channel_counter <= volume_channel_counter + 1; 
+									elsif(more_dsps_needed = '1' and volume_channel_counter >= channels_allowed) then 
+										volume_channel_counter <= (others => '0'); --volume_channel_counter; 
+									else
+										volume_channel_counter <= volume_channel_counter; 
+									end if; 
+								end if; 
+							end if;   
+						end if;
+					end if; 
+				
+	  		   	when PAD_SINGLE =>
+
+					weight_fifo_wr_en <= (others => '0'); 
+					volume_fifo_wr_en <= (others => '0'); 
+				
+					if(i_inbuff_valid = '1' and i_inbuff_empty = '0'and i_volume_fifo_almost_full(to_integer(volume_channel_counter)*to_integer(unsigned(i_weight_filter_size)) + to_integer(unsigned(volume_row_counter))) = '0') then  	 
+						
+						if(volume_column_counter < unsigned(padded_volume_column_size)-1) then 
+							volume_column_counter <= volume_column_counter + 1; 
+							volume_data(to_integer(volume_channel_counter)*to_integer(unsigned(i_weight_filter_size)) + to_integer(unsigned(volume_row_counter))) <= (others => '0'); 	
+							volume_fifo_wr_en(to_integer(volume_channel_counter)*to_integer(unsigned(i_weight_filter_size)) + to_integer(unsigned(volume_row_counter))) <= '1'; 
+						else 
+							volume_column_counter <= (others => '0'); 
+							volume_data(to_integer(volume_channel_counter)*to_integer(unsigned(i_weight_filter_size)) + to_integer(unsigned(volume_row_counter))) <= (others => '0');
+							volume_fifo_wr_en(to_integer(volume_channel_counter)*to_integer(unsigned(i_weight_filter_size)) + to_integer(unsigned(volume_row_counter))) <= '1'; 
+							
+							if(volume_row_counter < unsigned(i_weight_filter_size)-1) then
+								--volume_row_counter <= volume_row_counter + 1; 
+							else 
+								--volume_row_counter <= volume_row;		
 								--volume_row <= volume_row_counter; 
 								
 								if(more_dsps_needed = '0' and volume_channel_counter < unsigned(i_weight_filter_channels)-1) then  
 									volume_channel_counter <= volume_channel_counter + 1; 
 								elsif(more_dsps_needed = '0' and volume_channel_counter >= unsigned(i_weight_filter_channels)-1) then 	 
-									volume_channel_counter <= (others => '0'); --volume_channel_counter;		
-									volume_row_counter 		<= (others => '0');
-									volume_row				<= (others =>'0'); 
+									volume_channel_counter <= (others => '0'); --volume_channel_counter; 
+
+									if(stride_counter < unsigned(i_stride)-1) then 
+										stride_counter <= stride_counter + 1; 
+										pad_row_counter <= pad_row_counter + 1;
+									else 
+										stride_counter <= (others => '0'); 	
+										pad_row_counter <= pad_row_counter + 1;
+									end if; 
+
 								elsif(more_dsps_needed = '1' and volume_channel_counter < channels_allowed) then 
 									volume_channel_counter <= volume_channel_counter + 1; 
 								elsif(more_dsps_needed = '1' and volume_channel_counter >= channels_allowed) then 
-									volume_channel_counter <= (others => '0'); --volume_channel_counter; 
+									volume_channel_counter <= (others => '0'); --volume_channel_counter;  
+									pad_row_counter <= pad_row_counter + 1;
 								else
 									volume_channel_counter <= volume_channel_counter; 
 								end if; 
@@ -1325,9 +1445,7 @@ begin
 							end if;   
 						end if; 
 
-					end if; 
-				
-	  
+					end if;  
 					
 
 				when DWELL => 
@@ -1335,4 +1453,6 @@ begin
 			end case; 
 		end if; 
 	end process; 
+	
+	
 end arch;

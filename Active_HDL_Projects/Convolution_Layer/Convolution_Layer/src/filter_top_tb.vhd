@@ -70,7 +70,8 @@ component filter_top is
        i_stride 					: in STD_LOGIC_VECTOR(3 downto 0);
        --i_weight_filter_bytes 		: in STD_LOGIC_VECTOR(31 downto 0);
        i_weight_filter_channels 	: in STD_LOGIC_VECTOR(11 downto 0);
-       i_weight_filter_size 		: in STD_LOGIC_VECTOR(3 downto 0);
+       i_weight_filter_size 		: in STD_LOGIC_VECTOR(3 downto 0); 
+       i_output_volume_size 		: in STD_LOGIC_VECTOR(7 downto 0);
        o_conv_data_valid 			: out STD_LOGIC;
        o_inbuff_rd_en 				: out STD_LOGIC;
        o_conv_volume_out 			: out STD_LOGIC_VECTOR(g_data_width-1 downto 0);
@@ -180,6 +181,7 @@ signal weight_channel : integer := 0;
 signal input_channel : integer := 0; 
 signal input_addr_counter : integer := 0;  
 signal filter_number : integer := 0; 
+signal output_volume_size : std_logic_vector(7 downto 0); 
 
 
 begin 
@@ -214,6 +216,7 @@ begin
        --i_weight_filter_bytes   	 	=> weight_filter_bytes,  
        i_weight_filter_channels 	=> weight_filter_channels, 
        i_weight_filter_size     	=> weight_filter_size, 
+       i_output_volume_size  		=> output_volume_size, 
        o_conv_data_valid        	=> conv_data_valid, 
        o_inbuff_rd_en           	=> inbuff_rd_en, 
        o_conv_volume_out        	=> conv_volume_out, 
@@ -285,13 +288,14 @@ begin
 --	  number_of_filters 		<= std_logic_vector(to_unsigned(96,12)); 
 --	  stride 					<= std_logic_vector(to_unsigned(1,4)); 
 --	  pad 						<= std_logic_vector(to_unsigned(1,4));  
-	  input_volume_size 		<= std_logic_vector(to_unsigned(12,8)); 
+	  input_volume_size 		<= std_logic_vector(to_unsigned(13,8)); 
 	  input_volume_channels 	<= std_logic_vector(to_unsigned(3,12)); 
 	  weight_filter_size 		<= std_logic_vector(to_unsigned(3,4)); 
 	  weight_filter_channels 	<= std_logic_vector(to_unsigned(3,12)); 
 	  number_of_filters 		<= std_logic_vector(to_unsigned(5,12)); 
-	  stride 					<= std_logic_vector(to_unsigned(1,4)); 
-	  pad 						<= std_logic_vector(to_unsigned(2,4));  
+	  stride 					<= std_logic_vector(to_unsigned(2,4)); 
+	  pad 						<= std_logic_vector(to_unsigned(2,4));   
+	  output_volume_size		<= std_logic_vector(to_unsigned(8,8)); 
 	    
 	  inbuff_prog_full_thresh 	<= "1111100000"; 
 	  
@@ -306,13 +310,14 @@ begin
 	  en <= '1'; 	
 	  start <= '1'; 
 	  
-	  input_volume_size 		<= std_logic_vector(to_unsigned(12,8)); 
+	  input_volume_size 		<= std_logic_vector(to_unsigned(13,8)); 
 	  input_volume_channels 	<= std_logic_vector(to_unsigned(3,12)); 
 	  weight_filter_size 		<= std_logic_vector(to_unsigned(3,4)); 
 	  weight_filter_channels 	<= std_logic_vector(to_unsigned(3,12)); 
 	  number_of_filters 		<= std_logic_vector(to_unsigned(5,12)); 
-	  stride 					<= std_logic_vector(to_unsigned(1,4)); 
-	  pad 						<= std_logic_vector(to_unsigned(2,4));  
+	  stride 					<= std_logic_vector(to_unsigned(2,4)); 
+	  pad 						<= std_logic_vector(to_unsigned(2,4));
+	  output_volume_size		<= std_logic_vector(to_unsigned(8,8)); 
 	  
 	  inbuff_prog_full_thresh 	<= "1111100000"; 
 	  
@@ -328,8 +333,9 @@ begin
 			  
 			  wait until rising_edge(clk); 
 			  
-			  loop_counter <= 0;
-			  while (loop_counter <= 3*3) loop
+			  loop_counter <= 0; 
+			  inbuff_wr_en <= '0'; 
+			  while (loop_counter <= (3*3)-1) loop
 		
 				  if(inbuff_almost_full = '0') then 
 				  
@@ -343,16 +349,17 @@ begin
 					  inbuff_wr_en <= '1'; 	
 					  inbuff_din <= dout;
 					  
-					  if (loop_counter <= 3*3)	then 
+					  --if (loop_counter <= 3*3)	then 
 					  	loop_counter <= loop_counter + 1; 	  
 					  --else 
 						--loop_counter <= loop_counter; 	  
 						--weight_channel <= weight_channel + 1; 
-					  end if;  											  
+					  --end if;  											  
 					  
 				   end if; 
 			   end loop; 
 			   loop_counter <= 0;
+			   inbuff_wr_en <= '0'; 
 		 end loop; 
 			 
 	  end loop;  
@@ -366,8 +373,8 @@ begin
 		  wait until rising_edge(clk); 
 		  
 		  loop_counter <= 0;
-		  
-		  while (loop_counter <= 12*12) loop
+		  inbuff_wr_en <= '0';
+		  while (loop_counter < (13*13)-1) loop
 	
 			  if(inbuff_almost_full = '0') then 
 			  
@@ -381,19 +388,19 @@ begin
 				  inbuff_wr_en <= '1'; 	
 				  inbuff_din <= image_data;
 				  
-				  if (loop_counter <= 12*12)	then 
-				  	loop_counter <= loop_counter + 1; 	  
+				  --if (loop_counter <= 13*13)	then 
+				  loop_counter <= loop_counter + 1; 	  
 				  --else 
 					--loop_counter <= 0; 	  
 
-				  end if;  											  
+				  --end if;  											  
 				  
 			   end if;
 			   
 		   end loop;  
 		   
 		   loop_counter <= 0; 
-
+		   --inbuff_wr_en <= '0';
 			
 			 
 	  end loop; 
