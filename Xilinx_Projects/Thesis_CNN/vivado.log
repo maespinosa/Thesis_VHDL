@@ -2,13 +2,71 @@
 # Vivado v2016.4 (64-bit)
 # SW Build 1756540 on Mon Jan 23 19:11:23 MST 2017
 # IP Build 1755317 on Mon Jan 23 20:30:07 MST 2017
-# Start of session at: Sun Sep 03 09:36:03 2017
-# Process ID: 12492
+# Start of session at: Sat Mar 10 20:24:58 2018
+# Process ID: 560
 # Current directory: C:/Sourcetree_Local/Thesis_VHDL/Xilinx_Projects/Thesis_CNN
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent11468 C:\Sourcetree_Local\Thesis_VHDL\Xilinx_Projects\Thesis_CNN\Thesis_CNN.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent11164 C:\Sourcetree_Local\Thesis_VHDL\Xilinx_Projects\Thesis_CNN\Thesis_CNN.xpr
 # Log file: C:/Sourcetree_Local/Thesis_VHDL/Xilinx_Projects/Thesis_CNN/vivado.log
 # Journal file: C:/Sourcetree_Local/Thesis_VHDL/Xilinx_Projects/Thesis_CNN\vivado.jou
 #-----------------------------------------------------------
 start_gui
+open_project -read_only C:/Sourcetree_Local/Thesis_VHDL/Xilinx_Projects/Thesis_CNN/Thesis_CNN.xpr
+CRITICAL WARNING: [Project 1-19] Could not find the file 'C:/Users/Marks-M3800/Documents/sensor_to_monitor_node_2015/sensor_to_monitor_node_2015.srcs/sources_1/bd/node/ip/node_mig_7series_0_0/mig_a.prj'.
+Scanning sources...
+Finished scanning sources
+WARNING: [Project 1-229] Project 'Thesis_CNN.xpr' is read-only and therefore could not be upgraded for this version of Vivado.  Use 'File | Save Project As...' if you wish to save an upgraded copy.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Sourcetree_Local/Thesis_VHDL/Xilinx_Projects/ip_repo/Convolution_Layer_1.0'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Sourcetree_Local/Thesis_VHDL/Xilinx_Projects/ip_repo/Multiplier_Bank_1.0'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Sourcetree_Local/Thesis_VHDL/Xilinx_Projects/ip_repo/VGA_IF_1.0'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Sourcetree_Local/Thesis_VHDL/Xilinx_Projects/ip_repo/OV5642_IF_1.0'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Sourcetree_Local/Thesis_VHDL/Xilinx_Projects/ip_repo/Test_ip_1.0'.
+INFO: [Common 17-41] Interrupt caught. Command should exit soon.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2016.4/data/ip'.
+WARNING: [BD 41-1663] The design 'node.bd' is locked for any modification. Locked reason(s):
+* Project read-only. Please run 'save_project_as' before making any change to the bd-design. 
+
+WARNING: [BD 41-1661] One or more IPs have been locked in the design 'node.bd'. Please run report_ip_status for more details and recommendations on how to fix this issue.
+List of locked IPs:
+node_microblaze_0_1
+node_clk_wiz_1_1
+node_auto_us_0
+node_dlmb_v10_1
+node_ilmb_v10_1
+node_mdm_1_1
+node_dlmb_bram_if_cntlr_1
+node_ilmb_bram_if_cntlr_1
+node_axi_uartlite_0_1
+node_rst_clk_wiz_1_100M_1
+node_mig_7series_0_1
+node_rst_mig_7series_0_150M_1
+node_lmb_bram_3
+node_VGA_IF_0_0
+node_OV5642_IF_0_1
+node_Convolution_Layer_0_0
+node_xbar_6
+node_xbar_7
+node_auto_us_2
+node_auto_cc_0
+node_auto_us_1
+node_auto_us_3
+node_auto_cc_1
+node_auto_cc_2
+node_auto_us_4
+
+WARNING: [BD 41-1663] The design 'sim_node.bd' is locked for any modification. Locked reason(s):
+* Project read-only. Please run 'save_project_as' before making any change to the bd-design. 
+
+WARNING: [BD 41-1661] One or more IPs have been locked in the design 'sim_node.bd'. Please run report_ip_status for more details and recommendations on how to fix this issue.
+List of locked IPs:
+sim_node_VGA_IF_0_1
+sim_node_clk_wiz_0_1
+sim_node_rst_mig_7series_0_150M_1
+sim_node_mig_7series_0_1
+sim_node_OV5642_IF_0_0
+sim_node_xbar_2
+sim_node_Convolution_Layer_0_0
+
+INFO: [Common 17-344] 'open_project' was cancelled
 exit
-INFO: [Common 17-206] Exiting Vivado at Sun Sep 03 09:37:06 2017...
+INFO: [Common 17-206] Exiting Vivado at Sat Mar 10 20:26:12 2018...

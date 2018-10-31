@@ -1,0 +1,12 @@
+verilog xil_defaultlib "../../../bd/sim_conv_test/ip/sim_conv_test_Convolution_Layer_32bit_0_0/src/conv_input_buffer_32/sim/conv_input_buffer_32.v" --include "../../../../Thesis_CNN.srcs/sources_1/bd/sim_conv_test/ipshared/100a" --include "../../../../Thesis_CNN.srcs/sources_1/bd/sim_conv_test/ipshared/7e3a/hdl"
+verilog xil_defaultlib "../../../bd/sim_conv_test/ip/sim_conv_test_Convolution_Layer_32bit_0_0/src/conv_output_buffer_32/sim/conv_output_buffer_32.v" --include "../../../../Thesis_CNN.srcs/sources_1/bd/sim_conv_test/ipshared/100a" --include "../../../../Thesis_CNN.srcs/sources_1/bd/sim_conv_test/ipshared/7e3a/hdl"
+verilog xil_defaultlib "../../../bd/sim_conv_test/ip/sim_conv_test_Convolution_Layer_32bit_0_0/src/bias_fifo_32/sim/bias_fifo_32.v" --include "../../../../Thesis_CNN.srcs/sources_1/bd/sim_conv_test/ipshared/100a" --include "../../../../Thesis_CNN.srcs/sources_1/bd/sim_conv_test/ipshared/7e3a/hdl"
+verilog xil_defaultlib "../../../bd/sim_conv_test/ip/sim_conv_test_Convolution_Layer_32bit_0_0/src/weight_fifo_2/sim/weight_fifo_2.v" --include "../../../../Thesis_CNN.srcs/sources_1/bd/sim_conv_test/ipshared/100a" --include "../../../../Thesis_CNN.srcs/sources_1/bd/sim_conv_test/ipshared/7e3a/hdl"
+verilog xil_defaultlib "../../../bd/sim_conv_test/ip/sim_conv_test_Convolution_Layer_32bit_0_0/src/volume_fifo_32/sim/volume_fifo_32.v" --include "../../../../Thesis_CNN.srcs/sources_1/bd/sim_conv_test/ipshared/100a" --include "../../../../Thesis_CNN.srcs/sources_1/bd/sim_conv_test/ipshared/7e3a/hdl"
+verilog xil_defaultlib "../../../bd/sim_conv_test/ip/sim_conv_test_clk_wiz_0/sim_conv_test_clk_wiz_0_clk_wiz.v" --include "../../../../Thesis_CNN.srcs/sources_1/bd/sim_conv_test/ipshared/100a" --include "../../../../Thesis_CNN.srcs/sources_1/bd/sim_conv_test/ipshared/7e3a/hdl"
+verilog xil_defaultlib "../../../bd/sim_conv_test/ip/sim_conv_test_clk_wiz_0/sim_conv_test_clk_wiz_0.v" --include "../../../../Thesis_CNN.srcs/sources_1/bd/sim_conv_test/ipshared/100a" --include "../../../../Thesis_CNN.srcs/sources_1/bd/sim_conv_test/ipshared/7e3a/hdl"
+verilog xil_defaultlib "../../../bd/sim_conv_test/ip/sim_conv_test_auto_pc_0/sim/sim_conv_test_auto_pc_0.v" --include "../../../../Thesis_CNN.srcs/sources_1/bd/sim_conv_test/ipshared/100a" --include "../../../../Thesis_CNN.srcs/sources_1/bd/sim_conv_test/ipshared/7e3a/hdl"
+
+verilog xil_defaultlib "glbl.v"
+
+nosort

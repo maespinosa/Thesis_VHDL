@@ -46,7 +46,7 @@ entity volume_mux is
 	i_full					: in std_logic; 
 	i_almost_full			: in std_logic; 
 	i_prog_full				: in std_logic; 
-	o_prog_full_thresh		: out std_logic_vector(9 downto 0); 
+	o_prog_full_thresh		: out std_logic_vector(12 downto 0); 
 	
 	o_get_volume_row		: out std_logic; 
 	
@@ -54,7 +54,7 @@ entity volume_mux is
 	o_fifo_full				: out std_logic; 
 	o_fifo_almost_full		: out std_logic; 
 	o_fifo_prog_full		: out std_logic;  
-	i_fifo_prog_full_thresh : in std_logic_vector(9 downto 0)
+	i_fifo_prog_full_thresh : in std_logic_vector(12 downto 0)
 	); 
 end volume_mux;
 
@@ -99,7 +99,7 @@ begin
 		else 
 			data <= (others => '0'); 
 			wr_en <= '0';  
-			get_volume_row <= '1'; 
+			get_volume_row <= '0'; 
 		end if; 
 		
 	end process; 

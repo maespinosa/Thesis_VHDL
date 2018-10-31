@@ -2,7 +2,7 @@ SCHM0106
 
 HEADER
 {
- FREEID 34504
+ FREEID 34521
  VARIABLES
  {
   #ARCHITECTURE="arch"
@@ -22,80 +22,79 @@ HEADER
   #DEFAULT_RANGE11="<range<index=\"0\"><name=\"i_inbuff_dout\"><left=\"15\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
   #DEFAULT_RANGE12="<range<index=\"0\"><name=\"i_input_volume_channels\"><left=\"11\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
   #DEFAULT_RANGE13="<range<index=\"0\"><name=\"i_input_volume_size\"><left=\"7\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE14="<range<index=\"0\"><name=\"i_num_filters\"><left=\"11\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE15="<range<index=\"0\"><name=\"i_number_of_filters\"><left=\"11\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE16="<range<index=\"0\"><name=\"i_output_volume_size\"><left=\"7\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE17="<range<index=\"0\"><name=\"i_pad\"><left=\"3\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE18="<range<index=\"0\"><name=\"i_stride\"><left=\"3\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE19="<range<index=\"0\"><name=\"i_weight_filter_channels\"><left=\"11\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE20="<range<index=\"0\"><name=\"i_weight_filter_size\"><left=\"3\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE21="<range<index=\"0\"><name=\"loaded_rows_processed\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE22="<range<index=\"0\"><name=\"multiplicand_a\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE23="<range<index=\"0\"><name=\"multiplicand_b\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE24="<range<index=\"0\"><name=\"num_iterations\"><left=\"7\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE25="<range<index=\"0\"><name=\"o_conv_volume_out\"><left=\"g_data_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE26="<range<index=\"0\"><name=\"o_inbuff_prog_empty_thresh\"><left=\"9\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE27="<range<index=\"0\"><name=\"padded_volume_size\"><left=\"7\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE28="<range<index=\"0\"><name=\"prev_data\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE29="<range<index=\"0\"><name=\"prev_data_wr_en\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE30="<range<index=\"0\"><name=\"prev_weight_data\"><left=\"15\"><direction=\"downto\"><right=\"0\"><initial_value=\"(others => '0')\"><delay=\"\">>"
-  #DEFAULT_RANGE31="<range<index=\"0\"><name=\"products_array\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE32="<range<index=\"0\"><name=\"products_array_valid\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE33="<range<index=\"0\"><name=\"recycle_filter_data\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE34="<range<index=\"0\"><name=\"recycle_filter_wr_en\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE35="<range<index=\"0\"><name=\"recycled_acc_data\"><left=\"g_data_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE36="<range<index=\"0\"><name=\"recycled_data\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE37="<range<index=\"0\"><name=\"recycled_data_wr_en\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE38="<range<index=\"0\"><name=\"snake_fill_complete\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE39="<range<index=\"0\"><name=\"stop_stack_en\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE40="<range<index=\"0\"><name=\"vol_fifo_prog_empty_thresh\"><left=\"9\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE41="<range<index=\"0\"><name=\"volume_data\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE42="<range<index=\"0\"><name=\"volume_data_valid\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE43="<range<index=\"0\"><name=\"volume_fifo_almost_empty\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE44="<range<index=\"0\"><name=\"volume_fifo_almost_full\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE45="<range<index=\"0\"><name=\"volume_fifo_dout\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE46="<range<index=\"0\"><name=\"volume_fifo_empty\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE47="<range<index=\"0\"><name=\"volume_fifo_full\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE48="<range<index=\"0\"><name=\"volume_fifo_full_prog_thresh\"><left=\"9\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE49="<range<index=\"0\"><name=\"volume_fifo_input\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE50="<range<index=\"0\"><name=\"volume_fifo_prog_empty\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE51="<range<index=\"0\"><name=\"volume_fifo_prog_full\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE52="<range<index=\"0\"><name=\"volume_fifo_rd_en\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE53="<range<index=\"0\"><name=\"volume_fifo_valid\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE54="<range<index=\"0\"><name=\"volume_fifo_wr_en\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE55="<range<index=\"0\"><name=\"volume_new_data_en\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE56="<range<index=\"0\"><name=\"volume_prev_data_en\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE57="<range<index=\"0\"><name=\"volume_ready\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE58="<range<index=\"0\"><name=\"volume_recycled_data_en\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE59="<range<index=\"0\"><name=\"volume_stack_fifo_almost_full\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE60="<range<index=\"0\"><name=\"volume_stack_fifo_full\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE61="<range<index=\"0\"><name=\"volume_stack_fifo_prog_full\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE62="<range<index=\"0\"><name=\"volume_stack_fifo_prog_full_thresh\"><left=\"9\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE63="<range<index=\"0\"><name=\"volume_stack_fifo_wr_en\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE64="<range<index=\"0\"><name=\"w_fifo_almost_empty\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE65="<range<index=\"0\"><name=\"w_fifo_dout\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE66="<range<index=\"0\"><name=\"w_fifo_empty\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE67="<range<index=\"0\"><name=\"w_fifo_prog_empty\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE68="<range<index=\"0\"><name=\"w_fifo_prog_empty_thresh\"><left=\"9\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE69="<range<index=\"0\"><name=\"w_fifo_rd_en\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE70="<range<index=\"0\"><name=\"w_fifo_valid\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE71="<range<index=\"0\"><name=\"weight_almost_full\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE72="<range<index=\"0\"><name=\"weight_data\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE73="<range<index=\"0\"><name=\"weight_data_valid\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE74="<range<index=\"0\"><name=\"weight_fifo_almost_full\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE75="<range<index=\"0\"><name=\"weight_fifo_full\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE76="<range<index=\"0\"><name=\"weight_fifo_input\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE77="<range<index=\"0\"><name=\"weight_fifo_prog_full\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE78="<range<index=\"0\"><name=\"weight_fifo_prog_full_thresh\"><left=\"9\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE79="<range<index=\"0\"><name=\"weight_fifo_wr_en\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE80="<range<index=\"0\"><name=\"weight_full\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE81="<range<index=\"0\"><name=\"weight_new_data_en\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE82="<range<index=\"0\"><name=\"weight_prev_data_en\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE83="<range<index=\"0\"><name=\"weight_prev_data_wr_en\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE84="<range<index=\"0\"><name=\"weight_prog_full\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE85="<range<index=\"0\"><name=\"weight_prog_full_thresh\"><left=\"12\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE86="<range<index=\"0\"><name=\"weight_recycled_data_en\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE87="<range<index=\"0\"><name=\"weight_wr_en\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE14="<range<index=\"0\"><name=\"i_number_of_filters\"><left=\"11\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE15="<range<index=\"0\"><name=\"i_output_volume_size\"><left=\"7\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE16="<range<index=\"0\"><name=\"i_pad\"><left=\"3\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE17="<range<index=\"0\"><name=\"i_stride\"><left=\"3\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE18="<range<index=\"0\"><name=\"i_weight_filter_channels\"><left=\"11\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE19="<range<index=\"0\"><name=\"i_weight_filter_size\"><left=\"3\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE20="<range<index=\"0\"><name=\"loaded_rows_processed\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE21="<range<index=\"0\"><name=\"multiplicand_a\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE22="<range<index=\"0\"><name=\"multiplicand_b\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE23="<range<index=\"0\"><name=\"num_iterations\"><left=\"7\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE24="<range<index=\"0\"><name=\"o_conv_volume_out\"><left=\"g_data_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE25="<range<index=\"0\"><name=\"o_inbuff_prog_empty_thresh\"><left=\"9\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE26="<range<index=\"0\"><name=\"padded_volume_size\"><left=\"7\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE27="<range<index=\"0\"><name=\"prev_data\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE28="<range<index=\"0\"><name=\"prev_data_wr_en\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE29="<range<index=\"0\"><name=\"prev_weight_data\"><left=\"15\"><direction=\"downto\"><right=\"0\"><initial_value=\"(others => '0')\"><delay=\"\">>"
+  #DEFAULT_RANGE30="<range<index=\"0\"><name=\"products_array\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE31="<range<index=\"0\"><name=\"products_array_valid\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE32="<range<index=\"0\"><name=\"recycle_filter_data\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE33="<range<index=\"0\"><name=\"recycle_filter_wr_en\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE34="<range<index=\"0\"><name=\"recycled_acc_data\"><left=\"g_data_width-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE35="<range<index=\"0\"><name=\"recycled_data\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE36="<range<index=\"0\"><name=\"recycled_data_wr_en\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE37="<range<index=\"0\"><name=\"snake_fill_complete\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE38="<range<index=\"0\"><name=\"stop_stack_en\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE39="<range<index=\"0\"><name=\"vol_fifo_prog_empty_thresh\"><left=\"9\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE40="<range<index=\"0\"><name=\"volume_data\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE41="<range<index=\"0\"><name=\"volume_data_valid\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE42="<range<index=\"0\"><name=\"volume_fifo_almost_empty\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE43="<range<index=\"0\"><name=\"volume_fifo_almost_full\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE44="<range<index=\"0\"><name=\"volume_fifo_dout\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE45="<range<index=\"0\"><name=\"volume_fifo_empty\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE46="<range<index=\"0\"><name=\"volume_fifo_full\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE47="<range<index=\"0\"><name=\"volume_fifo_full_prog_thresh\"><left=\"9\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE48="<range<index=\"0\"><name=\"volume_fifo_input\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE49="<range<index=\"0\"><name=\"volume_fifo_prog_empty\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE50="<range<index=\"0\"><name=\"volume_fifo_prog_full\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE51="<range<index=\"0\"><name=\"volume_fifo_rd_en\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE52="<range<index=\"0\"><name=\"volume_fifo_valid\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE53="<range<index=\"0\"><name=\"volume_fifo_wr_en\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE54="<range<index=\"0\"><name=\"volume_new_data_en\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE55="<range<index=\"0\"><name=\"volume_prev_data_en\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE56="<range<index=\"0\"><name=\"volume_ready\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE57="<range<index=\"0\"><name=\"volume_recycled_data_en\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE58="<range<index=\"0\"><name=\"volume_stack_fifo_almost_full\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE59="<range<index=\"0\"><name=\"volume_stack_fifo_full\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE60="<range<index=\"0\"><name=\"volume_stack_fifo_prog_full\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE61="<range<index=\"0\"><name=\"volume_stack_fifo_prog_full_thresh\"><left=\"9\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE62="<range<index=\"0\"><name=\"volume_stack_fifo_wr_en\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE63="<range<index=\"0\"><name=\"w_fifo_almost_empty\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE64="<range<index=\"0\"><name=\"w_fifo_dout\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE65="<range<index=\"0\"><name=\"w_fifo_empty\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE66="<range<index=\"0\"><name=\"w_fifo_prog_empty\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE67="<range<index=\"0\"><name=\"w_fifo_prog_empty_thresh\"><left=\"9\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE68="<range<index=\"0\"><name=\"w_fifo_rd_en\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE69="<range<index=\"0\"><name=\"w_fifo_valid\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE70="<range<index=\"0\"><name=\"weight_almost_full\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE71="<range<index=\"0\"><name=\"weight_data\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE72="<range<index=\"0\"><name=\"weight_data_valid\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE73="<range<index=\"0\"><name=\"weight_fifo_almost_full\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE74="<range<index=\"0\"><name=\"weight_fifo_full\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE75="<range<index=\"0\"><name=\"weight_fifo_input\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE76="<range<index=\"0\"><name=\"weight_fifo_prog_full\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE77="<range<index=\"0\"><name=\"weight_fifo_prog_full_thresh\"><left=\"9\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE78="<range<index=\"0\"><name=\"weight_fifo_wr_en\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE79="<range<index=\"0\"><name=\"weight_full\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE80="<range<index=\"0\"><name=\"weight_new_data_en\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE81="<range<index=\"0\"><name=\"weight_prev_data_en\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE82="<range<index=\"0\"><name=\"weight_prev_data_wr_en\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE83="<range<index=\"0\"><name=\"weight_prog_full\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE84="<range<index=\"0\"><name=\"weight_prog_full_thresh\"><left=\"12\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE85="<range<index=\"0\"><name=\"weight_recycled_data_en\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE86="<range<index=\"0\"><name=\"weight_wr_en\"><left=\"g_dsps_used-1\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
   #ENTITY="filter_top"
   #LANGUAGE="VHDL"
   AUTHOR="Marks-M3800"
@@ -13966,16 +13965,9 @@ PAGE ""
   {
    COORD (3880,4060)
   }
-  NET BUS  34474, 0, 0
-  {
-   VARIABLES
-   {
-    #NAME="i_num_filters(11:0)"
-   }
-  }
   BUS  34475, 0, 0
   {
-   NET 34474
+   NET 14011
    VTX 34472, 34473
   }
   VTX  34476, 0, 0
@@ -14007,7 +13999,7 @@ PAGE ""
   TEXT  34484, 0, 0
   {
    TEXT "$#NAME"
-   RECT (3850,4030,4051,4059)
+   RECT (3816,4030,4085,4059)
    ALIGN 9
    MARGINS (1,1)
    PARENT 34475
@@ -14053,7 +14045,7 @@ PAGE ""
  
  BODY
  {
-  TEXT  34487, 0, 0
+  TEXT  34504, 0, 0
   {
    PAGEALIGN 10
    OUTLINE 5,1, (0,0,0)
@@ -14064,7 +14056,7 @@ PAGE ""
    COLOR (0,0,0)
    FONT (12,0,0,700,0,0,0,"Arial")
   }
-  TEXT  34488, 0, 0
+  TEXT  34505, 0, 0
   {
    PAGEALIGN 10
    TEXT "$CREATIONDATE"
@@ -14075,7 +14067,7 @@ PAGE ""
    FONT (12,0,0,700,0,128,0,"Arial")
    UPDATE 0
   }
-  TEXT  34489, 0, 0
+  TEXT  34506, 0, 0
   {
    PAGEALIGN 10
    TEXT "Title:"
@@ -14085,7 +14077,7 @@ PAGE ""
    COLOR (0,0,0)
    FONT (12,0,0,700,0,0,0,"Arial")
   }
-  TEXT  34490, 0, 0
+  TEXT  34507, 0, 0
   {
    PAGEALIGN 10
    OUTLINE 5,1, (0,0,0)
@@ -14097,7 +14089,7 @@ PAGE ""
    FONT (12,0,0,700,0,128,0,"Arial")
    UPDATE 0
   }
-  TEXT  34491, 0, 0
+  TEXT  34508, 0, 0
   {
    PAGEALIGN 10
    TEXT 
@@ -14110,7 +14102,7 @@ PAGE ""
    FONT (12,0,0,700,0,0,0,"Arial")
    MULTILINE
   }
-  TEXT  34492, 0, 0
+  TEXT  34509, 0, 0
   {
    PAGEALIGN 10
    TEXT "Page:"
@@ -14120,7 +14112,7 @@ PAGE ""
    COLOR (0,0,0)
    FONT (12,0,0,700,0,0,0,"Arial")
   }
-  TEXT  34493, 0, 0
+  TEXT  34510, 0, 0
   {
    PAGEALIGN 10
    OUTLINE 5,1, (0,0,0)
@@ -14132,7 +14124,7 @@ PAGE ""
    FONT (12,0,0,700,0,128,0,"Arial")
    UPDATE 0
   }
-  TEXT  34494, 0, 0
+  TEXT  34511, 0, 0
   {
    PAGEALIGN 10
    TEXT "Revision:"
@@ -14142,7 +14134,7 @@ PAGE ""
    COLOR (0,0,0)
    FONT (12,0,0,700,0,0,0,"Arial")
   }
-  TEXT  34495, 0, 0
+  TEXT  34512, 0, 0
   {
    PAGEALIGN 10
    TEXT "$Revision"
@@ -14153,7 +14145,7 @@ PAGE ""
    FONT (12,0,0,700,0,204,0,"Arial")
    UPDATE 0
   }
-  GROUP  34496, 0, 0
+  GROUP  34513, 0, 0
   {
    PAGEALIGN 10
    RECT (5720,3820,6601,4201)
@@ -14165,7 +14157,7 @@ PAGE ""
     FILL (1,(0,0,0),0)
    }
   }
-  GROUP  34497, 0, 0
+  GROUP  34514, 0, 0
   {
    PAGEALIGN 10
    RECT (5720,4020,6601,4021)
@@ -14177,7 +14169,7 @@ PAGE ""
     FILL (1,(0,0,0),0)
    }
   }
-  GROUP  34498, 0, 0
+  GROUP  34515, 0, 0
   {
    PAGEALIGN 10
    RECT (5720,3960,6601,3961)
@@ -14189,7 +14181,7 @@ PAGE ""
     FILL (1,(0,0,0),0)
    }
   }
-  GROUP  34499, 0, 0
+  GROUP  34516, 0, 0
   {
    PAGEALIGN 10
    RECT (5720,4080,6601,4081)
@@ -14201,7 +14193,7 @@ PAGE ""
     FILL (1,(0,0,0),0)
    }
   }
-  GROUP  34500, 0, 0
+  GROUP  34517, 0, 0
   {
    PAGEALIGN 10
    RECT (5720,4140,6601,4141)
@@ -14213,7 +14205,7 @@ PAGE ""
     FILL (1,(0,0,0),0)
    }
   }
-  GROUP  34501, 0, 0
+  GROUP  34518, 0, 0
   {
    PAGEALIGN 10
    RECT (5900,3820,5901,3961)
@@ -14224,7 +14216,7 @@ PAGE ""
     POINTS ( (0,0), (0,140) )
    }
   }
-  GROUP  34502, 0, 0
+  GROUP  34519, 0, 0
   {
    PAGEALIGN 10
    RECT (5900,3960,5901,4201)
@@ -14235,7 +14227,7 @@ PAGE ""
     POINTS ( (0,0), (0,240) )
    }
   }
-  BMPPICT  34503, 0, 0
+  BMPPICT  34520, 0, 0
   {
    PAGEALIGN 10
    RECT (5740,3880,5879,3925)

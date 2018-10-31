@@ -1,0 +1,50 @@
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.4 (win64) Build 1756540 Mon Jan 23 19:11:23 MST 2017
+| Date         : Wed Oct 03 01:05:11 2018
+| Host         : Marks-M3800-PC running 64-bit Service Pack 1  (build 7601)
+| Command      : upgrade_ip
+| Device       : xc7a200tsbg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'Nexys_Video_Softmax_Layer_32bit_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the update of Nexys_Video_Softmax_Layer_32bit_0_0 (xilinx.com:user:Softmax_Layer_32bit:1.0 (Rev. 3)) to current project options.
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.4 (win64) Build 1756540 Mon Jan 23 19:11:23 MST 2017
+| Date         : Wed Oct 03 01:04:55 2018
+| Host         : Marks-M3800-PC running 64-bit Service Pack 1  (build 7601)
+| Command      : upgrade_ip
+| Device       : xc7a200tsbg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'Nexys_Video_Softmax_Layer_32bit_0_0'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of Nexys_Video_Softmax_Layer_32bit_0_0 (xilinx.com:user:Softmax_Layer_32bit:1.0) from (Rev. 2) to (Rev. 3)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'Nexys_Video_Softmax_Layer_32bit_0_0'. These changes may impact your design.
+
+
+-Upgrade has removed port 'm00_axi_init_axi_txn'
+
+-Upgrade has added port 'o_softmax_complete'
+
+

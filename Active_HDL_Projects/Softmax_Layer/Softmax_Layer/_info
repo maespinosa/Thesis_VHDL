@@ -1,0 +1,520 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dc:/Sourcetree_Local/Thesis_VHDL/Active_HDL_Projects/Softmax_Layer
+Eexponential_function
+Z1 w1520735187
+Z2 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z4 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+R0
+Z5 8./exponential_function.vhd
+Z6 F./exponential_function.vhd
+l0
+L10
+V9n^2jk8zlWj0@cc?DViYF3
+!s100 I`G1d9WCOo_>[b<YT8QJ=3
+Z7 OP;C;10.4a;61
+33
+Z8 !s110 1520737885
+!i10b 1
+Z9 !s108 1520737885.000000
+Z10 !s90 -reportprogress|300|-2008|-work|Softmax_Layer|./exponential_function.vhd|
+Z11 !s107 ./exponential_function.vhd|
+!i113 1
+Z12 o-2008 -work Softmax_Layer -O0
+Z13 tExplicit 1
+Aarch
+R2
+R3
+R4
+DEx4 work 20 exponential_function 0 22 9n^2jk8zlWj0@cc?DViYF3
+l87
+L32
+VHI^4oS]bg0MU<H]4G>]5^1
+!s100 SE93]G=XJz6h52HWJVdN<3
+R7
+33
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+R13
+Eexponential_function_tb
+Z14 w1520499152
+Z15 DPx4 ieee 16 std_logic_textio 0 22 V5TSK`;aJKC<l]CEg1>mz1
+R2
+R3
+R4
+R0
+Z16 8C:/Sourcetree_Local/Thesis_VHDL/Active_HDL_Projects/Softmax_Layer/exponential_function_tb.vhd
+Z17 FC:/Sourcetree_Local/Thesis_VHDL/Active_HDL_Projects/Softmax_Layer/exponential_function_tb.vhd
+l0
+L34
+V4=XZ;MmYQf4zl52cXo;Ji0
+!s100 Dc]65`@8A^9E5=C`9dgoO2
+R7
+33
+Z18 !s110 1520499156
+!i10b 1
+Z19 !s108 1520499156.000000
+Z20 !s90 -reportprogress|300|-2008|-work|Softmax_Layer|-O0|C:/Sourcetree_Local/Thesis_VHDL/Active_HDL_Projects/Softmax_Layer/exponential_function_tb.vhd|
+Z21 !s107 C:/Sourcetree_Local/Thesis_VHDL/Active_HDL_Projects/Softmax_Layer/exponential_function_tb.vhd|
+!i113 1
+R12
+R13
+Aarch
+R15
+R2
+R3
+R4
+DEx4 work 23 exponential_function_tb 0 22 4=XZ;MmYQf4zl52cXo;Ji0
+l80
+L39
+Vn;3:Kl4[A>R=nH`T0EMF12
+!s100 4gWDCDWMb_YBa<PZ13d110
+R7
+33
+R18
+!i10b 1
+R19
+R20
+R21
+!i113 1
+R12
+R13
+Escores_bram
+Z22 w1520736341
+R3
+R4
+R0
+Z23 8./scores_bram.vhd
+Z24 F./scores_bram.vhd
+l0
+L43
+VPHN@0?J]iFe6i8gPZB>lF3
+!s100 JX;C^1=Gm1lWKl]dgRi7_3
+R7
+33
+Z25 !s110 1520737886
+!i10b 1
+Z26 !s108 1520737886.000000
+Z27 !s90 -reportprogress|300|-2008|-work|Softmax_Layer|./scores_bram.vhd|
+Z28 !s107 ./scores_bram.vhd|
+!i113 1
+R12
+R13
+Ascores_bram_a
+Z29 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
+Z30 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+DEx13 xilinxcorelib 16 blk_mem_gen_v7_3 0 22 @leDZ31c4KY0i<H7k:d]R1
+R3
+R4
+DEx4 work 11 scores_bram 0 22 PHN@0?J]iFe6i8gPZB>lF3
+l131
+L53
+VRM0TfadZXP2WVNEi8WbZh3
+!s100 1nKzojCYUhlHb?2WCdKFT2
+R7
+33
+R25
+!i10b 1
+R26
+R27
+R28
+!i113 1
+R12
+R13
+Esoftmax_adder_half_precision
+Z31 w1520476794
+R3
+R4
+R0
+Z32 8./softmax_adder_half_precision.vhd
+Z33 F./softmax_adder_half_precision.vhd
+l0
+L43
+V3<n?e:mSB8CkOifHTB>gO0
+!s100 zYYmZL<SP^]V2:[WW3CbI3
+R7
+33
+Z34 !s110 1520737884
+!i10b 1
+Z35 !s108 1520737884.000000
+Z36 !s90 -reportprogress|300|-2008|-work|Softmax_Layer|./softmax_adder_half_precision.vhd|
+Z37 !s107 ./softmax_adder_half_precision.vhd|
+!i113 1
+R12
+R13
+Asoftmax_adder_half_precision_a
+Z38 DPx13 xilinxcorelib 18 bip_utils_pkg_v2_0 0 22 :[90Y[:8DzaQIDSm09Og91
+R2
+Z39 DPx13 xilinxcorelib 23 floating_point_pkg_v5_0 0 22 @oZ:WWTN]nVkM3T97MgD>3
+Z40 DPx13 xilinxcorelib 26 floating_point_v5_0_consts 0 22 1Lk?e4MggQ02WkaCdUjA^2
+R30
+Z41 DEx13 xilinxcorelib 19 floating_point_v5_0 0 22 a@5Wk8R6G]OkGU5?`6bCl1
+R3
+R4
+DEx4 work 28 softmax_adder_half_precision 0 22 3<n?e:mSB8CkOifHTB>gO0
+l111
+L52
+VSV=3S_TmKZF@T0K2G]58`0
+!s100 ;SYl<2ROHJU>WNKTY5JP90
+R7
+33
+R34
+!i10b 1
+R35
+R36
+R37
+!i113 1
+R12
+R13
+Esoftmax_adder_wrapper
+Z42 w1520739958
+R2
+R3
+R4
+R0
+Z43 8C:/Sourcetree_Local/Thesis_VHDL/Active_HDL_Projects/Softmax_Layer/softmax_adder_wrapper.vhd
+Z44 FC:/Sourcetree_Local/Thesis_VHDL/Active_HDL_Projects/Softmax_Layer/softmax_adder_wrapper.vhd
+l0
+L9
+VL[IK9cF1`g?O^glPh3Koh0
+!s100 DCBT`eT<koYOgja@<3lF43
+R7
+33
+Z45 !s110 1520739977
+!i10b 1
+Z46 !s108 1520739977.000000
+Z47 !s90 -reportprogress|300|-2008|-work|Softmax_Layer|-O0|C:/Sourcetree_Local/Thesis_VHDL/Active_HDL_Projects/Softmax_Layer/softmax_adder_wrapper.vhd|
+Z48 !s107 C:/Sourcetree_Local/Thesis_VHDL/Active_HDL_Projects/Softmax_Layer/softmax_adder_wrapper.vhd|
+!i113 1
+R12
+R13
+Aarch
+R2
+R3
+R4
+DEx4 work 21 softmax_adder_wrapper 0 22 L[IK9cF1`g?O^glPh3Koh0
+l65
+L35
+VI7M`gmW=]MT2SV:NYBK;>0
+!s100 @4?n>1dS6bnYcZJaYCDKD1
+R7
+33
+R45
+!i10b 1
+R46
+R47
+R48
+!i113 1
+R12
+R13
+Esoftmax_controller
+Z49 w1520741120
+R2
+R3
+R4
+R0
+Z50 8C:/Sourcetree_Local/Thesis_VHDL/Active_HDL_Projects/Softmax_Layer/softmax_controller.vhd
+Z51 FC:/Sourcetree_Local/Thesis_VHDL/Active_HDL_Projects/Softmax_Layer/softmax_controller.vhd
+l0
+L10
+VW`jCeOg7GLcLNJNgVfcI20
+!s100 2V?SAk7XUGQgaD?LFafgi3
+R7
+33
+Z52 !s110 1520741126
+!i10b 1
+Z53 !s108 1520741126.000000
+Z54 !s90 -reportprogress|300|-2008|-work|Softmax_Layer|-O0|C:/Sourcetree_Local/Thesis_VHDL/Active_HDL_Projects/Softmax_Layer/softmax_controller.vhd|
+Z55 !s107 C:/Sourcetree_Local/Thesis_VHDL/Active_HDL_Projects/Softmax_Layer/softmax_controller.vhd|
+!i113 1
+R12
+R13
+Aarch
+R2
+R3
+R4
+DEx4 work 18 softmax_controller 0 22 W`jCeOg7GLcLNJNgVfcI20
+l67
+L45
+VZi?XL41;h>kmB7FbZC]W>0
+!s100 J2>AHl[?KheWTH[^;koOe0
+R7
+33
+R52
+!i10b 1
+R53
+R54
+R55
+!i113 1
+R12
+R13
+Esoftmax_divider_half_precision
+Z56 w1520501519
+R3
+R4
+R0
+Z57 8./softmax_divider_half_precision.vhd
+Z58 F./softmax_divider_half_precision.vhd
+l0
+L43
+VO[^?362P^R48LzX7bNgSz3
+!s100 nQ_Jkg1@>C4mo<NYi]nnO2
+R7
+33
+R8
+!i10b 1
+R9
+Z59 !s90 -reportprogress|300|-2008|-work|Softmax_Layer|./softmax_divider_half_precision.vhd|
+Z60 !s107 ./softmax_divider_half_precision.vhd|
+!i113 1
+R12
+R13
+Asoftmax_divider_half_precision_a
+R38
+R2
+R39
+R40
+R30
+R41
+R3
+R4
+DEx4 work 30 softmax_divider_half_precision 0 22 O[^?362P^R48LzX7bNgSz3
+l111
+L52
+V`z<dkToWW9D?Uz[nfAdf10
+!s100 ?:`6JDF0Z:2ebPg6>foRN1
+R7
+33
+R8
+!i10b 1
+R9
+R59
+R60
+!i113 1
+R12
+R13
+Esoftmax_divider_wrapper
+Z61 w1520741553
+R2
+R3
+R4
+R0
+Z62 8C:/Sourcetree_Local/Thesis_VHDL/Active_HDL_Projects/Softmax_Layer/softmax_divider_wrapper.vhd
+Z63 FC:/Sourcetree_Local/Thesis_VHDL/Active_HDL_Projects/Softmax_Layer/softmax_divider_wrapper.vhd
+l0
+L9
+V0jAeaMFKB;H9H6[e0?Q7n0
+!s100 3]7BGdc]ZOzIPbSbmAHAH1
+R7
+33
+Z64 !s110 1520741581
+!i10b 1
+Z65 !s108 1520741581.000000
+Z66 !s90 -reportprogress|300|-2008|-work|Softmax_Layer|-O0|C:/Sourcetree_Local/Thesis_VHDL/Active_HDL_Projects/Softmax_Layer/softmax_divider_wrapper.vhd|
+Z67 !s107 C:/Sourcetree_Local/Thesis_VHDL/Active_HDL_Projects/Softmax_Layer/softmax_divider_wrapper.vhd|
+!i113 1
+R12
+R13
+Aarch
+R2
+R3
+R4
+Z68 DEx4 work 23 softmax_divider_wrapper 0 22 0jAeaMFKB;H9H6[e0?Q7n0
+l69
+L39
+VJon]bkz4G3gRP5klN<bkG3
+!s100 czEcLXjj?Bh?jM8]cflA;3
+R7
+33
+R64
+!i10b 1
+R65
+R66
+R67
+!i113 1
+R12
+R13
+Esoftmax_fifo
+Z69 w1520673431
+R3
+R4
+R0
+Z70 8./softmax_fifo.vhd
+Z71 F./softmax_fifo.vhd
+l0
+L43
+VO=fS1?1c;D_fo;gE31;:`1
+!s100 2`jVIJiaN79[m`GJVoFgk2
+R7
+33
+R8
+!i10b 1
+R9
+Z72 !s90 -reportprogress|300|-2008|-work|Softmax_Layer|./softmax_fifo.vhd|
+Z73 !s107 ./softmax_fifo.vhd|
+!i113 1
+R12
+R13
+Asoftmax_fifo_a
+R29
+R30
+DEx13 xilinxcorelib 19 fifo_generator_v9_3 0 22 3Ka;D[R2Pd>m@_hPQcHI91
+R3
+R4
+DEx4 work 12 softmax_fifo 0 22 O=fS1?1c;D_fo;gE31;:`1
+l273
+L60
+V<:l2NDoP^zb7TY`5P:WX>0
+!s100 zG=CWbjWg9al<@R5FdioR3
+R7
+33
+R8
+!i10b 1
+R9
+R72
+R73
+!i113 1
+R12
+R13
+Esoftmax_multiply_half_precision
+Z74 w1520476597
+R3
+R4
+R0
+Z75 8./softmax_multiply_half_precision.vhd
+Z76 F./softmax_multiply_half_precision.vhd
+l0
+L43
+V1m^931b`oSclLFFEdRa`J0
+!s100 M<eRi;Q=;8zg?Nz;jSbJl2
+R7
+33
+R8
+!i10b 1
+R9
+Z77 !s90 -reportprogress|300|-2008|-work|Softmax_Layer|./softmax_multiply_half_precision.vhd|
+Z78 !s107 ./softmax_multiply_half_precision.vhd|
+!i113 1
+R12
+R13
+Asoftmax_multiply_half_precision_a
+R38
+R2
+R39
+R40
+R30
+R41
+R3
+R4
+DEx4 work 31 softmax_multiply_half_precision 0 22 1m^931b`oSclLFFEdRa`J0
+l111
+L52
+VRbV3ofng:8L>Q>`fCR<060
+!s100 cPA46ZfNWTmDZdR_5UPki0
+R7
+33
+R8
+!i10b 1
+R9
+R77
+R78
+!i113 1
+R12
+R13
+Esoftmax_unit
+Z79 w1520739757
+R2
+R3
+R4
+R0
+Z80 8C:/Sourcetree_Local/Thesis_VHDL/Active_HDL_Projects/Softmax_Layer/softmax_unit.vhd
+Z81 FC:/Sourcetree_Local/Thesis_VHDL/Active_HDL_Projects/Softmax_Layer/softmax_unit.vhd
+l0
+L9
+VVV5?K`nQ_P[ekg<6lB@6T2
+!s100 WC=9K`j=B^82=<1UXlWUe3
+R7
+33
+Z82 !s110 1520739981
+!i10b 1
+Z83 !s108 1520739981.000000
+Z84 !s90 -reportprogress|300|-2008|-work|Softmax_Layer|-O0|C:/Sourcetree_Local/Thesis_VHDL/Active_HDL_Projects/Softmax_Layer/softmax_unit.vhd|
+Z85 !s107 C:/Sourcetree_Local/Thesis_VHDL/Active_HDL_Projects/Softmax_Layer/softmax_unit.vhd|
+!i113 1
+R12
+R13
+Aarch
+R2
+R3
+R4
+DEx4 work 12 softmax_unit 0 22 VV5?K`nQ_P[ekg<6lB@6T2
+l218
+L35
+VaokbV=5W3F0lUM4?A@N>T0
+!s100 h@^FM@J6zfL0mBCYIPzoh0
+R7
+33
+R82
+!i10b 1
+R83
+R84
+R85
+!i113 1
+R12
+R13
+Esoftmax_unit_tb
+Z86 w1520737001
+R15
+R2
+R3
+R4
+R0
+Z87 8./softmax_unit_tb.vhd
+Z88 F./softmax_unit_tb.vhd
+l0
+L34
+VBja9MD]_RB^T_Cl2@f<A]0
+!s100 N[XV`ikgKR^S2?f8PI4eE3
+R7
+33
+R25
+!i10b 1
+R26
+Z89 !s90 -reportprogress|300|-2008|-work|Softmax_Layer|./softmax_unit_tb.vhd|
+Z90 !s107 ./softmax_unit_tb.vhd|
+!i113 1
+R12
+R13
+Aarch
+R15
+R2
+R3
+R4
+DEx4 work 15 softmax_unit_tb 0 22 Bja9MD]_RB^T_Cl2@f<A]0
+l102
+L39
+V8=GDFV^`jhg`;c<>S?<^72
+!s100 Yj<IfRAzj0BX9ePjS2XcG0
+R7
+33
+R25
+!i10b 1
+R26
+R89
+R90
+!i113 1
+R12
+R13

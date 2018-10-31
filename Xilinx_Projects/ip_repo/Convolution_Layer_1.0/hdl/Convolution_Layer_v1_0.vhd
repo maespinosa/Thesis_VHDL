@@ -5,15 +5,6 @@ use ieee.numeric_std.all;
 entity Convolution_Layer_v1_0 is
 	generic (
 		-- Users to add parameters here
-        g_axi_bus_width : integer := 16;
-        g_data_width : integer := 16;
-        g_red_bits : integer := 4;
-        g_green_bits : integer := 4;
-        g_blue_bits : integer := 4;
-        g_weight_width : integer := 16;
-        g_multiplier_width : integer := 16;
-        g_product_width : integer := 32;
-        g_conv_width : integer := 16;
 
 		-- User parameters ends
 		-- Do not modify the parameters beyond this line
@@ -21,7 +12,7 @@ entity Convolution_Layer_v1_0 is
 
 		-- Parameters of Axi Slave Bus Interface S00_AXI
 		C_S00_AXI_DATA_WIDTH	: integer	:= 32;
-		C_S00_AXI_ADDR_WIDTH	: integer	:= 7;
+		C_S00_AXI_ADDR_WIDTH	: integer	:= 6;
 
 		-- Parameters of Axi Master Bus Interface M00_AXI
 		C_M00_AXI_TARGET_SLAVE_BASE_ADDR	: std_logic_vector	:= x"40000000";
@@ -37,8 +28,7 @@ entity Convolution_Layer_v1_0 is
 	);
 	port (
 		-- Users to add ports here
-        i_conv_clk      : in std_logic; 
-        i_reset_n       : in std_logic; 
+
 		-- User ports ends
 		-- Do not modify the ports beyond this line
 
@@ -120,89 +110,12 @@ end Convolution_Layer_v1_0;
 architecture arch_imp of Convolution_Layer_v1_0 is
 
 	-- component declaration
-	
-    component Convolution_Layer_Top is
-      generic(
-           -- name : type := value
-           g_axi_bus_width      : integer := 16;
-           g_data_width         : integer := 16;
-           g_red_bits           : integer := 4;
-           g_green_bits         : integer := 4;
-           g_blue_bits          : integer := 4;
-           g_weight_width       : integer := 16;
-           g_multiplier_width   : integer := 16;
-           g_product_width      : integer := 32;
-           g_conv_width         : integer := 16;
-           g_relu_width         : integer := 16
-      );
-      port(
-           i_clk                    : in STD_LOGIC;
-           i_reset_n                : in STD_LOGIC;
-           i_clear_reg              : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-           i_conv_parameters_reg    : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-           i_filter_control_reg     : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-           i_filter_data_addr_reg   : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-           i_filter_data_reg        : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-           i_input_data_addr_reg    : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-           i_input_data_reg         : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-           i_output_data_addr_reg   : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-           i_output_data_reg        : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-           i_relu_control_reg       : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-           i_repeat_reg             : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-           i_start_reg              : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-           i_status_reg             : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-           o_clear_reg              : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-           o_conv_parameters_reg    : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-           o_filter_contro_reg      : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-           o_filter_data_addr_reg   : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-           o_filter_data_reg        : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-           o_input_data_addr_reg    : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-           o_input_data_reg         : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-           o_output_data_addr_reg   : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-           o_output_data_reg        : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-           o_relu_control_reg       : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-           o_repeat_reg             : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-           o_start_reg              : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-           o_status_reg             : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0)
-      );
-    end component Convolution_Layer_Top;
-	
-	
-	
-	
-	
 	component Convolution_Layer_v1_0_S00_AXI is
 		generic (
 		C_S_AXI_DATA_WIDTH	: integer	:= 32;
-		C_S_AXI_ADDR_WIDTH	: integer	:= 7
+		C_S_AXI_ADDR_WIDTH	: integer	:= 6
 		);
 		port (
-        i_clear_reg              : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-        i_conv_parameters_reg    : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-        i_filter_control_reg     : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-        i_filter_data_addr_reg   : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-        i_filter_data_reg        : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-        i_input_data_addr_reg    : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-        i_input_data_reg         : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-        i_output_data_addr_reg   : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-        i_output_data_reg        : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-        i_relu_control_reg       : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-        i_repeat_reg             : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-        i_start_reg              : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-        i_status_reg             : in STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-        o_clear_reg              : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-        o_conv_parameters_reg    : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-        o_filter_contro_reg      : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-        o_filter_data_addr_reg   : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-        o_filter_data_reg        : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-        o_input_data_addr_reg    : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-        o_input_data_reg         : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-        o_output_data_addr_reg   : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-        o_output_data_reg        : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-        o_relu_control_reg       : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-        o_repeat_reg             : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-        o_start_reg              : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-        o_status_reg             : out STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
 		S_AXI_ACLK	: in std_logic;
 		S_AXI_ARESETN	: in std_logic;
 		S_AXI_AWADDR	: in std_logic_vector(C_S_AXI_ADDR_WIDTH-1 downto 0);
@@ -290,34 +203,6 @@ architecture arch_imp of Convolution_Layer_v1_0 is
 		M_AXI_RREADY	: out std_logic
 		);
 	end component Convolution_Layer_v1_0_M00_AXI;
-	
-	signal conv_in_clear_reg                : STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-    signal conv_in_conv_parameters_reg      : STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-    signal conv_in_filter_control_reg       : STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-    signal conv_in_filter_data_addr_reg     : STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-    signal conv_in_filter_data_reg          : STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-    signal conv_in_input_data_addr_reg      : STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-    signal conv_in_input_data_reg           : STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-    signal conv_in_output_data_addr_reg     : STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-    signal conv_in_output_data_reg          : STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-    signal conv_in_relu_control_reg         : STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-    signal conv_in_repeat_reg               : STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-    signal conv_in_start_reg                : STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-    signal conv_in_status_reg               : STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-    signal conv_out_clear_reg               : STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-    signal conv_out_conv_parameters_reg     : STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-    signal conv_out_filter_contro_reg       : STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-    signal conv_out_filter_data_addr_reg    : STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-    signal conv_out_filter_data_reg         : STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-    signal conv_out_input_data_addr_reg     : STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-    signal conv_out_input_data_reg          : STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-    signal conv_out_output_data_addr_reg    : STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-    signal conv_out_output_data_reg         : STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-    signal conv_out_relu_control_reg        : STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-    signal conv_out_repeat_reg              : STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-    signal conv_out_start_reg               : STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-    signal conv_out_status_reg              : STD_LOGIC_VECTOR(g_axi_bus_width-1 downto 0);
-
 
 begin
 
@@ -328,32 +213,6 @@ Convolution_Layer_v1_0_S00_AXI_inst : Convolution_Layer_v1_0_S00_AXI
 		C_S_AXI_ADDR_WIDTH	=> C_S00_AXI_ADDR_WIDTH
 	)
 	port map (
-        o_clear_reg              => conv_in_clear_reg,
-        o_conv_parameters_reg    => conv_in_conv_parameters_reg,
-        o_filter_control_reg     => conv_in_filter_control_reg,
-        o_filter_data_addr_reg   => conv_in_filter_data_addr_reg,
-        o_filter_data_reg        => conv_in_filter_data_reg,
-        o_input_data_addr_reg    => conv_in_input_data_addr_reg,
-        o_input_data_reg         => conv_in_input_data_reg,
-        o_output_data_addr_reg   => conv_in_output_data_addr_reg,
-        o_output_data_reg        => conv_in_output_data_reg,
-        o_relu_control_reg       => conv_in_relu_control_reg,
-        o_repeat_reg             => conv_in_repeat_reg,
-        o_start_reg              => conv_in_start_reg,
-        o_status_reg             => conv_in_status_reg,
-        i_clear_reg              => conv_out_clear_reg,
-        i_conv_parameters_reg    => conv_out_conv_parameters_reg,
-        i_filter_contro_reg      => conv_out_filter_contro_reg,
-        i_filter_data_addr_reg   => conv_out_filter_data_addr_reg,
-        i_filter_data_reg        => conv_out_filter_data_reg,
-        i_input_data_addr_reg    => conv_out_input_data_addr_reg,
-        i_input_data_reg         => conv_out_input_data_reg,
-        i_output_data_addr_reg   => conv_out_output_data_addr_reg,
-        i_output_data_reg        => conv_out_output_data_reg,
-        i_relu_control_reg       => conv_out_relu_control_reg,
-        i_repeat_reg             => conv_out_repeat_reg,
-        i_start_reg              => conv_out_start_reg,
-        i_status_reg             => conv_out_status_reg,
 		S_AXI_ACLK	=> s00_axi_aclk,
 		S_AXI_ARESETN	=> s00_axi_aresetn,
 		S_AXI_AWADDR	=> s00_axi_awaddr,
@@ -442,53 +301,7 @@ Convolution_Layer_v1_0_M00_AXI_inst : Convolution_Layer_v1_0_M00_AXI
 	);
 
 	-- Add user logic here
-    Convolution_Layer_inst: Convolution_Layer_Top
-      generic map (
-           -- name : type := value
-           g_axi_bus_width      => g_axi_bus_width,
-           g_data_width         => g_data_width,
-           g_red_bits           => g_red_bits,
-           g_green_bits         => g_green_bits,
-           g_blue_bits          => g_blue_bits,
-           g_weight_width       => g_weight_width,
-           g_multiplier_width   => g_multiplier_width,
-           g_product_width      => g_product_width,
-           g_conv_width         => g_conv_width,
-           g_relu_width         => g_relu_width
-      )
-      port map (
-           i_clk                    => i_conv_clk,
-           i_reset_n                => i_reset_n,
-           i_clear_reg              => conv_in_clear_reg,
-           i_conv_parameters_reg    => conv_in_conv_parameters_reg,
-           i_filter_control_reg     => conv_in_filter_control_reg,
-           i_filter_data_addr_reg   => conv_in_filter_data_addr_reg,
-           i_filter_data_reg        => conv_in_filter_data_reg,
-           i_input_data_addr_reg    => conv_in_input_data_addr_reg,
-           i_input_data_reg         => conv_in_input_data_reg,
-           i_output_data_addr_reg   => conv_in_output_data_addr_reg,
-           i_output_data_reg        => conv_in_output_data_reg,
-           i_relu_control_reg       => conv_in_relu_control_reg,
-           i_repeat_reg             => conv_in_repeat_reg,
-           i_start_reg              => conv_in_start_reg,
-           i_status_reg             => conv_in_status_reg,
-           o_clear_reg              => conv_out_clear_reg,
-           o_conv_parameters_reg    => conv_out_conv_parameters_reg,
-           o_filter_contro_reg      => conv_out_filter_contro_reg,
-           o_filter_data_addr_reg   => conv_out_filter_data_addr_reg,
-           o_filter_data_reg        => conv_out_filter_data_reg,
-           o_input_data_addr_reg    => conv_out_input_data_addr_reg,
-           o_input_data_reg         => conv_out_input_data_reg,
-           o_output_data_addr_reg   => conv_out_output_data_addr_reg,
-           o_output_data_reg        => conv_out_output_data_reg,
-           o_relu_control_reg       => conv_out_relu_control_reg,
-           o_repeat_reg             => conv_out_repeat_reg,
-           o_start_reg              => conv_out_start_reg,
-           o_status_reg             => conv_out_status_reg
-      );
-    
-    
-    
+
 	-- User logic ends
 
 end arch_imp;

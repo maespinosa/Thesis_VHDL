@@ -1,0 +1,18 @@
+{
+   guistr: "# # String gsaved with Nlview 6.6.5b  2016-09-06 bk=1.3687 VDI=39 GEI=35 GUI=JA:1.6
+#  -string -flagsOSRD
+preplace port reset_rtl -pg 1 -y -700 -defaultsOSRD
+preplace inst Maxpool_Layer_32bit_0 -pg 1 -lvl 4 -y -570 -defaultsOSRD
+preplace inst Convolution_Layer_32bit_0 -pg 1 -lvl 6 -y -170 -defaultsOSRD
+preplace inst mig_7series_0 -pg 1 -lvl 3 -y -680 -defaultsOSRD
+preplace inst Softmax_Layer_32bit_0 -pg 1 -lvl 5 -y -340 -defaultsOSRD
+preplace inst axi_uartlite_0 -pg 1 -lvl 2 -y -610 -defaultsOSRD
+preplace netloc reset_rtl_1 1 0 3 NJ -700 NJ -700 760J
+levelinfo -pg 1 -60 200 660 1040 1390 1710 2020 2190 -top -800 -bot 420
+",
+}
+{
+   da_axi4_cnt: "9",
+   da_board_cnt: "5",
+   da_mb_cnt: "1",
+}

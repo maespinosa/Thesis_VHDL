@@ -49,40 +49,9 @@ UCF=
 WindowVisible=0
 
 [HierarchyViewer]
-HierarchyInformation=convolution_controller|arch|0 
+HierarchyInformation=convolution_controller|arch|0  
 ShowHide=ShowTopLevel
 Selected=
-
-[file_out:/input_fifo_network.bde]
-/..\compile\input_fifo_network.vhd=-1
-
-[file_out:/output_fifo_network.bde]
-/..\compile\output_fifo_network.vhd=-1
-
-[file_out:/multiplier_bank.bde]
-/..\compile\multiplier_bank.vhd=-1
-/..\compile\multiplier_10.vhd=-1
-
-[file_out:/input_fifo_network_7.bde]
-/..\compile\input_fifo_network_7.vhd=-1
-
-[file_out:/input_fifo_network_11.bde]
-/..\compile\input_fifo_network_11.vhd=-1
-
-[file_out:/input_fifo_network_3.bde]
-/..\compile\input_fifo_network_3.vhd=-1
-
-[file_out:/division_by_mutiplication.bde]
-/..\compile\division_by_mutiplication.vhd=-1
-
-[file_out:/normalizer.bde]
-/..\compile\normalizer.vhd=-1
-
-[file_out:/filter_top.bde]
-/..\compile\filter_top.vhd=-1
-
-[file_out:/Convolution_Layer_Top.bde]
-/..\compile\Convolution_Layer_Top.vhd=-1
 
 [Files]
 /Convolution_Controller.vhd=-1
@@ -174,3 +143,33 @@ Selected=
 .\src\FP_ADDER_8E_8F.vhd=VHDL Source Code
 .\src\filter_top_tb.vhd=VHDL Source Code
 
+[file_out:/input_fifo_network.bde]
+/..\compile\input_fifo_network.vhd=-1
+
+[file_out:/output_fifo_network.bde]
+/..\compile\output_fifo_network.vhd=-1
+
+[file_out:/multiplier_bank.bde]
+/..\compile\multiplier_bank.vhd=-1
+/..\compile\multiplier_10.vhd=-1
+
+[file_out:/input_fifo_network_7.bde]
+/..\compile\input_fifo_network_7.vhd=-1
+
+[file_out:/input_fifo_network_11.bde]
+/..\compile\input_fifo_network_11.vhd=-1
+
+[file_out:/input_fifo_network_3.bde]
+/..\compile\input_fifo_network_3.vhd=-1
+
+[file_out:/division_by_mutiplication.bde]
+/..\compile\division_by_mutiplication.vhd=-1
+
+
+[file_out:/filter_top.bde]
+/..\compile\filter_top.vhd=-1
+
+[file_out:/Convolution_Layer_Top.bde]
+/..\compile\Convolution_Layer_Top.vhd=-1
+[file_out:/normalizer.bde]
+/..\compile\normalizer.vhd=-1

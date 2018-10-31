@@ -1,0 +1,780 @@
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.4 (win64) Build 1756540 Mon Jan 23 19:11:23 MST 2017
+| Date         : Wed Oct 03 01:03:53 2018
+| Host         : Marks-M3800-PC running 64-bit Service Pack 1  (build 7601)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'sim_smax_test_Softmax_Layer_32bit_0_0'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of sim_smax_test_Softmax_Layer_32bit_0_0 (xilinx.com:user:Softmax_Layer_32bit:1.0) from (Rev. 2) to (Rev. 3)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'sim_smax_test_Softmax_Layer_32bit_0_0'. These changes may impact your design.
+
+
+-Upgrade has removed port 'm00_axi_init_axi_txn'
+
+-Upgrade has added port 'o_softmax_complete'
+
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.4 (win64) Build 1756540 Mon Jan 23 19:11:23 MST 2017
+| Date         : Wed Oct 03 00:49:38 2018
+| Host         : Marks-M3800-PC running 64-bit Service Pack 1  (build 7601)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'sim_smax_test_Softmax_Tester_0_0'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of sim_smax_test_Softmax_Tester_0_0 (xilinx.com:user:Softmax_Tester:1.0) from (Rev. 2) to (Rev. 3)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'sim_smax_test_Softmax_Tester_0_0'. These changes may impact your design.
+
+
+-Upgrade has removed port 'm00_axi_buser'
+
+-Upgrade has removed port 'm00_axi_init_axi_txn'
+
+-Upgrade has removed port 'm00_axi_ruser'
+
+-Upgrade has added port 'i_init_calib_complete'
+
+-Upgrade has added port 'i_irq'
+
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.4 (win64) Build 1756540 Mon Jan 23 19:11:23 MST 2017
+| Date         : Wed Oct 03 00:46:20 2018
+| Host         : Marks-M3800-PC running 64-bit Service Pack 1  (build 7601)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'sim_mp_test_Maxpool_Layer_32bit_0_0'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of sim_mp_test_Maxpool_Layer_32bit_0_0 (xilinx.com:user:Maxpool_Layer_32bit:1.0) from (Rev. 2) to (Rev. 3)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'sim_mp_test_Maxpool_Layer_32bit_0_0'. These changes may impact your design.
+
+
+-Upgrade has removed port 'm00_axi_buser'
+
+-Upgrade has removed port 'm00_axi_init_axi_txn'
+
+-Upgrade has removed port 'm00_axi_ruser'
+
+-Upgrade has added port 'o_pooling_complete'
+
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.4 (win64) Build 1756540 Mon Jan 23 19:11:23 MST 2017
+| Date         : Tue Oct 02 00:11:53 2018
+| Host         : Marks-M3800-PC running 64-bit Service Pack 1  (build 7601)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'sim_node_rst_mig_7series_0_150M_1'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of sim_node_rst_mig_7series_0_150M_1 (xilinx.com:ip:proc_sys_reset:5.0) from (Rev. 8) to (Rev. 10)
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.4 (win64) Build 1756540 Mon Jan 23 19:11:23 MST 2017
+| Date         : Tue Oct 02 00:11:53 2018
+| Host         : Marks-M3800-PC running 64-bit Service Pack 1  (build 7601)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'sim_node_mig_7series_0_1'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of sim_node_mig_7series_0_1 from xilinx.com:ip:mig_7series:2.4 (Rev. 1) to xilinx.com:ip:mig_7series:4.0 (Rev. 2)
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.4 (win64) Build 1756540 Mon Jan 23 19:11:23 MST 2017
+| Date         : Tue Oct 02 00:11:53 2018
+| Host         : Marks-M3800-PC running 64-bit Service Pack 1  (build 7601)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'sim_node_clk_wiz_0_1'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of sim_node_clk_wiz_0_1 from xilinx.com:ip:clk_wiz:5.2 (Rev. 1) to xilinx.com:ip:clk_wiz:5.3 (Rev. 3)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'sim_node_clk_wiz_0_1'. These changes may impact your design.
+
+
+-Upgraded port order differs after port 'resetn'
+
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.4 (win64) Build 1756540 Mon Jan 23 19:11:23 MST 2017
+| Date         : Tue Oct 02 00:11:53 2018
+| Host         : Marks-M3800-PC running 64-bit Service Pack 1  (build 7601)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'sim_node_axi_mem_intercon_1'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of sim_node_axi_mem_intercon_1 (xilinx.com:ip:axi_interconnect:2.1) from (Rev. 8) to (Rev. 12)
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.4 (win64) Build 1756540 Mon Jan 23 19:11:23 MST 2017
+| Date         : Tue Oct 02 00:11:53 2018
+| Host         : Marks-M3800-PC running 64-bit Service Pack 1  (build 7601)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'sim_node_Convolution_Layer_0_0'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of sim_node_Convolution_Layer_0_0 (xilinx.com:user:Convolution_Layer:1.0) from (Rev. 2) to (Rev. 1)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Interface Information
+------------------------
+
+Detected external interface differences while upgrading 'sim_node_Convolution_Layer_0_0'.
+
+
+
+3. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'sim_node_Convolution_Layer_0_0'. These changes may impact your design.
+
+
+
+4. Customization warnings
+-------------------------
+
+An attempt to modify the value of disabled parameter 'C_S00_AXI_ADDR_WIDTH' from '6' to '7' has been ignored for IP 'sim_node_Convolution_Layer_0_0'
+
+Parameter 'g_axi_bus_width' is no longer present on the upgraded IP 'sim_node_Convolution_Layer_0_0', and cannot be set to '16'
+
+Parameter 'g_data_width' is no longer present on the upgraded IP 'sim_node_Convolution_Layer_0_0', and cannot be set to '16'
+
+Parameter 'g_red_bits' is no longer present on the upgraded IP 'sim_node_Convolution_Layer_0_0', and cannot be set to '4'
+
+Parameter 'g_green_bits' is no longer present on the upgraded IP 'sim_node_Convolution_Layer_0_0', and cannot be set to '4'
+
+Parameter 'g_blue_bits' is no longer present on the upgraded IP 'sim_node_Convolution_Layer_0_0', and cannot be set to '4'
+
+Parameter 'g_weight_width' is no longer present on the upgraded IP 'sim_node_Convolution_Layer_0_0', and cannot be set to '16'
+
+Parameter 'g_multiplier_width' is no longer present on the upgraded IP 'sim_node_Convolution_Layer_0_0', and cannot be set to '16'
+
+Parameter 'g_product_width' is no longer present on the upgraded IP 'sim_node_Convolution_Layer_0_0', and cannot be set to '32'
+
+Parameter 'g_conv_width' is no longer present on the upgraded IP 'sim_node_Convolution_Layer_0_0', and cannot be set to '16'
+
+
+5. Debug Commands
+-----------------
+
+  The following debug information can be passed to Vivado as Tcl commands,
+in order to validate or debug the output of the upgrade flow.
+  You may consult any warnings from within this upgrade, and alter or remove
+the configuration parameter(s) which caused the warning; then execute the Tcl
+commands, and use the IP Customization GUI to verify the IP configuration.
+
+create_ip -vlnv xilinx.com:user:Convolution_Layer:1.0 -user_name sim_node_Convolution_Layer_0_0
+set_property -dict "\
+  CONFIG.C_M00_AXI_ADDR_WIDTH {32} \
+  CONFIG.C_M00_AXI_ARUSER_WIDTH {0} \
+  CONFIG.C_M00_AXI_AWUSER_WIDTH {0} \
+  CONFIG.C_M00_AXI_BURST_LEN {16} \
+  CONFIG.C_M00_AXI_BUSER_WIDTH {0} \
+  CONFIG.C_M00_AXI_DATA_WIDTH {32} \
+  CONFIG.C_M00_AXI_ID_WIDTH {1} \
+  CONFIG.C_M00_AXI_RUSER_WIDTH {0} \
+  CONFIG.C_M00_AXI_TARGET_SLAVE_BASE_ADDR {0x40000000} \
+  CONFIG.C_M00_AXI_WUSER_WIDTH {0} \
+  CONFIG.C_S00_AXI_ADDR_WIDTH {7} \
+  CONFIG.C_S00_AXI_BASEADDR {0xFFFFFFFF} \
+  CONFIG.C_S00_AXI_DATA_WIDTH {32} \
+  CONFIG.C_S00_AXI_HIGHADDR {0x00000000} \
+  CONFIG.Component_Name {sim_node_Convolution_Layer_0_0} \
+  CONFIG.M00_AXI.SUPPORTS_NARROW_BURST {0} \
+  CONFIG.M00_AXI.WIZ_DATA_WIDTH {32} \
+  CONFIG.M00_AXI_CLK.ASSOCIATED_BUSIF {M00_AXI} \
+  CONFIG.M00_AXI_CLK.ASSOCIATED_RESET {m00_axi_aresetn} \
+  CONFIG.M00_AXI_RST.POLARITY {ACTIVE_LOW} \
+  CONFIG.S00_AXI.SUPPORTS_NARROW_BURST {0} \
+  CONFIG.S00_AXI.WIZ_DATA_WIDTH {32} \
+  CONFIG.S00_AXI.WIZ_NUM_REG {020} \
+  CONFIG.S00_AXI_CLK.ASSOCIATED_BUSIF {S00_AXI} \
+  CONFIG.S00_AXI_CLK.ASSOCIATED_RESET {s00_axi_aresetn} \
+  CONFIG.S00_AXI_RST.POLARITY {ACTIVE_LOW} " [get_ips sim_node_Convolution_Layer_0_0]
+
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.4 (win64) Build 1756540 Mon Jan 23 19:11:23 MST 2017
+| Date         : Tue Oct 02 00:10:56 2018
+| Host         : Marks-M3800-PC running 64-bit Service Pack 1  (build 7601)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'node_rst_mig_7series_0_150M_1'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of node_rst_mig_7series_0_150M_1 (xilinx.com:ip:proc_sys_reset:5.0) from (Rev. 8) to (Rev. 10)
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.4 (win64) Build 1756540 Mon Jan 23 19:11:23 MST 2017
+| Date         : Tue Oct 02 00:10:56 2018
+| Host         : Marks-M3800-PC running 64-bit Service Pack 1  (build 7601)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'node_rst_clk_wiz_1_100M_1'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of node_rst_clk_wiz_1_100M_1 (xilinx.com:ip:proc_sys_reset:5.0) from (Rev. 8) to (Rev. 10)
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.4 (win64) Build 1756540 Mon Jan 23 19:11:23 MST 2017
+| Date         : Tue Oct 02 00:10:56 2018
+| Host         : Marks-M3800-PC running 64-bit Service Pack 1  (build 7601)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'node_mig_7series_0_1'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of node_mig_7series_0_1 from xilinx.com:ip:mig_7series:2.4 (Rev. 1) to xilinx.com:ip:mig_7series:4.0 (Rev. 2)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'node_mig_7series_0_1'. These changes may impact your design.
+
+
+-Upgraded port 's_axi_arid' width 3 differs from original width 2
+
+-Upgraded port 's_axi_awid' width 3 differs from original width 2
+
+-Upgraded port 's_axi_bid' width 3 differs from original width 2
+
+-Upgraded port 's_axi_rid' width 3 differs from original width 2
+
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.4 (win64) Build 1756540 Mon Jan 23 19:11:23 MST 2017
+| Date         : Tue Oct 02 00:10:56 2018
+| Host         : Marks-M3800-PC running 64-bit Service Pack 1  (build 7601)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'node_microblaze_0_axi_periph_1'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of node_microblaze_0_axi_periph_1 (xilinx.com:ip:axi_interconnect:2.1) from (Rev. 8) to (Rev. 12)
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.4 (win64) Build 1756540 Mon Jan 23 19:11:23 MST 2017
+| Date         : Tue Oct 02 00:10:55 2018
+| Host         : Marks-M3800-PC running 64-bit Service Pack 1  (build 7601)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'node_microblaze_0_1'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of node_microblaze_0_1 from xilinx.com:ip:microblaze:9.5 (Rev. 3) to xilinx.com:ip:microblaze:10.0 (Rev. 1)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'node_microblaze_0_1'. These changes may impact your design.
+
+
+-Upgrade has added port 'Dbg_Disable'
+
+
+3. Upgrade messages
+-------------------
+
+Set parameter C_DCACHE_BASEADDR to value 0x0000000080000000 (source 'default')
+Set parameter C_DCACHE_HIGHADDR to value 0x0000000087FFFFFF (source 'default')
+Added parameter C_RESET_MSR_EIP with value 0 (source 'default')
+Added parameter C_RESET_MSR_EE with value 0 (source 'default')
+Added parameter C_RESET_MSR_DCE with value 0 (source 'default')
+Added parameter C_RESET_MSR_ICE with value 0 (source 'default')
+Added parameter C_RESET_MSR_BIP with value 0 (source 'default')
+Added parameter C_RESET_MSR_IE with value 0 (source 'default')
+Removed parameter C_RESET_MSR
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.4 (win64) Build 1756540 Mon Jan 23 19:11:23 MST 2017
+| Date         : Tue Oct 02 00:10:55 2018
+| Host         : Marks-M3800-PC running 64-bit Service Pack 1  (build 7601)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'node_mdm_1_1'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of node_mdm_1_1 (xilinx.com:ip:mdm:3.2) from (Rev. 4) to (Rev. 8)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'node_mdm_1_1'. These changes may impact your design.
+
+
+-Upgrade has added port 'Dbg_Disable_0'
+
+
+3. Upgrade messages
+-------------------
+
+Set parameter C_M_AXIS_ID_WIDTH to value 7 (source 'default')
+Added parameter C_DEBUG_INTERFACE with value 0 (source 'default')
+Set parameter C_S_AXI_ADDR_WIDTH to value 4 (source 'default')
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.4 (win64) Build 1756540 Mon Jan 23 19:11:23 MST 2017
+| Date         : Tue Oct 02 00:10:55 2018
+| Host         : Marks-M3800-PC running 64-bit Service Pack 1  (build 7601)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'node_lmb_bram_3'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of node_lmb_bram_3 (xilinx.com:ip:blk_mem_gen:8.3) from (Rev. 1) to (Rev. 5)
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.4 (win64) Build 1756540 Mon Jan 23 19:11:23 MST 2017
+| Date         : Tue Oct 02 00:10:55 2018
+| Host         : Marks-M3800-PC running 64-bit Service Pack 1  (build 7601)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'node_ilmb_v10_1'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of node_ilmb_v10_1 (xilinx.com:ip:lmb_v10:3.0) from (Rev. 7) to (Rev. 9)
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.4 (win64) Build 1756540 Mon Jan 23 19:11:23 MST 2017
+| Date         : Tue Oct 02 00:10:55 2018
+| Host         : Marks-M3800-PC running 64-bit Service Pack 1  (build 7601)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'node_ilmb_bram_if_cntlr_1'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of node_ilmb_bram_if_cntlr_1 (xilinx.com:ip:lmb_bram_if_cntlr:4.0) from (Rev. 7) to (Rev. 10)
+
+2. Upgrade messages
+-------------------
+
+Set parameter C_MASK1 to value 0x0000000000800000 (source 'default')
+Set parameter C_MASK2 to value 0x0000000000800000 (source 'default')
+Set parameter C_MASK3 to value 0x0000000000800000 (source 'default')
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.4 (win64) Build 1756540 Mon Jan 23 19:11:23 MST 2017
+| Date         : Tue Oct 02 00:10:55 2018
+| Host         : Marks-M3800-PC running 64-bit Service Pack 1  (build 7601)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'node_dlmb_v10_1'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of node_dlmb_v10_1 (xilinx.com:ip:lmb_v10:3.0) from (Rev. 7) to (Rev. 9)
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.4 (win64) Build 1756540 Mon Jan 23 19:11:23 MST 2017
+| Date         : Tue Oct 02 00:10:55 2018
+| Host         : Marks-M3800-PC running 64-bit Service Pack 1  (build 7601)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'node_dlmb_bram_if_cntlr_1'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of node_dlmb_bram_if_cntlr_1 (xilinx.com:ip:lmb_bram_if_cntlr:4.0) from (Rev. 7) to (Rev. 10)
+
+2. Upgrade messages
+-------------------
+
+Set parameter C_MASK1 to value 0x0000000000800000 (source 'default')
+Set parameter C_MASK2 to value 0x0000000000800000 (source 'default')
+Set parameter C_MASK3 to value 0x0000000000800000 (source 'default')
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.4 (win64) Build 1756540 Mon Jan 23 19:11:23 MST 2017
+| Date         : Tue Oct 02 00:10:55 2018
+| Host         : Marks-M3800-PC running 64-bit Service Pack 1  (build 7601)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'node_clk_wiz_1_1'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of node_clk_wiz_1_1 from xilinx.com:ip:clk_wiz:5.2 (Rev. 1) to xilinx.com:ip:clk_wiz:5.3 (Rev. 3)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'node_clk_wiz_1_1'. These changes may impact your design.
+
+
+-Upgraded port order differs after port 'resetn'
+
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.4 (win64) Build 1756540 Mon Jan 23 19:11:23 MST 2017
+| Date         : Tue Oct 02 00:10:55 2018
+| Host         : Marks-M3800-PC running 64-bit Service Pack 1  (build 7601)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'node_axi_uartlite_0_1'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of node_axi_uartlite_0_1 (xilinx.com:ip:axi_uartlite:2.0) from (Rev. 10) to (Rev. 15)
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.4 (win64) Build 1756540 Mon Jan 23 19:11:23 MST 2017
+| Date         : Tue Oct 02 00:10:55 2018
+| Host         : Marks-M3800-PC running 64-bit Service Pack 1  (build 7601)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'node_axi_mem_intercon_1'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of node_axi_mem_intercon_1 (xilinx.com:ip:axi_interconnect:2.1) from (Rev. 8) to (Rev. 12)
+
+
+
+
+
+
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.4 (win64) Build 1756540 Mon Jan 23 19:11:23 MST 2017
+| Date         : Tue Oct 02 00:10:55 2018
+| Host         : Marks-M3800-PC running 64-bit Service Pack 1  (build 7601)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'node_Convolution_Layer_0_0'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of node_Convolution_Layer_0_0 (xilinx.com:user:Convolution_Layer:1.0) from (Rev. 2) to (Rev. 1)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Interface Information
+------------------------
+
+Detected external interface differences while upgrading 'node_Convolution_Layer_0_0'.
+
+
+
+3. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'node_Convolution_Layer_0_0'. These changes may impact your design.
+
+
+
+4. Customization warnings
+-------------------------
+
+An attempt to modify the value of disabled parameter 'C_S00_AXI_ADDR_WIDTH' from '6' to '7' has been ignored for IP 'node_Convolution_Layer_0_0'
+
+Parameter 'g_axi_bus_width' is no longer present on the upgraded IP 'node_Convolution_Layer_0_0', and cannot be set to '16'
+
+Parameter 'g_data_width' is no longer present on the upgraded IP 'node_Convolution_Layer_0_0', and cannot be set to '16'
+
+Parameter 'g_red_bits' is no longer present on the upgraded IP 'node_Convolution_Layer_0_0', and cannot be set to '4'
+
+Parameter 'g_green_bits' is no longer present on the upgraded IP 'node_Convolution_Layer_0_0', and cannot be set to '4'
+
+Parameter 'g_blue_bits' is no longer present on the upgraded IP 'node_Convolution_Layer_0_0', and cannot be set to '4'
+
+Parameter 'g_weight_width' is no longer present on the upgraded IP 'node_Convolution_Layer_0_0', and cannot be set to '16'
+
+Parameter 'g_multiplier_width' is no longer present on the upgraded IP 'node_Convolution_Layer_0_0', and cannot be set to '16'
+
+Parameter 'g_product_width' is no longer present on the upgraded IP 'node_Convolution_Layer_0_0', and cannot be set to '32'
+
+Parameter 'g_conv_width' is no longer present on the upgraded IP 'node_Convolution_Layer_0_0', and cannot be set to '16'
+
+
+5. Debug Commands
+-----------------
+
+  The following debug information can be passed to Vivado as Tcl commands,
+in order to validate or debug the output of the upgrade flow.
+  You may consult any warnings from within this upgrade, and alter or remove
+the configuration parameter(s) which caused the warning; then execute the Tcl
+commands, and use the IP Customization GUI to verify the IP configuration.
+
+create_ip -vlnv xilinx.com:user:Convolution_Layer:1.0 -user_name node_Convolution_Layer_0_0
+set_property -dict "\
+  CONFIG.C_M00_AXI_ADDR_WIDTH {32} \
+  CONFIG.C_M00_AXI_ARUSER_WIDTH {0} \
+  CONFIG.C_M00_AXI_AWUSER_WIDTH {0} \
+  CONFIG.C_M00_AXI_BURST_LEN {16} \
+  CONFIG.C_M00_AXI_BUSER_WIDTH {0} \
+  CONFIG.C_M00_AXI_DATA_WIDTH {32} \
+  CONFIG.C_M00_AXI_ID_WIDTH {1} \
+  CONFIG.C_M00_AXI_RUSER_WIDTH {0} \
+  CONFIG.C_M00_AXI_TARGET_SLAVE_BASE_ADDR {0x40000000} \
+  CONFIG.C_M00_AXI_WUSER_WIDTH {0} \
+  CONFIG.C_S00_AXI_ADDR_WIDTH {7} \
+  CONFIG.C_S00_AXI_BASEADDR {0xFFFFFFFF} \
+  CONFIG.C_S00_AXI_DATA_WIDTH {32} \
+  CONFIG.C_S00_AXI_HIGHADDR {0x00000000} \
+  CONFIG.Component_Name {node_Convolution_Layer_0_0} \
+  CONFIG.M00_AXI.SUPPORTS_NARROW_BURST {0} \
+  CONFIG.M00_AXI.WIZ_DATA_WIDTH {32} \
+  CONFIG.M00_AXI_CLK.ASSOCIATED_BUSIF {M00_AXI} \
+  CONFIG.M00_AXI_CLK.ASSOCIATED_RESET {m00_axi_aresetn} \
+  CONFIG.M00_AXI_RST.POLARITY {ACTIVE_LOW} \
+  CONFIG.S00_AXI.SUPPORTS_NARROW_BURST {0} \
+  CONFIG.S00_AXI.WIZ_DATA_WIDTH {32} \
+  CONFIG.S00_AXI.WIZ_NUM_REG {020} \
+  CONFIG.S00_AXI_CLK.ASSOCIATED_BUSIF {S00_AXI} \
+  CONFIG.S00_AXI_CLK.ASSOCIATED_RESET {s00_axi_aresetn} \
+  CONFIG.S00_AXI_RST.POLARITY {ACTIVE_LOW} " [get_ips node_Convolution_Layer_0_0]
+
+

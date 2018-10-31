@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Product Version: Vivado v2015.4 (64-bit)              -->
+<!-- Product Version: Vivado v2016.4 (64-bit)              -->
 <!--                                                         -->
-<!-- Copyright 1986-2015 Xilinx, Inc. All Rights Reserved.   -->
+<!-- Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="10" Path="C:/Sourcetree_Local/Thesis_VHDL/Xilinx_Projects/Thesis_CNN/Thesis_CNN.xpr">
+<Project Version="7" Minor="17" Path="C:/Sourcetree_Local/Thesis_VHDL/Xilinx_Projects/Thesis_CNN/Thesis_CNN.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="1871f64891e24f11a50b78890ec594ee"/>
     <Option Name="Part" Val="xc7a100tcsg324-1"/>
     <Option Name="CompiledLibDir" Val="$PCACHEDIR/compile_simlib/modelsim"/>
+    <Option Name="CompiledLibDirXSim" Val=""/>
     <Option Name="CompiledLibDirModelSim" Val="$PCACHEDIR/compile_simlib/modelsim"/>
     <Option Name="CompiledLibDirQuesta" Val="$PCACHEDIR/compile_simlib/questa"/>
     <Option Name="CompiledLibDirIES" Val="$PCACHEDIR/compile_simlib/ies"/>
@@ -19,16 +20,46 @@
     <Option Name="BoardPart" Val=""/>
     <Option Name="ActiveSimSet" Val="sim_1"/>
     <Option Name="DefaultLib" Val="xil_defaultlib"/>
+    <Option Name="IPRepoPath" Val="$PPRDIR/../ip_repo/Softmax_Tester_1.0"/>
+    <Option Name="IPRepoPath" Val="$PPRDIR/../ip_repo/Maxpool_Tester_1.0"/>
+    <Option Name="IPRepoPath" Val="$PPRDIR/../ip_repo/Convolution_Tester_1.0"/>
+    <Option Name="IPRepoPath" Val="$PPRDIR/../ip_repo/Softmax_Layer_32bit_1.0"/>
+    <Option Name="IPRepoPath" Val="$PPRDIR/../ip_repo/Maxpool_Layer_32bit_1.0"/>
+    <Option Name="IPRepoPath" Val="$PPRDIR/../ip_repo/Convolution_Layer_32bit_1.0"/>
+    <Option Name="IPRepoPath" Val="$PPRDIR/../ip_repo/Virtual_Memory_1.0"/>
     <Option Name="IPRepoPath" Val="$PPRDIR/../ip_repo/Convolution_Layer_1.0"/>
+    <Option Name="IPRepoPath" Val="$PPRDIR/../ip_repo/Softmax_Layer_1.0"/>
+    <Option Name="IPRepoPath" Val="$PPRDIR/../ip_repo/Maxpool_Layer_1.0"/>
     <Option Name="IPRepoPath" Val="$PPRDIR/../ip_repo/Multiplier_Bank_1.0"/>
     <Option Name="IPRepoPath" Val="$PPRDIR/../ip_repo/VGA_IF_1.0"/>
     <Option Name="IPRepoPath" Val="$PPRDIR/../ip_repo/OV5642_IF_1.0"/>
     <Option Name="IPRepoPath" Val="$PPRDIR/../ip_repo/Test_ip_1.0"/>
+    <Option Name="IPCachePermission" Val="disable"/>
     <Option Name="EnableCoreContainer" Val="FALSE"/>
     <Option Name="CreateRefXciForCoreContainers" Val="FALSE"/>
     <Option Name="IPUserFilesDir" Val="$PPRDIR/Thesis_CNN.ip_user_files"/>
     <Option Name="IPStaticSourceDir" Val="$PPRDIR/Thesis_CNN.ip_user_files/ipstatic"/>
     <Option Name="EnableBDX" Val="FALSE"/>
+    <Option Name="DSANumComputeUnits" Val="16"/>
+    <Option Name="WTXSimLaunchSim" Val="0"/>
+    <Option Name="WTModelSimLaunchSim" Val="0"/>
+    <Option Name="WTQuestaLaunchSim" Val="0"/>
+    <Option Name="WTIesLaunchSim" Val="0"/>
+    <Option Name="WTVcsLaunchSim" Val="0"/>
+    <Option Name="WTRivieraLaunchSim" Val="0"/>
+    <Option Name="WTActivehdlLaunchSim" Val="0"/>
+    <Option Name="WTXSimExportSim" Val="5"/>
+    <Option Name="WTModelSimExportSim" Val="5"/>
+    <Option Name="WTQuestaExportSim" Val="5"/>
+    <Option Name="WTIesExportSim" Val="5"/>
+    <Option Name="WTVcsExportSim" Val="5"/>
+    <Option Name="WTRivieraExportSim" Val="5"/>
+    <Option Name="WTActivehdlExportSim" Val="5"/>
+    <Option Name="GenerateIPUpgradeLog" Val="TRUE"/>
+    <Option Name="XSimRadix" Val="hex"/>
+    <Option Name="XSimTimeUnit" Val="ns"/>
+    <Option Name="XSimArrayDisplayLimit" Val="64"/>
+    <Option Name="XSimTraceLimit" Val="65536"/>
   </Configuration>
   <FileSets Version="1" Minor="31">
     <FileSet Name="sources_1" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
@@ -41,6 +72,25 @@
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
+        <CompFileExtendedInfo CompFileName="node.bd" FileRelPathName="ip/node_axi_uartlite_0_1/node_axi_uartlite_0_1.xci"/>
+        <CompFileExtendedInfo CompFileName="node.bd" FileRelPathName="ip/node_rst_clk_wiz_1_100M_1/node_rst_clk_wiz_1_100M_1.xci"/>
+        <CompFileExtendedInfo CompFileName="node.bd" FileRelPathName="ip/node_clk_wiz_1_1/node_clk_wiz_1_1.xci"/>
+        <CompFileExtendedInfo CompFileName="node.bd" FileRelPathName="ip/node_mdm_1_1/node_mdm_1_1.xci"/>
+        <CompFileExtendedInfo CompFileName="node.bd" FileRelPathName="ip/node_OV5642_IF_0_1/node_OV5642_IF_0_1.xci"/>
+        <CompFileExtendedInfo CompFileName="node.bd" FileRelPathName="ip/node_VGA_IF_0_0/node_VGA_IF_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="node.bd" FileRelPathName="ip/node_rst_mig_7series_0_150M_1/node_rst_mig_7series_0_150M_1.xci"/>
+        <CompFileExtendedInfo CompFileName="node.bd" FileRelPathName="ip/node_axi_mem_intercon_1/node_axi_mem_intercon_1.xci"/>
+        <CompFileExtendedInfo CompFileName="node.bd" FileRelPathName="ip/node_mig_7series_0_1/node_mig_7series_0_1.xci"/>
+        <CompFileExtendedInfo CompFileName="node.bd" FileRelPathName="ip/node_Convolution_Layer_0_0/node_Convolution_Layer_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="node.bd" FileRelPathName="ip/node_microblaze_0_axi_periph_1/node_microblaze_0_axi_periph_1.xci"/>
+        <CompFileExtendedInfo CompFileName="node.bd" FileRelPathName="ip/node_ilmb_bram_if_cntlr_1/node_ilmb_bram_if_cntlr_1.xci"/>
+        <CompFileExtendedInfo CompFileName="node.bd" FileRelPathName="ip/node_dlmb_bram_if_cntlr_1/node_dlmb_bram_if_cntlr_1.xci"/>
+        <CompFileExtendedInfo CompFileName="node.bd" FileRelPathName="ip/node_ilmb_v10_1/node_ilmb_v10_1.xci"/>
+        <CompFileExtendedInfo CompFileName="node.bd" FileRelPathName="ip/node_dlmb_v10_1/node_dlmb_v10_1.xci"/>
+        <CompFileExtendedInfo CompFileName="node.bd" FileRelPathName="ip/node_microblaze_0_1/node_microblaze_0_1.xci"/>
+        <CompFileExtendedInfo CompFileName="node.bd" FileRelPathName="ip/node_lmb_bram_3/node_lmb_bram_3.xci"/>
+        <CompFileExtendedInfo CompFileName="node.bd" FileRelPathName="ip/node_xbar_1/node_xbar_1.xci"/>
+        <CompFileExtendedInfo CompFileName="node.bd" FileRelPathName="ip/node_xbar_0/node_xbar_0.xci"/>
       </File>
       <File Path="$PSRCDIR/sources_1/bd/node/hdl/node_wrapper.vhd">
         <FileInfo>
@@ -59,6 +109,14 @@
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
+        <CompFileExtendedInfo CompFileName="sim_node.bd" FileRelPathName="ip/sim_node_OV5642_IF_0_0/sim_node_OV5642_IF_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="sim_node.bd" FileRelPathName="ip/sim_node_mig_7series_0_1/sim_node_mig_7series_0_1.xci"/>
+        <CompFileExtendedInfo CompFileName="sim_node.bd" FileRelPathName="ip/sim_node_rst_mig_7series_0_150M_1/sim_node_rst_mig_7series_0_150M_1.xci"/>
+        <CompFileExtendedInfo CompFileName="sim_node.bd" FileRelPathName="ip/sim_node_clk_wiz_0_1/sim_node_clk_wiz_0_1.xci"/>
+        <CompFileExtendedInfo CompFileName="sim_node.bd" FileRelPathName="ip/sim_node_VGA_IF_0_1/sim_node_VGA_IF_0_1.xci"/>
+        <CompFileExtendedInfo CompFileName="sim_node.bd" FileRelPathName="ip/sim_node_Convolution_Layer_0_0/sim_node_Convolution_Layer_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="sim_node.bd" FileRelPathName="ip/sim_node_axi_mem_intercon_1/sim_node_axi_mem_intercon_1.xci"/>
+        <CompFileExtendedInfo CompFileName="sim_node.bd" FileRelPathName="ip/sim_node_xbar_0/sim_node_xbar_0.xci"/>
       </File>
       <File Path="$PSRCDIR/sources_1/bd/sim_node/hdl/sim_node_wrapper.vhd">
         <FileInfo>
@@ -140,6 +198,103 @@
       </File>
       <File Path="$PSRCDIR/sources_1/bd/node/ip/node_Convolution_Layer_0_0/node_Convolution_Layer_0_0.upgrade_log"/>
       <File Path="$PSRCDIR/sources_1/bd/sim_node/ip/sim_node_Convolution_Layer_0_0/sim_node_Convolution_Layer_0_0.upgrade_log"/>
+      <File Path="$PSRCDIR/sources_1/bd/sim_conv_test/sim_conv_test.bd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+        <CompFileExtendedInfo CompFileName="sim_conv_test.bd" FileRelPathName="hdl/sim_conv_test.vhd"/>
+        <CompFileExtendedInfo CompFileName="sim_conv_test.bd" FileRelPathName="ip/sim_conv_test_Virtual_Memory_0_0/sim_conv_test_Virtual_Memory_0_0.xci">
+          <Proxy FileSetName="sim_conv_test_Virtual_Memory_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="sim_conv_test.bd" FileRelPathName="ip/sim_conv_test_Convolution_Tester_0_axi_periph_0/sim_conv_test_Convolution_Tester_0_axi_periph_0.xci"/>
+        <CompFileExtendedInfo CompFileName="sim_conv_test.bd" FileRelPathName="ip/sim_conv_test_Convolution_Layer_32bit_0_0/sim_conv_test_Convolution_Layer_32bit_0_0.xci">
+          <Proxy FileSetName="sim_conv_test_Convolution_Layer_32bit_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="sim_conv_test.bd" FileRelPathName="ip/sim_conv_test_Convolution_Tester_0_0/sim_conv_test_Convolution_Tester_0_0.xci">
+          <Proxy FileSetName="sim_conv_test_Convolution_Tester_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="sim_conv_test.bd" FileRelPathName="ip/sim_conv_test_clk_wiz_0/sim_conv_test_clk_wiz_0.xci">
+          <Proxy FileSetName="sim_conv_test_clk_wiz_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="sim_conv_test.bd" FileRelPathName="ip/sim_conv_test_rst_clk_wiz_100M_0/sim_conv_test_rst_clk_wiz_100M_0.xci">
+          <Proxy FileSetName="sim_conv_test_rst_clk_wiz_100M_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="sim_conv_test.bd" FileRelPathName="sim_conv_test_ooc.xdc"/>
+        <CompFileExtendedInfo CompFileName="sim_conv_test.bd" FileRelPathName="ip/sim_conv_test_axi_mem_intercon_0/sim_conv_test_axi_mem_intercon_0.xci"/>
+        <CompFileExtendedInfo CompFileName="sim_conv_test.bd" FileRelPathName="ip/sim_conv_test_auto_pc_0/sim_conv_test_auto_pc_0.xci">
+          <Proxy FileSetName="sim_conv_test_auto_pc_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="sim_conv_test.bd" FileRelPathName="hdl/sim_conv_test.hwdef"/>
+        <CompFileExtendedInfo CompFileName="sim_conv_test.bd" FileRelPathName="hw_handoff/sim_conv_test.hwh"/>
+        <CompFileExtendedInfo CompFileName="sim_conv_test.bd" FileRelPathName="hw_handoff/sim_conv_test_bd.tcl"/>
+      </File>
+      <File Path="$PSRCDIR/sources_1/bd/sim_mp_test/sim_mp_test.bd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+        <CompFileExtendedInfo CompFileName="sim_mp_test.bd" FileRelPathName="ip/sim_mp_test_Maxpool_Tester_0_0/sim_mp_test_Maxpool_Tester_0_0.xci">
+          <Proxy FileSetName="sim_mp_test_Maxpool_Tester_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="sim_mp_test.bd" FileRelPathName="ip/sim_mp_test_Maxpool_Layer_32bit_0_0/sim_mp_test_Maxpool_Layer_32bit_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="sim_mp_test.bd" FileRelPathName="ip/sim_mp_test_clk_wiz_0/sim_mp_test_clk_wiz_0.xci">
+          <Proxy FileSetName="sim_mp_test_clk_wiz_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="sim_mp_test.bd" FileRelPathName="ip/sim_mp_test_Virtual_Memory_0_0/sim_mp_test_Virtual_Memory_0_0.xci">
+          <Proxy FileSetName="sim_mp_test_Virtual_Memory_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="sim_mp_test.bd" FileRelPathName="ip/sim_mp_test_Maxpool_Tester_0_axi_periph_0/sim_mp_test_Maxpool_Tester_0_axi_periph_0.xci"/>
+        <CompFileExtendedInfo CompFileName="sim_mp_test.bd" FileRelPathName="ip/sim_mp_test_rst_clk_wiz_100M_0/sim_mp_test_rst_clk_wiz_100M_0.xci">
+          <Proxy FileSetName="sim_mp_test_rst_clk_wiz_100M_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="sim_mp_test.bd" FileRelPathName="ip/sim_mp_test_auto_pc_0/sim_mp_test_auto_pc_0.xci">
+          <Proxy FileSetName="sim_mp_test_auto_pc_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="sim_mp_test.bd" FileRelPathName="sim_mp_test_ooc.xdc"/>
+        <CompFileExtendedInfo CompFileName="sim_mp_test.bd" FileRelPathName="hdl/sim_mp_test.vhd"/>
+        <CompFileExtendedInfo CompFileName="sim_mp_test.bd" FileRelPathName="hdl/sim_mp_test.hwdef"/>
+        <CompFileExtendedInfo CompFileName="sim_mp_test.bd" FileRelPathName="hw_handoff/sim_mp_test.hwh"/>
+        <CompFileExtendedInfo CompFileName="sim_mp_test.bd" FileRelPathName="hw_handoff/sim_mp_test_bd.tcl"/>
+        <CompFileExtendedInfo CompFileName="sim_mp_test.bd" FileRelPathName="ip/sim_mp_test_axi_mem_intercon_0/sim_mp_test_axi_mem_intercon_0.xci"/>
+      </File>
+      <File Path="$PSRCDIR/sources_1/bd/sim_smax_test/sim_smax_test.bd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+        <CompFileExtendedInfo CompFileName="sim_smax_test.bd" FileRelPathName="ip/sim_smax_test_axi_mem_intercon_0/sim_smax_test_axi_mem_intercon_0.xci"/>
+        <CompFileExtendedInfo CompFileName="sim_smax_test.bd" FileRelPathName="ip/sim_smax_test_Virtual_Memory_0_0/sim_smax_test_Virtual_Memory_0_0.xci">
+          <Proxy FileSetName="sim_smax_test_Virtual_Memory_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="sim_smax_test.bd" FileRelPathName="ip/sim_smax_test_Softmax_Tester_0_axi_periph_0/sim_smax_test_Softmax_Tester_0_axi_periph_0.xci"/>
+        <CompFileExtendedInfo CompFileName="sim_smax_test.bd" FileRelPathName="ip/sim_smax_test_clk_wiz_0/sim_smax_test_clk_wiz_0.xci">
+          <Proxy FileSetName="sim_smax_test_clk_wiz_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="sim_smax_test.bd" FileRelPathName="ip/sim_smax_test_Softmax_Layer_32bit_0_0/sim_smax_test_Softmax_Layer_32bit_0_0.xci">
+          <Proxy FileSetName="sim_smax_test_Softmax_Layer_32bit_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="sim_smax_test.bd" FileRelPathName="ip/sim_smax_test_rst_clk_wiz_100M_0/sim_smax_test_rst_clk_wiz_100M_0.xci">
+          <Proxy FileSetName="sim_smax_test_rst_clk_wiz_100M_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="sim_smax_test.bd" FileRelPathName="ip/sim_smax_test_Softmax_Tester_0_0/sim_smax_test_Softmax_Tester_0_0.xci">
+          <Proxy FileSetName="sim_smax_test_Softmax_Tester_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="sim_smax_test.bd" FileRelPathName="ip/sim_smax_test_auto_pc_0/sim_smax_test_auto_pc_0.xci">
+          <Proxy FileSetName="sim_smax_test_auto_pc_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="sim_smax_test.bd" FileRelPathName="hdl/sim_smax_test.vhd"/>
+        <CompFileExtendedInfo CompFileName="sim_smax_test.bd" FileRelPathName="sim_smax_test_ooc.xdc"/>
+        <CompFileExtendedInfo CompFileName="sim_smax_test.bd" FileRelPathName="hw_handoff/sim_smax_test_bd.tcl"/>
+        <CompFileExtendedInfo CompFileName="sim_smax_test.bd" FileRelPathName="hdl/sim_smax_test.hwdef"/>
+        <CompFileExtendedInfo CompFileName="sim_smax_test.bd" FileRelPathName="hw_handoff/sim_smax_test.hwh"/>
+      </File>
       <Config>
         <Option Name="DesignMode" Val="RTL"/>
         <Option Name="TopModule" Val="node_wrapper"/>
@@ -275,6 +430,8 @@
         <Option Name="DesignMode" Val="RTL"/>
         <Option Name="TopModule" Val="sensor_to_FPGA_tb"/>
         <Option Name="TopLib" Val="xil_defaultlib"/>
+        <Option Name="TransportPathDelay" Val="0"/>
+        <Option Name="TransportIntDelay" Val="0"/>
         <Option Name="SimMode" Val="post-implementation"/>
         <Option Name="SrcSet" Val="sources_1"/>
         <Option Name="XSimWcfgFile" Val="$PPRDIR/../../../../Users/Marks-M3800/Documents/sensor_to_monitor_node/sensor_to_FPGA_tb_behav.wcfg"/>
@@ -283,6 +440,108 @@
         <Define Name="MAX_MEM"/>
         <Define Name="x16"/>
         <Define Name="sg25E"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="sim_conv_test_Convolution_Layer_32bit_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/sim_conv_test_Convolution_Layer_32bit_0_0">
+      <Config>
+        <Option Name="TopModule" Val="sim_conv_test_Convolution_Layer_32bit_0_0"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="sim_conv_test_Convolution_Tester_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/sim_conv_test_Convolution_Tester_0_0">
+      <Config>
+        <Option Name="TopModule" Val="sim_conv_test_Convolution_Tester_0_0"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="sim_conv_test_Virtual_Memory_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/sim_conv_test_Virtual_Memory_0_0">
+      <Config>
+        <Option Name="TopModule" Val="sim_conv_test_Virtual_Memory_0_0"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="sim_conv_test_clk_wiz_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/sim_conv_test_clk_wiz_0">
+      <Config>
+        <Option Name="TopModule" Val="sim_conv_test_clk_wiz_0"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="sim_conv_test_rst_clk_wiz_100M_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/sim_conv_test_rst_clk_wiz_100M_0">
+      <Config>
+        <Option Name="TopModule" Val="sim_conv_test_rst_clk_wiz_100M_0"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="sim_conv_test_auto_pc_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/sim_conv_test_auto_pc_0">
+      <Config>
+        <Option Name="TopModule" Val="sim_conv_test_auto_pc_0"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="sim_mp_test_Maxpool_Tester_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/sim_mp_test_Maxpool_Tester_0_0">
+      <Config>
+        <Option Name="TopModule" Val="sim_mp_test_Maxpool_Tester_0_0"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="sim_mp_test_Virtual_Memory_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/sim_mp_test_Virtual_Memory_0_0">
+      <Config>
+        <Option Name="TopModule" Val="sim_mp_test_Virtual_Memory_0_0"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="sim_mp_test_clk_wiz_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/sim_mp_test_clk_wiz_0">
+      <Config>
+        <Option Name="TopModule" Val="sim_mp_test_clk_wiz_0"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="sim_mp_test_rst_clk_wiz_100M_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/sim_mp_test_rst_clk_wiz_100M_0">
+      <Config>
+        <Option Name="TopModule" Val="sim_mp_test_rst_clk_wiz_100M_0"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="sim_mp_test_auto_pc_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/sim_mp_test_auto_pc_0">
+      <Config>
+        <Option Name="TopModule" Val="sim_mp_test_auto_pc_0"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="sim_smax_test_Softmax_Tester_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/sim_smax_test_Softmax_Tester_0_0">
+      <Config>
+        <Option Name="TopModule" Val="sim_smax_test_Softmax_Tester_0_0"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="sim_smax_test_Virtual_Memory_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/sim_smax_test_Virtual_Memory_0_0">
+      <Config>
+        <Option Name="TopModule" Val="sim_smax_test_Virtual_Memory_0_0"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="sim_smax_test_clk_wiz_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/sim_smax_test_clk_wiz_0">
+      <Config>
+        <Option Name="TopModule" Val="sim_smax_test_clk_wiz_0"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="sim_smax_test_rst_clk_wiz_100M_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/sim_smax_test_rst_clk_wiz_100M_0">
+      <Config>
+        <Option Name="TopModule" Val="sim_smax_test_rst_clk_wiz_100M_0"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="sim_smax_test_Softmax_Layer_32bit_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/sim_smax_test_Softmax_Layer_32bit_0_0">
+      <Config>
+        <Option Name="TopModule" Val="sim_smax_test_Softmax_Layer_32bit_0_0"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="sim_smax_test_auto_pc_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/sim_smax_test_auto_pc_0">
+      <Config>
+        <Option Name="TopModule" Val="sim_smax_test_auto_pc_0"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
       </Config>
     </FileSet>
   </FileSets>
@@ -296,12 +555,6 @@
     </Simulator>
     <Simulator Name="Questa">
       <Option Name="Description" Val="Questa Advanced Simulator"/>
-    </Simulator>
-    <Simulator Name="IES">
-      <Option Name="Description" Val="Incisive Enterprise Simulator (IES)"/>
-    </Simulator>
-    <Simulator Name="VCS">
-      <Option Name="Description" Val="Verilog Compiler Simulator (VCS)"/>
     </Simulator>
     <Simulator Name="Riviera">
       <Option Name="Description" Val="Riviera-PRO Simulator"/>
@@ -318,12 +571,177 @@
           <Option Id="ResourceSharing">2</Option>
           <Option Id="FsmExtraction">1</Option>
           <Option Id="NoCombineLuts">1</Option>
+          <Option Id="ShregMinSize">5</Option>
           <Option Id="KeepEquivalentRegisters">1</Option>
           <Option Id="RepFanoutThreshold">400</Option>
-          <Option Id="ShregMinSize">5</Option>
         </Step>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+    </Run>
+    <Run Id="sim_conv_test_Convolution_Layer_32bit_0_0_synth_1" Type="Ft3:Synth" SrcSet="sim_conv_test_Convolution_Layer_32bit_0_0" Part="xc7a100tcsg324-1" ConstrsSet="sim_conv_test_Convolution_Layer_32bit_0_0" Description="Vivado Synthesis Defaults" IncludeInArchive="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2016">
+          <Desc>Vivado Synthesis Defaults</Desc>
+        </StratHandle>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+    </Run>
+    <Run Id="sim_conv_test_Convolution_Tester_0_0_synth_1" Type="Ft3:Synth" SrcSet="sim_conv_test_Convolution_Tester_0_0" Part="xc7a100tcsg324-1" ConstrsSet="sim_conv_test_Convolution_Tester_0_0" Description="Vivado Synthesis Defaults" IncludeInArchive="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2016">
+          <Desc>Vivado Synthesis Defaults</Desc>
+        </StratHandle>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+    </Run>
+    <Run Id="sim_conv_test_Virtual_Memory_0_0_synth_1" Type="Ft3:Synth" SrcSet="sim_conv_test_Virtual_Memory_0_0" Part="xc7a100tcsg324-1" ConstrsSet="sim_conv_test_Virtual_Memory_0_0" Description="Vivado Synthesis Defaults" IncludeInArchive="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2016">
+          <Desc>Vivado Synthesis Defaults</Desc>
+        </StratHandle>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+    </Run>
+    <Run Id="sim_conv_test_clk_wiz_0_synth_1" Type="Ft3:Synth" SrcSet="sim_conv_test_clk_wiz_0" Part="xc7a100tcsg324-1" ConstrsSet="sim_conv_test_clk_wiz_0" Description="Vivado Synthesis Defaults" IncludeInArchive="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2016">
+          <Desc>Vivado Synthesis Defaults</Desc>
+        </StratHandle>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+    </Run>
+    <Run Id="sim_conv_test_rst_clk_wiz_100M_0_synth_1" Type="Ft3:Synth" SrcSet="sim_conv_test_rst_clk_wiz_100M_0" Part="xc7a100tcsg324-1" ConstrsSet="sim_conv_test_rst_clk_wiz_100M_0" Description="Vivado Synthesis Defaults" IncludeInArchive="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2016">
+          <Desc>Vivado Synthesis Defaults</Desc>
+        </StratHandle>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+    </Run>
+    <Run Id="sim_conv_test_auto_pc_0_synth_1" Type="Ft3:Synth" SrcSet="sim_conv_test_auto_pc_0" Part="xc7a100tcsg324-1" ConstrsSet="sim_conv_test_auto_pc_0" Description="Vivado Synthesis Defaults" IncludeInArchive="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2016">
+          <Desc>Vivado Synthesis Defaults</Desc>
+        </StratHandle>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+    </Run>
+    <Run Id="sim_mp_test_Maxpool_Tester_0_0_synth_1" Type="Ft3:Synth" SrcSet="sim_mp_test_Maxpool_Tester_0_0" Part="xc7a100tcsg324-1" ConstrsSet="sim_mp_test_Maxpool_Tester_0_0" Description="Vivado Synthesis Defaults" Dir="$PRUNDIR/sim_mp_test_Maxpool_Tester_0_0_synth_1" IncludeInArchive="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2016">
+          <Desc>Vivado Synthesis Defaults</Desc>
+        </StratHandle>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+    </Run>
+    <Run Id="sim_mp_test_Virtual_Memory_0_0_synth_1" Type="Ft3:Synth" SrcSet="sim_mp_test_Virtual_Memory_0_0" Part="xc7a100tcsg324-1" ConstrsSet="sim_mp_test_Virtual_Memory_0_0" Description="Vivado Synthesis Defaults" Dir="$PRUNDIR/sim_mp_test_Virtual_Memory_0_0_synth_1" IncludeInArchive="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2016">
+          <Desc>Vivado Synthesis Defaults</Desc>
+        </StratHandle>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+    </Run>
+    <Run Id="sim_mp_test_clk_wiz_0_synth_1" Type="Ft3:Synth" SrcSet="sim_mp_test_clk_wiz_0" Part="xc7a100tcsg324-1" ConstrsSet="sim_mp_test_clk_wiz_0" Description="Vivado Synthesis Defaults" Dir="$PRUNDIR/sim_mp_test_clk_wiz_0_synth_1" IncludeInArchive="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2016">
+          <Desc>Vivado Synthesis Defaults</Desc>
+        </StratHandle>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+    </Run>
+    <Run Id="sim_mp_test_rst_clk_wiz_100M_0_synth_1" Type="Ft3:Synth" SrcSet="sim_mp_test_rst_clk_wiz_100M_0" Part="xc7a100tcsg324-1" ConstrsSet="sim_mp_test_rst_clk_wiz_100M_0" Description="Vivado Synthesis Defaults" Dir="$PRUNDIR/sim_mp_test_rst_clk_wiz_100M_0_synth_1" IncludeInArchive="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2016">
+          <Desc>Vivado Synthesis Defaults</Desc>
+        </StratHandle>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+    </Run>
+    <Run Id="sim_mp_test_auto_pc_0_synth_1" Type="Ft3:Synth" SrcSet="sim_mp_test_auto_pc_0" Part="xc7a100tcsg324-1" ConstrsSet="sim_mp_test_auto_pc_0" Description="Vivado Synthesis Defaults" Dir="$PRUNDIR/sim_mp_test_auto_pc_0_synth_1" IncludeInArchive="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2016">
+          <Desc>Vivado Synthesis Defaults</Desc>
+        </StratHandle>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+    </Run>
+    <Run Id="sim_smax_test_Softmax_Tester_0_0_synth_1" Type="Ft3:Synth" SrcSet="sim_smax_test_Softmax_Tester_0_0" Part="xc7a100tcsg324-1" ConstrsSet="sim_smax_test_Softmax_Tester_0_0" Description="Vivado Synthesis Defaults" Dir="$PRUNDIR/sim_smax_test_Softmax_Tester_0_0_synth_1" IncludeInArchive="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2016">
+          <Desc>Vivado Synthesis Defaults</Desc>
+        </StratHandle>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+    </Run>
+    <Run Id="sim_smax_test_Virtual_Memory_0_0_synth_1" Type="Ft3:Synth" SrcSet="sim_smax_test_Virtual_Memory_0_0" Part="xc7a100tcsg324-1" ConstrsSet="sim_smax_test_Virtual_Memory_0_0" Description="Vivado Synthesis Defaults" Dir="$PRUNDIR/sim_smax_test_Virtual_Memory_0_0_synth_1" IncludeInArchive="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2016">
+          <Desc>Vivado Synthesis Defaults</Desc>
+        </StratHandle>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+    </Run>
+    <Run Id="sim_smax_test_clk_wiz_0_synth_1" Type="Ft3:Synth" SrcSet="sim_smax_test_clk_wiz_0" Part="xc7a100tcsg324-1" ConstrsSet="sim_smax_test_clk_wiz_0" Description="Vivado Synthesis Defaults" Dir="$PRUNDIR/sim_smax_test_clk_wiz_0_synth_1" IncludeInArchive="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2016">
+          <Desc>Vivado Synthesis Defaults</Desc>
+        </StratHandle>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+    </Run>
+    <Run Id="sim_smax_test_rst_clk_wiz_100M_0_synth_1" Type="Ft3:Synth" SrcSet="sim_smax_test_rst_clk_wiz_100M_0" Part="xc7a100tcsg324-1" ConstrsSet="sim_smax_test_rst_clk_wiz_100M_0" Description="Vivado Synthesis Defaults" Dir="$PRUNDIR/sim_smax_test_rst_clk_wiz_100M_0_synth_1" IncludeInArchive="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2016">
+          <Desc>Vivado Synthesis Defaults</Desc>
+        </StratHandle>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+    </Run>
+    <Run Id="sim_smax_test_Softmax_Layer_32bit_0_0_synth_1" Type="Ft3:Synth" SrcSet="sim_smax_test_Softmax_Layer_32bit_0_0" Part="xc7a100tcsg324-1" ConstrsSet="sim_smax_test_Softmax_Layer_32bit_0_0" Description="Vivado Synthesis Defaults" Dir="$PRUNDIR/sim_smax_test_Softmax_Layer_32bit_0_0_synth_1" IncludeInArchive="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2016">
+          <Desc>Vivado Synthesis Defaults</Desc>
+        </StratHandle>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+    </Run>
+    <Run Id="sim_smax_test_auto_pc_0_synth_1" Type="Ft3:Synth" SrcSet="sim_smax_test_auto_pc_0" Part="xc7a100tcsg324-1" ConstrsSet="sim_smax_test_auto_pc_0" Description="Vivado Synthesis Defaults" Dir="$PRUNDIR/sim_smax_test_auto_pc_0_synth_1" IncludeInArchive="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2016">
+          <Desc>Vivado Synthesis Defaults</Desc>
+        </StratHandle>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
     </Run>
     <Run Id="impl_1" Type="Ft2:EntireDesign" Part="xc7a100tcsg324-1" ConstrsSet="constrs_1" Description="Vivado Implementation Defaults" SynthRun="synth_1" IncludeInArchive="true">
       <Strategy Version="1" Minor="2">
@@ -338,6 +756,7 @@
         <Step Id="post_route_phys_opt_design"/>
         <Step Id="write_bitstream"/>
       </Strategy>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
     </Run>
     <Run Id="impl_2" Type="Ft2:EntireDesign" Part="xc7a100tcsg324-1" ConstrsSet="constrs_1" Description="Uses multiple algorithms for optimization, placement, and routing to get potentially better results." State="current" SynthRun="synth_1" IncludeInArchive="true">
       <Strategy Version="1" Minor="2">
@@ -360,6 +779,296 @@
         <Step Id="post_route_phys_opt_design"/>
         <Step Id="write_bitstream"/>
       </Strategy>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+    </Run>
+    <Run Id="sim_conv_test_Convolution_Layer_32bit_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a100tcsg324-1" ConstrsSet="sim_conv_test_Convolution_Layer_32bit_0_0" Description="Default settings for Implementation." SynthRun="sim_conv_test_Convolution_Layer_32bit_0_0_synth_1" IncludeInArchive="false">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2016">
+          <Desc>Default settings for Implementation.</Desc>
+        </StratHandle>
+        <Step Id="init_design"/>
+        <Step Id="opt_design"/>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design"/>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design"/>
+        <Step Id="route_design"/>
+        <Step Id="post_route_phys_opt_design"/>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+    </Run>
+    <Run Id="sim_conv_test_Convolution_Tester_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a100tcsg324-1" ConstrsSet="sim_conv_test_Convolution_Tester_0_0" Description="Default settings for Implementation." SynthRun="sim_conv_test_Convolution_Tester_0_0_synth_1" IncludeInArchive="false">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2016">
+          <Desc>Default settings for Implementation.</Desc>
+        </StratHandle>
+        <Step Id="init_design"/>
+        <Step Id="opt_design"/>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design"/>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design"/>
+        <Step Id="route_design"/>
+        <Step Id="post_route_phys_opt_design"/>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+    </Run>
+    <Run Id="sim_conv_test_Virtual_Memory_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a100tcsg324-1" ConstrsSet="sim_conv_test_Virtual_Memory_0_0" Description="Default settings for Implementation." SynthRun="sim_conv_test_Virtual_Memory_0_0_synth_1" IncludeInArchive="false">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2016">
+          <Desc>Default settings for Implementation.</Desc>
+        </StratHandle>
+        <Step Id="init_design"/>
+        <Step Id="opt_design"/>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design"/>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design"/>
+        <Step Id="route_design"/>
+        <Step Id="post_route_phys_opt_design"/>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+    </Run>
+    <Run Id="sim_conv_test_clk_wiz_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a100tcsg324-1" ConstrsSet="sim_conv_test_clk_wiz_0" Description="Default settings for Implementation." SynthRun="sim_conv_test_clk_wiz_0_synth_1" IncludeInArchive="false">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2016">
+          <Desc>Default settings for Implementation.</Desc>
+        </StratHandle>
+        <Step Id="init_design"/>
+        <Step Id="opt_design"/>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design"/>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design"/>
+        <Step Id="route_design"/>
+        <Step Id="post_route_phys_opt_design"/>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+    </Run>
+    <Run Id="sim_conv_test_rst_clk_wiz_100M_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a100tcsg324-1" ConstrsSet="sim_conv_test_rst_clk_wiz_100M_0" Description="Default settings for Implementation." SynthRun="sim_conv_test_rst_clk_wiz_100M_0_synth_1" IncludeInArchive="false">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2016">
+          <Desc>Default settings for Implementation.</Desc>
+        </StratHandle>
+        <Step Id="init_design"/>
+        <Step Id="opt_design"/>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design"/>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design"/>
+        <Step Id="route_design"/>
+        <Step Id="post_route_phys_opt_design"/>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+    </Run>
+    <Run Id="sim_conv_test_auto_pc_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a100tcsg324-1" ConstrsSet="sim_conv_test_auto_pc_0" Description="Default settings for Implementation." SynthRun="sim_conv_test_auto_pc_0_synth_1" IncludeInArchive="false">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2016">
+          <Desc>Default settings for Implementation.</Desc>
+        </StratHandle>
+        <Step Id="init_design"/>
+        <Step Id="opt_design"/>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design"/>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design"/>
+        <Step Id="route_design"/>
+        <Step Id="post_route_phys_opt_design"/>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+    </Run>
+    <Run Id="sim_mp_test_Maxpool_Tester_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a100tcsg324-1" ConstrsSet="sim_mp_test_Maxpool_Tester_0_0" Description="Default settings for Implementation." SynthRun="sim_mp_test_Maxpool_Tester_0_0_synth_1" IncludeInArchive="false">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2016">
+          <Desc>Default settings for Implementation.</Desc>
+        </StratHandle>
+        <Step Id="init_design"/>
+        <Step Id="opt_design"/>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design"/>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design"/>
+        <Step Id="route_design"/>
+        <Step Id="post_route_phys_opt_design"/>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+    </Run>
+    <Run Id="sim_mp_test_Virtual_Memory_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a100tcsg324-1" ConstrsSet="sim_mp_test_Virtual_Memory_0_0" Description="Default settings for Implementation." SynthRun="sim_mp_test_Virtual_Memory_0_0_synth_1" IncludeInArchive="false">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2016">
+          <Desc>Default settings for Implementation.</Desc>
+        </StratHandle>
+        <Step Id="init_design"/>
+        <Step Id="opt_design"/>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design"/>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design"/>
+        <Step Id="route_design"/>
+        <Step Id="post_route_phys_opt_design"/>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+    </Run>
+    <Run Id="sim_mp_test_clk_wiz_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a100tcsg324-1" ConstrsSet="sim_mp_test_clk_wiz_0" Description="Default settings for Implementation." SynthRun="sim_mp_test_clk_wiz_0_synth_1" IncludeInArchive="false">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2016">
+          <Desc>Default settings for Implementation.</Desc>
+        </StratHandle>
+        <Step Id="init_design"/>
+        <Step Id="opt_design"/>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design"/>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design"/>
+        <Step Id="route_design"/>
+        <Step Id="post_route_phys_opt_design"/>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+    </Run>
+    <Run Id="sim_mp_test_rst_clk_wiz_100M_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a100tcsg324-1" ConstrsSet="sim_mp_test_rst_clk_wiz_100M_0" Description="Default settings for Implementation." SynthRun="sim_mp_test_rst_clk_wiz_100M_0_synth_1" IncludeInArchive="false">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2016">
+          <Desc>Default settings for Implementation.</Desc>
+        </StratHandle>
+        <Step Id="init_design"/>
+        <Step Id="opt_design"/>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design"/>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design"/>
+        <Step Id="route_design"/>
+        <Step Id="post_route_phys_opt_design"/>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+    </Run>
+    <Run Id="sim_mp_test_auto_pc_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a100tcsg324-1" ConstrsSet="sim_mp_test_auto_pc_0" Description="Default settings for Implementation." SynthRun="sim_mp_test_auto_pc_0_synth_1" IncludeInArchive="false">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2016">
+          <Desc>Default settings for Implementation.</Desc>
+        </StratHandle>
+        <Step Id="init_design"/>
+        <Step Id="opt_design"/>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design"/>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design"/>
+        <Step Id="route_design"/>
+        <Step Id="post_route_phys_opt_design"/>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+    </Run>
+    <Run Id="sim_smax_test_Softmax_Tester_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a100tcsg324-1" ConstrsSet="sim_smax_test_Softmax_Tester_0_0" Description="Default settings for Implementation." SynthRun="sim_smax_test_Softmax_Tester_0_0_synth_1" IncludeInArchive="false">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2016">
+          <Desc>Default settings for Implementation.</Desc>
+        </StratHandle>
+        <Step Id="init_design"/>
+        <Step Id="opt_design"/>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design"/>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design"/>
+        <Step Id="route_design"/>
+        <Step Id="post_route_phys_opt_design"/>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+    </Run>
+    <Run Id="sim_smax_test_Virtual_Memory_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a100tcsg324-1" ConstrsSet="sim_smax_test_Virtual_Memory_0_0" Description="Default settings for Implementation." SynthRun="sim_smax_test_Virtual_Memory_0_0_synth_1" IncludeInArchive="false">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2016">
+          <Desc>Default settings for Implementation.</Desc>
+        </StratHandle>
+        <Step Id="init_design"/>
+        <Step Id="opt_design"/>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design"/>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design"/>
+        <Step Id="route_design"/>
+        <Step Id="post_route_phys_opt_design"/>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+    </Run>
+    <Run Id="sim_smax_test_clk_wiz_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a100tcsg324-1" ConstrsSet="sim_smax_test_clk_wiz_0" Description="Default settings for Implementation." SynthRun="sim_smax_test_clk_wiz_0_synth_1" IncludeInArchive="false">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2016">
+          <Desc>Default settings for Implementation.</Desc>
+        </StratHandle>
+        <Step Id="init_design"/>
+        <Step Id="opt_design"/>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design"/>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design"/>
+        <Step Id="route_design"/>
+        <Step Id="post_route_phys_opt_design"/>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+    </Run>
+    <Run Id="sim_smax_test_rst_clk_wiz_100M_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a100tcsg324-1" ConstrsSet="sim_smax_test_rst_clk_wiz_100M_0" Description="Default settings for Implementation." SynthRun="sim_smax_test_rst_clk_wiz_100M_0_synth_1" IncludeInArchive="false">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2016">
+          <Desc>Default settings for Implementation.</Desc>
+        </StratHandle>
+        <Step Id="init_design"/>
+        <Step Id="opt_design"/>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design"/>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design"/>
+        <Step Id="route_design"/>
+        <Step Id="post_route_phys_opt_design"/>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+    </Run>
+    <Run Id="sim_smax_test_Softmax_Layer_32bit_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a100tcsg324-1" ConstrsSet="sim_smax_test_Softmax_Layer_32bit_0_0" Description="Default settings for Implementation." SynthRun="sim_smax_test_Softmax_Layer_32bit_0_0_synth_1" IncludeInArchive="false">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2016">
+          <Desc>Default settings for Implementation.</Desc>
+        </StratHandle>
+        <Step Id="init_design"/>
+        <Step Id="opt_design"/>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design"/>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design"/>
+        <Step Id="route_design"/>
+        <Step Id="post_route_phys_opt_design"/>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+    </Run>
+    <Run Id="sim_smax_test_auto_pc_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a100tcsg324-1" ConstrsSet="sim_smax_test_auto_pc_0" Description="Default settings for Implementation." SynthRun="sim_smax_test_auto_pc_0_synth_1" IncludeInArchive="false">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2016">
+          <Desc>Default settings for Implementation.</Desc>
+        </StratHandle>
+        <Step Id="init_design"/>
+        <Step Id="opt_design"/>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design"/>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design"/>
+        <Step Id="route_design"/>
+        <Step Id="post_route_phys_opt_design"/>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
     </Run>
   </Runs>
 </Project>

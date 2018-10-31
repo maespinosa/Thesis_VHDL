@@ -48,7 +48,7 @@ entity filter_accumulator is
 	i_num_iterations			: in std_logic_vector(7 downto 0); 
 	i_output_volume_size		: in std_logic_vector(7 downto 0); 	
 	
-	o_prog_full_thresh			: out std_logic_vector(9 downto 0); 
+	o_prog_full_thresh			: out std_logic_vector(12 downto 0); 
 	o_filter_accumulator_ready 	: out std_logic; 
 	o_send						: out std_logic; 
 	o_recycle_en				: out std_logic;
@@ -63,7 +63,7 @@ architecture arch of filter_accumulator is
 signal hold_flag 					: std_logic;  
 --signal filter_iteration : unsigned(7 downto 0);   
 signal filter_counter 				: unsigned(11 downto 0); 
-signal volume_pixel_counter			: unsigned(7 downto 0);
+signal volume_pixel_counter			: unsigned(63 downto 0);
 signal recycled_data_multiplicand 	: std_logic_vector(15 downto 0);
 signal dsp_acc_data 				: std_logic_vector(15 downto 0);  
 signal send_flag 					: std_logic; 
@@ -122,7 +122,7 @@ begin
 
 	next_state_comb : process(all) is 	  	
 	begin
-		send_flag <= '0'; 
+		send_flag <= '1'; 
 		filter_accumulator_ready <= '0'; 
 		recycle_en <= '0'; 
 		
@@ -132,19 +132,36 @@ begin
 				next_state <= FIRST_CHANNEL_SET; 
 			
 			when FIRST_CHANNEL_SET => 	 
-				send_flag <= '0'; 
+				--send_flag <= '0'; 
 				filter_accumulator_ready <= '1';  
 				recycle_en <= '0'; 
-			
-				if(filter_counter < unsigned(i_num_filters)) then  
-					next_state <= FIRST_CHANNEL_SET; 
+				
+				if(i_acc_data_valid = '1') then 
+					next_state <= FIRST_CHANNEL_SET; 						
 				else 
-					if(unsigned(i_num_iterations) > 1) then 
-						next_state <= ITERATE_CHANNEL_SETS;   
+					if(volume_pixel_counter >= unsigned(i_output_volume_size)*unsigned(i_num_filters)) then 
+						next_state <= IDLE; 
+						--send_flag <= '1'; 
 					else 
-						next_state <= SEND; 
+						next_state <= FIRST_CHANNEL_SET;
 					end if; 
-				end if;    
+					
+				end if; 
+				
+				
+						
+				
+									
+			
+				-- if(filter_counter < unsigned(i_num_filters)) then   
+					-- next_state <= FIRST_CHANNEL_SET; 
+				-- else 
+					-- if(unsigned(i_num_iterations) > 1) then 
+						-- next_state <= ITERATE_CHANNEL_SETS;   
+					-- else 
+						-- next_state <= SEND; 
+					-- end if; 
+				-- end if;    
 			
 			when ITERATE_CHANNEL_SETS =>  
 				send_flag <= '0'; 
@@ -233,45 +250,29 @@ begin
 			
 			case current_state is 
 				when IDLE => 	
-					null; 
+					volume_pixel_counter <= (others => '0');  
 				
-				when FIRST_CHANNEL_SET =>  
+				when FIRST_CHANNEL_SET => 
+
+
+					if(i_acc_data_valid = '1') then 
 					
-					data_valid 			<= '0'; 
-					acc_filter_data 		<= (others => '0');   
-					
-					if(filter_counter < unsigned(i_num_filters) and i_acc_data_valid = '1') then   
-						
 						data_valid <= i_acc_data_valid; 
 						acc_filter_data <= i_acc_data; 
-						
-						if(volume_pixel_counter < unsigned(i_output_volume_size)-1 and i_acc_data_valid = '1') then 
-							volume_pixel_counter <= volume_pixel_counter + 1; 	
-							filter_counter <= filter_counter; 
+		
+						if(volume_pixel_counter < unsigned(i_output_volume_size)*unsigned(i_num_filters)) then 
+							volume_pixel_counter <= volume_pixel_counter + 1; 						
 						else 
-							volume_pixel_counter <= (others => '0');   
-							filter_counter <= filter_counter + 1; 
-						end if;	 
-						
-						
-					elsif(filter_counter < unsigned(i_num_filters) and i_acc_data_valid = '0') then  
-						volume_pixel_counter <= volume_pixel_counter; 	
-						filter_counter <= filter_counter; 
-						data_valid <= '0'; 
-						acc_filter_data <= (others => '0'); 
+							volume_pixel_counter <= x"0000000000000001"; --(others => '0');   
+						end if;	
 					else 
-						volume_pixel_counter 	<= (others => '0');   
-						filter_counter 			<= (others => '0'); 	  
-						data_valid 				<= '0'; 
-						acc_filter_data 		<= (others => '0'); 
+						data_valid <= '0'; 
+						acc_filter_data <= (others => '0');  
+					end if; 
 						
-						if(unsigned(i_num_iterations) > 1) then 
-							filter_iterations <= filter_iterations + 1;  
-						else 
-							filter_iterations <= filter_iterations; 
-						end if; 
-
-					end if;    
+						
+						
+ 
 					
 				when ITERATE_CHANNEL_SETS =>  	
 					
@@ -284,7 +285,7 @@ begin
 							volume_pixel_counter <= volume_pixel_counter + 1; 	
 							filter_counter <= filter_counter; 
 						else 
-							volume_pixel_counter <= (others => '0');   
+							volume_pixel_counter <= x"0000000000000001"; --(others => '0');     
 							filter_counter <= filter_counter + 1; 
 						end if;	
 						
@@ -328,61 +329,5 @@ begin
 	end process; 
 	
 	
-	
-	
---	main: process(i_acc_data_valid,i_recycled_acc_data_en,hold_flag) 	 	
---	begin 
---		
---		o_data_valid 			<= '0'; 
---		o_acc_filter_data 		<= (others => '0');  
---		
---		if(hold_flag = '1') then 
---			o_data_valid 			<= '0'; 
---			o_acc_filter_data 		<= (others => '0');  
---		elsif(i_acc_data_valid = '1' and i_recycled_acc_data_en = '1') then 
---			o_acc_filter_data 	<= std_logic_vector(unsigned(i_acc_data) + unsigned(i_recycled_acc_data)); 
---			o_data_valid 		<= '1'; 
---		elsif(i_acc_data_valid = '1' and i_recycled_acc_data_en = '0') then 
---			o_acc_filter_data 	<= i_acc_data; 
---			o_data_valid 		<= '1'; 
---		end if;   
---	
---	end process;   
 
-
-	
---	filter_counting: process(i_clk, i_reset_n) is 
---	begin  	 
---		if(i_reset_n = '0') then 
---			filter_iteration <= (others => '0'); 
---			filter_counter <= (others => '0'); 
---			hold_flag <= '0'; 
---			
---			
---		elsif(filter_counter = unsigned(i_num_filters)) then  
---			if(filter_iteration = unsigned(i_num_iterations)) then 
---
---				if(i_hold_clear = '1') then 
---					hold_flag <= '0'; 
---					filter_iteration <= (others => '0');  
---				else 
---					filter_iteration <= filter_iteration;
---					hold_flag <= '1';  
---				end if;
---
---			else 
---				filter_iteration <= filter_iteration + 1;
---			end if; 
---			
---		else 
---			filter_counter <= filter_counter + 1; 
---			filter_iteration <= filter_iteration; 
---		end if; 
---		
---		
---		
---		
---	end process; 
---	
-	
 end arch;

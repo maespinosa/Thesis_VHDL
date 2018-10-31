@@ -63,19 +63,22 @@ entity volume_router is
 	i_empty						: in std_logic; 
 	i_almost_empty				: in std_logic; 
 	i_prog_empty				: in std_logic; 
-	o_prog_empty_thresh 		: out std_logic_vector(9 downto 0);
+	o_prog_empty_thresh 		: out std_logic_vector(12 downto 0);
 	i_next_fifo_full			: in std_logic; 
 	
 	i_stop_stack_en				: in std_logic; 
 	i_convolution_en			: in std_logic; 
-	i_row_size					: in std_logic_vector(9 downto 0); 	  
+	i_row_size					: in std_logic_vector(12 downto 0); 	  
 	i_padded_volume_size		: in std_logic_vector(7 downto 0); 
 	
 	o_sending					: out std_logic; 
 	o_conv_complete				: out std_logic; 
 	o_snake_fill_complete		: out std_logic;
 	
-	i_acc_ready					: in std_logic
+	i_acc_ready					: in std_logic; 
+	i_empty_data_en				: in std_logic; 
+	
+	o_empty_data_complete		: out std_logic
 	
 	); 
 end volume_router;
@@ -84,7 +87,7 @@ end volume_router;
 
 architecture arch of volume_router is	 
 																			 
-type router_state is (IDLE, FILL, SEND, SHIFT, PROCESSING,SNAKE_FILL,ACC_HOLD); --PRIMING, PROCESSING); 
+type router_state is (IDLE, FILL, SEND, SHIFT, PROCESSING,SNAKE_FILL,ACC_HOLD, TOP_ROW_EMPTY); --PRIMING, PROCESSING); 
 signal current_state 		: router_state; 
 signal next_state			: router_state; 
 
@@ -111,6 +114,8 @@ signal delay_shift_register : std_logic_vector(g_mult_delay-1 downto 0);
 signal stride_counter		: unsigned(3 downto 0); 
 signal mult_counter			: unsigned(3 downto 0); 
 
+signal empty_data_complete : std_logic; 
+
 begin
 	
 	o_data_return 		<= data_return; 
@@ -126,6 +131,7 @@ begin
 	o_sending <= sending; 	  
 	o_conv_complete <= conv_complete;  
 	o_snake_fill_complete <= snake_fill_complete;	
+	o_empty_data_complete <= empty_data_complete; 
 	
 	
 	delay_unit : process(i_clk, i_reset_n) is
@@ -152,20 +158,23 @@ begin
 	end process; 
 	
 	
-	next_state_comb: process(current_state, i_empty, i_stop_stack_en, i_next_fifo_full, i_fifo_data_valid, i_filters_loaded, i_convolution_en,element_counter, column_counter, conv_complete,snake_fill_complete,i_acc_ready,mult_counter) is 
+	next_state_comb: process(current_state, i_empty, i_stop_stack_en, i_next_fifo_full, i_fifo_data_valid, i_filters_loaded, i_convolution_en,element_counter, column_counter, conv_complete,snake_fill_complete,i_acc_ready,mult_counter, i_empty_data_en) is 
 	begin 
 		rd_en <= '0'; 
 		sending <= '0'; 
+		empty_data_complete <= '0'; 
 
 		case current_state is 
 			
 			when IDLE => 	
 				rd_en <= '0';
 				sending <= '0'; 
-				if(i_stop_stack_en = '0' and snake_fill_complete = '0') then
+				if(i_stop_stack_en = '0' and snake_fill_complete = '0' and i_empty_data_en = '0') then
 					next_state <= SNAKE_FILL;
-				elsif(i_empty = '0' and i_filters_loaded = '1' and i_convolution_en = '1') then 
+				elsif(i_empty = '0' and i_filters_loaded = '1' and i_convolution_en = '1' and i_empty_data_en = '0') then 
 					next_state <= FILL; 
+				elsif(i_empty_data_en = '1') then
+					next_state <= TOP_ROW_EMPTY; 
 				else 
 					next_state <= IDLE; 
 				end if; 
@@ -226,13 +235,13 @@ begin
 						next_state <= SNAKE_FILL; 
 					else 
 						rd_en <= '0'; 
-						--next_state <= IDLE; 	
+						next_state <= IDLE; 	
 						
-						if(stride_counter < unsigned(i_stride)-1) then 
-							next_state <= SNAKE_FILL; 
-						else 
-							next_state <= IDLE; 
-						end if; 
+						-- if(stride_counter < unsigned(i_stride)-1) then 
+							-- next_state <= SNAKE_FILL; 
+						-- else 
+							-- next_state <= IDLE; 
+						-- end if; 
 							
 						
 						
@@ -244,12 +253,24 @@ begin
 				end if; 
 				
 			when ACC_HOLD => 
-				if(i_acc_ready = '1' and to_integer(mult_counter) >= g_mult_delay) then 
+				if(i_acc_ready = '1') then -- and to_integer(mult_counter) >= g_mult_delay) then 
 					next_state <= SHIFT; 
 				else
 					next_state <= ACC_HOLD; 
 				end if; 
 			
+			when TOP_ROW_EMPTY => 
+				if(element_counter <= unsigned(i_padded_volume_size)-1) then 
+					rd_en <= '1'; 
+					next_state <= TOP_ROW_EMPTY; 
+				else
+					rd_en <= '0'; 
+					next_state <= IDLE; 
+					empty_data_complete <= '1'; 
+					
+				end if; 
+					
+					
 					
 				
 			when others => 
@@ -416,12 +437,12 @@ begin
 							data_return <= (others => '0');	 
 
 							
-							if(stride_counter < unsigned(i_stride)-1) then 
-								stride_counter <= stride_counter + 1; 
-							else 
-								stride_counter <= (others => '0'); 
-								snake_fill_complete <= '1';	
-							end if; 
+							-- if(stride_counter < unsigned(i_stride)-1) then 
+								-- stride_counter <= stride_counter + 1; 
+							-- else 
+								-- stride_counter <= (others => '0'); 
+								-- snake_fill_complete <= '1';	
+							-- end if; 
 							
 							
 							--column_counter <= column_counter;
@@ -442,11 +463,21 @@ begin
 					end if;   
 					
 				when ACC_HOLD => 
-					if(i_acc_ready = '1' and to_integer(mult_counter) >= g_mult_delay) then 
+					if(i_acc_ready = '1') then -- and to_integer(mult_counter) >= g_mult_delay) then 
 						mult_counter <= mult_counter; 
 					else
 						mult_counter <= mult_counter + 1; 
 					end if; 
+					
+				when TOP_ROW_EMPTY => 
+					if(element_counter <= unsigned(i_padded_volume_size)-1) then 
+						element_counter <= element_counter + 1; 
+					else
+						element_counter <= (others => '0'); 
+					end if; 
+					
+					
+					
 					
 				when others => 
 					element_counter 	<= (others => '0'); 

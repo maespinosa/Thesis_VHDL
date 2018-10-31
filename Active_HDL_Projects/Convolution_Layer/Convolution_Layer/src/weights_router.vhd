@@ -50,18 +50,18 @@ entity weights_router is
 	i_empty					: in std_logic; 
 	i_almost_empty 			: in std_logic; 
 	i_prog_empty			: in std_logic; 
-	o_prog_empty_thresh 	: out std_logic_vector(9 downto 0); 
+	o_prog_empty_thresh 	: out std_logic_vector(12 downto 0); 
 	
 	i_prog_full				: in std_logic; 
 	i_weight_filter_size	: in std_logic_vector(3 downto 0); 
-	i_volume_row_size		: in std_logic_vector(9 downto 0); 
+	i_volume_row_size		: in std_logic_vector(12 downto 0); 
 	i_convolution_en		: in std_logic; 
 	i_clear_weights			: in std_logic; 
 	o_reset_weight_fifo_n	: out std_logic; 
 	
 	i_volume_ready 			: in std_logic; 
-	i_conv_complete			: in std_logic
-	--i_acc_ready				: in std_logic
+	i_conv_complete			: in std_logic; 
+	i_acc_ready				: in std_logic
 	
 	); 
 end weights_router;
@@ -102,7 +102,7 @@ begin
 	o_filters_loaded	    <= filters_loaded; 
 	o_filters_processed		<= filters_processed; 
 	o_rd_en					<= rd_en; 
-	o_prog_empty_thresh		<= "0000001111";  
+	o_prog_empty_thresh		<= "0000000001111";  
 	o_reset_weight_fifo_n	<= reset_weight_fifo_n;		
 	
 	delay_unit : process(i_clk, i_reset_n) is
@@ -125,17 +125,17 @@ begin
 		end if;
 	end process; 
 	
-	next_state_comb: process(i_empty, current_state, filter_element_counter,i_weight_filter_size,i_convolution_en,row_element_counter,i_volume_row_size, i_volume_ready) is 
+	next_state_comb: process(i_empty, current_state, filter_element_counter,i_weight_filter_size,i_convolution_en,row_element_counter,i_volume_row_size, i_volume_ready, i_acc_ready) is 
 	begin 
 		rd_en 		<= '0'; 	
-		recycle_filter_en <= '0'; 
+		--recycle_filter_en <= '0'; 
 		
 		
 		case current_state is 
 			when IDLE =>   
 				filters_loaded <= '0'; 	
 				rd_en <= '0'; 
-				if(i_empty = '0' and i_convolution_en = '1') then 
+				if(i_empty = '0' and i_convolution_en = '1' and i_acc_ready = '1') then 
 					next_state <= PRIMING; 
 				else 
 					next_state <= IDLE; 
@@ -153,14 +153,14 @@ begin
 				
 			when LOAD_KERNEL =>  
 			
-					if(filter_element_counter = unsigned(i_weight_filter_size) and i_convolution_en = '1') then 	 
+					if(filter_element_counter >= unsigned(i_weight_filter_size) and i_convolution_en = '1') then 	 
 						rd_en 		<= '0';  
-						recycle_filter_en <= '0'; 
+						--recycle_filter_en <= '0'; 
 						filters_loaded <= '1'; 
 						next_state 	<= PROCESSING; 	 
 					else				
 						rd_en 		<= '1';  
-						recycle_filter_en <= '1'; 
+						--recycle_filter_en <= '1'; 
 						next_state 	<= LOAD_KERNEL; 
 					end if;	
 					
@@ -207,6 +207,7 @@ begin
 			filter_number 			<= (others => '0');    
 			recycle_filter_data		<= (others => '0');   
 			data_valid 				<= '0'; 
+			recycle_filter_en		<= '0'; 
 			
 		elsif(rising_edge(i_clk)) then 
 			filter_element_counter 	<= filter_element_counter; 
@@ -219,6 +220,7 @@ begin
 			filter_number 			<= filter_number;  
 			recycle_filter_data		<= recycle_filter_data;	  
 			data_valid 				<= data_valid; 
+			recycle_filter_en		<= recycle_filter_en; 
 			
 			case current_state is 
 				when IDLE => 
@@ -234,15 +236,18 @@ begin
 					if(filter_element_counter >= unsigned(i_weight_filter_size)) then 	 
 						filter_element_counter <= x"1";
 						--filters_loaded <= '1'; 
+						recycle_filter_en <= '0'; 
 					else
 						if(i_fifo_data_valid = '1') then
 							filter_element_counter <= filter_element_counter + 1; 
 							filter_row_shift_reg <= filter_row_shift_reg(9 downto 0) & i_filter_data;  	
 							recycle_filter_data <= i_filter_data; 
+							recycle_filter_en	<= '1'; 
 						else 
 							filter_element_counter <= filter_element_counter; 
 							filter_row_shift_reg <= filter_row_shift_reg;  	 
 							recycle_filter_data <= recycle_filter_data; 
+							recycle_filter_en <= '1'; 
 						end if; 
 					end if; 
 					
@@ -289,6 +294,7 @@ begin
 					filters_processed 		<= '0'; 			
 					filter_number 			<= (others => '0'); 
 					recycle_filter_data		<= (others => '0');
+					recycle_filter_en		<= '0'; 
 					
 				
 			end case; 	 

@@ -2,9 +2,9 @@
 <Root MajorVersion="0" MinorVersion="33">
   <CompositeFile CompositeFileTopName="sim_node" CanBeSetAsTop="true" CanDisplayChildGraph="true">
     <Description>Composite Fileset</Description>
-    <Generation Name="SYNTHESIS" State="RESET" Timestamp="1504567956"/>
-    <Generation Name="IMPLEMENTATION" State="RESET" Timestamp="1504567956"/>
-    <Generation Name="SIMULATION" State="RESET" Timestamp="1504567956"/>
+    <Generation Name="SYNTHESIS" State="RESET" Timestamp="1538464313"/>
+    <Generation Name="IMPLEMENTATION" State="RESET" Timestamp="1538464313"/>
+    <Generation Name="SIMULATION" State="RESET" Timestamp="1538464313"/>
     <FileCollection Name="SOURCES" Type="SOURCES">
       <File Name="ip\sim_node_VGA_IF_0_1\sim_node_VGA_IF_0_1.xci" Type="IP">
         <Instance HierarchyPath="VGA_IF_0"/>
@@ -46,14 +46,6 @@
         <UsedIn Val="IMPLEMENTATION"/>
         <UsedIn Val="SIMULATION"/>
       </File>
-      <File Name="ip\sim_node_xbar_2\sim_node_xbar_2.xci" Type="IP">
-        <Instance HierarchyPath="axi_mem_intercon/xbar"/>
-        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
-        <Library Name="xil_defaultlib"/>
-        <UsedIn Val="SYNTHESIS"/>
-        <UsedIn Val="IMPLEMENTATION"/>
-        <UsedIn Val="SIMULATION"/>
-      </File>
       <File Name="ip\sim_node_OV5642_IF_0_0\sim_node_OV5642_IF_0_0.xci" Type="IP">
         <Instance HierarchyPath="OV5642_IF_0"/>
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
@@ -64,6 +56,14 @@
       </File>
       <File Name="ip\sim_node_Convolution_Layer_0_0\sim_node_Convolution_Layer_0_0.xci" Type="IP">
         <Instance HierarchyPath="Convolution_Layer_0"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip\sim_node_xbar_0\sim_node_xbar_0.xci" Type="IP">
+        <Instance HierarchyPath="axi_mem_intercon/xbar"/>
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="SYNTHESIS"/>

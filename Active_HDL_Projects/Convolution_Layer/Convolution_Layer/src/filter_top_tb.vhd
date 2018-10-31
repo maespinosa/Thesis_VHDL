@@ -75,7 +75,9 @@ component filter_top is
        o_conv_data_valid 			: out STD_LOGIC;
        o_inbuff_rd_en 				: out STD_LOGIC;
        o_conv_volume_out 			: out STD_LOGIC_VECTOR(g_data_width-1 downto 0);
-       o_inbuff_prog_empty_thresh 	: out STD_LOGIC_VECTOR(9 downto 0)
+       o_inbuff_prog_empty_thresh 	: out STD_LOGIC_VECTOR(12 downto 0); 
+	   o_operation_complete			: out std_logic; 
+	   o_volume_processed			: out std_logic
   );
 end component;	
 
@@ -88,16 +90,12 @@ component conv_input_buffer is
     din 				: IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     wr_en 				: IN STD_LOGIC;
     rd_en 				: IN STD_LOGIC;
-    prog_empty_thresh 	: IN STD_LOGIC_VECTOR(9 DOWNTO 0);
-    prog_full_thresh 	: IN STD_LOGIC_VECTOR(9 DOWNTO 0);
     dout 				: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
     full 				: OUT STD_LOGIC;
     almost_full 		: OUT STD_LOGIC;
     empty 				: OUT STD_LOGIC;
     almost_empty 		: OUT STD_LOGIC;
-    valid 				: OUT STD_LOGIC;
-    prog_full 			: OUT STD_LOGIC;
-    prog_empty 			: OUT STD_LOGIC
+    valid 				: OUT STD_LOGIC
   );
 end component; 
 
@@ -138,7 +136,7 @@ signal inbuff_almost_empty 		: std_logic;
 signal inbuff_prog_empty 		: std_logic; 
 signal inbuff_valid 			: std_logic;
 signal inbuff_dout 				: std_logic_vector(15 downto 0); 	  
-signal inbuff_prog_full_thresh	: std_logic_vector(9 downto 0);
+--signal inbuff_prog_full_thresh	: std_logic_vector(9 downto 0);
 signal inbuff_full				: std_logic; 
 signal inbuff_almost_full		: std_logic; 
 signal inbuff_prog_full			: std_logic; 
@@ -160,7 +158,7 @@ signal weight_filter_size 		: std_logic_vector(3 downto 0);
 signal conv_data_valid        	: std_logic; 
 signal inbuff_rd_en           	: std_logic; 
 signal conv_volume_out        	: STD_LOGIC_VECTOR(15 downto 0);
-signal inbuff_prog_empty_thresh : STD_LOGIC_VECTOR(9 downto 0); 
+signal inbuff_prog_empty_thresh : STD_LOGIC_VECTOR(12 downto 0); 
 
 
 constant filename :string := "W1.txt"; 
@@ -179,9 +177,16 @@ signal loop_counter : integer := 0;
 
 signal weight_channel : integer := 0;  
 signal input_channel : integer := 0; 
-signal input_addr_counter : integer := 0;  
+signal input_addr_counter : unsigned(17 downto 0) := (others => '0');  
 signal filter_number : integer := 0; 
 signal output_volume_size : std_logic_vector(7 downto 0); 
+
+signal done : std_logic; 
+signal operation_complete : std_logic;  
+signal volume_processed : std_logic; 
+signal rows_processed	: integer; 
+
+
 
 
 begin 
@@ -220,7 +225,9 @@ begin
        o_conv_data_valid        	=> conv_data_valid, 
        o_inbuff_rd_en           	=> inbuff_rd_en, 
        o_conv_volume_out        	=> conv_volume_out, 
-       o_inbuff_prog_empty_thresh 	=> inbuff_prog_empty_thresh
+       o_inbuff_prog_empty_thresh 	=> inbuff_prog_empty_thresh, 
+	   o_operation_complete			=> operation_complete, 
+	   o_volume_processed			=> volume_processed
   );
   
   input_fifo : conv_input_buffer 
@@ -231,16 +238,12 @@ begin
     din					=> inbuff_din, 
     wr_en 				=> inbuff_wr_en,
     rd_en 				=> inbuff_rd_en, 
-    prog_empty_thresh 	=> inbuff_prog_empty_thresh, 
-    prog_full_thresh 	=> inbuff_prog_full_thresh, 
     dout 				=> inbuff_dout, 
     full 				=> inbuff_full, 
     almost_full 		=> inbuff_almost_full, 
     empty 				=> inbuff_empty, 
     almost_empty 	    => inbuff_almost_empty, 
-    valid 				=> inbuff_valid, 
-    prog_full 			=> inbuff_prog_full, 
-    prog_empty 			=> inbuff_prog_empty
+    valid 				=> inbuff_valid
   );
 
   memory : Testbench_BRAM
@@ -270,6 +273,8 @@ begin
         wait for CLK_PERIOD/2;  --for next half of clock period clk stays at '1'.
    end process;
     
+   
+   
    -- Stimulus process, Apply inputs here.
   stim_proc: process
   begin  
@@ -280,24 +285,26 @@ begin
 	  input_channel 			<= 0; 
 	  loop_counter				<= 0; 
 	  filter_number 			<= 0; 
+	  done <= '0'; 
 	  
---	  input_volume_size 		<= std_logic_vector(to_unsigned(227,8)); 
---	  input_volume_channels 	<= std_logic_vector(to_unsigned(3,12)); 
---	  weight_filter_size 		<= std_logic_vector(to_unsigned(11,4)); 
---	  weight_filter_channels 	<= std_logic_vector(to_unsigned(3,12)); 
---	  number_of_filters 		<= std_logic_vector(to_unsigned(96,12)); 
---	  stride 					<= std_logic_vector(to_unsigned(1,4)); 
---	  pad 						<= std_logic_vector(to_unsigned(1,4));  
-	  input_volume_size 		<= std_logic_vector(to_unsigned(13,8)); 
+	  input_volume_size 		<= std_logic_vector(to_unsigned(227,8)); 
 	  input_volume_channels 	<= std_logic_vector(to_unsigned(3,12)); 
-	  weight_filter_size 		<= std_logic_vector(to_unsigned(3,4)); 
+	  weight_filter_size 		<= std_logic_vector(to_unsigned(11,4)); 
 	  weight_filter_channels 	<= std_logic_vector(to_unsigned(3,12)); 
-	  number_of_filters 		<= std_logic_vector(to_unsigned(5,12)); 
-	  stride 					<= std_logic_vector(to_unsigned(2,4)); 
-	  pad 						<= std_logic_vector(to_unsigned(2,4));   
-	  output_volume_size		<= std_logic_vector(to_unsigned(8,8)); 
+	  number_of_filters 		<= std_logic_vector(to_unsigned(96,12)); 
+	  stride 					<= std_logic_vector(to_unsigned(4,4)); 
+	  pad 						<= std_logic_vector(to_unsigned(0,4)); 
+	  output_volume_size		<= std_logic_vector(to_unsigned(55,8)); 	  
+	  -- input_volume_size 		<= std_logic_vector(to_unsigned(13,8)); 
+	  -- input_volume_channels 	<= std_logic_vector(to_unsigned(3,12)); 
+	  -- weight_filter_size 		<= std_logic_vector(to_unsigned(3,4)); 
+	  -- weight_filter_channels 	<= std_logic_vector(to_unsigned(3,12)); 
+	  -- number_of_filters 		<= std_logic_vector(to_unsigned(5,12)); 
+	  -- stride 					<= std_logic_vector(to_unsigned(2,4)); 
+	  -- pad 						<= std_logic_vector(to_unsigned(2,4));   
+	  -- output_volume_size		<= std_logic_vector(to_unsigned(8,8)); 
 	    
-	  inbuff_prog_full_thresh 	<= "1111100000"; 
+	 --inbuff_prog_full_thresh 	<= "1111100000"; 
 	  
 	  wait until rising_edge(clk); 
 	  
@@ -309,63 +316,114 @@ begin
 
 	  en <= '1'; 	
 	  start <= '1'; 
+	  done <= '0'; 
+	  -- input_volume_size 		<= std_logic_vector(to_unsigned(13,8)); 
+	  -- input_volume_channels 	<= std_logic_vector(to_unsigned(3,12)); 
+	  -- weight_filter_size 		<= std_logic_vector(to_unsigned(3,4)); 
+	  -- weight_filter_channels 	<= std_logic_vector(to_unsigned(3,12)); 
+	  -- number_of_filters 		<= std_logic_vector(to_unsigned(5,12)); 
+	  -- stride 					<= std_logic_vector(to_unsigned(2,4)); 
+	  -- pad 						<= std_logic_vector(to_unsigned(2,4));
+	  -- output_volume_size		<= std_logic_vector(to_unsigned(8,8)); 
 	  
-	  input_volume_size 		<= std_logic_vector(to_unsigned(13,8)); 
+	  input_volume_size 		<= std_logic_vector(to_unsigned(227,8)); 
 	  input_volume_channels 	<= std_logic_vector(to_unsigned(3,12)); 
-	  weight_filter_size 		<= std_logic_vector(to_unsigned(3,4)); 
+	  weight_filter_size 		<= std_logic_vector(to_unsigned(11,4)); 
 	  weight_filter_channels 	<= std_logic_vector(to_unsigned(3,12)); 
-	  number_of_filters 		<= std_logic_vector(to_unsigned(5,12)); 
-	  stride 					<= std_logic_vector(to_unsigned(2,4)); 
-	  pad 						<= std_logic_vector(to_unsigned(2,4));
-	  output_volume_size		<= std_logic_vector(to_unsigned(8,8)); 
+	  number_of_filters 		<= std_logic_vector(to_unsigned(96,12)); 
+	  stride 					<= std_logic_vector(to_unsigned(4,4)); 
+	  pad 						<= std_logic_vector(to_unsigned(0,4)); 
+	  output_volume_size		<= std_logic_vector(to_unsigned(55,8)); 
 	  
-	  inbuff_prog_full_thresh 	<= "1111100000"; 
+	  
+	 -- inbuff_prog_full_thresh 	<= "1111100000"; 
+	 
+	  rows_processed <= 0;
 	  
 	  wait for CLK_PERIOD*10;	 
 	  
 	  
 	  --while (inbuff_almost_full = '0') loop
-	  for i in 0 to 5-1 loop
+	  for i in 0 to 95 loop
 		  wait until rising_edge(clk); 
+	      inbuff_wr_en <= '0'; 
+	      inbuff_din <= (others => '0'); 
 		  for j in 0 to 2 loop   	 
 			  weight_channel <= j; 
 			  filter_number <= i; 
 			  
-			  wait until rising_edge(clk); 
+			  wait until rising_edge(clk);
+			  --weight_addr_counter <= 0 + 11*11*3*(i); 			  
 			  
 			  loop_counter <= 0; 
 			  inbuff_wr_en <= '0'; 
-			  while (loop_counter <= (3*3)-1) loop
-		
-				  if(inbuff_almost_full = '0') then 
-				  
-					  mem_addr <= std_logic_vector(to_unsigned(weight_addr_counter,16));
-					  
+			  
+			  --mem_addr <= std_logic_vector(to_unsigned(weight_addr_counter,16));
+			  --inbuff_wr_en <= '1'; 	
+			  --inbuff_din <= dout;
+			  --weight_addr_counter <= weight_addr_counter + 1;	
+			  --loop_counter <= loop_counter + 1; 
+			  
+			  while (loop_counter < (11*11)-1) loop
+				  wait until rising_edge(clk);	
+				  inbuff_wr_en <= '0';
+				  if(inbuff_almost_full = '0') then
+					  		
+					  mem_addr <= std_logic_vector(to_unsigned(weight_addr_counter,16) + loop_counter);
 					  wait until rising_edge(clk); 
 					  inbuff_wr_en <= '0'; 
-					  weight_addr_counter <= weight_addr_counter + 1;	 
-					  
+					  --weight_addr_counter <= weight_addr_counter + 1;	 
+					  --wait until rising_edge(clk); 
 					  wait until rising_edge(clk);   
 					  inbuff_wr_en <= '1'; 	
 					  inbuff_din <= dout;
 					  
+					  --wait until rising_edge(clk); 
+					  --inbuff_wr_en <= '0';					  
+					  
+					  --weight_addr_counter <= weight_addr_counter + 1;	
+					  
 					  --if (loop_counter <= 3*3)	then 
-					  	loop_counter <= loop_counter + 1; 	  
+					  loop_counter <= loop_counter + 1; 
+					 
 					  --else 
 						--loop_counter <= loop_counter; 	  
 						--weight_channel <= weight_channel + 1; 
 					  --end if;  											  
 					  
+				   else 
+					inbuff_wr_en <= '0'; 
+					wait until rising_edge(clk);
+					
 				   end if; 
+				   
 			   end loop; 
 			   loop_counter <= 0;
-			   inbuff_wr_en <= '0'; 
-		 end loop; 
-			 
+			   inbuff_wr_en <= '1';
+			   inbuff_din <= dout;
+			   weight_addr_counter <= 11*11*(j+1) + 11*11*3*i; 
+		  end loop; 
+		  
+	      loop_counter <= 0;
+	      inbuff_wr_en <= '1';
+		  inbuff_din <= dout; 
+	      weight_addr_counter <= 11*11*3*(i+1); 
+	 
 	  end loop;  
 	  
-	  loop_counter <= 0; 
+	  inbuff_wr_en <= '1'; 	
+	  inbuff_din <= dout;
 	  
+	  wait until rising_edge(clk);
+	  
+	  loop_counter <= 0; 
+	  inbuff_wr_en <= '0'; 
+	  inbuff_din <= (others => '0'); 
+	  
+	  wait for CLK_PERIOD*5;	
+
+	  wait until rising_edge(clk);
+  
 	  for i in 0 to 2 loop   	 
 		  input_channel <= i; 
 
@@ -374,63 +432,167 @@ begin
 		  
 		  loop_counter <= 0;
 		  inbuff_wr_en <= '0';
-		  while (loop_counter < (13*13)-1) loop
-	
-			  if(inbuff_almost_full = '0') then 
+		  --input_addr_counter <= 0;
+		  while (loop_counter < (227*11)-1) loop
+			  wait until rising_edge(clk);	
+			  inbuff_wr_en <= '0';
+			  if(inbuff_full = '0') then 
 			  
-				  input_mem_addr <= std_logic_vector(to_unsigned(input_addr_counter,18));
+				  input_mem_addr <= std_logic_vector(input_addr_counter + loop_counter);
 				  
 				  wait until rising_edge(clk); 
 				  inbuff_wr_en <= '0'; 
-				  input_addr_counter <= input_addr_counter + 1;	 
+				  --input_addr_counter <= input_addr_counter + 1;	 
 				  
 				  wait until rising_edge(clk);   
 				  inbuff_wr_en <= '1'; 	
 				  inbuff_din <= image_data;
 				  
-				  --if (loop_counter <= 13*13)	then 
-				  loop_counter <= loop_counter + 1; 	  
-				  --else 
-					--loop_counter <= 0; 	  
-
-				  --end if;  											  
+				  loop_counter <= loop_counter + 1; 	  								  
 				  
+			   else 
+				  -- assert inbuff_full = '0' report "Input Buffer Full !!!!" severity warning; 
+				   inbuff_wr_en <= '0'; 
+				   wait until rising_edge(clk); 
 			   end if;
 			   
 		   end loop;  
-		   
+		   input_addr_counter <= to_unsigned((227*227)*(i+1),18); 
 		   loop_counter <= 0; 
-		   --inbuff_wr_en <= '0';
+		   --input_addr_counter <= 0;
 			
 			 
 	  end loop; 
 	  
 	  wait until rising_edge(clk);
+	  loop_counter <= 0; 
+	  inbuff_wr_en <= '0'; 
+	  inbuff_din <= (others => '0'); 
+	  input_addr_counter <= to_unsigned((227*11),18); 
+	  input_mem_addr <= std_logic_vector(to_unsigned((227*11),18)); 
+	  rows_processed <= rows_processed + 11; 
+	  
+	  wait until rising_edge(clk); 
+	  inbuff_din <= image_data;  
+	  
+
+	  wait until operation_complete = '1'; 
+	  
+	  for j in 0 to 54-1 loop 
+		  wait until rising_edge(clk);
+	  
+		  for i in 0 to 4-1 loop   	 
+			  
+			  wait until rising_edge(clk); 
+			  
+			  for z in 0 to 3-1 loop
+				  input_channel <= z; 
+				  wait until rising_edge(clk); 
+				  loop_counter <= 0;
+				  inbuff_wr_en <= '0';
+				  --input_addr_counter <= to_unsigned((227*(11+z))-1,18); 
+				  while (loop_counter < (227)-1) loop
+					  wait until rising_edge(clk);	
+					  inbuff_wr_en <= '0';
+					  if(inbuff_full = '0') then 
+					  
+						  input_mem_addr <= std_logic_vector(input_addr_counter + loop_counter);
+						  
+						  wait until rising_edge(clk); 
+						  inbuff_wr_en <= '0'; 
+						  --input_addr_counter <= input_addr_counter + 1;	 
+						  
+						  wait until rising_edge(clk);   
+						  inbuff_wr_en <= '1'; 	
+						  inbuff_din <= image_data;
+						  
+						  loop_counter <= loop_counter + 1; 	  								  
+						  
+					   else 
+						   --assert inbuff_full = '0' report "Input Buffer Full !!!!" severity warning; 
+						   inbuff_wr_en <= '0';
+						   wait until rising_edge(clk); 
+					   end if;
+					   
+				   end loop;  
+				   wait until rising_edge(clk);
+				   loop_counter <= 0; 
+				   inbuff_wr_en <= '0'; 	
+				   --input_addr_counter <= to_unsigned((227*(rows_processed+z+1)+227*227*(i)),18); 
+				   input_addr_counter <= to_unsigned((227*227*(z+1) + rows_processed*227) ,18); 
+				   
+				   inbuff_din <= (others => '0'); 
+				   --rows_processed <= rows_processed + 1; 
+			  end loop; 
+			  rows_processed <= rows_processed + 1;
+			  wait until rising_edge(clk);
+			  loop_counter <= 0; 
+			  inbuff_wr_en <= '0'; 
+			  inbuff_din <= (others => '0'); 
+			  --input_addr_counter <= to_unsigned((227*227*(i+1) + rows_processed*227) ,18); 
+			  input_addr_counter <= to_unsigned((227*(rows_processed)),18); 
+			   
+			  
+			  wait until operation_complete = '1'; 
+		  end loop;
+
+		   	  
+		  
+		  
+		  wait until rising_edge(clk);
+		  loop_counter <= 0; 
+		  inbuff_wr_en <= '0'; 
+		  inbuff_din <= (others => '0'); 
+		  --rows_processed <= rows_processed + 4;
+		  
+		  wait until operation_complete = '1'; 
+		  
+		  wait until rising_edge(clk);
+		  input_addr_counter <= to_unsigned((rows_processed*227) ,18); 
+		  loop_counter <= 0; 
+		  inbuff_wr_en <= '0'; 
+		  inbuff_din <= (others => '0'); 
+		  
+		  
+	  end loop; 
+	  
+	  wait until rising_edge(clk);
+	  done <= '1'; 
 	  
 	  inbuff_wr_en <= '0'; 	
 	  inbuff_din <= (others => '0');
 	  
+	  
+	  
+	  
 	  while(inbuff_wr_en = '0')	 loop
 	  end loop; 
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-        --wait for CLK_PERIOD*10; --wait for 10 clock cycles.
-        --reset <='1';                    --then apply reset for 2 clock cycles.
-        --wait for CLK_PERIOD*2;
-        ---reset <='0';                    --then pull down reset for 20 clock cycles.
-        --wait for CLK_PERIOD*20;
-        --reset <= '1';               --then apply reset for one clock cycle.
-        --wait for CLK_PERIOD;
-        --reset <= '0';               --pull down reset and let the counter run.
+
       wait;
   end process; 
+  
+  
+  
+  
+  
+  save_process: process(clk,reset_n)
+    variable WLINE     : line;
+	file conv_out_file : text open write_mode is "conv_output_sim.txt"; 
+     
+  begin
+	
+	if(rising_edge(clk)) then 
+		if(conv_data_valid = '1' and volume_processed = '0') then 
+		
+			hwrite(WLINE, conv_volume_out);
+			writeline(conv_out_file, WLINE);
+		elsif(volume_processed = '1') then 
+ 
+			file_close(conv_out_file);
+		end if; 
+	end if; 
+	
+  end process;
   
   
 --  read_file: process(clk,reset_n)

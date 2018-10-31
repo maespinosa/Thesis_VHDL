@@ -51,7 +51,7 @@ entity accumulator_relay is
 	o_recycled_acc_data 	: out std_logic_vector(g_data_width-1 downto 0); 
 	o_recycled_acc_data_en 	: out std_logic;		  
 	o_rd_en					: out std_logic; 
-	o_prog_emtpy_thresh 	: out std_logic_vector(9 downto 0); 
+	o_prog_emtpy_thresh 	: out std_logic_vector(12 downto 0); 
 	o_conv_volume_out 		: out std_logic_vector(g_data_width-1 downto 0);
 	o_conv_data_valid		: out std_logic; 
 	o_send_done			: out std_logic 
@@ -79,10 +79,12 @@ signal conv_data_valid		: std_logic;
 signal hold_clear			: std_logic; 
 
 signal filter_counter 				: unsigned(11 downto 0); 
-signal volume_pixel_counter			: unsigned(7 downto 0);
+signal volume_pixel_counter			: unsigned(63 downto 0);
 signal filter_iterations 			: unsigned(7 downto 0);   
 
 signal send_done			: std_logic; 
+signal volume_row_counter	: unsigned(7 downto 0); 
+signal volume_column_counter	: unsigned(7 downto 0); 
 
 
 begin 	
@@ -132,15 +134,45 @@ begin
 				send_done 	<= '0';
 				next_state 	<= IDLE; 
 				
-			when SEND =>   
-				rd_en 		<= '1'; 
-				send_done 	<= '0';
-				if(filter_counter < unsigned(i_num_filters)) then  
-					next_state <= SEND; 
+			when SEND =>
+				if(i_empty = '0') then 
+					rd_en <= '1'; 
+					if(conv_data_valid = '0' and volume_pixel_counter = unsigned(i_output_volume_size)*unsigned(i_num_filters)) then 
+						next_state <= IDLE; 
+						send_done <= '1'; 
+					else 
+						next_state <= SEND;
+					end if; 
+					
 				else 
-					next_state <= IDLE; 
-					send_done 			<= '1';
-				end if;    
+					rd_en <= '0'; 
+					next_state <= SEND; 
+				end if; 
+					
+
+				
+				-- rd_en 		<= '1'; 
+				-- send_done 	<= '0';
+
+				
+				-- if(i_data_valid = '1') then 
+					-- next_state <= SEND; 
+				-- else 
+					-- if(conv_data_valid = '0' and volume_pixel_counter = unsigned(i_output_volume_size)*unsigned(i_num_filters)) then 
+						-- next_state <= IDLE; 
+						-- send_done <= '1'; 
+					-- else 
+						-- next_state <= SEND;
+					-- end if; 
+
+				-- end if; 
+
+				-- if(filter_counter < unsigned(i_num_filters)) then  
+					-- next_state <= SEND; 
+				-- else 
+					-- next_state <= IDLE; 
+					-- send_done 			<= '1';
+				-- end if;    
 
 			when others => 	
 				next_state <= IDLE; 
@@ -160,7 +192,8 @@ begin
 			volume_pixel_counter 	<= (others => '0');   
 			filter_counter 			<= (others => '0'); 	
 			filter_iterations		<= (others => '0'); 	
-			
+			volume_row_counter		<= (others => '0'); 
+			volume_column_counter	<= (others => '0'); 
 		elsif(rising_edge(i_clk)) then	  
 			
 			recycled_acc_data_en 	<= recycled_acc_data_en;
@@ -170,6 +203,8 @@ begin
 			volume_pixel_counter 	<= volume_pixel_counter;   
 			filter_counter 			<= filter_counter; 
 			filter_iterations		<= filter_iterations; 
+			volume_row_counter		<= volume_row_counter;
+			volume_column_counter	<= volume_column_counter;
 			
 			
 			case current_state is 
@@ -178,7 +213,7 @@ begin
 					recycled_acc_data 	 	<= (others => '0'); 
 					conv_volume_out 		<= (others => '0'); 
 					conv_data_valid			<= '0';   
-				
+					volume_row_counter		<= (others => '0'); 
 				
 				when RECYCLE => 
 					recycled_acc_data_en   	<= '1'; 
@@ -188,40 +223,34 @@ begin
 					
 				when SEND =>  
 				
-					if(filter_counter < unsigned(i_num_filters) and i_data_valid = '1') then   
-						conv_volume_out 	<= i_acc_filter_data;
-						conv_data_valid		<= '1';  
+					 if(i_empty = '0') then 
+					
+						 conv_volume_out 	<= i_acc_filter_data;
+						 conv_data_valid	<= '1';  
 						
-						if(volume_pixel_counter < unsigned(i_output_volume_size) and i_data_valid = '1') then 
-							volume_pixel_counter <= volume_pixel_counter + 1; 	
-							filter_counter <= filter_counter; 
-						else 
-							volume_pixel_counter <= (others => '0');   
-							filter_counter <= filter_counter + 1; 
-						end if;	 
-						
-						
-					elsif(filter_counter < unsigned(i_num_filters) and i_data_valid = '0') then  
-						volume_pixel_counter <= volume_pixel_counter; 	
-						filter_counter <= filter_counter;  
-						
-						conv_volume_out 	<= (others => '0');
-						conv_data_valid		<= '0';  
+						 if(volume_pixel_counter < unsigned(i_output_volume_size)*unsigned(i_num_filters)) then 
+							 volume_pixel_counter <= volume_pixel_counter + 1; 
+							 volume_column_counter <= volume_column_counter + 1; 
+							 if(volume_column_counter < unsigned(i_output_volume_size) and filter_counter < unsigned(i_num_filters)) then 
+								filter_counter <= filter_counter; 
+							 elsif (volume_column_counter >= unsigned(i_output_volume_size) and filter_counter < unsigned(i_num_filters)) then 
+								filter_counter <= filter_counter + 1; 
+								volume_column_counter <= (others => '0'); 
+							 else 
+								filter_counter <= (others => '0');
+							 end if; 
+								
+								
+						 else 
+							 volume_pixel_counter <= x"0000000000000001"; --(others => '0');   
+							 volume_row_counter	<= volume_row_counter + 1; 
+						 end if;	
+					 else 
+					
+						 conv_volume_out 	<= (others => '0');  
+						 conv_data_valid		<= '0';  
 
-					else 
-						volume_pixel_counter 	<= (others => '0');   
-						filter_counter 			<= (others => '0'); 	  
-						conv_volume_out 	<= (others => '0');
-						conv_data_valid		<= '0'; 
-						 
-						
-						if(unsigned(i_num_iterations) > 1) then 
-							filter_iterations <= filter_iterations + 1;  
-						else 
-							filter_iterations <= filter_iterations; 
-						end if; 
-
-					end if;    
+					 end if;  
 
 				when others =>
 					null; 
@@ -232,95 +261,6 @@ begin
 	end process; 
 	
 		
-		
---	
---	
---	next_state_comb: process(current_state,i_empty,i_prog_full,i_send,i_data_valid,i_empty,i_normalizer_ready) is 
---	begin 
---		--hold_clear <= '0';  
---		recycled_acc_data_en 	<= '0';
---		recycled_acc_data 		<= (others => '0'); 
---		rd_en 					<= '0'; 
---		conv_data_valid 		<= '0'; 
---		conv_volume_out			<= (others => '0'); 
---					
---		
---		case current_state is 
---			when IDLE =>  
---				--hold_clear <= '0'; 
---				if(i_empty = '0') then 
---					next_state <= FILL; 
---				else 
---					next_state <= IDLE; 
---				end if; 
---			
---			when FILL =>  
---				--hold_clear <= '0'; 
---				if(i_prog_full = '1') then 
---					next_state <= ITERATE; 
---				else 
---					next_state 				<= FILL; 
---				end if; 
---			
---			when ITERATE =>
---				--hold_clear <= '0'; 
---				if(i_send = '1') then 
---					next_state 					<= EMPTY; 
---					rd_en 					<= '0'; 
---				else   
---					next_state 					<= ITERATE; 
---					rd_en 					<= '1'; 			
---					
---					if(i_data_valid = '1') then   
---						recycled_acc_data_en 	<= '1'; 
---						recycled_acc_data 		<= i_acc_filter_data; 
---					else 
---						recycled_acc_data_en 	<= '0';
---						recycled_acc_data 		<= (others => '0'); 
---					end if;
---				end if; 
---				
---			when EMPTY => 	 
---				--hold_clear <= '0'; 
---				recycled_acc_data_en 	<= '0'; 
---				recycled_acc_data 	<= (others => '0'); 
---				rd_en <= '0'; 
---				
---				if(i_empty = '1') then 
---					--hold_clear <= '1'; 
---					recycled_acc_data_en 	<= '0'; 
---					recycled_acc_data 	<= (others => '0');  
---					rd_en <= '0'; 
---					next_state <= IDLE; 
---				elsif(i_normalizer_ready = '1' ) then 	
---					rd_en <= '1'; 
---					if(i_data_valid = '1') then 
---						conv_data_valid <= '1'; 
---						conv_volume_out <= i_acc_filter_data;   
---					else 
---						conv_data_valid <= '0'; 
---						conv_volume_out <= (others => '0'); 
---					end if;
---					next_state <= EMPTY; 
---				else
---					conv_data_valid <= '0'; 
---					rd_en <= '0'; 
---					conv_volume_out <= (others => '0'); 
---					next_state <= IDLE; 
---					
---				end if; 
---				
---
---			when others => 	  
---				next_state <= IDLE; 
---			
---			
---		end case; 	
---	end process; 
---		
---
---	
-
 	
 	
 	
