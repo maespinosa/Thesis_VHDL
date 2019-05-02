@@ -1,0 +1,31 @@
+00:38:01 **** Build of configuration Debug for project neural_net_test ****
+make all 
+'Building file: ../src/testperiph.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/testperiph.o" -I../../neural_net_test_bsp/microblaze_0/include -mlittle-endian -mcpu=v10.0 -mxl-soft-mul -Wl,--no-relax -MMD -MP -MF"src/testperiph.d" -MT"src/testperiph.o" -o "src/testperiph.o" "../src/testperiph.c"
+'Finished building: ../src/testperiph.c'
+' '
+'Building file: ../src/xintc_tapp_example.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xintc_tapp_example.o" -I../../neural_net_test_bsp/microblaze_0/include -mlittle-endian -mcpu=v10.0 -mxl-soft-mul -Wl,--no-relax -MMD -MP -MF"src/xintc_tapp_example.d" -MT"src/xintc_tapp_example.o" -o "src/xintc_tapp_example.o" "../src/xintc_tapp_example.c"
+'Finished building: ../src/xintc_tapp_example.c'
+' '
+'Building file: ../src/xsysmon_polled_example.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xsysmon_polled_example.o" -I../../neural_net_test_bsp/microblaze_0/include -mlittle-endian -mcpu=v10.0 -mxl-soft-mul -Wl,--no-relax -MMD -MP -MF"src/xsysmon_polled_example.d" -MT"src/xsysmon_polled_example.o" -o "src/xsysmon_polled_example.o" "../src/xsysmon_polled_example.c"
+'Finished building: ../src/xsysmon_polled_example.c'
+' '
+'Building target: neural_net_test.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../neural_net_test_bsp/microblaze_0/lib -mlittle-endian -mcpu=v10.0 -mxl-soft-mul -Wl,--no-relax -o "neural_net_test.elf"  ./src/testperiph.o ./src/xintc_tapp_example.o ./src/xsysmon_polled_example.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: neural_net_test.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size neural_net_test.elf  |tee "neural_net_test.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  26280	    368	   2288	  28936	   7108	neural_net_test.elf
+'Finished building: neural_net_test.elf.size'
+' '
+
+00:38:03 Build Finished (took 2s.590ms)
+

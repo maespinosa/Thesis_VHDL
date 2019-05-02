@@ -1,0 +1,496 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="DDR3_sim_test_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="DDR3_sim_test" />
+            <top_module name="axi_bram_ctrl_funcs" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="24491689000fs"></ZoomStartTime>
+      <ZoomEndTime time="29121689001fs"></ZoomEndTime>
+      <Cursor1Time time="32541689000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="257"></NameColumnWidth>
+      <ValueColumnWidth column_width="272"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="118" />
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/i_trigger" type="logic">
+      <obj_property name="ElementShortName">i_trigger</obj_property>
+      <obj_property name="ObjectShortName">i_trigger</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/i_debug_en" type="logic">
+      <obj_property name="ElementShortName">i_debug_en</obj_property>
+      <obj_property name="ObjectShortName">i_debug_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/i_init_calib_complete" type="logic">
+      <obj_property name="ElementShortName">i_init_calib_complete</obj_property>
+      <obj_property name="ObjectShortName">i_init_calib_complete</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/ila_mt_rbc" type="array">
+      <obj_property name="ElementShortName">ila_mt_rbc[7:0]</obj_property>
+      <obj_property name="ObjectShortName">ila_mt_rbc[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/ila_mt_data_counter" type="array">
+      <obj_property name="ElementShortName">ila_mt_data_counter[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ila_mt_data_counter[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/ila_mt_address_counter" type="array">
+      <obj_property name="ElementShortName">ila_mt_address_counter[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ila_mt_address_counter[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/ila_mt_iteration_counter" type="array">
+      <obj_property name="ElementShortName">ila_mt_iteration_counter[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ila_mt_iteration_counter[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/ila_mt_data_written" type="logic">
+      <obj_property name="ElementShortName">ila_mt_data_written</obj_property>
+      <obj_property name="ObjectShortName">ila_mt_data_written</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/ila_mt_error" type="logic">
+      <obj_property name="ElementShortName">ila_mt_error</obj_property>
+      <obj_property name="ObjectShortName">ila_mt_error</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/ila_mt_data_read" type="logic">
+      <obj_property name="ElementShortName">ila_mt_data_read</obj_property>
+      <obj_property name="ObjectShortName">ila_mt_data_read</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/ila_mt_fsm_state" type="array">
+      <obj_property name="ElementShortName">ila_mt_fsm_state[3:0]</obj_property>
+      <obj_property name="ObjectShortName">ila_mt_fsm_state[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/ila_mt_m_axi_awready" type="logic">
+      <obj_property name="ElementShortName">ila_mt_m_axi_awready</obj_property>
+      <obj_property name="ObjectShortName">ila_mt_m_axi_awready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/ila_mt_m_axi_awaddr" type="array">
+      <obj_property name="ElementShortName">ila_mt_m_axi_awaddr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ila_mt_m_axi_awaddr[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/ila_mt_m_axi_awsize" type="array">
+      <obj_property name="ElementShortName">ila_mt_m_axi_awsize[2:0]</obj_property>
+      <obj_property name="ObjectShortName">ila_mt_m_axi_awsize[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/ila_mt_m_axi_awlen" type="array">
+      <obj_property name="ElementShortName">ila_mt_m_axi_awlen[7:0]</obj_property>
+      <obj_property name="ObjectShortName">ila_mt_m_axi_awlen[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/ila_mt_m_axi_awvalid" type="logic">
+      <obj_property name="ElementShortName">ila_mt_m_axi_awvalid</obj_property>
+      <obj_property name="ObjectShortName">ila_mt_m_axi_awvalid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/ila_mt_m_axi_wready" type="logic">
+      <obj_property name="ElementShortName">ila_mt_m_axi_wready</obj_property>
+      <obj_property name="ObjectShortName">ila_mt_m_axi_wready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/ila_mt_m_axi_wdata" type="array">
+      <obj_property name="ElementShortName">ila_mt_m_axi_wdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ila_mt_m_axi_wdata[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/ila_mt_m_axi_wlast" type="logic">
+      <obj_property name="ElementShortName">ila_mt_m_axi_wlast</obj_property>
+      <obj_property name="ObjectShortName">ila_mt_m_axi_wlast</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/ila_mt_m_axi_wvalid" type="logic">
+      <obj_property name="ElementShortName">ila_mt_m_axi_wvalid</obj_property>
+      <obj_property name="ObjectShortName">ila_mt_m_axi_wvalid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/ila_mt_m_axi_wstrb" type="array">
+      <obj_property name="ElementShortName">ila_mt_m_axi_wstrb[3:0]</obj_property>
+      <obj_property name="ObjectShortName">ila_mt_m_axi_wstrb[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/ila_mt_m_axi_bvalid" type="logic">
+      <obj_property name="ElementShortName">ila_mt_m_axi_bvalid</obj_property>
+      <obj_property name="ObjectShortName">ila_mt_m_axi_bvalid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/ila_mt_m_axi_bready" type="logic">
+      <obj_property name="ElementShortName">ila_mt_m_axi_bready</obj_property>
+      <obj_property name="ObjectShortName">ila_mt_m_axi_bready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/ila_mt_m_axi_wbc" type="array">
+      <obj_property name="ElementShortName">ila_mt_m_axi_wbc[8:0]</obj_property>
+      <obj_property name="ObjectShortName">ila_mt_m_axi_wbc[8:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/ila_mt_m_axi_arsize" type="array">
+      <obj_property name="ElementShortName">ila_mt_m_axi_arsize[2:0]</obj_property>
+      <obj_property name="ObjectShortName">ila_mt_m_axi_arsize[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/ila_mt_m_axi_araddr" type="array">
+      <obj_property name="ElementShortName">ila_mt_m_axi_araddr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ila_mt_m_axi_araddr[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/ila_mt_m_axi_arlen" type="array">
+      <obj_property name="ElementShortName">ila_mt_m_axi_arlen[7:0]</obj_property>
+      <obj_property name="ObjectShortName">ila_mt_m_axi_arlen[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/ila_mt_m_axi_arvalid" type="logic">
+      <obj_property name="ElementShortName">ila_mt_m_axi_arvalid</obj_property>
+      <obj_property name="ObjectShortName">ila_mt_m_axi_arvalid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/ila_mt_m_axi_rready" type="logic">
+      <obj_property name="ElementShortName">ila_mt_m_axi_rready</obj_property>
+      <obj_property name="ObjectShortName">ila_mt_m_axi_rready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/ila_mt_m_axi_arready" type="logic">
+      <obj_property name="ElementShortName">ila_mt_m_axi_arready</obj_property>
+      <obj_property name="ObjectShortName">ila_mt_m_axi_arready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/ila_mt_m_axi_rdata" type="array">
+      <obj_property name="ElementShortName">ila_mt_m_axi_rdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ila_mt_m_axi_rdata[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/ila_mt_m_axi_rlast" type="logic">
+      <obj_property name="ElementShortName">ila_mt_m_axi_rlast</obj_property>
+      <obj_property name="ObjectShortName">ila_mt_m_axi_rlast</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/ila_mt_m_axi_rvalid" type="logic">
+      <obj_property name="ElementShortName">ila_mt_m_axi_rvalid</obj_property>
+      <obj_property name="ObjectShortName">ila_mt_m_axi_rvalid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/INIT_AXI_TXN" type="logic">
+      <obj_property name="ElementShortName">INIT_AXI_TXN</obj_property>
+      <obj_property name="ObjectShortName">INIT_AXI_TXN</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/TXN_DONE" type="logic">
+      <obj_property name="ElementShortName">TXN_DONE</obj_property>
+      <obj_property name="ObjectShortName">TXN_DONE</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/ERROR" type="logic">
+      <obj_property name="ElementShortName">ERROR</obj_property>
+      <obj_property name="ObjectShortName">ERROR</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/M_AXI_ACLK" type="logic">
+      <obj_property name="ElementShortName">M_AXI_ACLK</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_ACLK</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/M_AXI_ARESETN" type="logic">
+      <obj_property name="ElementShortName">M_AXI_ARESETN</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_ARESETN</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/M_AXI_AWID" type="array">
+      <obj_property name="ElementShortName">M_AXI_AWID[0:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_AWID[0:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/M_AXI_AWADDR" type="array">
+      <obj_property name="ElementShortName">M_AXI_AWADDR[31:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_AWADDR[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/M_AXI_AWLEN" type="array">
+      <obj_property name="ElementShortName">M_AXI_AWLEN[7:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_AWLEN[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/M_AXI_AWSIZE" type="array">
+      <obj_property name="ElementShortName">M_AXI_AWSIZE[2:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_AWSIZE[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/M_AXI_AWBURST" type="array">
+      <obj_property name="ElementShortName">M_AXI_AWBURST[1:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_AWBURST[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/M_AXI_AWLOCK" type="logic">
+      <obj_property name="ElementShortName">M_AXI_AWLOCK</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_AWLOCK</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/M_AXI_AWCACHE" type="array">
+      <obj_property name="ElementShortName">M_AXI_AWCACHE[3:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_AWCACHE[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/M_AXI_AWPROT" type="array">
+      <obj_property name="ElementShortName">M_AXI_AWPROT[2:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_AWPROT[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/M_AXI_AWQOS" type="array">
+      <obj_property name="ElementShortName">M_AXI_AWQOS[3:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_AWQOS[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/M_AXI_AWUSER" type="array">
+      <obj_property name="ElementShortName">M_AXI_AWUSER[0:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_AWUSER[0:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/M_AXI_AWVALID" type="logic">
+      <obj_property name="ElementShortName">M_AXI_AWVALID</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_AWVALID</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/M_AXI_AWREADY" type="logic">
+      <obj_property name="ElementShortName">M_AXI_AWREADY</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_AWREADY</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/M_AXI_WDATA" type="array">
+      <obj_property name="ElementShortName">M_AXI_WDATA[31:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_WDATA[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/M_AXI_WSTRB" type="array">
+      <obj_property name="ElementShortName">M_AXI_WSTRB[3:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_WSTRB[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/M_AXI_WLAST" type="logic">
+      <obj_property name="ElementShortName">M_AXI_WLAST</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_WLAST</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/M_AXI_WUSER" type="array">
+      <obj_property name="ElementShortName">M_AXI_WUSER[0:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_WUSER[0:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/M_AXI_WVALID" type="logic">
+      <obj_property name="ElementShortName">M_AXI_WVALID</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_WVALID</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/M_AXI_WREADY" type="logic">
+      <obj_property name="ElementShortName">M_AXI_WREADY</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_WREADY</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/M_AXI_BID" type="array">
+      <obj_property name="ElementShortName">M_AXI_BID[0:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_BID[0:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/M_AXI_BRESP" type="array">
+      <obj_property name="ElementShortName">M_AXI_BRESP[1:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_BRESP[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/M_AXI_BUSER" type="array">
+      <obj_property name="ElementShortName">M_AXI_BUSER[0:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_BUSER[0:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/M_AXI_BVALID" type="logic">
+      <obj_property name="ElementShortName">M_AXI_BVALID</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_BVALID</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/M_AXI_BREADY" type="logic">
+      <obj_property name="ElementShortName">M_AXI_BREADY</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_BREADY</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/M_AXI_ARID" type="array">
+      <obj_property name="ElementShortName">M_AXI_ARID[0:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_ARID[0:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/M_AXI_ARADDR" type="array">
+      <obj_property name="ElementShortName">M_AXI_ARADDR[31:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_ARADDR[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/M_AXI_ARLEN" type="array">
+      <obj_property name="ElementShortName">M_AXI_ARLEN[7:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_ARLEN[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/M_AXI_ARSIZE" type="array">
+      <obj_property name="ElementShortName">M_AXI_ARSIZE[2:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_ARSIZE[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/M_AXI_ARBURST" type="array">
+      <obj_property name="ElementShortName">M_AXI_ARBURST[1:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_ARBURST[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/M_AXI_ARLOCK" type="logic">
+      <obj_property name="ElementShortName">M_AXI_ARLOCK</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_ARLOCK</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/M_AXI_ARCACHE" type="array">
+      <obj_property name="ElementShortName">M_AXI_ARCACHE[3:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_ARCACHE[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/M_AXI_ARPROT" type="array">
+      <obj_property name="ElementShortName">M_AXI_ARPROT[2:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_ARPROT[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/M_AXI_ARQOS" type="array">
+      <obj_property name="ElementShortName">M_AXI_ARQOS[3:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_ARQOS[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/M_AXI_ARUSER" type="array">
+      <obj_property name="ElementShortName">M_AXI_ARUSER[0:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_ARUSER[0:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/M_AXI_ARVALID" type="logic">
+      <obj_property name="ElementShortName">M_AXI_ARVALID</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_ARVALID</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/M_AXI_ARREADY" type="logic">
+      <obj_property name="ElementShortName">M_AXI_ARREADY</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_ARREADY</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/M_AXI_RID" type="array">
+      <obj_property name="ElementShortName">M_AXI_RID[0:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_RID[0:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/M_AXI_RDATA" type="array">
+      <obj_property name="ElementShortName">M_AXI_RDATA[31:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_RDATA[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/M_AXI_RRESP" type="array">
+      <obj_property name="ElementShortName">M_AXI_RRESP[1:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_RRESP[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/M_AXI_RLAST" type="logic">
+      <obj_property name="ElementShortName">M_AXI_RLAST</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_RLAST</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/M_AXI_RUSER" type="array">
+      <obj_property name="ElementShortName">M_AXI_RUSER[0:0]</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_RUSER[0:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/M_AXI_RVALID" type="logic">
+      <obj_property name="ElementShortName">M_AXI_RVALID</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_RVALID</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/M_AXI_RREADY" type="logic">
+      <obj_property name="ElementShortName">M_AXI_RREADY</obj_property>
+      <obj_property name="ObjectShortName">M_AXI_RREADY</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/current_state" type="other">
+      <obj_property name="ElementShortName">current_state</obj_property>
+      <obj_property name="ObjectShortName">current_state</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/next_state" type="other">
+      <obj_property name="ElementShortName">next_state</obj_property>
+      <obj_property name="ObjectShortName">next_state</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/axi_awaddr" type="array">
+      <obj_property name="ElementShortName">axi_awaddr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_awaddr[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/axi_awsize" type="array">
+      <obj_property name="ElementShortName">axi_awsize[2:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_awsize[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/axi_awlen" type="array">
+      <obj_property name="ElementShortName">axi_awlen[7:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_awlen[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/axi_awvalid" type="logic">
+      <obj_property name="ElementShortName">axi_awvalid</obj_property>
+      <obj_property name="ObjectShortName">axi_awvalid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/axi_wdata" type="array">
+      <obj_property name="ElementShortName">axi_wdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_wdata[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/axi_wlast" type="logic">
+      <obj_property name="ElementShortName">axi_wlast</obj_property>
+      <obj_property name="ObjectShortName">axi_wlast</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/axi_wvalid" type="logic">
+      <obj_property name="ElementShortName">axi_wvalid</obj_property>
+      <obj_property name="ObjectShortName">axi_wvalid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/axi_wstrb" type="array">
+      <obj_property name="ElementShortName">axi_wstrb[3:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_wstrb[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/axi_bready" type="logic">
+      <obj_property name="ElementShortName">axi_bready</obj_property>
+      <obj_property name="ObjectShortName">axi_bready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/axi_arsize" type="array">
+      <obj_property name="ElementShortName">axi_arsize[2:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_arsize[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/axi_araddr" type="array">
+      <obj_property name="ElementShortName">axi_araddr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_araddr[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/axi_arlen" type="array">
+      <obj_property name="ElementShortName">axi_arlen[7:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_arlen[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/axi_arvalid" type="logic">
+      <obj_property name="ElementShortName">axi_arvalid</obj_property>
+      <obj_property name="ObjectShortName">axi_arvalid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/axi_rready" type="logic">
+      <obj_property name="ElementShortName">axi_rready</obj_property>
+      <obj_property name="ObjectShortName">axi_rready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/write_beat_counter" type="array">
+      <obj_property name="ElementShortName">write_beat_counter[8:0]</obj_property>
+      <obj_property name="ObjectShortName">write_beat_counter[8:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/read_beat_counter" type="array">
+      <obj_property name="ElementShortName">read_beat_counter[7:0]</obj_property>
+      <obj_property name="ObjectShortName">read_beat_counter[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/address_counter" type="array">
+      <obj_property name="ElementShortName">address_counter[31:0]</obj_property>
+      <obj_property name="ObjectShortName">address_counter[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/data_counter" type="array">
+      <obj_property name="ElementShortName">data_counter[31:0]</obj_property>
+      <obj_property name="ObjectShortName">data_counter[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/iteration_counter" type="array">
+      <obj_property name="ElementShortName">iteration_counter[31:0]</obj_property>
+      <obj_property name="ObjectShortName">iteration_counter[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/fsm_state" type="array">
+      <obj_property name="ElementShortName">fsm_state[3:0]</obj_property>
+      <obj_property name="ObjectShortName">fsm_state[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/data_written" type="logic">
+      <obj_property name="ElementShortName">data_written</obj_property>
+      <obj_property name="ObjectShortName">data_written</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/error_detected" type="logic">
+      <obj_property name="ElementShortName">error_detected</obj_property>
+      <obj_property name="ObjectShortName">error_detected</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/data_read" type="logic">
+      <obj_property name="ElementShortName">data_read</obj_property>
+      <obj_property name="ObjectShortName">data_read</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/C_M_TARGET_SLAVE_BASE_ADDR" type="array">
+      <obj_property name="ElementShortName">C_M_TARGET_SLAVE_BASE_ADDR[0:31]</obj_property>
+      <obj_property name="ObjectShortName">C_M_TARGET_SLAVE_BASE_ADDR[0:31]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/C_M_AXI_BURST_LEN" type="other">
+      <obj_property name="ElementShortName">C_M_AXI_BURST_LEN</obj_property>
+      <obj_property name="ObjectShortName">C_M_AXI_BURST_LEN</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/C_M_AXI_ID_WIDTH" type="other">
+      <obj_property name="ElementShortName">C_M_AXI_ID_WIDTH</obj_property>
+      <obj_property name="ObjectShortName">C_M_AXI_ID_WIDTH</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/C_M_AXI_ADDR_WIDTH" type="other">
+      <obj_property name="ElementShortName">C_M_AXI_ADDR_WIDTH</obj_property>
+      <obj_property name="ObjectShortName">C_M_AXI_ADDR_WIDTH</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/C_M_AXI_DATA_WIDTH" type="other">
+      <obj_property name="ElementShortName">C_M_AXI_DATA_WIDTH</obj_property>
+      <obj_property name="ObjectShortName">C_M_AXI_DATA_WIDTH</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/C_M_AXI_AWUSER_WIDTH" type="other">
+      <obj_property name="ElementShortName">C_M_AXI_AWUSER_WIDTH</obj_property>
+      <obj_property name="ObjectShortName">C_M_AXI_AWUSER_WIDTH</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/C_M_AXI_ARUSER_WIDTH" type="other">
+      <obj_property name="ElementShortName">C_M_AXI_ARUSER_WIDTH</obj_property>
+      <obj_property name="ObjectShortName">C_M_AXI_ARUSER_WIDTH</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/C_M_AXI_WUSER_WIDTH" type="other">
+      <obj_property name="ElementShortName">C_M_AXI_WUSER_WIDTH</obj_property>
+      <obj_property name="ObjectShortName">C_M_AXI_WUSER_WIDTH</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/C_M_AXI_RUSER_WIDTH" type="other">
+      <obj_property name="ElementShortName">C_M_AXI_RUSER_WIDTH</obj_property>
+      <obj_property name="ObjectShortName">C_M_AXI_RUSER_WIDTH</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/C_M_AXI_BUSER_WIDTH" type="other">
+      <obj_property name="ElementShortName">C_M_AXI_BUSER_WIDTH</obj_property>
+      <obj_property name="ObjectShortName">C_M_AXI_BUSER_WIDTH</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/c_iterations" type="other">
+      <obj_property name="ElementShortName">c_iterations</obj_property>
+      <obj_property name="ObjectShortName">c_iterations</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/c_iterations_sim" type="other">
+      <obj_property name="ElementShortName">c_iterations_sim</obj_property>
+      <obj_property name="ObjectShortName">c_iterations_sim</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DDR3_sim_test/uut/DDR3_sim_i/memory_tester_0/U0/memory_tester_v1_0_M00_AXI_inst/c_base_address" type="array">
+      <obj_property name="ElementShortName">c_base_address[31:0]</obj_property>
+      <obj_property name="ObjectShortName">c_base_address[31:0]</obj_property>
+   </wvobject>
+</wave_config>

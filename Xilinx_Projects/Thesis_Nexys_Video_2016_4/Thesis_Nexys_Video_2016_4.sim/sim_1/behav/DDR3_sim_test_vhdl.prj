@@ -1,0 +1,14 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  "../../../Thesis_Nexys_Video_2016_4.ip_user_files/bd/DDR3_sim/ipshared/de76/hdl/memory_tester_v1_0_S00_AXI.vhd"
+vhdl xil_defaultlib  "../../../Thesis_Nexys_Video_2016_4.ip_user_files/bd/DDR3_sim/ipshared/de76/hdl/memory_tester_v1_0_M00_AXI.vhd"
+vhdl xil_defaultlib  "../../../Thesis_Nexys_Video_2016_4.ip_user_files/bd/DDR3_sim/ipshared/de76/hdl/memory_tester_v1_0.vhd"
+vhdl xil_defaultlib  "../../../Thesis_Nexys_Video_2016_4.ip_user_files/bd/DDR3_sim/ip/DDR3_sim_memory_tester_0_0/sim/DDR3_sim_memory_tester_0_0.vhd"
+vhdl xil_defaultlib  "../../../Thesis_Nexys_Video_2016_4.ip_user_files/bd/DDR3_sim/ip/DDR3_sim_axi_bram_ctrl_0_0/sim/DDR3_sim_axi_bram_ctrl_0_0.vhd"
+vhdl xil_defaultlib  "../../../Thesis_Nexys_Video_2016_4.ip_user_files/bd/DDR3_sim/ip/DDR3_sim_rst_clk_wiz_0_100M_0/sim/DDR3_sim_rst_clk_wiz_0_100M_0.vhd"
+vhdl fifo_generator_v13_1_3  "../../../Thesis_Nexys_Video_2016_4.srcs/sources_1/bd/DDR3_sim/ipshared/564d/hdl/fifo_generator_v13_1_rfs.vhd"
+vhdl xil_defaultlib  "../../../Thesis_Nexys_Video_2016_4.ip_user_files/bd/DDR3_sim/hdl/DDR3_sim.vhd"
+vhdl xil_defaultlib  "../../../Thesis_Nexys_Video_2016_4.srcs/sources_1/bd/DDR3_sim/hdl/DDR3_sim_wrapper.vhd"
+vhdl xil_defaultlib  "../../../Thesis_Nexys_Video_2016_4.srcs/sim_1/new/DDR3_sim_test.vhd"
+
+# Do not sort compile order
+nosort

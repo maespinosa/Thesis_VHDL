@@ -1,0 +1,156 @@
+{
+   guistr: "# # String gsaved with Nlview 6.6.5b  2016-09-06 bk=1.3687 VDI=39 GEI=35 GUI=JA:1.6
+#  -string -flagsOSRD
+preplace port i_sys_clk -pg 1 -y 400 -defaultsOSRD
+preplace port busy -pg 1 -y 1330 -defaultsOSRD
+preplace port DDR3 -pg 1 -y 1410 -defaultsOSRD
+preplace port o_softmax_complete -pg 1 -y 2770 -defaultsOSRD
+preplace port i_trigger -pg 1 -y 1340 -defaultsOSRD
+preplace port i_reset_n -pg 1 -y 180 -defaultsOSRD
+preplace inst Softmax_Tester_0_axi_periph -pg 1 -lvl 4 -y 1380 -defaultsOSRD
+preplace inst rst_clk_wiz_0_100M -pg 1 -lvl 2 -y 290 -defaultsOSRD
+preplace inst rst_mig_7series_0_100M -pg 1 -lvl 4 -y 100 -defaultsOSRD
+preplace inst xlconstant_0 -pg 1 -lvl 6 -y 2530 -defaultsOSRD
+preplace inst mig_7series_0 -pg 1 -lvl 7 -y 1450 -defaultsOSRD
+preplace inst Softmax_Layer_32bit_0 -pg 1 -lvl 5 -y 1420 -defaultsOSRD
+preplace inst Softmax_Tester_0 -pg 1 -lvl 3 -y 1340 -defaultsOSRD
+preplace inst ila_0 -pg 1 -lvl 7 -y 670 -defaultsOSRD
+preplace inst ila_1 -pg 1 -lvl 7 -y 2160 -defaultsOSRD
+preplace inst clk_wiz_0 -pg 1 -lvl 1 -y 390 -defaultsOSRD
+preplace inst axi_mem_intercon -pg 1 -lvl 6 -y 1170 -defaultsOSRD
+preplace netloc Softmax_Layer_32bit_0_ila_smax_aw_sum_result_valid 1 5 2 1880J 620 N
+preplace netloc mig_7series_0_DDR3 1 7 1 NJ
+preplace netloc Softmax_Layer_32bit_0_ila_smax_outbuff_almost_empty 1 5 2 NJ 1600 3540
+preplace netloc Softmax_Layer_32bit_0_ila_smax_exp_hold_counter 1 5 2 1740J 180 N
+preplace netloc rst_mig_7series_0_100M_interconnect_aresetn 1 4 2 N 120 1900J
+preplace netloc Softmax_Layer_32bit_0_ila_smax_outbuff_valid 1 5 2 NJ 1620 3530
+preplace netloc Softmax_Layer_32bit_0_ila_smax_inbuff_empty 1 5 2 NJ 1400 3430
+preplace netloc Softmax_Layer_32bit_0_ila_smax_exp_fsm_state 1 5 2 NJ 320 3170
+preplace netloc Softmax_Layer_32bit_0_ila_smax_exp_valid_result 1 5 2 1680J 100 N
+preplace netloc Softmax_Layer_32bit_0_ila_smax_data_loaded 1 5 2 NJ 2420 3010
+preplace netloc Softmax_Layer_32bit_0_ila_smax_row_counter 1 5 2 NJ 2300 3070
+preplace netloc Softmax_Layer_32bit_0_ila_smax_exp_fifo_almost_full 1 5 2 NJ 1740 3460
+preplace netloc Softmax_Layer_32bit_0_ila_smax_aw_sum_counter 1 5 2 1870J 580 N
+preplace netloc Softmax_Layer_32bit_0_ila_smax_outbuff_full 1 5 2 NJ 1540 3240
+preplace netloc Softmax_Layer_32bit_0_ila_smax_inbuff_valid 1 5 2 NJ 1440 2980
+preplace netloc Softmax_Layer_32bit_0_ila_smax_exp_multiplication_counter 1 5 2 1730J 160 N
+preplace netloc Softmax_Layer_32bit_0_ila_smax_axi_arready 1 5 2 NJ 2120 3160
+preplace netloc Softmax_Layer_32bit_0_ila_smax_axi_awlen 1 5 2 NJ 1860 3380
+preplace netloc Softmax_Layer_32bit_0_ila_smax_ctrlr_softmax_complete 1 5 2 2050J 980 N
+preplace netloc Softmax_Layer_32bit_0_ila_smax_exp_fifo_almost_empty 1 5 2 NJ 1780 3430
+preplace netloc Softmax_Layer_32bit_0_ila_smax_exp_data_reg 1 5 2 1790J 340 N
+preplace netloc Softmax_Layer_32bit_0_ila_smax_aw_hold_counter 1 5 2 NJ 800 3210
+preplace netloc Softmax_Layer_32bit_0_ila_smax_inbuff_full 1 5 2 NJ 1360 3370
+preplace netloc Softmax_Layer_32bit_0_ila_smax_ctrlr_exp_input_valid 1 5 2 2000J 880 N
+preplace netloc Softmax_Layer_32bit_0_ila_smax_dw_quotient_result_valid 1 5 2 1980J 820 N
+preplace netloc Softmax_Layer_32bit_0_ila_smax_dw_quotient 1 5 2 1940J 700 N
+preplace netloc Softmax_Layer_32bit_0_ila_smax_aw_fsm_state 1 5 2 NJ 680 3220
+preplace netloc Softmax_Layer_32bit_0_ila_smax_input_data_addr_reg 1 5 2 NJ 2260 3090
+preplace netloc Softmax_Layer_32bit_0_ila_smax_outbuff_empty 1 5 2 NJ 1580 3190
+preplace netloc Softmax_Layer_32bit_0_ila_smax_outbuff_dout 1 5 2 NJ 1520 3260
+preplace netloc Softmax_Layer_32bit_0_ila_smax_inbuff_rd_en 1 5 2 NJ 1320 3350
+preplace netloc Softmax_Layer_32bit_0_ila_smax_exp_sum 1 5 2 NJ 560 3180
+preplace netloc Softmax_Layer_32bit_0_ila_smax_ctrlr_fsm_state 1 5 2 1680J 2720 3390
+preplace netloc Softmax_Layer_32bit_0_ila_smax_dw_divisor 1 5 2 1920J 660 N
+preplace netloc Softmax_Layer_32bit_0_ila_smax_reads_remaining 1 5 2 NJ 2360 3040
+preplace netloc Softmax_Layer_32bit_0_ila_smax_dw_division_reg 1 5 2 NJ 1040 3300
+preplace netloc Softmax_Layer_32bit_0_ila_smax_exp_fifo_data 1 5 2 1800J 380 N
+preplace netloc mig_7series_0_mmcm_locked 1 3 5 860 10 NJ 10 NJ 10 NJ 10 3870
+preplace netloc Softmax_Layer_32bit_0_ila_smax_axi_arvalid 1 5 2 NJ 2080 3200
+preplace netloc Softmax_Layer_32bit_0_ila_smax_inbuff_wr_en 1 5 2 NJ 1300 3340
+preplace netloc Softmax_Layer_32bit_0_ila_smax_ctrlr_exp_fifo_select 1 5 2 2020J 920 N
+preplace netloc Softmax_Layer_32bit_0_ila_smax_wbc 1 5 2 NJ 2200 3120
+preplace netloc Softmax_Layer_32bit_0_ila_smax_exp_augend 1 5 2 1780J 280 N
+preplace netloc Softmax_Layer_32bit_0_ila_smax_exp_fifo_wr_en 1 5 2 1810J 400 N
+preplace netloc Softmax_Layer_32bit_0_ila_smax_exp_mult_reg 1 5 2 NJ 600 3190
+preplace netloc Softmax_Layer_32bit_0_ila_smax_master_fsm_state 1 5 2 NJ 2460 2970
+preplace netloc Softmax_Layer_32bit_0_ila_smax_axi_araddr 1 5 2 NJ 2040 3250
+preplace netloc mig_7series_0_ui_clk_sync_rst 1 3 5 870 190 NJ 190 NJ 190 3570J 1340 3850
+preplace netloc Softmax_Layer_32bit_0_ila_smax_axi_rvalid 1 5 2 NJ 2180 3130
+preplace netloc rst_mig_7series_0_100M_peripheral_aresetn 1 4 3 1220 140 1700 1370 3520J
+preplace netloc Softmax_Layer_32bit_0_ila_smax_dw_division_complete 1 5 2 1960J 740 N
+preplace netloc Softmax_Layer_32bit_0_ila_smax_dw_rd_en 1 5 2 1950J 720 N
+preplace netloc Softmax_Layer_32bit_0_ila_smax_axi_awready 1 5 2 NJ 1840 3400
+preplace netloc Softmax_Layer_32bit_0_ila_smax_exp_fifo_full 1 5 2 NJ 1720 3480
+preplace netloc Softmax_Layer_32bit_0_ila_smax_inbuff_dout 1 5 2 NJ 1340 3360
+preplace netloc Softmax_Layer_32bit_0_ila_smax_outbuff_wr_en 1 5 2 NJ 1480 3300
+preplace netloc Softmax_Layer_32bit_0_ila_smax_ctrlr_clear_all 1 5 2 2060J 1000 N
+preplace netloc mig_7series_0_init_calib_complete 1 2 6 540 210 NJ 210 NJ 210 NJ 210 3540J 1350 3860
+preplace netloc Softmax_Layer_32bit_0_ila_smax_axi_bvalid 1 5 2 NJ 2020 3270
+preplace netloc Softmax_Layer_32bit_0_ila_smax_axi_wstrb 1 5 2 NJ 1980 3310
+preplace netloc Softmax_Layer_32bit_0_ila_smax_rbc 1 5 2 NJ 2220 3110
+preplace netloc Softmax_Layer_32bit_0_ila_smax_axi_arlen 1 5 2 NJ 2060 3230
+preplace netloc Softmax_Layer_32bit_0_M00_AXI 1 5 1 1710
+preplace netloc Softmax_Layer_32bit_0_ila_smax_axi_rdata 1 5 2 NJ 2140 3150
+preplace netloc Softmax_Layer_32bit_0_ila_smax_aw_sum_reg 1 5 2 NJ 840 3260
+preplace netloc Softmax_Layer_32bit_0_ila_smax_axi_wready 1 5 2 NJ 1920 3350
+preplace netloc Softmax_Layer_32bit_0_ila_smax_dw_dividend 1 5 2 1930J 690 3240
+preplace netloc Softmax_Layer_32bit_0_ila_smax_writes_remaining 1 5 2 NJ 2340 3050
+preplace netloc Softmax_Layer_32bit_0_ila_smax_num_elements 1 5 2 NJ 2240 3100
+preplace netloc Softmax_Layer_32bit_0_ila_smax_exp_function_ready 1 5 2 NJ 360 3060
+preplace netloc Softmax_Layer_32bit_0_ila_smax_more_bursts_needed 1 5 2 NJ 2400 3020
+preplace netloc Softmax_Layer_32bit_0_ila_smax_exp_mux_wr_en 1 5 2 NJ 1660 3510
+preplace netloc Softmax_Layer_32bit_0_ila_smax_aw_sum 1 5 2 1850J 500 N
+preplace netloc Softmax_Layer_32bit_0_ila_smax_dw_hold_counter 1 5 2 1970J 760 N
+preplace netloc Softmax_Layer_32bit_0_ila_smax_outbuff_almost_full 1 5 2 NJ 1560 3210
+preplace netloc Softmax_Layer_32bit_0_ila_smax_inbuff_almost_empty 1 5 2 NJ 1420 3440
+preplace netloc Softmax_Layer_32bit_0_ila_smax_dw_quotient_counter 1 5 2 NJ 1020 3280
+preplace netloc Softmax_Layer_32bit_0_ila_smax_aw_summing_complete 1 5 2 NJ 780 3200
+preplace netloc Softmax_Layer_32bit_0_ila_smax_ctrlr_exp_input 1 5 2 1990J 860 N
+preplace netloc clk_wiz_0_locked 1 1 1 210
+preplace netloc Softmax_Layer_32bit_0_ila_smax_axi_rready 1 5 2 NJ 2100 3180
+preplace netloc Softmax_Layer_32bit_0_ila_smax_axi_bready 1 5 2 NJ 2000 3290
+preplace netloc Softmax_Layer_32bit_0_ila_smax_axi_awvalid 1 5 2 NJ 1880 3370
+preplace netloc Softmax_Layer_32bit_0_ila_smax_output_data_addr_reg 1 5 2 NJ 2280 3080
+preplace netloc Softmax_Layer_32bit_0_ila_smax_axi_awaddr 1 5 2 NJ 1820 3410
+preplace netloc Softmax_Layer_32bit_0_ila_smax_exp_fifo_rd_en 1 5 2 NJ 1680 3500
+preplace netloc Softmax_Layer_32bit_0_ila_smax_outbuff_rd_en 1 5 2 NJ 1500 3280
+preplace netloc Softmax_Layer_32bit_0_ila_smax_exp_multiplicand_a 1 5 2 1750J 220 N
+preplace netloc Softmax_Layer_32bit_0_ila_smax_aw_augend 1 5 2 1840J 480 N
+preplace netloc Softmax_Tester_0_M00_AXI 1 3 1 N
+preplace netloc Softmax_Layer_32bit_0_ila_smax_class_counter 1 5 2 NJ 2440 2990
+preplace netloc Softmax_Layer_32bit_0_ila_smax_inbuff_almost_full 1 5 2 NJ 1380 3380
+preplace netloc Softmax_Layer_32bit_0_ila_smax_exp_multiplicand_b 1 5 2 1760J 240 N
+preplace netloc Softmax_Layer_32bit_0_ila_smax_inbuff_din 1 5 2 2070J 1030 3560
+preplace netloc Softmax_Layer_32bit_0_ila_smax_exp_sum_counter 1 5 2 NJ 440 3150
+preplace netloc Softmax_Layer_32bit_0_ila_smax_calculated 1 5 2 NJ 2380 3030
+preplace netloc Softmax_Layer_32bit_0_ila_smax_exp_exp_done 1 5 2 1820J 420 N
+preplace netloc Softmax_Layer_32bit_0_ila_smax_exp_fifo_valid 1 5 2 NJ 1800 3420
+preplace netloc Softmax_Layer_32bit_0_ila_smax_exp_fifo_empty 1 5 2 NJ 1760 3440
+preplace netloc Softmax_Layer_32bit_0_ila_smax_exp_mux_data 1 5 2 NJ 1640 3520
+preplace netloc Softmax_Layer_32bit_0_ila_smax_outbuff_din 1 5 2 NJ 1460 2980
+preplace netloc mig_7series_0_ui_clk 1 3 5 850 230 1210 230 1910 230 3550 1550 3850
+preplace netloc Softmax_Layer_32bit_0_ila_smax_exp_addend 1 5 2 NJ 540 3160
+preplace netloc Softmax_Layer_32bit_0_ila_smax_aw_addend 1 5 2 1830J 460 N
+preplace netloc Softmax_Layer_32bit_0_ila_smax_exp_fifo_dout 1 5 2 NJ 1700 3490
+preplace netloc clk_wiz_0_clk_out1 1 1 6 190 2610 540 2610 870 2610 1230 2610 NJ 2610 3470
+preplace netloc Softmax_Layer_32bit_0_ila_smax_exp_product 1 5 2 1770J 260 N
+preplace netloc Softmax_Layer_32bit_0_ila_smax_axi_rlast 1 5 2 NJ 2160 3140
+preplace netloc Softmax_Layer_32bit_0_ila_smax_axi_wdata 1 5 2 NJ 1900 3360
+preplace netloc rst_clk_wiz_0_100M_interconnect_aresetn 1 2 2 NJ 310 850
+preplace netloc clk_wiz_0_clk_out2 1 1 6 180J 200 NJ 200 NJ 200 NJ 200 NJ 200 3140
+preplace netloc Softmax_Layer_32bit_0_ila_smax_ctrlr_element_counter 1 5 2 2040J 960 N
+preplace netloc Softmax_Tester_0_axi_periph_M00_AXI 1 4 1 N
+preplace netloc Softmax_Layer_32bit_0_ila_smax_channel_counter 1 5 2 NJ 2320 3060
+preplace netloc Softmax_Layer_32bit_0_ila_smax_axi_wvalid 1 5 2 NJ 1960 3330
+preplace netloc Softmax_Layer_32bit_0_ila_smax_ctrlr_controller_ready 1 5 2 2010J 900 N
+preplace netloc xlconstant_0_dout 1 6 1 3450J
+preplace netloc axi_mem_intercon_M00_AXI 1 6 1 3530
+preplace netloc Softmax_Layer_32bit_0_o_softmax_complete 1 2 6 550 2770 NJ 2770 NJ 2770 1670 2770 3570 2770 NJ
+preplace netloc Softmax_Layer_32bit_0_ila_smax_aw_rd_en 1 5 2 1860J 520 N
+preplace netloc clk_in1_1 1 0 1 NJ
+preplace netloc Softmax_Layer_32bit_0_ila_smax_exp_step_counter 1 5 2 1720J 140 N
+preplace netloc Softmax_Layer_32bit_0_ila_smax_axi_wlast 1 5 2 NJ 1940 3340
+preplace netloc Softmax_Layer_32bit_0_ila_smax_ctrlr_busy 1 5 3 1690J 1330 3420 1330 NJ
+preplace netloc reset_1 1 0 7 20 2620 200 2620 NJ 2620 NJ 2620 NJ 2620 NJ 2620 3000
+preplace netloc Softmax_Layer_32bit_0_ila_smax_ctrlr_exp_complete 1 5 2 2030J 940 N
+preplace netloc Softmax_Layer_32bit_0_ila_smax_dw_fsm_state 1 5 2 1890J 640 3320
+preplace netloc rst_clk_wiz_0_100M_peripheral_aresetn 1 2 3 530 330 860 330 1200J
+preplace netloc i_trigger_1 1 0 3 NJ 1340 NJ 1340 NJ
+levelinfo -pg 1 0 100 370 700 1040 1460 2840 3710 3900 -top 0 -bot 2790
+",
+}
+{
+   da_axi4_cnt: "2",
+   da_board_cnt: "2",
+}

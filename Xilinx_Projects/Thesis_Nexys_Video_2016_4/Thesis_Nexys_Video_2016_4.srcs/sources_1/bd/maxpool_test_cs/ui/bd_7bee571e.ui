@@ -1,0 +1,126 @@
+{
+   guistr: "# # String gsaved with Nlview 6.6.5b  2016-09-06 bk=1.3687 VDI=39 GEI=35 GUI=JA:1.6
+#  -string -flagsOSRD
+preplace port i_sys_clk -pg 1 -y 830 -defaultsOSRD
+preplace port busy -pg 1 -y 10 -defaultsOSRD
+preplace port trigger -pg 1 -y 1870 -defaultsOSRD
+preplace port DDR3 -pg 1 -y 2000 -defaultsOSRD
+preplace port o_pooling_complete -pg 1 -y 1600 -defaultsOSRD
+preplace port i_reset_n -pg 1 -y 2240 -defaultsOSRD
+preplace inst Maxpool_Layer_32bit_0 -pg 1 -lvl 5 -y 870 -defaultsOSRD
+preplace inst rst_clk_wiz_0_100M -pg 1 -lvl 2 -y 690 -defaultsOSRD
+preplace inst rst_mig_7series_0_100M -pg 1 -lvl 4 -y 1970 -defaultsOSRD
+preplace inst Maxpool_Tester_0 -pg 1 -lvl 3 -y 790 -defaultsOSRD
+preplace inst mig_7series_0 -pg 1 -lvl 7 -y 2040 -defaultsOSRD
+preplace inst xlconstant_1 -pg 1 -lvl 6 -y 2170 -defaultsOSRD
+preplace inst ila_0 -pg 1 -lvl 7 -y 740 -defaultsOSRD
+preplace inst ila_1 -pg 1 -lvl 6 -y 1580 -defaultsOSRD
+preplace inst ila_2 -pg 1 -lvl 6 -y 1260 -defaultsOSRD
+preplace inst clk_wiz_0 -pg 1 -lvl 1 -y 820 -defaultsOSRD
+preplace inst ila_3 -pg 1 -lvl 4 -y 610 -defaultsOSRD
+preplace inst Maxpool_Tester_0_axi_periph -pg 1 -lvl 4 -y 830 -defaultsOSRD
+preplace inst axi_mem_intercon -pg 1 -lvl 6 -y 1990 -defaultsOSRD
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_m_axi_arvalid 1 5 1 N
+preplace netloc mig_7series_0_DDR3 1 7 1 NJ
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_m_axi_araddr 1 5 1 N
+preplace netloc rst_mig_7series_0_100M_interconnect_aresetn 1 4 2 N 1990 1660J
+preplace netloc trigger_1 1 0 7 20J 1100 NJ 1100 540 1100 NJ 1100 NJ 1100 NJ 1100 2660J
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_inbuff_full 1 6 1 NJ
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_PR1_almost_full 1 6 1 NJ
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_m_axi_wvalid 1 5 1 N
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_PR2_empty 1 6 1 NJ
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_m_axi_bready 1 5 1 N
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_inbuff_valid 1 6 1 NJ
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_outbuff_almost_empty 1 6 1 NJ
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_PR1_almost_empty 1 6 1 NJ
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_PR1_full 1 6 1 NJ
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_outbuff_full 1 6 1 NJ
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_m_axi_rlast 1 5 1 N
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_sorter_fsm_state 1 6 1 NJ
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_PR0_almost_full 1 6 1 NJ
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_PR1_wr_en 1 6 1 NJ
+preplace netloc clock_rtl_1 1 0 1 NJ
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_recycle_en 1 6 1 NJ
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_PR0_full 1 6 1 NJ
+preplace netloc mig_7series_0_mmcm_locked 1 3 5 900 1870 NJ 1870 NJ 1870 NJ 1870 3350
+preplace netloc Maxpool_Tester_0_axi_periph_M00_AXI 1 3 2 900 670 1230
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_prime_PR2_en 1 6 1 NJ
+preplace netloc Maxpool_Layer_32bit_0_o_pooling_complete 1 5 3 N 850 2630 1600 NJ
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_busy 1 6 2 2660J 10 NJ
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_m_axi_wstrb 1 5 1 N
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_m_axi_awsize 1 5 2 1720 1170 2590J
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_column_counter 1 6 1 NJ
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_m_axi_awvalid 1 5 2 1740 1180 2560J
+preplace netloc mig_7series_0_ui_clk_sync_rst 1 3 5 910 2120 NJ 2120 NJ 2120 2630J 1940 3340
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_PR1_empty 1 6 1 NJ
+preplace netloc rst_mig_7series_0_100M_peripheral_aresetn 1 4 3 1270 2010 1640 2110 2650J
+preplace netloc xlconstant_1_dout 1 6 1 2660J
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_m_axi_wready 1 5 1 N
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_m_axi_arlen 1 5 1 N
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_outbuff_rd_en 1 6 1 NJ
+preplace netloc Maxpool_Layer_32bit_0_M00_AXI 1 5 1 1640
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_channel_complete 1 6 1 NJ
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_volume_rows_processed 1 6 1 NJ
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_m_axi_wdata 1 5 2 1710 1130 2600J
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_inbuff_almost_empty 1 6 1 NJ
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_prime_PR1_en 1 6 1 NJ
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_PR2_almost_empty 1 6 1 NJ
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_m_axi_awready 1 5 2 1680 1160 2570J
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_outbuff_almost_full 1 6 1 NJ
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_PR2_almost_full 1 6 1 NJ
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_outbuff_empty 1 6 1 NJ
+preplace netloc mig_7series_0_init_calib_complete 1 2 6 560 40 NJ 40 NJ 40 NJ 40 NJ 40 3370
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_inbuff_rd_en 1 6 1 NJ
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_stride_counter 1 6 1 NJ
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_channel_counter 1 6 1 NJ
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_outbuff_valid 1 6 1 NJ
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_PR0_rd_en 1 6 1 NJ
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_row_complete 1 6 1 NJ
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_PR1_rd_en 1 6 1 NJ
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_fsm_state 1 6 1 NJ
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_PR2_full 1 6 1 NJ
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_inbuff_empty 1 6 1 NJ
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_outbuff_dout 1 6 1 NJ
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_PR2_rd_en 1 6 1 NJ
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_row_counter 1 6 1 NJ
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_m_axi_wbc 1 5 1 N
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_m_axi_rdata 1 5 1 N
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_m_axi_bvalid 1 5 1 N
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_inbuff_wr_en 1 6 1 NJ
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_m_axi_awaddr 1 5 2 1730 1200 2580J
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_third_row_activate 1 6 1 NJ
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_output_rows_generated 1 6 1 NJ
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_m_axi_rready 1 5 1 N
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_sorter_ready 1 6 1 NJ
+preplace netloc Maxpool_Tester_0_M00_AXI 1 3 1 N
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_sorter_data_valid 1 6 1 NJ
+preplace netloc clk_wiz_0_locked 1 1 6 210 1140 NJ 1140 NJ 1140 NJ 1140 NJ 1140 NJ
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_prime_PR0_en 1 6 1 NJ
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_pixel_counter 1 6 1 NJ
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_PR0_empty 1 6 1 NJ
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_inbuff_almost_full 1 6 1 NJ
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_m_axi_wlast 1 5 1 N
+preplace netloc reset_rtl_0_1 1 0 7 10 2240 200 2240 NJ 2240 NJ 2240 NJ 2240 NJ 2240 2640
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_volume_processed 1 6 1 NJ
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_m_axi_arready 1 5 1 N
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_m_axi_arsize 1 5 1 N
+preplace netloc mig_7series_0_ui_clk 1 3 5 890 100 1250 100 1670 100 2650 50 3360
+preplace netloc clk_wiz_0_clk_out1 1 1 6 190 2070 560 2070 880 2070 1260 2070 1650J 760 2610J
+preplace netloc rst_clk_wiz_0_100M_interconnect_aresetn 1 2 2 NJ 710 860
+preplace netloc clk_wiz_0_clk_out2 1 1 6 180J 530 NJ 530 NJ 530 NJ 530 NJ 530 2650
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_PR2_wr_en 1 6 1 NJ
+preplace netloc axi_mem_intercon_M00_AXI 1 6 1 N
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_output_volume_size 1 6 1 NJ
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_m_axi_awlen 1 5 2 1690 1150 2620J
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_PR0_almost_empty 1 6 1 NJ
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_m_axi_rvalid 1 5 1 N
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_master_fsm_state 1 6 1 NJ
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_PR0_wr_en 1 5 2 1700 500 NJ
+preplace netloc rst_clk_wiz_0_100M_peripheral_aresetn 1 2 3 550 690 870 690 1240J
+levelinfo -pg 1 -10 100 380 720 1070 1500 2430 3200 3410 -top -760 -bot 2550
+",
+}
+{
+   da_axi4_cnt: "7",
+   da_board_cnt: "6",
+}

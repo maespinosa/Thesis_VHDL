@@ -1,0 +1,511 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Product Version: Vivado v2016.4 (64-bit)              -->
+<!--                                                         -->
+<!-- Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.   -->
+
+<Project Version="7" Minor="17" Path="C:/Thesis_Nexys_Video_2016_4/Thesis_Nexys_Video_2016_4.xpr">
+  <DefaultLaunch Dir="$PRUNDIR"/>
+  <Configuration>
+    <Option Name="Id" Val="2687d0295b164544a50275f3b65ec98c"/>
+    <Option Name="Part" Val="xc7a200tsbg484-1"/>
+    <Option Name="CompiledLibDir" Val="$PPRDIR/../Vivado_simlib"/>
+    <Option Name="CompiledLibDirXSim" Val=""/>
+    <Option Name="CompiledLibDirModelSim" Val="$PCACHEDIR/compile_simlib/modelsim"/>
+    <Option Name="CompiledLibDirQuesta" Val="$PCACHEDIR/compile_simlib/questa"/>
+    <Option Name="CompiledLibDirIES" Val="$PCACHEDIR/compile_simlib/ies"/>
+    <Option Name="CompiledLibDirVCS" Val="$PCACHEDIR/compile_simlib/vcs"/>
+    <Option Name="CompiledLibDirRiviera" Val="$PCACHEDIR/compile_simlib/riviera"/>
+    <Option Name="CompiledLibDirActivehdl" Val="$PCACHEDIR/compile_simlib/activehdl"/>
+    <Option Name="TargetLanguage" Val="VHDL"/>
+    <Option Name="BoardPart" Val=""/>
+    <Option Name="ActiveSimSet" Val="sim_1"/>
+    <Option Name="DefaultLib" Val="xil_defaultlib"/>
+    <Option Name="IPRepoPath" Val="$PPRDIR/../Sourcetree_Local/Thesis_VHDL/Xilinx_Projects/ip_repo"/>
+    <Option Name="IPOutputRepo" Val="$PCACHEDIR/ip"/>
+    <Option Name="IPCachePermission" Val="read"/>
+    <Option Name="IPCachePermission" Val="write"/>
+    <Option Name="EnableCoreContainer" Val="FALSE"/>
+    <Option Name="CreateRefXciForCoreContainers" Val="FALSE"/>
+    <Option Name="IPUserFilesDir" Val="$PPRDIR/Thesis_Nexys_Video_2016_4.ip_user_files"/>
+    <Option Name="IPStaticSourceDir" Val="$PPRDIR/Thesis_Nexys_Video_2016_4.ip_user_files/ipstatic"/>
+    <Option Name="EnableBDX" Val="FALSE"/>
+    <Option Name="DSAVendor" Val="xilinx"/>
+    <Option Name="DSANumComputeUnits" Val="16"/>
+    <Option Name="WTXSimLaunchSim" Val="18"/>
+    <Option Name="WTModelSimLaunchSim" Val="0"/>
+    <Option Name="WTQuestaLaunchSim" Val="0"/>
+    <Option Name="WTIesLaunchSim" Val="0"/>
+    <Option Name="WTVcsLaunchSim" Val="0"/>
+    <Option Name="WTRivieraLaunchSim" Val="0"/>
+    <Option Name="WTActivehdlLaunchSim" Val="0"/>
+    <Option Name="WTXSimExportSim" Val="61"/>
+    <Option Name="WTModelSimExportSim" Val="70"/>
+    <Option Name="WTQuestaExportSim" Val="60"/>
+    <Option Name="WTIesExportSim" Val="60"/>
+    <Option Name="WTVcsExportSim" Val="60"/>
+    <Option Name="WTRivieraExportSim" Val="60"/>
+    <Option Name="WTActivehdlExportSim" Val="60"/>
+    <Option Name="GenerateIPUpgradeLog" Val="TRUE"/>
+    <Option Name="XSimRadix" Val="hex"/>
+    <Option Name="XSimTimeUnit" Val="ns"/>
+    <Option Name="XSimArrayDisplayLimit" Val="64"/>
+    <Option Name="XSimTraceLimit" Val="65536"/>
+  </Configuration>
+  <FileSets Version="1" Minor="31">
+    <FileSet Name="sources_1" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
+      <Filter Type="Srcs"/>
+      <File Path="$PSRCDIR/sources_1/bd/final_accelerator/final_accelerator.bd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+        <CompFileExtendedInfo CompFileName="final_accelerator.bd" FileRelPathName="ip/final_accelerator_xadc_wiz_0_0/final_accelerator_xadc_wiz_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="final_accelerator.bd" FileRelPathName="ip/final_accelerator_axi_uartlite_0_0/final_accelerator_axi_uartlite_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="final_accelerator.bd" FileRelPathName="ip/final_accelerator_rst_clk_wiz_0_100M_1/final_accelerator_rst_clk_wiz_0_100M_1.xci"/>
+        <CompFileExtendedInfo CompFileName="final_accelerator.bd" FileRelPathName="ip/final_accelerator_mdm_1_1/final_accelerator_mdm_1_1.xci"/>
+        <CompFileExtendedInfo CompFileName="final_accelerator.bd" FileRelPathName="ip/final_accelerator_microblaze_0_axi_intc_1/final_accelerator_microblaze_0_axi_intc_1.xci"/>
+        <CompFileExtendedInfo CompFileName="final_accelerator.bd" FileRelPathName="ip/final_accelerator_microblaze_0_axi_periph_1/final_accelerator_microblaze_0_axi_periph_1.xci"/>
+        <CompFileExtendedInfo CompFileName="final_accelerator.bd" FileRelPathName="ip/final_accelerator_lmb_bram_1/final_accelerator_lmb_bram_1.xci"/>
+        <CompFileExtendedInfo CompFileName="final_accelerator.bd" FileRelPathName="ip/final_accelerator_axi_mem_intercon_1/final_accelerator_axi_mem_intercon_1.xci"/>
+        <CompFileExtendedInfo CompFileName="final_accelerator.bd" FileRelPathName="ip/final_accelerator_xbar_0/final_accelerator_xbar_0.xci"/>
+        <CompFileExtendedInfo CompFileName="final_accelerator.bd" FileRelPathName="ip/final_accelerator_dlmb_bram_if_cntlr_1/final_accelerator_dlmb_bram_if_cntlr_1.xci"/>
+        <CompFileExtendedInfo CompFileName="final_accelerator.bd" FileRelPathName="ip/final_accelerator_ilmb_v10_1/final_accelerator_ilmb_v10_1.xci"/>
+        <CompFileExtendedInfo CompFileName="final_accelerator.bd" FileRelPathName="ip/final_accelerator_dlmb_v10_1/final_accelerator_dlmb_v10_1.xci"/>
+        <CompFileExtendedInfo CompFileName="final_accelerator.bd" FileRelPathName="ip/final_accelerator_microblaze_0_1/final_accelerator_microblaze_0_1.xci"/>
+        <CompFileExtendedInfo CompFileName="final_accelerator.bd" FileRelPathName="ip/final_accelerator_ilmb_bram_if_cntlr_1/final_accelerator_ilmb_bram_if_cntlr_1.xci"/>
+        <CompFileExtendedInfo CompFileName="final_accelerator.bd" FileRelPathName="ip/final_accelerator_microblaze_0_xlconcat_0/final_accelerator_microblaze_0_xlconcat_0.xci"/>
+        <CompFileExtendedInfo CompFileName="final_accelerator.bd" FileRelPathName="ip/final_accelerator_mig_7series_0_0/final_accelerator_mig_7series_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="final_accelerator.bd" FileRelPathName="ip/final_accelerator_VGA_IF_0_0/final_accelerator_VGA_IF_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="final_accelerator.bd" FileRelPathName="ip/final_accelerator_Maxpool_Layer_32bit_0_0/final_accelerator_Maxpool_Layer_32bit_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="final_accelerator.bd" FileRelPathName="ip/final_accelerator_Softmax_Layer_32bit_0_0/final_accelerator_Softmax_Layer_32bit_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="final_accelerator.bd" FileRelPathName="ip/final_accelerator_clk_wiz_0_0/final_accelerator_clk_wiz_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="final_accelerator.bd" FileRelPathName="ip/final_accelerator_Convolution_Layer_32bit_0_0/final_accelerator_Convolution_Layer_32bit_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="final_accelerator.bd" FileRelPathName="ip/final_accelerator_xbar_1/final_accelerator_xbar_1.xci"/>
+        <CompFileExtendedInfo CompFileName="final_accelerator.bd" FileRelPathName="hdl/final_accelerator.vhd"/>
+        <CompFileExtendedInfo CompFileName="final_accelerator.bd" FileRelPathName="ip/final_accelerator_rst_mig_7series_0_100M_1/final_accelerator_rst_mig_7series_0_100M_1.xci"/>
+        <CompFileExtendedInfo CompFileName="final_accelerator.bd" FileRelPathName="final_accelerator_ooc.xdc"/>
+        <CompFileExtendedInfo CompFileName="final_accelerator.bd" FileRelPathName="final_accelerator.bmm"/>
+        <CompFileExtendedInfo CompFileName="final_accelerator.bd" FileRelPathName="hw_handoff/final_accelerator_bd.tcl"/>
+        <CompFileExtendedInfo CompFileName="final_accelerator.bd" FileRelPathName="hw_handoff/final_accelerator.hwh"/>
+        <CompFileExtendedInfo CompFileName="final_accelerator.bd" FileRelPathName="hdl/final_accelerator.hwdef"/>
+        <CompFileExtendedInfo CompFileName="final_accelerator.bd" FileRelPathName="ip/final_accelerator_auto_cc_0/final_accelerator_auto_cc_0.xci"/>
+      </File>
+      <File Path="$PSRCDIR/sources_1/bd/final_accelerator/hdl/final_accelerator_wrapper.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/bd/neural_net_accel_conv_db/neural_net_accel_conv_db.bd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+        <CompFileExtendedInfo CompFileName="neural_net_accel_conv_db.bd" FileRelPathName="ip/neural_net_accel_conv_db_ilmb_v10_0/neural_net_accel_conv_db_ilmb_v10_0.xci"/>
+        <CompFileExtendedInfo CompFileName="neural_net_accel_conv_db.bd" FileRelPathName="ip/neural_net_accel_conv_db_ila_0_0/neural_net_accel_conv_db_ila_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="neural_net_accel_conv_db.bd" FileRelPathName="ip/neural_net_accel_conv_db_rst_mig_7series_0_100M_1/neural_net_accel_conv_db_rst_mig_7series_0_100M_1.xci"/>
+        <CompFileExtendedInfo CompFileName="neural_net_accel_conv_db.bd" FileRelPathName="hdl/neural_net_accel_conv_db.vhd"/>
+        <CompFileExtendedInfo CompFileName="neural_net_accel_conv_db.bd" FileRelPathName="ip/neural_net_accel_conv_db_ila_1_0/neural_net_accel_conv_db_ila_1_0.xci"/>
+        <CompFileExtendedInfo CompFileName="neural_net_accel_conv_db.bd" FileRelPathName="ip/neural_net_accel_conv_db_xlconstant_0_0/neural_net_accel_conv_db_xlconstant_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="neural_net_accel_conv_db.bd" FileRelPathName="ip/neural_net_accel_conv_db_ila_10_0/neural_net_accel_conv_db_ila_10_0.xci"/>
+        <CompFileExtendedInfo CompFileName="neural_net_accel_conv_db.bd" FileRelPathName="ip/neural_net_accel_conv_db_axi_uartlite_0_0/neural_net_accel_conv_db_axi_uartlite_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="neural_net_accel_conv_db.bd" FileRelPathName="ip/neural_net_accel_conv_db_axi_mem_intercon_0/neural_net_accel_conv_db_axi_mem_intercon_0.xci"/>
+        <CompFileExtendedInfo CompFileName="neural_net_accel_conv_db.bd" FileRelPathName="ip/neural_net_accel_conv_db_dlmb_v10_0/neural_net_accel_conv_db_dlmb_v10_0.xci"/>
+        <CompFileExtendedInfo CompFileName="neural_net_accel_conv_db.bd" FileRelPathName="ip/neural_net_accel_conv_db_xbar_1/neural_net_accel_conv_db_xbar_1.xci"/>
+        <CompFileExtendedInfo CompFileName="neural_net_accel_conv_db.bd" FileRelPathName="ip/neural_net_accel_conv_db_microblaze_0_axi_periph_0/neural_net_accel_conv_db_microblaze_0_axi_periph_0.xci"/>
+        <CompFileExtendedInfo CompFileName="neural_net_accel_conv_db.bd" FileRelPathName="ip/neural_net_accel_conv_db_mdm_1_0/neural_net_accel_conv_db_mdm_1_0.xci"/>
+        <CompFileExtendedInfo CompFileName="neural_net_accel_conv_db.bd" FileRelPathName="ip/neural_net_accel_conv_db_ila_8_0/neural_net_accel_conv_db_ila_8_0.xci"/>
+        <CompFileExtendedInfo CompFileName="neural_net_accel_conv_db.bd" FileRelPathName="ip/neural_net_accel_conv_db_ila_6_0/neural_net_accel_conv_db_ila_6_0.xci"/>
+        <CompFileExtendedInfo CompFileName="neural_net_accel_conv_db.bd" FileRelPathName="ip/neural_net_accel_conv_db_microblaze_0_axi_intc_0/neural_net_accel_conv_db_microblaze_0_axi_intc_0.xci"/>
+        <CompFileExtendedInfo CompFileName="neural_net_accel_conv_db.bd" FileRelPathName="ip/neural_net_accel_conv_db_microblaze_0_0/neural_net_accel_conv_db_microblaze_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="neural_net_accel_conv_db.bd" FileRelPathName="ip/neural_net_accel_conv_db_ila_5_0/neural_net_accel_conv_db_ila_5_0.xci"/>
+        <CompFileExtendedInfo CompFileName="neural_net_accel_conv_db.bd" FileRelPathName="ip/neural_net_accel_conv_db_clk_wiz_0_0/neural_net_accel_conv_db_clk_wiz_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="neural_net_accel_conv_db.bd" FileRelPathName="ip/neural_net_accel_conv_db_xbar_0/neural_net_accel_conv_db_xbar_0.xci"/>
+        <CompFileExtendedInfo CompFileName="neural_net_accel_conv_db.bd" FileRelPathName="ip/neural_net_accel_conv_db_Convolution_Layer_32bit_0_0/neural_net_accel_conv_db_Convolution_Layer_32bit_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="neural_net_accel_conv_db.bd" FileRelPathName="ip/neural_net_accel_conv_db_mig_7series_0_0/neural_net_accel_conv_db_mig_7series_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="neural_net_accel_conv_db.bd" FileRelPathName="ip/neural_net_accel_conv_db_xadc_wiz_0_0/neural_net_accel_conv_db_xadc_wiz_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="neural_net_accel_conv_db.bd" FileRelPathName="ip/neural_net_accel_conv_db_rst_clk_wiz_0_100M_0/neural_net_accel_conv_db_rst_clk_wiz_0_100M_0.xci"/>
+        <CompFileExtendedInfo CompFileName="neural_net_accel_conv_db.bd" FileRelPathName="ip/neural_net_accel_conv_db_microblaze_0_xlconcat_0/neural_net_accel_conv_db_microblaze_0_xlconcat_0.xci"/>
+        <CompFileExtendedInfo CompFileName="neural_net_accel_conv_db.bd" FileRelPathName="ip/neural_net_accel_conv_db_lmb_v10_0/neural_net_accel_conv_db_lmb_v10_0.xci"/>
+        <CompFileExtendedInfo CompFileName="neural_net_accel_conv_db.bd" FileRelPathName="ip/neural_net_accel_conv_db_lmb_bram_0/neural_net_accel_conv_db_lmb_bram_0.xci"/>
+        <CompFileExtendedInfo CompFileName="neural_net_accel_conv_db.bd" FileRelPathName="ip/neural_net_accel_conv_db_ilmb_bram_if_cntlr_0/neural_net_accel_conv_db_ilmb_bram_if_cntlr_0.xci"/>
+        <CompFileExtendedInfo CompFileName="neural_net_accel_conv_db.bd" FileRelPathName="hdl/neural_net_accel_conv_db.hwdef"/>
+        <CompFileExtendedInfo CompFileName="neural_net_accel_conv_db.bd" FileRelPathName="hw_handoff/neural_net_accel_conv_db_bd.tcl"/>
+        <CompFileExtendedInfo CompFileName="neural_net_accel_conv_db.bd" FileRelPathName="hw_handoff/neural_net_accel_conv_db.hwh"/>
+        <CompFileExtendedInfo CompFileName="neural_net_accel_conv_db.bd" FileRelPathName="neural_net_accel_conv_db_ooc.xdc"/>
+        <CompFileExtendedInfo CompFileName="neural_net_accel_conv_db.bd" FileRelPathName="neural_net_accel_conv_db.bmm"/>
+        <CompFileExtendedInfo CompFileName="neural_net_accel_conv_db.bd" FileRelPathName="ip/neural_net_accel_conv_db_auto_cc_0/neural_net_accel_conv_db_auto_cc_0.xci"/>
+        <CompFileExtendedInfo CompFileName="neural_net_accel_conv_db.bd" FileRelPathName="ip/neural_net_accel_conv_db_dlmb_bram_if_cntlr_0/neural_net_accel_conv_db_dlmb_bram_if_cntlr_0.xci"/>
+      </File>
+      <File Path="$PSRCDIR/sources_1/bd/neural_net_accel_conv_db/hdl/neural_net_accel_conv_db_wrapper.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/bd/neural_net_accelerator/neural_net_accelerator.bd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+        <CompFileExtendedInfo CompFileName="neural_net_accelerator.bd" FileRelPathName="hdl/neural_net_accelerator.vhd"/>
+        <CompFileExtendedInfo CompFileName="neural_net_accelerator.bd" FileRelPathName="hdl/neural_net_accelerator.hwdef"/>
+        <CompFileExtendedInfo CompFileName="neural_net_accelerator.bd" FileRelPathName="hw_handoff/neural_net_accelerator_bd.tcl"/>
+        <CompFileExtendedInfo CompFileName="neural_net_accelerator.bd" FileRelPathName="hw_handoff/neural_net_accelerator.hwh"/>
+        <CompFileExtendedInfo CompFileName="neural_net_accelerator.bd" FileRelPathName="neural_net_accelerator_ooc.xdc"/>
+        <CompFileExtendedInfo CompFileName="neural_net_accelerator.bd" FileRelPathName="neural_net_accelerator.bmm"/>
+        <CompFileExtendedInfo CompFileName="neural_net_accelerator.bd" FileRelPathName="ip/neural_net_accelerator_ila_2_0/neural_net_accelerator_ila_2_0.xci"/>
+        <CompFileExtendedInfo CompFileName="neural_net_accelerator.bd" FileRelPathName="ip/neural_net_accelerator_auto_cc_0/neural_net_accelerator_auto_cc_0.xci"/>
+        <CompFileExtendedInfo CompFileName="neural_net_accelerator.bd" FileRelPathName="ip/neural_net_accelerator_microblaze_0_1/neural_net_accelerator_microblaze_0_1.xci"/>
+        <CompFileExtendedInfo CompFileName="neural_net_accelerator.bd" FileRelPathName="ip/neural_net_accelerator_dlmb_v10_1/neural_net_accelerator_dlmb_v10_1.xci"/>
+        <CompFileExtendedInfo CompFileName="neural_net_accelerator.bd" FileRelPathName="ip/neural_net_accelerator_ila_1_1/neural_net_accelerator_ila_1_1.xci"/>
+        <CompFileExtendedInfo CompFileName="neural_net_accelerator.bd" FileRelPathName="ip/neural_net_accelerator_ila_0_0/neural_net_accelerator_ila_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="neural_net_accelerator.bd" FileRelPathName="ip/neural_net_accelerator_mdm_1_1/neural_net_accelerator_mdm_1_1.xci"/>
+        <CompFileExtendedInfo CompFileName="neural_net_accelerator.bd" FileRelPathName="ip/neural_net_accelerator_lmb_v10_0/neural_net_accelerator_lmb_v10_0.xci"/>
+        <CompFileExtendedInfo CompFileName="neural_net_accelerator.bd" FileRelPathName="ip/neural_net_accelerator_lmb_bram_1/neural_net_accelerator_lmb_bram_1.xci"/>
+        <CompFileExtendedInfo CompFileName="neural_net_accelerator.bd" FileRelPathName="ip/neural_net_accelerator_ilmb_bram_if_cntlr_1/neural_net_accelerator_ilmb_bram_if_cntlr_1.xci"/>
+        <CompFileExtendedInfo CompFileName="neural_net_accelerator.bd" FileRelPathName="ip/neural_net_accelerator_dlmb_bram_if_cntlr_1/neural_net_accelerator_dlmb_bram_if_cntlr_1.xci"/>
+        <CompFileExtendedInfo CompFileName="neural_net_accelerator.bd" FileRelPathName="ip/neural_net_accelerator_ilmb_v10_1/neural_net_accelerator_ilmb_v10_1.xci"/>
+        <CompFileExtendedInfo CompFileName="neural_net_accelerator.bd" FileRelPathName="ip/neural_net_accelerator_clk_wiz_0_0/neural_net_accelerator_clk_wiz_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="neural_net_accelerator.bd" FileRelPathName="ip/neural_net_accelerator_xadc_wiz_0_0/neural_net_accelerator_xadc_wiz_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="neural_net_accelerator.bd" FileRelPathName="ip/neural_net_accelerator_Softmax_Layer_32bit_0_0/neural_net_accelerator_Softmax_Layer_32bit_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="neural_net_accelerator.bd" FileRelPathName="ip/neural_net_accelerator_Convolution_Layer_32bit_0_0/neural_net_accelerator_Convolution_Layer_32bit_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="neural_net_accelerator.bd" FileRelPathName="ip/neural_net_accelerator_axi_uartlite_0_0/neural_net_accelerator_axi_uartlite_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="neural_net_accelerator.bd" FileRelPathName="ip/neural_net_accelerator_rst_mig_7series_0_100M_0/neural_net_accelerator_rst_mig_7series_0_100M_0.xci"/>
+        <CompFileExtendedInfo CompFileName="neural_net_accelerator.bd" FileRelPathName="ip/neural_net_accelerator_xbar_1/neural_net_accelerator_xbar_1.xci"/>
+        <CompFileExtendedInfo CompFileName="neural_net_accelerator.bd" FileRelPathName="ip/neural_net_accelerator_axi_mem_intercon_0/neural_net_accelerator_axi_mem_intercon_0.xci"/>
+        <CompFileExtendedInfo CompFileName="neural_net_accelerator.bd" FileRelPathName="ip/neural_net_accelerator_xbar_0/neural_net_accelerator_xbar_0.xci"/>
+        <CompFileExtendedInfo CompFileName="neural_net_accelerator.bd" FileRelPathName="ip/neural_net_accelerator_microblaze_0_xlconcat_0/neural_net_accelerator_microblaze_0_xlconcat_0.xci"/>
+        <CompFileExtendedInfo CompFileName="neural_net_accelerator.bd" FileRelPathName="ip/neural_net_accelerator_microblaze_0_axi_intc_0/neural_net_accelerator_microblaze_0_axi_intc_0.xci"/>
+        <CompFileExtendedInfo CompFileName="neural_net_accelerator.bd" FileRelPathName="ip/neural_net_accelerator_microblaze_0_axi_periph_0/neural_net_accelerator_microblaze_0_axi_periph_0.xci"/>
+        <CompFileExtendedInfo CompFileName="neural_net_accelerator.bd" FileRelPathName="ip/neural_net_accelerator_rst_clk_wiz_0_100M_0/neural_net_accelerator_rst_clk_wiz_0_100M_0.xci"/>
+        <CompFileExtendedInfo CompFileName="neural_net_accelerator.bd" FileRelPathName="ip/neural_net_accelerator_mig_7series_0_0/neural_net_accelerator_mig_7series_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="neural_net_accelerator.bd" FileRelPathName="ip/neural_net_accelerator_VGA_IF_0_0/neural_net_accelerator_VGA_IF_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="neural_net_accelerator.bd" FileRelPathName="ip/neural_net_accelerator_Maxpool_Layer_32bit_0_0/neural_net_accelerator_Maxpool_Layer_32bit_0_0.xci"/>
+      </File>
+      <File Path="$PSRCDIR/sources_1/bd/neural_net_accelerator/hdl/neural_net_accelerator_wrapper.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/bd/softmax_test_cs/softmax_test_cs.bd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+        <CompFileExtendedInfo CompFileName="softmax_test_cs.bd" FileRelPathName="hw_handoff/softmax_test_cs.hwh"/>
+        <CompFileExtendedInfo CompFileName="softmax_test_cs.bd" FileRelPathName="softmax_test_cs_ooc.xdc"/>
+        <CompFileExtendedInfo CompFileName="softmax_test_cs.bd" FileRelPathName="ip/softmax_test_cs_auto_pc_0/softmax_test_cs_auto_pc_0.xci"/>
+        <CompFileExtendedInfo CompFileName="softmax_test_cs.bd" FileRelPathName="hdl/softmax_test_cs.vhd"/>
+        <CompFileExtendedInfo CompFileName="softmax_test_cs.bd" FileRelPathName="ip/softmax_test_cs_ila_1_0/softmax_test_cs_ila_1_0.xci"/>
+        <CompFileExtendedInfo CompFileName="softmax_test_cs.bd" FileRelPathName="ip/softmax_test_cs_ila_0_0/softmax_test_cs_ila_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="softmax_test_cs.bd" FileRelPathName="ip/softmax_test_cs_rst_clk_wiz_0_100M_0/softmax_test_cs_rst_clk_wiz_0_100M_0.xci"/>
+        <CompFileExtendedInfo CompFileName="softmax_test_cs.bd" FileRelPathName="ip/softmax_test_cs_rst_mig_7series_0_100M_0/softmax_test_cs_rst_mig_7series_0_100M_0.xci"/>
+        <CompFileExtendedInfo CompFileName="softmax_test_cs.bd" FileRelPathName="ip/softmax_test_cs_clk_wiz_0_0/softmax_test_cs_clk_wiz_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="softmax_test_cs.bd" FileRelPathName="ip/softmax_test_cs_mig_7series_0_0/softmax_test_cs_mig_7series_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="softmax_test_cs.bd" FileRelPathName="hdl/softmax_test_cs.hwdef"/>
+        <CompFileExtendedInfo CompFileName="softmax_test_cs.bd" FileRelPathName="hw_handoff/softmax_test_cs_bd.tcl"/>
+        <CompFileExtendedInfo CompFileName="softmax_test_cs.bd" FileRelPathName="ip/softmax_test_cs_xlconstant_0_0/softmax_test_cs_xlconstant_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="softmax_test_cs.bd" FileRelPathName="ip/softmax_test_cs_Softmax_Tester_0_axi_periph_0/softmax_test_cs_Softmax_Tester_0_axi_periph_0.xci"/>
+        <CompFileExtendedInfo CompFileName="softmax_test_cs.bd" FileRelPathName="ip/softmax_test_cs_axi_mem_intercon_0/softmax_test_cs_axi_mem_intercon_0.xci"/>
+        <CompFileExtendedInfo CompFileName="softmax_test_cs.bd" FileRelPathName="ip/softmax_test_cs_Softmax_Tester_0_0/softmax_test_cs_Softmax_Tester_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="softmax_test_cs.bd" FileRelPathName="ip/softmax_test_cs_Softmax_Layer_32bit_0_0/softmax_test_cs_Softmax_Layer_32bit_0_0.xci"/>
+      </File>
+      <File Path="$PSRCDIR/sources_1/bd/softmax_test_cs/hdl/softmax_test_cs_wrapper.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/bd/DDR3_sim/DDR3_sim.bd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+        <CompFileExtendedInfo CompFileName="DDR3_sim.bd" FileRelPathName="hdl/DDR3_sim.hwdef"/>
+        <CompFileExtendedInfo CompFileName="DDR3_sim.bd" FileRelPathName="hw_handoff/DDR3_sim_bd.tcl"/>
+        <CompFileExtendedInfo CompFileName="DDR3_sim.bd" FileRelPathName="DDR3_sim_ooc.xdc"/>
+        <CompFileExtendedInfo CompFileName="DDR3_sim.bd" FileRelPathName="hdl/DDR3_sim.vhd"/>
+        <CompFileExtendedInfo CompFileName="DDR3_sim.bd" FileRelPathName="ip/DDR3_sim_auto_pc_0/DDR3_sim_auto_pc_0.xci"/>
+        <CompFileExtendedInfo CompFileName="DDR3_sim.bd" FileRelPathName="hw_handoff/DDR3_sim.hwh"/>
+        <CompFileExtendedInfo CompFileName="DDR3_sim.bd" FileRelPathName="ip/DDR3_sim_xbar_0/DDR3_sim_xbar_0.xci"/>
+        <CompFileExtendedInfo CompFileName="DDR3_sim.bd" FileRelPathName="ip/DDR3_sim_rst_clk_wiz_0_100M_0/DDR3_sim_rst_clk_wiz_0_100M_0.xci"/>
+        <CompFileExtendedInfo CompFileName="DDR3_sim.bd" FileRelPathName="ip/DDR3_sim_memory_tester_0_0/DDR3_sim_memory_tester_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="DDR3_sim.bd" FileRelPathName="ip/DDR3_sim_axi_mem_intercon_0/DDR3_sim_axi_mem_intercon_0.xci"/>
+        <CompFileExtendedInfo CompFileName="DDR3_sim.bd" FileRelPathName="ip/DDR3_sim_axi_bram_ctrl_0_0/DDR3_sim_axi_bram_ctrl_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="DDR3_sim.bd" FileRelPathName="ip/DDR3_sim_blk_mem_gen_0_0/DDR3_sim_blk_mem_gen_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="DDR3_sim.bd" FileRelPathName="ip/DDR3_sim_clk_wiz_0_0/DDR3_sim_clk_wiz_0_0.xci"/>
+      </File>
+      <File Path="$PSRCDIR/sources_1/bd/DDR3_sim/hdl/DDR3_sim_wrapper.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/bd/maxpool_test_cs/maxpool_test_cs.bd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+        <CompFileExtendedInfo CompFileName="maxpool_test_cs.bd" FileRelPathName="hdl/maxpool_test_cs.hwdef"/>
+        <CompFileExtendedInfo CompFileName="maxpool_test_cs.bd" FileRelPathName="hw_handoff/maxpool_test_cs_bd.tcl"/>
+        <CompFileExtendedInfo CompFileName="maxpool_test_cs.bd" FileRelPathName="maxpool_test_cs_ooc.xdc"/>
+        <CompFileExtendedInfo CompFileName="maxpool_test_cs.bd" FileRelPathName="hdl/maxpool_test_cs.vhd"/>
+        <CompFileExtendedInfo CompFileName="maxpool_test_cs.bd" FileRelPathName="ip/maxpool_test_cs_ila_2_0/maxpool_test_cs_ila_2_0.xci"/>
+        <CompFileExtendedInfo CompFileName="maxpool_test_cs.bd" FileRelPathName="ip/maxpool_test_cs_ila_1_2/maxpool_test_cs_ila_1_2.xci"/>
+        <CompFileExtendedInfo CompFileName="maxpool_test_cs.bd" FileRelPathName="ip/maxpool_test_cs_ila_1_1/maxpool_test_cs_ila_1_1.xci"/>
+        <CompFileExtendedInfo CompFileName="maxpool_test_cs.bd" FileRelPathName="ip/maxpool_test_cs_Maxpool_Tester_0_axi_periph_1/maxpool_test_cs_Maxpool_Tester_0_axi_periph_1.xci"/>
+        <CompFileExtendedInfo CompFileName="maxpool_test_cs.bd" FileRelPathName="ip/maxpool_test_cs_axi_mem_intercon_0/maxpool_test_cs_axi_mem_intercon_0.xci"/>
+        <CompFileExtendedInfo CompFileName="maxpool_test_cs.bd" FileRelPathName="ip/maxpool_test_cs_ila_0_0_1/maxpool_test_cs_ila_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="maxpool_test_cs.bd" FileRelPathName="ip/maxpool_test_cs_mig_7series_0_0/maxpool_test_cs_mig_7series_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="maxpool_test_cs.bd" FileRelPathName="ip/maxpool_test_cs_Maxpool_Tester_0_0/maxpool_test_cs_Maxpool_Tester_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="maxpool_test_cs.bd" FileRelPathName="ip/maxpool_test_cs_auto_pc_0_1/maxpool_test_cs_auto_pc_0.xci"/>
+        <CompFileExtendedInfo CompFileName="maxpool_test_cs.bd" FileRelPathName="hw_handoff/maxpool_test_cs.hwh"/>
+        <CompFileExtendedInfo CompFileName="maxpool_test_cs.bd" FileRelPathName="ip/maxpool_test_cs_rst_clk_wiz_0_100M_1/maxpool_test_cs_rst_clk_wiz_0_100M_1.xci"/>
+        <CompFileExtendedInfo CompFileName="maxpool_test_cs.bd" FileRelPathName="ip/maxpool_test_cs_rst_mig_7series_0_100M_1/maxpool_test_cs_rst_mig_7series_0_100M_1.xci"/>
+        <CompFileExtendedInfo CompFileName="maxpool_test_cs.bd" FileRelPathName="ip/maxpool_test_cs_xlconstant_0_1/maxpool_test_cs_xlconstant_0_1.xci"/>
+        <CompFileExtendedInfo CompFileName="maxpool_test_cs.bd" FileRelPathName="ip/maxpool_test_cs_clk_wiz_0_0/maxpool_test_cs_clk_wiz_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="maxpool_test_cs.bd" FileRelPathName="ip/maxpool_test_cs_Maxpool_Layer_32bit_0_0/maxpool_test_cs_Maxpool_Layer_32bit_0_0.xci"/>
+      </File>
+      <File Path="$PSRCDIR/sources_1/bd/DDR3_test/DDR3_test.bd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+        <CompFileExtendedInfo CompFileName="DDR3_test.bd" FileRelPathName="hdl/DDR3_test.hwdef"/>
+        <CompFileExtendedInfo CompFileName="DDR3_test.bd" FileRelPathName="hdl/DDR3_test.vhd"/>
+        <CompFileExtendedInfo CompFileName="DDR3_test.bd" FileRelPathName="ip/DDR3_test_auto_pc_0_1/DDR3_test_auto_pc_0.xci"/>
+        <CompFileExtendedInfo CompFileName="DDR3_test.bd" FileRelPathName="ip/DDR3_test_axi_mem_intercon_0_1/DDR3_test_axi_mem_intercon_0.xci"/>
+        <CompFileExtendedInfo CompFileName="DDR3_test.bd" FileRelPathName="ip/DDR3_test_clk_wiz_0_0/DDR3_test_clk_wiz_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="DDR3_test.bd" FileRelPathName="ip/DDR3_test_mig_7series_0_0/DDR3_test_mig_7series_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="DDR3_test.bd" FileRelPathName="hw_handoff/DDR3_test.hwh"/>
+        <CompFileExtendedInfo CompFileName="DDR3_test.bd" FileRelPathName="DDR3_test_ooc.xdc"/>
+        <CompFileExtendedInfo CompFileName="DDR3_test.bd" FileRelPathName="hw_handoff/DDR3_test_bd.tcl"/>
+        <CompFileExtendedInfo CompFileName="DDR3_test.bd" FileRelPathName="ip/DDR3_test_ila_2_0/DDR3_test_ila_2_0.xci"/>
+        <CompFileExtendedInfo CompFileName="DDR3_test.bd" FileRelPathName="ip/DDR3_test_ila_1_0/DDR3_test_ila_1_0.xci"/>
+        <CompFileExtendedInfo CompFileName="DDR3_test.bd" FileRelPathName="ip/DDR3_test_xlconstant_0_0_1/DDR3_test_xlconstant_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="DDR3_test.bd" FileRelPathName="ip/DDR3_test_xbar_0_1/DDR3_test_xbar_0.xci"/>
+        <CompFileExtendedInfo CompFileName="DDR3_test.bd" FileRelPathName="ip/DDR3_test_rst_mig_7series_0_100M_0_1/DDR3_test_rst_mig_7series_0_100M_0.xci"/>
+        <CompFileExtendedInfo CompFileName="DDR3_test.bd" FileRelPathName="ip/DDR3_test_ila_0_0/DDR3_test_ila_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="DDR3_test.bd" FileRelPathName="ip/DDR3_test_memory_tester_0_0_1/DDR3_test_memory_tester_0_0.xci"/>
+      </File>
+      <File Path="$PSRCDIR/sources_1/bd/conv_test_cs/conv_test_cs.bd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+        <CompFileExtendedInfo CompFileName="conv_test_cs.bd" FileRelPathName="ip/conv_test_cs_ila_5_0/conv_test_cs_ila_5_0.xci"/>
+        <CompFileExtendedInfo CompFileName="conv_test_cs.bd" FileRelPathName="ip/conv_test_cs_ila_2_1/conv_test_cs_ila_2_1.xci"/>
+        <CompFileExtendedInfo CompFileName="conv_test_cs.bd" FileRelPathName="ip/conv_test_cs_rst_clk_wiz_0_100M_0/conv_test_cs_rst_clk_wiz_0_100M_0.xci"/>
+        <CompFileExtendedInfo CompFileName="conv_test_cs.bd" FileRelPathName="ip/conv_test_cs_auto_pc_0/conv_test_cs_auto_pc_0.xci"/>
+        <CompFileExtendedInfo CompFileName="conv_test_cs.bd" FileRelPathName="ip/conv_test_cs_auto_cc_0/conv_test_cs_auto_cc_0.xci"/>
+        <CompFileExtendedInfo CompFileName="conv_test_cs.bd" FileRelPathName="ip/conv_test_cs_ila_3_3/conv_test_cs_ila_3_3.xci"/>
+        <CompFileExtendedInfo CompFileName="conv_test_cs.bd" FileRelPathName="ip/conv_test_cs_ila_3_2/conv_test_cs_ila_3_2.xci"/>
+        <CompFileExtendedInfo CompFileName="conv_test_cs.bd" FileRelPathName="ip/conv_test_cs_ila_3_1/conv_test_cs_ila_3_1.xci"/>
+        <CompFileExtendedInfo CompFileName="conv_test_cs.bd" FileRelPathName="ip/conv_test_cs_ila_0_2/conv_test_cs_ila_0_2.xci"/>
+        <CompFileExtendedInfo CompFileName="conv_test_cs.bd" FileRelPathName="ip/conv_test_cs_ila_0_1/conv_test_cs_ila_0_1.xci"/>
+        <CompFileExtendedInfo CompFileName="conv_test_cs.bd" FileRelPathName="ip/conv_test_cs_xlconstant_0_0/conv_test_cs_xlconstant_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="conv_test_cs.bd" FileRelPathName="ip/conv_test_cs_Convolution_Tester_0_axi_periph_0/conv_test_cs_Convolution_Tester_0_axi_periph_0.xci"/>
+        <CompFileExtendedInfo CompFileName="conv_test_cs.bd" FileRelPathName="ip/conv_test_cs_rst_mig_7series_0_100M_0/conv_test_cs_rst_mig_7series_0_100M_0.xci"/>
+        <CompFileExtendedInfo CompFileName="conv_test_cs.bd" FileRelPathName="ip/conv_test_cs_axi_mem_intercon_0/conv_test_cs_axi_mem_intercon_0.xci"/>
+        <CompFileExtendedInfo CompFileName="conv_test_cs.bd" FileRelPathName="ip/conv_test_cs_mig_7series_0_0/conv_test_cs_mig_7series_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="conv_test_cs.bd" FileRelPathName="ip/conv_test_cs_clk_wiz_0_0/conv_test_cs_clk_wiz_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="conv_test_cs.bd" FileRelPathName="ip/conv_test_cs_Convolution_Tester_0_0/conv_test_cs_Convolution_Tester_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="conv_test_cs.bd" FileRelPathName="ip/conv_test_cs_Convolution_Layer_32bit_0_0/conv_test_cs_Convolution_Layer_32bit_0_0.xci"/>
+      </File>
+      <File Path="$PSRCDIR/sources_1/bd/maxpool_test_cs/hdl/maxpool_test_cs_wrapper.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/bd/DDR3_test/hdl/DDR3_test_wrapper.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/bd/conv_test_cs/hdl/conv_test_cs_wrapper.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/bd/neural_net_accelerator/ip/neural_net_accelerator_mig_7series_0_0/mig_a.prj">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/bd/maxpool_test_cs/ip/maxpool_test_cs_mig_7series_0_0/mig_a.prj">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/bd/DDR3_test/ip/DDR3_test_mig_7series_0_0/mig_a.prj">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/bd/softmax_test_cs/ip/softmax_test_cs_mig_7series_0_0/mig_a.prj">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/bd/conv_test_cs/ip/conv_test_cs_mig_7series_0_0/mig_a.prj">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/bd/conv_test_cs/ip/conv_test_cs_mig_7series_0_0/mig_b.prj">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/bd/neural_net_accel_conv_db/ip/neural_net_accel_conv_db_mig_7series_0_0/mig_a.prj">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/bd/neural_net_accel_conv_db/ip/neural_net_accel_conv_db_mig_7series_0_0/mig_b.prj">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/bd/final_accelerator/ip/final_accelerator_mig_7series_0_0/mig_a.prj">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/bd/final_accelerator/ip/final_accelerator_mig_7series_0_0/mig_b.prj">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+        </FileInfo>
+      </File>
+      <Config>
+        <Option Name="DesignMode" Val="RTL"/>
+        <Option Name="TopModule" Val="final_accelerator_wrapper"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="constrs_1" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
+      <Filter Type="Constrs"/>
+      <File Path="$PSRCDIR/constrs_1/imports/Thesis_Nexys_Video/Nexys-Video-Master.xdc">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../Thesis_Nexys_Video/Nexys-Video-Master.xdc"/>
+          <Attr Name="ImportTime" Val="1541144266"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+        </FileInfo>
+      </File>
+      <Config>
+        <Option Name="ConstrsType" Val="XDC"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="sim_1" Type="SimulationSrcs" RelSrcDir="$PSRCDIR/sim_1">
+      <Filter Type="Srcs"/>
+      <File Path="$PSRCDIR/sim_1/new/DDR3_sim_test.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/Simulation/DDR3_sim_test_behav.wcfg">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <Config>
+        <Option Name="DesignMode" Val="RTL"/>
+        <Option Name="TopModule" Val="DDR3_sim_test"/>
+        <Option Name="TopLib" Val="xil_defaultlib"/>
+        <Option Name="TransportPathDelay" Val="0"/>
+        <Option Name="TransportIntDelay" Val="0"/>
+        <Option Name="SimMode" Val="post-implementation"/>
+        <Option Name="SrcSet" Val="sources_1"/>
+        <Option Name="XSimWcfgFile" Val="$PPRDIR/Simulation/DDR3_sim_test_behav.wcfg"/>
+      </Config>
+    </FileSet>
+  </FileSets>
+  <Simulators>
+    <Simulator Name="XSim">
+      <Option Name="Description" Val="Vivado Simulator"/>
+      <Option Name="CompiledLib" Val="0"/>
+    </Simulator>
+    <Simulator Name="ModelSim">
+      <Option Name="Description" Val="ModelSim Simulator"/>
+    </Simulator>
+    <Simulator Name="Questa">
+      <Option Name="Description" Val="Questa Advanced Simulator"/>
+    </Simulator>
+    <Simulator Name="Riviera">
+      <Option Name="Description" Val="Riviera-PRO Simulator"/>
+    </Simulator>
+    <Simulator Name="ActiveHDL">
+      <Option Name="Description" Val="Active-HDL Simulator"/>
+    </Simulator>
+  </Simulators>
+  <Runs Version="1" Minor="10">
+    <Run Id="synth_1" Type="Ft3:Synth" SrcSet="sources_1" Part="xc7a200tsbg484-1" ConstrsSet="constrs_1" Description="Higher performance designs, resource sharing is turned off, the global fanout guide is set to a lower number, FSM extraction forced to one-hot, LUT combining is disabled, equivalent registers are preserved, SRL are inferred  with a larger threshold" State="current" Dir="$PRUNDIR/synth_1" IncludeInArchive="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Flow_PerfOptimized_high" Flow="Vivado Synthesis 2016"/>
+        <Step Id="synth_design">
+          <Option Id="ResourceSharing">2</Option>
+          <Option Id="ShregMinSize">5</Option>
+          <Option Id="RepFanoutThreshold">30</Option>
+          <Option Id="FsmExtraction">1</Option>
+          <Option Id="NoCombineLuts">1</Option>
+          <Option Id="KeepEquivalentRegisters">1</Option>
+        </Step>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+    </Run>
+    <Run Id="impl_1" Type="Ft2:EntireDesign" Part="xc7a200tsbg484-1" ConstrsSet="constrs_1" Description="Uses multiple algorithms for optimization, placement, and routing to get potentially better results." State="current" Dir="$PRUNDIR/impl_1" SynthRun="synth_1" IncludeInArchive="true">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Performance_Explore" Flow="Vivado Implementation 2016"/>
+        <Step Id="init_design"/>
+        <Step Id="opt_design">
+          <Option Id="Directive">0</Option>
+        </Step>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design">
+          <Option Id="Directive">0</Option>
+        </Step>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design" EnableStepBool="1">
+          <Option Id="Directive">0</Option>
+        </Step>
+        <Step Id="route_design">
+          <Option Id="Directive">0</Option>
+        </Step>
+        <Step Id="post_route_phys_opt_design"/>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+    </Run>
+  </Runs>
+</Project>

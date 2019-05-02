@@ -1,0 +1,88 @@
+{
+   guistr: "# # String gsaved with Nlview 6.6.5b  2016-09-06 bk=1.3687 VDI=39 GEI=35 GUI=JA:1.6
+#  -string -flagsOSRD
+preplace port i_sys_clk -pg 1 -y 1360 -defaultsOSRD
+preplace port uart_rtl -pg 1 -y 1580 -defaultsOSRD
+preplace port softmax_busy -pg 1 -y 80 -defaultsOSRD
+preplace port maxpool_busy -pg 1 -y 300 -defaultsOSRD
+preplace port o_vsync -pg 1 -y 1310 -defaultsOSRD
+preplace port DDR3 -pg 1 -y 970 -defaultsOSRD
+preplace port conv_busy -pg 1 -y 1110 -defaultsOSRD
+preplace port o_hsync -pg 1 -y 1290 -defaultsOSRD
+preplace port i_reset_n -pg 1 -y 1140 -defaultsOSRD
+preplace portBus o_vga_data -pg 1 -y 1330 -defaultsOSRD
+preplace inst Maxpool_Layer_32bit_0 -pg 1 -lvl 5 -y 330 -defaultsOSRD
+preplace inst Convolution_Layer_32bit_0 -pg 1 -lvl 5 -y 1170 -defaultsOSRD
+preplace inst rst_mig_7series_0_100M -pg 1 -lvl 5 -y 880 -defaultsOSRD
+preplace inst rst_clk_wiz_0_100M -pg 1 -lvl 2 -y 1040 -defaultsOSRD
+preplace inst mig_7series_0 -pg 1 -lvl 7 -y 1010 -defaultsOSRD
+preplace inst xadc_wiz_0 -pg 1 -lvl 4 -y 840 -defaultsOSRD
+preplace inst microblaze_0_axi_periph -pg 1 -lvl 3 -y 780 -defaultsOSRD
+preplace inst microblaze_0_xlconcat -pg 1 -lvl 3 -y 390 -defaultsOSRD
+preplace inst Softmax_Layer_32bit_0 -pg 1 -lvl 5 -y 110 -defaultsOSRD
+preplace inst mdm_1 -pg 1 -lvl 4 -y 1030 -defaultsOSRD
+preplace inst microblaze_0_axi_intc -pg 1 -lvl 4 -y 610 -defaultsOSRD
+preplace inst axi_uartlite_0 -pg 1 -lvl 7 -y 1590 -defaultsOSRD
+preplace inst microblaze_0 -pg 1 -lvl 5 -y 570 -defaultsOSRD
+preplace inst VGA_IF_0 -pg 1 -lvl 7 -y 1360 -defaultsOSRD
+preplace inst clk_wiz_0 -pg 1 -lvl 1 -y 1350 -defaultsOSRD
+preplace inst axi_mem_intercon -pg 1 -lvl 6 -y 800 -defaultsOSRD
+preplace inst microblaze_0_local_memory -pg 1 -lvl 6 -y 470 -defaultsOSRD
+preplace netloc Convolution_Layer_32bit_0_ila_master_busy 1 5 3 1770J 1110 NJ 1110 NJ
+preplace netloc xadc_wiz_0_temp_out 1 4 3 1220 970 1830J 1080 2140J
+preplace netloc mig_7series_0_mmcm_locked 1 4 4 1320 980 1790J 1130 NJ 1130 2500
+preplace netloc microblaze_0_axi_periph_M04_AXI 1 3 4 930 470 NJ 470 1800J 1230 NJ
+preplace netloc Softmax_Layer_32bit_0_o_softmax_complete 1 2 4 600 460 NJ 460 NJ 460 1760
+preplace netloc rst_clk_wiz_0_100M_bus_struct_reset 1 2 4 530J 310 NJ 310 1230J 660 1830
+preplace netloc clk_wiz_0_locked 1 1 1 200
+preplace netloc mig_7series_0_DDR3 1 7 1 NJ
+preplace netloc Maxpool_Layer_32bit_0_ila_row_cntrl_busy 1 5 3 NJ 300 NJ 300 NJ
+preplace netloc mig_7series_0_init_calib_complete 1 6 2 2190 1120 2490
+preplace netloc microblaze_0_intr 1 3 1 940
+preplace netloc microblaze_0_Clk 1 1 6 180 1370 550 1370 950 1370 1280 1370 1850 1370 2180
+preplace netloc Maxpool_Layer_32bit_0_M00_AXI 1 5 1 1860
+preplace netloc microblaze_0_axi_periph_M06_AXI 1 3 4 880 1570 NJ 1570 NJ 1570 NJ
+preplace netloc microblaze_0_axi_periph_M03_AXI 1 3 2 880 290 NJ
+preplace netloc microblaze_0_intc_axi 1 3 1 900
+preplace netloc microblaze_0_interrupt 1 4 1 1250
+preplace netloc axi_mem_intercon_M00_AXI 1 6 1 2140
+preplace netloc microblaze_0_M_AXI_DC 1 5 1 N
+preplace netloc microblaze_0_ilmb_1 1 5 1 1790
+preplace netloc microblaze_0_axi_periph_M05_AXI 1 3 4 920 450 NJ 450 1810J 1250 NJ
+preplace netloc microblaze_0_axi_dp 1 2 4 600 500 NJ 500 1270J 480 1760
+preplace netloc mig_7series_0_ui_clk 1 4 4 1320 790 1820 360 NJ 360 2490
+preplace netloc Maxpool_Layer_32bit_0_o_pooling_complete 1 2 4 590 480 NJ 480 1260J 670 1770
+preplace netloc Convolution_Layer_32bit_0_o_convolution_done 1 2 4 580 1120 NJ 1120 1230J 680 1760
+preplace netloc rst_mig_7series_0_100M_peripheral_aresetn 1 5 2 1880 1090 2170J
+preplace netloc microblaze_0_M_AXI_IC 1 5 1 N
+preplace netloc microblaze_0_axi_periph_M01_AXI 1 3 2 890 510 1240J
+preplace netloc VGA_IF_0_o_vsync 1 7 1 NJ
+preplace netloc rst_clk_wiz_0_100M_mb_reset 1 2 3 540 510 870 440 1320J
+preplace netloc axi_uartlite_0_UART 1 7 1 NJ
+preplace netloc clk_wiz_0_clk_out2 1 1 6 NJ 1340 NJ 1340 NJ 1340 NJ 1340 NJ 1340 2170
+preplace netloc VGA_IF_0_o_vga_data 1 7 1 NJ
+preplace netloc mig_7series_0_ui_clk_sync_rst 1 4 4 1310 990 1780J 1140 NJ 1140 2510
+preplace netloc Softmax_Layer_32bit_0_M00_AXI 1 5 1 1870
+preplace netloc microblaze_0_axi_periph_M07_AXI 1 3 1 940
+preplace netloc microblaze_0_axi_periph_M02_AXI 1 3 2 860 70 NJ
+preplace netloc microblaze_0_dlmb_1 1 5 1 1780
+preplace netloc VGA_IF_0_o_hsync 1 7 1 NJ
+preplace netloc clk_wiz_0_clk_out3 1 1 6 NJ 1360 NJ 1360 NJ 1360 NJ 1360 NJ 1360 2160
+preplace netloc clock_rtl_1 1 0 1 NJ
+preplace netloc VGA_IF_0_M00_AXI 1 5 3 1880 340 NJ 340 2520
+preplace netloc microblaze_0_debug 1 4 1 1300
+preplace netloc Softmax_Layer_32bit_0_ila_smax_ctrlr_busy 1 5 3 NJ 80 NJ 80 NJ
+preplace netloc mdm_1_debug_sys_rst 1 1 4 210 1130 NJ 1130 NJ 1130 1220
+preplace netloc rst_clk_wiz_0_100M_peripheral_aresetn 1 2 5 570 1330 960 1330 1290 1330 1870 1330 2140
+preplace netloc rst_clk_wiz_0_100M_interconnect_aresetn 1 2 4 560 1060 910J 320 1310J 730 N
+preplace netloc Convolution_Layer_32bit_0_M00_AXI 1 5 1 1840
+preplace netloc reset_rtl_1 1 0 7 20 1140 190 1140 NJ 1140 NJ 1140 1320 1000 1820J 1070 2150J
+levelinfo -pg 1 0 100 370 730 1090 1540 2010 2340 2540 -top 0 -bot 1660
+",
+}
+{
+   da_axi4_cnt: "23",
+   da_board_cnt: "7",
+   da_mb_cnt: "2",
+   da_trigger_cnt: "2",
+}

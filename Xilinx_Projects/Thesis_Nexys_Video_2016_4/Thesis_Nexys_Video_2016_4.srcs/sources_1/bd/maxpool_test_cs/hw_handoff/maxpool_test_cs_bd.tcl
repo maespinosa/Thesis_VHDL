@@ -1,0 +1,720 @@
+
+################################################################
+# This is a generated script based on design: maxpool_test_cs
+#
+# Though there are limitations about the generated script,
+# the main purpose of this utility is to make learning
+# IP Integrator Tcl commands easier.
+################################################################
+
+namespace eval _tcl {
+proc get_script_folder {} {
+   set script_path [file normalize [info script]]
+   set script_folder [file dirname $script_path]
+   return $script_folder
+}
+}
+variable script_folder
+set script_folder [_tcl::get_script_folder]
+
+################################################################
+# Check if script is running in correct Vivado version.
+################################################################
+set scripts_vivado_version 2016.4
+set current_vivado_version [version -short]
+
+if { [string first $scripts_vivado_version $current_vivado_version] == -1 } {
+   puts ""
+   catch {common::send_msg_id "BD_TCL-109" "ERROR" "This script was generated using Vivado <$scripts_vivado_version> and is being run in <$current_vivado_version> of Vivado. Please run the script in Vivado <$scripts_vivado_version> then open the design in Vivado <$current_vivado_version>. Upgrade the design by running \"Tools => Report => Report IP Status...\", then run write_bd_tcl to create an updated script."}
+
+   return 1
+}
+
+################################################################
+# START
+################################################################
+
+# To test this script, run the following commands from Vivado Tcl console:
+# source maxpool_test_cs_script.tcl
+
+# If there is no project opened, this script will create a
+# project, but make sure you do not have an existing project
+# <./myproj/project_1.xpr> in the current working folder.
+
+set list_projs [get_projects -quiet]
+if { $list_projs eq "" } {
+   create_project project_1 myproj -part xc7a200tsbg484-1
+}
+
+
+# CHANGE DESIGN NAME HERE
+set design_name maxpool_test_cs
+
+# If you do not already have an existing IP Integrator design open,
+# you can create a design using the following command:
+#    create_bd_design $design_name
+
+# Creating design if needed
+set errMsg ""
+set nRet 0
+
+set cur_design [current_bd_design -quiet]
+set list_cells [get_bd_cells -quiet]
+
+if { ${design_name} eq "" } {
+   # USE CASES:
+   #    1) Design_name not set
+
+   set errMsg "Please set the variable <design_name> to a non-empty value."
+   set nRet 1
+
+} elseif { ${cur_design} ne "" && ${list_cells} eq "" } {
+   # USE CASES:
+   #    2): Current design opened AND is empty AND names same.
+   #    3): Current design opened AND is empty AND names diff; design_name NOT in project.
+   #    4): Current design opened AND is empty AND names diff; design_name exists in project.
+
+   if { $cur_design ne $design_name } {
+      common::send_msg_id "BD_TCL-001" "INFO" "Changing value of <design_name> from <$design_name> to <$cur_design> since current design is empty."
+      set design_name [get_property NAME $cur_design]
+   }
+   common::send_msg_id "BD_TCL-002" "INFO" "Constructing design in IPI design <$cur_design>..."
+
+} elseif { ${cur_design} ne "" && $list_cells ne "" && $cur_design eq $design_name } {
+   # USE CASES:
+   #    5) Current design opened AND has components AND same names.
+
+   set errMsg "Design <$design_name> already exists in your project, please set the variable <design_name> to another value."
+   set nRet 1
+} elseif { [get_files -quiet ${design_name}.bd] ne "" } {
+   # USE CASES: 
+   #    6) Current opened design, has components, but diff names, design_name exists in project.
+   #    7) No opened design, design_name exists in project.
+
+   set errMsg "Design <$design_name> already exists in your project, please set the variable <design_name> to another value."
+   set nRet 2
+
+} else {
+   # USE CASES:
+   #    8) No opened design, design_name not in project.
+   #    9) Current opened design, has components, but diff names, design_name not in project.
+
+   common::send_msg_id "BD_TCL-003" "INFO" "Currently there is no design <$design_name> in project, so creating one..."
+
+   create_bd_design $design_name
+
+   common::send_msg_id "BD_TCL-004" "INFO" "Making design <$design_name> as current_bd_design."
+   current_bd_design $design_name
+
+}
+
+common::send_msg_id "BD_TCL-005" "INFO" "Currently the variable <design_name> is equal to \"$design_name\"."
+
+if { $nRet != 0 } {
+   catch {common::send_msg_id "BD_TCL-114" "ERROR" $errMsg}
+   return $nRet
+}
+
+
+##################################################################
+# MIG PRJ FILE TCL PROCs
+##################################################################
+
+proc write_mig_file_maxpool_test_cs_mig_7series_0_0 { str_mig_prj_filepath } {
+
+   set mig_prj_file [open $str_mig_prj_filepath  w+]
+
+   puts $mig_prj_file {<?xml version='1.0' encoding='UTF-8'?>}
+   puts $mig_prj_file {<!-- IMPORTANT: This is an internal file that has been generated by the MIG software. Any direct editing or changes made to this file may result in unpredictable behavior or data corruption. It is strongly advised that users do not edit the contents of this file. Re-run the MIG GUI with the required settings if any of the options provided below need to be altered. -->}
+   puts $mig_prj_file {<Project NoOfControllers="1" >}
+   puts $mig_prj_file {    <ModuleName>maxpool_test_cs_mig_7series_0_0</ModuleName>}
+   puts $mig_prj_file {    <dci_inouts_inputs>1</dci_inouts_inputs>}
+   puts $mig_prj_file {    <dci_inputs>1</dci_inputs>}
+   puts $mig_prj_file {    <Debug_En>OFF</Debug_En>}
+   puts $mig_prj_file {    <DataDepth_En>1024</DataDepth_En>}
+   puts $mig_prj_file {    <LowPower_En>ON</LowPower_En>}
+   puts $mig_prj_file {    <XADC_En>Disabled</XADC_En>}
+   puts $mig_prj_file {    <TargetFPGA>xc7a200t-sbg484/-1</TargetFPGA>}
+   puts $mig_prj_file {    <Version>4.0</Version>}
+   puts $mig_prj_file {    <SystemClock>No Buffer</SystemClock>}
+   puts $mig_prj_file {    <ReferenceClock>No Buffer</ReferenceClock>}
+   puts $mig_prj_file {    <SysResetPolarity>ACTIVE LOW</SysResetPolarity>}
+   puts $mig_prj_file {    <BankSelectionFlag>FALSE</BankSelectionFlag>}
+   puts $mig_prj_file {    <InternalVref>1</InternalVref>}
+   puts $mig_prj_file {    <dci_hr_inouts_inputs>50 Ohms</dci_hr_inouts_inputs>}
+   puts $mig_prj_file {    <dci_cascade>0</dci_cascade>}
+   puts $mig_prj_file {    <FPGADevice>}
+   puts $mig_prj_file {        <selected>7a/xc7a200ti-sbg484</selected>}
+   puts $mig_prj_file {    </FPGADevice>}
+   puts $mig_prj_file {    <Controller number="0" >}
+   puts $mig_prj_file {        <MemoryDevice>DDR3_SDRAM/Components/MT41K256M16XX-125</MemoryDevice>}
+   puts $mig_prj_file {        <TimePeriod>2500</TimePeriod>}
+   puts $mig_prj_file {        <VccAuxIO>1.8V</VccAuxIO>}
+   puts $mig_prj_file {        <PHYRatio>4:1</PHYRatio>}
+   puts $mig_prj_file {        <InputClkFreq>100</InputClkFreq>}
+   puts $mig_prj_file {        <UIExtraClocks>0</UIExtraClocks>}
+   puts $mig_prj_file {        <MMCM_VCO>800</MMCM_VCO>}
+   puts $mig_prj_file {        <MMCMClkOut0> 1.000</MMCMClkOut0>}
+   puts $mig_prj_file {        <MMCMClkOut1>1</MMCMClkOut1>}
+   puts $mig_prj_file {        <MMCMClkOut2>1</MMCMClkOut2>}
+   puts $mig_prj_file {        <MMCMClkOut3>1</MMCMClkOut3>}
+   puts $mig_prj_file {        <MMCMClkOut4>1</MMCMClkOut4>}
+   puts $mig_prj_file {        <DataWidth>16</DataWidth>}
+   puts $mig_prj_file {        <DeepMemory>1</DeepMemory>}
+   puts $mig_prj_file {        <DataMask>1</DataMask>}
+   puts $mig_prj_file {        <ECC>Disabled</ECC>}
+   puts $mig_prj_file {        <Ordering>Normal</Ordering>}
+   puts $mig_prj_file {        <BankMachineCnt>4</BankMachineCnt>}
+   puts $mig_prj_file {        <CustomPart>FALSE</CustomPart>}
+   puts $mig_prj_file {        <NewPartName></NewPartName>}
+   puts $mig_prj_file {        <RowAddress>15</RowAddress>}
+   puts $mig_prj_file {        <ColAddress>10</ColAddress>}
+   puts $mig_prj_file {        <BankAddress>3</BankAddress>}
+   puts $mig_prj_file {        <MemoryVoltage>1.5V</MemoryVoltage>}
+   puts $mig_prj_file {        <C0_MEM_SIZE>536870912</C0_MEM_SIZE>}
+   puts $mig_prj_file {        <UserMemoryAddressMap>BANK_ROW_COLUMN</UserMemoryAddressMap>}
+   puts $mig_prj_file {        <PinSelection>}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="SSTL15" PADName="M2" SLEW="FAST" name="ddr3_addr[0]" IN_TERM="" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="SSTL15" PADName="L5" SLEW="FAST" name="ddr3_addr[10]" IN_TERM="" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="SSTL15" PADName="N5" SLEW="FAST" name="ddr3_addr[11]" IN_TERM="" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="SSTL15" PADName="N4" SLEW="FAST" name="ddr3_addr[12]" IN_TERM="" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="SSTL15" PADName="P2" SLEW="FAST" name="ddr3_addr[13]" IN_TERM="" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="SSTL15" PADName="P6" SLEW="FAST" name="ddr3_addr[14]" IN_TERM="" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="SSTL15" PADName="M5" SLEW="FAST" name="ddr3_addr[1]" IN_TERM="" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="SSTL15" PADName="M3" SLEW="FAST" name="ddr3_addr[2]" IN_TERM="" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="SSTL15" PADName="M1" SLEW="FAST" name="ddr3_addr[3]" IN_TERM="" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="SSTL15" PADName="L6" SLEW="FAST" name="ddr3_addr[4]" IN_TERM="" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="SSTL15" PADName="P1" SLEW="FAST" name="ddr3_addr[5]" IN_TERM="" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="SSTL15" PADName="N3" SLEW="FAST" name="ddr3_addr[6]" IN_TERM="" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="SSTL15" PADName="N2" SLEW="FAST" name="ddr3_addr[7]" IN_TERM="" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="SSTL15" PADName="M6" SLEW="FAST" name="ddr3_addr[8]" IN_TERM="" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="SSTL15" PADName="R1" SLEW="FAST" name="ddr3_addr[9]" IN_TERM="" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="SSTL15" PADName="L3" SLEW="FAST" name="ddr3_ba[0]" IN_TERM="" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="SSTL15" PADName="K6" SLEW="FAST" name="ddr3_ba[1]" IN_TERM="" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="SSTL15" PADName="L4" SLEW="FAST" name="ddr3_ba[2]" IN_TERM="" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="SSTL15" PADName="K3" SLEW="FAST" name="ddr3_cas_n" IN_TERM="" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="DIFF_SSTL15" PADName="P4" SLEW="FAST" name="ddr3_ck_n[0]" IN_TERM="" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="DIFF_SSTL15" PADName="P5" SLEW="FAST" name="ddr3_ck_p[0]" IN_TERM="" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="SSTL15" PADName="J6" SLEW="FAST" name="ddr3_cke[0]" IN_TERM="" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="SSTL15" PADName="G3" SLEW="FAST" name="ddr3_dm[0]" IN_TERM="" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="SSTL15" PADName="F1" SLEW="FAST" name="ddr3_dm[1]" IN_TERM="" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="SSTL15" PADName="G2" SLEW="FAST" name="ddr3_dq[0]" IN_TERM="UNTUNED_SPLIT_50" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="SSTL15" PADName="F3" SLEW="FAST" name="ddr3_dq[10]" IN_TERM="UNTUNED_SPLIT_50" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="SSTL15" PADName="D2" SLEW="FAST" name="ddr3_dq[11]" IN_TERM="UNTUNED_SPLIT_50" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="SSTL15" PADName="C2" SLEW="FAST" name="ddr3_dq[12]" IN_TERM="UNTUNED_SPLIT_50" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="SSTL15" PADName="A1" SLEW="FAST" name="ddr3_dq[13]" IN_TERM="UNTUNED_SPLIT_50" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="SSTL15" PADName="E2" SLEW="FAST" name="ddr3_dq[14]" IN_TERM="UNTUNED_SPLIT_50" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="SSTL15" PADName="B1" SLEW="FAST" name="ddr3_dq[15]" IN_TERM="UNTUNED_SPLIT_50" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="SSTL15" PADName="H4" SLEW="FAST" name="ddr3_dq[1]" IN_TERM="UNTUNED_SPLIT_50" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="SSTL15" PADName="H5" SLEW="FAST" name="ddr3_dq[2]" IN_TERM="UNTUNED_SPLIT_50" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="SSTL15" PADName="J1" SLEW="FAST" name="ddr3_dq[3]" IN_TERM="UNTUNED_SPLIT_50" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="SSTL15" PADName="K1" SLEW="FAST" name="ddr3_dq[4]" IN_TERM="UNTUNED_SPLIT_50" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="SSTL15" PADName="H3" SLEW="FAST" name="ddr3_dq[5]" IN_TERM="UNTUNED_SPLIT_50" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="SSTL15" PADName="H2" SLEW="FAST" name="ddr3_dq[6]" IN_TERM="UNTUNED_SPLIT_50" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="SSTL15" PADName="J5" SLEW="FAST" name="ddr3_dq[7]" IN_TERM="UNTUNED_SPLIT_50" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="SSTL15" PADName="E3" SLEW="FAST" name="ddr3_dq[8]" IN_TERM="UNTUNED_SPLIT_50" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="SSTL15" PADName="B2" SLEW="FAST" name="ddr3_dq[9]" IN_TERM="UNTUNED_SPLIT_50" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="DIFF_SSTL15" PADName="J2" SLEW="FAST" name="ddr3_dqs_n[0]" IN_TERM="UNTUNED_SPLIT_50" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="DIFF_SSTL15" PADName="D1" SLEW="FAST" name="ddr3_dqs_n[1]" IN_TERM="UNTUNED_SPLIT_50" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="DIFF_SSTL15" PADName="K2" SLEW="FAST" name="ddr3_dqs_p[0]" IN_TERM="UNTUNED_SPLIT_50" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="DIFF_SSTL15" PADName="E1" SLEW="FAST" name="ddr3_dqs_p[1]" IN_TERM="UNTUNED_SPLIT_50" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="SSTL15" PADName="K4" SLEW="FAST" name="ddr3_odt[0]" IN_TERM="" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="SSTL15" PADName="J4" SLEW="FAST" name="ddr3_ras_n" IN_TERM="" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="LVCMOS15" PADName="G1" SLEW="FAST" name="ddr3_reset_n" IN_TERM="" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="SSTL15" PADName="L1" SLEW="FAST" name="ddr3_we_n" IN_TERM="" />}
+   puts $mig_prj_file {        </PinSelection>}
+   puts $mig_prj_file {        <System_Control>}
+   puts $mig_prj_file {            <Pin PADName="No connect" Bank="Select Bank" name="sys_rst" />}
+   puts $mig_prj_file {            <Pin PADName="No connect" Bank="Select Bank" name="init_calib_complete" />}
+   puts $mig_prj_file {            <Pin PADName="No connect" Bank="Select Bank" name="tg_compare_error" />}
+   puts $mig_prj_file {        </System_Control>}
+   puts $mig_prj_file {        <TimingParameters>}
+   puts $mig_prj_file {            <Parameters twtr="7.5" trrd="7.5" trefi="7.8" tfaw="40" trtp="7.5" tcke="5" trfc="260" trp="13.75" tras="35" trcd="13.75" />}
+   puts $mig_prj_file {        </TimingParameters>}
+   puts $mig_prj_file {        <mrBurstLength name="Burst Length" >8 - Fixed</mrBurstLength>}
+   puts $mig_prj_file {        <mrBurstType name="Read Burst Type and Length" >Sequential</mrBurstType>}
+   puts $mig_prj_file {        <mrCasLatency name="CAS Latency" >6</mrCasLatency>}
+   puts $mig_prj_file {        <mrMode name="Mode" >Normal</mrMode>}
+   puts $mig_prj_file {        <mrDllReset name="DLL Reset" >No</mrDllReset>}
+   puts $mig_prj_file {        <mrPdMode name="DLL control for precharge PD" >Slow Exit</mrPdMode>}
+   puts $mig_prj_file {        <emrDllEnable name="DLL Enable" >Enable</emrDllEnable>}
+   puts $mig_prj_file {        <emrOutputDriveStrength name="Output Driver Impedance Control" >RZQ/6</emrOutputDriveStrength>}
+   puts $mig_prj_file {        <emrMirrorSelection name="Address Mirroring" >Disable</emrMirrorSelection>}
+   puts $mig_prj_file {        <emrCSSelection name="Controller Chip Select Pin" >Disable</emrCSSelection>}
+   puts $mig_prj_file {        <emrRTT name="RTT (nominal) - On Die Termination (ODT)" >RZQ/6</emrRTT>}
+   puts $mig_prj_file {        <emrPosted name="Additive Latency (AL)" >0</emrPosted>}
+   puts $mig_prj_file {        <emrOCD name="Write Leveling Enable" >Disabled</emrOCD>}
+   puts $mig_prj_file {        <emrDQS name="TDQS enable" >Enabled</emrDQS>}
+   puts $mig_prj_file {        <emrRDQS name="Qoff" >Output Buffer Enabled</emrRDQS>}
+   puts $mig_prj_file {        <mr2PartialArraySelfRefresh name="Partial-Array Self Refresh" >Full Array</mr2PartialArraySelfRefresh>}
+   puts $mig_prj_file {        <mr2CasWriteLatency name="CAS write latency" >5</mr2CasWriteLatency>}
+   puts $mig_prj_file {        <mr2AutoSelfRefresh name="Auto Self Refresh" >Enabled</mr2AutoSelfRefresh>}
+   puts $mig_prj_file {        <mr2SelfRefreshTempRange name="High Temparature Self Refresh Rate" >Normal</mr2SelfRefreshTempRange>}
+   puts $mig_prj_file {        <mr2RTTWR name="RTT_WR - Dynamic On Die Termination (ODT)" >Dynamic ODT off</mr2RTTWR>}
+   puts $mig_prj_file {        <PortInterface>AXI</PortInterface>}
+   puts $mig_prj_file {        <AXIParameters>}
+   puts $mig_prj_file {            <C0_C_RD_WR_ARB_ALGORITHM>RD_PRI_REG</C0_C_RD_WR_ARB_ALGORITHM>}
+   puts $mig_prj_file {            <C0_S_AXI_ADDR_WIDTH>29</C0_S_AXI_ADDR_WIDTH>}
+   puts $mig_prj_file {            <C0_S_AXI_DATA_WIDTH>32</C0_S_AXI_DATA_WIDTH>}
+   puts $mig_prj_file {            <C0_S_AXI_ID_WIDTH>1</C0_S_AXI_ID_WIDTH>}
+   puts $mig_prj_file {            <C0_S_AXI_SUPPORTS_NARROW_BURST>0</C0_S_AXI_SUPPORTS_NARROW_BURST>}
+   puts $mig_prj_file {        </AXIParameters>}
+   puts $mig_prj_file {    </Controller>}
+   puts $mig_prj_file {</Project>}
+
+   close $mig_prj_file
+}
+# End of write_mig_file_maxpool_test_cs_mig_7series_0_0()
+
+
+
+##################################################################
+# DESIGN PROCs
+##################################################################
+
+
+
+# Procedure to create entire design; Provide argument to make
+# procedure reusable. If parentCell is "", will use root.
+proc create_root_design { parentCell } {
+
+  variable script_folder
+
+  if { $parentCell eq "" } {
+     set parentCell [get_bd_cells /]
+  }
+
+  # Get object for parentCell
+  set parentObj [get_bd_cells $parentCell]
+  if { $parentObj == "" } {
+     catch {common::send_msg_id "BD_TCL-100" "ERROR" "Unable to find parent cell <$parentCell>!"}
+     return
+  }
+
+  # Make sure parentObj is hier blk
+  set parentType [get_property TYPE $parentObj]
+  if { $parentType ne "hier" } {
+     catch {common::send_msg_id "BD_TCL-101" "ERROR" "Parent <$parentObj> has TYPE = <$parentType>. Expected to be <hier>."}
+     return
+  }
+
+  # Save current instance; Restore later
+  set oldCurInst [current_bd_instance .]
+
+  # Set parent object as current
+  current_bd_instance $parentObj
+
+
+  # Create interface ports
+  set DDR3 [ create_bd_intf_port -mode Master -vlnv xilinx.com:interface:ddrx_rtl:1.0 DDR3 ]
+
+  # Create ports
+  set busy [ create_bd_port -dir O busy ]
+  set i_reset_n [ create_bd_port -dir I -type rst i_reset_n ]
+  set_property -dict [ list \
+CONFIG.POLARITY {ACTIVE_LOW} \
+ ] $i_reset_n
+  set i_sys_clk [ create_bd_port -dir I -type clk i_sys_clk ]
+  set_property -dict [ list \
+CONFIG.FREQ_HZ {100000000} \
+CONFIG.PHASE {0.000} \
+ ] $i_sys_clk
+  set o_pooling_complete [ create_bd_port -dir O o_pooling_complete ]
+  set trigger [ create_bd_port -dir I -type intr trigger ]
+
+  # Create instance: Maxpool_Layer_32bit_0, and set properties
+  set Maxpool_Layer_32bit_0 [ create_bd_cell -type ip -vlnv xilinx.com:user:Maxpool_Layer_32bit:1.0 Maxpool_Layer_32bit_0 ]
+
+  # Create instance: Maxpool_Tester_0, and set properties
+  set Maxpool_Tester_0 [ create_bd_cell -type ip -vlnv xilinx.com:user:Maxpool_Tester:1.0 Maxpool_Tester_0 ]
+
+  # Create instance: Maxpool_Tester_0_axi_periph, and set properties
+  set Maxpool_Tester_0_axi_periph [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_interconnect:2.1 Maxpool_Tester_0_axi_periph ]
+  set_property -dict [ list \
+CONFIG.NUM_MI {1} \
+ ] $Maxpool_Tester_0_axi_periph
+
+  # Create instance: axi_mem_intercon, and set properties
+  set axi_mem_intercon [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_interconnect:2.1 axi_mem_intercon ]
+  set_property -dict [ list \
+CONFIG.NUM_MI {1} \
+ ] $axi_mem_intercon
+
+  # Create instance: clk_wiz_0, and set properties
+  set clk_wiz_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:clk_wiz:5.3 clk_wiz_0 ]
+  set_property -dict [ list \
+CONFIG.CLKOUT1_JITTER {130.958} \
+CONFIG.CLKOUT1_PHASE_ERROR {98.575} \
+CONFIG.CLKOUT2_JITTER {114.829} \
+CONFIG.CLKOUT2_PHASE_ERROR {98.575} \
+CONFIG.CLKOUT2_REQUESTED_OUT_FREQ {200.000} \
+CONFIG.CLKOUT2_USED {true} \
+CONFIG.MMCM_CLKFBOUT_MULT_F {10.000} \
+CONFIG.MMCM_CLKIN1_PERIOD {10.0} \
+CONFIG.MMCM_CLKIN2_PERIOD {10.0} \
+CONFIG.MMCM_CLKOUT0_DIVIDE_F {10.000} \
+CONFIG.MMCM_CLKOUT1_DIVIDE {5} \
+CONFIG.MMCM_COMPENSATION {ZHOLD} \
+CONFIG.MMCM_DIVCLK_DIVIDE {1} \
+CONFIG.NUM_OUT_CLKS {2} \
+CONFIG.RESET_PORT {resetn} \
+CONFIG.RESET_TYPE {ACTIVE_LOW} \
+ ] $clk_wiz_0
+
+  # Need to retain value_src of defaults
+  set_property -dict [ list \
+CONFIG.CLKOUT1_JITTER.VALUE_SRC {DEFAULT} \
+CONFIG.CLKOUT1_PHASE_ERROR.VALUE_SRC {DEFAULT} \
+CONFIG.MMCM_CLKFBOUT_MULT_F.VALUE_SRC {DEFAULT} \
+CONFIG.MMCM_CLKIN1_PERIOD.VALUE_SRC {DEFAULT} \
+CONFIG.MMCM_CLKIN2_PERIOD.VALUE_SRC {DEFAULT} \
+CONFIG.MMCM_CLKOUT0_DIVIDE_F.VALUE_SRC {DEFAULT} \
+CONFIG.MMCM_COMPENSATION.VALUE_SRC {DEFAULT} \
+ ] $clk_wiz_0
+
+  # Create instance: ila_0, and set properties
+  set ila_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:ila:6.2 ila_0 ]
+  set_property -dict [ list \
+CONFIG.C_ENABLE_ILA_AXI_MON {false} \
+CONFIG.C_MONITOR_TYPE {Native} \
+CONFIG.C_NUM_OF_PROBES {64} \
+CONFIG.C_PROBE11_WIDTH {8} \
+CONFIG.C_PROBE12_WIDTH {8} \
+CONFIG.C_PROBE13_WIDTH {8} \
+CONFIG.C_PROBE14_WIDTH {16} \
+CONFIG.C_PROBE15_WIDTH {1} \
+CONFIG.C_PROBE18_WIDTH {4} \
+CONFIG.C_PROBE24_WIDTH {1} \
+CONFIG.C_PROBE25_WIDTH {1} \
+CONFIG.C_PROBE26_WIDTH {1} \
+CONFIG.C_PROBE27_WIDTH {1} \
+CONFIG.C_PROBE30_WIDTH {1} \
+CONFIG.C_PROBE31_WIDTH {1} \
+CONFIG.C_PROBE45_WIDTH {32} \
+CONFIG.C_PROBE56_WIDTH {4} \
+CONFIG.C_PROBE57_WIDTH {4} \
+CONFIG.C_PROBE59_WIDTH {32} \
+CONFIG.C_PROBE5_WIDTH {8} \
+CONFIG.C_PROBE60_WIDTH {3} \
+CONFIG.C_PROBE61_WIDTH {8} \
+CONFIG.C_PROBE63_WIDTH {32} \
+CONFIG.C_PROBE6_WIDTH {8} \
+CONFIG.C_PROBE7_WIDTH {16} \
+CONFIG.C_PROBE9_WIDTH {4} \
+ ] $ila_0
+
+  # Create instance: ila_1, and set properties
+  set ila_1 [ create_bd_cell -type ip -vlnv xilinx.com:ip:ila:6.2 ila_1 ]
+  set_property -dict [ list \
+CONFIG.C_ENABLE_ILA_AXI_MON {false} \
+CONFIG.C_MONITOR_TYPE {Native} \
+CONFIG.C_NUM_OF_PROBES {23} \
+CONFIG.C_PROBE11_WIDTH {32} \
+CONFIG.C_PROBE15_WIDTH {32} \
+CONFIG.C_PROBE17_WIDTH {8} \
+CONFIG.C_PROBE18_WIDTH {3} \
+CONFIG.C_PROBE19_WIDTH {32} \
+CONFIG.C_PROBE22_WIDTH {9} \
+CONFIG.C_PROBE2_WIDTH {4} \
+CONFIG.C_PROBE5_WIDTH {3} \
+CONFIG.C_PROBE6_WIDTH {32} \
+CONFIG.C_PROBE7_WIDTH {8} \
+ ] $ila_1
+
+  # Create instance: ila_2, and set properties
+  set ila_2 [ create_bd_cell -type ip -vlnv xilinx.com:ip:ila:6.2 ila_2 ]
+  set_property -dict [ list \
+CONFIG.C_MONITOR_TYPE {AXI} \
+ ] $ila_2
+
+  # Need to retain value_src of defaults
+  set_property -dict [ list \
+CONFIG.C_MONITOR_TYPE.VALUE_SRC {DEFAULT} \
+ ] $ila_2
+
+  # Create instance: ila_3, and set properties
+  set ila_3 [ create_bd_cell -type ip -vlnv xilinx.com:ip:ila:6.2 ila_3 ]
+  set_property -dict [ list \
+CONFIG.C_MONITOR_TYPE {AXI} \
+ ] $ila_3
+
+  # Need to retain value_src of defaults
+  set_property -dict [ list \
+CONFIG.C_MONITOR_TYPE.VALUE_SRC {DEFAULT} \
+ ] $ila_3
+
+  # Create instance: mig_7series_0, and set properties
+  set mig_7series_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:mig_7series:4.0 mig_7series_0 ]
+
+  # Generate the PRJ File for MIG
+  set str_mig_folder [get_property IP_DIR [ get_ips [ get_property CONFIG.Component_Name $mig_7series_0 ] ] ]
+  set str_mig_file_name mig_a.prj
+  set str_mig_file_path ${str_mig_folder}/${str_mig_file_name}
+
+  write_mig_file_maxpool_test_cs_mig_7series_0_0 $str_mig_file_path
+
+  set_property -dict [ list \
+CONFIG.BOARD_MIG_PARAM {Custom} \
+CONFIG.RESET_BOARD_INTERFACE {Custom} \
+CONFIG.XML_INPUT_FILE {mig_a.prj} \
+ ] $mig_7series_0
+
+  # Create instance: rst_clk_wiz_0_100M, and set properties
+  set rst_clk_wiz_0_100M [ create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset:5.0 rst_clk_wiz_0_100M ]
+
+  # Create instance: rst_mig_7series_0_100M, and set properties
+  set rst_mig_7series_0_100M [ create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset:5.0 rst_mig_7series_0_100M ]
+
+  # Create instance: xlconstant_1, and set properties
+  set xlconstant_1 [ create_bd_cell -type ip -vlnv xilinx.com:ip:xlconstant:1.1 xlconstant_1 ]
+  set_property -dict [ list \
+CONFIG.CONST_VAL {1} \
+CONFIG.CONST_WIDTH {12} \
+ ] $xlconstant_1
+
+  # Create interface connections
+  connect_bd_intf_net -intf_net Maxpool_Layer_32bit_0_M00_AXI [get_bd_intf_pins Maxpool_Layer_32bit_0/M00_AXI] [get_bd_intf_pins axi_mem_intercon/S00_AXI]
+connect_bd_intf_net -intf_net [get_bd_intf_nets Maxpool_Layer_32bit_0_M00_AXI] [get_bd_intf_pins Maxpool_Layer_32bit_0/M00_AXI] [get_bd_intf_pins ila_2/SLOT_0_AXI]
+  connect_bd_intf_net -intf_net Maxpool_Tester_0_M00_AXI [get_bd_intf_pins Maxpool_Tester_0/M00_AXI] [get_bd_intf_pins Maxpool_Tester_0_axi_periph/S00_AXI]
+  connect_bd_intf_net -intf_net Maxpool_Tester_0_axi_periph_M00_AXI [get_bd_intf_pins Maxpool_Layer_32bit_0/S00_AXI] [get_bd_intf_pins Maxpool_Tester_0_axi_periph/M00_AXI]
+connect_bd_intf_net -intf_net [get_bd_intf_nets Maxpool_Tester_0_axi_periph_M00_AXI] [get_bd_intf_pins Maxpool_Tester_0_axi_periph/M00_AXI] [get_bd_intf_pins ila_3/SLOT_0_AXI]
+  connect_bd_intf_net -intf_net axi_mem_intercon_M00_AXI [get_bd_intf_pins axi_mem_intercon/M00_AXI] [get_bd_intf_pins mig_7series_0/S_AXI]
+  connect_bd_intf_net -intf_net mig_7series_0_DDR3 [get_bd_intf_ports DDR3] [get_bd_intf_pins mig_7series_0/DDR3]
+
+  # Create port connections
+  connect_bd_net -net Maxpool_Layer_32bit_0_ila_mp_PR0_almost_empty [get_bd_pins Maxpool_Layer_32bit_0/ila_mp_PR0_almost_empty] [get_bd_pins ila_0/probe24]
+  connect_bd_net -net Maxpool_Layer_32bit_0_ila_mp_PR0_almost_full [get_bd_pins Maxpool_Layer_32bit_0/ila_mp_PR0_almost_full] [get_bd_pins ila_0/probe22]
+  connect_bd_net -net Maxpool_Layer_32bit_0_ila_mp_PR0_empty [get_bd_pins Maxpool_Layer_32bit_0/ila_mp_PR0_empty] [get_bd_pins ila_0/probe23]
+  connect_bd_net -net Maxpool_Layer_32bit_0_ila_mp_PR0_full [get_bd_pins Maxpool_Layer_32bit_0/ila_mp_PR0_full] [get_bd_pins ila_0/probe21]
+  connect_bd_net -net Maxpool_Layer_32bit_0_ila_mp_PR0_rd_en [get_bd_pins Maxpool_Layer_32bit_0/ila_mp_PR0_rd_en] [get_bd_pins ila_0/probe20]
+  connect_bd_net -net Maxpool_Layer_32bit_0_ila_mp_PR0_wr_en [get_bd_pins Maxpool_Layer_32bit_0/ila_mp_PR0_wr_en] [get_bd_pins ila_0/probe19] [get_bd_pins ila_1/probe14]
+  connect_bd_net -net Maxpool_Layer_32bit_0_ila_mp_PR1_almost_empty [get_bd_pins Maxpool_Layer_32bit_0/ila_mp_PR1_almost_empty] [get_bd_pins ila_0/probe30]
+  connect_bd_net -net Maxpool_Layer_32bit_0_ila_mp_PR1_almost_full [get_bd_pins Maxpool_Layer_32bit_0/ila_mp_PR1_almost_full] [get_bd_pins ila_0/probe28]
+  connect_bd_net -net Maxpool_Layer_32bit_0_ila_mp_PR1_empty [get_bd_pins Maxpool_Layer_32bit_0/ila_mp_PR1_empty] [get_bd_pins ila_0/probe29]
+  connect_bd_net -net Maxpool_Layer_32bit_0_ila_mp_PR1_full [get_bd_pins Maxpool_Layer_32bit_0/ila_mp_PR1_full] [get_bd_pins ila_0/probe27]
+  connect_bd_net -net Maxpool_Layer_32bit_0_ila_mp_PR1_rd_en [get_bd_pins Maxpool_Layer_32bit_0/ila_mp_PR1_rd_en] [get_bd_pins ila_0/probe26]
+  connect_bd_net -net Maxpool_Layer_32bit_0_ila_mp_PR1_wr_en [get_bd_pins Maxpool_Layer_32bit_0/ila_mp_PR1_wr_en] [get_bd_pins ila_0/probe25]
+  connect_bd_net -net Maxpool_Layer_32bit_0_ila_mp_PR2_almost_empty [get_bd_pins Maxpool_Layer_32bit_0/ila_mp_PR2_almost_empty] [get_bd_pins ila_0/probe36]
+  connect_bd_net -net Maxpool_Layer_32bit_0_ila_mp_PR2_almost_full [get_bd_pins Maxpool_Layer_32bit_0/ila_mp_PR2_almost_full] [get_bd_pins ila_0/probe34]
+  connect_bd_net -net Maxpool_Layer_32bit_0_ila_mp_PR2_empty [get_bd_pins Maxpool_Layer_32bit_0/ila_mp_PR2_empty] [get_bd_pins ila_0/probe35]
+  connect_bd_net -net Maxpool_Layer_32bit_0_ila_mp_PR2_full [get_bd_pins Maxpool_Layer_32bit_0/ila_mp_PR2_full] [get_bd_pins ila_0/probe33]
+  connect_bd_net -net Maxpool_Layer_32bit_0_ila_mp_PR2_rd_en [get_bd_pins Maxpool_Layer_32bit_0/ila_mp_PR2_rd_en] [get_bd_pins ila_0/probe32]
+  connect_bd_net -net Maxpool_Layer_32bit_0_ila_mp_PR2_wr_en [get_bd_pins Maxpool_Layer_32bit_0/ila_mp_PR2_wr_en] [get_bd_pins ila_0/probe31]
+  connect_bd_net -net Maxpool_Layer_32bit_0_ila_mp_busy [get_bd_ports busy] [get_bd_pins Maxpool_Layer_32bit_0/ila_mp_busy] [get_bd_pins ila_0/probe17]
+  connect_bd_net -net Maxpool_Layer_32bit_0_ila_mp_channel_complete [get_bd_pins Maxpool_Layer_32bit_0/ila_mp_channel_complete] [get_bd_pins ila_0/probe15]
+  connect_bd_net -net Maxpool_Layer_32bit_0_ila_mp_channel_counter [get_bd_pins Maxpool_Layer_32bit_0/ila_mp_channel_counter] [get_bd_pins ila_0/probe14]
+  connect_bd_net -net Maxpool_Layer_32bit_0_ila_mp_column_counter [get_bd_pins Maxpool_Layer_32bit_0/ila_mp_column_counter] [get_bd_pins ila_0/probe6]
+  connect_bd_net -net Maxpool_Layer_32bit_0_ila_mp_fsm_state [get_bd_pins Maxpool_Layer_32bit_0/ila_mp_fsm_state] [get_bd_pins ila_0/probe18]
+  connect_bd_net -net Maxpool_Layer_32bit_0_ila_mp_inbuff_almost_empty [get_bd_pins Maxpool_Layer_32bit_0/ila_mp_inbuff_almost_empty] [get_bd_pins ila_0/probe39]
+  connect_bd_net -net Maxpool_Layer_32bit_0_ila_mp_inbuff_almost_full [get_bd_pins Maxpool_Layer_32bit_0/ila_mp_inbuff_almost_full] [get_bd_pins ila_0/probe41]
+  connect_bd_net -net Maxpool_Layer_32bit_0_ila_mp_inbuff_empty [get_bd_pins Maxpool_Layer_32bit_0/ila_mp_inbuff_empty] [get_bd_pins ila_0/probe38]
+  connect_bd_net -net Maxpool_Layer_32bit_0_ila_mp_inbuff_full [get_bd_pins Maxpool_Layer_32bit_0/ila_mp_inbuff_full] [get_bd_pins ila_0/probe40]
+  connect_bd_net -net Maxpool_Layer_32bit_0_ila_mp_inbuff_rd_en [get_bd_pins Maxpool_Layer_32bit_0/ila_mp_inbuff_rd_en] [get_bd_pins ila_0/probe43]
+  connect_bd_net -net Maxpool_Layer_32bit_0_ila_mp_inbuff_valid [get_bd_pins Maxpool_Layer_32bit_0/ila_mp_inbuff_valid] [get_bd_pins ila_0/probe42]
+  connect_bd_net -net Maxpool_Layer_32bit_0_ila_mp_inbuff_wr_en [get_bd_pins Maxpool_Layer_32bit_0/ila_mp_inbuff_wr_en] [get_bd_pins ila_0/probe37]
+  connect_bd_net -net Maxpool_Layer_32bit_0_ila_mp_m_axi_araddr [get_bd_pins Maxpool_Layer_32bit_0/ila_mp_m_axi_araddr] [get_bd_pins ila_1/probe6]
+  connect_bd_net -net Maxpool_Layer_32bit_0_ila_mp_m_axi_arlen [get_bd_pins Maxpool_Layer_32bit_0/ila_mp_m_axi_arlen] [get_bd_pins ila_1/probe7]
+  connect_bd_net -net Maxpool_Layer_32bit_0_ila_mp_m_axi_arready [get_bd_pins Maxpool_Layer_32bit_0/ila_mp_m_axi_arready] [get_bd_pins ila_1/probe10]
+  connect_bd_net -net Maxpool_Layer_32bit_0_ila_mp_m_axi_arsize [get_bd_pins Maxpool_Layer_32bit_0/ila_mp_m_axi_arsize] [get_bd_pins ila_1/probe5]
+  connect_bd_net -net Maxpool_Layer_32bit_0_ila_mp_m_axi_arvalid [get_bd_pins Maxpool_Layer_32bit_0/ila_mp_m_axi_arvalid] [get_bd_pins ila_1/probe8]
+  connect_bd_net -net Maxpool_Layer_32bit_0_ila_mp_m_axi_awaddr [get_bd_pins Maxpool_Layer_32bit_0/ila_mp_m_axi_awaddr] [get_bd_pins ila_0/probe59] [get_bd_pins ila_1/probe19]
+  connect_bd_net -net Maxpool_Layer_32bit_0_ila_mp_m_axi_awlen [get_bd_pins Maxpool_Layer_32bit_0/ila_mp_m_axi_awlen] [get_bd_pins ila_0/probe61] [get_bd_pins ila_1/probe17]
+  connect_bd_net -net Maxpool_Layer_32bit_0_ila_mp_m_axi_awready [get_bd_pins Maxpool_Layer_32bit_0/ila_mp_m_axi_awready] [get_bd_pins ila_0/probe58] [get_bd_pins ila_1/probe20]
+  connect_bd_net -net Maxpool_Layer_32bit_0_ila_mp_m_axi_awsize [get_bd_pins Maxpool_Layer_32bit_0/ila_mp_m_axi_awsize] [get_bd_pins ila_0/probe60] [get_bd_pins ila_1/probe18]
+  connect_bd_net -net Maxpool_Layer_32bit_0_ila_mp_m_axi_awvalid [get_bd_pins Maxpool_Layer_32bit_0/ila_mp_m_axi_awvalid] [get_bd_pins ila_0/probe62] [get_bd_pins ila_1/probe16]
+  connect_bd_net -net Maxpool_Layer_32bit_0_ila_mp_m_axi_bready [get_bd_pins Maxpool_Layer_32bit_0/ila_mp_m_axi_bready] [get_bd_pins ila_1/probe4]
+  connect_bd_net -net Maxpool_Layer_32bit_0_ila_mp_m_axi_bvalid [get_bd_pins Maxpool_Layer_32bit_0/ila_mp_m_axi_bvalid] [get_bd_pins ila_1/probe3]
+  connect_bd_net -net Maxpool_Layer_32bit_0_ila_mp_m_axi_rdata [get_bd_pins Maxpool_Layer_32bit_0/ila_mp_m_axi_rdata] [get_bd_pins ila_1/probe11]
+  connect_bd_net -net Maxpool_Layer_32bit_0_ila_mp_m_axi_rlast [get_bd_pins Maxpool_Layer_32bit_0/ila_mp_m_axi_rlast] [get_bd_pins ila_1/probe12]
+  connect_bd_net -net Maxpool_Layer_32bit_0_ila_mp_m_axi_rready [get_bd_pins Maxpool_Layer_32bit_0/ila_mp_m_axi_rready] [get_bd_pins ila_1/probe9]
+  connect_bd_net -net Maxpool_Layer_32bit_0_ila_mp_m_axi_rvalid [get_bd_pins Maxpool_Layer_32bit_0/ila_mp_m_axi_rvalid] [get_bd_pins ila_1/probe13]
+  connect_bd_net -net Maxpool_Layer_32bit_0_ila_mp_m_axi_wbc [get_bd_pins Maxpool_Layer_32bit_0/ila_mp_m_axi_wbc] [get_bd_pins ila_1/probe22]
+  connect_bd_net -net Maxpool_Layer_32bit_0_ila_mp_m_axi_wdata [get_bd_pins Maxpool_Layer_32bit_0/ila_mp_m_axi_wdata] [get_bd_pins ila_0/probe63] [get_bd_pins ila_1/probe15]
+  connect_bd_net -net Maxpool_Layer_32bit_0_ila_mp_m_axi_wlast [get_bd_pins Maxpool_Layer_32bit_0/ila_mp_m_axi_wlast] [get_bd_pins ila_1/probe0]
+  connect_bd_net -net Maxpool_Layer_32bit_0_ila_mp_m_axi_wready [get_bd_pins Maxpool_Layer_32bit_0/ila_mp_m_axi_wready] [get_bd_pins ila_1/probe21]
+  connect_bd_net -net Maxpool_Layer_32bit_0_ila_mp_m_axi_wstrb [get_bd_pins Maxpool_Layer_32bit_0/ila_mp_m_axi_wstrb] [get_bd_pins ila_1/probe2]
+  connect_bd_net -net Maxpool_Layer_32bit_0_ila_mp_m_axi_wvalid [get_bd_pins Maxpool_Layer_32bit_0/ila_mp_m_axi_wvalid] [get_bd_pins ila_1/probe1]
+  connect_bd_net -net Maxpool_Layer_32bit_0_ila_mp_master_fsm_state [get_bd_pins Maxpool_Layer_32bit_0/ila_mp_master_fsm_state] [get_bd_pins ila_0/probe57]
+  connect_bd_net -net Maxpool_Layer_32bit_0_ila_mp_outbuff_almost_empty [get_bd_pins Maxpool_Layer_32bit_0/ila_mp_outbuff_almost_empty] [get_bd_pins ila_0/probe47]
+  connect_bd_net -net Maxpool_Layer_32bit_0_ila_mp_outbuff_almost_full [get_bd_pins Maxpool_Layer_32bit_0/ila_mp_outbuff_almost_full] [get_bd_pins ila_0/probe49]
+  connect_bd_net -net Maxpool_Layer_32bit_0_ila_mp_outbuff_dout [get_bd_pins Maxpool_Layer_32bit_0/ila_mp_outbuff_dout] [get_bd_pins ila_0/probe45]
+  connect_bd_net -net Maxpool_Layer_32bit_0_ila_mp_outbuff_empty [get_bd_pins Maxpool_Layer_32bit_0/ila_mp_outbuff_empty] [get_bd_pins ila_0/probe46]
+  connect_bd_net -net Maxpool_Layer_32bit_0_ila_mp_outbuff_full [get_bd_pins Maxpool_Layer_32bit_0/ila_mp_outbuff_full] [get_bd_pins ila_0/probe48]
+  connect_bd_net -net Maxpool_Layer_32bit_0_ila_mp_outbuff_rd_en [get_bd_pins Maxpool_Layer_32bit_0/ila_mp_outbuff_rd_en] [get_bd_pins ila_0/probe44]
+  connect_bd_net -net Maxpool_Layer_32bit_0_ila_mp_outbuff_valid [get_bd_pins Maxpool_Layer_32bit_0/ila_mp_outbuff_valid] [get_bd_pins ila_0/probe50]
+  connect_bd_net -net Maxpool_Layer_32bit_0_ila_mp_output_rows_generated [get_bd_pins Maxpool_Layer_32bit_0/ila_mp_output_rows_generated] [get_bd_pins ila_0/probe12]
+  connect_bd_net -net Maxpool_Layer_32bit_0_ila_mp_output_volume_size [get_bd_pins Maxpool_Layer_32bit_0/ila_mp_output_volume_size] [get_bd_pins ila_0/probe13]
+  connect_bd_net -net Maxpool_Layer_32bit_0_ila_mp_pixel_counter [get_bd_pins Maxpool_Layer_32bit_0/ila_mp_pixel_counter] [get_bd_pins ila_0/probe5]
+  connect_bd_net -net Maxpool_Layer_32bit_0_ila_mp_prime_PR0_en [get_bd_pins Maxpool_Layer_32bit_0/ila_mp_prime_PR0_en] [get_bd_pins ila_0/probe2]
+  connect_bd_net -net Maxpool_Layer_32bit_0_ila_mp_prime_PR1_en [get_bd_pins Maxpool_Layer_32bit_0/ila_mp_prime_PR1_en] [get_bd_pins ila_0/probe3]
+  connect_bd_net -net Maxpool_Layer_32bit_0_ila_mp_prime_PR2_en [get_bd_pins Maxpool_Layer_32bit_0/ila_mp_prime_PR2_en] [get_bd_pins ila_0/probe4]
+  connect_bd_net -net Maxpool_Layer_32bit_0_ila_mp_recycle_en [get_bd_pins Maxpool_Layer_32bit_0/ila_mp_recycle_en] [get_bd_pins ila_0/probe1]
+  connect_bd_net -net Maxpool_Layer_32bit_0_ila_mp_row_complete [get_bd_pins Maxpool_Layer_32bit_0/ila_mp_row_complete] [get_bd_pins ila_0/probe16]
+  connect_bd_net -net Maxpool_Layer_32bit_0_ila_mp_row_counter [get_bd_pins Maxpool_Layer_32bit_0/ila_mp_row_counter] [get_bd_pins ila_0/probe7]
+  connect_bd_net -net Maxpool_Layer_32bit_0_ila_mp_sorter_data_valid [get_bd_pins Maxpool_Layer_32bit_0/ila_mp_sorter_data_valid] [get_bd_pins ila_0/probe8]
+  connect_bd_net -net Maxpool_Layer_32bit_0_ila_mp_sorter_fsm_state [get_bd_pins Maxpool_Layer_32bit_0/ila_mp_sorter_fsm_state] [get_bd_pins ila_0/probe56]
+  connect_bd_net -net Maxpool_Layer_32bit_0_ila_mp_sorter_ready [get_bd_pins Maxpool_Layer_32bit_0/ila_mp_sorter_ready] [get_bd_pins ila_0/probe55]
+  connect_bd_net -net Maxpool_Layer_32bit_0_ila_mp_stride_counter [get_bd_pins Maxpool_Layer_32bit_0/ila_mp_stride_counter] [get_bd_pins ila_0/probe9]
+  connect_bd_net -net Maxpool_Layer_32bit_0_ila_mp_third_row_activate [get_bd_pins Maxpool_Layer_32bit_0/ila_mp_third_row_activate] [get_bd_pins ila_0/probe0]
+  connect_bd_net -net Maxpool_Layer_32bit_0_ila_mp_volume_processed [get_bd_pins Maxpool_Layer_32bit_0/ila_mp_volume_processed] [get_bd_pins ila_0/probe10]
+  connect_bd_net -net Maxpool_Layer_32bit_0_ila_mp_volume_rows_processed [get_bd_pins Maxpool_Layer_32bit_0/ila_mp_volume_rows_processed] [get_bd_pins ila_0/probe11]
+  connect_bd_net -net Maxpool_Layer_32bit_0_o_pooling_complete [get_bd_ports o_pooling_complete] [get_bd_pins Maxpool_Layer_32bit_0/o_pooling_complete] [get_bd_pins ila_0/probe54]
+  connect_bd_net -net clk_wiz_0_clk_out1 [get_bd_pins Maxpool_Layer_32bit_0/s00_axi_aclk] [get_bd_pins Maxpool_Tester_0/m00_axi_aclk] [get_bd_pins Maxpool_Tester_0_axi_periph/ACLK] [get_bd_pins Maxpool_Tester_0_axi_periph/M00_ACLK] [get_bd_pins Maxpool_Tester_0_axi_periph/S00_ACLK] [get_bd_pins clk_wiz_0/clk_out1] [get_bd_pins ila_3/clk] [get_bd_pins mig_7series_0/sys_clk_i] [get_bd_pins rst_clk_wiz_0_100M/slowest_sync_clk]
+  connect_bd_net -net clk_wiz_0_clk_out2 [get_bd_pins clk_wiz_0/clk_out2] [get_bd_pins mig_7series_0/clk_ref_i]
+  connect_bd_net -net clk_wiz_0_locked [get_bd_pins clk_wiz_0/locked] [get_bd_pins ila_0/probe51] [get_bd_pins rst_clk_wiz_0_100M/dcm_locked]
+  connect_bd_net -net clock_rtl_1 [get_bd_ports i_sys_clk] [get_bd_pins clk_wiz_0/clk_in1]
+  connect_bd_net -net mig_7series_0_init_calib_complete [get_bd_pins Maxpool_Tester_0/init_calib_complete] [get_bd_pins mig_7series_0/init_calib_complete]
+  connect_bd_net -net mig_7series_0_mmcm_locked [get_bd_pins mig_7series_0/mmcm_locked] [get_bd_pins rst_mig_7series_0_100M/dcm_locked]
+  connect_bd_net -net mig_7series_0_ui_clk [get_bd_pins Maxpool_Layer_32bit_0/m00_axi_aclk] [get_bd_pins axi_mem_intercon/ACLK] [get_bd_pins axi_mem_intercon/M00_ACLK] [get_bd_pins axi_mem_intercon/S00_ACLK] [get_bd_pins ila_0/clk] [get_bd_pins ila_1/clk] [get_bd_pins ila_2/clk] [get_bd_pins mig_7series_0/ui_clk] [get_bd_pins rst_mig_7series_0_100M/slowest_sync_clk]
+  connect_bd_net -net mig_7series_0_ui_clk_sync_rst [get_bd_pins mig_7series_0/ui_clk_sync_rst] [get_bd_pins rst_mig_7series_0_100M/ext_reset_in]
+  connect_bd_net -net reset_rtl_0_1 [get_bd_ports i_reset_n] [get_bd_pins clk_wiz_0/resetn] [get_bd_pins ila_0/probe52] [get_bd_pins mig_7series_0/sys_rst] [get_bd_pins rst_clk_wiz_0_100M/ext_reset_in]
+  connect_bd_net -net rst_clk_wiz_0_100M_interconnect_aresetn [get_bd_pins Maxpool_Tester_0_axi_periph/ARESETN] [get_bd_pins rst_clk_wiz_0_100M/interconnect_aresetn]
+  connect_bd_net -net rst_clk_wiz_0_100M_peripheral_aresetn [get_bd_pins Maxpool_Layer_32bit_0/s00_axi_aresetn] [get_bd_pins Maxpool_Tester_0/m00_axi_aresetn] [get_bd_pins Maxpool_Tester_0_axi_periph/M00_ARESETN] [get_bd_pins Maxpool_Tester_0_axi_periph/S00_ARESETN] [get_bd_pins rst_clk_wiz_0_100M/peripheral_aresetn]
+  connect_bd_net -net rst_mig_7series_0_100M_interconnect_aresetn [get_bd_pins axi_mem_intercon/ARESETN] [get_bd_pins rst_mig_7series_0_100M/interconnect_aresetn]
+  connect_bd_net -net rst_mig_7series_0_100M_peripheral_aresetn [get_bd_pins Maxpool_Layer_32bit_0/m00_axi_aresetn] [get_bd_pins axi_mem_intercon/M00_ARESETN] [get_bd_pins axi_mem_intercon/S00_ARESETN] [get_bd_pins mig_7series_0/aresetn] [get_bd_pins rst_mig_7series_0_100M/peripheral_aresetn]
+  connect_bd_net -net trigger_1 [get_bd_ports trigger] [get_bd_pins Maxpool_Tester_0/trigger] [get_bd_pins ila_0/probe53]
+  connect_bd_net -net xlconstant_1_dout [get_bd_pins mig_7series_0/device_temp_i] [get_bd_pins xlconstant_1/dout]
+
+  # Create address segments
+  create_bd_addr_seg -range 0x20000000 -offset 0x80000000 [get_bd_addr_spaces Maxpool_Layer_32bit_0/M00_AXI] [get_bd_addr_segs mig_7series_0/memmap/memaddr] SEG_mig_7series_0_memaddr
+  create_bd_addr_seg -range 0x00010000 -offset 0x44A00000 [get_bd_addr_spaces Maxpool_Tester_0/M00_AXI] [get_bd_addr_segs Maxpool_Layer_32bit_0/S00_AXI/S00_AXI_reg] SEG_Maxpool_Layer_32bit_0_S00_AXI_reg
+
+  # Perform GUI Layout
+  regenerate_bd_layout -layout_string {
+   guistr: "# # String gsaved with Nlview 6.6.5b  2016-09-06 bk=1.3687 VDI=39 GEI=35 GUI=JA:1.6
+#  -string -flagsOSRD
+preplace port i_sys_clk -pg 1 -y 830 -defaultsOSRD
+preplace port busy -pg 1 -y 10 -defaultsOSRD
+preplace port trigger -pg 1 -y 1870 -defaultsOSRD
+preplace port DDR3 -pg 1 -y 2000 -defaultsOSRD
+preplace port o_pooling_complete -pg 1 -y 1600 -defaultsOSRD
+preplace port i_reset_n -pg 1 -y 2240 -defaultsOSRD
+preplace inst Maxpool_Layer_32bit_0 -pg 1 -lvl 5 -y 870 -defaultsOSRD
+preplace inst rst_clk_wiz_0_100M -pg 1 -lvl 2 -y 690 -defaultsOSRD
+preplace inst rst_mig_7series_0_100M -pg 1 -lvl 4 -y 1970 -defaultsOSRD
+preplace inst Maxpool_Tester_0 -pg 1 -lvl 3 -y 790 -defaultsOSRD
+preplace inst mig_7series_0 -pg 1 -lvl 7 -y 2040 -defaultsOSRD
+preplace inst xlconstant_1 -pg 1 -lvl 6 -y 2170 -defaultsOSRD
+preplace inst ila_0 -pg 1 -lvl 7 -y 740 -defaultsOSRD
+preplace inst ila_1 -pg 1 -lvl 6 -y 1580 -defaultsOSRD
+preplace inst ila_2 -pg 1 -lvl 6 -y 1260 -defaultsOSRD
+preplace inst clk_wiz_0 -pg 1 -lvl 1 -y 820 -defaultsOSRD
+preplace inst ila_3 -pg 1 -lvl 4 -y 610 -defaultsOSRD
+preplace inst Maxpool_Tester_0_axi_periph -pg 1 -lvl 4 -y 830 -defaultsOSRD
+preplace inst axi_mem_intercon -pg 1 -lvl 6 -y 1990 -defaultsOSRD
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_m_axi_arvalid 1 5 1 1770
+preplace netloc mig_7series_0_DDR3 1 7 1 NJ
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_m_axi_araddr 1 5 1 1810
+preplace netloc rst_mig_7series_0_100M_interconnect_aresetn 1 4 2 N 1990 1670J
+preplace netloc trigger_1 1 0 7 10J 20 NJ 20 550 20 NJ 20 NJ 20 NJ 20 2260J
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_inbuff_full 1 5 2 N 910 2190J
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_PR1_almost_full 1 5 2 N 670 2250J
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_m_axi_wvalid 1 5 1 1870
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_PR2_empty 1 5 2 N 810 2190J
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_m_axi_bready 1 5 1 1840
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_inbuff_valid 1 5 2 N 950 2190J
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_outbuff_almost_empty 1 5 2 N 1050 2190J
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_PR1_almost_empty 1 5 2 N 710 2190J
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_PR1_full 1 5 2 N 650 2250J
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_outbuff_full 1 5 2 N 1070 2190J
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_m_axi_rlast 1 5 1 1700
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_sorter_fsm_state 1 5 2 N 1150 2200J
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_PR0_almost_full 1 5 2 N 550 2280J
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_PR1_wr_en 1 5 2 N 610 2280J
+preplace netloc clock_rtl_1 1 0 1 NJ
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_recycle_en 1 5 2 N 130 2290J
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_PR0_full 1 5 2 N 530 2280J
+preplace netloc mig_7series_0_mmcm_locked 1 3 5 880 10 NJ 10 NJ 10 2270J 20 2590
+preplace netloc Maxpool_Tester_0_axi_periph_M00_AXI 1 3 2 900 700 1220
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_prime_PR2_en 1 5 2 N 190 2290J
+preplace netloc Maxpool_Layer_32bit_0_o_pooling_complete 1 5 3 1670 1190 2150 1590 2610J
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_busy 1 5 3 N 450 2280J 10 NJ
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_m_axi_wstrb 1 5 1 1790
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_m_axi_awsize 1 5 2 1820 1160 2180J
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_column_counter 1 5 2 N 230 2290J
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_m_axi_awvalid 1 5 2 1660 1140 2190J
+preplace netloc mig_7series_0_ui_clk_sync_rst 1 3 5 900 1720 NJ 1720 1720J 50 NJ 50 2580
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_PR1_empty 1 5 2 N 690 2190J
+preplace netloc rst_mig_7series_0_100M_peripheral_aresetn 1 4 3 1260 2010 1670 2110 2270J
+preplace netloc xlconstant_1_dout 1 6 1 2240J
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_m_axi_wready 1 5 1 1670
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_m_axi_arlen 1 5 1 1790
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_outbuff_rd_en 1 5 2 N 990 2190J
+preplace netloc Maxpool_Layer_32bit_0_M00_AXI 1 5 1 1750
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_channel_complete 1 5 2 N 410 2270J
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_volume_rows_processed 1 5 2 N 330 2270J
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_m_axi_wdata 1 5 2 1860 1200 2140J
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_inbuff_almost_empty 1 5 2 N 890 2190J
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_prime_PR1_en 1 5 2 N 170 2290J
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_PR2_almost_empty 1 5 2 N 830 2190J
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_m_axi_awready 1 5 2 1650 1870 2200J
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_outbuff_almost_full 1 5 2 N 1090 2190J
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_PR2_almost_full 1 5 2 N 790 2190J
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_outbuff_empty 1 5 2 N 1030 2190J
+preplace netloc mig_7series_0_init_calib_complete 1 2 6 570 0 NJ 0 NJ 0 NJ 0 NJ 0 2600
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_inbuff_rd_en 1 5 2 N 970 2190J
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_stride_counter 1 5 2 N 290 2270J
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_channel_counter 1 5 2 N 390 2270J
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_outbuff_valid 1 5 2 N 1110 2190J
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_PR0_rd_en 1 5 2 N 510 2280J
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_row_complete 1 5 2 N 430 2270J
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_PR1_rd_en 1 5 2 N 630 2250J
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_fsm_state 1 5 2 N 470 2280J
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_PR2_full 1 5 2 N 770 2190J
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_inbuff_empty 1 5 2 N 870 2190J
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_outbuff_dout 1 5 2 N 1010 2190J
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_PR2_rd_en 1 5 2 N 750 2190J
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_row_counter 1 5 2 N 250 2270J
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_m_axi_wbc 1 5 1 1640
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_m_axi_rdata 1 5 1 1710
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_m_axi_bvalid 1 5 1 1850
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_inbuff_wr_en 1 5 2 N 850 2190J
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_m_axi_awaddr 1 5 2 1740 1860 2210J
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_third_row_activate 1 5 2 N 110 2290J
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_output_rows_generated 1 5 2 N 350 2270J
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_m_axi_rready 1 5 1 1760
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_sorter_ready 1 5 2 N 1130 2210J
+preplace netloc Maxpool_Tester_0_M00_AXI 1 3 1 N
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_sorter_data_valid 1 5 2 N 270 2270J
+preplace netloc clk_wiz_0_locked 1 1 6 210 2240 NJ 2240 NJ 2240 NJ 2240 NJ 2240 2220J
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_prime_PR0_en 1 5 2 N 150 2290J
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_pixel_counter 1 5 2 N 210 2290J
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_PR0_empty 1 5 2 N 570 2280J
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_inbuff_almost_full 1 5 2 N 930 2190J
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_m_axi_wlast 1 5 1 1880
+preplace netloc reset_rtl_0_1 1 0 7 20 2250 190 2250 NJ 2250 NJ 2250 NJ 2250 NJ 2250 2250
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_volume_processed 1 5 2 N 310 2270J
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_m_axi_arready 1 5 1 1730
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_m_axi_arsize 1 5 1 1780
+preplace netloc mig_7series_0_ui_clk 1 3 5 890 2120 1250 2120 1800 2120 2230 2140 2580
+preplace netloc clk_wiz_0_clk_out1 1 1 6 200 2220 570 2220 870 2220 1240 2220 NJ 2220 2290J
+preplace netloc rst_clk_wiz_0_100M_interconnect_aresetn 1 2 2 540J 700 850
+preplace netloc clk_wiz_0_clk_out2 1 1 6 180J 2230 NJ 2230 NJ 2230 NJ 2230 NJ 2230 2280
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_PR2_wr_en 1 5 2 N 730 2190J
+preplace netloc axi_mem_intercon_M00_AXI 1 6 1 N
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_output_volume_size 1 5 2 N 370 2270J
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_m_axi_awlen 1 5 2 1680 1180 2160J
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_PR0_almost_empty 1 5 2 N 590 2280J
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_m_axi_rvalid 1 5 1 1690
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_master_fsm_state 1 5 2 N 1170 2170J
+preplace netloc Maxpool_Layer_32bit_0_ila_mp_PR0_wr_en 1 5 2 1830 490 2280J
+preplace netloc rst_clk_wiz_0_100M_peripheral_aresetn 1 2 3 560 710 860 710 1230J
+levelinfo -pg 1 -10 100 380 710 1060 1450 2010 2440 2640 -top -10 -bot 2260
+",
+}
+
+  # Restore current instance
+  current_bd_instance $oldCurInst
+
+  save_bd_design
+}
+# End of create_root_design()
+
+
+##################################################################
+# MAIN FLOW
+##################################################################
+
+create_root_design ""
+
+

@@ -1,0 +1,783 @@
+
+################################################################
+# This is a generated script based on design: softmax_test_cs
+#
+# Though there are limitations about the generated script,
+# the main purpose of this utility is to make learning
+# IP Integrator Tcl commands easier.
+################################################################
+
+namespace eval _tcl {
+proc get_script_folder {} {
+   set script_path [file normalize [info script]]
+   set script_folder [file dirname $script_path]
+   return $script_folder
+}
+}
+variable script_folder
+set script_folder [_tcl::get_script_folder]
+
+################################################################
+# Check if script is running in correct Vivado version.
+################################################################
+set scripts_vivado_version 2016.4
+set current_vivado_version [version -short]
+
+if { [string first $scripts_vivado_version $current_vivado_version] == -1 } {
+   puts ""
+   catch {common::send_msg_id "BD_TCL-109" "ERROR" "This script was generated using Vivado <$scripts_vivado_version> and is being run in <$current_vivado_version> of Vivado. Please run the script in Vivado <$scripts_vivado_version> then open the design in Vivado <$current_vivado_version>. Upgrade the design by running \"Tools => Report => Report IP Status...\", then run write_bd_tcl to create an updated script."}
+
+   return 1
+}
+
+################################################################
+# START
+################################################################
+
+# To test this script, run the following commands from Vivado Tcl console:
+# source softmax_test_cs_script.tcl
+
+# If there is no project opened, this script will create a
+# project, but make sure you do not have an existing project
+# <./myproj/project_1.xpr> in the current working folder.
+
+set list_projs [get_projects -quiet]
+if { $list_projs eq "" } {
+   create_project project_1 myproj -part xc7a200tsbg484-1
+}
+
+
+# CHANGE DESIGN NAME HERE
+set design_name softmax_test_cs
+
+# If you do not already have an existing IP Integrator design open,
+# you can create a design using the following command:
+#    create_bd_design $design_name
+
+# Creating design if needed
+set errMsg ""
+set nRet 0
+
+set cur_design [current_bd_design -quiet]
+set list_cells [get_bd_cells -quiet]
+
+if { ${design_name} eq "" } {
+   # USE CASES:
+   #    1) Design_name not set
+
+   set errMsg "Please set the variable <design_name> to a non-empty value."
+   set nRet 1
+
+} elseif { ${cur_design} ne "" && ${list_cells} eq "" } {
+   # USE CASES:
+   #    2): Current design opened AND is empty AND names same.
+   #    3): Current design opened AND is empty AND names diff; design_name NOT in project.
+   #    4): Current design opened AND is empty AND names diff; design_name exists in project.
+
+   if { $cur_design ne $design_name } {
+      common::send_msg_id "BD_TCL-001" "INFO" "Changing value of <design_name> from <$design_name> to <$cur_design> since current design is empty."
+      set design_name [get_property NAME $cur_design]
+   }
+   common::send_msg_id "BD_TCL-002" "INFO" "Constructing design in IPI design <$cur_design>..."
+
+} elseif { ${cur_design} ne "" && $list_cells ne "" && $cur_design eq $design_name } {
+   # USE CASES:
+   #    5) Current design opened AND has components AND same names.
+
+   set errMsg "Design <$design_name> already exists in your project, please set the variable <design_name> to another value."
+   set nRet 1
+} elseif { [get_files -quiet ${design_name}.bd] ne "" } {
+   # USE CASES: 
+   #    6) Current opened design, has components, but diff names, design_name exists in project.
+   #    7) No opened design, design_name exists in project.
+
+   set errMsg "Design <$design_name> already exists in your project, please set the variable <design_name> to another value."
+   set nRet 2
+
+} else {
+   # USE CASES:
+   #    8) No opened design, design_name not in project.
+   #    9) Current opened design, has components, but diff names, design_name not in project.
+
+   common::send_msg_id "BD_TCL-003" "INFO" "Currently there is no design <$design_name> in project, so creating one..."
+
+   create_bd_design $design_name
+
+   common::send_msg_id "BD_TCL-004" "INFO" "Making design <$design_name> as current_bd_design."
+   current_bd_design $design_name
+
+}
+
+common::send_msg_id "BD_TCL-005" "INFO" "Currently the variable <design_name> is equal to \"$design_name\"."
+
+if { $nRet != 0 } {
+   catch {common::send_msg_id "BD_TCL-114" "ERROR" $errMsg}
+   return $nRet
+}
+
+
+##################################################################
+# MIG PRJ FILE TCL PROCs
+##################################################################
+
+proc write_mig_file_softmax_test_cs_mig_7series_0_0 { str_mig_prj_filepath } {
+
+   set mig_prj_file [open $str_mig_prj_filepath  w+]
+
+   puts $mig_prj_file {<?xml version='1.0' encoding='UTF-8'?>}
+   puts $mig_prj_file {<!-- IMPORTANT: This is an internal file that has been generated by the MIG software. Any direct editing or changes made to this file may result in unpredictable behavior or data corruption. It is strongly advised that users do not edit the contents of this file. Re-run the MIG GUI with the required settings if any of the options provided below need to be altered. -->}
+   puts $mig_prj_file {<Project NoOfControllers="1" >}
+   puts $mig_prj_file {    <ModuleName>softmax_test_cs_mig_7series_0_0</ModuleName>}
+   puts $mig_prj_file {    <dci_inouts_inputs>1</dci_inouts_inputs>}
+   puts $mig_prj_file {    <dci_inputs>1</dci_inputs>}
+   puts $mig_prj_file {    <Debug_En>OFF</Debug_En>}
+   puts $mig_prj_file {    <DataDepth_En>1024</DataDepth_En>}
+   puts $mig_prj_file {    <LowPower_En>ON</LowPower_En>}
+   puts $mig_prj_file {    <XADC_En>Disabled</XADC_En>}
+   puts $mig_prj_file {    <TargetFPGA>xc7a200t-sbg484/-1</TargetFPGA>}
+   puts $mig_prj_file {    <Version>4.0</Version>}
+   puts $mig_prj_file {    <SystemClock>No Buffer</SystemClock>}
+   puts $mig_prj_file {    <ReferenceClock>No Buffer</ReferenceClock>}
+   puts $mig_prj_file {    <SysResetPolarity>ACTIVE LOW</SysResetPolarity>}
+   puts $mig_prj_file {    <BankSelectionFlag>FALSE</BankSelectionFlag>}
+   puts $mig_prj_file {    <InternalVref>1</InternalVref>}
+   puts $mig_prj_file {    <dci_hr_inouts_inputs>50 Ohms</dci_hr_inouts_inputs>}
+   puts $mig_prj_file {    <dci_cascade>0</dci_cascade>}
+   puts $mig_prj_file {    <FPGADevice>}
+   puts $mig_prj_file {        <selected>7a/xc7a200ti-sbg484</selected>}
+   puts $mig_prj_file {    </FPGADevice>}
+   puts $mig_prj_file {    <Controller number="0" >}
+   puts $mig_prj_file {        <MemoryDevice>DDR3_SDRAM/Components/MT41K256M8XX-125</MemoryDevice>}
+   puts $mig_prj_file {        <TimePeriod>2500</TimePeriod>}
+   puts $mig_prj_file {        <VccAuxIO>1.8V</VccAuxIO>}
+   puts $mig_prj_file {        <PHYRatio>4:1</PHYRatio>}
+   puts $mig_prj_file {        <InputClkFreq>100</InputClkFreq>}
+   puts $mig_prj_file {        <UIExtraClocks>0</UIExtraClocks>}
+   puts $mig_prj_file {        <MMCM_VCO>800</MMCM_VCO>}
+   puts $mig_prj_file {        <MMCMClkOut0> 1.000</MMCMClkOut0>}
+   puts $mig_prj_file {        <MMCMClkOut1>1</MMCMClkOut1>}
+   puts $mig_prj_file {        <MMCMClkOut2>1</MMCMClkOut2>}
+   puts $mig_prj_file {        <MMCMClkOut3>1</MMCMClkOut3>}
+   puts $mig_prj_file {        <MMCMClkOut4>1</MMCMClkOut4>}
+   puts $mig_prj_file {        <DataWidth>16</DataWidth>}
+   puts $mig_prj_file {        <DeepMemory>1</DeepMemory>}
+   puts $mig_prj_file {        <DataMask>1</DataMask>}
+   puts $mig_prj_file {        <ECC>Disabled</ECC>}
+   puts $mig_prj_file {        <Ordering>Normal</Ordering>}
+   puts $mig_prj_file {        <BankMachineCnt>4</BankMachineCnt>}
+   puts $mig_prj_file {        <CustomPart>FALSE</CustomPart>}
+   puts $mig_prj_file {        <NewPartName></NewPartName>}
+   puts $mig_prj_file {        <RowAddress>15</RowAddress>}
+   puts $mig_prj_file {        <ColAddress>10</ColAddress>}
+   puts $mig_prj_file {        <BankAddress>3</BankAddress>}
+   puts $mig_prj_file {        <MemoryVoltage>1.5V</MemoryVoltage>}
+   puts $mig_prj_file {        <C0_MEM_SIZE>536870912</C0_MEM_SIZE>}
+   puts $mig_prj_file {        <UserMemoryAddressMap>BANK_ROW_COLUMN</UserMemoryAddressMap>}
+   puts $mig_prj_file {        <PinSelection>}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="SSTL15" PADName="M2" SLEW="FAST" name="ddr3_addr[0]" IN_TERM="" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="SSTL15" PADName="L5" SLEW="FAST" name="ddr3_addr[10]" IN_TERM="" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="SSTL15" PADName="N5" SLEW="FAST" name="ddr3_addr[11]" IN_TERM="" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="SSTL15" PADName="N4" SLEW="FAST" name="ddr3_addr[12]" IN_TERM="" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="SSTL15" PADName="P2" SLEW="FAST" name="ddr3_addr[13]" IN_TERM="" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="SSTL15" PADName="P6" SLEW="FAST" name="ddr3_addr[14]" IN_TERM="" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="SSTL15" PADName="M5" SLEW="FAST" name="ddr3_addr[1]" IN_TERM="" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="SSTL15" PADName="M3" SLEW="FAST" name="ddr3_addr[2]" IN_TERM="" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="SSTL15" PADName="M1" SLEW="FAST" name="ddr3_addr[3]" IN_TERM="" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="SSTL15" PADName="L6" SLEW="FAST" name="ddr3_addr[4]" IN_TERM="" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="SSTL15" PADName="P1" SLEW="FAST" name="ddr3_addr[5]" IN_TERM="" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="SSTL15" PADName="N3" SLEW="FAST" name="ddr3_addr[6]" IN_TERM="" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="SSTL15" PADName="N2" SLEW="FAST" name="ddr3_addr[7]" IN_TERM="" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="SSTL15" PADName="M6" SLEW="FAST" name="ddr3_addr[8]" IN_TERM="" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="SSTL15" PADName="R1" SLEW="FAST" name="ddr3_addr[9]" IN_TERM="" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="SSTL15" PADName="L3" SLEW="FAST" name="ddr3_ba[0]" IN_TERM="" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="SSTL15" PADName="K6" SLEW="FAST" name="ddr3_ba[1]" IN_TERM="" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="SSTL15" PADName="L4" SLEW="FAST" name="ddr3_ba[2]" IN_TERM="" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="SSTL15" PADName="K3" SLEW="FAST" name="ddr3_cas_n" IN_TERM="" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="DIFF_SSTL15" PADName="P4" SLEW="FAST" name="ddr3_ck_n[0]" IN_TERM="" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="DIFF_SSTL15" PADName="P5" SLEW="FAST" name="ddr3_ck_p[0]" IN_TERM="" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="SSTL15" PADName="J6" SLEW="FAST" name="ddr3_cke[0]" IN_TERM="" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="SSTL15" PADName="G3" SLEW="FAST" name="ddr3_dm[0]" IN_TERM="" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="SSTL15" PADName="F1" SLEW="FAST" name="ddr3_dm[1]" IN_TERM="" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="SSTL15" PADName="G2" SLEW="FAST" name="ddr3_dq[0]" IN_TERM="UNTUNED_SPLIT_50" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="SSTL15" PADName="F3" SLEW="FAST" name="ddr3_dq[10]" IN_TERM="UNTUNED_SPLIT_50" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="SSTL15" PADName="D2" SLEW="FAST" name="ddr3_dq[11]" IN_TERM="UNTUNED_SPLIT_50" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="SSTL15" PADName="C2" SLEW="FAST" name="ddr3_dq[12]" IN_TERM="UNTUNED_SPLIT_50" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="SSTL15" PADName="A1" SLEW="FAST" name="ddr3_dq[13]" IN_TERM="UNTUNED_SPLIT_50" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="SSTL15" PADName="E2" SLEW="FAST" name="ddr3_dq[14]" IN_TERM="UNTUNED_SPLIT_50" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="SSTL15" PADName="B1" SLEW="FAST" name="ddr3_dq[15]" IN_TERM="UNTUNED_SPLIT_50" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="SSTL15" PADName="H4" SLEW="FAST" name="ddr3_dq[1]" IN_TERM="UNTUNED_SPLIT_50" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="SSTL15" PADName="H5" SLEW="FAST" name="ddr3_dq[2]" IN_TERM="UNTUNED_SPLIT_50" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="SSTL15" PADName="J1" SLEW="FAST" name="ddr3_dq[3]" IN_TERM="UNTUNED_SPLIT_50" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="SSTL15" PADName="K1" SLEW="FAST" name="ddr3_dq[4]" IN_TERM="UNTUNED_SPLIT_50" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="SSTL15" PADName="H3" SLEW="FAST" name="ddr3_dq[5]" IN_TERM="UNTUNED_SPLIT_50" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="SSTL15" PADName="H2" SLEW="FAST" name="ddr3_dq[6]" IN_TERM="UNTUNED_SPLIT_50" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="SSTL15" PADName="J5" SLEW="FAST" name="ddr3_dq[7]" IN_TERM="UNTUNED_SPLIT_50" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="SSTL15" PADName="E3" SLEW="FAST" name="ddr3_dq[8]" IN_TERM="UNTUNED_SPLIT_50" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="SSTL15" PADName="B2" SLEW="FAST" name="ddr3_dq[9]" IN_TERM="UNTUNED_SPLIT_50" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="DIFF_SSTL15" PADName="J2" SLEW="FAST" name="ddr3_dqs_n[0]" IN_TERM="UNTUNED_SPLIT_50" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="DIFF_SSTL15" PADName="D1" SLEW="FAST" name="ddr3_dqs_n[1]" IN_TERM="UNTUNED_SPLIT_50" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="DIFF_SSTL15" PADName="K2" SLEW="FAST" name="ddr3_dqs_p[0]" IN_TERM="UNTUNED_SPLIT_50" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="DIFF_SSTL15" PADName="E1" SLEW="FAST" name="ddr3_dqs_p[1]" IN_TERM="UNTUNED_SPLIT_50" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="SSTL15" PADName="K4" SLEW="FAST" name="ddr3_odt[0]" IN_TERM="" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="SSTL15" PADName="J4" SLEW="FAST" name="ddr3_ras_n" IN_TERM="" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="LVCMOS15" PADName="G1" SLEW="FAST" name="ddr3_reset_n" IN_TERM="" />}
+   puts $mig_prj_file {            <Pin VCCAUX_IO="" IOSTANDARD="SSTL15" PADName="L1" SLEW="FAST" name="ddr3_we_n" IN_TERM="" />}
+   puts $mig_prj_file {        </PinSelection>}
+   puts $mig_prj_file {        <System_Control>}
+   puts $mig_prj_file {            <Pin PADName="No connect" Bank="Select Bank" name="sys_rst" />}
+   puts $mig_prj_file {            <Pin PADName="No connect" Bank="Select Bank" name="init_calib_complete" />}
+   puts $mig_prj_file {            <Pin PADName="No connect" Bank="Select Bank" name="tg_compare_error" />}
+   puts $mig_prj_file {        </System_Control>}
+   puts $mig_prj_file {        <TimingParameters>}
+   puts $mig_prj_file {            <Parameters twtr="7.5" trrd="6" trefi="7.8" tfaw="30" trtp="7.5" tcke="5" trfc="160" trp="13.75" tras="35" trcd="13.75" />}
+   puts $mig_prj_file {        </TimingParameters>}
+   puts $mig_prj_file {        <mrBurstLength name="Burst Length" >8 - Fixed</mrBurstLength>}
+   puts $mig_prj_file {        <mrBurstType name="Read Burst Type and Length" >Sequential</mrBurstType>}
+   puts $mig_prj_file {        <mrCasLatency name="CAS Latency" >6</mrCasLatency>}
+   puts $mig_prj_file {        <mrMode name="Mode" >Normal</mrMode>}
+   puts $mig_prj_file {        <mrDllReset name="DLL Reset" >No</mrDllReset>}
+   puts $mig_prj_file {        <mrPdMode name="DLL control for precharge PD" >Slow Exit</mrPdMode>}
+   puts $mig_prj_file {        <emrDllEnable name="DLL Enable" >Enable</emrDllEnable>}
+   puts $mig_prj_file {        <emrOutputDriveStrength name="Output Driver Impedance Control" >RZQ/6</emrOutputDriveStrength>}
+   puts $mig_prj_file {        <emrMirrorSelection name="Address Mirroring" >Disable</emrMirrorSelection>}
+   puts $mig_prj_file {        <emrCSSelection name="Controller Chip Select Pin" >Disable</emrCSSelection>}
+   puts $mig_prj_file {        <emrRTT name="RTT (nominal) - On Die Termination (ODT)" >RZQ/6</emrRTT>}
+   puts $mig_prj_file {        <emrPosted name="Additive Latency (AL)" >0</emrPosted>}
+   puts $mig_prj_file {        <emrOCD name="Write Leveling Enable" >Disabled</emrOCD>}
+   puts $mig_prj_file {        <emrDQS name="TDQS enable" >Enabled</emrDQS>}
+   puts $mig_prj_file {        <emrRDQS name="Qoff" >Output Buffer Enabled</emrRDQS>}
+   puts $mig_prj_file {        <mr2PartialArraySelfRefresh name="Partial-Array Self Refresh" >Full Array</mr2PartialArraySelfRefresh>}
+   puts $mig_prj_file {        <mr2CasWriteLatency name="CAS write latency" >5</mr2CasWriteLatency>}
+   puts $mig_prj_file {        <mr2AutoSelfRefresh name="Auto Self Refresh" >Enabled</mr2AutoSelfRefresh>}
+   puts $mig_prj_file {        <mr2SelfRefreshTempRange name="High Temparature Self Refresh Rate" >Normal</mr2SelfRefreshTempRange>}
+   puts $mig_prj_file {        <mr2RTTWR name="RTT_WR - Dynamic On Die Termination (ODT)" >Dynamic ODT off</mr2RTTWR>}
+   puts $mig_prj_file {        <PortInterface>AXI</PortInterface>}
+   puts $mig_prj_file {        <AXIParameters>}
+   puts $mig_prj_file {            <C0_C_RD_WR_ARB_ALGORITHM>RD_PRI_REG</C0_C_RD_WR_ARB_ALGORITHM>}
+   puts $mig_prj_file {            <C0_S_AXI_ADDR_WIDTH>29</C0_S_AXI_ADDR_WIDTH>}
+   puts $mig_prj_file {            <C0_S_AXI_DATA_WIDTH>32</C0_S_AXI_DATA_WIDTH>}
+   puts $mig_prj_file {            <C0_S_AXI_ID_WIDTH>1</C0_S_AXI_ID_WIDTH>}
+   puts $mig_prj_file {            <C0_S_AXI_SUPPORTS_NARROW_BURST>0</C0_S_AXI_SUPPORTS_NARROW_BURST>}
+   puts $mig_prj_file {        </AXIParameters>}
+   puts $mig_prj_file {    </Controller>}
+   puts $mig_prj_file {</Project>}
+
+   close $mig_prj_file
+}
+# End of write_mig_file_softmax_test_cs_mig_7series_0_0()
+
+
+
+##################################################################
+# DESIGN PROCs
+##################################################################
+
+
+
+# Procedure to create entire design; Provide argument to make
+# procedure reusable. If parentCell is "", will use root.
+proc create_root_design { parentCell } {
+
+  variable script_folder
+
+  if { $parentCell eq "" } {
+     set parentCell [get_bd_cells /]
+  }
+
+  # Get object for parentCell
+  set parentObj [get_bd_cells $parentCell]
+  if { $parentObj == "" } {
+     catch {common::send_msg_id "BD_TCL-100" "ERROR" "Unable to find parent cell <$parentCell>!"}
+     return
+  }
+
+  # Make sure parentObj is hier blk
+  set parentType [get_property TYPE $parentObj]
+  if { $parentType ne "hier" } {
+     catch {common::send_msg_id "BD_TCL-101" "ERROR" "Parent <$parentObj> has TYPE = <$parentType>. Expected to be <hier>."}
+     return
+  }
+
+  # Save current instance; Restore later
+  set oldCurInst [current_bd_instance .]
+
+  # Set parent object as current
+  current_bd_instance $parentObj
+
+
+  # Create interface ports
+  set DDR3 [ create_bd_intf_port -mode Master -vlnv xilinx.com:interface:ddrx_rtl:1.0 DDR3 ]
+
+  # Create ports
+  set busy [ create_bd_port -dir O busy ]
+  set i_reset_n [ create_bd_port -dir I -type rst i_reset_n ]
+  set_property -dict [ list \
+CONFIG.POLARITY {ACTIVE_LOW} \
+ ] $i_reset_n
+  set i_sys_clk [ create_bd_port -dir I -type clk i_sys_clk ]
+  set i_trigger [ create_bd_port -dir I i_trigger ]
+  set o_softmax_complete [ create_bd_port -dir O o_softmax_complete ]
+
+  # Create instance: Softmax_Layer_32bit_0, and set properties
+  set Softmax_Layer_32bit_0 [ create_bd_cell -type ip -vlnv xilinx.com:user:Softmax_Layer_32bit:1.0 Softmax_Layer_32bit_0 ]
+
+  # Create instance: Softmax_Tester_0, and set properties
+  set Softmax_Tester_0 [ create_bd_cell -type ip -vlnv xilinx.com:user:Softmax_Tester:1.0 Softmax_Tester_0 ]
+
+  # Create instance: Softmax_Tester_0_axi_periph, and set properties
+  set Softmax_Tester_0_axi_periph [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_interconnect:2.1 Softmax_Tester_0_axi_periph ]
+  set_property -dict [ list \
+CONFIG.NUM_MI {1} \
+ ] $Softmax_Tester_0_axi_periph
+
+  # Create instance: axi_mem_intercon, and set properties
+  set axi_mem_intercon [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_interconnect:2.1 axi_mem_intercon ]
+  set_property -dict [ list \
+CONFIG.NUM_MI {1} \
+ ] $axi_mem_intercon
+
+  # Create instance: clk_wiz_0, and set properties
+  set clk_wiz_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:clk_wiz:5.3 clk_wiz_0 ]
+  set_property -dict [ list \
+CONFIG.CLKOUT1_JITTER {130.958} \
+CONFIG.CLKOUT1_PHASE_ERROR {98.575} \
+CONFIG.CLKOUT2_JITTER {114.829} \
+CONFIG.CLKOUT2_PHASE_ERROR {98.575} \
+CONFIG.CLKOUT2_REQUESTED_OUT_FREQ {200.000} \
+CONFIG.CLKOUT2_USED {true} \
+CONFIG.MMCM_CLKFBOUT_MULT_F {10.000} \
+CONFIG.MMCM_CLKIN1_PERIOD {10.0} \
+CONFIG.MMCM_CLKIN2_PERIOD {10.0} \
+CONFIG.MMCM_CLKOUT0_DIVIDE_F {10.000} \
+CONFIG.MMCM_CLKOUT1_DIVIDE {5} \
+CONFIG.MMCM_COMPENSATION {ZHOLD} \
+CONFIG.MMCM_DIVCLK_DIVIDE {1} \
+CONFIG.NUM_OUT_CLKS {2} \
+CONFIG.RESET_PORT {resetn} \
+CONFIG.RESET_TYPE {ACTIVE_LOW} \
+ ] $clk_wiz_0
+
+  # Need to retain value_src of defaults
+  set_property -dict [ list \
+CONFIG.CLKOUT1_JITTER.VALUE_SRC {DEFAULT} \
+CONFIG.CLKOUT1_PHASE_ERROR.VALUE_SRC {DEFAULT} \
+CONFIG.MMCM_CLKFBOUT_MULT_F.VALUE_SRC {DEFAULT} \
+CONFIG.MMCM_CLKIN1_PERIOD.VALUE_SRC {DEFAULT} \
+CONFIG.MMCM_CLKIN2_PERIOD.VALUE_SRC {DEFAULT} \
+CONFIG.MMCM_CLKOUT0_DIVIDE_F.VALUE_SRC {DEFAULT} \
+CONFIG.MMCM_COMPENSATION.VALUE_SRC {DEFAULT} \
+ ] $clk_wiz_0
+
+  # Create instance: ila_0, and set properties
+  set ila_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:ila:6.2 ila_0 ]
+  set_property -dict [ list \
+CONFIG.C_ENABLE_ILA_AXI_MON {false} \
+CONFIG.C_MONITOR_TYPE {Native} \
+CONFIG.C_NUM_OF_PROBES {61} \
+CONFIG.C_PROBE0_WIDTH {4} \
+CONFIG.C_PROBE10_WIDTH {32} \
+CONFIG.C_PROBE11_WIDTH {32} \
+CONFIG.C_PROBE12_WIDTH {32} \
+CONFIG.C_PROBE13_WIDTH {32} \
+CONFIG.C_PROBE14_WIDTH {32} \
+CONFIG.C_PROBE15_WIDTH {32} \
+CONFIG.C_PROBE18_WIDTH {4} \
+CONFIG.C_PROBE19_WIDTH {32} \
+CONFIG.C_PROBE20_WIDTH {32} \
+CONFIG.C_PROBE21_WIDTH {32} \
+CONFIG.C_PROBE24_WIDTH {8} \
+CONFIG.C_PROBE25_WIDTH {16} \
+CONFIG.C_PROBE26_WIDTH {32} \
+CONFIG.C_PROBE28_WIDTH {4} \
+CONFIG.C_PROBE29_WIDTH {32} \
+CONFIG.C_PROBE30_WIDTH {32} \
+CONFIG.C_PROBE31_WIDTH {32} \
+CONFIG.C_PROBE34_WIDTH {8} \
+CONFIG.C_PROBE35_WIDTH {16} \
+CONFIG.C_PROBE36_WIDTH {32} \
+CONFIG.C_PROBE38_WIDTH {14} \
+CONFIG.C_PROBE39_WIDTH {32} \
+CONFIG.C_PROBE3_WIDTH {8} \
+CONFIG.C_PROBE44_WIDTH {16} \
+CONFIG.C_PROBE48_WIDTH {32} \
+CONFIG.C_PROBE4_WIDTH {8} \
+CONFIG.C_PROBE51_WIDTH {32} \
+CONFIG.C_PROBE57_WIDTH {8} \
+CONFIG.C_PROBE58_WIDTH {8} \
+CONFIG.C_PROBE59_WIDTH {16} \
+CONFIG.C_PROBE5_WIDTH {8} \
+CONFIG.C_PROBE60_WIDTH {8} \
+CONFIG.C_PROBE6_WIDTH {8} \
+CONFIG.C_PROBE7_WIDTH {32} \
+CONFIG.C_PROBE8_WIDTH {32} \
+CONFIG.C_PROBE9_WIDTH {32} \
+ ] $ila_0
+
+  # Create instance: ila_1, and set properties
+  set ila_1 [ create_bd_cell -type ip -vlnv xilinx.com:ip:ila:6.2 ila_1 ]
+  set_property -dict [ list \
+CONFIG.C_ENABLE_ILA_AXI_MON {false} \
+CONFIG.C_MONITOR_TYPE {Native} \
+CONFIG.C_NUM_OF_PROBES {56} \
+CONFIG.C_PROBE11_WIDTH {32} \
+CONFIG.C_PROBE13_WIDTH {8} \
+CONFIG.C_PROBE15_WIDTH {32} \
+CONFIG.C_PROBE19_WIDTH {4} \
+CONFIG.C_PROBE22_WIDTH {32} \
+CONFIG.C_PROBE23_WIDTH {8} \
+CONFIG.C_PROBE27_WIDTH {32} \
+CONFIG.C_PROBE2_WIDTH {32} \
+CONFIG.C_PROBE30_WIDTH {8} \
+CONFIG.C_PROBE31_WIDTH {8} \
+CONFIG.C_PROBE32_WIDTH {16} \
+CONFIG.C_PROBE33_WIDTH {32} \
+CONFIG.C_PROBE34_WIDTH {32} \
+CONFIG.C_PROBE35_WIDTH {8} \
+CONFIG.C_PROBE36_WIDTH {16} \
+CONFIG.C_PROBE37_WIDTH {16} \
+CONFIG.C_PROBE38_WIDTH {16} \
+CONFIG.C_PROBE42_WIDTH {32} \
+CONFIG.C_PROBE43_WIDTH {4} \
+CONFIG.C_PROBE44_WIDTH {32} \
+CONFIG.C_PROBE47_WIDTH {32} \
+CONFIG.C_PROBE52_WIDTH {4} \
+CONFIG.C_PROBE53_WIDTH {4} \
+CONFIG.C_PROBE54_WIDTH {4} \
+CONFIG.C_PROBE55_WIDTH {4} \
+CONFIG.C_PROBE5_WIDTH {32} \
+ ] $ila_1
+
+  # Create instance: mig_7series_0, and set properties
+  set mig_7series_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:mig_7series:4.0 mig_7series_0 ]
+
+  # Generate the PRJ File for MIG
+  set str_mig_folder [get_property IP_DIR [ get_ips [ get_property CONFIG.Component_Name $mig_7series_0 ] ] ]
+  set str_mig_file_name mig_a.prj
+  set str_mig_file_path ${str_mig_folder}/${str_mig_file_name}
+
+  write_mig_file_softmax_test_cs_mig_7series_0_0 $str_mig_file_path
+
+  set_property -dict [ list \
+CONFIG.BOARD_MIG_PARAM {Custom} \
+CONFIG.RESET_BOARD_INTERFACE {Custom} \
+CONFIG.XML_INPUT_FILE {mig_a.prj} \
+ ] $mig_7series_0
+
+  # Create instance: rst_clk_wiz_0_100M, and set properties
+  set rst_clk_wiz_0_100M [ create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset:5.0 rst_clk_wiz_0_100M ]
+
+  # Create instance: rst_mig_7series_0_100M, and set properties
+  set rst_mig_7series_0_100M [ create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset:5.0 rst_mig_7series_0_100M ]
+
+  # Create instance: xlconstant_0, and set properties
+  set xlconstant_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:xlconstant:1.1 xlconstant_0 ]
+  set_property -dict [ list \
+CONFIG.CONST_WIDTH {12} \
+ ] $xlconstant_0
+
+  # Create interface connections
+  connect_bd_intf_net -intf_net Softmax_Layer_32bit_0_M00_AXI [get_bd_intf_pins Softmax_Layer_32bit_0/M00_AXI] [get_bd_intf_pins axi_mem_intercon/S00_AXI]
+  connect_bd_intf_net -intf_net Softmax_Tester_0_M00_AXI [get_bd_intf_pins Softmax_Tester_0/M00_AXI] [get_bd_intf_pins Softmax_Tester_0_axi_periph/S00_AXI]
+  connect_bd_intf_net -intf_net Softmax_Tester_0_axi_periph_M00_AXI [get_bd_intf_pins Softmax_Layer_32bit_0/S00_AXI] [get_bd_intf_pins Softmax_Tester_0_axi_periph/M00_AXI]
+  connect_bd_intf_net -intf_net axi_mem_intercon_M00_AXI [get_bd_intf_pins axi_mem_intercon/M00_AXI] [get_bd_intf_pins mig_7series_0/S_AXI]
+  connect_bd_intf_net -intf_net mig_7series_0_DDR3 [get_bd_intf_ports DDR3] [get_bd_intf_pins mig_7series_0/DDR3]
+
+  # Create port connections
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_aw_addend [get_bd_pins Softmax_Layer_32bit_0/ila_smax_aw_addend] [get_bd_pins ila_0/probe19]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_aw_augend [get_bd_pins Softmax_Layer_32bit_0/ila_smax_aw_augend] [get_bd_pins ila_0/probe20]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_aw_fsm_state [get_bd_pins Softmax_Layer_32bit_0/ila_smax_aw_fsm_state] [get_bd_pins ila_0/probe18] [get_bd_pins ila_1/probe54]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_aw_hold_counter [get_bd_pins Softmax_Layer_32bit_0/ila_smax_aw_hold_counter] [get_bd_pins ila_0/probe24]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_aw_rd_en [get_bd_pins Softmax_Layer_32bit_0/ila_smax_aw_rd_en] [get_bd_pins ila_0/probe22]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_aw_sum [get_bd_pins Softmax_Layer_32bit_0/ila_smax_aw_sum] [get_bd_pins ila_0/probe21]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_aw_sum_counter [get_bd_pins Softmax_Layer_32bit_0/ila_smax_aw_sum_counter] [get_bd_pins ila_0/probe25]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_aw_sum_reg [get_bd_pins Softmax_Layer_32bit_0/ila_smax_aw_sum_reg] [get_bd_pins ila_0/probe26]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_aw_sum_result_valid [get_bd_pins Softmax_Layer_32bit_0/ila_smax_aw_sum_result_valid] [get_bd_pins ila_0/probe27]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_aw_summing_complete [get_bd_pins Softmax_Layer_32bit_0/ila_smax_aw_summing_complete] [get_bd_pins ila_0/probe23]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_axi_araddr [get_bd_pins Softmax_Layer_32bit_0/ila_smax_axi_araddr] [get_bd_pins ila_1/probe22]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_axi_arlen [get_bd_pins Softmax_Layer_32bit_0/ila_smax_axi_arlen] [get_bd_pins ila_1/probe23]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_axi_arready [get_bd_pins Softmax_Layer_32bit_0/ila_smax_axi_arready] [get_bd_pins ila_1/probe26]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_axi_arvalid [get_bd_pins Softmax_Layer_32bit_0/ila_smax_axi_arvalid] [get_bd_pins ila_1/probe24]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_axi_awaddr [get_bd_pins Softmax_Layer_32bit_0/ila_smax_axi_awaddr] [get_bd_pins ila_1/probe11]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_axi_awlen [get_bd_pins Softmax_Layer_32bit_0/ila_smax_axi_awlen] [get_bd_pins ila_1/probe13]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_axi_awready [get_bd_pins Softmax_Layer_32bit_0/ila_smax_axi_awready] [get_bd_pins ila_1/probe12]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_axi_awvalid [get_bd_pins Softmax_Layer_32bit_0/ila_smax_axi_awvalid] [get_bd_pins ila_1/probe14]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_axi_bready [get_bd_pins Softmax_Layer_32bit_0/ila_smax_axi_bready] [get_bd_pins ila_1/probe20]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_axi_bvalid [get_bd_pins Softmax_Layer_32bit_0/ila_smax_axi_bvalid] [get_bd_pins ila_1/probe21]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_axi_rdata [get_bd_pins Softmax_Layer_32bit_0/ila_smax_axi_rdata] [get_bd_pins ila_1/probe27]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_axi_rlast [get_bd_pins Softmax_Layer_32bit_0/ila_smax_axi_rlast] [get_bd_pins ila_1/probe28]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_axi_rready [get_bd_pins Softmax_Layer_32bit_0/ila_smax_axi_rready] [get_bd_pins ila_1/probe25]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_axi_rvalid [get_bd_pins Softmax_Layer_32bit_0/ila_smax_axi_rvalid] [get_bd_pins ila_1/probe29]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_axi_wdata [get_bd_pins Softmax_Layer_32bit_0/ila_smax_axi_wdata] [get_bd_pins ila_1/probe15]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_axi_wlast [get_bd_pins Softmax_Layer_32bit_0/ila_smax_axi_wlast] [get_bd_pins ila_1/probe17]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_axi_wready [get_bd_pins Softmax_Layer_32bit_0/ila_smax_axi_wready] [get_bd_pins ila_1/probe16]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_axi_wstrb [get_bd_pins Softmax_Layer_32bit_0/ila_smax_axi_wstrb] [get_bd_pins ila_1/probe19]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_axi_wvalid [get_bd_pins Softmax_Layer_32bit_0/ila_smax_axi_wvalid] [get_bd_pins ila_1/probe18]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_calculated [get_bd_pins Softmax_Layer_32bit_0/ila_smax_calculated] [get_bd_pins ila_1/probe39]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_channel_counter [get_bd_pins Softmax_Layer_32bit_0/ila_smax_channel_counter] [get_bd_pins ila_0/probe59] [get_bd_pins ila_1/probe36]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_class_counter [get_bd_pins Softmax_Layer_32bit_0/ila_smax_class_counter] [get_bd_pins ila_1/probe42]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_ctrlr_busy [get_bd_ports busy] [get_bd_pins Softmax_Layer_32bit_0/ila_smax_ctrlr_busy] [get_bd_pins ila_0/probe47]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_ctrlr_clear_all [get_bd_pins Softmax_Layer_32bit_0/ila_smax_ctrlr_clear_all] [get_bd_pins ila_0/probe46]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_ctrlr_controller_ready [get_bd_pins Softmax_Layer_32bit_0/ila_smax_ctrlr_controller_ready] [get_bd_pins ila_0/probe41]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_ctrlr_element_counter [get_bd_pins Softmax_Layer_32bit_0/ila_smax_ctrlr_element_counter] [get_bd_pins ila_0/probe44]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_ctrlr_exp_complete [get_bd_pins Softmax_Layer_32bit_0/ila_smax_ctrlr_exp_complete] [get_bd_pins ila_0/probe43]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_ctrlr_exp_fifo_select [get_bd_pins Softmax_Layer_32bit_0/ila_smax_ctrlr_exp_fifo_select] [get_bd_pins ila_0/probe42]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_ctrlr_exp_input [get_bd_pins Softmax_Layer_32bit_0/ila_smax_ctrlr_exp_input] [get_bd_pins ila_0/probe39]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_ctrlr_exp_input_valid [get_bd_pins Softmax_Layer_32bit_0/ila_smax_ctrlr_exp_input_valid] [get_bd_pins ila_0/probe40]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_ctrlr_fsm_state [get_bd_pins Softmax_Layer_32bit_0/ila_smax_ctrlr_fsm_state] [get_bd_pins ila_0/probe38] [get_bd_pins ila_1/probe55]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_ctrlr_softmax_complete [get_bd_pins Softmax_Layer_32bit_0/ila_smax_ctrlr_softmax_complete] [get_bd_pins ila_0/probe45]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_data_loaded [get_bd_pins Softmax_Layer_32bit_0/ila_smax_data_loaded] [get_bd_pins ila_1/probe41]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_dw_dividend [get_bd_pins Softmax_Layer_32bit_0/ila_smax_dw_dividend] [get_bd_pins ila_0/probe30]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_dw_division_complete [get_bd_pins Softmax_Layer_32bit_0/ila_smax_dw_division_complete] [get_bd_pins ila_0/probe33]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_dw_division_reg [get_bd_pins Softmax_Layer_32bit_0/ila_smax_dw_division_reg] [get_bd_pins ila_0/probe36]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_dw_divisor [get_bd_pins Softmax_Layer_32bit_0/ila_smax_dw_divisor] [get_bd_pins ila_0/probe29]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_dw_fsm_state [get_bd_pins Softmax_Layer_32bit_0/ila_smax_dw_fsm_state] [get_bd_pins ila_0/probe28] [get_bd_pins ila_1/probe53]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_dw_hold_counter [get_bd_pins Softmax_Layer_32bit_0/ila_smax_dw_hold_counter] [get_bd_pins ila_0/probe34]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_dw_quotient [get_bd_pins Softmax_Layer_32bit_0/ila_smax_dw_quotient] [get_bd_pins ila_0/probe31]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_dw_quotient_counter [get_bd_pins Softmax_Layer_32bit_0/ila_smax_dw_quotient_counter] [get_bd_pins ila_0/probe35]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_dw_quotient_result_valid [get_bd_pins Softmax_Layer_32bit_0/ila_smax_dw_quotient_result_valid] [get_bd_pins ila_0/probe37]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_dw_rd_en [get_bd_pins Softmax_Layer_32bit_0/ila_smax_dw_rd_en] [get_bd_pins ila_0/probe32]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_exp_addend [get_bd_pins Softmax_Layer_32bit_0/ila_smax_exp_addend] [get_bd_pins ila_0/probe11]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_exp_augend [get_bd_pins Softmax_Layer_32bit_0/ila_smax_exp_augend] [get_bd_pins ila_0/probe10]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_exp_data_reg [get_bd_pins Softmax_Layer_32bit_0/ila_smax_exp_data_reg] [get_bd_pins ila_0/probe13]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_exp_exp_done [get_bd_pins Softmax_Layer_32bit_0/ila_smax_exp_exp_done] [get_bd_pins ila_0/probe17]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_exp_fifo_almost_empty [get_bd_pins Softmax_Layer_32bit_0/ila_smax_exp_fifo_almost_empty] [get_bd_pins ila_1/probe9]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_exp_fifo_almost_full [get_bd_pins Softmax_Layer_32bit_0/ila_smax_exp_fifo_almost_full] [get_bd_pins ila_1/probe7]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_exp_fifo_data [get_bd_pins Softmax_Layer_32bit_0/ila_smax_exp_fifo_data] [get_bd_pins ila_0/probe15]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_exp_fifo_dout [get_bd_pins Softmax_Layer_32bit_0/ila_smax_exp_fifo_dout] [get_bd_pins ila_1/probe5]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_exp_fifo_empty [get_bd_pins Softmax_Layer_32bit_0/ila_smax_exp_fifo_empty] [get_bd_pins ila_1/probe8]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_exp_fifo_full [get_bd_pins Softmax_Layer_32bit_0/ila_smax_exp_fifo_full] [get_bd_pins ila_1/probe6]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_exp_fifo_rd_en [get_bd_pins Softmax_Layer_32bit_0/ila_smax_exp_fifo_rd_en] [get_bd_pins ila_1/probe4]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_exp_fifo_valid [get_bd_pins Softmax_Layer_32bit_0/ila_smax_exp_fifo_valid] [get_bd_pins ila_1/probe10]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_exp_fifo_wr_en [get_bd_pins Softmax_Layer_32bit_0/ila_smax_exp_fifo_wr_en] [get_bd_pins ila_0/probe16]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_exp_fsm_state [get_bd_pins Softmax_Layer_32bit_0/ila_smax_exp_fsm_state] [get_bd_pins ila_0/probe0] [get_bd_pins ila_1/probe52]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_exp_function_ready [get_bd_pins Softmax_Layer_32bit_0/ila_smax_exp_function_ready] [get_bd_pins ila_0/probe2]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_exp_hold_counter [get_bd_pins Softmax_Layer_32bit_0/ila_smax_exp_hold_counter] [get_bd_pins ila_0/probe5]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_exp_mult_reg [get_bd_pins Softmax_Layer_32bit_0/ila_smax_exp_mult_reg] [get_bd_pins ila_0/probe14]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_exp_multiplicand_a [get_bd_pins Softmax_Layer_32bit_0/ila_smax_exp_multiplicand_a] [get_bd_pins ila_0/probe7]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_exp_multiplicand_b [get_bd_pins Softmax_Layer_32bit_0/ila_smax_exp_multiplicand_b] [get_bd_pins ila_0/probe8]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_exp_multiplication_counter [get_bd_pins Softmax_Layer_32bit_0/ila_smax_exp_multiplication_counter] [get_bd_pins ila_0/probe4]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_exp_mux_data [get_bd_pins Softmax_Layer_32bit_0/ila_smax_exp_mux_data] [get_bd_pins ila_1/probe2]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_exp_mux_wr_en [get_bd_pins Softmax_Layer_32bit_0/ila_smax_exp_mux_wr_en] [get_bd_pins ila_1/probe3]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_exp_product [get_bd_pins Softmax_Layer_32bit_0/ila_smax_exp_product] [get_bd_pins ila_0/probe9]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_exp_step_counter [get_bd_pins Softmax_Layer_32bit_0/ila_smax_exp_step_counter] [get_bd_pins ila_0/probe3]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_exp_sum [get_bd_pins Softmax_Layer_32bit_0/ila_smax_exp_sum] [get_bd_pins ila_0/probe12]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_exp_sum_counter [get_bd_pins Softmax_Layer_32bit_0/ila_smax_exp_sum_counter] [get_bd_pins ila_0/probe6]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_exp_valid_result [get_bd_pins Softmax_Layer_32bit_0/ila_smax_exp_valid_result] [get_bd_pins ila_0/probe1]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_inbuff_almost_empty [get_bd_pins Softmax_Layer_32bit_0/ila_smax_inbuff_almost_empty] [get_bd_pins ila_0/probe55]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_inbuff_almost_full [get_bd_pins Softmax_Layer_32bit_0/ila_smax_inbuff_almost_full] [get_bd_pins ila_0/probe53]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_inbuff_din [get_bd_pins Softmax_Layer_32bit_0/ila_smax_inbuff_din] [get_bd_pins ila_0/probe48]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_inbuff_dout [get_bd_pins Softmax_Layer_32bit_0/ila_smax_inbuff_dout] [get_bd_pins ila_0/probe51]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_inbuff_empty [get_bd_pins Softmax_Layer_32bit_0/ila_smax_inbuff_empty] [get_bd_pins ila_0/probe54]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_inbuff_full [get_bd_pins Softmax_Layer_32bit_0/ila_smax_inbuff_full] [get_bd_pins ila_0/probe52]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_inbuff_rd_en [get_bd_pins Softmax_Layer_32bit_0/ila_smax_inbuff_rd_en] [get_bd_pins ila_0/probe50]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_inbuff_valid [get_bd_pins Softmax_Layer_32bit_0/ila_smax_inbuff_valid] [get_bd_pins ila_0/probe56]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_inbuff_wr_en [get_bd_pins Softmax_Layer_32bit_0/ila_smax_inbuff_wr_en] [get_bd_pins ila_0/probe49]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_input_data_addr_reg [get_bd_pins Softmax_Layer_32bit_0/ila_smax_input_data_addr_reg] [get_bd_pins ila_1/probe33]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_master_fsm_state [get_bd_pins Softmax_Layer_32bit_0/ila_smax_master_fsm_state] [get_bd_pins ila_1/probe43]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_more_bursts_needed [get_bd_pins Softmax_Layer_32bit_0/ila_smax_more_bursts_needed] [get_bd_pins ila_1/probe40]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_num_elements [get_bd_pins Softmax_Layer_32bit_0/ila_smax_num_elements] [get_bd_pins ila_1/probe32]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_outbuff_almost_empty [get_bd_pins Softmax_Layer_32bit_0/ila_smax_outbuff_almost_empty] [get_bd_pins ila_1/probe0]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_outbuff_almost_full [get_bd_pins Softmax_Layer_32bit_0/ila_smax_outbuff_almost_full] [get_bd_pins ila_1/probe49]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_outbuff_din [get_bd_pins Softmax_Layer_32bit_0/ila_smax_outbuff_din] [get_bd_pins ila_1/probe44]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_outbuff_dout [get_bd_pins Softmax_Layer_32bit_0/ila_smax_outbuff_dout] [get_bd_pins ila_1/probe47]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_outbuff_empty [get_bd_pins Softmax_Layer_32bit_0/ila_smax_outbuff_empty] [get_bd_pins ila_1/probe50]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_outbuff_full [get_bd_pins Softmax_Layer_32bit_0/ila_smax_outbuff_full] [get_bd_pins ila_1/probe48]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_outbuff_rd_en [get_bd_pins Softmax_Layer_32bit_0/ila_smax_outbuff_rd_en] [get_bd_pins ila_1/probe46]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_outbuff_valid [get_bd_pins Softmax_Layer_32bit_0/ila_smax_outbuff_valid] [get_bd_pins ila_1/probe1]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_outbuff_wr_en [get_bd_pins Softmax_Layer_32bit_0/ila_smax_outbuff_wr_en] [get_bd_pins ila_1/probe45]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_output_data_addr_reg [get_bd_pins Softmax_Layer_32bit_0/ila_smax_output_data_addr_reg] [get_bd_pins ila_1/probe34]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_rbc [get_bd_pins Softmax_Layer_32bit_0/ila_smax_rbc] [get_bd_pins ila_0/probe58] [get_bd_pins ila_1/probe31]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_reads_remaining [get_bd_pins Softmax_Layer_32bit_0/ila_smax_reads_remaining] [get_bd_pins ila_1/probe38]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_row_counter [get_bd_pins Softmax_Layer_32bit_0/ila_smax_row_counter] [get_bd_pins ila_0/probe60] [get_bd_pins ila_1/probe35]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_wbc [get_bd_pins Softmax_Layer_32bit_0/ila_smax_wbc] [get_bd_pins ila_0/probe57] [get_bd_pins ila_1/probe30]
+  connect_bd_net -net Softmax_Layer_32bit_0_ila_smax_writes_remaining [get_bd_pins Softmax_Layer_32bit_0/ila_smax_writes_remaining] [get_bd_pins ila_1/probe37]
+  connect_bd_net -net Softmax_Layer_32bit_0_o_softmax_complete [get_bd_ports o_softmax_complete] [get_bd_pins Softmax_Layer_32bit_0/o_softmax_complete] [get_bd_pins Softmax_Tester_0/i_irq] [get_bd_pins ila_1/probe51]
+  connect_bd_net -net clk_in1_1 [get_bd_ports i_sys_clk] [get_bd_pins clk_wiz_0/clk_in1]
+  connect_bd_net -net clk_wiz_0_clk_out1 [get_bd_pins Softmax_Layer_32bit_0/s00_axi_aclk] [get_bd_pins Softmax_Tester_0/m00_axi_aclk] [get_bd_pins Softmax_Tester_0_axi_periph/ACLK] [get_bd_pins Softmax_Tester_0_axi_periph/M00_ACLK] [get_bd_pins Softmax_Tester_0_axi_periph/S00_ACLK] [get_bd_pins clk_wiz_0/clk_out1] [get_bd_pins mig_7series_0/sys_clk_i] [get_bd_pins rst_clk_wiz_0_100M/slowest_sync_clk]
+  connect_bd_net -net clk_wiz_0_clk_out2 [get_bd_pins clk_wiz_0/clk_out2] [get_bd_pins mig_7series_0/clk_ref_i]
+  connect_bd_net -net clk_wiz_0_locked [get_bd_pins clk_wiz_0/locked] [get_bd_pins rst_clk_wiz_0_100M/dcm_locked]
+  connect_bd_net -net i_trigger_1 [get_bd_ports i_trigger] [get_bd_pins Softmax_Tester_0/i_trigger]
+  connect_bd_net -net mig_7series_0_init_calib_complete [get_bd_pins Softmax_Tester_0/i_init_calib_complete] [get_bd_pins mig_7series_0/init_calib_complete]
+  connect_bd_net -net mig_7series_0_mmcm_locked [get_bd_pins mig_7series_0/mmcm_locked] [get_bd_pins rst_mig_7series_0_100M/dcm_locked]
+  connect_bd_net -net mig_7series_0_ui_clk [get_bd_pins Softmax_Layer_32bit_0/m00_axi_aclk] [get_bd_pins axi_mem_intercon/ACLK] [get_bd_pins axi_mem_intercon/M00_ACLK] [get_bd_pins axi_mem_intercon/S00_ACLK] [get_bd_pins ila_0/clk] [get_bd_pins ila_1/clk] [get_bd_pins mig_7series_0/ui_clk] [get_bd_pins rst_mig_7series_0_100M/slowest_sync_clk]
+  connect_bd_net -net mig_7series_0_ui_clk_sync_rst [get_bd_pins mig_7series_0/ui_clk_sync_rst] [get_bd_pins rst_mig_7series_0_100M/ext_reset_in]
+  connect_bd_net -net reset_1 [get_bd_ports i_reset_n] [get_bd_pins clk_wiz_0/resetn] [get_bd_pins mig_7series_0/sys_rst] [get_bd_pins rst_clk_wiz_0_100M/ext_reset_in]
+  connect_bd_net -net rst_clk_wiz_0_100M_interconnect_aresetn [get_bd_pins Softmax_Tester_0_axi_periph/ARESETN] [get_bd_pins rst_clk_wiz_0_100M/interconnect_aresetn]
+  connect_bd_net -net rst_clk_wiz_0_100M_peripheral_aresetn [get_bd_pins Softmax_Layer_32bit_0/s00_axi_aresetn] [get_bd_pins Softmax_Tester_0/m00_axi_aresetn] [get_bd_pins Softmax_Tester_0_axi_periph/M00_ARESETN] [get_bd_pins Softmax_Tester_0_axi_periph/S00_ARESETN] [get_bd_pins rst_clk_wiz_0_100M/peripheral_aresetn]
+  connect_bd_net -net rst_mig_7series_0_100M_interconnect_aresetn [get_bd_pins axi_mem_intercon/ARESETN] [get_bd_pins rst_mig_7series_0_100M/interconnect_aresetn]
+  connect_bd_net -net rst_mig_7series_0_100M_peripheral_aresetn [get_bd_pins Softmax_Layer_32bit_0/m00_axi_aresetn] [get_bd_pins axi_mem_intercon/M00_ARESETN] [get_bd_pins axi_mem_intercon/S00_ARESETN] [get_bd_pins mig_7series_0/aresetn] [get_bd_pins rst_mig_7series_0_100M/peripheral_aresetn]
+  connect_bd_net -net xlconstant_0_dout [get_bd_pins mig_7series_0/device_temp_i] [get_bd_pins xlconstant_0/dout]
+
+  # Create address segments
+  create_bd_addr_seg -range 0x20000000 -offset 0x80000000 [get_bd_addr_spaces Softmax_Layer_32bit_0/M00_AXI] [get_bd_addr_segs mig_7series_0/memmap/memaddr] SEG_mig_7series_0_memaddr
+  create_bd_addr_seg -range 0x00010000 -offset 0x44A00000 [get_bd_addr_spaces Softmax_Tester_0/M00_AXI] [get_bd_addr_segs Softmax_Layer_32bit_0/S00_AXI/S00_AXI_reg] SEG_Softmax_Layer_32bit_0_S00_AXI_reg
+
+  # Perform GUI Layout
+  regenerate_bd_layout -layout_string {
+   guistr: "# # String gsaved with Nlview 6.6.5b  2016-09-06 bk=1.3687 VDI=39 GEI=35 GUI=JA:1.6
+#  -string -flagsOSRD
+preplace port i_sys_clk -pg 1 -y 400 -defaultsOSRD
+preplace port busy -pg 1 -y 1330 -defaultsOSRD
+preplace port DDR3 -pg 1 -y 1410 -defaultsOSRD
+preplace port o_softmax_complete -pg 1 -y 2770 -defaultsOSRD
+preplace port i_trigger -pg 1 -y 1340 -defaultsOSRD
+preplace port i_reset_n -pg 1 -y 180 -defaultsOSRD
+preplace inst Softmax_Tester_0_axi_periph -pg 1 -lvl 4 -y 1380 -defaultsOSRD
+preplace inst rst_clk_wiz_0_100M -pg 1 -lvl 2 -y 290 -defaultsOSRD
+preplace inst rst_mig_7series_0_100M -pg 1 -lvl 4 -y 100 -defaultsOSRD
+preplace inst xlconstant_0 -pg 1 -lvl 6 -y 2530 -defaultsOSRD
+preplace inst mig_7series_0 -pg 1 -lvl 7 -y 1450 -defaultsOSRD
+preplace inst Softmax_Layer_32bit_0 -pg 1 -lvl 5 -y 1420 -defaultsOSRD
+preplace inst Softmax_Tester_0 -pg 1 -lvl 3 -y 1340 -defaultsOSRD
+preplace inst ila_0 -pg 1 -lvl 7 -y 670 -defaultsOSRD
+preplace inst ila_1 -pg 1 -lvl 7 -y 2160 -defaultsOSRD
+preplace inst clk_wiz_0 -pg 1 -lvl 1 -y 390 -defaultsOSRD
+preplace inst axi_mem_intercon -pg 1 -lvl 6 -y 1170 -defaultsOSRD
+preplace netloc Softmax_Layer_32bit_0_ila_smax_aw_sum_result_valid 1 5 2 1880J 620 N
+preplace netloc mig_7series_0_DDR3 1 7 1 NJ
+preplace netloc Softmax_Layer_32bit_0_ila_smax_outbuff_almost_empty 1 5 2 NJ 1600 3540
+preplace netloc Softmax_Layer_32bit_0_ila_smax_exp_hold_counter 1 5 2 1740J 180 N
+preplace netloc rst_mig_7series_0_100M_interconnect_aresetn 1 4 2 N 120 1900J
+preplace netloc Softmax_Layer_32bit_0_ila_smax_outbuff_valid 1 5 2 NJ 1620 3530
+preplace netloc Softmax_Layer_32bit_0_ila_smax_inbuff_empty 1 5 2 NJ 1400 3430
+preplace netloc Softmax_Layer_32bit_0_ila_smax_exp_fsm_state 1 5 2 NJ 320 3170
+preplace netloc Softmax_Layer_32bit_0_ila_smax_exp_valid_result 1 5 2 1680J 100 N
+preplace netloc Softmax_Layer_32bit_0_ila_smax_data_loaded 1 5 2 NJ 2420 3010
+preplace netloc Softmax_Layer_32bit_0_ila_smax_row_counter 1 5 2 NJ 2300 3070
+preplace netloc Softmax_Layer_32bit_0_ila_smax_exp_fifo_almost_full 1 5 2 NJ 1740 3460
+preplace netloc Softmax_Layer_32bit_0_ila_smax_aw_sum_counter 1 5 2 1870J 580 N
+preplace netloc Softmax_Layer_32bit_0_ila_smax_outbuff_full 1 5 2 NJ 1540 3240
+preplace netloc Softmax_Layer_32bit_0_ila_smax_inbuff_valid 1 5 2 NJ 1440 2980
+preplace netloc Softmax_Layer_32bit_0_ila_smax_exp_multiplication_counter 1 5 2 1730J 160 N
+preplace netloc Softmax_Layer_32bit_0_ila_smax_axi_arready 1 5 2 NJ 2120 3160
+preplace netloc Softmax_Layer_32bit_0_ila_smax_axi_awlen 1 5 2 NJ 1860 3380
+preplace netloc Softmax_Layer_32bit_0_ila_smax_ctrlr_softmax_complete 1 5 2 2050J 980 N
+preplace netloc Softmax_Layer_32bit_0_ila_smax_exp_fifo_almost_empty 1 5 2 NJ 1780 3430
+preplace netloc Softmax_Layer_32bit_0_ila_smax_exp_data_reg 1 5 2 1790J 340 N
+preplace netloc Softmax_Layer_32bit_0_ila_smax_aw_hold_counter 1 5 2 NJ 800 3210
+preplace netloc Softmax_Layer_32bit_0_ila_smax_inbuff_full 1 5 2 NJ 1360 3370
+preplace netloc Softmax_Layer_32bit_0_ila_smax_ctrlr_exp_input_valid 1 5 2 2000J 880 N
+preplace netloc Softmax_Layer_32bit_0_ila_smax_dw_quotient_result_valid 1 5 2 1980J 820 N
+preplace netloc Softmax_Layer_32bit_0_ila_smax_dw_quotient 1 5 2 1940J 700 N
+preplace netloc Softmax_Layer_32bit_0_ila_smax_aw_fsm_state 1 5 2 NJ 680 3220
+preplace netloc Softmax_Layer_32bit_0_ila_smax_input_data_addr_reg 1 5 2 NJ 2260 3090
+preplace netloc Softmax_Layer_32bit_0_ila_smax_outbuff_empty 1 5 2 NJ 1580 3190
+preplace netloc Softmax_Layer_32bit_0_ila_smax_outbuff_dout 1 5 2 NJ 1520 3260
+preplace netloc Softmax_Layer_32bit_0_ila_smax_inbuff_rd_en 1 5 2 NJ 1320 3350
+preplace netloc Softmax_Layer_32bit_0_ila_smax_exp_sum 1 5 2 NJ 560 3180
+preplace netloc Softmax_Layer_32bit_0_ila_smax_ctrlr_fsm_state 1 5 2 1680J 2720 3390
+preplace netloc Softmax_Layer_32bit_0_ila_smax_dw_divisor 1 5 2 1920J 660 N
+preplace netloc Softmax_Layer_32bit_0_ila_smax_reads_remaining 1 5 2 NJ 2360 3040
+preplace netloc Softmax_Layer_32bit_0_ila_smax_dw_division_reg 1 5 2 NJ 1040 3300
+preplace netloc Softmax_Layer_32bit_0_ila_smax_exp_fifo_data 1 5 2 1800J 380 N
+preplace netloc mig_7series_0_mmcm_locked 1 3 5 860 10 NJ 10 NJ 10 NJ 10 3870
+preplace netloc Softmax_Layer_32bit_0_ila_smax_axi_arvalid 1 5 2 NJ 2080 3200
+preplace netloc Softmax_Layer_32bit_0_ila_smax_inbuff_wr_en 1 5 2 NJ 1300 3340
+preplace netloc Softmax_Layer_32bit_0_ila_smax_ctrlr_exp_fifo_select 1 5 2 2020J 920 N
+preplace netloc Softmax_Layer_32bit_0_ila_smax_wbc 1 5 2 NJ 2200 3120
+preplace netloc Softmax_Layer_32bit_0_ila_smax_exp_augend 1 5 2 1780J 280 N
+preplace netloc Softmax_Layer_32bit_0_ila_smax_exp_fifo_wr_en 1 5 2 1810J 400 N
+preplace netloc Softmax_Layer_32bit_0_ila_smax_exp_mult_reg 1 5 2 NJ 600 3190
+preplace netloc Softmax_Layer_32bit_0_ila_smax_master_fsm_state 1 5 2 NJ 2460 2970
+preplace netloc Softmax_Layer_32bit_0_ila_smax_axi_araddr 1 5 2 NJ 2040 3250
+preplace netloc mig_7series_0_ui_clk_sync_rst 1 3 5 870 190 NJ 190 NJ 190 3570J 1340 3850
+preplace netloc Softmax_Layer_32bit_0_ila_smax_axi_rvalid 1 5 2 NJ 2180 3130
+preplace netloc rst_mig_7series_0_100M_peripheral_aresetn 1 4 3 1220 140 1700 1370 3520J
+preplace netloc Softmax_Layer_32bit_0_ila_smax_dw_division_complete 1 5 2 1960J 740 N
+preplace netloc Softmax_Layer_32bit_0_ila_smax_dw_rd_en 1 5 2 1950J 720 N
+preplace netloc Softmax_Layer_32bit_0_ila_smax_axi_awready 1 5 2 NJ 1840 3400
+preplace netloc Softmax_Layer_32bit_0_ila_smax_exp_fifo_full 1 5 2 NJ 1720 3480
+preplace netloc Softmax_Layer_32bit_0_ila_smax_inbuff_dout 1 5 2 NJ 1340 3360
+preplace netloc Softmax_Layer_32bit_0_ila_smax_outbuff_wr_en 1 5 2 NJ 1480 3300
+preplace netloc Softmax_Layer_32bit_0_ila_smax_ctrlr_clear_all 1 5 2 2060J 1000 N
+preplace netloc mig_7series_0_init_calib_complete 1 2 6 540 210 NJ 210 NJ 210 NJ 210 3540J 1350 3860
+preplace netloc Softmax_Layer_32bit_0_ila_smax_axi_bvalid 1 5 2 NJ 2020 3270
+preplace netloc Softmax_Layer_32bit_0_ila_smax_axi_wstrb 1 5 2 NJ 1980 3310
+preplace netloc Softmax_Layer_32bit_0_ila_smax_rbc 1 5 2 NJ 2220 3110
+preplace netloc Softmax_Layer_32bit_0_ila_smax_axi_arlen 1 5 2 NJ 2060 3230
+preplace netloc Softmax_Layer_32bit_0_M00_AXI 1 5 1 1710
+preplace netloc Softmax_Layer_32bit_0_ila_smax_axi_rdata 1 5 2 NJ 2140 3150
+preplace netloc Softmax_Layer_32bit_0_ila_smax_aw_sum_reg 1 5 2 NJ 840 3260
+preplace netloc Softmax_Layer_32bit_0_ila_smax_axi_wready 1 5 2 NJ 1920 3350
+preplace netloc Softmax_Layer_32bit_0_ila_smax_dw_dividend 1 5 2 1930J 690 3240
+preplace netloc Softmax_Layer_32bit_0_ila_smax_writes_remaining 1 5 2 NJ 2340 3050
+preplace netloc Softmax_Layer_32bit_0_ila_smax_num_elements 1 5 2 NJ 2240 3100
+preplace netloc Softmax_Layer_32bit_0_ila_smax_exp_function_ready 1 5 2 NJ 360 3060
+preplace netloc Softmax_Layer_32bit_0_ila_smax_more_bursts_needed 1 5 2 NJ 2400 3020
+preplace netloc Softmax_Layer_32bit_0_ila_smax_exp_mux_wr_en 1 5 2 NJ 1660 3510
+preplace netloc Softmax_Layer_32bit_0_ila_smax_aw_sum 1 5 2 1850J 500 N
+preplace netloc Softmax_Layer_32bit_0_ila_smax_dw_hold_counter 1 5 2 1970J 760 N
+preplace netloc Softmax_Layer_32bit_0_ila_smax_outbuff_almost_full 1 5 2 NJ 1560 3210
+preplace netloc Softmax_Layer_32bit_0_ila_smax_inbuff_almost_empty 1 5 2 NJ 1420 3440
+preplace netloc Softmax_Layer_32bit_0_ila_smax_dw_quotient_counter 1 5 2 NJ 1020 3280
+preplace netloc Softmax_Layer_32bit_0_ila_smax_aw_summing_complete 1 5 2 NJ 780 3200
+preplace netloc Softmax_Layer_32bit_0_ila_smax_ctrlr_exp_input 1 5 2 1990J 860 N
+preplace netloc clk_wiz_0_locked 1 1 1 210
+preplace netloc Softmax_Layer_32bit_0_ila_smax_axi_rready 1 5 2 NJ 2100 3180
+preplace netloc Softmax_Layer_32bit_0_ila_smax_axi_bready 1 5 2 NJ 2000 3290
+preplace netloc Softmax_Layer_32bit_0_ila_smax_axi_awvalid 1 5 2 NJ 1880 3370
+preplace netloc Softmax_Layer_32bit_0_ila_smax_output_data_addr_reg 1 5 2 NJ 2280 3080
+preplace netloc Softmax_Layer_32bit_0_ila_smax_axi_awaddr 1 5 2 NJ 1820 3410
+preplace netloc Softmax_Layer_32bit_0_ila_smax_exp_fifo_rd_en 1 5 2 NJ 1680 3500
+preplace netloc Softmax_Layer_32bit_0_ila_smax_outbuff_rd_en 1 5 2 NJ 1500 3280
+preplace netloc Softmax_Layer_32bit_0_ila_smax_exp_multiplicand_a 1 5 2 1750J 220 N
+preplace netloc Softmax_Layer_32bit_0_ila_smax_aw_augend 1 5 2 1840J 480 N
+preplace netloc Softmax_Tester_0_M00_AXI 1 3 1 N
+preplace netloc Softmax_Layer_32bit_0_ila_smax_class_counter 1 5 2 NJ 2440 2990
+preplace netloc Softmax_Layer_32bit_0_ila_smax_inbuff_almost_full 1 5 2 NJ 1380 3380
+preplace netloc Softmax_Layer_32bit_0_ila_smax_exp_multiplicand_b 1 5 2 1760J 240 N
+preplace netloc Softmax_Layer_32bit_0_ila_smax_inbuff_din 1 5 2 2070J 1030 3560
+preplace netloc Softmax_Layer_32bit_0_ila_smax_exp_sum_counter 1 5 2 NJ 440 3150
+preplace netloc Softmax_Layer_32bit_0_ila_smax_calculated 1 5 2 NJ 2380 3030
+preplace netloc Softmax_Layer_32bit_0_ila_smax_exp_exp_done 1 5 2 1820J 420 N
+preplace netloc Softmax_Layer_32bit_0_ila_smax_exp_fifo_valid 1 5 2 NJ 1800 3420
+preplace netloc Softmax_Layer_32bit_0_ila_smax_exp_fifo_empty 1 5 2 NJ 1760 3440
+preplace netloc Softmax_Layer_32bit_0_ila_smax_exp_mux_data 1 5 2 NJ 1640 3520
+preplace netloc Softmax_Layer_32bit_0_ila_smax_outbuff_din 1 5 2 NJ 1460 2980
+preplace netloc mig_7series_0_ui_clk 1 3 5 850 230 1210 230 1910 230 3550 1550 3850
+preplace netloc Softmax_Layer_32bit_0_ila_smax_exp_addend 1 5 2 NJ 540 3160
+preplace netloc Softmax_Layer_32bit_0_ila_smax_aw_addend 1 5 2 1830J 460 N
+preplace netloc Softmax_Layer_32bit_0_ila_smax_exp_fifo_dout 1 5 2 NJ 1700 3490
+preplace netloc clk_wiz_0_clk_out1 1 1 6 190 2610 540 2610 870 2610 1230 2610 NJ 2610 3470
+preplace netloc Softmax_Layer_32bit_0_ila_smax_exp_product 1 5 2 1770J 260 N
+preplace netloc Softmax_Layer_32bit_0_ila_smax_axi_rlast 1 5 2 NJ 2160 3140
+preplace netloc Softmax_Layer_32bit_0_ila_smax_axi_wdata 1 5 2 NJ 1900 3360
+preplace netloc rst_clk_wiz_0_100M_interconnect_aresetn 1 2 2 NJ 310 850
+preplace netloc clk_wiz_0_clk_out2 1 1 6 180J 200 NJ 200 NJ 200 NJ 200 NJ 200 3140
+preplace netloc Softmax_Layer_32bit_0_ila_smax_ctrlr_element_counter 1 5 2 2040J 960 N
+preplace netloc Softmax_Tester_0_axi_periph_M00_AXI 1 4 1 N
+preplace netloc Softmax_Layer_32bit_0_ila_smax_channel_counter 1 5 2 NJ 2320 3060
+preplace netloc Softmax_Layer_32bit_0_ila_smax_axi_wvalid 1 5 2 NJ 1960 3330
+preplace netloc Softmax_Layer_32bit_0_ila_smax_ctrlr_controller_ready 1 5 2 2010J 900 N
+preplace netloc xlconstant_0_dout 1 6 1 3450J
+preplace netloc axi_mem_intercon_M00_AXI 1 6 1 3530
+preplace netloc Softmax_Layer_32bit_0_o_softmax_complete 1 2 6 550 2770 NJ 2770 NJ 2770 1670 2770 3570 2770 NJ
+preplace netloc Softmax_Layer_32bit_0_ila_smax_aw_rd_en 1 5 2 1860J 520 N
+preplace netloc clk_in1_1 1 0 1 NJ
+preplace netloc Softmax_Layer_32bit_0_ila_smax_exp_step_counter 1 5 2 1720J 140 N
+preplace netloc Softmax_Layer_32bit_0_ila_smax_axi_wlast 1 5 2 NJ 1940 3340
+preplace netloc Softmax_Layer_32bit_0_ila_smax_ctrlr_busy 1 5 3 1690J 1330 3420 1330 NJ
+preplace netloc reset_1 1 0 7 20 2620 200 2620 NJ 2620 NJ 2620 NJ 2620 NJ 2620 3000
+preplace netloc Softmax_Layer_32bit_0_ila_smax_ctrlr_exp_complete 1 5 2 2030J 940 N
+preplace netloc Softmax_Layer_32bit_0_ila_smax_dw_fsm_state 1 5 2 1890J 640 3320
+preplace netloc rst_clk_wiz_0_100M_peripheral_aresetn 1 2 3 530 330 860 330 1200J
+preplace netloc i_trigger_1 1 0 3 NJ 1340 NJ 1340 NJ
+levelinfo -pg 1 0 100 370 700 1040 1460 2840 3710 3900 -top 0 -bot 2790
+",
+}
+
+  # Restore current instance
+  current_bd_instance $oldCurInst
+
+  save_bd_design
+}
+# End of create_root_design()
+
+
+##################################################################
+# MAIN FLOW
+##################################################################
+
+create_root_design ""
+
+

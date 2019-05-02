@@ -1,0 +1,408 @@
+{
+   guistr: "# # String gsaved with Nlview 6.6.5b  2016-09-06 bk=1.3687 VDI=39 GEI=35 GUI=JA:1.6
+#  -string -flagsOSRD
+preplace port i_sys_clk -pg 1 -y 12550 -defaultsOSRD
+preplace port uart_rtl -pg 1 -y 12150 -defaultsOSRD
+preplace port DDR3 -pg 1 -y 12270 -defaultsOSRD
+preplace port i_reset_n -pg 1 -y 12460 -defaultsOSRD
+preplace port conv_busy -pg 1 -y 1370 -defaultsOSRD
+preplace inst ila_5 -pg 1 -lvl 7 -y 680 -defaultsOSRD
+preplace inst Convolution_Layer_32bit_0 -pg 1 -lvl 5 -y 5940 -defaultsOSRD
+preplace inst rst_mig_7series_0_100M -pg 1 -lvl 5 -y 12980 -defaultsOSRD
+preplace inst rst_clk_wiz_0_100M -pg 1 -lvl 2 -y 12550 -defaultsOSRD
+preplace inst ila_6 -pg 1 -lvl 6 -y 1830 -defaultsOSRD
+preplace inst xlconstant_0 -pg 1 -lvl 2 -y 12160 -defaultsOSRD
+preplace inst mig_7series_0 -pg 1 -lvl 7 -y 12310 -defaultsOSRD
+preplace inst xadc_wiz_0 -pg 1 -lvl 4 -y 12830 -defaultsOSRD
+preplace inst ila_8 -pg 1 -lvl 6 -y 3190 -defaultsOSRD
+preplace inst microblaze_0_axi_periph -pg 1 -lvl 3 -y 12670 -defaultsOSRD
+preplace inst microblaze_0_xlconcat -pg 1 -lvl 3 -y 12160 -defaultsOSRD
+preplace inst microblaze_0_axi_intc -pg 1 -lvl 4 -y 12330 -defaultsOSRD
+preplace inst mdm_1 -pg 1 -lvl 4 -y 12140 -defaultsOSRD
+preplace inst ila_0 -pg 1 -lvl 6 -y 4550 -defaultsOSRD
+preplace inst ila_1 -pg 1 -lvl 6 -y 7620 -defaultsOSRD
+preplace inst microblaze_0 -pg 1 -lvl 5 -y 12740 -defaultsOSRD
+preplace inst axi_uartlite_0 -pg 1 -lvl 7 -y 12160 -defaultsOSRD
+preplace inst clk_wiz_0 -pg 1 -lvl 1 -y 12540 -defaultsOSRD
+preplace inst microblaze_0_local_memory -pg 1 -lvl 6 -y 12490 -defaultsOSRD
+preplace inst ila_10 -pg 1 -lvl 3 -y 10820 -defaultsOSRD
+preplace inst axi_mem_intercon -pg 1 -lvl 6 -y 12120 -defaultsOSRD
+preplace netloc Convolution_Layer_32bit_0_ila_accumulator_que_fifo_wr_en 1 5 1 4210
+preplace netloc Convolution_Layer_32bit_0_ila_weight_mux_recycle_filter_data_wr_en 1 5 1 3680
+preplace netloc Convolution_Layer_32bit_0_ila_master_output_base_pixel 1 5 2 2960 960 5560J
+preplace netloc Convolution_Layer_32bit_0_ila_volume_fifo_wr_en 1 5 1 3220
+preplace netloc Convolution_Layer_32bit_0_ila_controller_element_counter 1 5 1 4750
+preplace netloc microblaze_0_lmb 1 4 2 N 12120 2460J
+preplace netloc Convolution_Layer_32bit_0_ila_volume_router_data_valid 1 5 1 3520
+preplace netloc Convolution_Layer_32bit_0_ila_get_volume_row 1 5 1 3350
+preplace netloc reset_rtl_1 1 0 7 -530 12460 -350 12460 NJ 12460 NJ 12460 1310 12460 5190J 12360 5580J
+preplace netloc Convolution_Layer_32bit_0_ila_master_axi_rdata 1 5 2 2600 400 NJ
+preplace netloc Convolution_Layer_32bit_0_ila_master_ch_al_filt 1 2 4 20 9420 NJ 9420 NJ 9420 2430
+preplace netloc Convolution_Layer_32bit_0_ila_acc_fifo_valid 1 5 1 3130
+preplace netloc Convolution_Layer_32bit_0_ila_multiplier_mult_a_21 1 5 1 4930
+preplace netloc Convolution_Layer_32bit_0_ila_controller_weight_filter_size 1 2 4 530 9670 NJ 9670 NJ 9670 3700
+preplace netloc Convolution_Layer_32bit_0_ila_acc_relay_prev_read 1 5 1 4470
+preplace netloc Convolution_Layer_32bit_0_ila_master_output_data_addr_reg 1 5 2 2660 520 NJ
+preplace netloc Convolution_Layer_32bit_0_ila_acc_fifo_dout 1 5 1 3170
+preplace netloc Convolution_Layer_32bit_0_ila_multiplier_mult_a_22 1 5 1 4940
+preplace netloc Convolution_Layer_32bit_0_ila_weight_router_delay_shift_register 1 5 1 3670
+preplace netloc Convolution_Layer_32bit_0_ila_multiplier_mult_a_23 1 5 1 4950
+preplace netloc Convolution_Layer_32bit_0_ila_master_channel_loop_counter 1 5 2 2880 950 5580J
+preplace netloc Convolution_Layer_32bit_0_ila_master_start 1 2 4 190 9900 NJ 9900 NJ 9900 2550
+preplace netloc Convolution_Layer_32bit_0_ila_controller_input_volume_row_counter 1 5 1 4620
+preplace netloc Convolution_Layer_32bit_0_ila_master_prev_index 1 5 2 2950 1000 5490J
+preplace netloc Convolution_Layer_32bit_0_ila_bias_fifo_dout 1 5 1 3780
+preplace netloc Convolution_Layer_32bit_0_ila_master_row_loop_counter 1 5 2 2890 980 NJ
+preplace netloc Convolution_Layer_32bit_0_ila_controller_accumulator_en 1 5 1 4550
+preplace netloc Convolution_Layer_32bit_0_ila_controller_filter_iterations_required 1 5 1 4510
+preplace netloc Convolution_Layer_32bit_0_ila_volume_fifo_rd_en 1 5 1 3200
+preplace netloc Convolution_Layer_32bit_0_ila_master_axi_awaddr 1 5 2 2430 60 NJ
+preplace netloc Convolution_Layer_32bit_0_ila_master_axi_awlen 1 5 2 2440 80 NJ
+preplace netloc microblaze_0_dlmb_1 1 5 1 5200
+preplace netloc Convolution_Layer_32bit_0_ila_outbuff_dout 1 2 4 570 9980 NJ 9980 NJ 9980 3750
+preplace netloc Convolution_Layer_32bit_0_ila_master_prev_channel_counter 1 5 2 2790 780 NJ
+preplace netloc Convolution_Layer_32bit_0_ila_outbuff_empty 1 2 4 580 9990 NJ 9990 NJ 9990 3800
+preplace netloc microblaze_0_intr 1 3 1 860
+preplace netloc Convolution_Layer_32bit_0_ila_controller_empty_data_complete 1 2 4 320 9600 NJ 9600 NJ 9600 2710
+preplace netloc Convolution_Layer_32bit_0_ila_controller_volume_row_counter 1 5 1 4680
+preplace netloc Convolution_Layer_32bit_0_ila_acc_relay_addend 1 5 1 4380
+preplace netloc Convolution_Layer_32bit_0_ila_weight_mux_recycled_data_en 1 5 1 3720
+preplace netloc Convolution_Layer_32bit_0_ila_controller_channel_mask 1 2 4 380 9580 NJ 9580 NJ 9580 2960
+preplace netloc Convolution_Layer_32bit_0_ila_controller_volume_index_counter 1 5 1 4700
+preplace netloc Convolution_Layer_32bit_0_ila_acc_fifo_wr_en 1 5 1 3140
+preplace netloc Convolution_Layer_32bit_0_ila_inbuff_full 1 2 4 450 9710 NJ 9710 NJ 9710 3000
+preplace netloc Convolution_Layer_32bit_0_ila_reset_weight_fifo_n 1 5 1 4050
+preplace netloc Convolution_Layer_32bit_0_ila_controller_volume_row 1 5 1 4780
+preplace netloc Convolution_Layer_32bit_0_ila_volume_router_snake_fill_complete 1 5 1 3540
+preplace netloc Convolution_Layer_32bit_0_ila_inbuff_empty 1 2 4 440 9700 NJ 9700 NJ 9700 3010
+preplace netloc Convolution_Layer_32bit_0_ila_router_affine_complete 1 5 1 3420
+preplace netloc Convolution_Layer_32bit_0_ila_controller_pad_8bit 1 5 1 4770
+preplace netloc Convolution_Layer_32bit_0_ila_acc_relay_state 1 5 1 4300
+preplace netloc mdm_1_debug_sys_rst 1 1 4 -360 12880 NJ 12880 900J 12500 1260
+preplace netloc Convolution_Layer_32bit_0_ila_volume_mux_new_data_en 1 5 1 3290
+preplace netloc microblaze_0_intc_axi 1 3 1 850
+preplace netloc Convolution_Layer_32bit_0_ila_acc_fifo_rd_en 1 5 1 3120
+preplace netloc Convolution_Layer_32bit_0_ila_master_iteration_complete 1 2 4 340 9790 NJ 9790 NJ 9790 2720
+preplace netloc Convolution_Layer_32bit_0_ila_weight_router_data_valid 1 5 1 3650
+preplace netloc Convolution_Layer_32bit_0_ila_volume_router_column_counter 1 5 1 3590
+preplace netloc Convolution_Layer_32bit_0_ila_weight_mux_wr_en 1 5 1 3740
+preplace netloc Convolution_Layer_32bit_0_ila_master_input_channel_counter 1 5 2 2810 820 NJ
+preplace netloc Convolution_Layer_32bit_0_ila_accu_fifo_input 1 5 1 3150
+preplace netloc Convolution_Layer_32bit_0_ila_multiplier_mult_a_0 1 5 1 4900
+preplace netloc Convolution_Layer_32bit_0_ila_inbuff_rd_en 1 2 4 460 9720 NJ 9720 NJ 9720 2990
+preplace netloc rst_clk_wiz_0_100M_bus_struct_reset 1 2 4 -20J 12870 910J 12530 NJ 12530 N
+preplace netloc Convolution_Layer_32bit_0_ila_multiplier_mult_a_1 1 5 1 4910
+preplace netloc clk_wiz_0_clk_out3 1 1 6 -360 12440 NJ 12440 NJ 12440 NJ 12440 5170J 12340 5530J
+preplace netloc Convolution_Layer_32bit_0_ila_master_fsm_state 1 5 1 3090
+preplace netloc Convolution_Layer_32bit_0_ila_multiplier_mult_a_2 1 5 1 4920
+preplace netloc microblaze_0_axi_periph_M02_AXI 1 3 4 860J 12430 NJ 12430 5180J 12390 5560
+preplace netloc Convolution_Layer_32bit_0_ila_controller_iteration_counter 1 5 1 4800
+preplace netloc Convolution_Layer_32bit_0_ila_master_column_counter 1 5 2 2850 900 NJ
+preplace netloc Convolution_Layer_32bit_0_ila_master_row_complete 1 2 4 480 9890 NJ 9890 NJ 9890 2970
+preplace netloc Convolution_Layer_32bit_0_ila_acc_relay_output_pixel_counter 1 5 1 4350
+preplace netloc Convolution_Layer_32bit_0_ila_outbuff_full 1 2 4 160 9520 NJ 9520 NJ 9520 2580
+preplace netloc Convolution_Layer_32bit_0_ila_acc_relay_complete 1 5 1 4310
+preplace netloc Convolution_Layer_32bit_0_ila_master_channel_counter 1 5 2 2780 760 NJ
+preplace netloc microblaze_0_ilmb_1 1 5 1 5210
+preplace netloc Convolution_Layer_32bit_0_ila_controller_filter_iteration_calc 1 2 4 500 9610 NJ 9610 NJ 9610 3600
+preplace netloc Convolution_Layer_32bit_0_ila_controller_volume_rows_processed 1 5 1 4740
+preplace netloc Convolution_Layer_32bit_0_ila_accumulator_kernel_flag 1 5 1 4170
+preplace netloc Convolution_Layer_32bit_0_ila_accumulator_acc_valid 1 5 1 4130
+preplace netloc Convolution_Layer_32bit_0_ila_weight_router_clear_weights 1 5 1 3640
+preplace netloc Convolution_Layer_32bit_0_ila_master_iterations_required 1 2 4 300 9800 NJ 9800 NJ 9800 2700
+preplace netloc Convolution_Layer_32bit_0_ila_master_weight_index 1 5 2 3000 1120 NJ
+preplace netloc Convolution_Layer_32bit_0_ila_controller_pad_row_counter 1 5 1 4840
+preplace netloc Convolution_Layer_32bit_0_ila_master_weights_addr_counter 1 5 2 2720 640 NJ
+preplace netloc Convolution_Layer_32bit_0_ila_prev_fifo_dout 1 5 1 4000
+preplace netloc Convolution_Layer_32bit_0_ila_controller_channel_iteration_counter 1 5 1 4820
+preplace netloc Convolution_Layer_32bit_0_ila_master_acc_row_complete 1 2 4 210 9740 NJ 9740 NJ 9740 2600
+preplace netloc Convolution_Layer_32bit_0_ila_volume_fifo_empty 1 5 1 3180
+preplace netloc Convolution_Layer_32bit_0_ila_products_array_21 1 5 1 5050
+preplace netloc Convolution_Layer_32bit_0_ila_acc_relay_sum_result 1 5 1 4400
+preplace netloc Convolution_Layer_32bit_0_ila_volume_router_element_counter 1 5 1 3570
+preplace netloc Convolution_Layer_32bit_0_ila_products_array_22 1 5 1 5060
+preplace netloc Convolution_Layer_32bit_0_ila_accumulator_que_acc_data 1 5 1 4180
+preplace netloc Convolution_Layer_32bit_0_ila_router_acc_ready 1 5 1 3390
+preplace netloc Convolution_Layer_32bit_0_ila_router_convolution_en 1 5 1 3370
+preplace netloc Convolution_Layer_32bit_0_ila_products_array_23 1 5 1 5070
+preplace netloc Convolution_Layer_32bit_0_ila_multiplier_mult_b_21 1 5 1 4990
+preplace netloc Convolution_Layer_32bit_0_ila_multiplier_mult_b_22 1 5 1 5000
+preplace netloc Convolution_Layer_32bit_0_ila_controller_fifo_clear_counter 1 5 1 4870
+preplace netloc Convolution_Layer_32bit_0_ila_master_axi_wready 1 5 2 2570 340 NJ
+preplace netloc Convolution_Layer_32bit_0_ila_multiplier_mult_b_23 1 5 1 5010
+preplace netloc Convolution_Layer_32bit_0_ila_accumulator_filter_size_counter 1 5 1 4280
+preplace netloc Convolution_Layer_32bit_0_ila_layer_3_result_0 1 5 1 5100
+preplace netloc Convolution_Layer_32bit_0_ila_acc_fifo_din 1 5 1 3160
+preplace netloc Convolution_Layer_32bit_0_ila_master_input_volume_channels 1 2 4 70 9430 NJ 9430 NJ 9430 2460
+preplace netloc Convolution_Layer_32bit_0_ila_master_number_of_filters 1 2 4 200 9830 NJ 9830 NJ 9830 2590
+preplace netloc Convolution_Layer_32bit_0_ila_controller_pad_counter 1 5 1 3140
+preplace netloc Convolution_Layer_32bit_0_ila_acc_relay_volume_processed 1 5 1 4320
+preplace netloc Convolution_Layer_32bit_0_ila_accumulator_acc_complete 1 5 1 4120
+preplace netloc Convolution_Layer_32bit_0_ila_volume_router_data_return_wr_en 1 5 1 3510
+preplace netloc Convolution_Layer_32bit_0_ila_volume_router_state 1 5 1 3440
+preplace netloc Convolution_Layer_32bit_0_ila_acc_fifo_full 1 5 1 3110
+preplace netloc axi_mem_intercon_M00_AXI 1 6 1 5490
+preplace netloc Convolution_Layer_32bit_0_ila_accumulator_acc_ready 1 5 1 4110
+preplace netloc Convolution_Layer_32bit_0_ila_weight_mux_new_data_en 1 5 1 3700
+preplace netloc Convolution_Layer_32bit_0_ila_weight_fifo_wr_en 1 5 1 3240
+preplace netloc Convolution_Layer_32bit_0_ila_router_filter_kernal_loaded 1 5 1 3400
+preplace netloc Convolution_Layer_32bit_0_ila_acc_relay_bias_data 1 5 1 4430
+preplace netloc Convolution_Layer_32bit_0_ila_master_output_addr_counter 1 5 2 2710 620 NJ
+preplace netloc Convolution_Layer_32bit_0_ila_master_out_last_channel_base 1 5 2 3040 1110 5500J
+preplace netloc Convolution_Layer_32bit_0_ila_master_pad 1 2 4 220 9870 NJ 9870 NJ 9870 2610
+preplace netloc Convolution_Layer_32bit_0_ila_controller_weight_filter_channels 1 2 4 510 9660 NJ 9660 NJ 9660 3520
+preplace netloc Convolution_Layer_32bit_0_ila_acc_relay_first_channel_set_complete 1 5 1 4410
+preplace netloc Convolution_Layer_32bit_0_ila_master_stride 1 2 4 250 9910 NJ 9910 NJ 9910 2650
+preplace netloc Convolution_Layer_32bit_0_ila_router_affine_en 1 5 1 3380
+preplace netloc Convolution_Layer_32bit_0_ila_volume_fifo_din_21 1 5 1 3950
+preplace netloc Convolution_Layer_32bit_0_ila_master_writes_remaining 1 5 2 2820 840 NJ
+preplace netloc Convolution_Layer_32bit_0_ila_volume_fifo_din_22 1 5 1 3930
+preplace netloc Convolution_Layer_32bit_0_ila_volume_fifo_din_23 1 5 1 3910
+preplace netloc Convolution_Layer_32bit_0_ila_master_channels_iterations 1 2 4 30 9490 NJ 9490 NJ 9490 2440
+preplace netloc Convolution_Layer_32bit_0_ila_master_busy 1 5 3 2900 990 5520 3500 6120J
+preplace netloc Convolution_Layer_32bit_0_M00_AXI 1 5 1 3890
+preplace netloc Convolution_Layer_32bit_0_ila_volume_router_empty_data_complete 1 5 1 3560
+preplace netloc Convolution_Layer_32bit_0_ila_master_row_counter 1 5 2 2750 700 NJ
+preplace netloc mig_7series_0_ui_clk 1 4 4 1340 12350 5210 12350 5530J 12410 6110
+preplace netloc Convolution_Layer_32bit_0_ila_layer_6_result 1 5 1 5130
+preplace netloc Convolution_Layer_32bit_0_ila_inbuff_valid 1 2 4 470 9730 NJ 9730 NJ 9730 2980
+preplace netloc Convolution_Layer_32bit_0_ila_accumulator_que_fifo_valid 1 5 1 4260
+preplace netloc Convolution_Layer_32bit_0_ila_master_axi_wdata 1 5 2 2460 120 NJ
+preplace netloc microblaze_0_M_AXI_DC 1 5 1 4980
+preplace netloc Convolution_Layer_32bit_0_ila_acc_relay_augend 1 5 1 4390
+preplace netloc Convolution_Layer_32bit_0_ila_master_prev_addr_reg 1 5 2 2690 580 NJ
+preplace netloc Convolution_Layer_32bit_0_ila_acc_relay_volume_row_counter 1 5 1 4360
+preplace netloc Convolution_Layer_32bit_0_ila_master_affine_filter_iteration_counter 1 5 1 3070
+preplace netloc Convolution_Layer_32bit_0_ila_master_input_data_addr_reg 1 5 2 2650 500 NJ
+preplace netloc Convolution_Layer_32bit_0_ila_controller_channel_iteration_complete 1 5 1 4860
+preplace netloc Convolution_Layer_32bit_0_ila_master_prev_last_channel_base 1 5 2 2980 1010 5540J
+preplace netloc Convolution_Layer_32bit_0_ila_volume_router_empty_data_en 1 5 1 3550
+preplace netloc Convolution_Layer_32bit_0_ila_master_volume_complete 1 2 4 520 9920 NJ 9920 NJ 9920 3630
+preplace netloc Convolution_Layer_32bit_0_ila_volume_router_loaded_rows_processed 1 5 1 3530
+preplace netloc Convolution_Layer_32bit_0_ila_master_output_volume_height 1 2 4 260 9850 NJ 9850 NJ 9850 2670
+preplace netloc Convolution_Layer_32bit_0_ila_bias_fifo_return_wr_en 1 5 1 3940
+preplace netloc Convolution_Layer_32bit_0_ila_multiplier_mult_b_0 1 5 1 4960
+preplace netloc axi_uartlite_0_UART 1 7 1 NJ
+preplace netloc Convolution_Layer_32bit_0_ila_multiplier_mult_b_1 1 5 1 4970
+preplace netloc Convolution_Layer_32bit_0_ila_controller_filter_counter 1 5 1 4670
+preplace netloc Convolution_Layer_32bit_0_ila_master_debug_mode 1 5 1 3060
+preplace netloc Convolution_Layer_32bit_0_ila_multiplier_mult_b_2 1 5 1 4980
+preplace netloc Convolution_Layer_32bit_0_ila_controller_operation_complete 1 5 1 4590
+preplace netloc Convolution_Layer_32bit_0_ila_outbuff_valid 1 2 4 170 9530 NJ 9530 NJ 9530 2570
+preplace netloc microblaze_0_M_AXI_DP 1 2 4 580 12490 NJ 12490 NJ 12490 2430
+preplace netloc Convolution_Layer_32bit_0_ila_volume_mux_prev_data_en 1 5 1 3300
+preplace netloc Convolution_Layer_32bit_0_ila_acc_relay_bias_read 1 5 1 4460
+preplace netloc Convolution_Layer_32bit_0_ila_volume_fifo_full 1 5 1 3190
+preplace netloc Convolution_Layer_32bit_0_ila_accumulator_que_fifo_dout 1 5 1 4230
+preplace netloc Convolution_Layer_32bit_0_ila_master_stride_counter 1 5 2 2910 1020 NJ
+preplace netloc Convolution_Layer_32bit_0_ila_master_filter_counter 1 5 2 2930 1040 NJ
+preplace netloc rst_clk_wiz_0_100M_peripheral_aresetn 1 2 5 -10 12230 880 12230 1340 12230 5230 12330 5520J
+preplace netloc Convolution_Layer_32bit_0_ila_router_conv_complete 1 5 1 3410
+preplace netloc rst_clk_wiz_0_100M_interconnect_aresetn 1 2 4 0 12050 NJ 12050 NJ 12050 2440
+preplace netloc Convolution_Layer_32bit_0_ila_accumulator_que_fifo_full 1 5 1 4240
+preplace netloc Convolution_Layer_32bit_0_ila_volume_router_pad_16bit 1 5 1 3610
+preplace netloc Convolution_Layer_32bit_0_ila_controller_padded_volume_row_size 1 5 1 4720
+preplace netloc Convolution_Layer_32bit_0_ila_controller_num_iterations 1 5 1 4600
+preplace netloc Convolution_Layer_32bit_0_ila_controller_weight_channel_counter 1 5 1 4640
+preplace netloc rst_mig_7series_0_100M_peripheral_aresetn 1 5 2 5220 13020 5590J
+preplace netloc Convolution_Layer_32bit_0_ila_controller_stride_counter 1 5 1 4830
+preplace netloc Convolution_Layer_32bit_0_ila_bias_fifo_data_return_en 1 5 1 3920
+preplace netloc Convolution_Layer_32bit_0_ila_bias_fifo_data_return 1 5 1 3900
+preplace netloc Convolution_Layer_32bit_0_ila_master_axi_arready 1 5 2 2590 380 NJ
+preplace netloc rst_clk_wiz_0_100M_mb_reset 1 2 3 300 12380 890 12680 1260
+preplace netloc Convolution_Layer_32bit_0_o_convolution_done 1 2 4 580 11490 NJ 11490 NJ 11490 2640
+preplace netloc Convolution_Layer_32bit_0_ila_accumulator_kernel_element_counter 1 5 1 4080
+preplace netloc Convolution_Layer_32bit_0_ila_volume_router_filter_counter 1 5 1 3580
+preplace netloc Convolution_Layer_32bit_0_ila_weight_router_state 1 5 1 3480
+preplace netloc Convolution_Layer_32bit_0_ila_kernel_values_0 1 5 1 5140
+preplace netloc Convolution_Layer_32bit_0_ila_controller_state 1 5 1 4500
+preplace netloc Convolution_Layer_32bit_0_ila_weight_router_filter_element_counter 1 5 1 3660
+preplace netloc Convolution_Layer_32bit_0_ila_master_axi_awready 1 5 2 2560 320 NJ
+preplace netloc mdm_1_M_AXI 1 4 2 N 12100 4800J
+preplace netloc Convolution_Layer_32bit_0_ila_kernel_values_1 1 5 1 5150
+preplace netloc Convolution_Layer_32bit_0_ila_kernel_values_2 1 5 1 5160
+preplace netloc Convolution_Layer_32bit_0_ila_master_axi_bvalid 1 5 2 2580 360 NJ
+preplace netloc Convolution_Layer_32bit_0_ila_bias_fifo_din_mux 1 5 1 3960
+preplace netloc Convolution_Layer_32bit_0_ila_kernel_values_3 1 5 1 5170
+preplace netloc Convolution_Layer_32bit_0_ila_master_axi_awvalid 1 5 2 2450 100 NJ
+preplace netloc Convolution_Layer_32bit_0_ila_kernel_values_4 1 5 1 5180
+preplace netloc Convolution_Layer_32bit_0_ila_controller_channel_iterations_required 1 5 1 4890
+preplace netloc Convolution_Layer_32bit_0_ila_kernel_values_5 1 5 1 5190
+preplace netloc Convolution_Layer_32bit_0_ila_controller_volume_channel_counter 1 5 1 4630
+preplace netloc Convolution_Layer_32bit_0_ila_master_input_volume_height 1 2 4 230 9780 NJ 9780 NJ 9780 2620
+preplace netloc Convolution_Layer_32bit_0_ila_kernel_values_6 1 5 1 5200
+preplace netloc Convolution_Layer_32bit_0_ila_master_bias_values_loaded 1 5 2 2940 1060 NJ
+preplace netloc Convolution_Layer_32bit_0_ila_master_axi_rvalid 1 5 2 2620 440 NJ
+preplace netloc Convolution_Layer_32bit_0_ila_master_iteration_counter 1 5 2 2870 940 NJ
+preplace netloc Convolution_Layer_32bit_0_ila_products_array_0 1 5 1 5020
+preplace netloc Convolution_Layer_32bit_0_ila_master_weight_filter_channels 1 2 4 310 9930 NJ 9930 NJ 9930 2690
+preplace netloc Convolution_Layer_32bit_0_ila_master_operation_complete 1 5 2 2990 1100 NJ
+preplace netloc Convolution_Layer_32bit_0_ila_products_array_1 1 5 1 5030
+preplace netloc Convolution_Layer_32bit_0_ila_volume_stack_fifo_wr_en 1 5 1 3330
+preplace netloc Convolution_Layer_32bit_0_ila_products_array_2 1 5 1 5040
+preplace netloc Convolution_Layer_32bit_0_ila_controller_weight_index_counter 1 5 1 4710
+preplace netloc Convolution_Layer_32bit_0_ila_acc_relay_filter_iteration_counter 1 5 1 4480
+preplace netloc Convolution_Layer_32bit_0_ila_accumulator_filter_counter 1 5 1 4160
+preplace netloc Convolution_Layer_32bit_0_ila_master_axi_araddr 1 5 2 2510 220 NJ
+preplace netloc Convolution_Layer_32bit_0_ila_master_reads_remaining 1 5 2 2830 860 NJ
+preplace netloc Convolution_Layer_32bit_0_ila_master_axi_bready 1 5 2 2500 200 NJ
+preplace netloc Convolution_Layer_32bit_0_ila_prev_fifo_empty 1 5 1 4020
+preplace netloc microblaze_0_axi_periph_M03_AXI 1 3 1 850
+preplace netloc Convolution_Layer_32bit_0_ila_kernel_layer_1_result_0 1 5 1 5210
+preplace netloc mig_7series_0_DDR4 1 7 1 NJ
+preplace netloc Convolution_Layer_32bit_0_ila_controller_more_dsps_needed 1 5 1 4580
+preplace netloc Convolution_Layer_32bit_0_ila_master_axi_rlast 1 5 2 2610 420 NJ
+preplace netloc Convolution_Layer_32bit_0_ila_volume_fifo_din_0 1 5 1 4010
+preplace netloc Convolution_Layer_32bit_0_ila_controller_filter_row_counter 1 5 1 4650
+preplace netloc Convolution_Layer_32bit_0_ila_weight_router_ready 1 5 1 3620
+preplace netloc Convolution_Layer_32bit_0_ila_volume_fifo_din_1 1 5 1 3990
+preplace netloc Convolution_Layer_32bit_0_ila_master_axi_arlen 1 5 2 2520 240 NJ
+preplace netloc Convolution_Layer_32bit_0_ila_master_rbc 1 5 2 2640 480 NJ
+preplace netloc Convolution_Layer_32bit_0_ila_volume_fifo_din_2 1 5 1 3970
+preplace netloc Convolution_Layer_32bit_0_ila_weight_fifo_din_0 1 5 1 3880
+preplace netloc Convolution_Layer_32bit_0_ila_controller_input_volume_channels 1 2 4 400 9620 NJ 9620 NJ 9620 3270
+preplace netloc Convolution_Layer_32bit_0_ila_master_prev_addr_counter 1 5 2 2740 680 NJ
+preplace netloc Convolution_Layer_32bit_0_ila_master_filter_iterations_required 1 2 4 80 9410 NJ 9410 NJ 9410 2480
+preplace netloc Convolution_Layer_32bit_0_ila_outbuff_din 1 2 4 560 9970 NJ 9970 NJ 9970 3780
+preplace netloc Convolution_Layer_32bit_0_ila_weight_fifo_din_1 1 5 1 3850
+preplace netloc Convolution_Layer_32bit_0_ila_accumulator_products_array_valid 1 5 1 4070
+preplace netloc Convolution_Layer_32bit_0_ila_master_axi_arsize 1 5 2 2530 260 NJ
+preplace netloc Convolution_Layer_32bit_0_ila_weight_fifo_din_2 1 5 1 3830
+preplace netloc Convolution_Layer_32bit_0_ila_accumulator_state 1 5 1 4060
+preplace netloc Convolution_Layer_32bit_0_ila_volume_router_calc_params 1 5 1 3500
+preplace netloc Convolution_Layer_32bit_0_ila_volume_stack_fifo_full 1 5 1 3340
+preplace netloc Convolution_Layer_32bit_0_ila_master_affine_select 1 2 4 120 9470 NJ 9470 NJ 9470 2540
+preplace netloc Convolution_Layer_32bit_0_ila_master_weight_filter_width 1 2 4 360 9950 NJ 9950 NJ 9950 2760
+preplace netloc Convolution_Layer_32bit_0_ila_kernel_layer_3_result 1 5 1 5230
+preplace netloc Convolution_Layer_32bit_0_ila_accumulator_kernel_delay_shift_register 1 5 1 4100
+preplace netloc Convolution_Layer_32bit_0_ila_master_output_index 1 5 2 2920 970 5580J
+preplace netloc Convolution_Layer_32bit_0_ila_layer_1_result_0 1 5 1 5080
+preplace netloc Convolution_Layer_32bit_0_ila_controller_iteration_calc 1 5 1 4790
+preplace netloc Convolution_Layer_32bit_0_ila_acc_relay_filter_counter 1 5 1 4340
+preplace netloc Convolution_Layer_32bit_0_ila_accumulator_delay_shift_register 1 5 1 4090
+preplace netloc Convolution_Layer_32bit_0_ila_master_calculated 1 5 2 2840 880 NJ
+preplace netloc Convolution_Layer_32bit_0_ila_layer_5_result 1 5 1 5120
+preplace netloc Convolution_Layer_32bit_0_ila_master_input_arsize 1 5 1 3050
+preplace netloc Convolution_Layer_32bit_0_ila_weight_fifo_valid 1 5 1 3270
+preplace netloc Convolution_Layer_32bit_0_ila_weight_fifo_rd_en 1 5 1 3260
+preplace netloc Convolution_Layer_32bit_0_ila_router_volume_ready 1 5 1 3430
+preplace netloc microblaze_0_axi_periph_M01_AXI 1 3 2 NJ 12660 1270
+preplace netloc Convolution_Layer_32bit_0_ila_controller_volume_column_counter 1 5 1 4690
+preplace netloc Convolution_Layer_32bit_0_ila_controller_channels_allowed 1 5 1 4570
+preplace netloc Convolution_Layer_32bit_0_ila_kernel_layer_2_result_0 1 5 1 5220
+preplace netloc Convolution_Layer_32bit_0_ila_volume_fifo_valid 1 5 1 3210
+preplace netloc microblaze_0_Clk 1 1 6 -370 40 10 40 870 40 1300 40 3860 40 5550
+preplace netloc Convolution_Layer_32bit_0_ila_accumulator_acc_data 1 5 1 4140
+preplace netloc Convolution_Layer_32bit_0_ila_master_axi_wvalid 1 5 2 2480 160 NJ
+preplace netloc Convolution_Layer_32bit_0_ila_master_output_volume_width 1 2 4 270 9860 NJ 9860 NJ 9860 2660
+preplace netloc Convolution_Layer_32bit_0_ila_master_channels_allowed 1 5 2 2970 1080 NJ
+preplace netloc Convolution_Layer_32bit_0_ila_controller_stride_index 1 2 4 390 9650 NJ 9650 NJ 9650 2810
+preplace netloc Convolution_Layer_32bit_0_ila_controller_all_channels_processed 1 5 1 4610
+preplace netloc Convolution_Layer_32bit_0_ila_acc_relay_iteration_counter 1 5 1 4450
+preplace netloc Convolution_Layer_32bit_0_ila_acc_relay_iteration_complete 1 5 1 4330
+preplace netloc Convolution_Layer_32bit_0_ila_master_input_index 1 5 2 3030 1140 NJ
+preplace netloc Convolution_Layer_32bit_0_ila_master_input_volume_row_counter 1 5 2 2770 740 NJ
+preplace netloc Convolution_Layer_32bit_0_ila_master_dsps_used 1 2 4 100 9510 NJ 9510 NJ 9510 2500
+preplace netloc xadc_wiz_0_temp_out 1 4 3 1320J 12370 NJ 12370 5570
+preplace netloc Convolution_Layer_32bit_0_ila_controller_padded_volume_column_size 1 5 1 4730
+preplace netloc mdm_1_TRIG_OUT_0 1 2 3 280 9450 NJ 9450 1260
+preplace netloc Convolution_Layer_32bit_0_ila_master_affine_filters_in_set 1 2 4 150 9760 NJ 9760 NJ 9760 2510
+preplace netloc Convolution_Layer_32bit_0_ila_acc_relay_prev_data 1 5 1 4440
+preplace netloc Convolution_Layer_32bit_0_ila_master_bias_length 1 2 4 40 9480 NJ 9480 NJ 9480 2450
+preplace netloc Convolution_Layer_32bit_0_ila_controller_input_volume_size 1 2 4 490 9630 NJ 9630 NJ 9630 3460
+preplace netloc Convolution_Layer_32bit_0_ila_master_weights_loaded 1 2 4 550 9960 NJ 9960 NJ 9960 3720
+preplace netloc Convolution_Layer_32bit_0_ila_master_bias_addr_counter 1 5 2 2730 660 NJ
+preplace netloc Convolution_Layer_32bit_0_ila_layer_2_result_0 1 5 1 5090
+preplace netloc Convolution_Layer_32bit_0_ila_master_axi_wstrb 1 5 2 2490 180 NJ
+preplace netloc Convolution_Layer_32bit_0_ila_controller_fifo_clear 1 5 1 4560
+preplace netloc Convolution_Layer_32bit_0_ila_master_bias_addr_reg 1 5 2 2680 560 NJ
+preplace netloc Convolution_Layer_32bit_0_ila_bias_fifo_wr_en_mux 1 5 1 3980
+preplace netloc Convolution_Layer_32bit_0_ila_master_axi_wlast 1 5 2 2470 140 NJ
+preplace netloc Convolution_Layer_32bit_0_ila_master_conv_complete 1 2 4 130 9500 NJ 9500 NJ 9500 2530
+preplace netloc Convolution_Layer_32bit_0_ila_master_more_bursts_needed 1 5 2 2860 920 NJ
+preplace netloc Convolution_Layer_32bit_0_o_epoch 1 2 5 60 9560 NJ 9560 NJ 9560 4540 9560 5510J
+preplace netloc Convolution_Layer_32bit_0_ila_acc_relay_adder_counter 1 5 1 4370
+preplace netloc Convolution_Layer_32bit_0_ila_controller_channels_processed 1 5 1 4760
+preplace netloc Convolution_Layer_32bit_0_ila_master_axi_arvalid 1 5 2 2540 280 NJ
+preplace netloc Convolution_Layer_32bit_0_ila_volume_mux_recycled_data_en 1 5 1 3320
+preplace netloc Convolution_Layer_32bit_0_ila_bias_fifo_full 1 5 1 3820
+preplace netloc Convolution_Layer_32bit_0_ila_get_weight_row 1 5 1 3760
+preplace netloc Convolution_Layer_32bit_0_ila_controller_filter_iteration_counter 1 5 1 4810
+preplace netloc Convolution_Layer_32bit_0_ila_master_layer_ready 1 2 4 290 9810 NJ 9810 NJ 9810 2680
+preplace netloc Convolution_Layer_32bit_0_ila_volume_router_empty_done 1 5 1 3470
+preplace netloc Convolution_Layer_32bit_0_ila_master_relu_en 1 2 4 540 9880 NJ 9880 NJ 9880 3660
+preplace netloc microblaze_0_debug 1 4 1 1290
+preplace netloc Convolution_Layer_32bit_0_ila_controller_number_of_filters 1 2 4 410 9640 NJ 9640 NJ 9640 3100
+preplace netloc Convolution_Layer_32bit_0_ila_weight_fifo_full 1 5 1 3230
+preplace netloc ila_10_TRIG_OUT 1 3 1 880
+preplace netloc Convolution_Layer_32bit_0_ila_accumulator_channels_filt_counter 1 5 1 4290
+preplace netloc Convolution_Layer_32bit_0_ila_controller_filters_in_set 1 5 1 4530
+preplace netloc Convolution_Layer_32bit_0_ila_acc_relay_affine_en 1 5 1 4490
+preplace netloc Convolution_Layer_32bit_0_ila_accumulator_que_fifo_din 1 5 1 4200
+preplace netloc Convolution_Layer_32bit_0_ila_bias_fifo_rd_en 1 5 1 3840
+preplace netloc Convolution_Layer_32bit_0_ila_weight_router_filter_data_return_wr_en 1 5 1 3630
+preplace netloc mig_7series_0_mmcm_locked 1 4 4 1330 12830 NJ 12830 NJ 12830 6100
+preplace netloc Convolution_Layer_32bit_0_ila_accumulator_channels_allowed_counter 1 5 1 4270
+preplace netloc Convolution_Layer_32bit_0_ila_master_input_volume_width 1 2 4 90 9440 NJ 9440 NJ 9440 2470
+preplace netloc Convolution_Layer_32bit_0_ila_weight_mux_full 1 5 1 3730
+preplace netloc Convolution_Layer_32bit_0_ila_master_wbc 1 5 2 2630 460 NJ
+preplace netloc Convolution_Layer_32bit_0_ila_controller_channels_in_set 1 2 4 330 9590 NJ 9590 NJ 9590 2750
+preplace netloc Convolution_Layer_32bit_0_ila_prev_fifo_rd_en 1 5 1 4030
+preplace netloc Convolution_Layer_32bit_0_ila_master_output_channel_counter 1 5 2 2800 800 NJ
+preplace netloc microblaze_0_axi_intc_interrupt 1 4 1 1280
+preplace netloc Convolution_Layer_32bit_0_ila_volume_mux_prev_data_wr_en 1 5 1 3280
+preplace netloc Convolution_Layer_32bit_0_ila_prev_weight_data 1 5 1 3690
+preplace netloc Convolution_Layer_32bit_0_ila_master_out_volume_row_counter 1 5 2 2760 720 NJ
+preplace netloc Convolution_Layer_32bit_0_ila_acc_fifo_empty 1 5 1 3100
+preplace netloc Convolution_Layer_32bit_0_ila_accumulator_que_fifo_empty 1 5 1 4250
+preplace netloc clock_rtl_1 1 0 1 NJ
+preplace netloc Convolution_Layer_32bit_0_ila_bias_fifo_empty 1 5 1 3800
+preplace netloc Convolution_Layer_32bit_0_ila_inbuff_dout 1 2 4 430 9690 NJ 9690 NJ 9690 3020
+preplace netloc Convolution_Layer_32bit_0_ila_weight_mux_prev_data_en 1 5 1 3710
+preplace netloc Convolution_Layer_32bit_0_ila_router_disable_channel_n 1 5 1 3360
+preplace netloc Convolution_Layer_32bit_0_o_cycle 1 2 5 50 9550 NJ 9550 NJ 9550 4520 9550 5500J
+preplace netloc Convolution_Layer_32bit_0_ila_volume_router_stop_stack_en 1 5 1 3490
+preplace netloc Convolution_Layer_32bit_0_ila_acc_relay_volume_data 1 5 1 4420
+preplace netloc Convolution_Layer_32bit_0_ila_master_data_written 1 5 2 3020 1070 5510J
+preplace netloc Convolution_Layer_32bit_0_ila_controller_filter_iteration_complete 1 5 1 4850
+preplace netloc Convolution_Layer_32bit_0_ila_accumulator_column_counter 1 5 1 4150
+preplace netloc Convolution_Layer_32bit_0_ila_volume_router_padded_volume_size 1 5 1 3460
+preplace netloc Convolution_Layer_32bit_0_ila_master_affine_channels_in_set 1 2 4 140 9750 NJ 9750 NJ 9750 2520
+preplace netloc Convolution_Layer_32bit_0_ila_accumulator_que_acc_valid 1 5 1 4190
+preplace netloc Convolution_Layer_32bit_0_ila_master_input_addr_counter 1 5 2 2700 600 NJ
+preplace netloc mig_7series_0_ui_clk_sync_rst 1 4 4 1350 12840 NJ 12840 NJ 12840 6120
+preplace netloc Convolution_Layer_32bit_0_ila_prev_fifo_valid 1 5 1 4040
+preplace netloc Convolution_Layer_32bit_0_ila_inbuff_din 1 2 4 420 9680 NJ 9680 NJ 9680 3040
+preplace netloc Convolution_Layer_32bit_0_ila_weight_fifo_empty 1 5 1 3250
+preplace netloc Convolution_Layer_32bit_0_ila_layer_4_result_0 1 5 1 5110
+preplace netloc Convolution_Layer_32bit_0_ila_volume_router_ready 1 5 1 3450
+preplace netloc Convolution_Layer_32bit_0_ila_weight_fifo_din_21 1 5 1 3810
+preplace netloc Convolution_Layer_32bit_0_ila_accumulator_que_fifo_rd_en 1 5 1 4220
+preplace netloc Convolution_Layer_32bit_0_ila_weight_mux_prev_data_wr_en 1 5 1 3750
+preplace netloc Convolution_Layer_32bit_0_ila_weight_fifo_din_22 1 5 1 3790
+preplace netloc Convolution_Layer_32bit_0_ila_outbuff_wr_en 1 2 4 180 9540 NJ 9540 NJ 9540 2560
+preplace netloc Convolution_Layer_32bit_0_ila_weight_fifo_din_23 1 5 1 3770
+preplace netloc Convolution_Layer_32bit_0_ila_master_output_volume_channels 1 2 4 240 9840 NJ 9840 NJ 9840 2630
+preplace netloc microblaze_0_M_AXI_IC 1 5 1 5100
+preplace netloc xlconstant_0_dout 1 2 1 300
+preplace netloc Convolution_Layer_32bit_0_ila_master_weights_addr_reg 1 5 2 2670 540 NJ
+preplace netloc Convolution_Layer_32bit_0_ila_master_weight_filter_height 1 2 4 350 9940 NJ 9940 NJ 9940 2770
+preplace netloc Convolution_Layer_32bit_0_ila_master_affine_filters_iterations 1 2 4 110 9770 NJ 9770 NJ 9770 2490
+preplace netloc Convolution_Layer_32bit_0_ila_controller_channel_iteration_calc 1 5 1 4880
+preplace netloc Convolution_Layer_32bit_0_ila_volume_router_delay_shift_register 1 5 1 3600
+preplace netloc Convolution_Layer_32bit_0_ila_bias_fifo_valid 1 5 1 3870
+preplace netloc Convolution_Layer_32bit_0_ila_volume_mux_recycled_data_wr_en 1 5 1 3310
+preplace netloc Convolution_Layer_32bit_0_ila_master_convolution_done 1 5 1 3080
+preplace netloc Convolution_Layer_32bit_0_ila_master_more_dsps 1 2 4 370 9820 NJ 9820 NJ 9820 2780
+preplace netloc Convolution_Layer_32bit_0_ila_controller_filter_column_counter 1 5 1 4660
+preplace netloc clk_wiz_0_locked 1 1 1 -370
+preplace netloc Convolution_Layer_32bit_0_ila_master_last_channel_base 1 5 2 3010 1090 5530J
+preplace netloc Convolution_Layer_32bit_0_ila_master_axi_rready 1 5 2 2550 300 NJ
+levelinfo -pg 1 -550 -450 -180 720 1130 2200 5360 5960 6150 -top 0 -bot 13340
+",
+}
+{
+   da_axi4_cnt: "8",
+   da_board_cnt: "1",
+   da_trigger_cnt: "2",
+}

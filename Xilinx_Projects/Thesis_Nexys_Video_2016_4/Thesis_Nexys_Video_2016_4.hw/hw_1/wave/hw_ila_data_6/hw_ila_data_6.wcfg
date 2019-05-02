@@ -1,0 +1,633 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="C:/Thesis_Nexys_Video_2016_4/Thesis_Nexys_Video_2016_4.hw/hw_1/wave/hw_ila_data_6/hw_ila_data_6.wdb" id="1">
+         <top_modules>
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="512077fs"></ZoomEndTime>
+      <Cursor1Time time="737000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="543"></NameColumnWidth>
+      <ValueColumnWidth column_width="243"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="96" />
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_accumulator_acc_complete" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_accumulator_acc_complete</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_accumulator_acc_complete</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_accumulator_acc_data" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_accumulator_acc_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_accumulator_acc_data[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_accumulator_acc_ready" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_accumulator_acc_ready</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_accumulator_acc_ready</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_accumulator_acc_valid" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_accumulator_acc_valid</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_accumulator_acc_valid</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_accumulator_channels_allowed_counter" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_accumulator_channels_allowed_counter[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_accumulator_channels_allowed_counter[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_accumulator_channels_filt_counter" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_accumulator_channels_filt_counter[15:0]</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_accumulator_channels_filt_counter[15:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_accumulator_column_counter" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_accumulator_column_counter[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_accumulator_column_counter[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_accumulator_delay_shift_register" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_accumulator_delay_shift_register[77:0]</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_accumulator_delay_shift_register[77:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_accumulator_filter_counter" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_accumulator_filter_counter[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_accumulator_filter_counter[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_accumulator_filter_size_counter" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_accumulator_filter_size_counter[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_accumulator_filter_size_counter[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_accumulator_kernel_delay_shift_register" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_accumulator_kernel_delay_shift_register[50:0]</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_accumulator_kernel_delay_shift_register[50:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_accumulator_kernel_element_counter" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_accumulator_kernel_element_counter[15:0]</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_accumulator_kernel_element_counter[15:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_accumulator_kernel_flag" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_accumulator_kernel_flag</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_accumulator_kernel_flag</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_accumulator_products_array_valid" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_accumulator_products_array_valid[32:0]</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_accumulator_products_array_valid[32:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_accumulator_que_acc_data" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_accumulator_que_acc_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_accumulator_que_acc_data[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_accumulator_que_acc_valid" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_accumulator_que_acc_valid</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_accumulator_que_acc_valid</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_accumulator_que_fifo_din" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_accumulator_que_fifo_din[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_accumulator_que_fifo_din[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_accumulator_que_fifo_dout" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_accumulator_que_fifo_dout[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_accumulator_que_fifo_dout[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_accumulator_que_fifo_empty" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_accumulator_que_fifo_empty</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_accumulator_que_fifo_empty</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_accumulator_que_fifo_full" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_accumulator_que_fifo_full</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_accumulator_que_fifo_full</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_accumulator_que_fifo_rd_en" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_accumulator_que_fifo_rd_en</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_accumulator_que_fifo_rd_en</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_accumulator_que_fifo_valid" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_accumulator_que_fifo_valid</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_accumulator_que_fifo_valid</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_accumulator_que_fifo_wr_en" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_accumulator_que_fifo_wr_en</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_accumulator_que_fifo_wr_en</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_accumulator_state" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_accumulator_state[3:0]</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_accumulator_state[3:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_bias_fifo_data_return" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_bias_fifo_data_return[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_bias_fifo_data_return[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_bias_fifo_data_return_en" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_bias_fifo_data_return_en</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_bias_fifo_data_return_en</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_bias_fifo_din_mux" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_bias_fifo_din_mux[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_bias_fifo_din_mux[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_bias_fifo_dout" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_bias_fifo_dout[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_bias_fifo_dout[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_bias_fifo_empty" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_bias_fifo_empty</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_bias_fifo_empty</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_bias_fifo_full" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_bias_fifo_full</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_bias_fifo_full</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_bias_fifo_rd_en" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_bias_fifo_rd_en</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_bias_fifo_rd_en</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_bias_fifo_return_wr_en" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_bias_fifo_return_wr_en</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_bias_fifo_return_wr_en</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_bias_fifo_valid" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_bias_fifo_valid</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_bias_fifo_valid</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_bias_fifo_wr_en_mux" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_bias_fifo_wr_en_mux</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_bias_fifo_wr_en_mux</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_get_weight_row" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_get_weight_row[32:0]</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_get_weight_row[32:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_prev_fifo_dout" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_prev_fifo_dout[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_prev_fifo_dout[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_prev_fifo_empty" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_prev_fifo_empty</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_prev_fifo_empty</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_prev_fifo_rd_en" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_prev_fifo_rd_en</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_prev_fifo_rd_en</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_prev_fifo_valid" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_prev_fifo_valid</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_prev_fifo_valid</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_prev_weight_data" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_prev_weight_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_prev_weight_data[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_reset_weight_fifo_n" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_reset_weight_fifo_n</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_reset_weight_fifo_n</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_volume_router_delay_shift_register" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_volume_router_delay_shift_register[7:0]</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_volume_router_delay_shift_register[7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_volume_router_pad_16bit" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_volume_router_pad_16bit[15:0]</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_volume_router_pad_16bit[15:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_weight_mux_full" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_weight_mux_full[32:0]</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_weight_mux_full[32:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_weight_mux_new_data_en" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_weight_mux_new_data_en[32:0]</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_weight_mux_new_data_en[32:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_weight_mux_prev_data_en" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_weight_mux_prev_data_en[32:0]</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_weight_mux_prev_data_en[32:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_weight_mux_prev_data_wr_en" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_weight_mux_prev_data_wr_en[32:0]</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_weight_mux_prev_data_wr_en[32:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_weight_mux_recycle_filter_data_wr_en" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_weight_mux_recycle_filter_data_wr_en[32:0]</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_weight_mux_recycle_filter_data_wr_en[32:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_weight_mux_recycled_data_en" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_weight_mux_recycled_data_en[32:0]</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_weight_mux_recycled_data_en[32:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_weight_mux_wr_en" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_weight_mux_wr_en[32:0]</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_weight_mux_wr_en[32:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_weight_router_clear_weights" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_weight_router_clear_weights</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_weight_router_clear_weights</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_weight_router_data_valid" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_weight_router_data_valid[32:0]</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_weight_router_data_valid[32:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_weight_router_delay_shift_register" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_weight_router_delay_shift_register[7:0]</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_weight_router_delay_shift_register[7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_weight_router_filter_data_return_wr_en" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_weight_router_filter_data_return_wr_en[32:0]</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_weight_router_filter_data_return_wr_en[32:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_weight_router_filter_element_counter" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_weight_router_filter_element_counter[3:0]</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_weight_router_filter_element_counter[3:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_weight_router_ready" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_weight_router_ready[32:0]</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_weight_router_ready[32:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_o_cycle" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_o_cycle[63:0]</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_o_cycle[63:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_o_epoch" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_o_epoch[63:0]</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_o_epoch[63:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/n_0_175" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/n_0_175</obj_property>
+      <obj_property name="ObjectShortName">n_0_175</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/n_0_38" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/n_0_38</obj_property>
+      <obj_property name="ObjectShortName">n_0_38</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/n_0_40" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/n_0_40</obj_property>
+      <obj_property name="ObjectShortName">n_0_40</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/n_0_41" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/n_0_41</obj_property>
+      <obj_property name="ObjectShortName">n_0_41</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/n_0_42" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/n_0_42</obj_property>
+      <obj_property name="ObjectShortName">n_0_42</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/n_0_43" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/n_0_43</obj_property>
+      <obj_property name="ObjectShortName">n_0_43</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/n_0_44" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/n_0_44</obj_property>
+      <obj_property name="ObjectShortName">n_0_44</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/n_0_45" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/n_0_45</obj_property>
+      <obj_property name="ObjectShortName">n_0_45</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/n_0_46" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/n_0_46</obj_property>
+      <obj_property name="ObjectShortName">n_0_46</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/n_0_47" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/n_0_47</obj_property>
+      <obj_property name="ObjectShortName">n_0_47</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/n_0_48" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/n_0_48</obj_property>
+      <obj_property name="ObjectShortName">n_0_48</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/n_0_49" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/n_0_49</obj_property>
+      <obj_property name="ObjectShortName">n_0_49</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/n_0_50" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/n_0_50</obj_property>
+      <obj_property name="ObjectShortName">n_0_50</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/n_0_51" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/n_0_51</obj_property>
+      <obj_property name="ObjectShortName">n_0_51</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/n_0_52" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/n_0_52</obj_property>
+      <obj_property name="ObjectShortName">n_0_52</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/n_0_53" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/n_0_53</obj_property>
+      <obj_property name="ObjectShortName">n_0_53</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/n_0_54" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/n_0_54</obj_property>
+      <obj_property name="ObjectShortName">n_0_54</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/n_0_55" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/n_0_55</obj_property>
+      <obj_property name="ObjectShortName">n_0_55</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/n_0_56" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/n_0_56</obj_property>
+      <obj_property name="ObjectShortName">n_0_56</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/n_0_57" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/n_0_57</obj_property>
+      <obj_property name="ObjectShortName">n_0_57</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/n_0_58" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/n_0_58</obj_property>
+      <obj_property name="ObjectShortName">n_0_58</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/n_0_59" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/n_0_59</obj_property>
+      <obj_property name="ObjectShortName">n_0_59</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/n_0_60" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/n_0_60</obj_property>
+      <obj_property name="ObjectShortName">n_0_60</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/n_0_61" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/n_0_61</obj_property>
+      <obj_property name="ObjectShortName">n_0_61</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/n_0_62" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/n_0_62</obj_property>
+      <obj_property name="ObjectShortName">n_0_62</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/n_0_63" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/n_0_63</obj_property>
+      <obj_property name="ObjectShortName">n_0_63</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/n_0_64" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/n_0_64</obj_property>
+      <obj_property name="ObjectShortName">n_0_64</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/n_0_65" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/n_0_65</obj_property>
+      <obj_property name="ObjectShortName">n_0_65</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/n_0_66" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/n_0_66</obj_property>
+      <obj_property name="ObjectShortName">n_0_66</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/n_0_67" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/n_0_67</obj_property>
+      <obj_property name="ObjectShortName">n_0_67</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/n_0_68" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/n_0_68</obj_property>
+      <obj_property name="ObjectShortName">n_0_68</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/n_0_69" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/n_0_69</obj_property>
+      <obj_property name="ObjectShortName">n_0_69</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/n_0_70" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/n_0_70</obj_property>
+      <obj_property name="ObjectShortName">n_0_70</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/n_0_71" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/n_0_71</obj_property>
+      <obj_property name="ObjectShortName">n_0_71</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/n_0_72" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/n_0_72</obj_property>
+      <obj_property name="ObjectShortName">n_0_72</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/probe30" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/probe30</obj_property>
+      <obj_property name="ObjectShortName">probe30</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/probe55" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/probe55</obj_property>
+      <obj_property name="ObjectShortName">probe55</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/probe57" type="logic">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/probe57</obj_property>
+      <obj_property name="ObjectShortName">probe57</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+   </wvobject>
+</wave_config>

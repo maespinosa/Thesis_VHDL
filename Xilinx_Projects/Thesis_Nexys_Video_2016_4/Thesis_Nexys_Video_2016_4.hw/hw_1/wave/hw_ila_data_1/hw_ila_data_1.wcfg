@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="C:/Thesis_Nexys_Video_2016_4/Thesis_Nexys_Video_2016_4.hw/hw_1/wave/hw_ila_data_1/hw_ila_data_1.wdb" id="1">
+         <top_modules>
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="87543fs"></ZoomEndTime>
+      <Cursor1Time time="594000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="568"></NameColumnWidth>
+      <ValueColumnWidth column_width="142"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="64" />
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_acc_relay_addend" type="array">
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_acc_relay_addend[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_acc_relay_addend[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_acc_relay_adder_counter" type="array">
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_acc_relay_adder_counter[7:0]</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_acc_relay_adder_counter[7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_acc_relay_affine_en" type="logic">
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_acc_relay_affine_en</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_acc_relay_affine_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_acc_relay_augend" type="array">
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_acc_relay_augend[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_acc_relay_augend[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_acc_relay_bias_data" type="array">
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_acc_relay_bias_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_acc_relay_bias_data[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_acc_relay_bias_read" type="logic">
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_acc_relay_bias_read</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_acc_relay_bias_read</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_acc_relay_complete" type="logic">
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_acc_relay_complete</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_acc_relay_complete</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_acc_relay_filter_counter" type="array">
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_acc_relay_filter_counter[15:0]</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_acc_relay_filter_counter[15:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_acc_relay_filter_iteration_counter" type="array">
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_acc_relay_filter_iteration_counter[15:0]</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_acc_relay_filter_iteration_counter[15:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_acc_relay_first_channel_set_complete" type="logic">
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_acc_relay_first_channel_set_complete</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_acc_relay_first_channel_set_complete</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_acc_relay_iteration_complete" type="logic">
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_acc_relay_iteration_complete</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_acc_relay_iteration_complete</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_acc_relay_iteration_counter" type="array">
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_acc_relay_iteration_counter[7:0]</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_acc_relay_iteration_counter[7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_acc_relay_output_pixel_counter" type="array">
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_acc_relay_output_pixel_counter[7:0]</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_acc_relay_output_pixel_counter[7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_acc_relay_prev_data" type="array">
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_acc_relay_prev_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_acc_relay_prev_data[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_acc_relay_prev_read" type="logic">
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_acc_relay_prev_read</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_acc_relay_prev_read</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_acc_relay_state" type="array">
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_acc_relay_state[3:0]</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_acc_relay_state[3:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_acc_relay_sum_result" type="array">
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_acc_relay_sum_result[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_acc_relay_sum_result[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_acc_relay_volume_data" type="array">
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_acc_relay_volume_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_acc_relay_volume_data[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_acc_relay_volume_processed" type="logic">
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_acc_relay_volume_processed</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_acc_relay_volume_processed</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_acc_relay_volume_row_counter" type="array">
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_acc_relay_volume_row_counter[7:0]</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_acc_relay_volume_row_counter[7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_controller_accumulator_en" type="logic">
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_controller_accumulator_en</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_controller_accumulator_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_controller_all_channels_processed" type="logic">
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_controller_all_channels_processed</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_controller_all_channels_processed</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_controller_channel_iteration_calc" type="array">
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_controller_channel_iteration_calc[15:0]</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_controller_channel_iteration_calc[15:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_controller_channel_iteration_complete" type="logic">
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_controller_channel_iteration_complete</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_controller_channel_iteration_complete</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_controller_channel_iteration_counter" type="array">
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_controller_channel_iteration_counter[15:0]</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_controller_channel_iteration_counter[15:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_controller_channel_iterations_required" type="array">
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_controller_channel_iterations_required[15:0]</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_controller_channel_iterations_required[15:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_controller_channels_allowed" type="array">
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_controller_channels_allowed[7:0]</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_controller_channels_allowed[7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_controller_channels_processed" type="array">
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_controller_channels_processed[15:0]</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_controller_channels_processed[15:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_controller_element_counter" type="array">
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_controller_element_counter[15:0]</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_controller_element_counter[15:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_controller_fifo_clear" type="logic">
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_controller_fifo_clear</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_controller_fifo_clear</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_controller_fifo_clear_counter" type="array">
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_controller_fifo_clear_counter[7:0]</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_controller_fifo_clear_counter[7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_controller_filter_column_counter" type="array">
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_controller_filter_column_counter[15:0]</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_controller_filter_column_counter[15:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_controller_filter_counter" type="array">
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_controller_filter_counter[15:0]</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_controller_filter_counter[15:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_controller_filter_iteration_complete" type="logic">
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_controller_filter_iteration_complete</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_controller_filter_iteration_complete</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_controller_filter_iteration_counter" type="array">
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_controller_filter_iteration_counter[15:0]</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_controller_filter_iteration_counter[15:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_controller_filter_iterations_required" type="array">
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_controller_filter_iterations_required[15:0]</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_controller_filter_iterations_required[15:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_controller_filter_row_counter" type="array">
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_controller_filter_row_counter[15:0]</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_controller_filter_row_counter[15:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_controller_filters_in_set" type="array">
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_controller_filters_in_set[15:0]</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_controller_filters_in_set[15:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_controller_input_volume_row_counter" type="array">
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_controller_input_volume_row_counter[15:0]</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_controller_input_volume_row_counter[15:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_controller_iteration_calc" type="array">
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_controller_iteration_calc[15:0]</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_controller_iteration_calc[15:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_controller_iteration_counter" type="array">
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_controller_iteration_counter[15:0]</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_controller_iteration_counter[15:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_controller_more_dsps_needed" type="logic">
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_controller_more_dsps_needed</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_controller_more_dsps_needed</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_controller_num_iterations" type="array">
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_controller_num_iterations[7:0]</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_controller_num_iterations[7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_controller_operation_complete" type="logic">
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_controller_operation_complete</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_controller_operation_complete</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_controller_pad_8bit" type="array">
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_controller_pad_8bit[7:0]</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_controller_pad_8bit[7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_controller_pad_counter" type="array">
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_controller_pad_counter[3:0]</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_controller_pad_counter[3:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_controller_pad_row_counter" type="array">
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_controller_pad_row_counter[3:0]</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_controller_pad_row_counter[3:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_controller_padded_volume_column_size" type="array">
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_controller_padded_volume_column_size[15:0]</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_controller_padded_volume_column_size[15:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_controller_padded_volume_row_size" type="array">
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_controller_padded_volume_row_size[15:0]</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_controller_padded_volume_row_size[15:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_controller_state" type="array">
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_controller_state[4:0]</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_controller_state[4:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_controller_stride_counter" type="array">
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_controller_stride_counter[3:0]</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_controller_stride_counter[3:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_controller_volume_channel_counter" type="array">
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_controller_volume_channel_counter[15:0]</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_controller_volume_channel_counter[15:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_controller_volume_column_counter" type="array">
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_controller_volume_column_counter[15:0]</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_controller_volume_column_counter[15:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_controller_volume_index_counter" type="array">
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_controller_volume_index_counter[15:0]</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_controller_volume_index_counter[15:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_controller_volume_row" type="array">
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_controller_volume_row[15:0]</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_controller_volume_row[15:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_controller_volume_row_counter" type="array">
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_controller_volume_row_counter[15:0]</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_controller_volume_row_counter[15:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_controller_volume_rows_processed" type="array">
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_controller_volume_rows_processed[15:0]</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_controller_volume_rows_processed[15:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_controller_weight_channel_counter" type="array">
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_controller_weight_channel_counter[15:0]</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_controller_weight_channel_counter[15:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_controller_weight_index_counter" type="array">
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_ila_controller_weight_index_counter[15:0]</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_ila_controller_weight_index_counter[15:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_o_cycle_1" type="array">
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_o_cycle_1[63:0]</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_o_cycle_1[63:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_o_epoch_1" type="array">
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/Convolution_Layer_32bit_0_o_epoch_1[63:0]</obj_property>
+      <obj_property name="ObjectShortName">Convolution_Layer_32bit_0_o_epoch_1[63:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/probe47" type="array">
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/probe47[9:0]</obj_property>
+      <obj_property name="ObjectShortName">probe47[9:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/probe48" type="array">
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/probe48[15:0]</obj_property>
+      <obj_property name="ObjectShortName">probe48[15:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="neural_net_accel_conv_db_i/probe49" type="array">
+      <obj_property name="ElementShortName">neural_net_accel_conv_db_i/probe49[9:0]</obj_property>
+      <obj_property name="ObjectShortName">probe49[9:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+</wave_config>

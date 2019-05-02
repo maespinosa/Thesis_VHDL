@@ -1,0 +1,207 @@
+-- Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+-- --------------------------------------------------------------------------------
+-- Tool Version: Vivado v.2016.4 (win64) Build 1756540 Mon Jan 23 19:11:23 MST 2017
+-- Date        : Thu Apr 18 17:20:56 2019
+-- Host        : Marks-M3800 running 64-bit Service Pack 1  (build 7601)
+-- Command     : write_vhdl -force -mode synth_stub
+--               C:/Thesis_Nexys_Video_2016_4/Thesis_Nexys_Video_2016_4.srcs/sources_1/bd/final_accelerator/ip/final_accelerator_Softmax_Layer_32bit_0_0/final_accelerator_Softmax_Layer_32bit_0_0_stub.vhdl
+-- Design      : final_accelerator_Softmax_Layer_32bit_0_0
+-- Purpose     : Stub declaration of top-level module interface
+-- Device      : xc7a200tsbg484-1
+-- --------------------------------------------------------------------------------
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity final_accelerator_Softmax_Layer_32bit_0_0 is
+  Port ( 
+    o_softmax_complete : out STD_LOGIC;
+    o_cycle : out STD_LOGIC_VECTOR ( 63 downto 0 );
+    o_epoch : out STD_LOGIC_VECTOR ( 63 downto 0 );
+    ila_smax_exp_fsm_state : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    ila_smax_exp_valid_result : out STD_LOGIC;
+    ila_smax_exp_function_ready : out STD_LOGIC;
+    ila_smax_exp_step_counter : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    ila_smax_exp_multiplication_counter : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    ila_smax_exp_hold_counter : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    ila_smax_exp_sum_counter : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    ila_smax_exp_multiplicand_a : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    ila_smax_exp_multiplicand_b : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    ila_smax_exp_product : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    ila_smax_exp_augend : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    ila_smax_exp_addend : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    ila_smax_exp_sum : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    ila_smax_exp_data_reg : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    ila_smax_exp_mult_reg : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    ila_smax_exp_fifo_data : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    ila_smax_exp_fifo_wr_en : out STD_LOGIC;
+    ila_smax_exp_exp_done : out STD_LOGIC;
+    ila_smax_aw_fsm_state : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    ila_smax_aw_addend : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    ila_smax_aw_augend : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    ila_smax_aw_sum : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    ila_smax_aw_rd_en : out STD_LOGIC;
+    ila_smax_aw_summing_complete : out STD_LOGIC;
+    ila_smax_aw_hold_counter : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    ila_smax_aw_sum_counter : out STD_LOGIC_VECTOR ( 15 downto 0 );
+    ila_smax_aw_sum_reg : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    ila_smax_aw_sum_result_valid : out STD_LOGIC;
+    ila_smax_dw_fsm_state : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    ila_smax_dw_divisor : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    ila_smax_dw_dividend : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    ila_smax_dw_quotient : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    ila_smax_dw_rd_en : out STD_LOGIC;
+    ila_smax_dw_division_complete : out STD_LOGIC;
+    ila_smax_dw_hold_counter : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    ila_smax_dw_quotient_counter : out STD_LOGIC_VECTOR ( 15 downto 0 );
+    ila_smax_dw_division_reg : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    ila_smax_dw_quotient_result_valid : out STD_LOGIC;
+    ila_smax_ctrlr_fsm_state : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    ila_smax_ctrlr_exp_input : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    ila_smax_ctrlr_exp_input_valid : out STD_LOGIC;
+    ila_smax_ctrlr_controller_ready : out STD_LOGIC;
+    ila_smax_ctrlr_exp_fifo_select : out STD_LOGIC;
+    ila_smax_ctrlr_exp_complete : out STD_LOGIC;
+    ila_smax_ctrlr_element_counter : out STD_LOGIC_VECTOR ( 15 downto 0 );
+    ila_smax_ctrlr_softmax_complete : out STD_LOGIC;
+    ila_smax_ctrlr_clear_all : out STD_LOGIC;
+    ila_smax_ctrlr_busy : out STD_LOGIC;
+    ila_smax_inbuff_din : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    ila_smax_inbuff_wr_en : out STD_LOGIC;
+    ila_smax_inbuff_rd_en : out STD_LOGIC;
+    ila_smax_inbuff_dout : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    ila_smax_inbuff_full : out STD_LOGIC;
+    ila_smax_inbuff_almost_full : out STD_LOGIC;
+    ila_smax_inbuff_empty : out STD_LOGIC;
+    ila_smax_inbuff_almost_empty : out STD_LOGIC;
+    ila_smax_inbuff_valid : out STD_LOGIC;
+    ila_smax_outbuff_din : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    ila_smax_outbuff_wr_en : out STD_LOGIC;
+    ila_smax_outbuff_rd_en : out STD_LOGIC;
+    ila_smax_outbuff_dout : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    ila_smax_outbuff_full : out STD_LOGIC;
+    ila_smax_outbuff_almost_full : out STD_LOGIC;
+    ila_smax_outbuff_empty : out STD_LOGIC;
+    ila_smax_outbuff_almost_empty : out STD_LOGIC;
+    ila_smax_outbuff_valid : out STD_LOGIC;
+    ila_smax_exp_mux_data : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    ila_smax_exp_mux_wr_en : out STD_LOGIC;
+    ila_smax_exp_fifo_rd_en : out STD_LOGIC;
+    ila_smax_exp_fifo_dout : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    ila_smax_exp_fifo_full : out STD_LOGIC;
+    ila_smax_exp_fifo_almost_full : out STD_LOGIC;
+    ila_smax_exp_fifo_empty : out STD_LOGIC;
+    ila_smax_exp_fifo_almost_empty : out STD_LOGIC;
+    ila_smax_exp_fifo_valid : out STD_LOGIC;
+    ila_smax_axi_awaddr : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    ila_smax_axi_awready : out STD_LOGIC;
+    ila_smax_axi_awlen : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    ila_smax_axi_awvalid : out STD_LOGIC;
+    ila_smax_axi_wdata : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    ila_smax_axi_wready : out STD_LOGIC;
+    ila_smax_axi_wlast : out STD_LOGIC;
+    ila_smax_axi_wvalid : out STD_LOGIC;
+    ila_smax_axi_wstrb : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    ila_smax_axi_bready : out STD_LOGIC;
+    ila_smax_axi_bvalid : out STD_LOGIC;
+    ila_smax_axi_araddr : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    ila_smax_axi_arlen : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    ila_smax_axi_arvalid : out STD_LOGIC;
+    ila_smax_axi_rready : out STD_LOGIC;
+    ila_smax_axi_arready : out STD_LOGIC;
+    ila_smax_axi_rdata : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    ila_smax_axi_rlast : out STD_LOGIC;
+    ila_smax_axi_rvalid : out STD_LOGIC;
+    ila_smax_wbc : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    ila_smax_rbc : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    ila_smax_num_elements : out STD_LOGIC_VECTOR ( 15 downto 0 );
+    ila_smax_input_data_addr_reg : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    ila_smax_output_data_addr_reg : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    ila_smax_row_counter : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    ila_smax_channel_counter : out STD_LOGIC_VECTOR ( 15 downto 0 );
+    ila_smax_writes_remaining : out STD_LOGIC_VECTOR ( 15 downto 0 );
+    ila_smax_reads_remaining : out STD_LOGIC_VECTOR ( 15 downto 0 );
+    ila_smax_calculated : out STD_LOGIC;
+    ila_smax_more_bursts_needed : out STD_LOGIC;
+    ila_smax_data_loaded : out STD_LOGIC;
+    ila_smax_class_counter : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    ila_smax_master_fsm_state : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    s00_axi_aclk : in STD_LOGIC;
+    s00_axi_aresetn : in STD_LOGIC;
+    s00_axi_awaddr : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    s00_axi_awprot : in STD_LOGIC_VECTOR ( 2 downto 0 );
+    s00_axi_awvalid : in STD_LOGIC;
+    s00_axi_awready : out STD_LOGIC;
+    s00_axi_wdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    s00_axi_wstrb : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    s00_axi_wvalid : in STD_LOGIC;
+    s00_axi_wready : out STD_LOGIC;
+    s00_axi_bresp : out STD_LOGIC_VECTOR ( 1 downto 0 );
+    s00_axi_bvalid : out STD_LOGIC;
+    s00_axi_bready : in STD_LOGIC;
+    s00_axi_araddr : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    s00_axi_arprot : in STD_LOGIC_VECTOR ( 2 downto 0 );
+    s00_axi_arvalid : in STD_LOGIC;
+    s00_axi_arready : out STD_LOGIC;
+    s00_axi_rdata : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    s00_axi_rresp : out STD_LOGIC_VECTOR ( 1 downto 0 );
+    s00_axi_rvalid : out STD_LOGIC;
+    s00_axi_rready : in STD_LOGIC;
+    m00_axi_txn_done : out STD_LOGIC;
+    m00_axi_error : out STD_LOGIC;
+    m00_axi_aclk : in STD_LOGIC;
+    m00_axi_aresetn : in STD_LOGIC;
+    m00_axi_awid : out STD_LOGIC_VECTOR ( 0 to 0 );
+    m00_axi_awaddr : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    m00_axi_awlen : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    m00_axi_awsize : out STD_LOGIC_VECTOR ( 2 downto 0 );
+    m00_axi_awburst : out STD_LOGIC_VECTOR ( 1 downto 0 );
+    m00_axi_awlock : out STD_LOGIC;
+    m00_axi_awcache : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    m00_axi_awprot : out STD_LOGIC_VECTOR ( 2 downto 0 );
+    m00_axi_awqos : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    m00_axi_awuser : out STD_LOGIC_VECTOR ( 0 to 0 );
+    m00_axi_awvalid : out STD_LOGIC;
+    m00_axi_awready : in STD_LOGIC;
+    m00_axi_wdata : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    m00_axi_wstrb : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    m00_axi_wlast : out STD_LOGIC;
+    m00_axi_wuser : out STD_LOGIC_VECTOR ( 0 to 0 );
+    m00_axi_wvalid : out STD_LOGIC;
+    m00_axi_wready : in STD_LOGIC;
+    m00_axi_bid : in STD_LOGIC_VECTOR ( 0 to 0 );
+    m00_axi_bresp : in STD_LOGIC_VECTOR ( 1 downto 0 );
+    m00_axi_buser : in STD_LOGIC_VECTOR ( 0 to 0 );
+    m00_axi_bvalid : in STD_LOGIC;
+    m00_axi_bready : out STD_LOGIC;
+    m00_axi_arid : out STD_LOGIC_VECTOR ( 0 to 0 );
+    m00_axi_araddr : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    m00_axi_arlen : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    m00_axi_arsize : out STD_LOGIC_VECTOR ( 2 downto 0 );
+    m00_axi_arburst : out STD_LOGIC_VECTOR ( 1 downto 0 );
+    m00_axi_arlock : out STD_LOGIC;
+    m00_axi_arcache : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    m00_axi_arprot : out STD_LOGIC_VECTOR ( 2 downto 0 );
+    m00_axi_arqos : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    m00_axi_aruser : out STD_LOGIC_VECTOR ( 0 to 0 );
+    m00_axi_arvalid : out STD_LOGIC;
+    m00_axi_arready : in STD_LOGIC;
+    m00_axi_rid : in STD_LOGIC_VECTOR ( 0 to 0 );
+    m00_axi_rdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    m00_axi_rresp : in STD_LOGIC_VECTOR ( 1 downto 0 );
+    m00_axi_rlast : in STD_LOGIC;
+    m00_axi_ruser : in STD_LOGIC_VECTOR ( 0 to 0 );
+    m00_axi_rvalid : in STD_LOGIC;
+    m00_axi_rready : out STD_LOGIC
+  );
+
+end final_accelerator_Softmax_Layer_32bit_0_0;
+
+architecture stub of final_accelerator_Softmax_Layer_32bit_0_0 is
+attribute syn_black_box : boolean;
+attribute black_box_pad_pin : string;
+attribute syn_black_box of stub : architecture is true;
+attribute black_box_pad_pin of stub : architecture is "o_softmax_complete,o_cycle[63:0],o_epoch[63:0],ila_smax_exp_fsm_state[3:0],ila_smax_exp_valid_result,ila_smax_exp_function_ready,ila_smax_exp_step_counter[7:0],ila_smax_exp_multiplication_counter[7:0],ila_smax_exp_hold_counter[7:0],ila_smax_exp_sum_counter[7:0],ila_smax_exp_multiplicand_a[31:0],ila_smax_exp_multiplicand_b[31:0],ila_smax_exp_product[31:0],ila_smax_exp_augend[31:0],ila_smax_exp_addend[31:0],ila_smax_exp_sum[31:0],ila_smax_exp_data_reg[31:0],ila_smax_exp_mult_reg[31:0],ila_smax_exp_fifo_data[31:0],ila_smax_exp_fifo_wr_en,ila_smax_exp_exp_done,ila_smax_aw_fsm_state[3:0],ila_smax_aw_addend[31:0],ila_smax_aw_augend[31:0],ila_smax_aw_sum[31:0],ila_smax_aw_rd_en,ila_smax_aw_summing_complete,ila_smax_aw_hold_counter[7:0],ila_smax_aw_sum_counter[15:0],ila_smax_aw_sum_reg[31:0],ila_smax_aw_sum_result_valid,ila_smax_dw_fsm_state[3:0],ila_smax_dw_divisor[31:0],ila_smax_dw_dividend[31:0],ila_smax_dw_quotient[31:0],ila_smax_dw_rd_en,ila_smax_dw_division_complete,ila_smax_dw_hold_counter[7:0],ila_smax_dw_quotient_counter[15:0],ila_smax_dw_division_reg[31:0],ila_smax_dw_quotient_result_valid,ila_smax_ctrlr_fsm_state[3:0],ila_smax_ctrlr_exp_input[31:0],ila_smax_ctrlr_exp_input_valid,ila_smax_ctrlr_controller_ready,ila_smax_ctrlr_exp_fifo_select,ila_smax_ctrlr_exp_complete,ila_smax_ctrlr_element_counter[15:0],ila_smax_ctrlr_softmax_complete,ila_smax_ctrlr_clear_all,ila_smax_ctrlr_busy,ila_smax_inbuff_din[31:0],ila_smax_inbuff_wr_en,ila_smax_inbuff_rd_en,ila_smax_inbuff_dout[31:0],ila_smax_inbuff_full,ila_smax_inbuff_almost_full,ila_smax_inbuff_empty,ila_smax_inbuff_almost_empty,ila_smax_inbuff_valid,ila_smax_outbuff_din[31:0],ila_smax_outbuff_wr_en,ila_smax_outbuff_rd_en,ila_smax_outbuff_dout[31:0],ila_smax_outbuff_full,ila_smax_outbuff_almost_full,ila_smax_outbuff_empty,ila_smax_outbuff_almost_empty,ila_smax_outbuff_valid,ila_smax_exp_mux_data[31:0],ila_smax_exp_mux_wr_en,ila_smax_exp_fifo_rd_en,ila_smax_exp_fifo_dout[31:0],ila_smax_exp_fifo_full,ila_smax_exp_fifo_almost_full,ila_smax_exp_fifo_empty,ila_smax_exp_fifo_almost_empty,ila_smax_exp_fifo_valid,ila_smax_axi_awaddr[31:0],ila_smax_axi_awready,ila_smax_axi_awlen[7:0],ila_smax_axi_awvalid,ila_smax_axi_wdata[31:0],ila_smax_axi_wready,ila_smax_axi_wlast,ila_smax_axi_wvalid,ila_smax_axi_wstrb[3:0],ila_smax_axi_bready,ila_smax_axi_bvalid,ila_smax_axi_araddr[31:0],ila_smax_axi_arlen[7:0],ila_smax_axi_arvalid,ila_smax_axi_rready,ila_smax_axi_arready,ila_smax_axi_rdata[31:0],ila_smax_axi_rlast,ila_smax_axi_rvalid,ila_smax_wbc[7:0],ila_smax_rbc[7:0],ila_smax_num_elements[15:0],ila_smax_input_data_addr_reg[31:0],ila_smax_output_data_addr_reg[31:0],ila_smax_row_counter[7:0],ila_smax_channel_counter[15:0],ila_smax_writes_remaining[15:0],ila_smax_reads_remaining[15:0],ila_smax_calculated,ila_smax_more_bursts_needed,ila_smax_data_loaded,ila_smax_class_counter[31:0],ila_smax_master_fsm_state[3:0],s00_axi_aclk,s00_axi_aresetn,s00_axi_awaddr[31:0],s00_axi_awprot[2:0],s00_axi_awvalid,s00_axi_awready,s00_axi_wdata[31:0],s00_axi_wstrb[3:0],s00_axi_wvalid,s00_axi_wready,s00_axi_bresp[1:0],s00_axi_bvalid,s00_axi_bready,s00_axi_araddr[31:0],s00_axi_arprot[2:0],s00_axi_arvalid,s00_axi_arready,s00_axi_rdata[31:0],s00_axi_rresp[1:0],s00_axi_rvalid,s00_axi_rready,m00_axi_txn_done,m00_axi_error,m00_axi_aclk,m00_axi_aresetn,m00_axi_awid[0:0],m00_axi_awaddr[31:0],m00_axi_awlen[7:0],m00_axi_awsize[2:0],m00_axi_awburst[1:0],m00_axi_awlock,m00_axi_awcache[3:0],m00_axi_awprot[2:0],m00_axi_awqos[3:0],m00_axi_awuser[0:0],m00_axi_awvalid,m00_axi_awready,m00_axi_wdata[31:0],m00_axi_wstrb[3:0],m00_axi_wlast,m00_axi_wuser[0:0],m00_axi_wvalid,m00_axi_wready,m00_axi_bid[0:0],m00_axi_bresp[1:0],m00_axi_buser[0:0],m00_axi_bvalid,m00_axi_bready,m00_axi_arid[0:0],m00_axi_araddr[31:0],m00_axi_arlen[7:0],m00_axi_arsize[2:0],m00_axi_arburst[1:0],m00_axi_arlock,m00_axi_arcache[3:0],m00_axi_arprot[2:0],m00_axi_arqos[3:0],m00_axi_aruser[0:0],m00_axi_arvalid,m00_axi_arready,m00_axi_rid[0:0],m00_axi_rdata[31:0],m00_axi_rresp[1:0],m00_axi_rlast,m00_axi_ruser[0:0],m00_axi_rvalid,m00_axi_rready";
+attribute x_core_info : string;
+attribute x_core_info of stub : architecture is "Softmax_Layer_32bit_v1_0,Vivado 2016.4";
+begin
+end;
