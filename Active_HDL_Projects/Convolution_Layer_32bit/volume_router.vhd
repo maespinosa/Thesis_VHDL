@@ -50,6 +50,9 @@ entity volume_router is
 	i_filters_loaded 			: in std_logic; 
 
 	i_volume_data 				: in std_logic_vector(g_data_width-1 downto 0); 
+	i_input_volume_size			: in std_logic_vector(7 downto 0); 
+	i_pad                       : in std_logic_vector(3 downto 0); 
+	i_calc_params				: in std_logic; 
 
 	o_data_return 				: out std_logic_vector(g_data_width-1 downto 0); 
 	o_data_return_wr_en			: out std_logic;  
@@ -123,7 +126,11 @@ signal delay_shift_register : std_logic_vector(g_mult_delay-1 downto 0);
 --signal mult_counter			: unsigned(3 downto 0); 
 
 signal empty_data_complete : std_logic; 
-signal volume_router_ready : std_logic; 
+signal volume_router_ready : std_logic;
+
+signal pad_16bit					: std_logic_vector(15 downto 0);  
+signal padded_volume_size		: unsigned(15 downto 0); 
+signal empty_done			: std_logic; 
 
 begin
 	
@@ -131,7 +138,10 @@ begin
 	o_data_return_wr_en <= data_return_wr_en; 
 	
 	o_data_mult 		<= data_mult; 
-	o_data_valid 		<= delay_shift_register(g_mult_delay-1); --data_valid; 
+	o_data_valid 		<= delay_shift_register(g_mult_delay-1) when i_enable = '1' else 
+						   '1' ; --data_valid; 
+						   
+	--o_data_valid 		<= delay_shift_register(g_mult_delay-1); --data_valid; 
 	
 	--o_prog_empty_thresh <= (others => '0');
 	o_rd_en				<= rd_en; 
@@ -145,6 +155,23 @@ begin
 	
 	o_volume_router_ready <= volume_router_ready; 
 	
+	pad_16bit						<= "000000000000" & i_pad; 
+	
+	
+	calculations: process(i_clk, i_reset_n) is 
+	begin 
+		if(i_reset_n = '0') then 
+			padded_volume_size <= (others => '0'); 
+		elsif(rising_edge(i_clk)) then 
+			if(i_calc_params = '1') then 
+				padded_volume_size <= unsigned(i_input_volume_size) + unsigned(pad_16bit) + unsigned(pad_16bit); 
+			end if; 
+		end if; 
+	end process; 
+	
+	
+	
+	
 	delay_unit : process(i_clk, i_reset_n) is
 	begin
 		if(i_reset_n = '0') then
@@ -154,10 +181,6 @@ begin
 		end if; 
 		
 	end process;  
-		
-		
-	
-	
 	
 	state_transitions: process(i_clk, i_reset_n) is 
 	begin 	
@@ -169,7 +192,7 @@ begin
 	end process; 
 	
 	
-	next_state_comb: process(current_state, i_empty, i_stop_stack_en, i_next_fifo_full, i_fifo_data_valid, i_filters_loaded, i_convolution_en,element_counter, column_counter, conv_complete,snake_fill_complete,i_acc_ready,i_empty_data_en,i_affine_en,i_filter_size,i_padded_volume_size,i_stride) is 
+	next_state_comb: process(current_state, empty_done, i_empty, i_enable, padded_volume_size, i_stop_stack_en, i_next_fifo_full, i_fifo_data_valid, i_filters_loaded, i_convolution_en,element_counter, column_counter, conv_complete,snake_fill_complete,i_acc_ready,i_empty_data_en,i_affine_en,i_filter_size,i_padded_volume_size,i_stride) is 
 	--next_state_comb: process(all) is 
 	begin 
 		rd_en <= '0'; 
@@ -184,13 +207,15 @@ begin
 				sending <= '0'; 
 				volume_router_ready <= '1'; 
 				--empty_data_complete <= '1'; 
-				if(i_stop_stack_en = '0' and snake_fill_complete = '0' and i_empty_data_en = '0') then
+				if(i_enable = '0') then 
+					next_state <= IDLE; 
+				elsif(i_stop_stack_en = '0' and snake_fill_complete = '0' and i_empty_data_en = '0' and i_enable = '1') then
 					next_state <= SNAKE_FILL;
-				elsif(i_empty = '0' and i_filters_loaded = '1' and i_convolution_en = '1' and i_empty_data_en = '0') then 
+				elsif(i_empty = '0' and i_filters_loaded = '1' and i_convolution_en = '1' and i_empty_data_en = '0' and i_enable = '1') then 
 					next_state <= FILL; 
-				elsif(i_empty = '0' and i_filters_loaded = '1' and i_affine_en = '1' and i_empty_data_en = '0') then 
+				elsif(i_empty = '0' and i_filters_loaded = '1' and i_affine_en = '1' and i_empty_data_en = '0' and i_enable = '1') then 
 					next_state <= FILL; 
-				elsif(i_empty_data_en = '1') then
+				elsif(i_empty_data_en = '1' and i_enable = '1' and empty_done = '0') then
 					next_state <= TOP_ROW_EMPTY; 
 				else 
 					next_state <= IDLE; 
@@ -223,7 +248,7 @@ begin
 				if(element_counter < unsigned(i_filter_size)) then 
 					next_state <= SEND;
 				else
-					if(column_counter = unsigned(i_padded_volume_size) and i_affine_en = '0')then 
+					if(column_counter = unsigned(padded_volume_size) and i_affine_en = '0')then 
 						next_state <= IDLE; 
 					elsif(column_counter = unsigned(i_filter_size) and i_affine_en = '1') then 
 						next_state <= IDLE; 
@@ -251,7 +276,7 @@ begin
 
 			when SNAKE_FILL => 
 				if(i_empty = '0' and i_fifo_data_valid = '1' and i_next_fifo_full = '0') then 
-					if(element_counter < unsigned(i_padded_volume_size)) then 
+					if(element_counter < unsigned(padded_volume_size)) then 
 						rd_en <= '1'; 
 						next_state <= SNAKE_FILL; 
 					else 
@@ -274,7 +299,7 @@ begin
 				end if; 
 			
 			when TOP_ROW_EMPTY => 
-				if(element_counter <= unsigned(i_padded_volume_size)-1) then 
+				if(element_counter <= unsigned(padded_volume_size)-1) then 
 					rd_en <= '1'; 
 					next_state <= TOP_ROW_EMPTY; 
 					volume_router_ready <= '1'; 
@@ -316,6 +341,7 @@ begin
 			--stride_counter		<= (others =>'0'); 
 			--mult_counter		<= (others => '0'); 
 			affine_complete 	<= '0'; 
+			empty_done 			<= '0'; 
 			
 			
 		elsif(rising_edge(i_clk)) then 
@@ -333,6 +359,7 @@ begin
 			--stride_counter		<= stride_counter; 
 			--mult_counter		<= mult_counter; 
 			affine_complete 	<= affine_complete; 
+		
 			
 			case current_state is 
 				when IDLE => 
@@ -349,7 +376,8 @@ begin
 					affine_complete 	<= '0'; 
 					
 					
-					if(i_empty = '0' and i_filters_loaded = '1' and (i_convolution_en = '1' or i_affine_en = '1')) then 
+					
+					if(i_empty = '0' and i_filters_loaded = '1' and (i_convolution_en = '1' or i_affine_en = '1') and i_enable = '1') then 
 						filter_counter <= filter_counter + 1; 
 					else 
 						filter_counter <= filter_counter; 
@@ -358,7 +386,8 @@ begin
 				
 				when FILL => 
 					--element_counter <= (others => '0');   
-					--filter_counter <= (others => '0'); 	 
+					--filter_counter <= (others => '0');
+					empty_done <= '0'; 
 					rows_complete <= '0'; 
 					snake_fill_complete <= '0'; 
 					
@@ -379,7 +408,7 @@ begin
 							--filter_counter <= filter_counter + 1; 
 							
 							
-							if(filter_counter = unsigned(i_filters_in_set(11 downto 0)) and column_counter = unsigned(i_padded_volume_size) and i_affine_en = '1')then 
+							if(filter_counter = unsigned(i_filters_in_set(11 downto 0)) and column_counter = unsigned(padded_volume_size) and i_affine_en = '1')then 
 								filter_counter <= (others => '0'); --filter_counter; 
 								rows_complete <= '1'; 
 							else 
@@ -402,6 +431,7 @@ begin
 					
 					
 				when SEND =>
+				    empty_done <= '0'; 
 					data_return_wr_en <= '0'; 
 					data_return <= (others => '0'); 
 					
@@ -414,7 +444,7 @@ begin
 						data_valid <= '0'; 
 						element_counter <= (others => '0');    
 						
-						if(column_counter = unsigned(i_padded_volume_size) and i_affine_en = '0')then 
+						if(column_counter = unsigned(padded_volume_size) and i_affine_en = '0')then 
 							conv_complete <= '1'; 
 							affine_complete <= '0'; 
 						elsif(column_counter = unsigned(i_filter_size) and i_affine_en = '1')then 
@@ -427,6 +457,7 @@ begin
 					end if; 
 				
 			    when SHIFT =>  
+				    empty_done <= '0'; 
 					--mult_counter <= (others => '0');
 					if(i_empty = '0') then 
 						if(element_counter < unsigned(i_stride) and i_fifo_data_valid = '1') then 
@@ -442,7 +473,7 @@ begin
 							data_return 		<= (others => '0');	 
 							column_counter <= column_counter; 
 							
-							if(filter_counter = unsigned(i_number_of_filters) and column_counter = unsigned(i_padded_volume_size))then 
+							if(filter_counter = unsigned(i_number_of_filters) and column_counter = unsigned(padded_volume_size))then 
 								filter_counter <= (others => '0'); --filter_counter; 
 								rows_complete <= '1'; 
 							else 
@@ -454,6 +485,7 @@ begin
 					end if; 
 						
 				when SNAKE_FILL => 
+				    empty_done <= '0'; 
 					--element_counter <= (others => '0');   
 					--filter_counter <= (others => '0'); 	 
 					rows_complete <= '0'; 
@@ -461,7 +493,7 @@ begin
 					if(i_empty = '0' and  i_fifo_data_valid = '1' and i_next_fifo_full = '0') then  
 						
 						
-						if(element_counter < unsigned(i_padded_volume_size)) then 
+						if(element_counter < unsigned(padded_volume_size)) then 
 							--data_array <= data_array(9 downto 0) & i_volume_data; 	
 							element_counter <= element_counter + 1; 	 	
 							data_return_wr_en <= '1'; 	
@@ -482,7 +514,7 @@ begin
 						data_return <= (others => '0');	 
 						snake_fill_complete <= '0'; 
 						
-						if(element_counter >= unsigned(i_padded_volume_size)) then 
+						if(element_counter >= unsigned(padded_volume_size)) then 
 							snake_fill_complete <= '1'; 
 						end if; 
 
@@ -496,10 +528,11 @@ begin
 					--end if; 
 					
 				when TOP_ROW_EMPTY => 
-					if(element_counter <= unsigned(i_padded_volume_size)-1) then 
+					if(element_counter <= unsigned(padded_volume_size)-1) then 
 						element_counter <= element_counter + 1; 
 					else
 						element_counter <= (others => '0'); 
+						empty_done <= '1'; 
 					end if; 
 					
 					

@@ -29,17 +29,30 @@ entity softmax_controller is
       o_exp_input           : out std_logic_vector(g_data_width-1 downto 0); 
       o_exp_input_valid     : out std_logic; 
       o_controller_ready    : out std_logic; 
-	    o_exp_fifo_select 	  : out std_logic; 
-	    o_exp_complete		    : out std_logic; 
+	  o_exp_fifo_select 	  : out std_logic; 
+	  o_exp_complete		    : out std_logic; 
       o_clear_all           : out std_logic; 
-	    i_summing_complete	  : in std_logic; 
-	    i_divsion_complete  	: in std_logic; 
-	    i_quotient_result		  : in std_logic_vector(g_data_width-1 downto 0); 
+	  i_summing_complete	  : in std_logic; 
+	  i_divsion_complete  	: in std_logic; 
+	  i_quotient_result		  : in std_logic_vector(g_data_width-1 downto 0); 
       i_quotient_result_valid : in std_logic;
       i_num_elements        : in std_logic_vector(15 downto 0); 
       o_outbuff_din         : out std_logic_vector(g_data_width-1 downto 0); 
       o_outbuff_wr_en       : out std_logic; 
-      o_softmax_complete    : out std_logic
+      o_softmax_complete    : out std_logic; 
+	  o_busy				: out std_logic; 
+	  --CHIPSCOPE DEBUG SIGNALS
+		ila_smax_ctrlr_fsm_state : out std_logic_vector(3 downto 0); 
+		ila_smax_ctrlr_exp_input : out std_logic_vector(g_data_width-1 downto 0); 
+		ila_smax_ctrlr_exp_input_valid : out std_logic; 
+		ila_smax_ctrlr_controller_ready : out std_logic; 
+		ila_smax_ctrlr_exp_fifo_select : out std_logic; 
+		ila_smax_ctrlr_exp_complete	: out std_logic; 
+		ila_smax_ctrlr_element_counter : out unsigned(15 downto 0); 
+		ila_smax_ctrlr_softmax_complete : out std_logic; 
+		ila_smax_ctrlr_clear_all : out std_logic;
+		ila_smax_ctrlr_busy : out std_logic
+	  
   );
 end softmax_controller;
 
@@ -63,8 +76,9 @@ signal outbuff_din : std_logic_vector(g_data_width-1 downto 0);
 signal outbuff_wr_en : std_logic; 
 signal inbuff_rd_en : std_logic; 
 signal clear_all : std_logic;
+signal busy : std_logic; 
 
-
+signal fsm_state : std_logic_vector(3 downto 0); 
 
 begin 
 
@@ -78,6 +92,24 @@ o_inbuff_rd_en     <= inbuff_rd_en;
 o_outbuff_din      <= outbuff_din; 
 o_outbuff_wr_en    <= outbuff_wr_en; 
 o_clear_all        <= clear_all; 
+o_busy 				<= busy; 
+
+
+
+ila_smax_ctrlr_fsm_state 			<= fsm_state; 
+ila_smax_ctrlr_fsm_state 			<= fsm_state;
+ila_smax_ctrlr_exp_input 			<= exp_input;
+ila_smax_ctrlr_exp_input_valid 		<= exp_input_valid;
+ila_smax_ctrlr_controller_ready 	<= controller_ready;
+ila_smax_ctrlr_exp_fifo_select 		<= exp_fifo_select;
+ila_smax_ctrlr_exp_complete			<= exp_complete;
+ila_smax_ctrlr_element_counter 		<= element_counter;
+ila_smax_ctrlr_softmax_complete 	<= softmax_complete;
+ila_smax_ctrlr_clear_all 			<= clear_all;
+ila_smax_ctrlr_busy 				<= busy; 
+
+
+
 
 state_transition: process(i_clk, i_reset_n) 
 begin 
@@ -97,12 +129,16 @@ begin
 	softmax_complete <= '0'; 
 	inbuff_rd_en <= '0'; 
 	clear_all <= '0'; 
+	busy <= '0'; 
+	fsm_state <= "0000";
 
 	case current_state is 
 	
 		when IDLE => 
+			fsm_state <= "0000"; 
 			controller_ready <= '1'; 
 			exp_fifo_select <= '0'; 
+			busy <= '0'; 
 			if(i_exp_ready = '1' and i_inbuff_empty = '0' and i_start = '1') then 
 				next_state <= CALC_EXP; 
 			else 
@@ -110,6 +146,8 @@ begin
 			end if; 
 	
 		when CALC_EXP =>
+			busy <= '1';
+			fsm_state <= "0001"; 
 			controller_ready <= '1';
 			exp_fifo_select <= '0'; 
 			if((i_inbuff_empty = '0' and i_exp_ready = '1' and i_data_loaded = '0') or (i_data_loaded = '1' and i_exp_ready = '1')) then 
@@ -128,7 +166,9 @@ begin
 				next_state <= CALC_EXP; 
 			end if; 
 
-		when EXP_HOLD => 
+		when EXP_HOLD =>
+			busy <= '1';
+			fsm_state <= "0010"; 		
 			controller_ready <= '1';
 			if(i_exp_done = '0') then 
 				next_state <= EXP_HOLD; 
@@ -141,6 +181,8 @@ begin
 			end if;
 
 		when SUM_EXP =>
+			busy <= '1';
+			fsm_state <= "0011"; 
 			exp_complete <= '1';
 			exp_fifo_select <= '1'; 
 			controller_ready <= '0'; 
@@ -151,6 +193,8 @@ begin
 			end if; 
 	
 		when DIVIDE => 
+			busy <= '1';
+			fsm_state <= "0100"; 
 			exp_fifo_select <= '0'; 
 			controller_ready <= '0'; 
 			if(i_divsion_complete = '0') then 
@@ -162,6 +206,8 @@ begin
 
 	
 		when CLEAR_HOLD =>--when SAVE => 
+			busy <= '1';
+			fsm_state <= "0101"; 
 			clear_all <= '1'; 
 			next_state <= IDLE;
 			softmax_complete <= '1';  
@@ -170,6 +216,7 @@ begin
 	
 	
 		when others => 
+			fsm_state <= "0110"; 
 			next_state <= IDLE; 
 		
 	end case; 

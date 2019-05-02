@@ -38,8 +38,11 @@ entity max_pool_unit is
        o_outbuff_valid	: out std_logic; 
 	   
 	   o_channel_complete : out std_logic;
-	   o_row_complete : out std_logic
+	   o_row_complete : out std_logic; 
+	   o_busy : out std_logic;
 	   --o_operation_complete : out std_logic
+	   o_sorter_fsm_state 	: out std_logic_vector(3 downto 0); 
+	   o_controller_fsm_state : out std_logic_vector(3 downto 0)
   
   );
 end max_pool_unit;
@@ -108,7 +111,8 @@ component heap_sorter is
 		   i_data_valid		: in std_logic;
            o_sorted_data    : out array_type_9x32bit; 
 		   o_sorted_data_valid : out std_logic; 
-		   o_sorter_ready	: out std_logic 
+		   o_sorter_ready	: out std_logic; 
+		   o_fsm_state		: out std_logic_vector(3 downto 0)
            );
 end component;
 
@@ -130,7 +134,8 @@ component pool_row_controller is
 	   o_channel_complete		: out std_logic; 
 	   --o_operation_complete     : out std_logic; 
 	   o_row_complete			: out std_logic; 
-	   
+	   o_busy					: out std_logic; 
+	   o_fsm_state		: out std_logic_vector(3 downto 0); 
 	   
 	   --INPUT BUFFER SIGNALS
        i_inbuff_dout 				: in STD_LOGIC_VECTOR(g_data_width-1 downto 0);
@@ -248,6 +253,8 @@ signal outbuff_almost_full	: std_logic;
 
 signal sorter_ready			: std_logic; 
 
+--signal sorter_fsm_state 	: std_logic_vector(3 downto 0); 
+--signal controller_fsm_state : std_logic_vector(3 downto 0); 
 
 
 
@@ -418,7 +425,9 @@ input_buffer: max_pool_fifo
 	   
 	   o_inbuff_rd_en 			=> inbuff_rd_en, 
 	   o_channel_complete		=> o_channel_complete,
-	   o_row_complete			=> o_row_complete
+	   o_row_complete			=> o_row_complete, 
+	   o_busy					=> o_busy, 
+	   o_fsm_state				=> o_controller_fsm_state
 	   --o_operation_complete		=> o_operation_complete 
   );
   
@@ -448,7 +457,8 @@ heap_sorter_unit : heap_sorter
 		i_data_valid	=> sorter_data_valid, 
 		o_sorted_data   => sorter_data_out, 
 		o_sorted_data_valid	=> sorter_data_out_valid, 
-		o_sorter_ready 	=> sorter_ready
+		o_sorter_ready 	=> sorter_ready, 
+		o_fsm_state     => o_sorter_fsm_state
     );
 
 

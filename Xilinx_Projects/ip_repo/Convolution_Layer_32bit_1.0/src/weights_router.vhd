@@ -44,18 +44,13 @@ entity weights_router is
 	o_recycle_filter_data	: out std_logic_vector(g_data_width-1 downto 0);
 	o_weights_mult			: out std_logic_vector(g_data_width-1 downto 0);
 	o_filters_loaded			: out std_logic; 
-	--o_filters_processed		: out std_logic; 
 	
 	i_fifo_data_valid 		: in std_logic; 
 	o_rd_en 				: out std_logic; 
 	i_empty					: in std_logic; 
 	i_almost_empty 			: in std_logic; 
-	--i_prog_empty			: in std_logic; 
-	--o_prog_empty_thresh 	: out std_logic_vector(12 downto 0); 
-	
-	--i_prog_full				: in std_logic; 
+
 	i_weight_filter_size	: in std_logic_vector(3 downto 0); 
-	--i_volume_row_size		: in std_logic_vector(12 downto 0); 
 	i_convolution_en		: in std_logic; 
 	i_clear_weights			: in std_logic; 
 	o_reset_weight_fifo_n	: out std_logic; 
@@ -63,14 +58,17 @@ entity weights_router is
 	i_volume_ready 			: in std_logic; 
 	i_conv_complete			: in std_logic; 
 	i_affine_complete		: in std_logic; 
+	i_filter_complete		: in std_logic; 
 	i_acc_ready				: in std_logic; 
 	i_affine_en 			: in std_logic; 
-	o_weight_router_ready	: out std_logic
+	o_weight_router_ready	: out std_logic; 
+	o_fsm_state				: out std_logic_vector(3 downto 0); 
+	ila_filter_element_counter 	: out std_logic_vector(3 downto 0); 
+	ila_delay_shift_register : out std_logic_vector(g_mult_delay-1 downto 0)
+	
 	
 	); 
 end weights_router;
-
---}} End of automatically maintained section
 
 architecture arch of weights_router is	 
 
@@ -79,7 +77,6 @@ signal current_state 	: router_state;
 signal next_state 		: router_state;
 
 signal filter_element_counter 	: unsigned(3 downto 0); 
---signal row_element_counter 		: unsigned(7 downto 0);
 
 type array_type_11x16bit is array(10 downto 0) of std_logic_vector(31 downto 0); 
 signal filter_row_shift_reg	: array_type_11x16bit; 	 
@@ -89,27 +86,32 @@ signal recycle_filter_en	: std_logic;
 signal recycle_filter_data	: std_logic_vector(31 downto 0); 
 signal weights_mult			: std_logic_vector(31 downto 0); 
 signal filters_loaded		: std_logic; 
---signal filters_processed	: std_logic; 
 signal rd_en				: std_logic; 
---signal prog_empty_thresh	: std_logic_vector(9 downto 0); 
 signal reset_weight_fifo_n  : std_logic; 	 
---signal filter_number		: unsigned(11 downto 0); 
-
 signal delay_shift_register : std_logic_vector(g_mult_delay-1 downto 0);
 signal weight_router_ready  : std_logic; 
+signal fsm_state			: std_logic_vector(3 downto 0); 
+
+
+
 
 begin
 	
-	o_data_valid			<= delay_shift_register(g_mult_delay-1); --data_valid;  
+	o_data_valid			<= delay_shift_register(g_mult_delay-1) when i_enable = '1' else 
+								'1'; --data_valid;  					
+	--o_data_valid			<= delay_shift_register(g_mult_delay-1); --data_valid;  
 	o_recycle_filter_en		<= recycle_filter_en; 
 	o_recycle_filter_data	<= recycle_filter_data; 
 	o_weights_mult			<= weights_mult;
 	o_filters_loaded	    <= filters_loaded; 
-	--o_filters_processed		<= filters_processed; 
 	o_rd_en					<= rd_en; 
-	--o_prog_empty_thresh		<= "0000000001111";  
 	o_reset_weight_fifo_n	<= reset_weight_fifo_n;		
 	o_weight_router_ready   <= weight_router_ready; 
+	o_fsm_state 			<= fsm_state; 
+	
+	ila_filter_element_counter 	<= std_logic_vector(filter_element_counter);  
+	ila_delay_shift_register 	<= delay_shift_register; 
+	
 	
 	delay_unit : process(i_clk, i_reset_n) is
 	begin
@@ -131,19 +133,17 @@ begin
 		end if;
 	end process; 
 	
-	next_state_comb: process(i_clear_weights,i_empty, i_almost_empty,current_state,i_conv_complete,i_affine_complete,filter_element_counter,i_weight_filter_size,i_convolution_en,i_affine_en,i_volume_ready, i_acc_ready) is 
-	--next_state_comb: process(all) is
+	next_state_comb: process(i_clear_weights,i_empty, i_filter_complete,i_almost_empty,current_state,i_conv_complete,i_affine_complete,filter_element_counter,i_weight_filter_size,i_convolution_en,i_affine_en,i_volume_ready, i_acc_ready) is 
 	begin 
 		rd_en 		<= '0'; 	
-		--recycle_filter_en <= '0'; 
-		weight_router_ready <= '0';
 		filters_loaded <= '0'; 
+		fsm_state <= "0000"; 
 		
 		case current_state is 
-			when IDLE =>   
+			when IDLE =>  
+				fsm_state <= "0000"; 
 				filters_loaded <= '0'; 	
 				rd_en <= '0'; 
-				weight_router_ready <= '1'; 
 				if(i_clear_weights = '1') then 
 					next_state <= EMPTY_WEIGHTS; 
 				elsif(i_empty = '0' and (i_convolution_en = '1' or i_affine_en = '1') and i_acc_ready = '1') then 
@@ -151,33 +151,33 @@ begin
 				else 
 					next_state <= IDLE; 
 				end if; 
-			
-			
+
 			when PRIMING =>
-				filters_loaded <= '0'; 
-				if(i_almost_empty = '0') then 	
+				fsm_state <= "0001"; 
+				filters_loaded <= '0';
+				if(i_affine_complete = '1' or i_clear_weights = '1') then 
+					next_state <= IDLE; 
+				elsif(i_almost_empty = '0') then 	
 					next_state <= LOAD_KERNEL; 
 				else 
 					next_state <= PRIMING; 
 				end if; 						 
-			
-				
-			when LOAD_KERNEL =>  
+
+			when LOAD_KERNEL => 
+				fsm_state <= "0010"; 
 				filters_loaded <= '0'; 
 				if(filter_element_counter >= unsigned(i_weight_filter_size) and (i_convolution_en = '1' or i_affine_en = '1')) then 	 
 					rd_en 		<= '0';  
-					--recycle_filter_en <= '0'; 
 					filters_loaded <= '1'; 
 					next_state 	<= PROCESSING; 	 
 				else				
 					rd_en 		<= '1';  
-					--recycle_filter_en <= '1'; 
 					next_state 	<= LOAD_KERNEL; 
 					filters_loaded <= '0'; 
 				end if;	
-				
-					
+
 			when PROCESSING => 	
+				fsm_state <= "0011"; 
 				if(i_affine_en = '0') then 
 					filters_loaded <= not(i_conv_complete);  
 				else 
@@ -185,37 +185,30 @@ begin
 				end if; 
  
 				if(i_clear_weights = '1') then 
-					--data_valid <= '0'; 
 					next_state <= IDLE; 
 				else  	 
-					if(i_conv_complete = '1' or i_affine_complete = '1') then 
+					if(i_conv_complete = '1' or i_affine_complete = '1' or i_filter_complete = '1') then 	 
 						next_state <= IDLE; 
 					else 
 						next_state <= PROCESSING;
-					end if; 
-
+					end if; 				
 				end if; 
 				
 			when EMPTY_WEIGHTS => 
+				fsm_state <= "0100"; 
 				filters_loaded <= '0'; 
-				weight_router_ready <= '1'; 
 				if(i_clear_weights = '1') then 
-					--rd_en <= '1'; 
 					next_state <= EMPTY_WEIGHTS; 
 				else 
-					--rd_en <= '0'; 
 					next_state <= IDLE; 
 				end if; 
-				
-	
-				
+
 			when others => 
+				fsm_state <= "0101"; 
 				next_state <= IDLE; 
 
 		end case; 
-		
-		
-		
+
 	end process; 
 	
 	
@@ -223,27 +216,20 @@ begin
 	sequential_logic: process(i_clk,i_reset_n) is 
 	begin 	
 		if(i_reset_n = '0') then   
-			filter_element_counter 	<= (others => '0');	
-			--row_element_counter 	<= (others => '0');   
-			--filters_loaded 			<= '0'; 	
+			filter_element_counter 	<= (others => '0');		
 			filter_row_shift_reg 	<= (others => (others => '0')); 
 			reset_weight_fifo_n 	<= '0';  
-			weights_mult 			<= (others => '0');   
-			--filters_processed 		<= '0'; 			
-			--filter_number 			<= (others => '0');    
+			weights_mult 			<= (others => '0');     
 			recycle_filter_data		<= (others => '0');   
 			data_valid 				<= '0'; 
 			recycle_filter_en		<= '0'; 
+			weight_router_ready <= '0';
 			
 		elsif(rising_edge(i_clk)) then 
 			filter_element_counter 	<= filter_element_counter; 
-			--row_element_counter 	<= row_element_counter;  
-			--filters_loaded 			<= filters_loaded; 
 			filter_row_shift_reg 	<= filter_row_shift_reg; 
 			reset_weight_fifo_n 	<= reset_weight_fifo_n;  
 			weights_mult 			<= weights_mult;   
-			--filters_processed 		<= filters_processed; 			
-			--filter_number 			<= filter_number;  
 			recycle_filter_data		<= recycle_filter_data;	  
 			data_valid 				<= data_valid; 
 			recycle_filter_en		<= recycle_filter_en; 
@@ -252,19 +238,16 @@ begin
 				when IDLE => 
 					reset_weight_fifo_n <= '1';	
 					data_valid <= '0'; 
+					weight_router_ready <= '1';
 					
 				when PRIMING => 
-				
-
 					data_valid <= '0'; 
 					
 				when LOAD_KERNEL => 
-				
 					data_valid <= '0'; 
 				
 					if(filter_element_counter >= unsigned(i_weight_filter_size) and (i_convolution_en = '1' or i_affine_en = '1')) then 	 
 						filter_element_counter <= x"1";
-						--filters_loaded <= '1'; 
 						recycle_filter_en <= '0'; 
 					else
 						if(i_fifo_data_valid = '1') then
@@ -281,15 +264,8 @@ begin
 					end if; 
 					
 				when PROCESSING =>	
-					--if(i_clear_weights = '1') then 	  	 
-						--reset_weight_fifo_n <= '0';	
-						--data_valid <= '0'; 
-	
-					--else
-						--filters_loaded <= not(i_conv_complete); 
-						
 						if(filter_element_counter > unsigned(i_weight_filter_size) and i_volume_ready = '0') then 
-							if(i_conv_complete = '1' or i_affine_complete = '1') then 	 
+							if(i_conv_complete = '1' or i_affine_complete = '1' or i_filter_complete = '1') then 	 
 								filter_element_counter <= (others => '0'); 
 							else 
 								filter_element_counter <= x"1"; 
@@ -301,7 +277,7 @@ begin
 							data_valid <= '1'; 
 							weights_mult <= filter_row_shift_reg(to_integer(filter_element_counter)-1);	
 						else 
-							if(i_conv_complete = '1' or i_affine_complete = '1') then 	 
+							if(i_conv_complete = '1' or i_affine_complete = '1' or i_filter_complete = '1') then 	  
 								filter_element_counter <= (others => '0'); 
 							else 
 								filter_element_counter <= filter_element_counter; 
@@ -310,9 +286,7 @@ begin
 							data_valid <= '0'; 
 							weights_mult <= (others => '0');	
 						end if;    
-						
-					--end if; 
-					
+
 					
 				when EMPTY_WEIGHTS => 
 				  	 
@@ -322,21 +296,16 @@ begin
 					recycle_filter_en		<= '0'; 
 					weights_mult 			<= (others => '0'); 
 					filter_element_counter 	<= (others => '0');	
-					--row_element_counter 	<= (others => '0');  
-					--filters_processed 		<= '0'; 					
-		
-					
+					weight_router_ready 	<= '1';
+
 				when others => 	
-					filter_element_counter 	<= (others => '0');	
-					--row_element_counter 	<= (others => '0');   
-					--filters_loaded 			<= '0'; 	
+					filter_element_counter 	<= (others => '0');		
 					filter_row_shift_reg 	<= (others => (others => '0')); 
 					reset_weight_fifo_n 	<= '1';  
 					weights_mult 			<= (others => '0');   
-					--filters_processed 		<= '0'; 			
-					--filter_number 			<= (others => '0'); 
 					recycle_filter_data		<= (others => '0');
 					recycle_filter_en		<= '0'; 
+					weight_router_ready 	<= '0';
 					
 				
 			end case; 	 

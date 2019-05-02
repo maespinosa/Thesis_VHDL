@@ -53,7 +53,8 @@ entity heap_sorter is
 		   i_data_valid		: in std_logic; 
            o_sorted_data    : out array_type_9x32bit; 
 		   o_sorted_data_valid : out std_logic; 
-		   o_sorter_ready	: out std_logic
+		   o_sorter_ready	: out std_logic; 
+		   o_fsm_state		: out std_logic_vector(3 downto 0)
            );
 end heap_sorter;
 
@@ -88,6 +89,8 @@ signal done : std_logic;
 signal sorted_data : array_type_9x32bit; 
 signal sorter_ready : std_logic; 
 
+signal fsm_state : unsigned(3 downto 0); 
+
 begin
 
 o_sorted_data <= sorted_data when done = '1' else 
@@ -96,6 +99,8 @@ o_sorted_data <= sorted_data when done = '1' else
 o_sorted_data_valid		<= done; 
 
 o_sorter_ready <= sorter_ready; 
+
+o_fsm_state <= std_logic_vector(fsm_state); 
 
 state_transistion: process(i_clk, i_reset_n)
 begin 
@@ -106,7 +111,7 @@ begin
     end if; 
 end process;
 
-next_state_comb: process(current_state, i_data_valid, position1,position2,position3,position4,position5,position6,position7,position8,position9) 
+next_state_comb: process(current_state, i_data,i_data_valid, position1,position2,position3,position4,position5,position6,position7,position8,position9) 
 begin 
 	sorter_ready <= '0'; 
 	
@@ -205,6 +210,7 @@ begin
 		position9 <= (others => '0'); 
 		done <= '0'; 
 		sorted_data <= (others => (others => '0')); 
+		fsm_state <= (others => '0'); 
     elsif(rising_edge(i_clk)) then 
        
 		position1 <= position1; 
@@ -219,9 +225,10 @@ begin
 		done <= done; 
 		sorted_data <= sorted_data; 
 		
+		
         case current_state is 
             when IDLE => 
-			
+				fsm_state <= 0; 
 				sorted_data <= (others => (others => '0')); 
 				if(i_data_valid = '1') then 
 					position1 <= signed(i_data(0)); 
@@ -252,7 +259,8 @@ begin
 ----                       2             3 
 --                     4       5     6       7
 --                  8     9
-            when BUILD_MAX_HEAP_P4 =>  
+            when BUILD_MAX_HEAP_P4 => 
+				fsm_state <= 1; 			
 				if(position9 > position4 and position9 > position8) then 
 					position9 <= position4; 
 					position4 <= position9;
@@ -268,7 +276,8 @@ begin
 				end if; 
 				
 					
-            when BUILD_MAX_HEAP_P3 =>  
+            when BUILD_MAX_HEAP_P3 => 
+				fsm_state <= 2; 			
 				if(position7 > position3 and position7 > position6) then 
 					position7 <= position3; 
 					position3 <= position7;
@@ -284,6 +293,7 @@ begin
 				end if; 
 				
             when BUILD_MAX_HEAP_P2 =>  
+				fsm_state <= 3; 
 				if(position5 > position2 and position5 > position4) then 
 					position5 <= position2; 
 					position2 <= position5;
@@ -299,6 +309,7 @@ begin
 				end if; 
 				
             when BUILD_MAX_HEAP_P1 =>  
+				fsm_state <= 4; 
 				if(position2 > position1 and position2 > position3) then 
 					position2 <= position1; 
 					position1 <= position2;
@@ -327,6 +338,7 @@ begin
 
 
             when BUILD_MIN_HEAP_P4 =>  
+				fsm_state <= 5; 
 				if(position9 < position4 and position9 < position8) then 
 					position9 <= position4; 
 					position4 <= position9;
@@ -343,6 +355,7 @@ begin
 				
 					
             when BUILD_MIN_HEAP_P3 =>  
+				fsm_state <= 6; 
 				if(position7 < position3 and position7 < position6) then 
 					position7 <= position3; 
 					position3 <= position7;
@@ -358,6 +371,7 @@ begin
 				end if; 
 				
             when BUILD_MIN_HEAP_P2 =>  
+				fsm_state <= 7; 
 				if(position5 < position2 and position5 < position4) then 
 					position5 <= position2; 
 					position2 <= position5;
@@ -373,6 +387,7 @@ begin
 				end if; 
 				
             when BUILD_MIN_HEAP_P1 =>  
+				fsm_state <= 8; 
 				if(position2 < position1 and position2 < position3) then 
 					position2 <= position1; 
 					position1 <= position2;

@@ -24,13 +24,14 @@ entity Convolution_Tester_v1_0 is
 	);
 	port (
 		-- Users to add ports here
-
+		i_ext_reset_n : std_logic; 
+        i_trigger : in std_logic;
+        i_init_calib_complete : in std_logic; 
+        i_data_written        : in std_logic; 
+		i_test_number		  : in std_logic_vector(3 downto 0); 
 		-- User ports ends
 		-- Do not modify the ports beyond this line
-		i_ext_reset_n : std_logic; 
-		--i_irq : in std_logic;
-		i_init_calib_complete : in std_logic; 
-		i_data_written		: in std_logic; 
+
 
 		-- Ports of Axi Master Bus Interface M00_AXI
 		--m00_axi_init_axi_txn	: in std_logic;
@@ -102,9 +103,10 @@ architecture arch_imp of Convolution_Tester_v1_0 is
 		);
 		port (
 		i_ext_reset_n : in std_logic; 
-		--i_irq : in std_logic;
+		i_trigger : in std_logic;
 		i_init_calib_complete : in std_logic; 
 		i_data_written : in std_logic; 
+		i_test_number : in std_logic_vector(3 downto 0); 
 		--INIT_AXI_TXN	: in std_logic;
 		TXN_DONE	: out std_logic;
 		ERROR	: out std_logic;
@@ -174,9 +176,10 @@ Convolution_Tester_v1_0_M00_AXI_inst : Convolution_Tester_v1_0_M00_AXI
 	)
 	port map (
 	    i_ext_reset_n => i_ext_reset_n, 
-		--i_irq => i_irq, 
+		i_trigger => i_trigger, 
 		i_init_calib_complete => i_init_calib_complete,
 		i_data_written => i_data_written, 
+		i_test_number => i_test_number,
 		--INIT_AXI_TXN	=> m00_axi_init_axi_txn,
 		TXN_DONE	=> m00_axi_txn_done,
 		ERROR	=> m00_axi_error,

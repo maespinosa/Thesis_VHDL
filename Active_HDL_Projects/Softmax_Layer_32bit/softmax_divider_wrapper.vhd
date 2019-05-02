@@ -28,11 +28,9 @@ entity softmax_divider_wrapper is
 	o_exp_rd_en : out std_logic; 
 	o_division_complete : out std_logic; 
 	o_quotient_result : out std_logic_vector(g_data_width-1 downto 0); 
-	o_quotient_result_valid : out std_logic
+	o_quotient_result_valid : out std_logic; 
+	o_fsm_state : out std_logic_vector(3 downto 0)
 	--o_sum_result_valid : out std_logic
-	
-	
-	   
   );
 end softmax_divider_wrapper;
 
@@ -66,6 +64,8 @@ signal quotient_counter : unsigned(15 downto 0);
 signal division_reg : std_logic_vector(g_data_width-1 downto 0); 
 signal quotient_result_valid : std_logic; 
 
+signal fsm_state : unsigned(3 downto 0); 
+
 begin 
 
 
@@ -73,7 +73,9 @@ o_exp_rd_en <= rd_en;
 o_division_complete <= division_complete; 
 o_quotient_result <= division_reg; 
 o_quotient_result_valid <= quotient_result_valid; 
---o_sum_result_valid <= sum_result_valid; 		
+--o_sum_result_valid <= sum_result_valid; 	
+
+o_fsm_state <= std_logic_vector(fsm_state); 	
 
 divider: softmax_divider_32bit
   PORT MAP(
@@ -82,9 +84,6 @@ divider: softmax_divider_32bit
     clk		=> i_clk, 
     result	=> quotient
   );
-
-
-
  
 state_transition: process(i_clk, i_reset_n) 
 begin 
@@ -162,7 +161,8 @@ begin
 		divisor 				<= (others => '0'); 
 		dividend 				<= (others => '0'); 
 		division_reg 			<= (others => '0'); 
-		quotient_result_valid <= '0'; 
+		quotient_result_valid <= '0';
+		fsm_state				<= (others => '0'); 
 		
 	elsif(rising_edge(i_clk)) then 
 		hold_counter 			<= hold_counter; 
@@ -176,6 +176,7 @@ begin
 		case current_state is 
 		
 		when IDLE => 
+			fsm_state 			<= 0; 
 			hold_counter 		<= (others => '0'); 
 			quotient_counter 	<= (others => '0'); 
 			division_complete 	<= '0'; 
@@ -185,6 +186,7 @@ begin
 			quotient_result_valid <= '0'; 
 			
 		when SET_OPERANDS => 
+			fsm_state <= 1; 
 			if(quotient_counter < unsigned(i_num_elements)) then 
 				quotient_counter 	<= quotient_counter + 1; 
 				divisor 			<= i_divisor;  
@@ -197,6 +199,7 @@ begin
 				
 		
 		when DIVIDER_HOLD => 
+			fsm_state <= 2; 
 			if(hold_counter < g_divider_delay) then 
 				hold_counter <= hold_counter + 1; 
 			else
@@ -215,10 +218,12 @@ begin
 				
 			end if; 
 			
-		when CLEAR_HOLD => 
+		when CLEAR_HOLD =>
+			fsm_state <= 3; 		
 			division_complete <= '1'; 	
 		
 		when others => 
+			fsm_state <= 4; 
 			hold_counter 		<= (others => '0'); 
 			quotient_counter 	<= (others => '0'); 
 			division_complete 	<= '0'; 

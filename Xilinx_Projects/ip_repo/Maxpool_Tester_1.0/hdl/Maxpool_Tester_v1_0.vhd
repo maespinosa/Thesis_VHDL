@@ -27,7 +27,7 @@ entity Maxpool_Tester_v1_0 is
 
 		-- User ports ends
 		-- Do not modify the ports beyond this line
-        irq : in std_logic;
+        trigger : in std_logic;
         init_calib_complete : in std_logic;  
 
 		-- Ports of Axi Master Bus Interface M00_AXI
@@ -98,7 +98,7 @@ architecture arch_imp of Maxpool_Tester_v1_0 is
 		C_M_AXI_BUSER_WIDTH	: integer	:= 0
 		);
 		port (
-		i_irq : in std_logic; 
+		i_trigger : in std_logic; 
 		i_init_calib_complete : in std_logic; 
 		--INIT_AXI_TXN	: in std_logic;
 		TXN_DONE	: out std_logic;
@@ -167,7 +167,7 @@ Max_Pool_Tester_v1_0_M00_AXI_inst : Max_Pool_Tester_v1_0_M00_AXI
 		C_M_AXI_BUSER_WIDTH	=> C_M00_AXI_BUSER_WIDTH
 	)
 	port map (
-	    i_irq => irq, 
+	    i_trigger => trigger, 
 	    i_init_calib_complete => init_calib_complete, 
 		--INIT_AXI_TXN	=> m00_axi_init_axi_txn,
 		TXN_DONE	=> m00_axi_txn_done,

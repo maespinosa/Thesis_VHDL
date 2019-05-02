@@ -24,8 +24,8 @@ port (
 	o_ready : out std_logic; 
 	o_exp_done : out std_logic;
 	i_fifo_full : in std_logic; 
-	i_fifo_almost_full : in std_logic
-
+	i_fifo_almost_full : in std_logic; 
+	o_fsm_state : out std_logic_vector(3 downto 0)
 ); 
 end exponential_function; 
 
@@ -82,6 +82,8 @@ signal fifo_wr_en : std_logic;
 
 signal exp_done : std_logic;
 
+signal fsm_state : unsigned(3 downto 0); 
+
 
 
 begin 
@@ -90,6 +92,7 @@ o_data <= fifo_data; --sum;
 o_valid <= fifo_wr_en; -- valid_result; 
 o_ready <= function_ready; 
 o_exp_done <= exp_done;
+o_fsm_state <= std_logic_vector(fsm_state); 
 
 factorials(0) 	<= x"3F800000"; -- 0! = 1  1/0! = 1
 factorials(1) 	<= x"3F800000"; -- 1! = 1  1/
@@ -271,6 +274,7 @@ begin
 		fifo_data				<= (others => '0'); 
 		fifo_wr_en				<= '0'; 
 		exp_done <= '0';
+		fsm_state 				<= (others => '0'); 
 
 	elsif(rising_edge(i_clk)) then 
 		step_counter 			<= step_counter; 
@@ -291,6 +295,7 @@ begin
 		case current_state is 
 
 		when IDLE => 
+			fsm_state 				<= 0; 
 			step_counter 			<= (others => '0'); 
 			multiplication_counter 	<= (others => '0'); 
 			hold_counter 			<= (others => '0'); 
@@ -312,6 +317,7 @@ begin
 			end if;  
 
 		when MULT_INPUT => 
+			fsm_state <= 1; 
 			--if(i_valid = '1') then 
 			--step_counter <= step_counter + 1; 
 				if(step_counter = 0) then 
@@ -342,6 +348,7 @@ begin
 			--end if; 
 
 		when MULT_INPUT_HOLD => 
+			fsm_state <= 2; 
 			if(hold_counter < g_mult_delay) then 
 				hold_counter <= hold_counter + 1; 
 			else 
@@ -350,12 +357,14 @@ begin
 			end if; 
 
 
-		when MULT_FACT => 
+		when MULT_FACT =>
+			fsm_state <= 3; 		
 			multiplicand_a <= factorials(to_integer(step_counter)); 
 			multiplicand_b <= product; 
 
 
-		when MULT_FACT_HOLD => 
+		when MULT_FACT_HOLD =>
+			fsm_state <= 4; 
 			if(hold_counter < g_mult_delay) then 
 				hold_counter <= hold_counter + 1; 
 			else 
@@ -364,7 +373,8 @@ begin
 				sum_array(to_integer(step_counter)) <= product;  
 			end if; 
 
-		when SUM_ALL => 
+		when SUM_ALL =>
+			fsm_state <= 5; 
 			if(sum_counter = 0) then 
 				augend <= sum_array(0); 
 				addend <= sum_array(1); 
@@ -377,7 +387,8 @@ begin
 				sum_counter <= (others => '0'); 
 			end if; 
 
-		when SUM_HOLD => 
+		when SUM_HOLD =>
+			fsm_state <= 6; 
 			if(hold_counter < g_adder_delay) then 
 				hold_counter <= hold_counter + 1; 
 			else 
@@ -389,7 +400,8 @@ begin
 				end if; 
 			end if; 
 
-		when WRITE_RESULT => 
+		when WRITE_RESULT =>
+			fsm_state <= 7; 
 			if(i_fifo_full = '0' and i_fifo_almost_full = '0') then 
 				fifo_data <= sum; 
 				fifo_wr_en <= '1'; 

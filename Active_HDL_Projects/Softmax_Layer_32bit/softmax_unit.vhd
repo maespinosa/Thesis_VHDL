@@ -41,7 +41,12 @@ entity softmax_unit is
     o_expbuff_valid : out std_logic; 
 	   
 	o_softmax_complete : out std_logic; 
-	o_busy             : out std_logic
+	o_busy             : out std_logic; 
+	
+	o_controller_fsm_state		: out std_logic_vector(3 downto 0); 
+	o_ef_fsm_state				: out std_logic_vector(3 downto 0); 
+	o_add_wrapper_fsm_state	: out std_logic_vector(3 downto 0); 
+	o_div_wrapper_fsm_state	: out std_logic_vector(3 downto 0) 
   );
 end softmax_unit;
 
@@ -84,7 +89,8 @@ port (
   o_ready : out std_logic; 
   o_exp_done : out std_logic;
   i_fifo_full : in std_logic; 
-  i_fifo_almost_full : in std_logic
+  i_fifo_almost_full : in std_logic; 
+  o_fsm_state : out std_logic_vector(3 downto 0)
 ); 
 end component; 
 
@@ -107,7 +113,8 @@ component softmax_adder_wrapper is
 	i_clear_all : in std_logic; 
 	o_exp_rd_en : out std_logic; 
 	o_summing_complete : out std_logic; 
-	o_sum_result : out std_logic_vector(g_data_width-1 downto 0)
+	o_sum_result : out std_logic_vector(g_data_width-1 downto 0); 
+	o_fsm_state : out std_logic_vector(3 downto 0)
 	   
   );
 end component;
@@ -134,7 +141,9 @@ component softmax_divider_wrapper is
 	o_exp_rd_en : out std_logic; 
 	o_division_complete : out std_logic; 
 	o_quotient_result : out std_logic_vector(g_data_width-1 downto 0); 
-  o_quotient_result_valid : out std_logic
+	o_quotient_result_valid : out std_logic; 
+	
+	o_fsm_state : out std_logic_vector(3 downto 0)
   );
 end component;
 
@@ -170,7 +179,9 @@ component softmax_controller is
     i_num_elements         : in std_logic_vector(15 downto 0);
       o_outbuff_din         : out std_logic_vector(g_data_width-1 downto 0); 
       o_outbuff_wr_en       : out std_logic; 
-      o_softmax_complete    : out std_logic
+      o_softmax_complete    : out std_logic; 
+	  o_busy				: out std_logic; 
+	  o_fsm_state : out std_logic_vector(3 downto 0)
   );
 end component;
 
@@ -223,11 +234,16 @@ signal quotient_result_valid : std_logic;
 signal exp_mux_data           : std_logic_vector(g_data_width-1 downto 0); 
 signal exp_mux_wr_en          : std_logic; 
 signal num_elements			  : std_logic_vector(15 downto 0); 
-signal softmax_complete   : std_logic;  
-signal clear_all  : std_logic; 
+signal softmax_complete   		: std_logic;  
+signal clear_all  				: std_logic; 
 
 --signal exp_recycle_data   : std_logic_vector(g_data_width-1 downto 0); 
 --signal exp_recycle_valid  : std_logic; 
+
+--signal controller_fsm_state		: std_logic_vector(3 downto 0); 
+--signal ef_fsm_state				: std_logic_vector(3 downto 0); 
+--signal add_wrapper_fsm_state	: std_logic_vector(3 downto 0); 
+--signal div_wrapper_fsm_state	: std_logic_vector(3 downto 0); 
 
 
 begin 
@@ -260,6 +276,7 @@ o_expbuff_almost_full <= exp_fifo_almost_full;
 o_expbuff_empty <= exp_fifo_empty; 
 o_expbuff_almost_empty <= exp_fifo_almost_empty; 
 o_expbuff_valid <= exp_fifo_valid; 
+
 
 input_buffer: softmax_fifo_buffer
   PORT MAP (
@@ -314,9 +331,10 @@ controller : softmax_controller
       o_outbuff_din     => outbuff_din, 
       o_outbuff_wr_en   => outbuff_wr_en, 
       o_softmax_complete => softmax_complete, 
-	  i_data_loaded => i_data_loaded
+	  i_data_loaded => i_data_loaded, 
+	  o_busy => o_busy, 
+	  o_fsm_state => o_controller_fsm_state
   );
-
 
 
 
@@ -337,7 +355,8 @@ controller : softmax_controller
     o_ready            => exp_ready, 
     o_exp_done         => exp_done,
     i_fifo_full        => exp_fifo_full,
-    i_fifo_almost_full => exp_fifo_almost_full
+    i_fifo_almost_full => exp_fifo_almost_full, 
+	o_fsm_state 	   => o_ef_fsm_state
   ); 
 
 
@@ -374,7 +393,8 @@ controller : softmax_controller
 	i_num_elements 			=> i_num_elements, 
 	o_exp_rd_en 			=> exp_fifo_rd_en_adder, 
 	o_summing_complete  	=> summing_complete, 
-	o_sum_result 			=> sum_result
+	o_sum_result 			=> sum_result, 
+	o_fsm_state 			=> o_add_wrapper_fsm_state
   ); 
 
 
@@ -393,11 +413,12 @@ divider: softmax_divider_wrapper
 	i_summing_complete          => summing_complete,
 	i_divisor 					=> sum_result,
 	i_num_elements 				=> i_num_elements,
-  i_clear_all           => clear_all, 
+	i_clear_all           		=> clear_all, 
 	o_exp_rd_en 				=> exp_fifo_rd_en_divider,
 	o_division_complete			=> division_complete,
 	o_quotient_result 			=> quotient_result, 
-  o_quotient_result_valid => quotient_result_valid
+	o_quotient_result_valid 	=> quotient_result_valid, 
+	o_fsm_state 				=> o_div_wrapper_fsm_state
   );
 
   

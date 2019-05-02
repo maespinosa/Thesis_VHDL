@@ -100,7 +100,11 @@ signal weight_router_ready  : std_logic;
 
 begin
 	
-	o_data_valid			<= delay_shift_register(g_mult_delay-1); --data_valid;  
+	o_data_valid			<= delay_shift_register(g_mult_delay-1) when i_enable = '1' else 
+								'1'; --data_valid;  
+								
+								
+	--o_data_valid			<= delay_shift_register(g_mult_delay-1); --data_valid;  
 	o_recycle_filter_en		<= recycle_filter_en; 
 	o_recycle_filter_data	<= recycle_filter_data; 
 	o_weights_mult			<= weights_mult;

@@ -178,7 +178,7 @@ begin
 	end process;   
 	
 	
-	next_state_comb: process(current_state, affine_en, i_filters_in_set,conv_data_valid, bias_read, output_pixel_counter,filter_iteration_counter, i_filter_iterations, i_num_iterations, i_output_volume_size, i_num_filters, i_more_dsps_needed, i_acc_fifo_empty, i_bias_fifo_empty, i_prev_fifo_empty, adder_counter,first_channel_set_complete, iteration_counter, filter_counter, volume_row_counter) is 
+	next_state_comb: process(current_state, prev_read, affine_en, i_filters_in_set,conv_data_valid, bias_read, output_pixel_counter,filter_iteration_counter, i_filter_iterations, i_num_iterations, i_output_volume_size, i_num_filters, i_more_dsps_needed, i_acc_fifo_empty, i_bias_fifo_empty, i_prev_fifo_empty, adder_counter,first_channel_set_complete, iteration_counter, filter_counter, volume_row_counter) is 
 	begin 
 		acc_fifo_rd_en 			<= '0'; 
 		bias_fifo_rd_en 		<= '0'; 

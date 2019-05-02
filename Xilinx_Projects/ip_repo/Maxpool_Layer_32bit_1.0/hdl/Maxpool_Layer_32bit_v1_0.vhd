@@ -29,6 +29,189 @@ entity Maxpool_Layer_32bit_v1_0 is
 	port (
 		-- Users to add ports here
         o_pooling_complete : out std_logic; 
+		o_cycle : out std_logic_vector(63 downto 0);
+		o_epoch : out std_logic_vector(63 downto 0);  
+
+
+		--ILA SIGNALS 
+		ila_row_cntrl_PR0_din 			: out std_logic_vector(g_data_width-1 downto 0); 
+		ila_row_cntrl_PR0_wr_en 			: out std_logic; 
+		ila_row_cntrl_PR0_rd_en			: out std_logic; 
+		ila_row_cntrl_PR1_din 			: out std_logic_vector(g_data_width-1 downto 0); 
+		ila_row_cntrl_PR1_wr_en 			: out std_logic; 
+		ila_row_cntrl_PR1_rd_en			: out std_logic; 
+		ila_row_cntrl_PR2_din 			: out std_logic_vector(g_data_width-1 downto 0); 
+		ila_row_cntrl_PR2_wr_en 			: out std_logic; 
+		ila_row_cntrl_PR2_rd_en			: out std_logic; 
+		ila_row_cntrl_third_row_activate : out std_logic; 
+		ila_row_cntrl_recycle_en 			: out std_logic; 
+		ila_row_cntrl_prime_PR0_en 		: out std_logic; 
+		ila_row_cntrl_prime_PR1_en 		: out std_logic;
+		ila_row_cntrl_prime_PR2_en			: out std_logic; 
+
+		ila_row_cntrl_pixel_counter		: out unsigned(7 downto 0); 
+		ila_row_cntrl_column_counter		: out unsigned(7 downto 0);
+		ila_row_cntrl_row_counter			: out unsigned(15 downto 0);  
+		ila_row_cntrl_sorter_data_valid	: out std_logic; 
+		ila_row_cntrl_stride_counter		: out unsigned(3 downto 0); 
+
+		ila_row_cntrl_inbuff_rd_en			: out std_logic; 
+		ila_row_cntrl_volume_processed		: out std_logic; 
+		ila_row_cntrl_volume_rows_processed : out unsigned(7 downto 0); 
+		ila_row_cntrl_output_rows_generated : out unsigned(7 downto 0);
+		ila_row_cntrl_output_volume_size	: out std_logic_vector(7 downto 0);  
+		ila_row_cntrl_channel_counter		: out unsigned(15 downto 0); 
+		ila_row_cntrl_channel_complete		: out std_logic; 
+		ila_row_cntrl_row_complete			: out std_logic; 
+		ila_row_cntrl_busy 				: out std_logic; 
+		ila_row_cntrl_fsm_state 			: out unsigned(3 downto 0);
+	   
+		
+		ila_row_cntrl_kernel_data_0		: out std_logic_vector(g_data_width-1 downto 0); 
+		ila_row_cntrl_kernel_data_1		: out std_logic_vector(g_data_width-1 downto 0); 
+		ila_row_cntrl_kernel_data_2		: out std_logic_vector(g_data_width-1 downto 0); 
+		ila_row_cntrl_kernel_data_3		: out std_logic_vector(g_data_width-1 downto 0);  
+		ila_row_cntrl_kernel_data_4		: out std_logic_vector(g_data_width-1 downto 0); 
+		ila_row_cntrl_kernel_data_5		: out std_logic_vector(g_data_width-1 downto 0);  
+		ila_row_cntrl_kernel_data_6		: out std_logic_vector(g_data_width-1 downto 0); 
+		ila_row_cntrl_kernel_data_7		: out std_logic_vector(g_data_width-1 downto 0); 
+		ila_row_cntrl_kernel_data_8		: out std_logic_vector(g_data_width-1 downto 0);  
+		ila_row_cntrl_kernel_data_9		: out std_logic_vector(g_data_width-1 downto 0);  
+
+		ila_row_cntrl_sorter_data_0		: out std_logic_vector(g_data_width-1 downto 0);  
+		ila_row_cntrl_sorter_data_1		: out std_logic_vector(g_data_width-1 downto 0); 
+		ila_row_cntrl_sorter_data_2		: out std_logic_vector(g_data_width-1 downto 0);  
+		ila_row_cntrl_sorter_data_3		: out std_logic_vector(g_data_width-1 downto 0); 
+		ila_row_cntrl_sorter_data_4		: out std_logic_vector(g_data_width-1 downto 0); 
+		ila_row_cntrl_sorter_data_5		: out std_logic_vector(g_data_width-1 downto 0); 
+		ila_row_cntrl_sorter_data_6		: out std_logic_vector(g_data_width-1 downto 0); 
+		ila_row_cntrl_sorter_data_7		: out std_logic_vector(g_data_width-1 downto 0); 
+		ila_row_cntrl_sorter_data_8		: out std_logic_vector(g_data_width-1 downto 0); 
+		ila_row_cntrl_sorter_data_9		: out std_logic_vector(g_data_width-1 downto 0);
+		
+		--POOL ROW 0 SIGNALS 
+		ila_PR0_full 					: out std_logic; 
+		ila_PR0_almost_full 		: out std_logic; 
+		ila_PR0_empty 				: out std_logic; 
+		ila_PR0_almost_empty 		: out std_logic;  
+
+		--POOL ROW 1 SIGNALS 
+		ila_PR1_full 					: out std_logic; 
+		ila_PR1_almost_full 		: out std_logic;
+		ila_PR1_empty 				: out std_logic; 
+		ila_PR1_almost_empty 		: out std_logic;  
+
+		--POOL ROW 2 SIGNALS 
+		ila_PR2_full 					: out std_logic; 
+		ila_PR2_almost_full 		: out std_logic;
+		ila_PR2_empty 				: out std_logic; 
+		ila_PR2_almost_empty 		: out std_logic; 
+		
+		ila_inbuff_wr_en			: out std_logic; 
+		ila_inbuff_empty			: out std_logic;
+		ila_inbuff_almost_empty		: out std_logic;
+		ila_inbuff_full				: out std_logic; 
+		ila_inbuff_almost_full		: out std_logic; 
+		ila_inbuff_valid			: out std_logic;
+		ila_inbuff_rd_en			: out std_logic; 
+		
+		
+		ila_outbuff_rd_en : out std_logic; 
+		ila_outbuff_dout : out std_logic_vector(g_data_width-1 downto 0); 
+		ila_outbuff_empty : out std_logic; 
+		ila_outbuff_almost_empty : out std_logic; 
+		ila_outbuff_full   : out std_logic; 
+		ila_outbuff_almost_full : out std_logic; 
+		ila_outbuff_valid	: out std_logic; 
+		
+		--HEAP SORTER ILA
+		ila_heap_sorter_ready : out std_logic; 
+		ila_heap_sorter_fsm_state 	: out std_logic_vector(3 downto 0); 
+		ila_heap_sorter_position1 	: out std_logic_vector(g_data_width-1 downto 0);
+		ila_heap_sorter_position2 	: out std_logic_vector(g_data_width-1 downto 0);
+		ila_heap_sorter_position3 	: out std_logic_vector(g_data_width-1 downto 0);
+		ila_heap_sorter_position4 	: out std_logic_vector(g_data_width-1 downto 0);
+		ila_heap_sorter_position5 	: out std_logic_vector(g_data_width-1 downto 0);
+		ila_heap_sorter_position6 	: out std_logic_vector(g_data_width-1 downto 0);
+		ila_heap_sorter_position7 	: out std_logic_vector(g_data_width-1 downto 0);
+		ila_heap_sorter_position8 	: out std_logic_vector(g_data_width-1 downto 0);
+		ila_heap_sorter_position9 	: out std_logic_vector(g_data_width-1 downto 0); 
+		ila_heap_sorter_done 		: out std_logic; 
+		ila_heap_sorter_sorted_data_0: out std_logic_vector(g_data_width-1 downto 0); 
+		ila_heap_sorter_sorted_data_1: out std_logic_vector(g_data_width-1 downto 0); 
+		ila_heap_sorter_sorted_data_2: out std_logic_vector(g_data_width-1 downto 0); 
+		ila_heap_sorter_sorted_data_3: out std_logic_vector(g_data_width-1 downto 0); 
+		ila_heap_sorter_sorted_data_4: out std_logic_vector(g_data_width-1 downto 0); 
+		ila_heap_sorter_sorted_data_5: out std_logic_vector(g_data_width-1 downto 0); 
+		ila_heap_sorter_sorted_data_6: out std_logic_vector(g_data_width-1 downto 0); 
+		ila_heap_sorter_sorted_data_7: out std_logic_vector(g_data_width-1 downto 0); 
+		ila_heap_sorter_sorted_data_8: out std_logic_vector(g_data_width-1 downto 0); 
+		ila_heap_sorter_sorted_data_9: out std_logic_vector(g_data_width-1 downto 0); 
+		ila_heap_sorter_sorter_ready : out std_logic;
+		
+		
+		ila_master_fsm_state  : out std_logic_vector(3 downto 0); 
+		ila_master_axi_awready	: out std_logic; 
+		ila_master_axi_awaddr		: out std_logic_vector(C_M00_AXI_ADDR_WIDTH-1 downto 0);
+		ila_master_axi_awsize   	: out std_logic_vector(2 downto 0); 
+		ila_master_axi_awlen    	: out std_logic_vector(7 downto 0); 
+		ila_master_axi_awvalid	: out std_logic;
+		ila_master_axi_wready 	: out std_logic; 
+		ila_master_axi_wdata		: out std_logic_vector(C_M00_AXI_DATA_WIDTH-1 downto 0);
+		ila_master_axi_wlast		: out std_logic;
+		ila_master_axi_wvalid		: out std_logic;
+		ila_master_axi_wstrb    	: out std_logic_vector(3 downto 0); 
+		ila_master_axi_bvalid 	: out std_logic; 
+		ila_master_axi_bready		: out std_logic;
+		ila_master_axi_wbc		: out std_logic_vector(8 downto 0); 
+		
+		
+		ila_master_axi_arsize		: out std_logic_vector(2 downto 0); 
+		ila_master_axi_araddr		: out std_logic_vector(C_M00_AXI_ADDR_WIDTH-1 downto 0);
+		ila_master_axi_arlen    	: out std_logic_vector(7 downto 0); 
+		ila_master_axi_arvalid	: out std_logic;
+		ila_master_axi_rready		: out std_logic;
+		
+		ila_master_axi_arready 	: out std_logic;
+		ila_master_axi_rdata 		: out std_logic_vector(C_M00_AXI_DATA_WIDTH-1 downto 0);
+		ila_master_axi_rlast 		: out std_logic;
+		ila_master_axi_rvalid		: out std_logic;
+
+		ila_master_axi_rbc				  : out unsigned(7 downto 0);
+		ila_master_outbuff_rd_en          : out std_logic; 
+		ila_master_inbuff_din             : out std_logic_vector(g_data_width-1 downto 0); 
+		ila_master_inbuff_wr_en           : out std_logic; 
+		ila_master_input_volume_size      : out STD_LOGIC_VECTOR(7 downto 0);
+		ila_master_input_volume_channels  : out std_logic_vector(15 downto 0); 
+		ila_master_output_volume_size     : out STD_LOGIC_VECTOR(7 downto 0);
+		ila_master_output_volume_channels : out std_logic_vector(15 downto 0); 
+		ila_master_pool_kernel_size 	  : out std_logic_vector(3 downto 0); 
+		ila_master_stride                 : out STD_LOGIC_VECTOR(3 downto 0); 
+
+		ila_master_input_data_addr_reg    : out std_logic_vector(C_M00_AXI_DATA_WIDTH-1 downto 0); 
+		ila_master_output_data_addr_reg   : out std_logic_vector(C_M00_AXI_DATA_WIDTH-1 downto 0); 
+
+		ila_master_row_counter			  : out unsigned(7 downto 0); 
+		ila_master_channel_counter	      : out unsigned(15 downto 0); 
+		ila_master_writes_remaining 	  : out unsigned(15 downto 0); 
+		ila_master_calculated 			  : out std_logic; 
+		ila_master_more_bursts_needed     : out std_logic; 
+
+
+		ila_master_channel_complete_counter : out unsigned(7 downto 0); 
+		ila_master_complete_shift_reg	  	: out std_logic_vector(1 downto 0); 
+		ila_master_data_valid             	: out std_logic; 
+		ila_master_operating_length		  	: out unsigned(8 downto 0); 
+		ila_master_input_index			  	: out unsigned(31 downto 0); 
+		ila_master_input_addr_counter 	  	: out unsigned(31 downto 0); 
+		ila_master_stride_counter 		  	: out unsigned(7 downto 0); 
+		ila_master_addr1_multiple		  	: out std_logic_vector(7 downto 0); 
+		ila_master_addr2_multiple      		: out std_logic_vector(7 downto 0);
+		ila_master_start		            : out std_logic; 
+		ila_master_start_reg				: out std_logic_vector(1 downto 0); 
+		
+		ila_master_first_calculated 		: out std_logic;
+	
 		-- User ports ends
 		-- Do not modify the ports beyond this line
 
@@ -125,7 +308,8 @@ architecture arch_imp of Maxpool_Layer_32bit_v1_0 is
         i_kernel_params_reg      : in std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0); 
 		i_addr1_params_reg       : in std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0); 
 		i_addr2_params_reg       : in std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0); 
-        
+		i_debug_reg      	 	 : in std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0); 
+		
         o_control_reg            : out std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0); 
         o_status_reg             : out std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0); 
         o_input_data_addr_reg    : out std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0);
@@ -135,9 +319,10 @@ architecture arch_imp of Maxpool_Layer_32bit_v1_0 is
         o_kernel_params_reg      : out std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0); 
 		o_addr1_params_reg       : out std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0); 
 		o_addr2_params_reg       : out std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0); 
-    
+		o_debug_reg      	 	 : out std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0); 
+		
         o_slv_reg_rden           : out STD_LOGIC;
-        o_slv_reg_wren           : out STD_LOGIC_VECTOR(9 downto 0);
+        o_slv_reg_wren           : out STD_LOGIC_VECTOR(10 downto 0);
         
 		S_AXI_ACLK	: in std_logic;
 		S_AXI_ARESETN	: in std_logic;
@@ -190,8 +375,30 @@ architecture arch_imp of Maxpool_Layer_32bit_v1_0 is
 		i_inbuff_almost_empty    : in std_logic; 
 		i_inbuff_full	        : in std_logic; 
 		i_inbuff_almost_full     : in std_logic;
+		--POOL ROW 0 SIGNALS 
+		i_PR0_full 					: in std_logic; 
+		i_PR0_almost_full 		: in std_logic; 
+		i_PR0_empty 				: in std_logic; 
+		i_PR0_almost_empty 		: in std_logic;  
+
+		--POOL ROW 1 SIGNALS 
+		i_PR1_full 					: in std_logic; 
+		i_PR1_almost_full 		: in std_logic;
+		i_PR1_empty 				: in std_logic; 
+		i_PR1_almost_empty 		: in std_logic;  
+
+		--POOL ROW 2 SIGNALS 
+		i_PR2_full 					: in std_logic; 
+		i_PR2_almost_full 		: in std_logic;
+		i_PR2_empty 				: in std_logic; 
+		i_PR2_almost_empty 		: in std_logic;  
+	   
+		
 		i_busy                   : in std_logic; 
 		i_row_complete			 : in std_logic; 
+		
+		i_sorter_fsm_state 	: in std_logic_vector(3 downto 0); 
+	    i_controller_fsm_state : in std_logic_vector(3 downto 0); 
 
 		   --TO LOGIC 
 		o_outbuff_rd_en          : out std_logic; 
@@ -203,6 +410,7 @@ architecture arch_imp of Maxpool_Layer_32bit_v1_0 is
 	    o_stride                 : out STD_LOGIC_VECTOR(3 downto 0); 
 		o_pooling_complete       : out std_logic; 
 		o_start 				 : out std_logic; 
+		o_master_ack				: out std_logic; 
 
 	       --FROM AXI SLAVE
 	    i_control_reg            : in std_logic_vector(C_M_AXI_DATA_WIDTH-1 downto 0); 
@@ -214,9 +422,11 @@ architecture arch_imp of Maxpool_Layer_32bit_v1_0 is
 	    i_kernel_params_reg      : in std_logic_vector(C_M_AXI_DATA_WIDTH-1 downto 0); 
 		i_addr1_params_reg       : in std_logic_vector(C_M_AXI_DATA_WIDTH-1 downto 0); 
 		i_addr2_params_reg       : in std_logic_vector(C_M_AXI_DATA_WIDTH-1 downto 0); 
-
+		i_debug_reg       		 : in std_logic_vector(C_M_AXI_DATA_WIDTH-1 downto 0); 
+		
+		
 	    i_slv_reg_rden			: in std_logic; 
-	    i_slv_reg_wren			: in std_logic_vector(9 downto 0); 
+	    i_slv_reg_wren			: in std_logic_vector(10 downto 0); 
 
 	       --TO AXI SLAVE
 	    o_control_reg            : out std_logic_vector(C_M_AXI_DATA_WIDTH-1 downto 0); 
@@ -228,7 +438,71 @@ architecture arch_imp of Maxpool_Layer_32bit_v1_0 is
 	    o_kernel_params_reg      : out std_logic_vector(C_M_AXI_DATA_WIDTH-1 downto 0); 
 		o_addr1_params_reg       : out std_logic_vector(C_M_AXI_DATA_WIDTH-1 downto 0); 
 		o_addr2_params_reg       : out std_logic_vector(C_M_AXI_DATA_WIDTH-1 downto 0); 
+		o_debug_reg 			 : out std_logic_vector(C_M_AXI_DATA_WIDTH-1 downto 0); 
+		
+		
+		ila_master_fsm_state  : out std_logic_vector(3 downto 0); 
+		ila_master_axi_awready	: out std_logic; 
+		ila_master_axi_awaddr		: out std_logic_vector(C_M_AXI_ADDR_WIDTH-1 downto 0);
+		ila_master_axi_awsize   	: out std_logic_vector(2 downto 0); 
+		ila_master_axi_awlen    	: out std_logic_vector(7 downto 0); 
+		ila_master_axi_awvalid	: out std_logic;
+		ila_master_axi_wready 	: out std_logic; 
+		ila_master_axi_wdata		: out std_logic_vector(C_M_AXI_DATA_WIDTH-1 downto 0);
+		ila_master_axi_wlast		: out std_logic;
+		ila_master_axi_wvalid		: out std_logic;
+		ila_master_axi_wstrb    	: out std_logic_vector(3 downto 0); 
+		ila_master_axi_bvalid 	: out std_logic; 
+		ila_master_axi_bready		: out std_logic;
+		ila_master_axi_wbc		: out std_logic_vector(8 downto 0); 
+		
+		
+		ila_master_axi_arsize		: out std_logic_vector(2 downto 0); 
+		ila_master_axi_araddr		: out std_logic_vector(C_M_AXI_ADDR_WIDTH-1 downto 0);
+		ila_master_axi_arlen    	: out std_logic_vector(7 downto 0); 
+		ila_master_axi_arvalid	: out std_logic;
+		ila_master_axi_rready		: out std_logic;
+		
+		ila_master_axi_arready 	: out std_logic;
+		ila_master_axi_rdata 		: out std_logic_vector(C_M_AXI_DATA_WIDTH-1 downto 0);
+		ila_master_axi_rlast 		: out std_logic;
+		ila_master_axi_rvalid		: out std_logic;
+		
+		ila_master_axi_rbc				  : out unsigned(7 downto 0);
+		ila_master_outbuff_rd_en          : out std_logic; 
+		ila_master_inbuff_din             : out std_logic_vector(g_data_width-1 downto 0); 
+		ila_master_inbuff_wr_en           : out std_logic; 
+		ila_master_input_volume_size      : out STD_LOGIC_VECTOR(7 downto 0);
+		ila_master_input_volume_channels  : out std_logic_vector(15 downto 0); 
+		ila_master_output_volume_size     : out STD_LOGIC_VECTOR(7 downto 0);
+		ila_master_output_volume_channels : out std_logic_vector(15 downto 0); 
+		ila_master_pool_kernel_size 	  : out std_logic_vector(3 downto 0); 
+		ila_master_stride                 : out STD_LOGIC_VECTOR(3 downto 0); 
 
+		ila_master_input_data_addr_reg    : out std_logic_vector(C_M_AXI_DATA_WIDTH-1 downto 0); 
+		ila_master_output_data_addr_reg   : out std_logic_vector(C_M_AXI_DATA_WIDTH-1 downto 0); 
+
+		ila_master_row_counter			  : out unsigned(7 downto 0); 
+		ila_master_channel_counter	      : out unsigned(15 downto 0); 
+		ila_master_writes_remaining 	  : out unsigned(15 downto 0); 
+		ila_master_calculated 			  : out std_logic; 
+		ila_master_more_bursts_needed     : out std_logic; 
+
+
+		ila_master_channel_complete_counter : out unsigned(7 downto 0); 
+		ila_master_complete_shift_reg	  	: out std_logic_vector(1 downto 0); 
+		ila_master_data_valid             	: out std_logic; 
+		ila_master_operating_length		  	: out unsigned(8 downto 0); 
+		ila_master_input_index			  	: out unsigned(31 downto 0); 
+		ila_master_input_addr_counter 	  	: out unsigned(31 downto 0); 
+		ila_master_stride_counter 		  	: out unsigned(7 downto 0); 
+		ila_master_addr1_multiple		  	: out std_logic_vector(7 downto 0); 
+		ila_master_addr2_multiple      		: out std_logic_vector(7 downto 0);
+		ila_master_start		            : out std_logic; 
+		ila_master_start_reg				: out std_logic_vector(1 downto 0); 
+		
+		ila_master_first_calculated 		: out std_logic;
+	
 		--INIT_AXI_TXN	: in std_logic;
 		TXN_DONE	: out std_logic;
 		ERROR	: out std_logic;
@@ -293,6 +567,7 @@ architecture arch_imp of Maxpool_Layer_32bit_v1_0 is
 	       i_output_volume_size : in STD_LOGIC_VECTOR(7 downto 0);
 		   i_pool_kernel_size 	: in std_logic_vector(3 downto 0); 
 	       i_stride : in STD_LOGIC_VECTOR(3 downto 0); 
+		   i_master_ack : in std_logic; 
 		   i_outbuff_rd_en : in std_logic; 
 		   i_inbuff_din : in std_logic_vector(g_data_width-1 downto 0); 
 		   i_inbuff_wr_en : in std_logic; 
@@ -307,9 +582,147 @@ architecture arch_imp of Maxpool_Layer_32bit_v1_0 is
 	       o_outbuff_almost_full : out std_logic; 
 	       o_outbuff_valid	: out std_logic; 
 		   o_channel_complete : out std_logic; 
-		   o_row_complete : out std_logic
+		   o_row_complete : out std_logic; 
+		   o_busy : out std_logic; 
 		   --o_operation_complete : out std_logic 
-	  
+		   o_sorter_fsm_state 	: out std_logic_vector(3 downto 0); 
+	       o_controller_fsm_state : out std_logic_vector(3 downto 0); 
+	   
+			--POOL ROW 0 SIGNALS 
+			o_PR0_full 					: out std_logic; 
+			o_PR0_almost_full 		: out std_logic; 
+			o_PR0_empty 				: out std_logic; 
+			o_PR0_almost_empty 		: out std_logic;  
+
+			--POOL ROW 1 SIGNALS 
+			o_PR1_full 					: out std_logic; 
+			o_PR1_almost_full 		: out std_logic;
+			o_PR1_empty 				: out std_logic; 
+			o_PR1_almost_empty 		: out std_logic;  
+
+			--POOL ROW 2 SIGNALS 
+			o_PR2_full 					: out std_logic; 
+			o_PR2_almost_full 		: out std_logic;
+			o_PR2_empty 				: out std_logic; 
+			o_PR2_almost_empty 		: out std_logic; 
+
+
+			--ILA SIGNALS 
+			ila_row_cntrl_PR0_din 			: out std_logic_vector(g_data_width-1 downto 0); 
+			ila_row_cntrl_PR0_wr_en 			: out std_logic; 
+			ila_row_cntrl_PR0_rd_en			: out std_logic; 
+			ila_row_cntrl_PR1_din 			: out std_logic_vector(g_data_width-1 downto 0); 
+			ila_row_cntrl_PR1_wr_en 			: out std_logic; 
+			ila_row_cntrl_PR1_rd_en			: out std_logic; 
+			ila_row_cntrl_PR2_din 			: out std_logic_vector(g_data_width-1 downto 0); 
+			ila_row_cntrl_PR2_wr_en 			: out std_logic; 
+			ila_row_cntrl_PR2_rd_en			: out std_logic; 
+			ila_row_cntrl_third_row_activate : out std_logic; 
+			ila_row_cntrl_recycle_en 			: out std_logic; 
+			ila_row_cntrl_prime_PR0_en 		: out std_logic; 
+			ila_row_cntrl_prime_PR1_en 		: out std_logic;
+			ila_row_cntrl_prime_PR2_en			: out std_logic; 
+
+			ila_row_cntrl_pixel_counter		: out unsigned(7 downto 0); 
+			ila_row_cntrl_column_counter		: out unsigned(7 downto 0);
+			ila_row_cntrl_row_counter			: out unsigned(15 downto 0);  
+			ila_row_cntrl_sorter_data_valid	: out std_logic; 
+			ila_row_cntrl_stride_counter		: out unsigned(3 downto 0); 
+
+			ila_row_cntrl_inbuff_rd_en			: out std_logic; 
+			ila_row_cntrl_volume_processed		: out std_logic; 
+			ila_row_cntrl_volume_rows_processed : out unsigned(7 downto 0); 
+			ila_row_cntrl_output_rows_generated : out unsigned(7 downto 0);
+			ila_row_cntrl_output_volume_size	: out std_logic_vector(7 downto 0);  
+			ila_row_cntrl_channel_counter		: out unsigned(15 downto 0); 
+			ila_row_cntrl_channel_complete		: out std_logic; 
+			ila_row_cntrl_row_complete			: out std_logic; 
+			ila_row_cntrl_busy 				: out std_logic; 
+			ila_row_cntrl_fsm_state 			: out unsigned(3 downto 0); 
+		   
+			
+			ila_row_cntrl_kernel_data_0		: out std_logic_vector(g_data_width-1 downto 0); 
+			ila_row_cntrl_kernel_data_1		: out std_logic_vector(g_data_width-1 downto 0); 
+			ila_row_cntrl_kernel_data_2		: out std_logic_vector(g_data_width-1 downto 0); 
+			ila_row_cntrl_kernel_data_3		: out std_logic_vector(g_data_width-1 downto 0);  
+			ila_row_cntrl_kernel_data_4		: out std_logic_vector(g_data_width-1 downto 0); 
+			ila_row_cntrl_kernel_data_5		: out std_logic_vector(g_data_width-1 downto 0);  
+			ila_row_cntrl_kernel_data_6		: out std_logic_vector(g_data_width-1 downto 0); 
+			ila_row_cntrl_kernel_data_7		: out std_logic_vector(g_data_width-1 downto 0); 
+			ila_row_cntrl_kernel_data_8		: out std_logic_vector(g_data_width-1 downto 0);  
+			ila_row_cntrl_kernel_data_9		: out std_logic_vector(g_data_width-1 downto 0);  
+
+			ila_row_cntrl_sorter_data_0		: out std_logic_vector(g_data_width-1 downto 0);  
+			ila_row_cntrl_sorter_data_1		: out std_logic_vector(g_data_width-1 downto 0); 
+			ila_row_cntrl_sorter_data_2		: out std_logic_vector(g_data_width-1 downto 0);  
+			ila_row_cntrl_sorter_data_3		: out std_logic_vector(g_data_width-1 downto 0); 
+			ila_row_cntrl_sorter_data_4		: out std_logic_vector(g_data_width-1 downto 0); 
+			ila_row_cntrl_sorter_data_5		: out std_logic_vector(g_data_width-1 downto 0); 
+			ila_row_cntrl_sorter_data_6		: out std_logic_vector(g_data_width-1 downto 0); 
+			ila_row_cntrl_sorter_data_7		: out std_logic_vector(g_data_width-1 downto 0); 
+			ila_row_cntrl_sorter_data_8		: out std_logic_vector(g_data_width-1 downto 0); 
+			ila_row_cntrl_sorter_data_9		: out std_logic_vector(g_data_width-1 downto 0);
+			
+			--POOL ROW 0 SIGNALS 
+			ila_PR0_full 					: out std_logic; 
+			ila_PR0_almost_full 		: out std_logic; 
+			ila_PR0_empty 				: out std_logic; 
+			ila_PR0_almost_empty 		: out std_logic;  
+
+			--POOL ROW 1 SIGNALS 
+			ila_PR1_full 					: out std_logic; 
+			ila_PR1_almost_full 		: out std_logic;
+			ila_PR1_empty 				: out std_logic; 
+			ila_PR1_almost_empty 		: out std_logic;  
+
+			--POOL ROW 2 SIGNALS 
+			ila_PR2_full 					: out std_logic; 
+			ila_PR2_almost_full 		: out std_logic;
+			ila_PR2_empty 				: out std_logic; 
+			ila_PR2_almost_empty 		: out std_logic; 
+			
+			ila_inbuff_wr_en			: out std_logic; 
+			ila_inbuff_empty			: out std_logic;
+			ila_inbuff_almost_empty		: out std_logic;
+			ila_inbuff_full				: out std_logic; 
+			ila_inbuff_almost_full		: out std_logic; 
+			ila_inbuff_valid			: out std_logic;
+			ila_inbuff_rd_en			: out std_logic; 
+			
+			
+			ila_outbuff_rd_en : out std_logic; 
+			ila_outbuff_dout : out std_logic_vector(g_data_width-1 downto 0); 
+			ila_outbuff_empty : out std_logic; 
+			ila_outbuff_almost_empty : out std_logic; 
+			ila_outbuff_full   : out std_logic; 
+			ila_outbuff_almost_full : out std_logic; 
+			ila_outbuff_valid	: out std_logic; 
+			
+			--HEAP SORTER ILA
+			ila_heap_sorter_ready : out std_logic; 
+			ila_heap_sorter_fsm_state 	: out std_logic_vector(3 downto 0); 
+			ila_heap_sorter_position1 	: out std_logic_vector(g_data_width-1 downto 0);
+			ila_heap_sorter_position2 	: out std_logic_vector(g_data_width-1 downto 0);
+			ila_heap_sorter_position3 	: out std_logic_vector(g_data_width-1 downto 0);
+			ila_heap_sorter_position4 	: out std_logic_vector(g_data_width-1 downto 0);
+			ila_heap_sorter_position5 	: out std_logic_vector(g_data_width-1 downto 0);
+			ila_heap_sorter_position6 	: out std_logic_vector(g_data_width-1 downto 0);
+			ila_heap_sorter_position7 	: out std_logic_vector(g_data_width-1 downto 0);
+			ila_heap_sorter_position8 	: out std_logic_vector(g_data_width-1 downto 0);
+			ila_heap_sorter_position9 	: out std_logic_vector(g_data_width-1 downto 0); 
+			ila_heap_sorter_done 		: out std_logic; 
+			ila_heap_sorter_sorted_data_0: out std_logic_vector(g_data_width-1 downto 0); 
+			ila_heap_sorter_sorted_data_1: out std_logic_vector(g_data_width-1 downto 0); 
+			ila_heap_sorter_sorted_data_2: out std_logic_vector(g_data_width-1 downto 0); 
+			ila_heap_sorter_sorted_data_3: out std_logic_vector(g_data_width-1 downto 0); 
+			ila_heap_sorter_sorted_data_4: out std_logic_vector(g_data_width-1 downto 0); 
+			ila_heap_sorter_sorted_data_5: out std_logic_vector(g_data_width-1 downto 0); 
+			ila_heap_sorter_sorted_data_6: out std_logic_vector(g_data_width-1 downto 0); 
+			ila_heap_sorter_sorted_data_7: out std_logic_vector(g_data_width-1 downto 0); 
+			ila_heap_sorter_sorted_data_8: out std_logic_vector(g_data_width-1 downto 0); 
+			ila_heap_sorter_sorted_data_9: out std_logic_vector(g_data_width-1 downto 0); 
+			ila_heap_sorter_sorter_ready : out std_logic
+			
 	  );
 	end component;
 
@@ -325,7 +738,7 @@ architecture arch_imp of Maxpool_Layer_32bit_v1_0 is
     signal kernel_params_reg_from_master        : std_logic_vector(C_S00_AXI_DATA_WIDTH-1 downto 0); 
 	signal addr1_params_reg_from_master         : std_logic_vector(C_S00_AXI_DATA_WIDTH-1 downto 0);  
 	signal addr2_params_reg_from_master         : std_logic_vector(C_S00_AXI_DATA_WIDTH-1 downto 0);  
-	
+	signal debug_reg_from_master         		: std_logic_vector(C_S00_AXI_DATA_WIDTH-1 downto 0);  
         
     signal control_reg_to_master              : std_logic_vector(C_S00_AXI_DATA_WIDTH-1 downto 0); 
     signal status_reg_to_master               : std_logic_vector(C_S00_AXI_DATA_WIDTH-1 downto 0); 
@@ -336,9 +749,10 @@ architecture arch_imp of Maxpool_Layer_32bit_v1_0 is
     signal kernel_params_reg_to_master        : std_logic_vector(C_S00_AXI_DATA_WIDTH-1 downto 0);
 	signal addr1_params_reg_to_master         : std_logic_vector(C_S00_AXI_DATA_WIDTH-1 downto 0);  
 	signal addr2_params_reg_to_master         : std_logic_vector(C_S00_AXI_DATA_WIDTH-1 downto 0);  
-    
+	signal debug_reg_to_master         		  : std_logic_vector(C_S00_AXI_DATA_WIDTH-1 downto 0); 
+	
     signal slv_reg_rden						: std_logic; 
-    signal slv_reg_wren						: std_logic_vector(9 downto 0); 
+    signal slv_reg_wren						: std_logic_vector(10 downto 0); 
 
     signal outbuff_dout           : std_logic_vector(g_data_width-1 downto 0); 
     signal outbuff_empty          : std_logic; 
@@ -363,7 +777,28 @@ architecture arch_imp of Maxpool_Layer_32bit_v1_0 is
 	signal row_complete			  : std_logic; 
 
     signal start 				  : std_logic; 
+	signal master_ack				: std_logic; 
     
+	signal sorter_fsm_state 	: std_logic_vector(3 downto 0); 
+	signal controller_fsm_state : std_logic_vector(3 downto 0); 
+		
+	signal PR0_empty			: std_logic; 
+	signal PR0_almost_empty		: std_logic; 
+	signal PR0_full				: std_logic; 
+	signal PR0_almost_full		: std_logic; 
+
+	signal PR1_empty			: std_logic; 
+	signal PR1_almost_empty		: std_logic; 
+	signal PR1_full				: std_logic; 
+	signal PR1_almost_full		: std_logic; 
+
+	signal PR2_empty			: std_logic; 
+	signal PR2_almost_empty		: std_logic; 
+	signal PR2_full				: std_logic; 
+	signal PR2_almost_full		: std_logic; 
+	
+	signal epoch : unsigned(63 downto 0);
+	signal cycle : unsigned(63 downto 0); 
 begin
 
 -- Instantiation of Axi Bus Interface S00_AXI
@@ -383,7 +818,8 @@ Maxpool_Layer_32bit_v1_0_S00_AXI_inst : Maxpool_Layer_32bit_v1_0_S00_AXI
         i_kernel_params_reg      => kernel_params_reg_from_master,
 		i_addr1_params_reg		 => addr1_params_reg_from_master, 
 		i_addr2_params_reg		 => addr2_params_reg_from_master,
-        
+		i_debug_reg		 		 => debug_reg_from_master,
+		
         o_control_reg            => control_reg_to_master,
         o_status_reg             => status_reg_to_master,
         o_input_data_addr_reg    => input_data_addr_reg_to_master,
@@ -393,7 +829,8 @@ Maxpool_Layer_32bit_v1_0_S00_AXI_inst : Maxpool_Layer_32bit_v1_0_S00_AXI
         o_kernel_params_reg      => kernel_params_reg_to_master,
 		o_addr1_params_reg		 => addr1_params_reg_to_master, 
 		o_addr2_params_reg		 => addr2_params_reg_to_master,
-    
+		o_debug_reg		 		 => debug_reg_to_master,
+		
         o_slv_reg_rden           => slv_reg_rden,
         o_slv_reg_wren           => slv_reg_wren,
 		S_AXI_ACLK	=> s00_axi_aclk,
@@ -448,8 +885,29 @@ Maxpool_Layer_32bit_v1_0_M00_AXI_inst : Maxpool_Layer_32bit_v1_0_M00_AXI
 	    i_inbuff_almost_empty    => inbuff_almost_empty,  
 	    i_inbuff_full	         => inbuff_full, 
 	    i_inbuff_almost_full     => inbuff_almost_full, 
+		
+		--POOL ROW 0 SIGNALS 
+		i_PR0_full 				 => PR0_full,
+		i_PR0_almost_full 		 => PR0_almost_full,
+		i_PR0_empty 			 => PR0_empty,
+		i_PR0_almost_empty 		 => PR0_almost_empty, 
+
+		--POOL ROW 1 SIGNALS 
+		i_PR1_full 				 => PR1_full,
+		i_PR1_almost_full 		 => PR1_almost_full,
+		i_PR1_empty 			 => PR1_empty,
+		i_PR1_almost_empty 		 => PR1_almost_empty, 
+
+		--POOL ROW 2 SIGNALS 
+		i_PR2_full 				 => PR2_full,
+		i_PR2_almost_full 		 => PR2_almost_full,
+		i_PR2_empty 			 => PR2_empty,
+		i_PR2_almost_empty 		 => PR2_almost_empty, 
+
 	    i_busy                   => busy, 
-		i_row_complete			=> row_complete, 
+		i_row_complete			 => row_complete, 
+		i_sorter_fsm_state 	     => sorter_fsm_state, 
+	    i_controller_fsm_state   => controller_fsm_state, 
 		
 
 	   --TO LOGIC 
@@ -462,6 +920,7 @@ Maxpool_Layer_32bit_v1_0_M00_AXI_inst : Maxpool_Layer_32bit_v1_0_M00_AXI
         o_stride                 => stride, 
 		o_pooling_complete       => o_pooling_complete, 
 		o_start					 => start, 
+		o_master_ack			 => master_ack, 
 
        --FROM AXI SLAVE
         i_control_reg            => control_reg_to_master,
@@ -473,7 +932,8 @@ Maxpool_Layer_32bit_v1_0_M00_AXI_inst : Maxpool_Layer_32bit_v1_0_M00_AXI
         i_kernel_params_reg      => kernel_params_reg_to_master,
 		i_addr1_params_reg		 => addr1_params_reg_to_master, 
 		i_addr2_params_reg		 => addr2_params_reg_to_master,
-
+		i_debug_reg		 		 => debug_reg_to_master,
+		
         i_slv_reg_rden			 => slv_reg_rden,
         i_slv_reg_wren			 => slv_reg_wren,
 
@@ -487,7 +947,72 @@ Maxpool_Layer_32bit_v1_0_M00_AXI_inst : Maxpool_Layer_32bit_v1_0_M00_AXI
         o_kernel_params_reg      => kernel_params_reg_from_master, 
 		o_addr1_params_reg		 => addr1_params_reg_from_master, 
 		o_addr2_params_reg		 => addr2_params_reg_from_master,
+		o_debug_reg		 		 => debug_reg_from_master,
+		
+		
+		ila_master_fsm_state  => ila_master_fsm_state,
+		ila_master_axi_awready	 => ila_master_axi_awready,
+		ila_master_axi_awaddr		=> ila_master_axi_awaddr,
+		ila_master_axi_awsize   	=> ila_master_axi_awsize,
+		ila_master_axi_awlen    	=> ila_master_axi_awlen,
+		ila_master_axi_awvalid	=> ila_master_axi_awvalid, 
+		ila_master_axi_wready 	=> ila_master_axi_wready, 
+		ila_master_axi_wdata		=> ila_master_axi_wdata,
+		ila_master_axi_wlast		=> ila_master_axi_wlast,
+		ila_master_axi_wvalid		=> ila_master_axi_wvalid,
+		ila_master_axi_wstrb    	=> ila_master_axi_wstrb,
+		ila_master_axi_bvalid 	=> ila_master_axi_bvalid,
+		ila_master_axi_bready		=> ila_master_axi_bready,
+		ila_master_axi_wbc		=> ila_master_axi_wbc,
+		
+		
+		ila_master_axi_arsize		=> ila_master_axi_arsize,
+		ila_master_axi_araddr		=> ila_master_axi_araddr,
+		ila_master_axi_arlen    	=> ila_master_axi_arlen,
+		ila_master_axi_arvalid	=> ila_master_axi_arvalid,
+		ila_master_axi_rready		=> ila_master_axi_rready,
+		
+		ila_master_axi_arready 	=> ila_master_axi_arready,
+		ila_master_axi_rdata 		=> ila_master_axi_rdata,
+		ila_master_axi_rlast 		=> ila_master_axi_rlast,
+		ila_master_axi_rvalid		=> ila_master_axi_rvalid,
 
+		ila_master_axi_rbc				  => ila_master_axi_rbc,
+		ila_master_outbuff_rd_en          => ila_master_outbuff_rd_en,
+		ila_master_inbuff_din             => ila_master_inbuff_din,
+		ila_master_inbuff_wr_en           => ila_master_inbuff_wr_en,
+		ila_master_input_volume_size      => ila_master_input_volume_size,
+		ila_master_input_volume_channels  => ila_master_input_volume_channels,
+		ila_master_output_volume_size     => ila_master_output_volume_size,
+		ila_master_output_volume_channels => ila_master_output_volume_channels,
+		ila_master_pool_kernel_size 	  => ila_master_pool_kernel_size,
+		ila_master_stride                 => ila_master_stride,
+
+		ila_master_input_data_addr_reg    => ila_master_input_data_addr_reg,
+		ila_master_output_data_addr_reg   => ila_master_output_data_addr_reg,
+
+		ila_master_row_counter			  => ila_master_row_counter,
+		ila_master_channel_counter	      => ila_master_channel_counter,
+		ila_master_writes_remaining 	  => ila_master_writes_remaining,
+		ila_master_calculated 			  => ila_master_calculated,
+		ila_master_more_bursts_needed     => ila_master_more_bursts_needed,
+
+
+		ila_master_channel_complete_counter => ila_master_channel_complete_counter,
+		ila_master_complete_shift_reg	  	=> ila_master_complete_shift_reg,
+		ila_master_data_valid             	=> ila_master_data_valid,
+		ila_master_operating_length		  	=> ila_master_operating_length,
+		ila_master_input_index			  	=> ila_master_input_index,
+		ila_master_input_addr_counter 	  	=> ila_master_input_addr_counter,
+		ila_master_stride_counter 		  	=> ila_master_stride_counter,
+		ila_master_addr1_multiple		  	=> ila_master_addr1_multiple,
+		ila_master_addr2_multiple      		=> ila_master_addr2_multiple,
+		ila_master_start		            => ila_master_start,
+		ila_master_start_reg				=> ila_master_start_reg,
+		
+		ila_master_first_calculated 		=> ila_master_first_calculated,
+	
+		
 		--INIT_AXI_TXN	=> m00_axi_init_axi_txn,
 		TXN_DONE	=> m00_axi_txn_done,
 		ERROR	=> m00_axi_error,
@@ -566,8 +1091,166 @@ Maxpool_Layer_32bit_v1_0_M00_AXI_inst : Maxpool_Layer_32bit_v1_0_M00_AXI
 	       o_outbuff_almost_full    => outbuff_almost_full, 
 	       o_outbuff_valid	        => outbuff_valid,
 		   o_channel_complete       => channel_complete, 
-		   o_row_complete			=> row_complete
+		   o_row_complete			=> row_complete, 
+		   o_busy					=> busy, 
+		   o_sorter_fsm_state 	    => sorter_fsm_state, 
+	       o_controller_fsm_state   => controller_fsm_state, 
+		   i_master_ack				=> master_ack, 
+		   --POOL ROW 0 SIGNALS 
+		   o_PR0_full 				=> PR0_full, 
+		   o_PR0_almost_full 		=> PR0_almost_full, 
+		   o_PR0_empty 				=> PR0_empty,
+		   o_PR0_almost_empty 		=> PR0_almost_empty,
+		   
+		   --POOL ROW 1 SIGNALS 
+		   o_PR1_full 				=> PR1_full,
+		   o_PR1_almost_full 		=> PR1_almost_full, 
+		   o_PR1_empty 				=> PR1_empty,
+		   o_PR1_almost_empty 		=> PR1_almost_empty,  
+		   
+		   --POOL ROW 2 SIGNALS 
+		   o_PR2_full 				=> PR2_full, 
+		   o_PR2_almost_full 		=> PR2_almost_full,
+		   o_PR2_empty 				=> PR2_empty,
+		   o_PR2_almost_empty 		=> PR2_almost_empty, 
+		   
+
+			--ILA SIGNALS 
+			ila_row_cntrl_PR0_din 			=> ila_row_cntrl_PR0_din,
+			ila_row_cntrl_PR0_wr_en 		=> ila_row_cntrl_PR0_wr_en,
+			ila_row_cntrl_PR0_rd_en			=> ila_row_cntrl_PR0_rd_en,
+			ila_row_cntrl_PR1_din 			=> ila_row_cntrl_PR1_din,
+			ila_row_cntrl_PR1_wr_en 		=> ila_row_cntrl_PR1_wr_en ,
+			ila_row_cntrl_PR1_rd_en			=> ila_row_cntrl_PR1_rd_en,
+			ila_row_cntrl_PR2_din 			=> ila_row_cntrl_PR2_din,
+			ila_row_cntrl_PR2_wr_en 		=> ila_row_cntrl_PR2_wr_en,
+			ila_row_cntrl_PR2_rd_en			=> ila_row_cntrl_PR2_rd_en,
+			ila_row_cntrl_third_row_activate=> ila_row_cntrl_third_row_activate,
+			ila_row_cntrl_recycle_en 		=> ila_row_cntrl_recycle_en,
+			ila_row_cntrl_prime_PR0_en 		=> ila_row_cntrl_prime_PR0_en ,
+			ila_row_cntrl_prime_PR1_en 		=>  ila_row_cntrl_prime_PR1_en,
+			ila_row_cntrl_prime_PR2_en		=> ila_row_cntrl_prime_PR2_en,
+
+			ila_row_cntrl_pixel_counter		=> ila_row_cntrl_pixel_counter,
+			ila_row_cntrl_column_counter	=> ila_row_cntrl_column_counter,
+			ila_row_cntrl_row_counter		=> ila_row_cntrl_row_counter,
+			ila_row_cntrl_sorter_data_valid	=> ila_row_cntrl_sorter_data_valid,
+			ila_row_cntrl_stride_counter	=> ila_row_cntrl_stride_counter,
+
+			ila_row_cntrl_inbuff_rd_en			=> ila_row_cntrl_inbuff_rd_en,
+			ila_row_cntrl_volume_processed		=> ila_row_cntrl_volume_processed,
+			ila_row_cntrl_volume_rows_processed => ila_row_cntrl_volume_rows_processed, 
+			ila_row_cntrl_output_rows_generated => ila_row_cntrl_output_rows_generated,
+			ila_row_cntrl_output_volume_size	=> ila_row_cntrl_output_volume_size,
+			ila_row_cntrl_channel_counter		=> ila_row_cntrl_channel_counter,
+			ila_row_cntrl_channel_complete		=> ila_row_cntrl_channel_complete,
+			ila_row_cntrl_row_complete			=> ila_row_cntrl_row_complete,
+			ila_row_cntrl_busy 					=> ila_row_cntrl_busy,
+			ila_row_cntrl_fsm_state 			=> ila_row_cntrl_fsm_state,
+		   
+			
+			ila_row_cntrl_kernel_data_0		=> ila_row_cntrl_kernel_data_0,
+			ila_row_cntrl_kernel_data_1		=> ila_row_cntrl_kernel_data_1,
+			ila_row_cntrl_kernel_data_2		=> ila_row_cntrl_kernel_data_2,
+			ila_row_cntrl_kernel_data_3		=> ila_row_cntrl_kernel_data_3,
+			ila_row_cntrl_kernel_data_4		=> ila_row_cntrl_kernel_data_4,
+			ila_row_cntrl_kernel_data_5		=> ila_row_cntrl_kernel_data_5,
+			ila_row_cntrl_kernel_data_6		=> ila_row_cntrl_kernel_data_6,
+			ila_row_cntrl_kernel_data_7		=> ila_row_cntrl_kernel_data_7,
+			ila_row_cntrl_kernel_data_8		=> ila_row_cntrl_kernel_data_8,
+			ila_row_cntrl_kernel_data_9		=> ila_row_cntrl_kernel_data_9,
+
+			ila_row_cntrl_sorter_data_0		=> ila_row_cntrl_sorter_data_0,
+			ila_row_cntrl_sorter_data_1		=> ila_row_cntrl_sorter_data_1,
+			ila_row_cntrl_sorter_data_2		=> ila_row_cntrl_sorter_data_2,
+			ila_row_cntrl_sorter_data_3		=> ila_row_cntrl_sorter_data_3,
+			ila_row_cntrl_sorter_data_4		=> ila_row_cntrl_sorter_data_4,
+			ila_row_cntrl_sorter_data_5		=> ila_row_cntrl_sorter_data_5,
+			ila_row_cntrl_sorter_data_6		=> ila_row_cntrl_sorter_data_6,
+			ila_row_cntrl_sorter_data_7		=> ila_row_cntrl_sorter_data_7,
+			ila_row_cntrl_sorter_data_8		=> ila_row_cntrl_sorter_data_8 ,
+			ila_row_cntrl_sorter_data_9		=> ila_row_cntrl_sorter_data_9,
+			
+			--POOL ROW 0 SIGNALS 
+			ila_PR0_full 					=> ila_PR0_full,
+			ila_PR0_almost_full 		=> ila_PR0_almost_full,
+			ila_PR0_empty 				=> ila_PR0_empty,
+			ila_PR0_almost_empty 		=> ila_PR0_almost_empty,
+
+			--POOL ROW 1 SIGNALS 
+			ila_PR1_full 				=> ila_PR1_full, 
+			ila_PR1_almost_full 		=> ila_PR1_almost_full,
+			ila_PR1_empty 				=> ila_PR1_empty,
+			ila_PR1_almost_empty 		=> ila_PR1_almost_empty,
+
+			--POOL ROW 2 SIGNALS 
+			ila_PR2_full 				=> ila_PR2_full,
+			ila_PR2_almost_full 		=> ila_PR2_almost_full,
+			ila_PR2_empty 				=> ila_PR2_empty,
+			ila_PR2_almost_empty 		=> ila_PR2_almost_empty,
+			
+			ila_inbuff_wr_en			=> ila_inbuff_wr_en,
+			ila_inbuff_empty			=> ila_inbuff_empty,
+			ila_inbuff_almost_empty		=> ila_inbuff_almost_empty,
+			ila_inbuff_full				=> ila_inbuff_full,
+			ila_inbuff_almost_full		=> ila_inbuff_almost_full,
+			ila_inbuff_valid			=> ila_inbuff_valid,
+			ila_inbuff_rd_en			=> ila_inbuff_rd_en ,
+			
+			
+			ila_outbuff_rd_en 			=> ila_outbuff_rd_en,
+			ila_outbuff_dout 			=> ila_outbuff_dout,
+			ila_outbuff_empty 			=>  ila_outbuff_empty,
+			ila_outbuff_almost_empty	=> ila_outbuff_almost_empty,
+			ila_outbuff_full  			=> ila_outbuff_full,
+			ila_outbuff_almost_full 	=> ila_outbuff_almost_full,
+			ila_outbuff_valid			=> ila_outbuff_valid,
+			
+			--HEAP SORTER ILA
+			ila_heap_sorter_ready 		=> ila_heap_sorter_ready,
+			ila_heap_sorter_fsm_state 	=> ila_heap_sorter_fsm_state,
+			ila_heap_sorter_position1 	=> ila_heap_sorter_position1,
+			ila_heap_sorter_position2 	=> ila_heap_sorter_position2 ,
+			ila_heap_sorter_position3 	=> ila_heap_sorter_position3 ,
+			ila_heap_sorter_position4 	=> ila_heap_sorter_position4,
+			ila_heap_sorter_position5 	=> ila_heap_sorter_position5,
+			ila_heap_sorter_position6 	=> ila_heap_sorter_position6,
+			ila_heap_sorter_position7 	=> ila_heap_sorter_position7,
+			ila_heap_sorter_position8 	=> ila_heap_sorter_position8,
+			ila_heap_sorter_position9 	=> ila_heap_sorter_position9,
+			ila_heap_sorter_done 		=> ila_heap_sorter_done,
+			ila_heap_sorter_sorted_data_0	=> ila_heap_sorter_sorted_data_0, 
+			ila_heap_sorter_sorted_data_1	=> ila_heap_sorter_sorted_data_1 ,
+			ila_heap_sorter_sorted_data_2	=> ila_heap_sorter_sorted_data_2,
+			ila_heap_sorter_sorted_data_3	=> ila_heap_sorter_sorted_data_3,
+			ila_heap_sorter_sorted_data_4	=> ila_heap_sorter_sorted_data_4,
+			ila_heap_sorter_sorted_data_5	=> ila_heap_sorter_sorted_data_5,
+			ila_heap_sorter_sorted_data_6	=> ila_heap_sorter_sorted_data_6,
+			ila_heap_sorter_sorted_data_7	=> ila_heap_sorter_sorted_data_7,
+			ila_heap_sorter_sorted_data_8	=> ila_heap_sorter_sorted_data_8,
+			ila_heap_sorter_sorted_data_9	=> ila_heap_sorter_sorted_data_9,
+			ila_heap_sorter_sorter_ready 	=> ila_heap_sorter_sorter_ready
+
+			
 	  );
+o_cycle <= std_logic_vector(cycle); 
+o_epoch <= std_logic_vector(epoch); 
+epoch_counter_proc: process(m00_axi_aclk, m00_axi_aresetn)
+    begin
+        if(m00_axi_aresetn = '0') then
+            cycle <= (others => '0');
+            epoch <= (others => '0');
+        elsif(rising_edge(m00_axi_aclk)) then
+			if(busy = '1') then 
+				if(cycle < 100) then
+					cycle <= cycle + 1;
+				else
+					cycle <= (others =>'0');
+					epoch <= epoch + 1;
+				end if;
+			end if;
+        end if;
+    end process; 
 
 
 	-- User logic ends

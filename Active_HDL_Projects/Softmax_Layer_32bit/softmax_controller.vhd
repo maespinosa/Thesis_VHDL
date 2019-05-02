@@ -39,7 +39,9 @@ entity softmax_controller is
       i_num_elements        : in std_logic_vector(15 downto 0); 
       o_outbuff_din         : out std_logic_vector(g_data_width-1 downto 0); 
       o_outbuff_wr_en       : out std_logic; 
-      o_softmax_complete    : out std_logic
+      o_softmax_complete    : out std_logic; 
+	  o_busy				: out std_logic; 
+	  o_fsm_state			: out std_logic_vector(3 downto 0)
   );
 end softmax_controller;
 
@@ -63,6 +65,8 @@ signal outbuff_din : std_logic_vector(g_data_width-1 downto 0);
 signal outbuff_wr_en : std_logic; 
 signal inbuff_rd_en : std_logic; 
 signal clear_all : std_logic;
+signal busy : std_logic;
+signal fsm_state : unsigned(3 downto 0);  
 
 
 
@@ -78,6 +82,8 @@ o_inbuff_rd_en     <= inbuff_rd_en;
 o_outbuff_din      <= outbuff_din; 
 o_outbuff_wr_en    <= outbuff_wr_en; 
 o_clear_all        <= clear_all; 
+o_busy 				<= busy; 
+o_fsm_state			<= std_logic_vector(fsm_state); 
 
 state_transition: process(i_clk, i_reset_n) 
 begin 
@@ -97,12 +103,14 @@ begin
 	softmax_complete <= '0'; 
 	inbuff_rd_en <= '0'; 
 	clear_all <= '0'; 
+	busy <= '1'; 
 
 	case current_state is 
 	
 		when IDLE => 
 			controller_ready <= '1'; 
 			exp_fifo_select <= '0'; 
+			busy <= '0'; 
 			if(i_exp_ready = '1' and i_inbuff_empty = '0' and i_start = '1') then 
 				next_state <= CALC_EXP; 
 			else 
@@ -187,6 +195,7 @@ begin
 		exp_input_valid <= '0'; 
 		outbuff_wr_en <= '0'; 
 		outbuff_din <= (others => '0'); 
+		fsm_state <= (others => '0'); 
 	
 	
 	elsif(rising_edge(i_clk)) then 
@@ -199,11 +208,13 @@ begin
 		case current_state is 
 			
 			when IDLE => 
+				fsm_state <= 0; 
 				element_counter <= (others => '0');  
 				exp_input       <= (others => '0'); 
 				exp_input_valid <= '0'; 
 
 			when CALC_EXP => 
+				fsm_state <= 1;
 				if((i_inbuff_empty = '0' and i_exp_ready = '1' and i_data_loaded = '0') or (i_data_loaded = '1' and i_exp_ready = '1')) then 
 					if (element_counter < unsigned(i_num_elements)) then 
 					  element_counter <= element_counter + 1; 
@@ -220,14 +231,17 @@ begin
 					element_counter <= element_counter;  
 				end if; 
 
-			when EXP_HOLD => 
+			when EXP_HOLD =>
+				fsm_state <= 2;
 				exp_input_valid <= '0'; 
 
 
 			when SUM_EXP => 
-				null;
+				fsm_state <= 3;
+				--null;
 			
-			when DIVIDE => 
+			when DIVIDE =>
+				fsm_state <= 4;
 				if(i_outbuff_full = '0' and i_quotient_result_valid = '1' and i_divsion_complete = '0') then 
 					outbuff_wr_en <= '1'; 
 					outbuff_din <= i_quotient_result; 
@@ -239,10 +253,12 @@ begin
 			
 			--when SAVE =>
 			when CLEAR_HOLD => 
-				null;  
+				fsm_state <= 5;
+				--null;  
 
 			
 			when others => 
+				fsm_state <= 6;
 				element_counter <= (others => '0');  
 				exp_input       <= (others => '0'); 
 				exp_input_valid <= '0'; 

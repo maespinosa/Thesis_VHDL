@@ -87,6 +87,42 @@ entity Softmax_Layer_32bit_v1_0_M00_AXI is
 	    o_prediction_4_reg		 : out std_logic_vector(C_M_AXI_DATA_WIDTH-1 downto 0); 
 	    --o_prediction_5_reg		 : out std_logic_vector(C_M_AXI_DATA_WIDTH-1 downto 0); 
 		o_softmax_complete		 : out std_logic; 
+		
+		ila_smax_axi_awaddr				: out std_logic_vector(C_M_AXI_ADDR_WIDTH-1 downto 0);
+		ila_smax_axi_awready			: out std_logic; 
+		ila_smax_axi_awlen    			: out std_logic_vector(7 downto 0); 
+		ila_smax_axi_awvalid			: out std_logic;
+		ila_smax_axi_wdata				: out std_logic_vector(C_M_AXI_DATA_WIDTH-1 downto 0);
+		ila_smax_axi_wready				: out std_logic; 
+		ila_smax_axi_wlast				: out std_logic;
+		ila_smax_axi_wvalid				: out std_logic;
+		ila_smax_axi_wstrb    			: out std_logic_vector(3 downto 0); 
+		ila_smax_axi_bready				: out std_logic;
+		ila_smax_axi_bvalid				: out std_logic; 
+		ila_smax_axi_araddr				: out std_logic_vector(C_M_AXI_ADDR_WIDTH-1 downto 0);
+		ila_smax_axi_arlen    			: out std_logic_vector(7 downto 0); 
+		ila_smax_axi_arvalid			: out std_logic;
+		ila_smax_axi_rready				: out std_logic;
+		ila_smax_axi_arready 			: out std_logic;
+		ila_smax_axi_rdata				: out std_logic_vector(C_M_AXI_DATA_WIDTH-1 downto 0);
+		ila_smax_axi_rlast				: out std_logic;
+		ila_smax_axi_rvalid				: out std_logic;
+		ila_smax_wbc 					: out unsigned(7 downto 0); 
+		ila_smax_rbc					: out unsigned(7 downto 0);
+		ila_smax_num_elements           : out STD_LOGIC_VECTOR(15 downto 0);
+		ila_smax_input_data_addr_reg    : out std_logic_vector(C_M_AXI_DATA_WIDTH-1 downto 0); 
+		ila_smax_output_data_addr_reg   : out std_logic_vector(C_M_AXI_DATA_WIDTH-1 downto 0); 
+		ila_smax_row_counter			: out unsigned(7 downto 0); 
+		ila_smax_channel_counter	    : out unsigned(15 downto 0); 
+		ila_smax_writes_remaining 	  	: out unsigned(15 downto 0);
+		ila_smax_reads_remaining		: out unsigned(15 downto 0);  
+		ila_smax_calculated 			: out std_logic; 
+		ila_smax_more_bursts_needed     : out std_logic; 
+		ila_smax_data_loaded 			: out std_logic; 
+		ila_smax_class_counter		  	: out unsigned(31 downto 0); 
+		ila_smax_master_fsm_state		: out std_logic_vector(3 downto 0); 
+
+		
 
 		-- User ports ends
 		-- Do not modify the ports beyond this line
@@ -216,7 +252,7 @@ architecture implementation of Softmax_Layer_32bit_v1_0_M00_AXI is
 
 	-- I/O Connections assignments
 
-    type master_state is (IDLE, READ_ADDRESS, READ_DATA,SOFTMAX_EXECUTING, WRITE_ADDRESS, WRITE_ALL, WRITE_RESPONSE); 
+    type master_state is (IDLE, CALC_READ_ADDRESS_LENGTH, READ_ADDRESS, READ_DATA,SOFTMAX_EXECUTING, CALC_WRITE_ADDRESS_LENGTH, WRITE_ADDRESS, WRITE_ALL, WRITE_RESPONSE); 
 
     signal current_state : master_state; 
     signal next_state : master_state; 
@@ -277,6 +313,8 @@ architecture implementation of Softmax_Layer_32bit_v1_0_M00_AXI is
 	
 	signal start		             : std_logic; 
 	signal start_reg				 : std_logic_vector(1 downto 0); 
+	
+	signal fsm_state				: std_logic_vector(3 downto 0); 
 
 begin
 	-- I/O Connections assignments
@@ -320,7 +358,7 @@ begin
 
 
 	----Example design I/O
-	--TXN_DONE	<= compare_done;
+	TXN_DONE	<= '0';
 	----Burst size in bytes
 	--burst_size_bytes	<= std_logic_vector( to_unsigned((C_M_AXI_BURST_LEN * (C_M_AXI_DATA_WIDTH/8)),C_TRANSACTIONS_NUM+3) );
 
@@ -355,7 +393,6 @@ begin
     o_status_reg(29)         <= i_expbuff_almost_full; 
 	o_status_reg(31 downto 30) <= (others => '0'); 
 
-
 	o_input_data_addr_reg    <= input_data_addr_reg; 
 	o_output_data_addr_reg   <= output_data_addr_reg;
 
@@ -383,8 +420,42 @@ begin
 	ERROR <= '0'; 
 	
 	o_data_loaded <= data_loaded; 
-	
 	o_start <= start; 
+	
+
+	ila_smax_axi_awaddr				<= axi_awaddr;
+	ila_smax_axi_awready			<= M_AXI_AWREADY;
+	ila_smax_axi_awlen    			<= axi_awlen;
+	ila_smax_axi_awvalid			<= axi_awvalid;
+	ila_smax_axi_wdata				<= axi_wdata;
+	ila_smax_axi_wready				<= M_AXI_WREADY;
+	ila_smax_axi_wlast				<= axi_wlast;
+	ila_smax_axi_wvalid				<= axi_wvalid;
+	ila_smax_axi_wstrb    			<= axi_wstrb ;
+	ila_smax_axi_bready				<= axi_bready;
+	ila_smax_axi_bvalid				<= M_AXI_BVALID;
+	ila_smax_axi_araddr				<= axi_araddr;
+	ila_smax_axi_arlen    			<= axi_arlen;
+	ila_smax_axi_arvalid			<= axi_arvalid;
+	ila_smax_axi_rready				<= axi_rready;
+	ila_smax_axi_arready 			<= M_AXI_ARREADY;
+	ila_smax_axi_rdata				<= M_AXI_RDATA;
+	ila_smax_axi_rlast				<= M_AXI_RLAST;
+	ila_smax_axi_rvalid				<= M_AXI_RVALID;
+	ila_smax_wbc 					<= write_beat_counter;
+	ila_smax_rbc					<= read_beat_counter;
+	ila_smax_num_elements           <= num_elements;
+	ila_smax_input_data_addr_reg    <= input_data_addr_reg;
+	ila_smax_output_data_addr_reg   <= output_data_addr_reg;
+	ila_smax_row_counter			<= row_counter;
+	ila_smax_channel_counter	    <= channel_counter;
+	ila_smax_writes_remaining 	  	<= writes_remaining;
+	ila_smax_reads_remaining		<= reads_remaining;
+	ila_smax_calculated 			<= calculated; 
+	ila_smax_more_bursts_needed     <= more_bursts_needed;
+	ila_smax_data_loaded 			<= data_loaded;
+	ila_smax_class_counter		  	<= class_counter;
+	ila_smax_master_fsm_state		<= fsm_state;
 
 
 	state_transition: process(M_AXI_ACLK, M_AXI_ARESETN) is 
@@ -410,31 +481,40 @@ begin
 				start <= '1'; 
 			elsif(i_softmax_complete = '1') then 
 				start <= '0';
-			-- else 
-				-- start <= '0'; 
 			end if; 
 		end if; 
 	end process; 
 
 
-	next_state_comb: process(current_state,start, i_control_reg,M_AXI_ARREADY,i_inbuff_full,M_AXI_RLAST,more_bursts_needed,i_softmax_complete,M_AXI_AWREADY,i_outbuff_empty,i_outbuff_valid,M_AXI_WREADY,write_beat_counter,M_AXI_BVALID) is 
+	next_state_comb: process(current_state,start,axi_awlen, i_control_reg,M_AXI_ARREADY,i_inbuff_full,M_AXI_RLAST,more_bursts_needed,i_softmax_complete,M_AXI_AWREADY,i_outbuff_empty,i_outbuff_valid,M_AXI_WREADY,write_beat_counter,M_AXI_BVALID) is 
 	begin 
 		axi_rready <= '0'; 
 		axi_bready <= '0'; 
+		
+		axi_wlast <= '0';  
+		axi_wdata <= (others => '0');  
+		axi_wstrb <= (others => '0'); 
+		axi_wvalid <= '0'; 
 		outbuff_rd_en <= '0'; 
 		data_loaded <= '0'; 
+		fsm_state <= "0000"; 
 
 		case current_state is 
 		    when IDLE => 
+				fsm_state <= "0000";
 		    	--if (i_control_reg(0) = '1') then 
 				if (start = '1') then 
-		    		next_state <= READ_ADDRESS; 
+		    		next_state <= CALC_READ_ADDRESS_LENGTH; 
 		    	else 
 		    		next_state <= IDLE; 
 		    	end if; 
+				
+			when CALC_READ_ADDRESS_LENGTH => 
+				next_state <= READ_ADDRESS; 
 
 
-			when READ_ADDRESS => 
+			when READ_ADDRESS =>
+				fsm_state <= "0001";
 				if(M_AXI_ARREADY = '1') then 
 					next_state <= READ_ADDRESS; 
 				else 
@@ -442,31 +522,54 @@ begin
 				end if; 
 
 			when READ_DATA => 
+				fsm_state <= "0010";
 				axi_rready <= '1'; 
-				if(i_inbuff_full = '0' and M_AXI_RLAST = '0') then 
-					--axi_rready <= '1'; 
-					next_state <= READ_DATA; 
+				
+				if(i_inbuff_full = '0' and M_AXI_RVALID = '1') then 
+					if(M_AXI_RLAST = '0') then 
+						next_state <= READ_DATA; 
+					else 
+						if(more_bursts_needed = '0') then 
+							next_state <= SOFTMAX_EXECUTING; 
+						elsif(more_bursts_needed = '1') then 
+							next_state <= READ_ADDRESS; 
+						else 
+							next_state <= READ_DATA; 
+						end if; 
+
+					end if; 
 				else 
 					next_state <= READ_DATA; 
-					--axi_rready <= '0'; 
-					if(M_AXI_RLAST = '1' and more_bursts_needed = '0') then 
-						next_state <= SOFTMAX_EXECUTING; 
-					elsif(M_AXI_RLAST = '1' and more_bursts_needed = '1') then 
-					    next_state <= READ_ADDRESS; 
-					end if; 
-
 				end if; 
+				
+				-- if(i_inbuff_full = '0' and M_AXI_RLAST = '0') then 
+					-- --axi_rready <= '1'; 
+					-- next_state <= READ_DATA; 
+				-- else 
+					-- next_state <= READ_DATA; 
+					-- --axi_rready <= '0'; 
+					-- if(M_AXI_RLAST = '1' and more_bursts_needed = '0') then 
+						-- next_state <= SOFTMAX_EXECUTING; 
+					-- elsif(M_AXI_RLAST = '1' and more_bursts_needed = '1') then 
+					    -- next_state <= READ_ADDRESS; 
+					-- end if; 
+
+				-- end if; 
 
 			when SOFTMAX_EXECUTING => 
+				fsm_state <= "0011";
 				data_loaded <= '1'; 
 				if(i_softmax_complete = '1') then 
-					next_state <= WRITE_ADDRESS; 
+					next_state <= CALC_WRITE_ADDRESS_LENGTH; 
 				else 
 					next_state <= SOFTMAX_EXECUTING; 
 				end if;
-
+			
+			when CALC_WRITE_ADDRESS_LENGTH => 
+				next_state <= WRITE_ADDRESS; 
 
 			when WRITE_ADDRESS => 
+				fsm_state <= "0100";
 				if(M_AXI_AWREADY = '1') then 
 					next_state <= WRITE_ALL; --READ_ADDRESS; 
 				else 
@@ -475,40 +578,84 @@ begin
 
 
 			when WRITE_ALL => 
- 
-				if(i_outbuff_empty = '0' and i_outbuff_valid = '1' and M_AXI_WREADY = '1') then 
-					outbuff_rd_en <= '1'; 
-                
-					if(write_beat_counter < unsigned(axi_awlen) and more_bursts_needed = '0') then 
-						next_state <= WRITE_ALL;
-					elsif(write_beat_counter < 255 and more_bursts_needed = '1') then 
-						next_state <= WRITE_ALL;
+				fsm_state <= "0101";
+				axi_wdata <= (others => '0'); 
+				axi_wstrb <= "0000";
+				axi_wlast <= '0';
+				axi_wvalid <= '0'; 
+				outbuff_rd_en <= '0'; 
+				
+				if(i_outbuff_empty = '0' and i_outbuff_valid = '1') then 
+					if (M_AXI_WREADY = '1') then 
+						outbuff_rd_en <= '1'; 
+						axi_wvalid <= '1'; 
+						axi_wdata <= i_outbuff_dout; 
+						axi_wstrb <= (others => '1'); 
+						
+						if(write_beat_counter < unsigned(axi_awlen) and more_bursts_needed = '0') then 
+							next_state <= WRITE_ALL;
+							axi_wlast <= '0'; 
+						elsif(write_beat_counter < 255 and more_bursts_needed = '1') then 
+							next_state <= WRITE_ALL;
+							axi_wlast <= '0'; 
+						else 
+							next_state <= WRITE_RESPONSE;
+							axi_wlast <= '1'; 
+						end if; 
 					else 
-						next_state <= WRITE_RESPONSE;
+						next_state <= WRITE_ALL; 
 					end if; 
 				else 
-					-- if(write_beat_counter = unsigned(axi_awlen)) then 
-						-- next_state <= WRITE_RESPONSE;
-					-- else 
-						next_state <= WRITE_ALL;
-					--end if; 
-
-					outbuff_rd_en <= '0'; 
+					next_state <= WRITE_ALL;
 				end if; 
 
+				
+				-- if(i_outbuff_empty = '0' and i_outbuff_valid = '1' and M_AXI_WREADY = '1') then 
+					-- outbuff_rd_en <= '1'; 
+                
+					-- if(write_beat_counter < unsigned(axi_awlen) and more_bursts_needed = '0') then 
+						-- next_state <= WRITE_ALL;
+					-- elsif(write_beat_counter < 255 and more_bursts_needed = '1') then 
+						-- next_state <= WRITE_ALL;
+					-- else 
+						-- next_state <= WRITE_RESPONSE;
+					-- end if; 
+				-- else 
+					-- -- if(write_beat_counter = unsigned(axi_awlen)) then 
+						-- -- next_state <= WRITE_RESPONSE;
+					-- -- else 
+						-- next_state <= WRITE_ALL;
+					-- --end if; 
+
+					-- outbuff_rd_en <= '0'; 
+				-- end if; 
 
 			when WRITE_RESPONSE => 
-				axi_bready <= '1'; 
-				next_state <= WRITE_RESPONSE; 
+				fsm_state <= "0110";
+				
 				if(M_AXI_BVALID = '1') then 
+					axi_bready <= '1'; 
 					if(more_bursts_needed = '1') then 
-						next_state <= WRITE_ADDRESS;
+						next_state <= CALC_WRITE_ADDRESS_LENGTH;
 					else 
 						next_state <= IDLE; 
 					end if; 
+				else 
+					next_state <= WRITE_RESPONSE; 
 				end if; 
+				
+				-- axi_bready <= '1'; 
+				-- next_state <= WRITE_RESPONSE; 
+				-- if(M_AXI_BVALID = '1') then 
+					-- if(more_bursts_needed = '1') then 
+						-- next_state <= WRITE_ADDRESS;
+					-- else 
+						-- next_state <= IDLE; 
+					-- end if; 
+				-- end if; 
 
 			when others => 
+				fsm_state <= "0111";
 				next_state <= IDLE; 
 
 
@@ -528,10 +675,10 @@ begin
 			axi_awaddr         <= (others => '0'); 
 			axi_awlen          <= (others => '0'); 
 			axi_awvalid        <= '0'; 
-			axi_wstrb          <= (others => '0'); 
-			axi_wdata 				<= (others => '0'); 
-			axi_wvalid 				<= '0'; 
-			axi_wlast 				<= '0'; 
+			-- axi_wstrb          <= (others => '0'); 
+			-- axi_wdata 				<= (others => '0'); 
+			-- axi_wvalid 				<= '0'; 
+			-- axi_wlast 				<= '0'; 
 			inbuff_din        <= (others => '0'); 
 			inbuff_wr_en      <= '0'; 
 			read_beat_counter <= (others => '0'); 
@@ -549,24 +696,6 @@ begin
 
 		elsif(rising_edge(M_AXI_ACLK)) then 
 
-			-- axi_araddr         <= axi_araddr; 
-			-- axi_arlen          <= axi_arlen; 
-			-- axi_arvalid	       <= axi_arvalid;
-			-- inbuff_din         <= inbuff_din; 
-			-- inbuff_wr_en       <= inbuff_wr_en; 
-			-- read_beat_counter  <= read_beat_counter; 
-			-- writes_remaining   <= writes_remaining;
-			-- reads_remaining    <= reads_remaining;  
-			-- axi_awaddr         <= axi_awaddr;
-			-- axi_awlen          <= axi_awlen; 
-			-- more_bursts_needed <= more_bursts_needed; 
-			-- calculated         <= calculated;  
-			-- axi_awvalid        <= axi_awvalid; 
-			-- axi_wstrb          <= axi_wstrb; 
-			-- input_data_addr_reg <= input_data_addr_reg; 
-			-- output_data_addr_reg <= output_data_addr_reg; 
-
-
 			case current_state is 
 
 			when IDLE => 
@@ -576,10 +705,10 @@ begin
 				axi_awaddr         <= (others => '0'); 
 				axi_awlen          <= (others => '0'); 
 				axi_awvalid        <= '0'; 
-				axi_wstrb          <= (others => '0'); 
-				axi_wdata 				<= (others => '0'); 
-				axi_wvalid 				<= '0'; 
-				axi_wlast 				<= '0'; 
+				-- axi_wstrb          <= (others => '0'); 
+				-- axi_wdata 				<= (others => '0'); 
+				-- axi_wvalid 				<= '0'; 
+				-- axi_wlast 				<= '0'; 
 				inbuff_din        <= (others => '0'); 
 				inbuff_wr_en      <= '0'; 
 				read_beat_counter <= (others => '0'); 
@@ -614,16 +743,11 @@ begin
 					output_data_addr_reg <= output_data_addr_reg; 
 				end if; 
 
-
-			when READ_ADDRESS => 
-				axi_araddr <= input_data_addr_reg; 
-				axi_arvalid	<= '1';
+			when CALC_READ_ADDRESS_LENGTH => 
 				calculated <= '1'; 
-				
 				inbuff_din <= (others => '0'); 
 				inbuff_wr_en <= '0'; 
-
-
+				
 				if(reads_remaining > 255 and calculated = '0') then 
 					axi_arlen <= x"FF"; 
 					reads_remaining <= reads_remaining - 256; 
@@ -636,48 +760,61 @@ begin
 					axi_arlen <= axi_arlen; 
 					more_bursts_needed <= more_bursts_needed; 
 				end if;
+				
+				
+			when READ_ADDRESS => 
+				axi_araddr <= input_data_addr_reg; 
+				
+				if(M_AXI_ARREADY = '1') then 
+                    axi_arvalid <= '0'; 
+                else 
+                    axi_arvalid <= '1'; 
+                end if; 
 
+				
+				-- axi_araddr <= input_data_addr_reg; 
+				-- axi_arvalid	<= '1';
+				-- calculated <= '1'; 
+				
+				-- inbuff_din <= (others => '0'); 
+				-- inbuff_wr_en <= '0'; 
+
+
+				-- if(reads_remaining > 255 and calculated = '0') then 
+					-- axi_arlen <= x"FF"; 
+					-- reads_remaining <= reads_remaining - 256; 
+					-- more_bursts_needed <= '1'; 
+				-- elsif(reads_remaining <= 255 and calculated = '0') then 
+                    -- axi_arlen <= std_logic_vector(to_unsigned(to_integer(reads_remaining),8)); 
+					-- more_bursts_needed <= '0'; 
+					-- reads_remaining <= (others => '0'); 
+				-- else 
+					-- axi_arlen <= axi_arlen; 
+					-- more_bursts_needed <= more_bursts_needed; 
+				-- end if;
 
 
 			when READ_DATA => 
 				calculated <= '0'; 
 				axi_arvalid <= '0'; 
 				
-				if(i_inbuff_full = '0' and M_AXI_RLAST = '0') then 
-					if(M_AXI_RVALID = '1') then 
-						if(input_data_addr_reg(1 downto 0) = "00" and g_bytes_per_data = 2) then 
-							inbuff_din <= M_AXI_RDATA(15 downto 0) & x"0000"; 
-						elsif(input_data_addr_reg(1 downto 0) = "10" and g_bytes_per_data = 2) then 
-							inbuff_din <= M_AXI_RDATA(31 downto 16) & x"0000";
-						elsif(g_bytes_per_data = 4) then 
-							inbuff_din <= M_AXI_RDATA; 
-						end if; 
-						
-						inbuff_wr_en <= '1'; 
+				if(i_inbuff_full = '0' and M_AXI_RVALID  = '1') then 
+			
+					if(input_data_addr_reg(1 downto 0) = "00" and g_bytes_per_data = 2) then 
+						inbuff_din <= M_AXI_RDATA(15 downto 0) & x"0000"; 
+					elsif(input_data_addr_reg(1 downto 0) = "10" and g_bytes_per_data = 2) then 
+						inbuff_din <= M_AXI_RDATA(31 downto 16) & x"0000";
+					elsif(g_bytes_per_data = 4) then 
+						inbuff_din <= M_AXI_RDATA; 
+					end if; 
+					
+					inbuff_wr_en <= '1'; 
+				
+					if(M_AXI_RLAST = '0') then 
 						read_beat_counter <= read_beat_counter + 1; 
 						input_data_addr_reg <= std_logic_vector(unsigned(input_data_addr_reg) + g_bytes_per_data); 
 					else 
-						inbuff_din <= (others => '0'); 
-						inbuff_wr_en <= '0'; 
-						read_beat_counter <= read_beat_counter; 
-						input_data_addr_reg <= input_data_addr_reg; 
-					end if; 
-				else 
-					--inbuff_din <= (others => '0'); 
-					--inbuff_wr_en <= '0'; 
-					
-					if (M_AXI_RLAST = '1') then 
-						--read_beat_counter <= (others => '0'); 
-						
-						
-						if(input_data_addr_reg(1 downto 0) = "00" and g_bytes_per_data = 2) then 
-							inbuff_din <= M_AXI_RDATA(15 downto 0) & x"0000"; 
-						elsif(input_data_addr_reg(1 downto 0) = "10" and g_bytes_per_data = 2) then 
-							inbuff_din <= M_AXI_RDATA(31 downto 16) & x"0000";
-						elsif(g_bytes_per_data = 4)then 
-							inbuff_din <= M_AXI_RDATA;
-						end if; 
-						inbuff_wr_en <= '1'; 
+				
 						read_beat_counter <= (others => '0'); 
 						
 						if(more_bursts_needed = '0') then 
@@ -685,29 +822,78 @@ begin
 						else 
 							input_data_addr_reg <= std_logic_vector(unsigned(input_data_addr_reg) + g_bytes_per_data); 
 						end if; 
-					--else 
-						--read_beat_counter <= read_beat_counter; 
-					else 
-						read_beat_counter <= read_beat_counter; 
-						inbuff_din <= (others => '0'); 
-						inbuff_wr_en <= '0'; 
+					
 					end if; 
-
+				else 
+					inbuff_din <= (others => '0'); 
+					inbuff_wr_en <= '0'; 
+					read_beat_counter <= read_beat_counter; 
+					input_data_addr_reg <= input_data_addr_reg; 
 				end if; 
+				
+				-- calculated <= '0'; 
+				-- axi_arvalid <= '0'; 
+				
+				-- if(i_inbuff_full = '0' and M_AXI_RLAST = '0') then 
+					-- if(M_AXI_RVALID = '1') then 
+						-- if(input_data_addr_reg(1 downto 0) = "00" and g_bytes_per_data = 2) then 
+							-- inbuff_din <= M_AXI_RDATA(15 downto 0) & x"0000"; 
+						-- elsif(input_data_addr_reg(1 downto 0) = "10" and g_bytes_per_data = 2) then 
+							-- inbuff_din <= M_AXI_RDATA(31 downto 16) & x"0000";
+						-- elsif(g_bytes_per_data = 4) then 
+							-- inbuff_din <= M_AXI_RDATA; 
+						-- end if; 
+						
+						-- inbuff_wr_en <= '1'; 
+						-- read_beat_counter <= read_beat_counter + 1; 
+						-- input_data_addr_reg <= std_logic_vector(unsigned(input_data_addr_reg) + g_bytes_per_data); 
+					-- else 
+						-- inbuff_din <= (others => '0'); 
+						-- inbuff_wr_en <= '0'; 
+						-- read_beat_counter <= read_beat_counter; 
+						-- input_data_addr_reg <= input_data_addr_reg; 
+					-- end if; 
+				-- else 
+					-- --inbuff_din <= (others => '0'); 
+					-- --inbuff_wr_en <= '0'; 
+					
+					-- if (M_AXI_RLAST = '1') then 
+						-- --read_beat_counter <= (others => '0'); 
+						
+						
+						-- if(input_data_addr_reg(1 downto 0) = "00" and g_bytes_per_data = 2) then 
+							-- inbuff_din <= M_AXI_RDATA(15 downto 0) & x"0000"; 
+						-- elsif(input_data_addr_reg(1 downto 0) = "10" and g_bytes_per_data = 2) then 
+							-- inbuff_din <= M_AXI_RDATA(31 downto 16) & x"0000";
+						-- elsif(g_bytes_per_data = 4)then 
+							-- inbuff_din <= M_AXI_RDATA;
+						-- end if; 
+						-- inbuff_wr_en <= '1'; 
+						-- read_beat_counter <= (others => '0'); 
+						
+						-- if(more_bursts_needed = '0') then 
+							-- input_data_addr_reg <= (others => '0'); 
+						-- else 
+							-- input_data_addr_reg <= std_logic_vector(unsigned(input_data_addr_reg) + g_bytes_per_data); 
+						-- end if; 
+					-- --else 
+						-- --read_beat_counter <= read_beat_counter; 
+					-- else 
+						-- read_beat_counter <= read_beat_counter; 
+						-- inbuff_din <= (others => '0'); 
+						-- inbuff_wr_en <= '0'; 
+					-- end if; 
+
+				-- end if; 
 
 			when SOFTMAX_EXECUTING => 
 				more_bursts_needed <= '0'; 
 				reads_remaining <= (others => '0'); 
 				writes_remaining <= unsigned(num_elements)-1; 
 
-			
-			when WRITE_ADDRESS => 
-				axi_awaddr <= output_data_addr_reg;
+			when CALC_WRITE_ADDRESS_LENGTH => 
 				calculated <= '1';  
-				axi_awvalid <= '1'; 
 				
-
-
 				if(writes_remaining > 255 and calculated = '0') then 
 					axi_awlen <= x"FF"; 
 					writes_remaining <= writes_remaining - 256; 
@@ -720,103 +906,217 @@ begin
 					axi_awlen <= axi_awlen; 
 					more_bursts_needed <= more_bursts_needed; 
 				end if;
+			
+			when WRITE_ADDRESS => 
+				axi_awaddr <= output_data_addr_reg;
+
+				if(M_AXI_AWREADY = '1') then 
+                    axi_awvalid <= '0'; 
+                else 
+                    axi_awvalid <= '1'; 
+                end if; 
 
 
+
+				-- axi_awaddr <= output_data_addr_reg;
+				-- calculated <= '1';  
+				-- axi_awvalid <= '1'; 
+
+				-- if(writes_remaining > 255 and calculated = '0') then 
+					-- axi_awlen <= x"FF"; 
+					-- writes_remaining <= writes_remaining - 256; 
+					-- more_bursts_needed <= '1'; 
+				-- elsif(writes_remaining <= 255 and calculated = '0') then 
+					-- axi_awlen <= std_logic_vector(writes_remaining(7 downto 0)); 
+					-- more_bursts_needed <= '0'; 
+					-- writes_remaining <= (others => '0'); 
+				-- else 
+					-- axi_awlen <= axi_awlen; 
+					-- more_bursts_needed <= more_bursts_needed; 
+				-- end if;
 
 
 			when WRITE_ALL =>
 				calculated <= '0'; 
 				axi_awvalid <= '0';
-				if(i_outbuff_empty = '0' and i_outbuff_valid = '1' and M_AXI_WREADY = '1') then 
+				if(i_outbuff_empty = '0' and i_outbuff_valid = '1') then 
+					if(M_AXI_WREADY = '1') then 
 			
-					axi_wvalid <= '1'; 
-					
-					if(output_data_addr_reg(1) = '0' and g_bytes_per_data = 2) then 
-						axi_wdata <= x"0000" & i_outbuff_dout; 
-						axi_wstrb <= "0011";
-					elsif(output_data_addr_reg(1) = '1' and g_bytes_per_data = 2) then 
-						axi_wdata <= i_outbuff_dout & x"0000"; 
-						axi_wstrb <= "1100";
-					elsif(g_bytes_per_data = 4) then 
-						axi_wdata <= i_outbuff_dout; 
-						axi_wstrb <= "1111";
+						--axi_wvalid <= '1'; 
+						
+						-- if(output_data_addr_reg(1) = '0' and g_bytes_per_data = 2) then 
+							-- axi_wdata <= x"0000" & i_outbuff_dout; 
+							-- axi_wstrb <= "0011";
+						-- elsif(output_data_addr_reg(1) = '1' and g_bytes_per_data = 2) then 
+							-- axi_wdata <= i_outbuff_dout & x"0000"; 
+							-- axi_wstrb <= "1100";
+						-- elsif(g_bytes_per_data = 4) then 
+							-- axi_wdata <= i_outbuff_dout; 
+							-- axi_wstrb <= "1111";
+						-- else 
+							-- axi_wdata <= (others => '0'); 
+							-- axi_wstrb <= "0000";
+						-- end if; 
+						
+						output_data_addr_reg <= std_logic_vector(unsigned(output_data_addr_reg) + g_bytes_per_data);
+									
+						if(write_beat_counter < unsigned(axi_awlen)) then 
+							write_beat_counter <= write_beat_counter + 1;  
+							class_counter <= class_counter + 1; 
+							--axi_wlast <= '0'; 	
+						else 
+							--axi_wlast <= '1'; 
+							write_beat_counter <= (others => '0');
+							channel_counter <= channel_counter + 1; 
+						end if; 
+						
+						
+						if(signed(i_outbuff_dout) >= signed(prob_array(0))) then 
+							prob_array(0) <= i_outbuff_dout; 
+							prob_array(1) <= prob_array(0); 
+							prob_array(2) <= prob_array(1); 
+							prob_array(3) <= prob_array(2); 
+							prob_array(4) <= prob_array(3); 
+							
+							class_array(0) <= std_logic_vector(class_counter); 
+							class_array(1) <= class_array(0); 
+							class_array(2) <= class_array(1); 
+							class_array(3) <= class_array(2); 
+							class_array(4) <= class_array(3); 
+						elsif(signed(i_outbuff_dout) >= signed(prob_array(1))) then 
+							prob_array(1) <= i_outbuff_dout; 
+							prob_array(2) <= prob_array(1); 
+							prob_array(3) <= prob_array(2); 
+							prob_array(4) <= prob_array(3); 
+							
+							class_array(1) <= std_logic_vector(class_counter); 
+							class_array(2) <= class_array(1); 
+							class_array(3) <= class_array(2); 
+							class_array(4) <= class_array(3); 
+						elsif(signed(i_outbuff_dout) >= signed(prob_array(2))) then 
+							prob_array(2) <= i_outbuff_dout; 
+							prob_array(3) <= prob_array(2); 
+							prob_array(4) <= prob_array(3); 
+							
+							class_array(2) <= std_logic_vector(class_counter); 
+							class_array(3) <= class_array(2); 
+							class_array(4) <= class_array(3); 
+						elsif(signed(i_outbuff_dout) >= signed(prob_array(3))) then 
+							prob_array(3) <= i_outbuff_dout; 
+							prob_array(4) <= prob_array(3); 
+
+							class_array(3) <= std_logic_vector(class_counter); 
+							class_array(4) <= class_array(3); 
+						elsif(signed(i_outbuff_dout) >= signed(prob_array(4))) then 
+							prob_array(4) <= i_outbuff_dout; 
+
+							class_array(4) <= std_logic_vector(class_counter); 
+						end if; 
+
 					else 
-						axi_wdata <= (others => '0'); 
-						axi_wstrb <= "0000";
-					end if; 
-					
-					output_data_addr_reg <= std_logic_vector(unsigned(output_data_addr_reg) + g_bytes_per_data);
-								
-					if(write_beat_counter < unsigned(axi_awlen)) then 
-						write_beat_counter <= write_beat_counter + 1;  
-						class_counter <= class_counter + 1; 
-						axi_wlast <= '0'; 	
-					else 
-						axi_wlast <= '1'; 
-						write_beat_counter <= (others => '0');
-						channel_counter <= channel_counter + 1; 
-					end if; 
-					
-					
-					if(signed(i_outbuff_dout) >= signed(prob_array(0))) then 
-						prob_array(0) <= i_outbuff_dout; 
-						prob_array(1) <= prob_array(0); 
-						prob_array(2) <= prob_array(1); 
-						prob_array(3) <= prob_array(2); 
-						prob_array(4) <= prob_array(3); 
-						
-						class_array(0) <= std_logic_vector(class_counter); 
-						class_array(1) <= class_array(0); 
-						class_array(2) <= class_array(1); 
-						class_array(3) <= class_array(2); 
-						class_array(4) <= class_array(3); 
-					elsif(signed(i_outbuff_dout) >= signed(prob_array(1))) then 
-						prob_array(1) <= i_outbuff_dout; 
-						prob_array(2) <= prob_array(1); 
-						prob_array(3) <= prob_array(2); 
-						prob_array(4) <= prob_array(3); 
- 						
-						class_array(1) <= std_logic_vector(class_counter); 
-						class_array(2) <= class_array(1); 
-						class_array(3) <= class_array(2); 
-						class_array(4) <= class_array(3); 
-					elsif(signed(i_outbuff_dout) >= signed(prob_array(2))) then 
-						prob_array(2) <= i_outbuff_dout; 
-						prob_array(3) <= prob_array(2); 
-						prob_array(4) <= prob_array(3); 
- 						
-						class_array(2) <= std_logic_vector(class_counter); 
-						class_array(3) <= class_array(2); 
-						class_array(4) <= class_array(3); 
-					elsif(signed(i_outbuff_dout) >= signed(prob_array(3))) then 
-						prob_array(3) <= i_outbuff_dout; 
-						prob_array(4) <= prob_array(3); 
-
-						class_array(3) <= std_logic_vector(class_counter); 
-						class_array(4) <= class_array(3); 
-					elsif(signed(i_outbuff_dout) >= signed(prob_array(4))) then 
-						prob_array(4) <= i_outbuff_dout; 
-
-						class_array(4) <= std_logic_vector(class_counter); 
-					end if; 
-					
-
-						
-						
-
-				else 
-					axi_wdata <= (others => '0'); 
-					axi_wvalid <= '0'; 
-					axi_wstrb <= (others => '0');  
-					write_beat_counter <= write_beat_counter; 
-					output_data_addr_reg <= output_data_addr_reg; 
+						--axi_wdata <= (others => '0'); 
+						--axi_wvalid <= '0'; 
+						--axi_wstrb <= (others => '0');  
+						write_beat_counter <= write_beat_counter; 
+						output_data_addr_reg <= output_data_addr_reg; 
+					end if;
 				end if; 
+				
+				
+				-- calculated <= '0'; 
+				-- axi_awvalid <= '0';
+				-- if(i_outbuff_empty = '0' and i_outbuff_valid = '1' and M_AXI_WREADY = '1') then 
+			
+					-- axi_wvalid <= '1'; 
+					
+					-- if(output_data_addr_reg(1) = '0' and g_bytes_per_data = 2) then 
+						-- axi_wdata <= x"0000" & i_outbuff_dout; 
+						-- axi_wstrb <= "0011";
+					-- elsif(output_data_addr_reg(1) = '1' and g_bytes_per_data = 2) then 
+						-- axi_wdata <= i_outbuff_dout & x"0000"; 
+						-- axi_wstrb <= "1100";
+					-- elsif(g_bytes_per_data = 4) then 
+						-- axi_wdata <= i_outbuff_dout; 
+						-- axi_wstrb <= "1111";
+					-- else 
+						-- axi_wdata <= (others => '0'); 
+						-- axi_wstrb <= "0000";
+					-- end if; 
+					
+					-- output_data_addr_reg <= std_logic_vector(unsigned(output_data_addr_reg) + g_bytes_per_data);
+								
+					-- if(write_beat_counter < unsigned(axi_awlen)) then 
+						-- write_beat_counter <= write_beat_counter + 1;  
+						-- class_counter <= class_counter + 1; 
+						-- axi_wlast <= '0'; 	
+					-- else 
+						-- axi_wlast <= '1'; 
+						-- write_beat_counter <= (others => '0');
+						-- channel_counter <= channel_counter + 1; 
+					-- end if; 
+					
+					
+					-- if(signed(i_outbuff_dout) >= signed(prob_array(0))) then 
+						-- prob_array(0) <= i_outbuff_dout; 
+						-- prob_array(1) <= prob_array(0); 
+						-- prob_array(2) <= prob_array(1); 
+						-- prob_array(3) <= prob_array(2); 
+						-- prob_array(4) <= prob_array(3); 
+						
+						-- class_array(0) <= std_logic_vector(class_counter); 
+						-- class_array(1) <= class_array(0); 
+						-- class_array(2) <= class_array(1); 
+						-- class_array(3) <= class_array(2); 
+						-- class_array(4) <= class_array(3); 
+					-- elsif(signed(i_outbuff_dout) >= signed(prob_array(1))) then 
+						-- prob_array(1) <= i_outbuff_dout; 
+						-- prob_array(2) <= prob_array(1); 
+						-- prob_array(3) <= prob_array(2); 
+						-- prob_array(4) <= prob_array(3); 
+ 						
+						-- class_array(1) <= std_logic_vector(class_counter); 
+						-- class_array(2) <= class_array(1); 
+						-- class_array(3) <= class_array(2); 
+						-- class_array(4) <= class_array(3); 
+					-- elsif(signed(i_outbuff_dout) >= signed(prob_array(2))) then 
+						-- prob_array(2) <= i_outbuff_dout; 
+						-- prob_array(3) <= prob_array(2); 
+						-- prob_array(4) <= prob_array(3); 
+ 						
+						-- class_array(2) <= std_logic_vector(class_counter); 
+						-- class_array(3) <= class_array(2); 
+						-- class_array(4) <= class_array(3); 
+					-- elsif(signed(i_outbuff_dout) >= signed(prob_array(3))) then 
+						-- prob_array(3) <= i_outbuff_dout; 
+						-- prob_array(4) <= prob_array(3); 
+
+						-- class_array(3) <= std_logic_vector(class_counter); 
+						-- class_array(4) <= class_array(3); 
+					-- elsif(signed(i_outbuff_dout) >= signed(prob_array(4))) then 
+						-- prob_array(4) <= i_outbuff_dout; 
+
+						-- class_array(4) <= std_logic_vector(class_counter); 
+					-- end if; 
+					
+
+						
+						
+
+				-- else 
+					-- axi_wdata <= (others => '0'); 
+					-- axi_wvalid <= '0'; 
+					-- axi_wstrb <= (others => '0');  
+					-- write_beat_counter <= write_beat_counter; 
+					-- output_data_addr_reg <= output_data_addr_reg; 
+				-- end if; 
+
+				
 
 			when WRITE_RESPONSE =>  
-				axi_wdata <= (others => '0'); 
-				axi_wvalid <= '0'; 
-				axi_wstrb <= "0000"; 
-				axi_wlast <= '0'; 
+				-- axi_wdata <= (others => '0'); 
+				-- axi_wvalid <= '0'; 
+				-- axi_wstrb <= "0000"; 
+				-- axi_wlast <= '0'; 
 
 			when others => 
 				axi_araddr        <= (others => '0'); 
@@ -832,7 +1132,7 @@ begin
 				more_bursts_needed <= '0'; 
 				calculated         <= '0'; 
 				axi_awvalid        <= '0'; 
-				axi_wstrb          <= (others => '0'); 
+				--axi_wstrb          <= (others => '0'); 
 
 			end case; 
 

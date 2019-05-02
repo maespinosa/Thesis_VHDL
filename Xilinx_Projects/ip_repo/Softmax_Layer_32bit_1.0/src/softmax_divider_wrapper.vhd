@@ -28,11 +28,18 @@ entity softmax_divider_wrapper is
 	o_exp_rd_en : out std_logic; 
 	o_division_complete : out std_logic; 
 	o_quotient_result : out std_logic_vector(g_data_width-1 downto 0); 
-	o_quotient_result_valid : out std_logic
-	--o_sum_result_valid : out std_logic
-	
-	
-	   
+	o_quotient_result_valid : out std_logic; 
+	--CHIPSCOPE SIGNALS
+	ila_smax_dw_fsm_state : out std_logic_vector(3 downto 0); 
+	ila_smax_dw_divisor : out std_logic_vector(g_data_width-1 downto 0); 
+	ila_smax_dw_dividend : out std_logic_vector(g_data_width-1 downto 0); 
+	ila_smax_dw_quotient : out std_logic_vector(g_data_width-1 downto 0); 
+	ila_smax_dw_rd_en : out std_logic; 
+	ila_smax_dw_division_complete : out std_logic; 
+	ila_smax_dw_hold_counter : out unsigned(7 downto 0); 
+	ila_smax_dw_quotient_counter : out unsigned(15 downto 0); 
+	ila_smax_dw_division_reg : out std_logic_vector(g_data_width-1 downto 0); 
+	ila_smax_dw_quotient_result_valid : out std_logic
   );
 end softmax_divider_wrapper;
 
@@ -56,15 +63,17 @@ signal rd_en : std_logic;
 signal division_complete : std_logic; 
 
 
-type summer_state is (IDLE, SET_OPERANDS, DIVIDER_HOLD, CLEAR_HOLD); 
-signal current_state 		: summer_state; 
-signal next_state			: summer_state;   
+type quotientmer_state is (IDLE, SET_OPERANDS, DIVIDER_HOLD, CLEAR_HOLD); 
+signal current_state 		: quotientmer_state; 
+signal next_state			: quotientmer_state;   
 
 signal hold_counter : unsigned(7 downto 0); 
 signal quotient_counter : unsigned(15 downto 0); 
 
 signal division_reg : std_logic_vector(g_data_width-1 downto 0); 
 signal quotient_result_valid : std_logic; 
+
+signal fsm_state : std_logic_vector(3 downto 0); 
 
 begin 
 
@@ -73,7 +82,21 @@ o_exp_rd_en <= rd_en;
 o_division_complete <= division_complete; 
 o_quotient_result <= division_reg; 
 o_quotient_result_valid <= quotient_result_valid; 
---o_sum_result_valid <= sum_result_valid; 		
+--o_quotient_result_valid <= quotient_result_valid; 	
+
+
+ila_smax_dw_fsm_state 				<= fsm_state;
+ila_smax_dw_divisor 				<= divisor;
+ila_smax_dw_dividend 				<= dividend;
+ila_smax_dw_quotient 				<= quotient;
+ila_smax_dw_rd_en 					<= rd_en;
+ila_smax_dw_division_complete 		<= division_complete;
+ila_smax_dw_hold_counter 			<= hold_counter;
+ila_smax_dw_quotient_counter 		<= quotient_counter;
+ila_smax_dw_division_reg 			<= division_reg;
+ila_smax_dw_quotient_result_valid 	<= quotient_result_valid;
+
+	
 
 divider: softmax_divider_32bit
   PORT MAP(
@@ -99,11 +122,13 @@ end process;
 next_state_comb: process(current_state,i_summing_complete, i_exp_fifo_valid, i_exp_fifo_empty,quotient_counter,i_num_elements,hold_counter,i_clear_all) 
 begin 
 	rd_en <= '0'; 
+	fsm_state <= "0000"; 
 	
 
 	case current_state is 
 	
 	when IDLE => 
+		fsm_state <= "0000"; 
 		rd_en <= '0'; 
 		if(i_summing_complete = '1' and i_exp_fifo_valid = '1' and i_exp_fifo_empty = '0') then 
 			next_state <= SET_OPERANDS; 
@@ -113,6 +138,7 @@ begin
 		
 	
 	when SET_OPERANDS => 
+		fsm_state <= "0001"; 
 		next_state <= DIVIDER_HOLD; 
 		if(quotient_counter < unsigned(i_num_elements)) then 
 			rd_en <= '1'; 
@@ -122,6 +148,7 @@ begin
 
 	
 	when DIVIDER_HOLD => 
+		fsm_state <= "0010"; 
 		rd_en <= '0'; 
 		if(hold_counter < g_divider_delay) then 
 			next_state <= DIVIDER_HOLD; 
@@ -136,14 +163,16 @@ begin
 		end if; 
 
 
-    when CLEAR_HOLD => 
+    when CLEAR_HOLD =>
+		fsm_state <= "0011"; 
     	if(i_clear_all = '1') then
     		next_state <= IDLE; 
     	else
     		next_state <= CLEAR_HOLD; 
     	end if; 
 	
-	when others => 
+	when others =>
+		fsm_state <= "0100"; 
 		next_state <= IDLE; 
 		
 	end case; 

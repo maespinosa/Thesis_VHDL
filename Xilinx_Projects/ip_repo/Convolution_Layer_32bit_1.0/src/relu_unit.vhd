@@ -54,43 +54,52 @@ end relu_unit;
 
 architecture arch of relu_unit is
 begin
-	
-	activation: process(i_fifo_almost_full,i_enable, i_relu_en,i_normalized_data_valid,i_normalized_data) is 
-	begin
+
+o_relu_out <= 	i_normalized_data when i_relu_en = '1' and i_normalized_data(g_conv_width-1) = '0' else 
+				i_normalized_data when i_relu_en = '0' else 
+				(others => '0'); 
+				
+o_wr_en <= 	i_normalized_data_valid; 
+
+
+
+
+	-- activation: process(i_fifo_almost_full,i_enable, i_relu_en,i_normalized_data_valid,i_normalized_data) is 
+	-- begin
 		
-		--o_outbuff_prog_full <= i_fifo_almost_full;
-		--o_fifo_prog_full_thresh <= (others => '1'); 
-		
-		
-		if(i_enable = '1') then    
-			if(i_relu_en = '1') then  
-				if(i_fifo_almost_full = '0' and i_normalized_data_valid = '1') then  
-					if(signed(i_normalized_data) >= 0) then 
-						o_relu_out <= i_normalized_data; 
-						o_wr_en <= i_normalized_data_valid; 
-					else 
-						o_relu_out <= (others => '0'); 
-						o_wr_en <= '1';  
-					end if; 
-				else 
-					o_relu_out <= (others => '0'); 
-					o_wr_en <= '0';  
-				end if; 
-			else
-				if(i_fifo_almost_full = '0' and i_normalized_data_valid = '1') then  
-					o_relu_out <= i_normalized_data; 
-					o_wr_en <= i_normalized_data_valid; 
-				else 
-					o_relu_out <= (others => '0'); 
-					o_wr_en <= '0';  
-				end if; 	
-			end if; 
-		else 
-			o_relu_out <= (others => '0'); 
-			o_wr_en <= '0'; 
-		end if; 
+		-- --o_outbuff_prog_full <= i_fifo_almost_full;
+		-- --o_fifo_prog_full_thresh <= (others => '1'); 
 		
 		
-	end process; 
+		-- if(i_enable = '1') then    
+			-- if(i_relu_en = '1') then  
+				-- if(i_fifo_almost_full = '0' and i_normalized_data_valid = '1') then  
+					-- if(signed(i_normalized_data) >= 0) then 
+						-- o_relu_out <= i_normalized_data; 
+						-- o_wr_en <= i_normalized_data_valid; 
+					-- else 
+						-- o_relu_out <= (others => '0'); 
+						-- o_wr_en <= '1';  
+					-- end if; 
+				-- else 
+					-- o_relu_out <= (others => '0'); 
+					-- o_wr_en <= '0';  
+				-- end if; 
+			-- else
+				-- if(i_fifo_almost_full = '0' and i_normalized_data_valid = '1') then  
+					-- o_relu_out <= i_normalized_data; 
+					-- o_wr_en <= i_normalized_data_valid; 
+				-- else 
+					-- o_relu_out <= (others => '0'); 
+					-- o_wr_en <= '0';  
+				-- end if; 	
+			-- end if; 
+		-- else 
+			-- o_relu_out <= (others => '0'); 
+			-- o_wr_en <= '0'; 
+		-- end if; 
+		
+		
+	-- end process; 
 	
 end arch;

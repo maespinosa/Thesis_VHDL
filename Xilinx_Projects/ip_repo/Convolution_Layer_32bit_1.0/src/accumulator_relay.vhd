@@ -39,7 +39,6 @@ entity accumulator_relay is
 	i_acc_fifo_valid 			: in std_logic;  
 	i_acc_fifo_empty			: in std_logic; 
 	i_acc_fifo_almost_empty		: in std_logic; 
-	--i_acc_fifo_prog_empty		: in std_logic; 
 	i_normalizer_ready			: in std_logic;  
 	i_num_filters				: in std_logic_vector(15 downto 0); 
 	i_num_iterations			: in std_logic_vector(7 downto 0); 
@@ -62,6 +61,7 @@ entity accumulator_relay is
 	i_bias_values_loaded		: in std_logic; 
 	
 	i_affine_en					: in std_logic; 
+	i_relu_en                   : in std_logic; 
 	
 	o_acc_fifo_rd_en			: out std_logic; 
 	o_prev_fifo_rd_en			: out std_logic; 
@@ -70,13 +70,33 @@ entity accumulator_relay is
 	o_bias_fifo_data_return_en  : out std_logic; 
 	o_bias_fifo_return_wr_en	: out std_logic; 
 	
-	--o_prog_emtpy_thresh 		: out std_logic_vector(12 downto 0); 
 	o_conv_volume_out 			: out std_logic_vector(g_data_width-1 downto 0);
 	o_conv_data_valid			: out std_logic; 
 	
 	o_row_complete				: out std_logic; 
 	o_volume_complete			: out std_logic; 
-	o_iteration_complete		: out std_logic
+	o_iteration_complete		: out std_logic; 
+	o_fsm_state					: out std_logic_vector(3 downto 0); 
+	o_relu_en					: out std_logic; 
+	
+	
+	ila_filter_counter 				: out std_logic_vector(15 downto 0); 
+	ila_output_pixel_counter		: out std_logic_vector(7 downto 0);
+	ila_volume_row_counter			: out std_logic_vector(7 downto 0); 
+	ila_adder_counter				: out std_logic_vector(7 downto 0); 
+	ila_addend 						: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_augend   					: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_sum_result 					: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_first_channel_set_complete 	: out std_logic; 
+	ila_volume_data 				: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_bias_data					: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_prev_data					: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_iteration_counter			: out std_logic_vector(7 downto 0); 
+	ila_bias_read 					: out std_logic; 
+	ila_prev_read 					: out std_logic; 
+	ila_filter_iteration_counter	: out std_logic_vector(15 downto 0); 
+	ila_affine_en					: out std_logic
+
 	
 	); 
 end accumulator_relay;
@@ -101,8 +121,6 @@ signal sum_result 				: std_logic_vector(g_data_width-1 downto 0);
 signal acc_fifo_rd_en			: std_logic; 
 signal prev_fifo_rd_en			: std_logic; 
 signal bias_fifo_rd_en			: std_logic; 
-
---signal prog_emtpy_thresh 		: std_logic_vector(9 downto 0); 
 	
 signal conv_volume_out 			: std_logic_vector(g_data_width-1 downto 0);
 signal conv_data_valid			: std_logic; 
@@ -124,6 +142,8 @@ signal bias_read : std_logic;
 signal prev_read : std_logic; 
 signal filter_iteration_counter	: unsigned(15 downto 0); 
 signal affine_en				: std_logic; 
+signal fsm_state                : std_logic_vector(3 downto 0); 
+signal relu_en 					: std_logic; 
 
 
 component FP_ADDER_8E_24F IS
@@ -140,10 +160,8 @@ begin
 	o_acc_fifo_rd_en		<= acc_fifo_rd_en; 
 	o_prev_fifo_rd_en		<= prev_fifo_rd_en; 
 	o_bias_fifo_rd_en		<= bias_fifo_rd_en; 
-	--o_prog_emtpy_thresh 	<= (others => '0'); 
 	o_conv_volume_out 		<= conv_volume_out;
 	o_conv_data_valid	    <= conv_data_valid;   
-	--prog_emtpy_thresh 		<= (others => '0'); 
 
 	o_bias_fifo_data_return_en <= '1' when i_bias_values_loaded = '1' else 
 								  '0'; 
@@ -155,8 +173,33 @@ begin
 	o_row_complete <= row_complete; 
 	o_iteration_complete <= iteration_complete; 
 	o_volume_complete <= volume_complete; 
+	o_fsm_state <= fsm_state; 
+	o_relu_en 	<= relu_en; 
 	
+
 	
+	ila_filter_counter 				<= std_logic_vector(filter_counter); 
+	ila_output_pixel_counter		<= std_logic_vector(output_pixel_counter); 
+	ila_volume_row_counter			<= std_logic_vector(volume_row_counter); 
+	ila_adder_counter				<= std_logic_vector(adder_counter); 
+
+	ila_addend 						<= addend; 
+	ila_augend   					<= augend; 
+	ila_sum_result 					<= sum_result; 
+	
+	ila_first_channel_set_complete 	<= first_channel_set_complete; 
+
+	ila_volume_data 				<= volume_data; 
+	ila_bias_data					<= bias_data; 
+	ila_prev_data					<= prev_data; 
+
+	ila_iteration_counter			<= std_logic_vector(iteration_counter); 
+	ila_bias_read 					<= bias_read; 
+	ila_prev_read 					<= prev_read;
+	ila_filter_iteration_counter	<= std_logic_vector(filter_iteration_counter); 
+	ila_affine_en					<= affine_en; 
+
+
 	
 	
 	prev_bias_adder: FP_ADDER_8E_24F 
@@ -178,24 +221,26 @@ begin
 	end process;   
 	
 	
-	next_state_comb: process(current_state, affine_en, i_filters_in_set,conv_data_valid, bias_read, output_pixel_counter,filter_iteration_counter, i_filter_iterations, i_num_iterations, i_output_volume_size, i_num_filters, i_more_dsps_needed, i_acc_fifo_empty, i_bias_fifo_empty, i_prev_fifo_empty, adder_counter,first_channel_set_complete, iteration_counter, filter_counter, volume_row_counter) is 
+	next_state_comb: process(current_state, prev_read, affine_en, i_filters_in_set,conv_data_valid, bias_read, output_pixel_counter,filter_iteration_counter, i_filter_iterations, i_num_iterations, i_output_volume_size, i_num_filters, i_more_dsps_needed, i_acc_fifo_empty, i_bias_fifo_empty, i_prev_fifo_empty, adder_counter,first_channel_set_complete, iteration_counter, filter_counter, volume_row_counter) is 
 	begin 
 		acc_fifo_rd_en 			<= '0'; 
 		bias_fifo_rd_en 		<= '0'; 
 		prev_fifo_rd_en 		<= '0'; 
 		bias_fifo_return_wr_en 	<= '0'; 
-		--conv_data_valid <= '0';
+		fsm_state <= "0000"; 
 
 		
 		case current_state is 
 			when IDLE => 
+				fsm_state <= "0000"; 
 				if(i_acc_fifo_empty = '0' and i_bias_fifo_empty = '0') then 
 					next_state <= ALL_CHANNELS; 
 				else 
 					next_state <= IDLE; 
 				end if; 
 				
-			when ALL_CHANNELS =>	
+			when ALL_CHANNELS =>
+				fsm_state <= "0001"; 			
 				if(i_acc_fifo_empty = '0') then 
 					acc_fifo_rd_en <= '1';
 					next_state <= BIAS_ADDER_HOLD; 
@@ -216,18 +261,16 @@ begin
 				end if; 
 
 			when BIAS_ADDER_HOLD => 
+				fsm_state <= "0010"; 
 				if(unsigned(adder_counter) <= g_adder_delay) then 
 					next_state <= BIAS_ADDER_HOLD; 
 				elsif(i_more_dsps_needed = '0') then 
-					--conv_data_valid <= '1'; 
 					next_state <= ALL_CHANNELS; 
 				elsif(i_more_dsps_needed = '1' and ((output_pixel_counter < unsigned(i_output_volume_size)-1 or filter_counter < unsigned(i_num_filters)-1) or volume_row_counter < unsigned(i_output_volume_size)-1) and affine_en = '0') then 
-					--conv_data_valid <= '1';
 					next_state <= ALL_CHANNELS; 
 				elsif(i_more_dsps_needed = '1' and ((output_pixel_counter = unsigned(i_output_volume_size)-1 or filter_counter = unsigned(i_num_filters)-1) or volume_row_counter = unsigned(i_output_volume_size)-1) and affine_en = '0') then  -- first_channel_set_complete = '1') then 
 					next_state <= MORE_CHANNELS; 
 				elsif(i_more_dsps_needed = '1' and ((filter_counter < unsigned(i_filters_in_set)-1 or filter_iteration_counter < unsigned(i_filter_iterations)-1)) and affine_en = '1' and iteration_counter = 0) then 
-					--conv_data_valid <= '1';
 					next_state <= ALL_CHANNELS; 
 				elsif(i_more_dsps_needed = '1' and ((filter_counter = unsigned(i_filters_in_set)-1 and filter_iteration_counter = unsigned(i_filter_iterations)-1)) and affine_en = '1') then  -- first_channel_set_complete = '1') then 
 					next_state <= MORE_CHANNELS; 
@@ -237,7 +280,7 @@ begin
 				
 			
 			when MORE_CHANNELS => 
-			
+				fsm_state <= "0011"; 
 				if(i_acc_fifo_empty = '0') then 
 					if(i_prev_fifo_empty = '0' and prev_read = '0') then 
 						prev_fifo_rd_en <= '1';
@@ -254,21 +297,10 @@ begin
 					prev_fifo_rd_en <= '0'; 
 					next_state <= MORE_CHANNELS; 
 				end if; 
-				
-			
-			
-				-- if(i_acc_fifo_empty = '0' and i_prev_fifo_empty = '0') then 
-					-- acc_fifo_rd_en <= '1';
-					-- prev_fifo_rd_en <= '1';
-					-- next_state <= PREV_ADDER_HOLD; 				
-				-- else 
-					-- acc_fifo_rd_en <= '0'; 
-					-- prev_fifo_rd_en <= '0'; 
-					-- next_state <= MORE_CHANNELS; 
-				-- end if; 
-								
+	
 				
 			when PREV_ADDER_HOLD => 
+				fsm_state <= "0100"; 
 				next_state <= PREV_ADDER_HOLD; 
 				if(unsigned(adder_counter) <= g_adder_delay) then 
 					next_state <= PREV_ADDER_HOLD; 
@@ -277,8 +309,10 @@ begin
 					if((output_pixel_counter >= unsigned(i_output_volume_size)-1)) then
 						if(filter_counter >= unsigned(i_num_filters)-1 and affine_en = '0') then 					
 							if(volume_row_counter >= unsigned(i_output_volume_size)-1) then 
-								if(iteration_counter < unsigned(i_num_iterations)-1) then 
-									next_state <= MORE_CHANNELS; 
+								if(iteration_counter = unsigned(i_num_iterations)-2) then 
+									next_state <= MORE_CHANNELS;
+								elsif(iteration_counter < unsigned(i_num_iterations)-1) then 
+									next_state <= MORE_CHANNELS;										
 								else 	
 									next_state <= IDLE; 
 								end if; 
@@ -296,19 +330,10 @@ begin
 						end if; 
 					end if; 
 				end if; 
-				
-								 
-				-- if(unsigned(adder_counter) < g_adder_delay) then 
-					-- next_state <= BIAS_ADDER_HOLD; 
-				-- elsif(i_more_dsps_needed = '0') then 
-					-- --conv_data_valid <= '1';
-					-- next_state <= ALL_CHANNELS; 
-				-- elsif(i_more_dsps_needed = '1') then 
-					-- next_state <= MORE_CHANNELS; 
-				-- end if; 
 
 
 			when others => 	
+				fsm_state <= "0101"; 
 				next_state <= IDLE; 
 			
 
@@ -338,6 +363,7 @@ begin
 			filter_iteration_counter    <= (others => '0'); 
 			affine_en					<= '0'; 
 			prev_read <= '0'; 
+			relu_en <= '0'; 
 			
 			
 		elsif(rising_edge(i_clk)) then	  
@@ -360,6 +386,10 @@ begin
 			iteration_counter			<= iteration_counter; 
 			filter_iteration_counter    <= filter_iteration_counter; 
 			affine_en 					<= affine_en; 
+			relu_en 					<= relu_en; 
+			
+
+		
 			
 			case current_state is 
 				when IDLE => 	
@@ -381,7 +411,8 @@ begin
 					bias_read 					<= '0'; 
 					iteration_counter			<= (others => '0'); 
 					filter_iteration_counter 	<= (others => '0');
-					affine_en 					<= i_affine_en; 
+					affine_en 					<= i_affine_en;
+					relu_en 					<= '0'; 
 					
 				when ALL_CHANNELS => 
 					conv_data_valid <= '0'; 
@@ -400,11 +431,17 @@ begin
 							bias_read <= bias_read; 
 						end if; 
 
-					end if;	
-					
+					end if;
+
+					if(unsigned(i_num_iterations) = 1 and affine_en = '0' and i_relu_en = '1') then 
+						relu_en <= '1'; 
+					end if; 
 				
 				when BIAS_ADDER_HOLD => 
-						
+					if(unsigned(i_num_iterations) = 1 and affine_en = '0' and i_relu_en = '1') then 
+						relu_en <= '1'; 
+					end if; 
+					
 					if(adder_counter <= g_adder_delay) then 
 						adder_counter <= adder_counter + 1; 
 					else
@@ -455,7 +492,6 @@ begin
 							elsif(filter_counter < unsigned(i_filters_in_set)-1 and affine_en = '1') then 
 								filter_counter <= filter_counter + 1; 
 							elsif(filter_counter >= unsigned(i_filters_in_set)-1 and affine_en = '1') then 					
-								--row_complete <= '1'; 
 								filter_counter <= (others => '0'); 	
 								
 								if(filter_iteration_counter < unsigned(i_filter_iterations)-1)then 
@@ -508,31 +544,7 @@ begin
 							augend 	  <= i_prev_fifo_data; 
 							prev_read <= prev_read; 
 						end if; 
-						
-						
-						-- if((output_pixel_counter < unsigned(i_output_volume_size)-1) and conv_data_valid = '1') then
-							-- output_pixel_counter <= output_pixel_counter + 1; 
-						-- elsif((output_pixel_counter < unsigned(i_output_volume_size)-1) and conv_data_valid = '0') then
-							-- output_pixel_counter <= output_pixel_counter; 
-						-- else 
-							-- output_pixel_counter <= (others => '0'); 
-							-- if(filter_counter < unsigned(i_num_filters)-1 and affine_en = '0') then 
-								-- filter_counter <= filter_counter + 1; 
-							-- elsif(filter_counter >= unsigned(i_num_filters)-1 and affine_en = '0') then 
-								-- filter_counter <= (others => '0'); 
 
-								-- if(volume_row_counter < unsigned(i_output_volume_size)-1) then 
-									-- first_channel_set_complete <= '0'; 
-									-- volume_row_counter <= volume_row_counter + 1; 
-								-- else 
-									-- first_channel_set_complete <= '1'; 
-									-- volume_row_counter <= (others => '0'); 								
-								-- end if; 
-							-- end if; 
-					
-						-- end if; 
-						
-			
 					end if;
 					
 				
@@ -561,8 +573,13 @@ begin
 									volume_row_counter <= volume_row_counter + 1; 
 								else 
 									iteration_complete <= '1'; 
+									volume_row_counter <= (others => '0');		
 									
-									if(iteration_counter < unsigned(i_num_iterations)-1) then 
+									if(iteration_counter = unsigned(i_num_iterations)-2) then 
+										volume_complete <= '0'; 
+										iteration_counter <= iteration_counter + 1; 
+										relu_en <= i_relu_en; 
+									elsif(iteration_counter < unsigned(i_num_iterations)-1) then 
 										volume_complete <= '0'; 
 										iteration_counter <= iteration_counter + 1; 
 									else 	
@@ -575,7 +592,6 @@ begin
 								filter_counter <= filter_counter + 1; 
 								
 							elsif(filter_counter >= unsigned(i_filters_in_set)-1 and affine_en = '1') then 					
-								--row_complete <= '1'; 
 								filter_counter <= (others => '0'); 	
 								if(filter_iteration_counter < unsigned(i_filter_iterations)-1)then 
 									filter_iteration_counter <= filter_iteration_counter + 1; 
@@ -602,57 +618,7 @@ begin
 						end if; 
 				
 					end if; 
-				
-					-- if(output_pixel_counter >=  unsigned(i_output_volume_size)-1 and adder_counter >= g_adder_delay) then
-						-- if(filter_counter >= unsigned(i_num_filters)-1 and affine_en = '0') then 					
-							-- row_complete <= '1'; 
-							-- filter_counter <= (others => '0'); 	
-							-- if(volume_row_counter >= unsigned(i_output_volume_size)-1) then 
-								-- iteration_complete <= '1'; 
-								
-								-- if(iteration_counter < unsigned(i_num_iterations)-1) then 
-									-- volume_complete <= '0'; 
-									-- iteration_counter <= iteration_counter + 1; 
-								-- else 	
-									-- volume_complete <= '1'; 
-									-- iteration_counter <= (others => '0'); 
-								-- end if; 
 
-							-- end if;
-						-- elsif(filter_counter < unsigned(i_filters_in_set)-1 and affine_en = '1') then 
-							-- filter_counter <= filter_counter + 1; 
-							
-						-- elsif(filter_counter >= unsigned(i_filters_in_set)-1 and affine_en = '1') then 					
-							-- row_complete <= '1'; 
-							-- filter_counter <= (others => '0'); 	
-							-- if(filter_iteration_counter < unsigned(i_filter_iterations)-1)then 
-								-- filter_iteration_counter <= filter_iteration_counter + 1; 
-							-- else 
-								-- filter_iteration_counter <= (others => '0'); 
-							-- end if; 
-							-- if(volume_row_counter >= unsigned(i_output_volume_size)-1) then 
-								-- iteration_complete <= '1'; 
-								
-								-- if(iteration_counter < unsigned(i_num_iterations)-1) then 
-									-- volume_complete <= '0'; 
-									-- iteration_counter <= iteration_counter + 1; 
-								-- else 	
-									-- volume_complete <= '1'; 
-									-- iteration_counter <= (others => '0'); 
-								-- end if; 
-
-							-- end if;
-						-- end if; 
-					-- end if; 
-				
-					-- if(adder_counter <= g_adder_delay) then 
-						-- adder_counter <= adder_counter + 1; 
-					-- else
-						-- adder_counter <= (others => '0'); 
-						-- conv_data_valid <= '1'; 
-						-- conv_volume_out <= sum_result; 
-						-- bias_read <= '0'; 
-					-- end if; 
 
 				when others =>
 					null; 

@@ -26,6 +26,7 @@ entity Maxpool_Layer_32bit_v1_0_S00_AXI is
         i_kernel_params_reg      : in std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0); 
 		i_addr1_params_reg       : in std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0); 
 		i_addr2_params_reg       : in std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0); 
+		i_debug_reg				 : in std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0); 
 		
         o_control_reg            : out std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0); 
         o_status_reg             : out std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0); 
@@ -36,10 +37,11 @@ entity Maxpool_Layer_32bit_v1_0_S00_AXI is
         o_kernel_params_reg      : out std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0); 
 		o_addr1_params_reg       : out std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0); 
 		o_addr2_params_reg       : out std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0); 
+		o_debug_reg				 : out std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0); 
 		
 	
         o_slv_reg_rden           : out STD_LOGIC;
-        o_slv_reg_wren           : out STD_LOGIC_VECTOR(9 downto 0);
+        o_slv_reg_wren           : out STD_LOGIC_VECTOR(10 downto 0);
 		-- User ports ends
 		-- Do not modify the ports beyond this line
 
@@ -141,7 +143,7 @@ architecture arch_imp of Maxpool_Layer_32bit_v1_0_S00_AXI is
     signal wr_slv_reg7    :std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0);
     signal wr_slv_reg8    :std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0);
     signal wr_slv_reg9    :std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0);
-
+    signal wr_slv_reg10    :std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0);
     
     ---- Number of Read Slave Registers 10
     signal rd_slv_reg0    :std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0);
@@ -154,10 +156,11 @@ architecture arch_imp of Maxpool_Layer_32bit_v1_0_S00_AXI is
     signal rd_slv_reg7    :std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0);
     signal rd_slv_reg8    :std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0);
     signal rd_slv_reg9    :std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0);
-
+    signal rd_slv_reg10    :std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0);
+	
 	signal slv_reg_rden	: std_logic;
 	signal slv_reg_wren	: std_logic;
-	signal int_slv_reg_wren	: std_logic_vector(9 downto 0);
+	signal int_slv_reg_wren	: std_logic_vector(10 downto 0);
 	signal reg_data_out	:std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0);
 	signal byte_index	: integer;
 	signal case_addr : std_logic_vector(3 downto 0); 
@@ -263,6 +266,7 @@ begin
           wr_slv_reg7 <= (others => '0');
           wr_slv_reg8 <= (others => '0');
           wr_slv_reg9 <= (others => '0');
+		  wr_slv_reg10 <= (others => '0');
           int_slv_reg_wren <= (others => '0'); 
 		  case_addr <= (others => '0'); 
 	    else
@@ -361,6 +365,15 @@ begin
                     int_slv_reg_wren(9) <= '1'; 
                   end if;
                 end loop;
+              when b"101000" =>
+                for byte_index in 0 to (C_S_AXI_DATA_WIDTH/8-1) loop
+                  if ( S_AXI_WSTRB(byte_index) = '1' ) then
+                    -- Respective byte enables are asserted as per write strobes                   
+                    -- slave registor 9
+                    wr_slv_reg9(byte_index*8+7 downto byte_index*8) <= S_AXI_WDATA(byte_index*8+7 downto byte_index*8);
+                    int_slv_reg_wren(10) <= '1'; 
+                  end if;
+                end loop;
 	          when others =>
 	            wr_slv_reg0 <= wr_slv_reg0;
                 wr_slv_reg1 <= wr_slv_reg1;
@@ -372,6 +385,7 @@ begin
                 wr_slv_reg7 <= wr_slv_reg7;
                 wr_slv_reg8 <= wr_slv_reg8;
                 wr_slv_reg9 <= wr_slv_reg9;
+                wr_slv_reg10 <= wr_slv_reg10;
                 int_slv_reg_wren <= (others => '0'); 
 	        end case;
 	      end if;
@@ -460,7 +474,7 @@ begin
 	-- and the slave is ready to accept the read address.
 	slv_reg_rden <= axi_arready and S_AXI_ARVALID and (not axi_rvalid) ;
 
-	process (rd_slv_reg0, rd_slv_reg1, rd_slv_reg2, rd_slv_reg3, rd_slv_reg4, rd_slv_reg5, rd_slv_reg6, rd_slv_reg7, rd_slv_reg8, rd_slv_reg9, axi_araddr, S_AXI_ARESETN, slv_reg_rden)
+	process (rd_slv_reg0, rd_slv_reg1, rd_slv_reg2, rd_slv_reg3, rd_slv_reg4, rd_slv_reg5, rd_slv_reg6, rd_slv_reg7, rd_slv_reg8, rd_slv_reg9, rd_slv_reg10, axi_araddr, S_AXI_ARESETN, slv_reg_rden)
     variable loc_addr :std_logic_vector(5 downto 2);
     begin
         -- Address decoding for reading registers
@@ -486,7 +500,8 @@ begin
             reg_data_out <= rd_slv_reg8;
           when b"1001" =>
             reg_data_out <= rd_slv_reg9;
-
+          when b"1010" =>
+            reg_data_out <= rd_slv_reg10;
           when others =>
             reg_data_out  <= (others => '0');
         end case;
@@ -522,11 +537,12 @@ begin
 	o_kernel_params_reg 		<= wr_slv_reg6; 
 	o_addr1_params_reg			<= wr_slv_reg8; 
 	o_addr2_params_reg			<= wr_slv_reg9; 
-
+	o_debug_reg					<= wr_slv_reg10; 
+	
 	o_slv_reg_rden				<= slv_reg_rden; 
 	o_slv_reg_wren				<= int_slv_reg_wren; 
 
-    process(i_control_reg, i_status_reg, i_input_data_addr_reg, i_output_data_addr_reg, i_input_params_reg, i_output_params_reg, i_kernel_params_reg,i_addr1_params_reg,i_addr2_params_reg)
+    process(i_control_reg, i_status_reg, i_input_data_addr_reg, i_output_data_addr_reg, i_input_params_reg, i_output_params_reg, i_kernel_params_reg,i_addr1_params_reg,i_addr2_params_reg, i_debug_reg)
 	begin 
 		rd_slv_reg0 <= i_control_reg; 
 		rd_slv_reg1 <= i_status_reg; 
@@ -538,6 +554,7 @@ begin
 		rd_slv_reg7 <= i_control_reg; 
 		rd_slv_reg8 <= i_addr1_params_reg; 
 		rd_slv_reg9 <= i_addr2_params_reg; 
+		rd_slv_reg10 <= i_debug_reg; 
 	end process;
 	-- User logic ends
 

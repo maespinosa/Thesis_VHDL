@@ -37,6 +37,7 @@ entity Softmax_Tester_v1_0_M00_AXI is
 		-- Users to add ports here
         i_irq : in std_logic; 
         i_init_calib_complete : in std_logic; 
+		i_trigger : in std_logic; 
 		-- User ports ends
 		-- Do not modify the ports beyond this line
 
@@ -262,8 +263,8 @@ begin
 	M_AXI_ARVALID	<= axi_arvalid;
 	M_AXI_RREADY	<= axi_rready;
 
-
-
+	TXN_DONE	<= '0'; 
+	ERROR	<= '0';
 
 	state_transition: process(M_AXI_ACLK, M_AXI_ARESETN) is 
 	begin 
@@ -275,7 +276,7 @@ begin
 	end process; 
 
 
-	next_state_comb: process(current_state,write_beat_counter, write_burst_counter, M_AXI_ARREADY,M_AXI_RLAST,M_AXI_AWREADY,M_AXI_WREADY,M_AXI_BVALID,i_init_calib_complete, data_valid) is 
+	next_state_comb: process(current_state,write_beat_counter,data_read, ddr_mem_axi_addr, softmax_axi_addr, i_trigger, write_burst_counter, M_AXI_ARREADY,M_AXI_RLAST,M_AXI_AWREADY,M_AXI_WREADY,M_AXI_BVALID,i_init_calib_complete, data_valid) is 
 	begin 
 		axi_rready <= '0'; 
 		axi_bready <= '0'; 
@@ -294,7 +295,7 @@ begin
 		case current_state is 
 		    when IDLE => 
 			  file_reset <= '1'; 
-		      if(i_init_calib_complete = '1') then 
+		      if(i_init_calib_complete = '1' and i_trigger = '1') then 
 		          --next_state <= IDLE;
 				  next_state <= CONFIG_INPUT_DATA_ADDR_WRITE_ADDR;
 				  --read_en <= '1'; 
@@ -384,6 +385,8 @@ begin
 					else 
 						next_state <= CONFIG_INPUT_DATA_ADDR_WRITE_ADDR; 
 					end if; 
+				else
+					next_state <= DATA_TO_MEM_WRITE_RESPONSE; 
 				end if; 
 				
             
@@ -417,6 +420,8 @@ begin
 				axi_bready <= '1'; 
 				if(M_AXI_BVALID = '1') then 
 					next_state <= CONFIG_CONTROL_WRITE_ADDR;
+				else 
+					next_state <= CONFIG_INPUT_DATA_ADDR_WRITE_RESP; 
 				end if; 
 				
 
@@ -450,6 +455,8 @@ begin
 				axi_bready <= '1'; 
 				if(M_AXI_BVALID = '1') then 
 					next_state <= CONFIG_CONTROL_WRITE_ADDR;
+				else 
+					next_state <= CONFIG_OUTPUT_DATA_ADDR_WRITE_RESP; 
 				end if; 
 				
 
@@ -486,6 +493,8 @@ begin
 			 	axi_bready <= '1'; 
 				if(M_AXI_BVALID = '1') then 
 					next_state <= HOLD_IRQ;
+				else 
+					next_state <= CONFIG_CONTROL_WRITE_RESP; 
 				end if; 
 
              

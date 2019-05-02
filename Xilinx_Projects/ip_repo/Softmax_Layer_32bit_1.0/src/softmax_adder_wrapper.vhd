@@ -26,8 +26,18 @@ entity softmax_adder_wrapper is
 	i_clear_all : in std_logic; 
 	o_exp_rd_en : out std_logic; 
 	o_summing_complete : out std_logic; 
-	o_sum_result : out std_logic_vector(g_data_width-1 downto 0)
-	--o_sum_result_valid : out std_logic
+	o_sum_result : out std_logic_vector(g_data_width-1 downto 0); 
+	--CHIPSCOPE SIGNALS
+	ila_smax_aw_fsm_state : out std_logic_vector(3 downto 0); 
+	ila_smax_aw_addend : out std_logic_vector(g_data_width-1 downto 0); 
+	ila_smax_aw_augend : out std_logic_vector(g_data_width-1 downto 0); 
+	ila_smax_aw_sum : out std_logic_vector(g_data_width-1 downto 0); 
+	ila_smax_aw_rd_en : out std_logic; 
+	ila_smax_aw_summing_complete : out std_logic; 
+	ila_smax_aw_hold_counter : out unsigned(7 downto 0); 
+	ila_smax_aw_sum_counter : out unsigned(15 downto 0); 
+	ila_smax_aw_sum_reg : out std_logic_vector(g_data_width-1 downto 0); 
+	ila_smax_aw_sum_result_valid : out std_logic
 	   
   );
 end softmax_adder_wrapper;
@@ -62,6 +72,8 @@ signal sum_counter : unsigned(15 downto 0);
 signal sum_reg : std_logic_vector(g_data_width-1 downto 0); 
 signal sum_result_valid : std_logic; 
 
+signal fsm_state : std_logic_vector(3 downto 0); 
+
 begin 
 
 
@@ -70,6 +82,20 @@ o_summing_complete <= summing_complete;
 o_sum_result <= sum_reg; 
 --o_sum_result_valid <= sum_result_valid; 
 
+ila_smax_aw_fsm_state 			<= fsm_state;
+ila_smax_aw_addend 				<= addend;
+ila_smax_aw_augend 				<= augend;
+ila_smax_aw_sum 				<= sum;
+ila_smax_aw_rd_en 				<= rd_en;
+ila_smax_aw_summing_complete 	<= summing_complete;
+ila_smax_aw_hold_counter 		<= hold_counter;
+ila_smax_aw_sum_counter 		<= sum_counter;
+ila_smax_aw_sum_reg 			<= sum_reg;
+ila_smax_aw_sum_result_valid 	<= sum_result_valid;
+
+
+
+
 adder: softmax_adder_32bit
   PORT MAP(
     a		=> addend, 
@@ -77,8 +103,6 @@ adder: softmax_adder_32bit
     clk		=> i_clk, 
     result	=> sum
   );
-
-
 
  
 state_transition: process(i_clk, i_reset_n) 
@@ -94,11 +118,13 @@ end process;
 next_state_comb: process(current_state,i_exp_complete,i_exp_fifo_valid,i_exp_fifo_empty,sum_counter,i_num_elements,hold_counter,i_division_complete,i_clear_all) 
 begin 
 	rd_en <= '0'; 
+	fsm_state <= "0000"; 
 	
 
 	case current_state is 
 	
 	when IDLE => 
+		fsm_state <= "0000"; 
 		rd_en <= '0'; 
 		if(i_exp_complete = '1' and i_exp_fifo_empty = '0') then 
 			next_state <= SET_OPERANDS; 
@@ -108,6 +134,7 @@ begin
 		
 	
 	when SET_OPERANDS => 
+		fsm_state <= "0001"; 
 		next_state <= ADDER_HOLD; 
 		--if(sum_counter < unsigned(i_num_elements)-1) then 
 			rd_en <= '1'; 
@@ -116,7 +143,8 @@ begin
 		--end if; 
 
 	
-	when ADDER_HOLD => 
+	when ADDER_HOLD =>
+		fsm_state <= "0010"; 	
 		rd_en <= '0'; 
 		if(hold_counter < g_adder_delay) then 
 			next_state <= ADDER_HOLD; 
@@ -131,6 +159,7 @@ begin
 		end if;
 
 	when DIVIDER_HOLD =>
+		fsm_state <= "0011"; 
 		if(i_division_complete = '1' and i_clear_all = '1') then
 			next_state <= IDLE; 
 		else 
@@ -139,6 +168,7 @@ begin
 
 	
 	when others => 
+		fsm_state <= "0100"; 
 		next_state <= IDLE; 
 		
 	end case; 

@@ -36,9 +36,10 @@ entity Convolution_Tester_v1_0_M00_AXI is
 	port (
 		-- Users to add ports here
 		i_ext_reset_n : in std_logic; 
-		--i_irq : in std_logic; 
+		i_trigger : in std_logic; 
 		i_init_calib_complete : in std_logic; 
 		i_data_written : in std_logic; 
+		i_test_number : in std_logic_vector(3 downto 0); 
 		-- User ports ends
 		-- Do not modify the ports beyond this line
 
@@ -345,9 +346,11 @@ begin
 	M_AXI_ARVALID	<= axi_arvalid;
 	M_AXI_RREADY	<= axi_rready;
 	
-	Test_number <= 3; 
+	Test_number <= 2; 
 
-
+	TXN_DONE	<= '0'; 
+	ERROR	<= '0'; 
+		
 	state_transition: process(M_AXI_ACLK, M_AXI_ARESETN, i_ext_reset_n) is 
 	begin 
 		if(M_AXI_ARESETN = '0' or i_ext_reset_n = '0') then 
@@ -358,7 +361,7 @@ begin
 	end process; 
 
 
-	next_state_comb: process(current_state,write_beat_counter, write_burst_counter, M_AXI_ARREADY,M_AXI_RLAST,M_AXI_AWREADY,M_AXI_WREADY,M_AXI_BVALID,i_init_calib_complete, data_valid, i_data_written, column_counter, filter_counter, row_counter, Test_number) is 
+	next_state_comb: process(current_state,write_beat_counter,conv_axi_addr,bias_mem_axi_addr,debug,image_mem_axi_addr,weights_mem_axi_addr, output_mem_axi_addr,i_trigger, write_burst_counter, M_AXI_ARREADY,M_AXI_RLAST,M_AXI_AWREADY,M_AXI_WREADY,M_AXI_BVALID,i_init_calib_complete, data_valid, i_data_written, column_counter, filter_counter, row_counter, i_test_number) is 
 	begin 
 		axi_rready <= '0'; 
 		axi_bready <= '0'; 
@@ -377,14 +380,14 @@ begin
 		
 		debug <= '0'; 
 		
-		if(Test_number = 1) then 
+		if(unsigned(i_test_number) = 1) then 
 	
 			case current_state is
 			
 				when IDLE => 
 				  image_file_reset <= '1'; 
 				  weight_file_reset <= '1'; 
-				  if(i_init_calib_complete = '1') then 
+				  if(i_init_calib_complete = '1' and i_trigger = '1') then 
 					  next_state <= CONFIG_INPUT_DATA_ADDR_WRITE_ADDR;
 					  --read_en <= '1'; 
 				  else 
@@ -425,6 +428,8 @@ begin
 					axi_bready <= '1'; 
 					if(M_AXI_BVALID = '1') then 
 						next_state <= CONFIG_OUTPUT_DATA_ADDR_WRITE_ADDR;
+					else 
+						next_state <= CONFIG_INPUT_DATA_ADDR_WRITE_RESP;
 					end if; 
 					
 				--=================================================================			
@@ -461,6 +466,8 @@ begin
 					axi_bready <= '1'; 
 					if(M_AXI_BVALID = '1') then 
 						next_state <= CONFIG_FILTER_WEIGHTS_ADDR_WRITE_ADDR;
+					else 
+						next_state <= CONFIG_OUTPUT_DATA_ADDR_WRITE_RESP;
 					end if; 
 					
 				--=================================================================			
@@ -497,6 +504,8 @@ begin
 					axi_bready <= '1'; 
 					if(M_AXI_BVALID = '1') then 
 						next_state <= CONFIG_INPUT_PARAMS_WRITE_ADDR;
+					else 
+						next_state <= CONFIG_FILTER_WEIGHTS_ADDR_WRITE_RESP;
 					end if; 
 					
 				--=================================================================			
@@ -532,6 +541,8 @@ begin
 					axi_bready <= '1'; 
 					if(M_AXI_BVALID = '1') then 
 						next_state <= CONFIG_OUTPUT_PARAMS_WRITE_ADDR;
+					else 
+						next_state <= CONFIG_INPUT_PARAMS_WRITE_RESP;
 					end if; 
 					
 				--=================================================================			
@@ -567,6 +578,8 @@ begin
 					axi_bready <= '1'; 
 					if(M_AXI_BVALID = '1') then 
 						next_state <= CONFIG_WEIGHT_PARAMS_WRITE_ADDR;
+					else 
+						next_state <= CONFIG_OUTPUT_PARAMS_WRITE_RESP;
 					end if; 
 					
 				--=================================================================			
@@ -589,7 +602,9 @@ begin
 					axi_awsize <= "000";
 					axi_awvalid <= '0'; 
 
-					axi_wdata <= x"BB" & x"003" & x"060"; --11x11x3x96
+					--axi_wdata <= x"BB" & x"003" & x"060"; --11x11x3x96
+					axi_wdata <= x"BB" & x"000003";--x"000100"; --11x11x3
+					
 					axi_wstrb <= "1111";
 					axi_wvalid <= '1'; 
 					if(M_AXI_WREADY = '1') then 
@@ -601,6 +616,8 @@ begin
 					axi_bready <= '1'; 
 					if(M_AXI_BVALID = '1') then 
 						next_state <= CONFIG_CONV_PARAMS_WRITE_ADDR;
+					else 
+						next_state <= CONFIG_WEIGHT_PARAMS_WRITE_RESP;
 					end if; 
 
 				--=================================================================			
@@ -623,7 +640,7 @@ begin
 					axi_awsize <= "000";
 					axi_awvalid <= '0'; 
 					
-					axi_wdata <= x"0000" & x"0340"; --Channels Allowed 3 Stride 4 Pad 0
+					axi_wdata <= x"0060" & x"0340"; --Channels Allowed 3 Stride 4 Pad 0
 					axi_wstrb <= "1111";
 					axi_wvalid <= '1'; 
 					if(M_AXI_WREADY = '1') then 
@@ -635,6 +652,8 @@ begin
 					axi_bready <= '1'; 
 					if(M_AXI_BVALID = '1') then 
 						next_state <= CONFIG_NORM_PARAMS_0_WRITE_ADDR;
+					else 
+						next_state <= CONFIG_CONV_PARAMS_WRITE_RESP;
 					end if; 
 
 
@@ -670,6 +689,8 @@ begin
 					axi_bready <= '1'; 
 					if(M_AXI_BVALID = '1') then 
 						next_state <= CONFIG_NORM_PARAMS_1_WRITE_ADDR;
+					else 
+						next_state <= CONFIG_NORM_PARAMS_0_WRITE_RESP;
 					end if; 
 
 
@@ -705,6 +726,8 @@ begin
 					axi_bready <= '1'; 
 					if(M_AXI_BVALID = '1') then 
 						next_state <= CONFIG_NORM_PARAMS_2_WRITE_ADDR;
+					else 
+						next_state <= CONFIG_NORM_PARAMS_1_WRITE_RESP;
 					end if; 
 					
 					
@@ -740,6 +763,8 @@ begin
 					axi_bready <= '1'; 
 					if(M_AXI_BVALID = '1') then 
 						next_state <= CONFIG_BIAS_ADDR_WRITE_ADDR;
+					else 
+						next_state <= CONFIG_NORM_PARAMS_2_WRITE_RESP;
 					end if; 
 
 					
@@ -775,6 +800,8 @@ begin
 					axi_bready <= '1'; 
 					if(M_AXI_BVALID = '1') then 
 						next_state <= CONFIG_BIAS_PARAMS_WRITE_ADDR;
+					else 
+						next_state <= CONFIG_BIAS_ADDR_WRITE_RESP;
 					end if; 
 					
 					
@@ -810,6 +837,8 @@ begin
 					axi_bready <= '1'; 
 					if(M_AXI_BVALID = '1') then 
 						next_state <= CONFIG_WEIGHT_MULTIPLE_0_WRITE_ADDR;
+					else 
+						next_state <= CONFIG_BIAS_PARAMS_WRITE_RESP;
 					end if; 
 					
 				--=================================================================			
@@ -844,6 +873,8 @@ begin
 					axi_bready <= '1'; 
 					if(M_AXI_BVALID = '1') then 
 						next_state <= CONFIG_WEIGHT_MULTIPLE_1_WRITE_ADDR;
+					else 
+						next_state <= CONFIG_WEIGHT_MULTIPLE_0_WRITE_RESP;
 					end if; 
 					
 				--=================================================================			
@@ -878,6 +909,8 @@ begin
 					axi_bready <= '1'; 
 					if(M_AXI_BVALID = '1') then 
 						next_state <= CONFIG_INPUT_MULTIPLE_0_WRITE_ADDR;
+					else 
+						next_state <= CONFIG_WEIGHT_MULTIPLE_1_WRITE_RESP;
 					end if; 
 					
 				--=================================================================			
@@ -912,6 +945,8 @@ begin
 					axi_bready <= '1'; 
 					if(M_AXI_BVALID = '1') then 
 						next_state <= CONFIG_INPUT_MULTIPLE_1_WRITE_ADDR;
+					else 
+						next_state <= CONFIG_INPUT_MULTIPLE_0_WRITE_RESP;
 					end if; 
 					
 				--=================================================================			
@@ -946,7 +981,10 @@ begin
 					axi_bready <= '1'; 
 					if(M_AXI_BVALID = '1') then 
 						next_state <= CONFIG_OUTPUT_MULTIPLE_0_WRITE_ADDR;
+					else 
+						next_state <= CONFIG_INPUT_MULTIPLE_1_WRITE_RESP;
 					end if; 
+					
 					
 				--=================================================================			
 				------------ CONFIGURE OUTPUT MULTIPLE 0 REGISTER -------------------
@@ -980,6 +1018,8 @@ begin
 					axi_bready <= '1'; 
 					if(M_AXI_BVALID = '1') then 
 						next_state <= CONFIG_OUTPUT_MULTIPLE_1_WRITE_ADDR;
+					else 
+						next_state <= CONFIG_OUTPUT_MULTIPLE_0_WRITE_RESP;
 					end if; 
 					
 				--=================================================================			
@@ -1002,7 +1042,7 @@ begin
 					axi_awsize <= "000";
 					axi_awvalid <= '0'; 
 
-					axi_wdata <= std_logic_vector(to_unsigned(0,32)); --IH*IW
+					axi_wdata <= std_logic_vector(to_unsigned(227*96,32)); --IW*OC
 					axi_wstrb <= "1111";
 					axi_wvalid <= '1'; 
 					if(M_AXI_WREADY = '1') then 
@@ -1014,6 +1054,8 @@ begin
 					axi_bready <= '1'; 
 					if(M_AXI_BVALID = '1') then 
 						next_state <= CONFIG_CONTROL_WRITE_ADDR;
+					else 
+						next_state <= CONFIG_OUTPUT_MULTIPLE_1_WRITE_RESP;
 					end if; 
 					
 				--=================================================================			
@@ -1036,7 +1078,7 @@ begin
 					axi_awsize <= "000";
 					axi_awvalid <= '0'; 
 
-					axi_wdata <= x"00000001"; --Start
+					axi_wdata <= x"00020001"; --Start
 					axi_wstrb <= "1111";
 					axi_wvalid <= '1'; 
 					if(M_AXI_WREADY = '1') then 
@@ -1049,8 +1091,9 @@ begin
 					axi_bready <= '1'; 
 					if(M_AXI_BVALID = '1') then 
 						next_state <= HOLD_IRQ;
+					else 
+						next_state <= CONFIG_CONTROL_WRITE_RESP;
 					end if; 
-
 				 
 				when HOLD_IRQ => 
 					null;
@@ -1067,14 +1110,14 @@ begin
 
 			end case; 
 		
-		elsif(Test_number = 2) then
+		elsif(unsigned(i_test_number) = 2) then
 		
 			case current_state is
 			
 				when IDLE => 
 				  image_file_reset <= '1'; 
 				  weight_file_reset <= '1'; 
-				  if(i_init_calib_complete = '1') then 
+				  if(i_init_calib_complete = '1' and i_trigger = '1') then 
 					  next_state <= CONFIG_INPUT_DATA_ADDR_WRITE_ADDR;
 					  --read_en <= '1'; 
 				  else 
@@ -1115,6 +1158,8 @@ begin
 					axi_bready <= '1'; 
 					if(M_AXI_BVALID = '1') then 
 						next_state <= CONFIG_OUTPUT_DATA_ADDR_WRITE_ADDR;
+					else 
+						next_state <= CONFIG_INPUT_DATA_ADDR_WRITE_RESP; 
 					end if; 
 					
 				--=================================================================			
@@ -1151,6 +1196,8 @@ begin
 					axi_bready <= '1'; 
 					if(M_AXI_BVALID = '1') then 
 						next_state <= CONFIG_FILTER_WEIGHTS_ADDR_WRITE_ADDR;
+					else 
+						next_state <= CONFIG_OUTPUT_DATA_ADDR_WRITE_RESP; 
 					end if; 
 					
 				--=================================================================			
@@ -1187,6 +1234,8 @@ begin
 					axi_bready <= '1'; 
 					if(M_AXI_BVALID = '1') then 
 						next_state <= CONFIG_INPUT_PARAMS_WRITE_ADDR;
+					else 
+						next_state <= CONFIG_FILTER_WEIGHTS_ADDR_WRITE_RESP; 
 					end if; 
 					
 				--=================================================================			
@@ -1222,6 +1271,8 @@ begin
 					axi_bready <= '1'; 
 					if(M_AXI_BVALID = '1') then 
 						next_state <= CONFIG_OUTPUT_PARAMS_WRITE_ADDR;
+					else 
+						next_state <= CONFIG_INPUT_PARAMS_WRITE_RESP; 
 					end if; 
 					
 				--=================================================================			
@@ -1257,6 +1308,8 @@ begin
 					axi_bready <= '1'; 
 					if(M_AXI_BVALID = '1') then 
 						next_state <= CONFIG_WEIGHT_PARAMS_WRITE_ADDR;
+					else 
+						next_state <= CONFIG_OUTPUT_PARAMS_WRITE_RESP; 
 					end if; 
 					
 				--=================================================================			
@@ -1279,7 +1332,8 @@ begin
 					axi_awsize <= "000";
 					axi_awvalid <= '0'; 
 
-					axi_wdata <= x"33" & x"180" & x"100"; --x"010" & x"005"; --x"180" & x"100"; --3x3x384x256
+					--axi_wdata <= x"33" & x"180" & x"100"; --x"010" & x"005"; --x"180" & x"100"; --3x3x384x256
+					axi_wdata <= x"33" & x"000180";--x"000100"; ---3x3x384
 					axi_wstrb <= "1111";
 					axi_wvalid <= '1'; 
 					if(M_AXI_WREADY = '1') then 
@@ -1291,6 +1345,8 @@ begin
 					axi_bready <= '1'; 
 					if(M_AXI_BVALID = '1') then 
 						next_state <= CONFIG_CONV_PARAMS_WRITE_ADDR;
+					else 
+						next_state <= CONFIG_WEIGHT_PARAMS_WRITE_RESP; 
 					end if; 
 
 				--=================================================================			
@@ -1313,7 +1369,7 @@ begin
 					axi_awsize <= "000";
 					axi_awvalid <= '0'; 
 					
-					axi_wdata <= x"0000" & x"0811"; --Channels Allowed 8 Stride 1 Pad 1
+					axi_wdata <= x"0100" & x"0811"; --Channels Allowed 8 Stride 1 Pad 1
 					axi_wstrb <= "1111";
 					axi_wvalid <= '1'; 
 					if(M_AXI_WREADY = '1') then 
@@ -1325,6 +1381,8 @@ begin
 					axi_bready <= '1'; 
 					if(M_AXI_BVALID = '1') then 
 						next_state <= CONFIG_NORM_PARAMS_0_WRITE_ADDR;
+					else 
+						next_state <= CONFIG_CONV_PARAMS_WRITE_RESP; 
 					end if; 
 
 
@@ -1360,6 +1418,8 @@ begin
 					axi_bready <= '1'; 
 					if(M_AXI_BVALID = '1') then 
 						next_state <= CONFIG_NORM_PARAMS_1_WRITE_ADDR;
+					else 
+						next_state <= CONFIG_NORM_PARAMS_0_WRITE_RESP; 
 					end if; 
 
 
@@ -1395,6 +1455,8 @@ begin
 					axi_bready <= '1'; 
 					if(M_AXI_BVALID = '1') then 
 						next_state <= CONFIG_NORM_PARAMS_2_WRITE_ADDR;
+					else 
+						next_state <= CONFIG_NORM_PARAMS_1_WRITE_RESP; 
 					end if; 
 					
 					
@@ -1430,6 +1492,8 @@ begin
 					axi_bready <= '1'; 
 					if(M_AXI_BVALID = '1') then 
 						next_state <= CONFIG_BIAS_ADDR_WRITE_ADDR;
+					else 
+						next_state <= CONFIG_NORM_PARAMS_2_WRITE_RESP; 
 					end if; 
 
 					
@@ -1465,8 +1529,9 @@ begin
 					axi_bready <= '1'; 
 					if(M_AXI_BVALID = '1') then 
 						next_state <= CONFIG_BIAS_PARAMS_WRITE_ADDR;
+					else 
+						next_state <= CONFIG_BIAS_ADDR_WRITE_RESP; 
 					end if; 
-					
 					
 				--=================================================================			
 				------------ CONFIGURE BIAS PARAMETERS REGISTER -------------------
@@ -1500,6 +1565,8 @@ begin
 					axi_bready <= '1'; 
 					if(M_AXI_BVALID = '1') then 
 						next_state <= CONFIG_WEIGHT_MULTIPLE_0_WRITE_ADDR;
+					else 
+						next_state <= CONFIG_BIAS_PARAMS_WRITE_RESP; 
 					end if; 
 					
 				--=================================================================			
@@ -1534,6 +1601,8 @@ begin
 					axi_bready <= '1'; 
 					if(M_AXI_BVALID = '1') then 
 						next_state <= CONFIG_WEIGHT_MULTIPLE_1_WRITE_ADDR;
+					else 
+						next_state <= CONFIG_WEIGHT_MULTIPLE_0_WRITE_RESP; 
 					end if; 
 					
 				--=================================================================			
@@ -1568,6 +1637,8 @@ begin
 					axi_bready <= '1'; 
 					if(M_AXI_BVALID = '1') then 
 						next_state <= CONFIG_INPUT_MULTIPLE_0_WRITE_ADDR;
+					else 
+						next_state <= CONFIG_WEIGHT_MULTIPLE_1_WRITE_RESP; 
 					end if; 
 					
 				--=================================================================			
@@ -1602,6 +1673,8 @@ begin
 					axi_bready <= '1'; 
 					if(M_AXI_BVALID = '1') then 
 						next_state <= CONFIG_INPUT_MULTIPLE_1_WRITE_ADDR;
+					else 
+						next_state <= CONFIG_INPUT_MULTIPLE_0_WRITE_RESP; 
 					end if; 
 					
 				--=================================================================			
@@ -1636,7 +1709,10 @@ begin
 					axi_bready <= '1'; 
 					if(M_AXI_BVALID = '1') then 
 						next_state <= CONFIG_OUTPUT_MULTIPLE_0_WRITE_ADDR;
+					else 
+						next_state <= CONFIG_INPUT_MULTIPLE_1_WRITE_RESP; 
 					end if; 
+					
 					
 				--=================================================================			
 				------------ CONFIGURE OUTPUT MULTIPLE 0 REGISTER -------------------
@@ -1670,6 +1746,8 @@ begin
 					axi_bready <= '1'; 
 					if(M_AXI_BVALID = '1') then 
 						next_state <= CONFIG_OUTPUT_MULTIPLE_1_WRITE_ADDR;
+					else 
+						next_state <= CONFIG_OUTPUT_MULTIPLE_0_WRITE_RESP; 
 					end if; 
 					
 				--=================================================================			
@@ -1704,6 +1782,8 @@ begin
 					axi_bready <= '1'; 
 					if(M_AXI_BVALID = '1') then 
 						next_state <= CONFIG_CONTROL_WRITE_ADDR;
+					else 
+						next_state <= CONFIG_OUTPUT_MULTIPLE_1_WRITE_RESP; 
 					end if; 
 					
 				--=================================================================			
@@ -1739,6 +1819,8 @@ begin
 					axi_bready <= '1'; 
 					if(M_AXI_BVALID = '1') then 
 						next_state <= HOLD_IRQ;
+					else 
+						next_state <= CONFIG_CONTROL_WRITE_RESP; 
 					end if; 
 
 				 
@@ -1760,14 +1842,14 @@ begin
 			end case; 
 		
 		
-		elsif(Test_number = 3) then
+		elsif(unsigned(i_test_number) = 3) then
 		
 			case current_state is
 			
 				when IDLE => 
 				  image_file_reset <= '1'; 
 				  weight_file_reset <= '1'; 
-				  if(i_init_calib_complete = '1') then 
+				  if(i_init_calib_complete = '1' and i_trigger = '1') then 
 					  next_state <= CONFIG_INPUT_DATA_ADDR_WRITE_ADDR;
 					  --read_en <= '1'; 
 				  else 
@@ -1808,6 +1890,8 @@ begin
 					axi_bready <= '1'; 
 					if(M_AXI_BVALID = '1') then 
 						next_state <= CONFIG_OUTPUT_DATA_ADDR_WRITE_ADDR;
+					else 
+						next_state <= CONFIG_INPUT_DATA_ADDR_WRITE_RESP;
 					end if; 
 					
 				--=================================================================			
@@ -1844,6 +1928,8 @@ begin
 					axi_bready <= '1'; 
 					if(M_AXI_BVALID = '1') then 
 						next_state <= CONFIG_FILTER_WEIGHTS_ADDR_WRITE_ADDR;
+					else 
+						next_state <= CONFIG_OUTPUT_DATA_ADDR_WRITE_RESP;
 					end if; 
 					
 				--=================================================================			
@@ -1880,6 +1966,8 @@ begin
 					axi_bready <= '1'; 
 					if(M_AXI_BVALID = '1') then 
 						next_state <= CONFIG_INPUT_PARAMS_WRITE_ADDR;
+					else 
+						next_state <= CONFIG_FILTER_WEIGHTS_ADDR_WRITE_RESP;
 					end if; 
 					
 				--=================================================================			
@@ -1915,6 +2003,8 @@ begin
 					axi_bready <= '1'; 
 					if(M_AXI_BVALID = '1') then 
 						next_state <= CONFIG_OUTPUT_PARAMS_WRITE_ADDR;
+					else 
+						next_state <= CONFIG_INPUT_PARAMS_WRITE_RESP;
 					end if; 
 					
 				--=================================================================			
@@ -1954,6 +2044,8 @@ begin
 					axi_bready <= '1'; 
 					if(M_AXI_BVALID = '1') then 
 						next_state <= CONFIG_WEIGHT_PARAMS_WRITE_ADDR;
+					else 
+						next_state <= CONFIG_OUTPUT_PARAMS_WRITE_RESP;
 					end if; 
 					
 				--=================================================================			
@@ -1989,6 +2081,8 @@ begin
 					axi_bready <= '1'; 
 					if(M_AXI_BVALID = '1') then 
 						next_state <= CONFIG_CONV_PARAMS_WRITE_ADDR;
+					else 
+						next_state <= CONFIG_WEIGHT_PARAMS_WRITE_RESP;
 					end if; 
 
 				--=================================================================			
@@ -2027,7 +2121,10 @@ begin
 					axi_bready <= '1'; 
 					if(M_AXI_BVALID = '1') then 
 						next_state <= CONFIG_NORM_PARAMS_0_WRITE_ADDR;
+					else 
+						next_state <= CONFIG_CONV_PARAMS_WRITE_RESP;
 					end if; 
+
 
 
 				--=================================================================			
@@ -2062,8 +2159,9 @@ begin
 					axi_bready <= '1'; 
 					if(M_AXI_BVALID = '1') then 
 						next_state <= CONFIG_NORM_PARAMS_1_WRITE_ADDR;
+					else 
+						next_state <= CONFIG_NORM_PARAMS_0_WRITE_RESP;
 					end if; 
-
 
 				--=================================================================			
 				------------ CONFIGURE NORM LAYER PARAMETERS 1-------------------
@@ -2097,8 +2195,9 @@ begin
 					axi_bready <= '1'; 
 					if(M_AXI_BVALID = '1') then 
 						next_state <= CONFIG_NORM_PARAMS_2_WRITE_ADDR;
+					else 
+						next_state <= CONFIG_NORM_PARAMS_1_WRITE_RESP;
 					end if; 
-					
 					
 				--=================================================================			
 				------------ CONFIGURE NORM LAYER PARAMETERS 2-------------------
@@ -2132,6 +2231,8 @@ begin
 					axi_bready <= '1'; 
 					if(M_AXI_BVALID = '1') then 
 						next_state <= CONFIG_BIAS_ADDR_WRITE_ADDR;
+					else 
+						next_state <= CONFIG_NORM_PARAMS_2_WRITE_RESP;
 					end if; 
 
 					
@@ -2167,8 +2268,9 @@ begin
 					axi_bready <= '1'; 
 					if(M_AXI_BVALID = '1') then 
 						next_state <= CONFIG_BIAS_PARAMS_WRITE_ADDR;
+					else 
+						next_state <= CONFIG_BIAS_ADDR_WRITE_RESP;
 					end if; 
-					
 					
 				--=================================================================			
 				------------ CONFIGURE BIAS PARAMETERS REGISTER -------------------
@@ -2207,6 +2309,8 @@ begin
 					axi_bready <= '1'; 
 					if(M_AXI_BVALID = '1') then 
 						next_state <= CONFIG_WEIGHT_MULTIPLE_0_WRITE_ADDR;
+					else 
+						next_state <= CONFIG_BIAS_PARAMS_WRITE_RESP;
 					end if; 
 					
 				--=================================================================			
@@ -2241,6 +2345,8 @@ begin
 					axi_bready <= '1'; 
 					if(M_AXI_BVALID = '1') then 
 						next_state <= CONFIG_WEIGHT_MULTIPLE_1_WRITE_ADDR;
+					else 
+						next_state <= CONFIG_WEIGHT_MULTIPLE_0_WRITE_RESP;
 					end if; 
 					
 				--=================================================================			
@@ -2275,7 +2381,10 @@ begin
 					axi_bready <= '1'; 
 					if(M_AXI_BVALID = '1') then 
 						next_state <= CONFIG_INPUT_MULTIPLE_0_WRITE_ADDR;
+					else 
+						next_state <= CONFIG_WEIGHT_MULTIPLE_1_WRITE_RESP;
 					end if; 
+					
 					
 				--=================================================================			
 				------------ CONFIGURE INPUT MULTIPLE 0 REGISTER -------------------
@@ -2309,6 +2418,8 @@ begin
 					axi_bready <= '1'; 
 					if(M_AXI_BVALID = '1') then 
 						next_state <= CONFIG_INPUT_MULTIPLE_1_WRITE_ADDR;
+					else 
+						next_state <= CONFIG_INPUT_MULTIPLE_0_WRITE_RESP;
 					end if; 
 					
 				--=================================================================			
@@ -2343,6 +2454,8 @@ begin
 					axi_bready <= '1'; 
 					if(M_AXI_BVALID = '1') then 
 						next_state <= CONFIG_OUTPUT_MULTIPLE_0_WRITE_ADDR;
+					else 
+						next_state <= CONFIG_INPUT_MULTIPLE_1_WRITE_RESP;
 					end if; 
 					
 				--=================================================================			
@@ -2377,6 +2490,8 @@ begin
 					axi_bready <= '1'; 
 					if(M_AXI_BVALID = '1') then 
 						next_state <= CONFIG_OUTPUT_MULTIPLE_1_WRITE_ADDR;
+					else 
+						next_state <= CONFIG_OUTPUT_MULTIPLE_0_WRITE_RESP;
 					end if; 
 					
 				--=================================================================			
@@ -2415,6 +2530,8 @@ begin
 					axi_bready <= '1'; 
 					if(M_AXI_BVALID = '1') then 
 						next_state <= CONFIG_AFFINE_PARAMS_WRITE_ADDR;
+					else 
+						next_state <= CONFIG_OUTPUT_MULTIPLE_1_WRITE_RESP;
 					end if; 
 					
 				--=================================================================			
@@ -2454,6 +2571,8 @@ begin
 					axi_bready <= '1'; 
 					if(M_AXI_BVALID = '1') then 
 						next_state <= CONFIG_CONTROL_WRITE_ADDR;
+					else 
+						next_state <= CONFIG_AFFINE_PARAMS_WRITE_RESP;
 					end if; 
 					
 				--=================================================================			
@@ -2475,7 +2594,7 @@ begin
 					axi_awlen <= x"00"; 
 					axi_awsize <= "000";
 					axi_awvalid <= '0'; 
-
+ 
 					axi_wdata <= x"00022011"; --Start
 					axi_wstrb <= "1111";
 					axi_wvalid <= '1'; 
@@ -2489,6 +2608,8 @@ begin
 					axi_bready <= '1'; 
 					if(M_AXI_BVALID = '1') then 
 						next_state <= HOLD_IRQ;
+					else 
+						next_state <= CONFIG_CONTROL_WRITE_RESP;
 					end if; 
 
 				 
@@ -2525,6 +2646,7 @@ begin
 		if(M_AXI_ARESETN = '0' or i_ext_reset_n = '0') then 
 			axi_araddr        <= (others => '0'); 
 			axi_arlen         <= (others => '0');  
+			axi_arsize 			<= (others => '0'); 
 			axi_arvalid	      <= '0';
 			read_beat_counter <= (others => '0'); 
 			write_beat_counter <= (others => '0'); 
@@ -2604,7 +2726,7 @@ begin
 					filter_counter		<= (others => '0');  
 
 					
-					if(Test_number = 1) then 
+					if(unsigned(i_test_number) = 1) then 
 					
 						image_mem_axi_addr  <= x"8000_0000"; 
 						weights_mem_axi_addr<= x"8004_B800"; 
@@ -2613,7 +2735,7 @@ begin
 						bias_mem_axi_addr 	<= x"9C00_0000"; 
 						mem_addr 			<= (others => '0'); 
 					
-					elsif(Test_number = 2) then 
+					elsif(unsigned(i_test_number) = 2) then 
 					
 						image_mem_axi_addr  <= x"80DB_5A00"; 
 						weights_mem_axi_addr<= x"80DF_5300"; 
@@ -2622,7 +2744,7 @@ begin
 						bias_mem_axi_addr 	<= x"9C00_1030"; 
 						mem_addr 			<= (others => '0'); 
 					
-					elsif(Test_number = 3) then 
+					elsif(unsigned(i_test_number) = 3) then 
 					
 						image_mem_axi_addr  <= x"8117_F900"; 
 						weights_mem_axi_addr<= x"8400_0000"; 

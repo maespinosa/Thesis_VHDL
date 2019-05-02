@@ -24,7 +24,27 @@ port (
 	o_ready : out std_logic; 
 	o_exp_done : out std_logic;
 	i_fifo_full : in std_logic; 
-	i_fifo_almost_full : in std_logic
+	i_fifo_almost_full : in std_logic; 
+	--CHIPSCOPE SIGNALS
+	ila_smax_exp_fsm_state : out std_logic_vector(3 downto 0); 
+	ila_smax_exp_valid_result : out std_logic; 
+	ila_smax_exp_function_ready : out std_logic; 
+	ila_smax_exp_step_counter : out unsigned(7 downto 0); 
+	ila_smax_exp_multiplication_counter : out unsigned(7 downto 0);  
+	ila_smax_exp_hold_counter : out unsigned(7 downto 0); 
+	ila_smax_exp_sum_counter : out unsigned(7 downto 0); 
+	ila_smax_exp_multiplicand_a : out std_logic_vector(g_data_width-1 downto 0); 
+	ila_smax_exp_multiplicand_b : out std_logic_vector(g_data_width-1 downto 0); 
+	ila_smax_exp_product : out std_logic_vector(g_data_width-1 downto 0); 
+	ila_smax_exp_augend : out std_logic_vector(g_data_width-1 downto 0); 
+	ila_smax_exp_addend : out std_logic_vector(g_data_width-1 downto 0); 
+	ila_smax_exp_sum : out std_logic_vector(g_data_width-1 downto 0); 
+	ila_smax_exp_data_reg : out std_logic_vector(g_data_width-1 downto 0); 
+	ila_smax_exp_mult_reg : out std_logic_vector(g_data_width-1 downto 0); 
+	ila_smax_exp_fifo_data : out std_logic_vector(g_data_width-1 downto 0); 
+	ila_smax_exp_fifo_wr_en : out std_logic; 
+	ila_smax_exp_exp_done : out std_logic
+	
 
 ); 
 end exponential_function; 
@@ -82,7 +102,7 @@ signal fifo_wr_en : std_logic;
 
 signal exp_done : std_logic;
 
-
+signal fsm_state : std_logic_vector(3 downto 0); 
 
 begin 
 
@@ -117,6 +137,25 @@ factorials(22) 	<= x"1C860000";
 factorials(23) 	<= x"1A3B0000";
 
 
+ila_smax_exp_fsm_state 					<= fsm_state;
+ila_smax_exp_valid_result 				<= valid_result;
+ila_smax_exp_function_ready 			<= function_ready;
+ila_smax_exp_step_counter 				<= step_counter;
+ila_smax_exp_multiplication_counter 	<= multiplication_counter;
+ila_smax_exp_hold_counter 				<= hold_counter;
+ila_smax_exp_sum_counter 				<= sum_counter;
+ila_smax_exp_multiplicand_a 			<= multiplicand_a;
+ila_smax_exp_multiplicand_b 			<= multiplicand_b;
+ila_smax_exp_product 					<= product;
+ila_smax_exp_augend 					<= augend;
+ila_smax_exp_addend 					<= addend;
+ila_smax_exp_sum 						<= sum;
+ila_smax_exp_data_reg 					<= data_reg;
+ila_smax_exp_mult_reg 					<= mult_reg;
+ila_smax_exp_fifo_data 					<= fifo_data;
+ila_smax_exp_fifo_wr_en 				<= fifo_wr_en;
+ila_smax_exp_exp_done 					<= exp_done;
+
 
 multiplier : softmax_multiply_32bit
 port map(
@@ -150,10 +189,12 @@ next_state_comb : process(current_state,i_ready,i_valid,step_counter,hold_counte
 begin
 	function_ready <= '0';
 	--exp_done <= '0'; 
+	fsm_state <= "0000"; 
 
 	case current_state is 
 	
 	when IDLE => 
+		fsm_state <= "0000"; 
 		function_ready <= '1'; 
 		if(i_ready = '1' and i_valid = '1') then 
 			next_state <= MULT_INPUT; 
@@ -164,6 +205,7 @@ begin
 	
 	
 	when MULT_INPUT => 
+		fsm_state <= "0001"; 
 		--next_state <= MULT_INPUT; 
 		function_ready <= '1';
 
@@ -175,16 +217,15 @@ begin
 				next_state <= MULT_INPUT; 
 			elsif(step_counter = 2) then 
 				next_state <= MULT_INPUT_HOLD; 
-			elsif(step_counter > 2) then -- and step_counter < 23 and multiplication_counter < step_counter) then 
+			elsif(step_counter > 2) then 
 				next_state <= MULT_INPUT_HOLD; 
-			--elsif(step_counter > 2 and step_counter < 23 and multiplication_counter = step_counter) then 
-			--	next_state <= MULT_INPUT_HOLD; 
 			else 
 				next_state <= MULT_INPUT_HOLD; 
 			end if;
 		--end if; 
 
-	when MULT_INPUT_HOLD => 
+	when MULT_INPUT_HOLD =>
+		fsm_state <= "0010"; 
 		next_state <= MULT_INPUT_HOLD; 
 		if(hold_counter < g_mult_delay) then 
 			next_state <= MULT_INPUT_HOLD; 
@@ -194,10 +235,12 @@ begin
 			
 	
 	when MULT_FACT => 
+		fsm_state <= "0011"; 
 		next_state <= MULT_FACT_HOLD; 
 	
 
 	when MULT_FACT_HOLD => 
+		fsm_state <= "0100"; 
 		next_state <= MULT_FACT_HOLD; 
 		if(hold_counter < g_mult_delay) then 
 			next_state <= MULT_FACT_HOLD; 
@@ -210,17 +253,11 @@ begin
 		end if; 
 
 	when SUM_ALL => 
+		fsm_state <= "0101"; 
 		next_state <= SUM_HOLD; 
-		--if(sum_counter = 0) then 
-		--	next_state <= SUM_ALL; 
-		--elsif(sum_counter < 23 and sum_counter > 0) then 
-		--	next_state <= SUM_HOLD; 
-		--else 
-		--	next_state <= SUM_HOLD; 
-		--end if; 
-
 
 	when SUM_HOLD => 
+		fsm_state <= "0110"; 
 		next_state <= SUM_HOLD; 
 		if(hold_counter < g_adder_delay) then 
 			next_state <= SUM_HOLD; 
@@ -234,6 +271,7 @@ begin
 		end if; 
 
 	when WRITE_RESULT => 
+		fsm_state <= "0111"; 
 		if(i_fifo_full = '0' and i_fifo_almost_full = '0') then 
 			next_state <= IDLE; 
 			--exp_done <= '1';
@@ -244,6 +282,7 @@ begin
 
 	
 	when others => 
+		fsm_state <= "1000"; 
 		next_state <= IDLE; 
 	
 	

@@ -31,7 +31,20 @@ proc init_gui { IPINST } {
   ipgui::add_param $IPINST -name "C_S00_AXI_HIGHADDR" -parent ${Page_0}
 
   ipgui::add_param $IPINST -name "G_DATA_WIDTH"
+  ipgui::add_param $IPINST -name "G_DSPS_USED"
+  ipgui::add_param $IPINST -name "G_NUM_ADDER_LAYERS"
+  ipgui::add_param $IPINST -name "G_MULT_DELAY"
+  ipgui::add_param $IPINST -name "G_ADDER_DELAY"
 
+}
+
+proc update_PARAM_VALUE.G_ADDER_DELAY { PARAM_VALUE.G_ADDER_DELAY } {
+	# Procedure called to update G_ADDER_DELAY when any of the dependent parameters in the arguments change
+}
+
+proc validate_PARAM_VALUE.G_ADDER_DELAY { PARAM_VALUE.G_ADDER_DELAY } {
+	# Procedure called to validate G_ADDER_DELAY
+	return true
 }
 
 proc update_PARAM_VALUE.G_DATA_WIDTH { PARAM_VALUE.G_DATA_WIDTH } {
@@ -40,6 +53,33 @@ proc update_PARAM_VALUE.G_DATA_WIDTH { PARAM_VALUE.G_DATA_WIDTH } {
 
 proc validate_PARAM_VALUE.G_DATA_WIDTH { PARAM_VALUE.G_DATA_WIDTH } {
 	# Procedure called to validate G_DATA_WIDTH
+	return true
+}
+
+proc update_PARAM_VALUE.G_DSPS_USED { PARAM_VALUE.G_DSPS_USED } {
+	# Procedure called to update G_DSPS_USED when any of the dependent parameters in the arguments change
+}
+
+proc validate_PARAM_VALUE.G_DSPS_USED { PARAM_VALUE.G_DSPS_USED } {
+	# Procedure called to validate G_DSPS_USED
+	return true
+}
+
+proc update_PARAM_VALUE.G_MULT_DELAY { PARAM_VALUE.G_MULT_DELAY } {
+	# Procedure called to update G_MULT_DELAY when any of the dependent parameters in the arguments change
+}
+
+proc validate_PARAM_VALUE.G_MULT_DELAY { PARAM_VALUE.G_MULT_DELAY } {
+	# Procedure called to validate G_MULT_DELAY
+	return true
+}
+
+proc update_PARAM_VALUE.G_NUM_ADDER_LAYERS { PARAM_VALUE.G_NUM_ADDER_LAYERS } {
+	# Procedure called to update G_NUM_ADDER_LAYERS when any of the dependent parameters in the arguments change
+}
+
+proc validate_PARAM_VALUE.G_NUM_ADDER_LAYERS { PARAM_VALUE.G_NUM_ADDER_LAYERS } {
+	# Procedure called to validate G_NUM_ADDER_LAYERS
 	return true
 }
 
@@ -233,5 +273,25 @@ proc update_MODELPARAM_VALUE.C_S00_AXI_ADDR_WIDTH { MODELPARAM_VALUE.C_S00_AXI_A
 proc update_MODELPARAM_VALUE.G_DATA_WIDTH { MODELPARAM_VALUE.G_DATA_WIDTH PARAM_VALUE.G_DATA_WIDTH } {
 	# Procedure called to set VHDL generic/Verilog parameter value(s) based on TCL parameter value
 	set_property value [get_property value ${PARAM_VALUE.G_DATA_WIDTH}] ${MODELPARAM_VALUE.G_DATA_WIDTH}
+}
+
+proc update_MODELPARAM_VALUE.G_DSPS_USED { MODELPARAM_VALUE.G_DSPS_USED PARAM_VALUE.G_DSPS_USED } {
+	# Procedure called to set VHDL generic/Verilog parameter value(s) based on TCL parameter value
+	set_property value [get_property value ${PARAM_VALUE.G_DSPS_USED}] ${MODELPARAM_VALUE.G_DSPS_USED}
+}
+
+proc update_MODELPARAM_VALUE.G_ADDER_DELAY { MODELPARAM_VALUE.G_ADDER_DELAY PARAM_VALUE.G_ADDER_DELAY } {
+	# Procedure called to set VHDL generic/Verilog parameter value(s) based on TCL parameter value
+	set_property value [get_property value ${PARAM_VALUE.G_ADDER_DELAY}] ${MODELPARAM_VALUE.G_ADDER_DELAY}
+}
+
+proc update_MODELPARAM_VALUE.G_MULT_DELAY { MODELPARAM_VALUE.G_MULT_DELAY PARAM_VALUE.G_MULT_DELAY } {
+	# Procedure called to set VHDL generic/Verilog parameter value(s) based on TCL parameter value
+	set_property value [get_property value ${PARAM_VALUE.G_MULT_DELAY}] ${MODELPARAM_VALUE.G_MULT_DELAY}
+}
+
+proc update_MODELPARAM_VALUE.G_NUM_ADDER_LAYERS { MODELPARAM_VALUE.G_NUM_ADDER_LAYERS PARAM_VALUE.G_NUM_ADDER_LAYERS } {
+	# Procedure called to set VHDL generic/Verilog parameter value(s) based on TCL parameter value
+	set_property value [get_property value ${PARAM_VALUE.G_NUM_ADDER_LAYERS}] ${MODELPARAM_VALUE.G_NUM_ADDER_LAYERS}
 }
 

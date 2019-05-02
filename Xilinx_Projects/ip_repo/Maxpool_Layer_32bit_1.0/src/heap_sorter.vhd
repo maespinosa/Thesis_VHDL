@@ -47,13 +47,36 @@ entity heap_sorter is
 		g_data_width : integer := 32
 		); 
     Port ( 
-		   i_clk            : in STD_LOGIC;
-           i_reset_n        : in STD_LOGIC;
-           i_data           : in array_type_9x32bit;
-		   i_data_valid		: in std_logic; 
-           o_sorted_data    : out array_type_9x32bit; 
-		   o_sorted_data_valid : out std_logic; 
-		   o_sorter_ready	: out std_logic
+		   i_clk            			: in STD_LOGIC;
+           i_reset_n        			: in STD_LOGIC;
+           i_data           			: in array_type_9x32bit;
+		   i_data_valid					: in std_logic; 
+           o_sorted_data    			: out array_type_9x32bit; 
+		   o_sorted_data_valid 			: out std_logic; 
+		   o_sorter_ready				: out std_logic; 
+		   ila_heap_sorter_fsm_state 	: out std_logic_vector(3 downto 0); 
+		   ila_heap_sorter_position1 	: out std_logic_vector(g_data_width-1 downto 0);
+		   ila_heap_sorter_position2 	: out std_logic_vector(g_data_width-1 downto 0);
+		   ila_heap_sorter_position3 	: out std_logic_vector(g_data_width-1 downto 0);
+		   ila_heap_sorter_position4 	: out std_logic_vector(g_data_width-1 downto 0);
+		   ila_heap_sorter_position5 	: out std_logic_vector(g_data_width-1 downto 0);
+		   ila_heap_sorter_position6 	: out std_logic_vector(g_data_width-1 downto 0);
+		   ila_heap_sorter_position7 	: out std_logic_vector(g_data_width-1 downto 0);
+		   ila_heap_sorter_position8 	: out std_logic_vector(g_data_width-1 downto 0);
+		   ila_heap_sorter_position9 	: out std_logic_vector(g_data_width-1 downto 0); 
+		   ila_heap_sorter_done 		: out std_logic; 
+		   ila_heap_sorter_sorted_data_0: out std_logic_vector(g_data_width-1 downto 0); 
+		   ila_heap_sorter_sorted_data_1: out std_logic_vector(g_data_width-1 downto 0); 
+		   ila_heap_sorter_sorted_data_2: out std_logic_vector(g_data_width-1 downto 0); 
+		   ila_heap_sorter_sorted_data_3: out std_logic_vector(g_data_width-1 downto 0); 
+		   ila_heap_sorter_sorted_data_4: out std_logic_vector(g_data_width-1 downto 0); 
+		   ila_heap_sorter_sorted_data_5: out std_logic_vector(g_data_width-1 downto 0); 
+		   ila_heap_sorter_sorted_data_6: out std_logic_vector(g_data_width-1 downto 0); 
+		   ila_heap_sorter_sorted_data_7: out std_logic_vector(g_data_width-1 downto 0); 
+		   ila_heap_sorter_sorted_data_8: out std_logic_vector(g_data_width-1 downto 0); 
+		   ila_heap_sorter_sorted_data_9: out std_logic_vector(g_data_width-1 downto 0); 
+		   ila_heap_sorter_sorter_ready : out std_logic
+		   
            );
 end heap_sorter;
 
@@ -75,27 +98,58 @@ type state_type is (
 	BUILD_MAX_HEAP_P3,
 	BUILD_MAX_HEAP_P2,
 	BUILD_MAX_HEAP_P1, 
+	MAX_HEAP_DONE, 
 	BUILD_MIN_HEAP_P4, 
 	BUILD_MIN_HEAP_P3,
 	BUILD_MIN_HEAP_P2,
-	BUILD_MIN_HEAP_P1
+	BUILD_MIN_HEAP_P1, 
+	MIN_HEAP_DONE
 	); 
 signal current_state : state_type; 
 signal next_state : state_type; 
 
 signal done : std_logic; 
-
 signal sorted_data : array_type_9x32bit; 
 signal sorter_ready : std_logic; 
+signal fsm_state : std_logic_vector(3 downto 0); 
+
+
+
+
 
 begin
 
 o_sorted_data <= sorted_data when done = '1' else 
 				 (others => (others => '0')); 
 				 
-o_sorted_data_valid		<= done; 
+o_sorted_data_valid				<= done; 
 
-o_sorter_ready <= sorter_ready; 
+o_sorter_ready 					<= sorter_ready; 
+
+ila_heap_sorter_fsm_state 		<= fsm_state; 
+
+ila_heap_sorter_position1 		<= std_logic_vector(position1); 
+ila_heap_sorter_position2 		<= std_logic_vector(position2);
+ila_heap_sorter_position3 		<= std_logic_vector(position3);
+ila_heap_sorter_position4 		<= std_logic_vector(position4);
+ila_heap_sorter_position5 		<= std_logic_vector(position5);
+ila_heap_sorter_position6 		<= std_logic_vector(position6);
+ila_heap_sorter_position7 		<= std_logic_vector(position7);
+ila_heap_sorter_position8 		<= std_logic_vector(position8);
+ila_heap_sorter_position9 		<= std_logic_vector(position9);
+
+ila_heap_sorter_done 			<= done;  
+ila_heap_sorter_sorted_data_0 	<= sorted_data(0);
+ila_heap_sorter_sorted_data_1 	<= sorted_data(1);
+ila_heap_sorter_sorted_data_2 	<= sorted_data(2);
+ila_heap_sorter_sorted_data_3 	<= sorted_data(3);
+ila_heap_sorter_sorted_data_4 	<= sorted_data(4);
+ila_heap_sorter_sorted_data_5 	<= sorted_data(5);
+ila_heap_sorter_sorted_data_6 	<= sorted_data(6);
+ila_heap_sorter_sorted_data_7 	<= sorted_data(7);
+ila_heap_sorter_sorted_data_8 	<= sorted_data(8);
+ila_heap_sorter_sorted_data_9 	<= (others => '0');--sorted_data(9);
+ila_heap_sorter_sorter_ready 	<= sorter_ready; 
 
 state_transistion: process(i_clk, i_reset_n)
 begin 
@@ -106,12 +160,14 @@ begin
     end if; 
 end process;
 
-next_state_comb: process(current_state, i_data_valid, position1,position2,position3,position4,position5,position6,position7,position8,position9) 
+next_state_comb: process(current_state, i_data,i_data_valid, position1,position2,position3,position4,position5,position6,position7,position8,position9) 
 begin 
 	sorter_ready <= '0'; 
+	fsm_state		<= "0000"; 
 	
     case current_state is 
 		when IDLE => 
+			fsm_state		<= "0000"; 
 			sorter_ready <= '1'; 
 			if(i_data_valid = '1') then 
 				if(i_data(8)(g_data_width-1) = '1' and i_data(7)(g_data_width-1) = '1' and 
@@ -127,65 +183,54 @@ begin
 				next_state <= IDLE; 
 			end if; 
 
-		when BUILD_MAX_HEAP_P4 =>  
-			if(position4 > position9 and position4 > position8) then 
-				next_state <= BUILD_MAX_HEAP_P3;  
-			else
-				next_state <= BUILD_MAX_HEAP_P4; 
-			end if; 
-			
+		when BUILD_MAX_HEAP_P4 => 
+			fsm_state		<= "0001"; 		
+			next_state <= BUILD_MAX_HEAP_P3; 
+
 				
 		when BUILD_MAX_HEAP_P3 =>  
-			if(position3 > position7 and position3 > position6) then 
-				next_state <= BUILD_MAX_HEAP_P2; 
-			else
-				next_state <= BUILD_MAX_HEAP_P3; 
-			end if; 
+			fsm_state		<= "0010"; 
+			next_state <= BUILD_MAX_HEAP_P2; 
+
 			
 		when BUILD_MAX_HEAP_P2 =>  
-			if(position2 > position5 and position2 > position4) then 
-				next_state <= BUILD_MAX_HEAP_P1;
-			else
-				next_state <= BUILD_MAX_HEAP_P2;
-			end if; 
+			fsm_state		<= "0011"; 
+			next_state <= BUILD_MAX_HEAP_P1;
+
 			
-		when BUILD_MAX_HEAP_P1 =>  
-			if(position1 > position2 and position1 > position3) then 
-				next_state <= IDLE; 
-			else
-				next_state <= BUILD_MAX_HEAP_P1;
-			end if;           
+		when BUILD_MAX_HEAP_P1 =>
+		fsm_state		<= "0100"; 		
+			next_state <= MAX_HEAP_DONE; 
+			
+		when MAX_HEAP_DONE => 
+			fsm_state		<= "0101"; 
+			next_state <= IDLE; 
             
 		when BUILD_MIN_HEAP_P4 =>  
-			if(position4 < position9 and position4 < position8) then 
-				next_state <= BUILD_MIN_HEAP_P3;  
-			else
-				next_state <= BUILD_MIN_HEAP_P4; 
-			end if; 
+			fsm_state		<= "0110"; 
+			next_state <= BUILD_MIN_HEAP_P3; 
 			
 				
 		when BUILD_MIN_HEAP_P3 =>  
-			if(position3 < position7 and position3 < position6) then 
-				next_state <= BUILD_MIN_HEAP_P2; 
-			else
-				next_state <= BUILD_MIN_HEAP_P3; 
-			end if; 
+			fsm_state		<= "0111"; 
+			next_state <= BUILD_MIN_HEAP_P2; 
+
 			
 		when BUILD_MIN_HEAP_P2 =>  
-			if(position2 < position5 and position2 < position4) then 
-				next_state <= BUILD_MIN_HEAP_P1;
-			else
-				next_state <= BUILD_MIN_HEAP_P2;
-			end if; 
+			fsm_state		<= "1000"; 
+			next_state <= BUILD_MIN_HEAP_P1;
+
 			
 		when BUILD_MIN_HEAP_P1 =>  
-			if(position1 < position2 and position1 < position3) then 
-				next_state <= IDLE; 
-			else
-				next_state <= BUILD_MIN_HEAP_P1;
-			end if;   
+			fsm_state		<= "1001"; 
+			next_state <= MIN_HEAP_DONE; 
+
+		when MIN_HEAP_DONE => 
+			fsm_state		<= "1010"; 
+			next_state <= IDLE; 
 			
         when others => 
+			fsm_state		<= "1011"; 
             next_state <= IDLE;   
     end case; 
     
@@ -261,6 +306,10 @@ begin
 					position8 <= position4; 
 					position4 <= position8;
 					position9 <= position9;
+				elsif(position8 = position9 and position8 > position4) then 
+					position8 <= position4; 
+					position4 <= position8;
+					position9 <= position9;
 				else
 					position4 <= position4; 
 					position8 <= position8; 
@@ -274,6 +323,10 @@ begin
 					position3 <= position7;
 					position6 <= position6; 
 				elsif(position6 > position3 and position6 > position7) then 
+					position6 <= position3; 
+					position3 <= position6;
+					position7 <= position7;
+				elsif(position6 = position7 and position6 > position3) then 
 					position6 <= position3; 
 					position3 <= position6;
 					position7 <= position7;
@@ -292,6 +345,10 @@ begin
 					position4 <= position2; 
 					position2 <= position4;
 					position5 <= position5;
+				elsif(position4 = position5 and position4 > position2) then 
+					position4 <= position2; 
+					position2 <= position4;
+					position5 <= position5;
 				else
 					position2 <= position2; 
 					position4 <= position4; 
@@ -307,31 +364,39 @@ begin
 					position3 <= position1; 
 					position1 <= position3;
 					position2 <= position2;
+				elsif(position3 = position2 and position3 > position1) then 
+					position3 <= position1; 
+					position1 <= position3;
+					position2 <= position2;
 				else
 					position1 <= position1; 
 					position2 <= position2; 
 					position3 <= position3;
-					done <= '1'; 
-
-					sorted_data(0) <= std_logic_vector(position1); 
-					sorted_data(1) <= std_logic_vector(position2); 
-					sorted_data(2) <= std_logic_vector(position3); 
-					sorted_data(3) <= std_logic_vector(position4); 
-					sorted_data(4) <= std_logic_vector(position5); 
-					sorted_data(5) <= std_logic_vector(position6); 
-					sorted_data(6) <= std_logic_vector(position7); 
-					sorted_data(7) <= std_logic_vector(position8); 
-					sorted_data(8) <= std_logic_vector(position9); 
-
 				end if;      
 
+			when MAX_HEAP_DONE => 
+				done <= '1'; 
 
+				sorted_data(0) <= std_logic_vector(position1); 
+				sorted_data(1) <= std_logic_vector(position2); 
+				sorted_data(2) <= std_logic_vector(position3); 
+				sorted_data(3) <= std_logic_vector(position4); 
+				sorted_data(4) <= std_logic_vector(position5); 
+				sorted_data(5) <= std_logic_vector(position6); 
+				sorted_data(6) <= std_logic_vector(position7); 
+				sorted_data(7) <= std_logic_vector(position8); 
+				sorted_data(8) <= std_logic_vector(position9); 
+				
             when BUILD_MIN_HEAP_P4 =>  
 				if(position9 < position4 and position9 < position8) then 
 					position9 <= position4; 
 					position4 <= position9;
 					position8 <= position8; 
 				elsif(position8 < position4 and position8 < position9) then 
+					position8 <= position4; 
+					position4 <= position8;
+					position9 <= position9;
+				elsif(position8 = position9 and position8 < position4) then 
 					position8 <= position4; 
 					position4 <= position8;
 					position9 <= position9;
@@ -351,6 +416,10 @@ begin
 					position6 <= position3; 
 					position3 <= position6;
 					position7 <= position7;
+				elsif(position6 = position7 and position6 < position3) then 
+					position6 <= position3; 
+					position3 <= position6;
+					position7 <= position7;
 				else
 					position3 <= position3; 
 					position6 <= position6; 
@@ -363,6 +432,10 @@ begin
 					position2 <= position5;
 					position4 <= position4; 
 				elsif(position4 < position2 and position4 < position5) then 
+					position4 <= position2; 
+					position2 <= position4;
+					position5 <= position5;
+				elsif(position4 = position5 and position4 < position2) then 
 					position4 <= position2; 
 					position2 <= position4;
 					position5 <= position5;
@@ -381,24 +454,28 @@ begin
 					position3 <= position1; 
 					position1 <= position3;
 					position2 <= position2;
+				elsif(position3 = position2 and position3 < position1) then 
+					position3 <= position1; 
+					position1 <= position3;
+					position2 <= position2;
 				else
 					position1 <= position1; 
 					position2 <= position2; 
 					position3 <= position3;
-					done <= '1'; 
+				end if;     
 
-					sorted_data(0) <= std_logic_vector(position1); 
-					sorted_data(1) <= std_logic_vector(position2); 
-					sorted_data(2) <= std_logic_vector(position3); 
-					sorted_data(3) <= std_logic_vector(position4); 
-					sorted_data(4) <= std_logic_vector(position5); 
-					sorted_data(5) <= std_logic_vector(position6); 
-					sorted_data(6) <= std_logic_vector(position7); 
-					sorted_data(7) <= std_logic_vector(position8); 
-					sorted_data(8) <= std_logic_vector(position9); 
+			when MIN_HEAP_DONE => 
+				done <= '1'; 
 
-				end if;           
-				
+				sorted_data(0) <= std_logic_vector(position1); 
+				sorted_data(1) <= std_logic_vector(position2); 
+				sorted_data(2) <= std_logic_vector(position3); 
+				sorted_data(3) <= std_logic_vector(position4); 
+				sorted_data(4) <= std_logic_vector(position5); 
+				sorted_data(5) <= std_logic_vector(position6); 
+				sorted_data(6) <= std_logic_vector(position7); 
+				sorted_data(7) <= std_logic_vector(position8); 
+				sorted_data(8) <= std_logic_vector(position9); 
 
             when others => 
 				position1 <= (others => '0'); 

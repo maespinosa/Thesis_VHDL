@@ -29,6 +29,129 @@ entity Softmax_Layer_32bit_v1_0 is
 	port (
 		-- Users to add ports here
 		o_softmax_complete : out std_logic; 
+		o_cycle : out std_logic_vector(63 downto 0);
+		o_epoch : out std_logic_vector(63 downto 0);  
+
+		--CHIPSCOPE SIGNALS
+		ila_smax_exp_fsm_state : out std_logic_vector(3 downto 0); 
+		ila_smax_exp_valid_result : out std_logic; 
+		ila_smax_exp_function_ready : out std_logic; 
+		ila_smax_exp_step_counter : out unsigned(7 downto 0); 
+		ila_smax_exp_multiplication_counter : out unsigned(7 downto 0);  
+		ila_smax_exp_hold_counter : out unsigned(7 downto 0); 
+		ila_smax_exp_sum_counter : out unsigned(7 downto 0); 
+		ila_smax_exp_multiplicand_a : out std_logic_vector(g_data_width-1 downto 0); 
+		ila_smax_exp_multiplicand_b : out std_logic_vector(g_data_width-1 downto 0); 
+		ila_smax_exp_product : out std_logic_vector(g_data_width-1 downto 0); 
+		ila_smax_exp_augend : out std_logic_vector(g_data_width-1 downto 0); 
+		ila_smax_exp_addend : out std_logic_vector(g_data_width-1 downto 0); 
+		ila_smax_exp_sum : out std_logic_vector(g_data_width-1 downto 0); 
+		ila_smax_exp_data_reg : out std_logic_vector(g_data_width-1 downto 0); 
+		ila_smax_exp_mult_reg : out std_logic_vector(g_data_width-1 downto 0); 
+		ila_smax_exp_fifo_data : out std_logic_vector(g_data_width-1 downto 0); 
+		ila_smax_exp_fifo_wr_en : out std_logic; 
+		ila_smax_exp_exp_done : out std_logic; 
+		
+		ila_smax_aw_fsm_state : out std_logic_vector(3 downto 0); 
+		ila_smax_aw_addend : out std_logic_vector(g_data_width-1 downto 0); 
+		ila_smax_aw_augend : out std_logic_vector(g_data_width-1 downto 0); 
+		ila_smax_aw_sum : out std_logic_vector(g_data_width-1 downto 0); 
+		ila_smax_aw_rd_en : out std_logic; 
+		ila_smax_aw_summing_complete : out std_logic; 
+		ila_smax_aw_hold_counter : out unsigned(7 downto 0); 
+		ila_smax_aw_sum_counter : out unsigned(15 downto 0); 
+		ila_smax_aw_sum_reg : out std_logic_vector(g_data_width-1 downto 0); 
+		ila_smax_aw_sum_result_valid : out std_logic; 
+
+		ila_smax_dw_fsm_state : out std_logic_vector(3 downto 0); 
+		ila_smax_dw_divisor : out std_logic_vector(g_data_width-1 downto 0); 
+		ila_smax_dw_dividend : out std_logic_vector(g_data_width-1 downto 0); 
+		ila_smax_dw_quotient : out std_logic_vector(g_data_width-1 downto 0); 
+		ila_smax_dw_rd_en : out std_logic; 
+		ila_smax_dw_division_complete : out std_logic; 
+		ila_smax_dw_hold_counter : out unsigned(7 downto 0); 
+		ila_smax_dw_quotient_counter : out unsigned(15 downto 0); 
+		ila_smax_dw_division_reg : out std_logic_vector(g_data_width-1 downto 0); 
+		ila_smax_dw_quotient_result_valid : out std_logic; 
+		
+		ila_smax_ctrlr_fsm_state : out std_logic_vector(3 downto 0); 
+		ila_smax_ctrlr_exp_input : out std_logic_vector(g_data_width-1 downto 0); 
+		ila_smax_ctrlr_exp_input_valid : out std_logic; 
+		ila_smax_ctrlr_controller_ready : out std_logic; 
+		ila_smax_ctrlr_exp_fifo_select : out std_logic; 
+		ila_smax_ctrlr_exp_complete	: out std_logic; 
+		ila_smax_ctrlr_element_counter : out unsigned(15 downto 0); 
+		ila_smax_ctrlr_softmax_complete : out std_logic; 
+		ila_smax_ctrlr_clear_all : out std_logic;
+		ila_smax_ctrlr_busy : out std_logic; 
+		
+		ila_smax_inbuff_din  		 : out std_logic_vector(g_data_width-1 downto 0); 
+		ila_smax_inbuff_wr_en 		 : out std_logic; 
+		ila_smax_inbuff_rd_en 		 : out std_logic;
+		ila_smax_inbuff_dout 		 : out std_logic_vector(g_data_width-1 downto 0); 
+		ila_smax_inbuff_full		 : out std_logic;  
+		ila_smax_inbuff_almost_full  : out std_logic;  
+		ila_smax_inbuff_empty        : out std_logic; 
+		ila_smax_inbuff_almost_empty : out std_logic; 
+		ila_smax_inbuff_valid        : out std_logic; 
+
+			
+		ila_smax_outbuff_din  		  : out std_logic_vector(g_data_width-1 downto 0); 
+		ila_smax_outbuff_wr_en 		  : out std_logic; 
+		ila_smax_outbuff_rd_en 		  : out std_logic;
+		ila_smax_outbuff_dout 		  : out std_logic_vector(g_data_width-1 downto 0); 
+		ila_smax_outbuff_full		  : out std_logic;  
+		ila_smax_outbuff_almost_full  : out std_logic;  
+		ila_smax_outbuff_empty        : out std_logic; 
+		ila_smax_outbuff_almost_empty : out std_logic; 
+		ila_smax_outbuff_valid        : out std_logic; 
+
+		ila_smax_exp_mux_data           : out std_logic_vector(g_data_width-1 downto 0); 
+		ila_smax_exp_mux_wr_en          : out std_logic; 
+		ila_smax_exp_fifo_rd_en         : out std_logic; 
+		ila_smax_exp_fifo_dout          : out std_logic_vector(g_data_width-1 downto 0); 
+		ila_smax_exp_fifo_full          : out std_logic; 
+		ila_smax_exp_fifo_almost_full   : out std_logic; 
+		ila_smax_exp_fifo_empty         : out std_logic; 
+		ila_smax_exp_fifo_almost_empty  : out std_logic; 
+		ila_smax_exp_fifo_valid         : out std_logic; 
+		
+		
+		ila_smax_axi_awaddr				: out std_logic_vector(C_M00_AXI_ADDR_WIDTH-1 downto 0);
+		ila_smax_axi_awready			: out std_logic; 
+		ila_smax_axi_awlen    			: out std_logic_vector(7 downto 0); 
+		ila_smax_axi_awvalid			: out std_logic;
+		ila_smax_axi_wdata				: out std_logic_vector(C_M00_AXI_DATA_WIDTH-1 downto 0);
+		ila_smax_axi_wready				: out std_logic; 
+		ila_smax_axi_wlast				: out std_logic;
+		ila_smax_axi_wvalid				: out std_logic;
+		ila_smax_axi_wstrb    			: out std_logic_vector(3 downto 0); 
+		ila_smax_axi_bready				: out std_logic;
+		ila_smax_axi_bvalid				: out std_logic; 
+		ila_smax_axi_araddr				: out std_logic_vector(C_M00_AXI_ADDR_WIDTH-1 downto 0);
+		ila_smax_axi_arlen    			: out std_logic_vector(7 downto 0); 
+		ila_smax_axi_arvalid			: out std_logic;
+		ila_smax_axi_rready				: out std_logic;
+		ila_smax_axi_arready 			: out std_logic;
+		ila_smax_axi_rdata				: out std_logic_vector(C_M00_AXI_DATA_WIDTH-1 downto 0);
+		ila_smax_axi_rlast				: out std_logic;
+		ila_smax_axi_rvalid				: out std_logic;
+		ila_smax_wbc 					: out unsigned(7 downto 0); 
+		ila_smax_rbc					: out unsigned(7 downto 0);
+		ila_smax_num_elements           : out STD_LOGIC_VECTOR(15 downto 0);
+		ila_smax_input_data_addr_reg    : out std_logic_vector(C_M00_AXI_DATA_WIDTH-1 downto 0); 
+		ila_smax_output_data_addr_reg   : out std_logic_vector(C_M00_AXI_DATA_WIDTH-1 downto 0); 
+		ila_smax_row_counter			: out unsigned(7 downto 0); 
+		ila_smax_channel_counter	    : out unsigned(15 downto 0); 
+		ila_smax_writes_remaining 	  	: out unsigned(15 downto 0);
+		ila_smax_reads_remaining		: out unsigned(15 downto 0);  
+		ila_smax_calculated 			: out std_logic; 
+		ila_smax_more_bursts_needed     : out std_logic; 
+		ila_smax_data_loaded 			: out std_logic; 
+		ila_smax_class_counter		  	: out unsigned(31 downto 0); 
+		ila_smax_master_fsm_state		: out std_logic_vector(3 downto 0); 
+
+
 		-- User ports ends
 		-- Do not modify the ports beyond this line
 
@@ -126,6 +249,7 @@ architecture arch_imp of Softmax_Layer_32bit_v1_0 is
 	    i_prediction_3_reg		 : in std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0); 
 	    i_prediction_4_reg		 : in std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0); 
 		--i_prediction_5_reg       : in std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0); 
+		i_debug_reg		 : in std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0); 
 
 	    o_control_reg            : out std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0); 
 	    o_status_reg             : out std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0); 
@@ -137,7 +261,8 @@ architecture arch_imp of Softmax_Layer_32bit_v1_0 is
 	    o_prediction_3_reg		 : out std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0); 
 	    o_prediction_4_reg		 : out std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0); 
 		--o_prediction_5_reg       : out std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0); 
-
+		o_debug_reg		 : out std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0); 
+		
 	    o_slv_reg_rden			 : out std_logic; 
 	    o_slv_reg_wren			 : out std_logic_vector(9 downto 0); 
 		S_AXI_ACLK	: in std_logic;
@@ -231,6 +356,43 @@ architecture arch_imp of Softmax_Layer_32bit_v1_0 is
 	    o_prediction_4_reg		 : out std_logic_vector(C_M_AXI_DATA_WIDTH-1 downto 0); 
 	    --o_prediction_5_reg		 : out std_logic_vector(C_M_AXI_DATA_WIDTH-1 downto 0); 
 		o_softmax_complete		 : out std_logic; 
+		
+		
+		ila_smax_axi_awaddr				: out std_logic_vector(C_M_AXI_ADDR_WIDTH-1 downto 0);
+		ila_smax_axi_awready			: out std_logic; 
+		ila_smax_axi_awlen    			: out std_logic_vector(7 downto 0); 
+		ila_smax_axi_awvalid			: out std_logic;
+		ila_smax_axi_wdata				: out std_logic_vector(C_M_AXI_DATA_WIDTH-1 downto 0);
+		ila_smax_axi_wready				: out std_logic; 
+		ila_smax_axi_wlast				: out std_logic;
+		ila_smax_axi_wvalid				: out std_logic;
+		ila_smax_axi_wstrb    			: out std_logic_vector(3 downto 0); 
+		ila_smax_axi_bready				: out std_logic;
+		ila_smax_axi_bvalid				: out std_logic; 
+		ila_smax_axi_araddr				: out std_logic_vector(C_M_AXI_ADDR_WIDTH-1 downto 0);
+		ila_smax_axi_arlen    			: out std_logic_vector(7 downto 0); 
+		ila_smax_axi_arvalid			: out std_logic;
+		ila_smax_axi_rready				: out std_logic;
+		ila_smax_axi_arready 			: out std_logic;
+		ila_smax_axi_rdata				: out std_logic_vector(C_M_AXI_DATA_WIDTH-1 downto 0);
+		ila_smax_axi_rlast				: out std_logic;
+		ila_smax_axi_rvalid				: out std_logic;
+		ila_smax_wbc 					: out unsigned(7 downto 0); 
+		ila_smax_rbc					: out unsigned(7 downto 0);
+		ila_smax_num_elements           : out STD_LOGIC_VECTOR(15 downto 0);
+		ila_smax_input_data_addr_reg    : out std_logic_vector(C_M_AXI_DATA_WIDTH-1 downto 0); 
+		ila_smax_output_data_addr_reg   : out std_logic_vector(C_M_AXI_DATA_WIDTH-1 downto 0); 
+		ila_smax_row_counter			: out unsigned(7 downto 0); 
+		ila_smax_channel_counter	    : out unsigned(15 downto 0); 
+		ila_smax_writes_remaining 	  	: out unsigned(15 downto 0);
+		ila_smax_reads_remaining		: out unsigned(15 downto 0);  
+		ila_smax_calculated 			: out std_logic; 
+		ila_smax_more_bursts_needed     : out std_logic; 
+		ila_smax_data_loaded 			: out std_logic; 
+		ila_smax_class_counter		  	: out unsigned(31 downto 0); 
+		ila_smax_master_fsm_state		: out std_logic_vector(3 downto 0); 
+
+
 		--INIT_AXI_TXN	: in std_logic;
 		TXN_DONE	: out std_logic;
 		ERROR	: out std_logic;
@@ -312,7 +474,91 @@ architecture arch_imp of Softmax_Layer_32bit_v1_0 is
 	    o_expbuff_almost_empty : out std_logic; 
 	    o_expbuff_valid : out std_logic;    
 		o_softmax_complete : out std_logic; 
-		o_busy : out std_logic 
+		o_busy : out std_logic; 
+
+		--CHIPSCOPE SIGNALS
+		ila_smax_exp_fsm_state : out std_logic_vector(3 downto 0); 
+		ila_smax_exp_valid_result : out std_logic; 
+		ila_smax_exp_function_ready : out std_logic; 
+		ila_smax_exp_step_counter : out unsigned(7 downto 0); 
+		ila_smax_exp_multiplication_counter : out unsigned(7 downto 0);  
+		ila_smax_exp_hold_counter : out unsigned(7 downto 0); 
+		ila_smax_exp_sum_counter : out unsigned(7 downto 0); 
+		ila_smax_exp_multiplicand_a : out std_logic_vector(g_data_width-1 downto 0); 
+		ila_smax_exp_multiplicand_b : out std_logic_vector(g_data_width-1 downto 0); 
+		ila_smax_exp_product : out std_logic_vector(g_data_width-1 downto 0); 
+		ila_smax_exp_augend : out std_logic_vector(g_data_width-1 downto 0); 
+		ila_smax_exp_addend : out std_logic_vector(g_data_width-1 downto 0); 
+		ila_smax_exp_sum : out std_logic_vector(g_data_width-1 downto 0); 
+		ila_smax_exp_data_reg : out std_logic_vector(g_data_width-1 downto 0); 
+		ila_smax_exp_mult_reg : out std_logic_vector(g_data_width-1 downto 0); 
+		ila_smax_exp_fifo_data : out std_logic_vector(g_data_width-1 downto 0); 
+		ila_smax_exp_fifo_wr_en : out std_logic; 
+		ila_smax_exp_exp_done : out std_logic;
+		
+		ila_smax_aw_fsm_state : out std_logic_vector(3 downto 0); 
+		ila_smax_aw_addend : out std_logic_vector(g_data_width-1 downto 0); 
+		ila_smax_aw_augend : out std_logic_vector(g_data_width-1 downto 0); 
+		ila_smax_aw_sum : out std_logic_vector(g_data_width-1 downto 0); 
+		ila_smax_aw_rd_en : out std_logic; 
+		ila_smax_aw_summing_complete : out std_logic; 
+		ila_smax_aw_hold_counter : out unsigned(7 downto 0); 
+		ila_smax_aw_sum_counter : out unsigned(15 downto 0); 
+		ila_smax_aw_sum_reg : out std_logic_vector(g_data_width-1 downto 0); 
+		ila_smax_aw_sum_result_valid : out std_logic;
+
+		ila_smax_dw_fsm_state : out std_logic_vector(3 downto 0); 
+		ila_smax_dw_divisor : out std_logic_vector(g_data_width-1 downto 0); 
+		ila_smax_dw_dividend : out std_logic_vector(g_data_width-1 downto 0); 
+		ila_smax_dw_quotient : out std_logic_vector(g_data_width-1 downto 0); 
+		ila_smax_dw_rd_en : out std_logic; 
+		ila_smax_dw_division_complete : out std_logic; 
+		ila_smax_dw_hold_counter : out unsigned(7 downto 0); 
+		ila_smax_dw_quotient_counter : out unsigned(15 downto 0); 
+		ila_smax_dw_division_reg : out std_logic_vector(g_data_width-1 downto 0); 
+		ila_smax_dw_quotient_result_valid : out std_logic;
+		
+		ila_smax_ctrlr_fsm_state : out std_logic_vector(3 downto 0); 
+		ila_smax_ctrlr_exp_input : out std_logic_vector(g_data_width-1 downto 0); 
+		ila_smax_ctrlr_exp_input_valid : out std_logic; 
+		ila_smax_ctrlr_controller_ready : out std_logic; 
+		ila_smax_ctrlr_exp_fifo_select : out std_logic; 
+		ila_smax_ctrlr_exp_complete	: out std_logic; 
+		ila_smax_ctrlr_element_counter : out unsigned(15 downto 0); 
+		ila_smax_ctrlr_softmax_complete : out std_logic; 
+		ila_smax_ctrlr_clear_all : out std_logic;
+		ila_smax_ctrlr_busy : out std_logic;
+		
+		ila_smax_inbuff_din  		 : out std_logic_vector(g_data_width-1 downto 0); 
+		ila_smax_inbuff_wr_en 		 : out std_logic; 
+		ila_smax_inbuff_rd_en 		 : out std_logic;
+		ila_smax_inbuff_dout 		 : out std_logic_vector(g_data_width-1 downto 0); 
+		ila_smax_inbuff_full		 : out std_logic;  
+		ila_smax_inbuff_almost_full  : out std_logic;  
+		ila_smax_inbuff_empty        : out std_logic; 
+		ila_smax_inbuff_almost_empty : out std_logic; 
+		ila_smax_inbuff_valid        : out std_logic; 
+
+			
+		ila_smax_outbuff_din  		  : out std_logic_vector(g_data_width-1 downto 0); 
+		ila_smax_outbuff_wr_en 		  : out std_logic; 
+		ila_smax_outbuff_rd_en 		  : out std_logic;
+		ila_smax_outbuff_dout 		  : out std_logic_vector(g_data_width-1 downto 0); 
+		ila_smax_outbuff_full		  : out std_logic;  
+		ila_smax_outbuff_almost_full  : out std_logic;  
+		ila_smax_outbuff_empty        : out std_logic; 
+		ila_smax_outbuff_almost_empty : out std_logic; 
+		ila_smax_outbuff_valid        : out std_logic; 
+
+		ila_smax_exp_mux_data           : out std_logic_vector(g_data_width-1 downto 0); 
+		ila_smax_exp_mux_wr_en          : out std_logic; 
+		ila_smax_exp_fifo_rd_en         : out std_logic; 
+		ila_smax_exp_fifo_dout          : out std_logic_vector(g_data_width-1 downto 0); 
+		ila_smax_exp_fifo_full          : out std_logic; 
+		ila_smax_exp_fifo_almost_full   : out std_logic; 
+		ila_smax_exp_fifo_empty         : out std_logic; 
+		ila_smax_exp_fifo_almost_empty  : out std_logic; 
+		ila_smax_exp_fifo_valid         : out std_logic
 	  );
 	end component;
 
@@ -364,6 +610,8 @@ architecture arch_imp of Softmax_Layer_32bit_v1_0 is
 	--signal prediction_5_reg_from_master    : std_logic_vector(C_S00_AXI_DATA_WIDTH-1 downto 0); 
 	signal data_loaded                     : std_logic; 
 	signal start : std_logic; 
+	signal epoch : unsigned(63 downto 0);
+	signal cycle : unsigned(63 downto 0); 
 
 begin
 
@@ -384,7 +632,7 @@ Softmax_Layer_32bit_v1_0_S00_AXI_inst : Softmax_Layer_32bit_v1_0_S00_AXI
 	    i_prediction_3_reg		 => prediction_3_reg_from_master, 
 	    i_prediction_4_reg		 => prediction_4_reg_from_master, 
 		--i_prediction_5_reg       => prediction_5_reg_from_master, 
-
+		i_debug_reg				 => (others => '0'), 
 	    o_control_reg            => control_reg_to_master, 
 	    o_status_reg             => status_reg_to_master, 
 	    o_input_data_addr_reg    => input_data_addr_reg_to_master, 
@@ -395,7 +643,7 @@ Softmax_Layer_32bit_v1_0_S00_AXI_inst : Softmax_Layer_32bit_v1_0_S00_AXI
 	    o_prediction_3_reg		 => prediction_3_reg_to_master, 
 	    o_prediction_4_reg		 => prediction_4_reg_to_master, 
 		--o_prediction_5_reg       => prediction_5_reg_to_master, 
-
+		o_debug_reg				 => open, 
 	    o_slv_reg_rden			 => slv_reg_rden, 
 	    o_slv_reg_wren			 => slv_reg_wren, 
 	
@@ -489,6 +737,42 @@ Softmax_Layer_32bit_v1_0_M00_AXI_inst : Softmax_Layer_32bit_v1_0_M00_AXI
 	    o_prediction_4_reg		 => prediction_4_reg_from_master, 
 	    --o_prediction_5_reg		 => prediction_5_reg_from_master, 
 		o_softmax_complete       => o_softmax_complete, 
+		
+		ila_smax_axi_awaddr				=> ila_smax_axi_awaddr,
+		ila_smax_axi_awready			=> ila_smax_axi_awready,
+		ila_smax_axi_awlen    			=> ila_smax_axi_awlen,
+		ila_smax_axi_awvalid			=> ila_smax_axi_awvalid,
+		ila_smax_axi_wdata				=> ila_smax_axi_wdata,
+		ila_smax_axi_wready				=> ila_smax_axi_wready,
+		ila_smax_axi_wlast				=> ila_smax_axi_wlast,
+		ila_smax_axi_wvalid				=> ila_smax_axi_wvalid,
+		ila_smax_axi_wstrb    			=> ila_smax_axi_wstrb,
+		ila_smax_axi_bready				=> ila_smax_axi_bready,
+		ila_smax_axi_bvalid				=> ila_smax_axi_bvalid,
+		ila_smax_axi_araddr				=> ila_smax_axi_araddr,
+		ila_smax_axi_arlen    			=> ila_smax_axi_arlen,
+		ila_smax_axi_arvalid			=> ila_smax_axi_arvalid,
+		ila_smax_axi_rready				=> ila_smax_axi_rready,
+		ila_smax_axi_arready 			=> ila_smax_axi_arready,
+		ila_smax_axi_rdata				=> ila_smax_axi_rdata,
+		ila_smax_axi_rlast				=> ila_smax_axi_rlast,
+		ila_smax_axi_rvalid				=> ila_smax_axi_rvalid,
+		ila_smax_wbc 					=> ila_smax_wbc,
+		ila_smax_rbc					=> ila_smax_rbc,
+		ila_smax_num_elements           => ila_smax_num_elements,
+		ila_smax_input_data_addr_reg    => ila_smax_input_data_addr_reg,
+		ila_smax_output_data_addr_reg   => ila_smax_output_data_addr_reg,
+		ila_smax_row_counter			=> ila_smax_row_counter,
+		ila_smax_channel_counter	    => ila_smax_channel_counter,
+		ila_smax_writes_remaining 	  	=> ila_smax_writes_remaining,
+		ila_smax_reads_remaining		=> ila_smax_reads_remaining,
+		ila_smax_calculated 			=> ila_smax_calculated,
+		ila_smax_more_bursts_needed     => ila_smax_more_bursts_needed,
+		ila_smax_data_loaded 			=> ila_smax_data_loaded,
+		ila_smax_class_counter		  	=> ila_smax_class_counter,
+		ila_smax_master_fsm_state		=> ila_smax_master_fsm_state,
+
+
 		--INIT_AXI_TXN	=> m00_axi_init_axi_txn,
 		TXN_DONE	=> m00_axi_txn_done,
 		ERROR	=> m00_axi_error,
@@ -545,33 +829,133 @@ Softmax_Layer_32bit_v1_0_M00_AXI_inst : Softmax_Layer_32bit_v1_0_M00_AXI
 	       g_data_width => G_DATA_WIDTH
 	  )
 	  port map(
-	    i_clk                     => m00_axi_aclk, 
-	    i_reset_n                 => m00_axi_aresetn,
-		i_start						=> start, 
-	    i_num_elements            => num_elements, 
-		i_inbuff_din              => inbuff_din,    
-		i_inbuff_wr_en            => inbuff_wr_en,
-		i_data_loaded             => data_loaded, 
-		o_inbuff_full	          => inbuff_full,
-		o_inbuff_almost_full      => inbuff_almost_full,
-	    o_inbuff_empty            => inbuff_empty, 
-	    o_inbuff_almost_empty     => inbuff_almost_empty,  
-		i_outbuff_rd_en           => outbuff_rd_en,  
-	    o_outbuff_dout            => outbuff_dout,  
-	    o_outbuff_empty           => outbuff_empty,
-	    o_outbuff_almost_empty    => outbuff_almost_empty,
-	    o_outbuff_full            => outbuff_full, 
-	    o_outbuff_almost_full     => outbuff_almost_full, 
-	    o_outbuff_valid	          => outbuff_valid,
-	    o_expbuff_full            => expbuff_full, 
-	    o_expbuff_almost_full     => expbuff_almost_full, 
-	    o_expbuff_empty           => expbuff_empty, 
-	    o_expbuff_almost_empty    => expbuff_almost_empty, 
-	    o_expbuff_valid           => expbuff_valid,  
-		o_softmax_complete        => softmax_complete, 
-		o_busy                    => busy
+	    i_clk                     			=> m00_axi_aclk, 
+	    i_reset_n                 			=> m00_axi_aresetn,
+		i_start								=> start, 
+	    i_num_elements            			=> num_elements, 
+		i_inbuff_din              			=> inbuff_din,    
+		i_inbuff_wr_en            			=> inbuff_wr_en,
+		i_data_loaded             			=> data_loaded, 
+		o_inbuff_full	          			=> inbuff_full,
+		o_inbuff_almost_full				=> inbuff_almost_full,
+	    o_inbuff_empty            			=> inbuff_empty, 
+	    o_inbuff_almost_empty     			=> inbuff_almost_empty,  
+		i_outbuff_rd_en           			=> outbuff_rd_en,  
+	    o_outbuff_dout           			=> outbuff_dout,  
+	    o_outbuff_empty           			=> outbuff_empty,
+	    o_outbuff_almost_empty   			=> outbuff_almost_empty,
+	    o_outbuff_full            			=> outbuff_full, 
+	    o_outbuff_almost_full     			=> outbuff_almost_full, 
+	    o_outbuff_valid	          			=> outbuff_valid,
+	    o_expbuff_full            			=> expbuff_full, 
+	    o_expbuff_almost_full     			=> expbuff_almost_full, 
+	    o_expbuff_empty           			=> expbuff_empty, 
+	    o_expbuff_almost_empty    			=> expbuff_almost_empty, 
+	    o_expbuff_valid           			=> expbuff_valid,  
+		o_softmax_complete        			=> softmax_complete, 
+		o_busy                    			=> busy, 
+		
+		--CHIPSCOPE SIGNALS
+		ila_smax_exp_fsm_state 				=> ila_smax_exp_fsm_state,
+		ila_smax_exp_valid_result 			=> ila_smax_exp_valid_result,
+		ila_smax_exp_function_ready 		=> ila_smax_exp_function_ready,
+		ila_smax_exp_step_counter 			=> ila_smax_exp_step_counter,
+		ila_smax_exp_multiplication_counter => ila_smax_exp_multiplication_counter,
+		ila_smax_exp_hold_counter 			=> ila_smax_exp_hold_counter,
+		ila_smax_exp_sum_counter 			=> ila_smax_exp_sum_counter,
+		ila_smax_exp_multiplicand_a 		=> ila_smax_exp_multiplicand_a,
+		ila_smax_exp_multiplicand_b 		=> ila_smax_exp_multiplicand_b,
+		ila_smax_exp_product 				=> ila_smax_exp_product,
+		ila_smax_exp_augend 				=> ila_smax_exp_augend,
+		ila_smax_exp_addend 				=> ila_smax_exp_addend,
+		ila_smax_exp_sum 					=> ila_smax_exp_sum,
+		ila_smax_exp_data_reg 				=> ila_smax_exp_data_reg,
+		ila_smax_exp_mult_reg 				=> ila_smax_exp_mult_reg,
+		ila_smax_exp_fifo_data 				=> ila_smax_exp_fifo_data,
+		ila_smax_exp_fifo_wr_en 			=> ila_smax_exp_fifo_wr_en,
+		ila_smax_exp_exp_done 				=> ila_smax_exp_exp_done,
+		
+		ila_smax_aw_fsm_state 				=> ila_smax_aw_fsm_state,
+		ila_smax_aw_addend 					=> ila_smax_aw_addend,
+		ila_smax_aw_augend					=> ila_smax_aw_augend,
+		ila_smax_aw_sum 					=> ila_smax_aw_sum,
+		ila_smax_aw_rd_en 					=> ila_smax_aw_rd_en,
+		ila_smax_aw_summing_complete 		=> ila_smax_aw_summing_complete,
+		ila_smax_aw_hold_counter 			=> ila_smax_aw_hold_counter,
+		ila_smax_aw_sum_counter 			=> ila_smax_aw_sum_counter,
+		ila_smax_aw_sum_reg 				=> ila_smax_aw_sum_reg,
+		ila_smax_aw_sum_result_valid 		=> ila_smax_aw_sum_result_valid,
 
+		ila_smax_dw_fsm_state 				=> ila_smax_dw_fsm_state,
+		ila_smax_dw_divisor 				=> ila_smax_dw_divisor,
+		ila_smax_dw_dividend 				=> ila_smax_dw_dividend,
+		ila_smax_dw_quotient 				=> ila_smax_dw_quotient,
+		ila_smax_dw_rd_en 					=> ila_smax_dw_rd_en,
+		ila_smax_dw_division_complete 		=> ila_smax_dw_division_complete,
+		ila_smax_dw_hold_counter 			=> ila_smax_dw_hold_counter,
+		ila_smax_dw_quotient_counter 		=> ila_smax_dw_quotient_counter,
+		ila_smax_dw_division_reg 			=> ila_smax_dw_division_reg,
+		ila_smax_dw_quotient_result_valid 	=> ila_smax_dw_quotient_result_valid,
+		
+		ila_smax_ctrlr_fsm_state 			=> ila_smax_ctrlr_fsm_state,
+		ila_smax_ctrlr_exp_input 			=> ila_smax_ctrlr_exp_input,
+		ila_smax_ctrlr_exp_input_valid 		=> ila_smax_ctrlr_exp_input_valid,
+		ila_smax_ctrlr_controller_ready 	=> ila_smax_ctrlr_controller_ready,
+		ila_smax_ctrlr_exp_fifo_select 		=> ila_smax_ctrlr_exp_fifo_select,
+		ila_smax_ctrlr_exp_complete			=> ila_smax_ctrlr_exp_complete,
+		ila_smax_ctrlr_element_counter 		=> ila_smax_ctrlr_element_counter,
+		ila_smax_ctrlr_softmax_complete 	=> ila_smax_ctrlr_softmax_complete,
+		ila_smax_ctrlr_clear_all 			=> ila_smax_ctrlr_clear_all,
+		ila_smax_ctrlr_busy 				=> ila_smax_ctrlr_busy,
+		
+		ila_smax_inbuff_din  		 		=> ila_smax_inbuff_din,
+		ila_smax_inbuff_wr_en 		 		=> ila_smax_inbuff_wr_en,
+		ila_smax_inbuff_rd_en 		 		=> ila_smax_inbuff_rd_en,
+		ila_smax_inbuff_dout 		 		=> ila_smax_inbuff_dout,
+		ila_smax_inbuff_full		 		=> ila_smax_inbuff_full,
+		ila_smax_inbuff_almost_full  		=> ila_smax_inbuff_almost_full ,
+		ila_smax_inbuff_empty       		=> ila_smax_inbuff_empty,
+		ila_smax_inbuff_almost_empty 		=> ila_smax_inbuff_almost_empty,
+		ila_smax_inbuff_valid        		=> ila_smax_inbuff_valid,
+
+		ila_smax_outbuff_din  		  		=> ila_smax_outbuff_din,
+		ila_smax_outbuff_wr_en 		  		=> ila_smax_outbuff_wr_en,
+		ila_smax_outbuff_rd_en 		  		=> ila_smax_outbuff_rd_en,
+		ila_smax_outbuff_dout 		  		=> ila_smax_outbuff_dout,
+		ila_smax_outbuff_full		  		=> ila_smax_outbuff_full,
+		ila_smax_outbuff_almost_full  		=> ila_smax_outbuff_almost_full,
+		ila_smax_outbuff_empty        		=> ila_smax_outbuff_empty,
+		ila_smax_outbuff_almost_empty 		=> ila_smax_outbuff_almost_empty,
+		ila_smax_outbuff_valid        		=> ila_smax_outbuff_valid,
+
+		ila_smax_exp_mux_data           	=> ila_smax_exp_mux_data,
+		ila_smax_exp_mux_wr_en          	=> ila_smax_exp_mux_wr_en,
+		ila_smax_exp_fifo_rd_en         	=> ila_smax_exp_fifo_rd_en,
+		ila_smax_exp_fifo_dout          	=> ila_smax_exp_fifo_dout,
+		ila_smax_exp_fifo_full          	=> ila_smax_exp_fifo_full,
+		ila_smax_exp_fifo_almost_full   	=> ila_smax_exp_fifo_almost_full,
+		ila_smax_exp_fifo_empty         	=> ila_smax_exp_fifo_empty,
+		ila_smax_exp_fifo_almost_empty  	=> ila_smax_exp_fifo_almost_empty,
+		ila_smax_exp_fifo_valid         	=> ila_smax_exp_fifo_valid
 	  );
+o_cycle <= std_logic_vector(cycle); 
+o_epoch <= std_logic_vector(epoch); 
+epoch_counter_proc: process(m00_axi_aclk, m00_axi_aresetn)
+    begin
+        if(m00_axi_aresetn = '0') then
+            cycle <= (others => '0');
+            epoch <= (others => '0');
+        elsif(rising_edge(m00_axi_aclk)) then
+			if(busy = '1') then 
+				if(cycle < 100) then
+					cycle <= cycle + 1;
+				else
+					cycle <= (others =>'0');
+					epoch <= epoch + 1;
+				end if;
+			end if;
+        end if;
+    end process; 
 
 	-- User logic ends
 

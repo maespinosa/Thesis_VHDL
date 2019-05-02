@@ -34,7 +34,8 @@ entity Max_Pool_Tester_v1_0_M00_AXI is
 	);
 	port (
 		-- Users to add ports here
-        i_irq : in std_logic; 
+        i_trigger : in std_logic; 
+		--i_arm : in std_logic; 
         i_init_calib_complete : in std_logic; 
 		-- User ports ends
 		-- Do not modify the ports beyond this line
@@ -308,7 +309,7 @@ begin
 	end process; 
 
 
-	next_state_comb: process(current_state,write_beat_counter, write_burst_counter, M_AXI_ARREADY,M_AXI_RLAST,M_AXI_AWREADY,M_AXI_WREADY,M_AXI_BVALID,i_init_calib_complete, data_valid) is 
+	next_state_comb: process(current_state,write_beat_counter, write_burst_counter, M_AXI_ARREADY,M_AXI_RLAST,M_AXI_AWREADY,M_AXI_WREADY,M_AXI_BVALID,i_init_calib_complete, data_valid, i_trigger,max_pool_axi_addr) is 
 	begin 
 		axi_rready <= '0'; 
 		axi_bready <= '0'; 
@@ -327,7 +328,7 @@ begin
 		case current_state is 
 		    when IDLE => 
 			  file_reset <= '1'; 
-		      if(i_init_calib_complete = '1') then 
+		      if(i_init_calib_complete = '1' and i_trigger = '1') then 
 		          next_state <= CONFIG_INPUT_DATA_ADDR_WRITE_ADDR;
 				  --read_en <= '1'; 
 		      else 
@@ -335,97 +336,97 @@ begin
 		      end if;
 			  
 			  
-			when FIRST => 
-				read_en <= '1'; 
-				next_state <= DATA_TO_MEM_WRITE_ADDRESS; 
+			-- when FIRST => 
+				-- read_en <= '1'; 
+				-- next_state <= DATA_TO_MEM_WRITE_ADDRESS; 
 				
 		           
 	
-            when DATA_TO_MEM_WRITE_ADDRESS => 
-				axi_awaddr <= ddr_mem_axi_addr;
-				axi_awlen <= std_logic_vector(to_unsigned(c_axi_length, 8) - 1); 
-				axi_awsize <= "001";
-				axi_awvalid <= '1'; 
+            -- when DATA_TO_MEM_WRITE_ADDRESS => 
+				-- axi_awaddr <= ddr_mem_axi_addr;
+				-- axi_awlen <= std_logic_vector(to_unsigned(c_axi_length, 8) - 1); 
+				-- axi_awsize <= "001";
+				-- axi_awvalid <= '1'; 
 			
-				next_state <= DATA_TO_MEM_WRITE_ADDRESS; 
-				if(M_AXI_AWREADY = '1') then 
-                    next_state <= DATA_TO_MEM_WRITE_DATA; --READ_ADDRESS; 
-                else 
-                    next_state <= DATA_TO_MEM_WRITE_ADDRESS; --READ_DATA_FIRST_ROWS; 
-                end if; 
-            when DATA_TO_MEM_WRITE_DATA => 
-				axi_awaddr <= (others => '0');
-				axi_awlen <= x"00"; 
-				axi_awsize <= "000";
-				axi_awvalid <= '0'; 
+				-- next_state <= DATA_TO_MEM_WRITE_ADDRESS; 
+				-- if(M_AXI_AWREADY = '1') then 
+                    -- next_state <= DATA_TO_MEM_WRITE_DATA; --READ_ADDRESS; 
+                -- else 
+                    -- next_state <= DATA_TO_MEM_WRITE_ADDRESS; --READ_DATA_FIRST_ROWS; 
+                -- end if; 
+            -- when DATA_TO_MEM_WRITE_DATA => 
+				-- axi_awaddr <= (others => '0');
+				-- axi_awlen <= x"00"; 
+				-- axi_awsize <= "000";
+				-- axi_awvalid <= '0'; 
 				
 				
-				if(ddr_mem_axi_addr(1) = '0') then 
-					axi_wdata <= x"0000" & data_read; 
-					axi_wstrb <= "0011";
-				else 
-					axi_wdata <= data_read & x"0000"; 
-					axi_wstrb <= "1100";
-				end if; 
+				-- if(ddr_mem_axi_addr(1) = '0') then 
+					-- axi_wdata <= x"0000" & data_read; 
+					-- axi_wstrb <= "0011";
+				-- else 
+					-- axi_wdata <= data_read & x"0000"; 
+					-- axi_wstrb <= "1100";
+				-- end if; 
 				
-				next_state <= DATA_TO_MEM_WRITE_DATA; 
+				-- next_state <= DATA_TO_MEM_WRITE_DATA; 
 				
-                if(M_AXI_WREADY = '1') then 
+                -- if(M_AXI_WREADY = '1') then 
 				
-					if(data_valid = '1') then 
-						axi_wvalid <= '1'; 
-					end if; 
+					-- if(data_valid = '1') then 
+						-- axi_wvalid <= '1'; 
+					-- end if; 
 					
-					if(write_beat_counter < c_axi_length-1)then --31 
-						next_state <= DATA_TO_MEM_WRITE_DATA;
-						read_en <= '1';
-					elsif(write_beat_counter = c_axi_length-1) then --31
-						next_state <= DATA_TO_MEM_WRITE_DATA;
-						read_en <= '0';
-					else 
-						next_state <= DATA_TO_MEM_WRITE_RESPONSE; 
-						read_en <= '0'; 
-					end if; 
+					-- if(write_beat_counter < c_axi_length-1)then --31 
+						-- next_state <= DATA_TO_MEM_WRITE_DATA;
+						-- read_en <= '1';
+					-- elsif(write_beat_counter = c_axi_length-1) then --31
+						-- next_state <= DATA_TO_MEM_WRITE_DATA;
+						-- read_en <= '0';
+					-- else 
+						-- next_state <= DATA_TO_MEM_WRITE_RESPONSE; 
+						-- read_en <= '0'; 
+					-- end if; 
 					
-					if(write_beat_counter = c_axi_length-1) then --31
-						axi_wlast <= '1';
-						axi_wvalid <= '1'; 
-						read_en <= '1'; 
-					end if; 
+					-- if(write_beat_counter = c_axi_length-1) then --31
+						-- axi_wlast <= '1';
+						-- axi_wvalid <= '1'; 
+						-- read_en <= '1'; 
+					-- end if; 
 					
-                else 
-					axi_wvalid <= '0'; 
-				    read_en <= '0'; 
-					axi_wlast <= '0'; 
+                -- else 
+					-- axi_wvalid <= '0'; 
+				    -- read_en <= '0'; 
+					-- axi_wlast <= '0'; 
 					
-					next_state <= DATA_TO_MEM_WRITE_DATA;
-					if(write_beat_counter < c_axi_length-1) then --31
-						next_state <= DATA_TO_MEM_WRITE_DATA;
-					elsif(write_beat_counter = c_axi_length-1) then --31
-						next_state <= DATA_TO_MEM_WRITE_DATA;
-						axi_wlast <= '1';
-						axi_wvalid <= '1'; 
-						read_en <= '1'; 
-					else 
-						next_state <= DATA_TO_MEM_WRITE_RESPONSE;
-					end if; 
+					-- next_state <= DATA_TO_MEM_WRITE_DATA;
+					-- if(write_beat_counter < c_axi_length-1) then --31
+						-- next_state <= DATA_TO_MEM_WRITE_DATA;
+					-- elsif(write_beat_counter = c_axi_length-1) then --31
+						-- next_state <= DATA_TO_MEM_WRITE_DATA;
+						-- axi_wlast <= '1';
+						-- axi_wvalid <= '1'; 
+						-- read_en <= '1'; 
+					-- else 
+						-- next_state <= DATA_TO_MEM_WRITE_RESPONSE;
+					-- end if; 
 
-                 end if; 
-            when DATA_TO_MEM_WRITE_RESPONSE => 
-				axi_bready <= '1'; 
-				read_en <= '0'; 
+                 -- end if; 
+            -- when DATA_TO_MEM_WRITE_RESPONSE => 
+				-- axi_bready <= '1'; 
+				-- read_en <= '0'; 
 
-				if(M_AXI_BVALID = '1') then 
-					if(write_burst_counter < c_axi_bursts) then 
-						next_state <= DATA_TO_MEM_WRITE_ADDRESS;
-					else 
-						next_state <= CONFIG_INPUT_DATA_ADDR_WRITE_ADDR; 
-					end if; 
-				end if; 
+				-- if(M_AXI_BVALID = '1') then 
+					-- if(write_burst_counter < c_axi_bursts) then 
+						-- next_state <= DATA_TO_MEM_WRITE_ADDRESS;
+					-- else 
+						-- next_state <= CONFIG_INPUT_DATA_ADDR_WRITE_ADDR; 
+					-- end if; 
+				-- end if; 
 				
             
             when CONFIG_INPUT_DATA_ADDR_WRITE_ADDR => 
-				axi_awaddr <= std_logic_vector(unsigned(max_pool_axi_addr) + 8);
+				axi_awaddr <= std_logic_vector(unsigned(max_pool_axi_addr) + 8); --0x8
 				axi_awlen <= x"00"; 
 				axi_awsize <= "010";
 				axi_awvalid <= '1'; 
@@ -454,11 +455,13 @@ begin
 				axi_bready <= '1'; 
 				if(M_AXI_BVALID = '1') then 
 					next_state <= CONFIG_OUTPUT_DATA_ADDR_WRITE_ADDR;
+				else 
+					next_state <= CONFIG_INPUT_DATA_ADDR_WRITE_RESP; 
 				end if; 
 				
 
             when CONFIG_OUTPUT_DATA_ADDR_WRITE_ADDR => 
-				axi_awaddr <= std_logic_vector(unsigned(max_pool_axi_addr) + 12);
+				axi_awaddr <= std_logic_vector(unsigned(max_pool_axi_addr) + 12); --0xC
                 axi_awlen <= x"00"; 
                 axi_awsize <= "010";
                 axi_awvalid <= '1'; 
@@ -487,11 +490,13 @@ begin
 				axi_bready <= '1'; 
 				if(M_AXI_BVALID = '1') then 
 					next_state <= CONFIG_INPUT_PARAMS_WRITE_ADDR;
+				else 
+					next_state <= CONFIG_OUTPUT_DATA_ADDR_WRITE_RESP; 
 				end if; 
 				
 
             when CONFIG_INPUT_PARAMS_WRITE_ADDR => 
-				axi_awaddr <= std_logic_vector(unsigned(max_pool_axi_addr) + 16);
+				axi_awaddr <= std_logic_vector(unsigned(max_pool_axi_addr) + 16); --0x10
                 axi_awlen <= x"00"; 
                 axi_awsize <= "010";
                 axi_awvalid <= '1'; 
@@ -520,11 +525,13 @@ begin
 				axi_bready <= '1'; 
 				if(M_AXI_BVALID = '1') then 
 					next_state <= CONFIG_OUTPUT_PARAMS_WRITE_ADDR;
+				else 
+					next_state <= CONFIG_INPUT_PARAMS_WRITE_RESP; 
 				end if; 
 				
 
             when CONFIG_OUTPUT_PARAMS_WRITE_ADDR => 
-                axi_awaddr <= std_logic_vector(unsigned(max_pool_axi_addr) + 20);
+                axi_awaddr <= std_logic_vector(unsigned(max_pool_axi_addr) + 20); --0x14
                 axi_awlen <= x"00"; 
                 axi_awsize <= "010";
                 axi_awvalid <= '1'; 
@@ -553,11 +560,13 @@ begin
 				axi_bready <= '1'; 
 				if(M_AXI_BVALID = '1') then 
 					next_state <= CONFIG_KERNEL_PARAMS_WRITE_ADDR;
+				else 
+					next_state <= CONFIG_OUTPUT_PARAMS_WRITE_RESP; 
 				end if; 
 				
 
             when CONFIG_KERNEL_PARAMS_WRITE_ADDR => 
-			    axi_awaddr <= std_logic_vector(unsigned(max_pool_axi_addr) + 24);
+			    axi_awaddr <= std_logic_vector(unsigned(max_pool_axi_addr) + 24); --0x18
                 axi_awlen <= x"00"; 
                 axi_awsize <= "010";
                 axi_awvalid <= '1'; 
@@ -584,11 +593,13 @@ begin
 				axi_bready <= '1'; 
 				if(M_AXI_BVALID = '1') then 
 					next_state <= CONFIG_ADDR_MULT_0_WRITE_ADDR;
+				else 
+					next_state <= CONFIG_KERNEL_PARAMS_WRITE_RESP; 
 				end if; 
 
 				
             when CONFIG_ADDR_MULT_0_WRITE_ADDR => 
-			    axi_awaddr <= std_logic_vector(unsigned(max_pool_axi_addr) + 32);
+			    axi_awaddr <= std_logic_vector(unsigned(max_pool_axi_addr) + 32); --0x20
                 axi_awlen <= x"00"; 
                 axi_awsize <= "010";
                 axi_awvalid <= '1'; 
@@ -616,13 +627,15 @@ begin
 				axi_bready <= '1'; 
 				if(M_AXI_BVALID = '1') then 
 					next_state <= CONFIG_CONTROL_WRITE_ADDR;
+				else 
+					next_state <= CONFIG_ADDR_MULT_0_WRITE_RESP; 
 				end if; 
 				
 				
 				
 
             when CONFIG_CONTROL_WRITE_ADDR => 
-			    axi_awaddr <= std_logic_vector(unsigned(max_pool_axi_addr) + 28);
+			    axi_awaddr <= std_logic_vector(unsigned(max_pool_axi_addr) + 28); --0x1C
                 axi_awlen <= x"00"; 
                 axi_awsize <= "010";
                 axi_awvalid <= '1'; 
@@ -653,6 +666,8 @@ begin
 			 	axi_bready <= '1'; 
 				if(M_AXI_BVALID = '1') then 
 					next_state <= HOLD_IRQ;
+				else 
+					next_state <= CONFIG_CONTROL_WRITE_RESP; 
 				end if; 
 
              

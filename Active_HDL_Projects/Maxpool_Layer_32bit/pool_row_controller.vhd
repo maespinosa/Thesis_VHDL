@@ -27,6 +27,8 @@ entity pool_row_controller is
 	   o_channel_complete		: out std_logic; 
 	   --o_operation_complete   : out std_logic; 
 	   o_row_complete			: out std_logic; 
+	   o_busy					: out std_logic; 
+	   o_fsm_state				: out std_logic_vector(3 downto 0); 
 	   
 	   --INPUT BUFFER SIGNALS
        i_inbuff_dout 			: in STD_LOGIC_VECTOR(g_data_width-1 downto 0);
@@ -127,7 +129,8 @@ signal output_volume_size	: std_logic_vector(7 downto 0);
 signal channel_counter		: unsigned(15 downto 0); 
 signal channel_complete		: std_logic; 
 signal row_complete			: std_logic; 
-
+signal busy : std_logic; 
+signal fsm_state : unsigned(3 downto 0); 
 
 begin 
 
@@ -152,6 +155,8 @@ o_inbuff_rd_en  <= inbuff_rd_en;
 o_sorter_data_valid   <= sorter_data_valid;  
 o_channel_complete	<= channel_complete; 
 o_row_complete <= row_complete; 
+o_busy <= busy; 
+o_fsm_state <= std_logic_vector(fsm_state); 
 		
 
 third_row_activate <= '1' when unsigned(i_pool_kernel_size) = 3 else  
@@ -180,6 +185,7 @@ begin
 	PR0_rd_en 			<= '0'; 
 	PR1_rd_en 			<= '0'; 
 	PR2_rd_en 			<= '0'; 
+	busy 				<= '1'; 
 	
 	
 
@@ -192,7 +198,7 @@ begin
 			prime_PR0_en <= '1';
 			prime_PR1_en <= '0'; 
 			prime_PR2_en <= '0'; 
-
+			busy <= '0'; 
 			
 			if(i_inbuff_valid = '1' and channel_complete = '0' and i_start = '1') then 
 				next_state <= PRIME_ROW_0; 
@@ -454,6 +460,7 @@ begin
 		channel_counter <= (others => '0'); 
 		channel_complete	<= '0'; 
 		row_complete <= '0'; 
+		fsm_state <= (others => '0'); 
 	
 	elsif(rising_edge(i_clk)) then 
 		PR0_din 			<= PR0_din; 
@@ -481,6 +488,7 @@ begin
 		case current_state is 
 		
 			when IDLE => 
+				fsm_state <= 0; 
 				volume_processed <= '0'; 
 				output_volume_size <= '0' & i_input_volume_size(7 downto 1); 
 				
@@ -507,7 +515,7 @@ begin
 				
 				
 			when PRIME_ROW_0 => 
-			
+				fsm_state <= 1;
 				if(i_inbuff_valid = '1' and i_inbuff_empty = '0' and i_PR0_almost_full = '0') then
 					if(pixel_counter < unsigned(i_input_volume_size)) then 
 						pixel_counter 	<= pixel_counter + 1; 
@@ -521,7 +529,8 @@ begin
 					end if; 
 				end if; 
 				
-			when P01_WAIT => 
+			when P01_WAIT =>
+				fsm_state <= 2;			
 				pixel_counter <= (others => '0'); 
 				PR0_wr_en 		<= '0'; 
 				PR0_din			<= (others => '0'); 
@@ -529,7 +538,7 @@ begin
 
 					
 			when PRIME_ROW_1 => 
-
+				fsm_state <= 3;
 				if(i_inbuff_valid = '1' and i_inbuff_empty = '0' and i_PR0_almost_full = '0' and i_PR1_almost_full = '0') then 
 					if(pixel_counter < unsigned(i_input_volume_size)) then 
 						pixel_counter 	<= pixel_counter + 1; 
@@ -548,6 +557,7 @@ begin
 				end if; 
 				
 			when P12_WAIT => 
+				fsm_state <= 4;
 				pixel_counter <= (others => '0'); 
 				PR0_wr_en 		<= '0'; 
 				PR0_din 		<= (others => '0'); 
@@ -556,6 +566,7 @@ begin
 				row_counter		<= row_counter + 1; 
 		
 			when PRIME_ROW_2 => 
+				fsm_state <= 5;
 				--if(i_inbuff_valid = '1' and i_inbuff_empty = '0' and i_PR0_almost_full = '0' and i_PR1_almost_full = '0' and i_PR2_almost_full = '0') then 			
 				if(i_PR0_almost_full = '0' and i_PR1_almost_full = '0' and i_PR2_almost_full = '0') then 
 					if(pixel_counter < unsigned(i_input_volume_size)) then 
@@ -579,6 +590,7 @@ begin
 				end if;
 
 			when P2S_WAIT => 
+				fsm_state <= 6;
 				pixel_counter <= (others => '0'); 
 				PR0_wr_en 		<= '0'; 
 				PR0_din 		<= (others => '0'); 
@@ -591,6 +603,7 @@ begin
 				volume_rows_processed <= volume_rows_processed + unsigned(i_pool_kernel_size); 
 		
 			when PRIME_SORTER => 
+				fsm_state <= 7;
 				stride_counter <= (others => '0'); 
 				
 				if(i_sorter_ready = '1' and i_PR0_valid = '1' and i_PR0_empty = '0' and i_PR1_valid = '1'  and i_PR1_empty = '0' and i_PR2_valid = '1' and i_PR2_empty = '0') then 
@@ -623,7 +636,8 @@ begin
 
 				end if; 
 
-			when COLUMN_STRIDE_SHIFT => 
+			when COLUMN_STRIDE_SHIFT =>
+				fsm_state <= 8;
 				if(i_sorter_ready = '1' and i_PR0_valid = '1' and i_PR0_empty = '0' and i_PR1_valid = '1'  and i_PR1_empty = '0' and i_PR2_valid = '1' and i_PR2_empty = '0') then 
 					
 					if(stride_counter < unsigned(i_stride)) then 
@@ -677,6 +691,7 @@ begin
 				
 				
 		when ROW_STRIDE_SHIFT => 
+			fsm_state <= 9;
 			column_counter <= (others => '0');
 		
 			kernel_data <= (others => (others => '1')); 
@@ -729,9 +744,11 @@ begin
 			
 			
 		when CHANNEL_CLEAR => 
+			fsm_state <= 10;
 			channel_complete <= '0'; 
 			
 		when CLEAR_COUNTERS => 		
+			fsm_state <= 11;
 			PR0_din				<= (others => '0'); 
 			PR0_wr_en 			<= '0';   
 			PR1_din				<= (others => '0'); 

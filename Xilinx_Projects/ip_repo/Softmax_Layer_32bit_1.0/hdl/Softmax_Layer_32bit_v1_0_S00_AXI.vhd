@@ -25,7 +25,8 @@ entity Softmax_Layer_32bit_v1_0_S00_AXI is
 	    i_prediction_2_reg		 : in std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0); 
 	    i_prediction_3_reg		 : in std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0); 
 	    i_prediction_4_reg		 : in std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0); 
-		--i_prediction_5_reg       : in std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0); 
+		i_debug_reg       		 : in std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0); 
+		
 
 	    o_control_reg            : out std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0); 
 	    o_status_reg             : out std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0); 
@@ -36,7 +37,7 @@ entity Softmax_Layer_32bit_v1_0_S00_AXI is
 	    o_prediction_2_reg		 : out std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0); 
 	    o_prediction_3_reg		 : out std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0); 
 	    o_prediction_4_reg		 : out std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0); 
-		--o_prediction_5_reg       : out std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0); 
+		o_debug_reg       		 : out std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0); 
 
 	    o_slv_reg_rden			 : out std_logic; 
 	    o_slv_reg_wren			 : out std_logic_vector(9 downto 0); 
@@ -518,12 +519,12 @@ begin
 	o_prediction_2_reg 			<= wr_slv_reg6; 
 	o_prediction_3_reg 			<= wr_slv_reg7; 
 	o_prediction_4_reg 			<= wr_slv_reg8; 
-	--o_control_reg				<= wr_slv_reg9;
+	o_debug_reg					<= wr_slv_reg9;
 
 	o_slv_reg_rden				<= slv_reg_rden; 
 	o_slv_reg_wren				<= int_slv_reg_wren; 
 
-    process(i_control_reg, i_status_reg, i_input_data_addr_reg, i_output_data_addr_reg, i_prediction_0_reg, i_prediction_1_reg, i_prediction_2_reg, i_prediction_3_reg,i_prediction_4_reg)
+    process(i_control_reg, i_status_reg, i_input_data_addr_reg, i_output_data_addr_reg, i_prediction_0_reg, i_prediction_1_reg, i_prediction_2_reg, i_prediction_3_reg,i_prediction_4_reg,i_debug_reg)
 	begin 
 		rd_slv_reg0 <= i_control_reg; --(others => '0'); 
 		rd_slv_reg1 <= i_status_reg; 
@@ -534,7 +535,7 @@ begin
 		rd_slv_reg6 <= i_prediction_2_reg; 
 		rd_slv_reg7 <= i_prediction_3_reg; 
 		rd_slv_reg8 <= i_prediction_4_reg; 
-		rd_slv_reg9 <= i_control_reg; 
+		rd_slv_reg9 <= i_debug_reg; 
 	end process;
 	-- User logic ends
 

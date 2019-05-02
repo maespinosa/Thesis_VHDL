@@ -357,7 +357,9 @@ component input_fifo_net_controller
 	   o_filters_in_set : out std_logic_vector(15 downto 0); 
 	   o_filter_iterations_required : out std_logic_vector(15 downto 0); 
 	   o_layer_ready : out std_logic; 
-	   o_accumulator_en : out std_logic 
+	   o_accumulator_en : out std_logic;
+	   o_calc_params : out std_logic; 
+	   o_disable_channel_n : out STD_LOGIC_VECTOR(g_dsps_used-1 downto 0)
   );
 end component;
 component volume_mux
@@ -417,6 +419,9 @@ component volume_router
        i_volume_data : in STD_LOGIC_VECTOR(g_data_width-1 downto 0);
 	   i_empty_data_en : in std_logic;
 	   i_filters_in_set : in std_logic_vector(15 downto 0); 
+	   i_pad : in STD_LOGIC_VECTOR(3 downto 0);
+	   i_input_volume_size : in STD_LOGIC_VECTOR(7 downto 0);
+	   i_calc_params : in std_logic; 
        o_conv_complete : out STD_LOGIC;
 	   o_affine_complete: out std_logic; 
        o_data_mult : out STD_LOGIC_VECTOR(g_data_width-1 downto 0);
@@ -627,6 +632,9 @@ signal accumulator_en						: std_logic;
 
 signal volume_processed 					: std_logic; 
 signal iteration_complete					: std_logic; 
+signal calc_params							: std_logic; 
+
+signal disable_channel_n 			: std_logic_vector(g_dsps_used-1 downto 0);  
 
 begin
 
@@ -892,7 +900,9 @@ ROW_CONTROLLER : input_fifo_net_controller
 	   o_filter_iterations_required => filter_iterations_required, 
 	   o_filters_in_set => filters_in_set, 
 	   o_layer_ready => o_layer_ready, 
-	   o_accumulator_en => accumulator_en
+	   o_accumulator_en => accumulator_en, 
+	   o_calc_params => calc_params, 
+	   o_disable_channel_n => disable_channel_n
   );
 
 
@@ -988,7 +998,7 @@ begin
          i_convolution_en => convolution_en,
 		 i_affine_en => affine_en, 
          i_empty => volume_fifo_empty(i),
-         i_enable => i_enable,
+         i_enable => disable_channel_n(i),
          i_fifo_data_valid => volume_fifo_valid(i),
          i_filter_size => i_weight_filter_size,
          i_filters_loaded => filter_kernal_loaded(i),
@@ -1003,6 +1013,9 @@ begin
          i_volume_data => volume_fifo_dout(i),
 		 i_empty_data_en => empty_data_en(i),
 		 i_filters_in_set => i_filters_in_set,
+		 i_input_volume_size => i_input_volume_size, 
+		 i_pad => i_pad, 
+		 i_calc_params => calc_params, 
          o_conv_complete => conv_complete(i),
 		 o_affine_complete => affine_complete(i), 
          o_data_mult => multiplicand_a(i),
@@ -1032,7 +1045,7 @@ begin
 		 i_affine_en 			=> affine_en, 
 		 i_affine_complete 		=> affine_complete(i), 
          i_empty 				=> w_fifo_empty(i),
-         i_enable 				=> i_enable,
+         i_enable 				=> disable_channel_n(i),
          i_fifo_data_valid 		=> w_fifo_valid(i),
          i_filter_data 			=> w_fifo_dout(i),
          i_num_filters 			=> i_number_of_filters,

@@ -159,6 +159,10 @@ signal reset_n : std_logic;
 signal mask : std_logic_vector(g_dsps_used-1 downto 0); 
 signal final_mask : std_logic_vector(g_dsps_used-1 downto 0); 
 
+signal shift_in : std_logic; 
+signal shift_in_temp : std_logic; 
+signal channels_filt_counter : unsigned(15 downto 0); 
+
 component FP_ADDER_8E_24F IS
   PORT (
     a : IN STD_LOGIC_VECTOR(g_data_width-1 DOWNTO 0);
@@ -390,7 +394,8 @@ begin
 			kernal_addend_shift_register <= (others => (others => '0')); 
 			
 		elsif(rising_edge(i_clk)) then 
-			delay_shift_register <=  delay_shift_register(((g_num_adder_layers*g_adder_delay)+g_num_adder_layers)-2 downto 0) & and_reduce(i_products_array_valid(to_integer(unsigned(i_ch_al_filt))-1 DOWNTO 0)); 
+			--delay_shift_register <=  delay_shift_register(((g_num_adder_layers*g_adder_delay)+g_num_adder_layers)-2 downto 0) & shift_in; --and_reduce(i_products_array_valid(to_integer(unsigned(i_ch_al_filt))-1 DOWNTO 0)); 
+			delay_shift_register <=  delay_shift_register(((g_num_adder_layers*g_adder_delay)+g_num_adder_layers)-2 downto 0) & and_reduce(i_products_array_valid); 
 			
 			--delay_shift_register <=  delay_shift_register(((g_num_adder_layers*g_adder_delay)+g_num_adder_layers)-2 downto 0) & and_reduce(final_mask); 
 		
@@ -412,7 +417,7 @@ begin
 
 	
 	
-	next_state_comb : process(current_state, i_ch_al_filt, mask,final_mask, i_products_array_valid,i_channels_allowed,i_filter_size,que_fifo_empty,i_acc_fifo_full,delay_shift_register,kernel_element_counter,column_counter,i_output_volume_size,filter_counter,i_num_filters,acc_data,acc_valid,i_acc_fifo_almost_empty) is 
+	next_state_comb : process(current_state, shift_in, i_ch_al_filt, mask,final_mask, i_products_array_valid,i_channels_allowed,i_filter_size,que_fifo_empty,i_acc_fifo_full,delay_shift_register,kernel_element_counter,column_counter,i_output_volume_size,filter_counter,i_num_filters,acc_data,acc_valid,i_acc_fifo_almost_empty) is 
 	begin 						 
 		
 		acc_ready 		<= '0';
@@ -431,7 +436,8 @@ begin
 			when IDLE =>
 
 				acc_ready <= '1'; 
-				if(and_reduce(i_products_array_valid(to_integer(unsigned(i_ch_al_filt))-1 downto 0)) = '1' and i_acc_fifo_full = '0' and i_enable = '1') then 
+				if(and_reduce(i_products_array_valid) = '1' and i_acc_fifo_full = '0' and i_enable = '1') then 
+				--if(shift_in = '1' and i_acc_fifo_full = '0' and i_enable = '1') then 
 				--if(and_reduce(final_mask) = '1' and i_acc_fifo_full = '0') then 
 					next_state <= RUN; 
 				else 
@@ -519,8 +525,9 @@ begin
 			--acc_valid <= '0'; 
 			channels_allowed_counter	<= (others => '0'); 
 			filter_size_counter			<= (others => '0'); 
-			
-			
+			shift_in <= '0'; 
+			shift_in_temp <= '0'; 
+			channels_filt_counter		<= (others => '0'); 
 		elsif(rising_edge(i_clk))then 
 
 			kernel_element_counter  	<= kernel_element_counter; 
@@ -535,7 +542,7 @@ begin
 			--acc_valid <= acc_valid; 
 			channels_allowed_counter	<= channels_allowed_counter; 
 			filter_size_counter			<= filter_size_counter; 
-
+			
 			
 
 			
@@ -549,10 +556,19 @@ begin
 					filter_counter			<= (others => '0'); 
 					kernel_values 			<= (others => (others => '0')); 
 					kernel_delay_shift_register <= (others => '0'); 
+					--shift_in <=and_reduce(i_products_array_valid(to_integer(unsigned(i_ch_al_filt))-1 DOWNTO 0)); 
 					
 					
-					
-					
+					-- if(channels_filt_counter = 0) then 
+						-- channels_filt_counter <= channels_filt_counter + 1; 
+						-- shift_in_temp <= i_products_array_valid(0); 
+					-- elsif(channels_filt_counter < unsigned(i_ch_al_filt) and channels_filt_counter > 0) then 
+						-- channels_filt_counter <= channels_filt_counter + 1; 
+						-- shift_in_temp <= i_products_array_valid(to_integer(channels_filt_counter)) and shift_in_temp; 
+					-- else 
+						-- channels_filt_counter <= channels_filt_counter; 
+						-- shift_in <= shift_in_temp; 
+					-- end if;
 					
 					if(channels_allowed_counter < unsigned(i_channels_allowed)) then 
 						channels_allowed_counter <= channels_allowed_counter + 1; 

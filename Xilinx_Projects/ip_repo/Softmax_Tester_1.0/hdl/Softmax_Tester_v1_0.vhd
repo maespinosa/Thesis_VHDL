@@ -30,6 +30,7 @@ entity Softmax_Tester_v1_0 is
 
         i_irq : in std_logic; 
         i_init_calib_complete : in std_logic; 
+		i_trigger : in std_logic; 
 		-- Ports of Axi Master Bus Interface M00_AXI
 		--m00_axi_init_axi_txn	: in std_logic;
 		m00_axi_txn_done	: out std_logic;
@@ -100,7 +101,8 @@ architecture arch_imp of Softmax_Tester_v1_0 is
 		);
 		port (
         i_irq : in std_logic; 
-        i_init_calib_complete : in std_logic; 
+        i_init_calib_complete : in std_logic;
+		i_trigger : in std_logic; 		
 		--INIT_AXI_TXN	: in std_logic;
 		TXN_DONE	: out std_logic;
 		ERROR	: out std_logic;
@@ -171,6 +173,7 @@ Softmax_Tester_v1_0_M00_AXI_inst : Softmax_Tester_v1_0_M00_AXI
 	port map (
         i_irq => i_irq, 
         i_init_calib_complete => i_init_calib_complete,
+		i_trigger => i_trigger,
 		--INIT_AXI_TXN	=> m00_axi_init_axi_txn,
 		TXN_DONE	=> m00_axi_txn_done,
 		ERROR	=> m00_axi_error,

@@ -26,7 +26,8 @@ entity softmax_adder_wrapper is
 	i_clear_all : in std_logic; 
 	o_exp_rd_en : out std_logic; 
 	o_summing_complete : out std_logic; 
-	o_sum_result : out std_logic_vector(g_data_width-1 downto 0)
+	o_sum_result : out std_logic_vector(g_data_width-1 downto 0); 
+	o_fsm_state : out std_logic_vector(3 downto 0)
 	--o_sum_result_valid : out std_logic
 	   
   );
@@ -62,6 +63,8 @@ signal sum_counter : unsigned(15 downto 0);
 signal sum_reg : std_logic_vector(g_data_width-1 downto 0); 
 signal sum_result_valid : std_logic; 
 
+signal fsm_state : unsigned(3 downto 0); 
+
 begin 
 
 
@@ -69,6 +72,8 @@ o_exp_rd_en <= rd_en;
 o_summing_complete <= summing_complete; 
 o_sum_result <= sum_reg; 
 --o_sum_result_valid <= sum_result_valid; 
+
+o_fsm_state <= std_logic_vector(fsm_state); 
 
 adder: softmax_adder_32bit
   PORT MAP(
@@ -157,6 +162,7 @@ begin
 		addend <= (others => '0'); 
 		augend <= (others => '0'); 
 		sum_reg <= (others => '0'); 
+		fsm_state <= (others => '0'); 
 		
 	elsif(rising_edge(i_clk)) then 
 		hold_counter <= hold_counter; 
@@ -169,6 +175,7 @@ begin
 		case current_state is 
 		
 		when IDLE => 
+			fsm_state <= 0; 
 			hold_counter <= (others => '0'); 
 			sum_counter <= (others => '0'); 
 			summing_complete <= '0'; 
@@ -177,16 +184,18 @@ begin
 			sum_reg <= (others => '0'); 
 			
 		when SET_OPERANDS => 
+			fsm_state <= 1; 
 			--if(sum_counter < unsigned(i_num_elements)) then 
-				sum_counter <= sum_counter + 1; 
-				addend <= i_exp_fifo_dout; 
-				augend <= sum_reg;
+			sum_counter <= sum_counter + 1; 
+			addend <= i_exp_fifo_dout; 
+			augend <= sum_reg;
 			--else 
 				--sum_counter <= (others => '0'); 
 			--end if; 
 				
 		
-		when ADDER_HOLD => 
+		when ADDER_HOLD =>
+			fsm_state <= 2; 		
 			if(hold_counter < g_adder_delay) then 
 				hold_counter <= hold_counter + 1; 
 			else
@@ -203,9 +212,11 @@ begin
 			end if; 
 			
 		when DIVIDER_HOLD => 
-			null; 	
+			fsm_state <= 3; 
+			--null; 	
 		
 		when others => 
+			fsm_state <= 4; 
 			hold_counter <= (others => '0'); 
 			sum_counter <= (others => '0'); 
 			summing_complete <= '0'; 

@@ -69,10 +69,160 @@ entity fast_accumulator is
 	i_acc_fifo_empty		: in std_logic; 
 	i_acc_fifo_almost_empty : in std_logic; 
 	i_acc_fifo_full			: in std_logic; 
-	i_acc_fifo_almost_full	: in std_logic
-	--i_acc_fifo_prog_full	: in std_logic; 
-	--o_acc_fifo_prog_full_thresh : out std_logic_vector(12 downto 0)
+	i_acc_fifo_almost_full	: in std_logic; 
 	
+	o_fsm_state 			: out std_logic_vector(3 downto 0); 
+	
+	
+	ila_kernel_element_counter 		: out std_logic_vector(15 downto 0); 
+	ila_delay_shift_register 		: out std_logic_vector(((g_num_adder_layers*g_adder_delay)+g_num_adder_layers)-1 downto 0);
+	ila_kernel_delay_shift_register : out std_logic_vector(((4*g_adder_delay)+3)-1 downto 0); 
+	ila_acc_ready 					: out std_logic; 
+	ila_acc_complete 				: out std_logic; 
+	ila_acc_valid 					: out std_logic; 
+	ila_acc_data 					: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_column_counter 				: out std_logic_vector(31 downto 0); 
+	ila_filter_counter 				: out std_logic_vector(31 downto 0); 
+	ila_kernel_flag 				: out std_logic; 
+	ila_que_acc_data            	: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_que_acc_valid 		    	: out std_logic; 
+	ila_que_fifo_din 				: out std_logic_vector(g_data_width-1 downto 0);  
+	ila_que_fifo_wr_en 				: out std_logic;  
+	ila_que_fifo_rd_en 				: out std_logic;  
+	ila_que_fifo_dout 				: out std_logic_vector(g_data_width-1 downto 0);  
+	ila_que_fifo_full 				: out std_logic;  
+	ila_que_fifo_almost_full 		: out std_logic; 
+	ila_que_fifo_empty 				: out std_logic;  
+	ila_que_fifo_almost_empty 		: out std_logic;  
+	ila_que_fifo_valid 				: out std_logic; 
+	ila_channels_allowed_counter 	: out std_logic_vector(31 downto 0); 
+	ila_filter_size_counter			: out std_logic_vector(31 downto 0); 
+	ila_channels_filt_counter 		: out std_logic_vector(15 downto 0); 
+	
+	ila_layer_1_result_0 			: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_layer_1_result_1 			: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_layer_1_result_2 			: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_layer_1_result_3 			: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_layer_1_result_4 			: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_layer_1_result_5 			: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_layer_1_result_6 			: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_layer_1_result_7 			: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_layer_1_result_8 			: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_layer_1_result_9 			: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_layer_1_result_10 			: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_layer_1_result_11 			: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_layer_1_result_12 			: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_layer_1_result_13 			: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_layer_1_result_14 			: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_layer_1_result_15 			: out std_logic_vector(g_data_width-1 downto 0); 
+
+	ila_layer_2_result_0 			: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_layer_2_result_1 			: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_layer_2_result_2 			: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_layer_2_result_3 			: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_layer_2_result_4 			: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_layer_2_result_5 			: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_layer_2_result_6 			: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_layer_2_result_7 			: out std_logic_vector(g_data_width-1 downto 0); 
+
+	ila_layer_3_result_0 			: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_layer_3_result_1 			: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_layer_3_result_2 			: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_layer_3_result_3 			: out std_logic_vector(g_data_width-1 downto 0); 
+
+	ila_layer_4_result_0 			: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_layer_4_result_1 			: out std_logic_vector(g_data_width-1 downto 0); 
+
+	ila_layer_5_result 			: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_layer_6_result 			: out std_logic_vector(g_data_width-1 downto 0); 
+
+
+	ila_layer_1_reg_0 			: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_layer_1_reg_1 			: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_layer_1_reg_2 			: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_layer_1_reg_3 			: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_layer_1_reg_4 			: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_layer_1_reg_5 			: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_layer_1_reg_6 			: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_layer_1_reg_7 			: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_layer_1_reg_8 			: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_layer_1_reg_9 			: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_layer_1_reg_10 			: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_layer_1_reg_11 			: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_layer_1_reg_12 			: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_layer_1_reg_13 			: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_layer_1_reg_14 			: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_layer_1_reg_15 			: out std_logic_vector(g_data_width-1 downto 0); 
+
+	ila_layer_2_reg_0 			: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_layer_2_reg_1 			: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_layer_2_reg_2 			: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_layer_2_reg_3 			: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_layer_2_reg_4 			: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_layer_2_reg_5 			: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_layer_2_reg_6 			: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_layer_2_reg_7 			: out std_logic_vector(g_data_width-1 downto 0); 
+
+	ila_layer_3_reg_0 			: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_layer_3_reg_1 			: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_layer_3_reg_2 			: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_layer_3_reg_3 			: out std_logic_vector(g_data_width-1 downto 0); 
+
+	ila_layer_4_reg_0 			: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_layer_4_reg_1 			: out std_logic_vector(g_data_width-1 downto 0); 
+
+	ila_layer_5_reg				: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_layer_6_reg 			: out std_logic_vector(g_data_width-1 downto 0); 
+
+	ila_kernel_values_0 			: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_kernel_values_1 			: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_kernel_values_2 			: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_kernel_values_3 			: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_kernel_values_4 			: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_kernel_values_5 			: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_kernel_values_6 			: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_kernel_values_7 			: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_kernel_values_8 			: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_kernel_values_9 			: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_kernel_values_10 			: out std_logic_vector(g_data_width-1 downto 0); 
+
+	ila_kernel_layer_1_result_0		: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_kernel_layer_1_result_1		: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_kernel_layer_1_result_2		: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_kernel_layer_1_result_3		: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_kernel_layer_1_result_4		: out std_logic_vector(g_data_width-1 downto 0);  
+	ila_kernel_layer_1_result_5		: out std_logic_vector(g_data_width-1 downto 0); 
+
+	ila_kernel_layer_2_result_0		: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_kernel_layer_2_result_1		: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_kernel_layer_2_result_2		: out std_logic_vector(g_data_width-1 downto 0);  
+
+	ila_kernel_layer_3_result		: out std_logic_vector(g_data_width-1 downto 0); 
+
+	ila_kernel_layer_1_reg_0		: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_kernel_layer_1_reg_1		: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_kernel_layer_1_reg_2		: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_kernel_layer_1_reg_3		: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_kernel_layer_1_reg_4		: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_kernel_layer_1_reg_5		: out std_logic_vector(g_data_width-1 downto 0); 
+
+	ila_kernel_layer_2_reg_0		: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_kernel_layer_2_reg_1		: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_kernel_layer_2_reg_2		: out std_logic_vector(g_data_width-1 downto 0); 
+
+	ila_kernel_layer_3_reg			: out std_logic_vector(g_data_width-1 downto 0); 
+
+	ila_kernel_addend_shift_register_0 			: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_kernel_addend_shift_register_1 			: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_kernel_addend_shift_register_2 			: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_kernel_addend_shift_register_3 			: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_kernel_addend_shift_register_4 			: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_kernel_addend_shift_register_5 			: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_kernel_addend_shift_register_6 			: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_kernel_addend_shift_register_7 			: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_kernel_addend_shift_register_8 			: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_kernel_addend_shift_register_9 			: out std_logic_vector(g_data_width-1 downto 0); 
+	ila_kernel_addend_shift_register_10 		: out std_logic_vector(g_data_width-1 downto 0) 
 	); 
 end fast_accumulator;
 
@@ -163,6 +313,8 @@ signal shift_in : std_logic;
 signal shift_in_temp : std_logic; 
 signal channels_filt_counter : unsigned(15 downto 0); 
 
+signal fsm_state : std_logic_vector(3 downto 0); 
+
 component FP_ADDER_8E_24F IS
   PORT (
     a : IN STD_LOGIC_VECTOR(g_data_width-1 DOWNTO 0);
@@ -192,6 +344,159 @@ END component;
 
 
 begin
+
+
+ila_kernel_element_counter 		<= std_logic_vector(kernel_element_counter); 
+ila_delay_shift_register 		<= delay_shift_register; 
+ila_kernel_delay_shift_register <= kernel_delay_shift_register; 
+ila_acc_ready 					<= acc_ready;
+ila_acc_complete 				<= acc_complete; 
+ila_acc_valid 					<= acc_valid; 
+ila_acc_data 					<= acc_data; 
+ila_column_counter 				<= std_logic_vector(column_counter); 
+ila_filter_counter 				<= std_logic_vector(filter_counter); 
+ila_kernel_flag 				<= kernel_flag; 
+ila_que_acc_data            	<= que_acc_data; 
+ila_que_acc_valid 		    	<= que_acc_valid;  
+ila_que_fifo_din 				<= que_fifo_din; 
+ila_que_fifo_wr_en 				<= que_fifo_wr_en; 
+ila_que_fifo_rd_en 				<= que_fifo_rd_en; 
+ila_que_fifo_dout 				<= que_fifo_dout;  
+ila_que_fifo_full 				<= que_fifo_full; 
+ila_que_fifo_almost_full 		<= que_fifo_almost_full; 
+ila_que_fifo_empty 				<= que_fifo_empty; 
+ila_que_fifo_almost_empty 		<= que_fifo_almost_empty; 
+ila_que_fifo_valid 				<= que_fifo_valid; 
+ila_channels_allowed_counter 	<= std_logic_vector(channels_allowed_counter); 
+ila_filter_size_counter			<= std_logic_vector(filter_size_counter); 
+ila_channels_filt_counter 		<= (others => '0'); --std_logic_vector(channels_filt_counter); 
+
+
+ila_layer_1_result_0 			<= layer_1_result(0);
+ila_layer_1_result_1 			<= layer_1_result(1);
+ila_layer_1_result_2 			<= layer_1_result(2);
+ila_layer_1_result_3 			<= layer_1_result(3);
+ila_layer_1_result_4 			<= layer_1_result(4);
+ila_layer_1_result_5 			<= layer_1_result(5);
+ila_layer_1_result_6 			<= layer_1_result(6);
+ila_layer_1_result_7 			<= layer_1_result(7);
+ila_layer_1_result_8 			<= layer_1_result(8);
+ila_layer_1_result_9 			<= layer_1_result(9);
+ila_layer_1_result_10 			<= layer_1_result(10);
+ila_layer_1_result_11 			<= layer_1_result(11);
+ila_layer_1_result_12 			<= layer_1_result(12);
+ila_layer_1_result_13 			<= layer_1_result(13);
+ila_layer_1_result_14 			<= layer_1_result(14);
+ila_layer_1_result_15 			<= layer_1_result(15);
+
+ila_layer_2_result_0 			<= layer_2_result(0);
+ila_layer_2_result_1 			<= layer_2_result(1);
+ila_layer_2_result_2 			<= layer_2_result(2);
+ila_layer_2_result_3 			<= layer_2_result(3);
+ila_layer_2_result_4 			<= layer_2_result(4);
+ila_layer_2_result_5 			<= layer_2_result(5);
+ila_layer_2_result_6 			<= layer_2_result(6);
+ila_layer_2_result_7 			<= layer_2_result(7);
+
+ila_layer_3_result_0 			<= layer_3_result(0);
+ila_layer_3_result_1 			<= layer_3_result(1);
+ila_layer_3_result_2 			<= layer_3_result(2);
+ila_layer_3_result_3 			<= layer_3_result(3);
+
+ila_layer_4_result_0 			<= layer_4_result(0);
+ila_layer_4_result_1 			<= layer_4_result(1);
+
+ila_layer_5_result 			<= layer_5_result_DEBUG;
+ila_layer_6_result 			<= layer_6_result_DEBUG;
+
+
+ila_layer_1_reg_0 			<= layer_1_reg_array(0);
+ila_layer_1_reg_1 			<= layer_1_reg_array(1);
+ila_layer_1_reg_2 			<= layer_1_reg_array(2);
+ila_layer_1_reg_3 			<= layer_1_reg_array(3);
+ila_layer_1_reg_4 			<= layer_1_reg_array(4);
+ila_layer_1_reg_5 			<= layer_1_reg_array(5);
+ila_layer_1_reg_6 			<= layer_1_reg_array(6);
+ila_layer_1_reg_7 			<= layer_1_reg_array(7);
+ila_layer_1_reg_8 			<= layer_1_reg_array(8);
+ila_layer_1_reg_9 			<= layer_1_reg_array(9);
+ila_layer_1_reg_10 			<= layer_1_reg_array(10);
+ila_layer_1_reg_11 			<= layer_1_reg_array(11);
+ila_layer_1_reg_12 			<= layer_1_reg_array(12);
+ila_layer_1_reg_13 			<= layer_1_reg_array(13);
+ila_layer_1_reg_14 			<= layer_1_reg_array(14);
+ila_layer_1_reg_15 			<= layer_1_reg_array(15);
+
+ila_layer_2_reg_0 			<= layer_2_reg_array(0);
+ila_layer_2_reg_1 			<= layer_2_reg_array(1);
+ila_layer_2_reg_2 			<= layer_2_reg_array(2);
+ila_layer_2_reg_3 			<= layer_2_reg_array(3);
+ila_layer_2_reg_4 			<= layer_2_reg_array(4);
+ila_layer_2_reg_5 			<= layer_2_reg_array(5);
+ila_layer_2_reg_6 			<= layer_2_reg_array(6);
+ila_layer_2_reg_7 			<= layer_2_reg_array(7);
+
+ila_layer_3_reg_0 			<= layer_3_reg_array(0);
+ila_layer_3_reg_1 			<= layer_3_reg_array(1);
+ila_layer_3_reg_2 			<= layer_3_reg_array(2);
+ila_layer_3_reg_3 			<= layer_3_reg_array(3);
+
+ila_layer_4_reg_0 			<= layer_4_reg_array(0);
+ila_layer_4_reg_1 			<= layer_4_reg_array(1);
+
+ila_layer_5_reg				<= layer_5_reg;
+ila_layer_6_reg 			<= layer_6_reg;
+
+ila_kernel_values_0 			<= kernel_values(0);
+ila_kernel_values_1 			<= kernel_values(1);
+ila_kernel_values_2 			<= kernel_values(2);
+ila_kernel_values_3 			<= kernel_values(3);
+ila_kernel_values_4 			<= kernel_values(4);
+ila_kernel_values_5 			<= kernel_values(5);
+ila_kernel_values_6 			<= kernel_values(6);
+ila_kernel_values_7 			<= kernel_values(7);
+ila_kernel_values_8 			<= kernel_values(8);
+ila_kernel_values_9 			<= kernel_values(9);
+ila_kernel_values_10 			<= kernel_values(10);
+
+ila_kernel_layer_1_result_0		<= kernel_layer_1_result(0); 
+ila_kernel_layer_1_result_1		<= kernel_layer_1_result(1); 
+ila_kernel_layer_1_result_2		<= kernel_layer_1_result(2); 
+ila_kernel_layer_1_result_3		<= kernel_layer_1_result(3); 
+ila_kernel_layer_1_result_4		<= kernel_layer_1_result(4); 
+ila_kernel_layer_1_result_5		<= kernel_layer_1_result(5); 
+
+ila_kernel_layer_2_result_0		<= kernel_layer_2_result(0); 
+ila_kernel_layer_2_result_1		<= kernel_layer_2_result(1); 
+ila_kernel_layer_2_result_2		<= kernel_layer_2_result(2); 
+
+ila_kernel_layer_3_result		<= kernel_layer_3_result; 
+
+ila_kernel_layer_1_reg_0		<= kernel_layer_1_reg_array(0); 
+ila_kernel_layer_1_reg_1		<= kernel_layer_1_reg_array(1); 
+ila_kernel_layer_1_reg_2		<= kernel_layer_1_reg_array(2); 
+ila_kernel_layer_1_reg_3		<= kernel_layer_1_reg_array(3); 
+ila_kernel_layer_1_reg_4		<= kernel_layer_1_reg_array(4); 
+ila_kernel_layer_1_reg_5		<= kernel_layer_1_reg_array(5); 
+
+ila_kernel_layer_2_reg_0		<= kernel_layer_2_reg_array(0); 
+ila_kernel_layer_2_reg_1		<= kernel_layer_2_reg_array(1); 
+ila_kernel_layer_2_reg_2		<= kernel_layer_2_reg_array(2); 
+
+ila_kernel_layer_3_reg			<= kernel_layer_3_reg; 
+
+ila_kernel_addend_shift_register_0 			<=  kernal_addend_shift_register(0);
+ila_kernel_addend_shift_register_1 			<=  kernal_addend_shift_register(1);
+ila_kernel_addend_shift_register_2 			<=  kernal_addend_shift_register(2);
+ila_kernel_addend_shift_register_3 			<=  kernal_addend_shift_register(3);
+ila_kernel_addend_shift_register_4 			<=  kernal_addend_shift_register(4);
+ila_kernel_addend_shift_register_5 			<=  kernal_addend_shift_register(5);
+ila_kernel_addend_shift_register_6 			<=  kernal_addend_shift_register(6);
+ila_kernel_addend_shift_register_7 			<=  kernal_addend_shift_register(7);
+ila_kernel_addend_shift_register_8 			<=  kernal_addend_shift_register(8);
+ila_kernel_addend_shift_register_9 			<=  kernal_addend_shift_register(9);
+ila_kernel_addend_shift_register_10 			<=  kernal_addend_shift_register(10);	
+	
 	
 	Adder_layer_1: for i in g_layer_1_adders-1 downto 0 generate 	--100
 	begin 
@@ -248,7 +553,8 @@ begin
 	Adder_layer_6_DEBUG: FP_ADDER_8E_24F	
 	port map(
 		a => layer_5_reg,
-		b => layer_6_multiplicands((((g_num_adder_layers-1)*g_adder_delay)+(g_num_adder_layers-1))-1), --layer_6_mult_input, --i_products_array(g_dsps_used-1), 
+		--b => layer_6_multiplicands((((g_num_adder_layers-1)*g_adder_delay)+(g_num_adder_layers-1))-1), --layer_6_mult_input, --i_products_array(g_dsps_used-1), 
+		b => layer_6_multiplicands((g_num_adder_layers-2)*g_adder_delay + g_adder_delay-1), --layer_6_mult_input, --i_products_array(g_dsps_used-1), 
 		clk => i_clk, 
 		result => layer_6_result_DEBUG
 	);
@@ -325,20 +631,17 @@ begin
 		valid 			=> que_fifo_valid
 	  );
 
-	
-	--o_acc_valid <= kernel_delay_shift_register(((4*g_adder_delay))-1);--kernel_sum_valid; --delay_shift_register((g_num_adder_layers*g_adder_delay)-1); 
-	--o_acc_data	<= kernel_sum_result; --layer_6_result_DEBUG; --Adder_result; 
-	
-	o_acc_valid <= acc_valid when current_state = RUN else --kernel_delay_shift_register(((4*g_adder_delay))-1) when current_state = RUN else 
+	o_acc_valid <= acc_valid when current_state = RUN else 
 				   que_acc_valid when current_state = EMPTY_QUE else 
 				   '0'; 
 	o_acc_data <= acc_data; 
 	o_acc_ready <= acc_ready; 
-	--o_acc_fifo_prog_full_thresh <= "0000000111111"; 
 	
+	o_fsm_state <= fsm_state; 
+
 	reset_n <= not(i_reset_n); 
 				   
-	acc_data	<= kernel_sum_result when (current_state = RUN or current_state = QUE) and unsigned(i_filter_size) = 11 else
+	acc_data	<= kernel_sum_result when (current_state = RUN or current_state = QUE) and (unsigned(i_filter_size) = 11 or unsigned(i_filter_size) = 1) else
 				   kernel_layer_3_result when (current_state = RUN or current_state = QUE) and unsigned(i_filter_size) = 7 else
 				   kernel_layer_3_result when (current_state = RUN or current_state = QUE) and unsigned(i_filter_size) = 6 else
 				   kernel_layer_3_result when (current_state = RUN or current_state = QUE) and unsigned(i_filter_size) = 5 else
@@ -346,7 +649,7 @@ begin
 				   que_acc_data when current_state = EMPTY_QUE else 
 				   (others => '0'); 
 
-	acc_valid <= kernel_delay_shift_register(((4*g_adder_delay)+3)-1) when unsigned(i_filter_size) = 11 else 
+	acc_valid <= kernel_delay_shift_register(((4*g_adder_delay))-1) when (unsigned(i_filter_size) = 11 or unsigned(i_filter_size) = 1) else
 			   kernel_delay_shift_register(((3*g_adder_delay)+2)-1) when unsigned(i_filter_size) = 7 else 
 			   kernel_delay_shift_register(((3*g_adder_delay)+2)-1) when unsigned(i_filter_size) = 6 else 
 			   kernel_delay_shift_register(((3*g_adder_delay)+2)-1) when unsigned(i_filter_size) = 5 else 
@@ -390,17 +693,11 @@ begin
 	begin 
 		if(i_reset_n = '0') then 
 			delay_shift_register <= (others =>'0');	
-			--kernel_delay_shift_register <= (others => '0'); 
 			kernal_addend_shift_register <= (others => (others => '0')); 
-			
 		elsif(rising_edge(i_clk)) then 
-			delay_shift_register <=  delay_shift_register(((g_num_adder_layers*g_adder_delay)+g_num_adder_layers)-2 downto 0) & shift_in; --and_reduce(i_products_array_valid(to_integer(unsigned(i_ch_al_filt))-1 DOWNTO 0)); 
-			
-			--delay_shift_register <=  delay_shift_register(((g_num_adder_layers*g_adder_delay)+g_num_adder_layers)-2 downto 0) & and_reduce(final_mask); 
-		
+			delay_shift_register <=  delay_shift_register(((g_num_adder_layers*g_adder_delay)+g_num_adder_layers)-2 downto 0) & and_reduce(i_products_array_valid); 
 			kernal_addend_shift_register <= kernal_addend_shift_register(9 downto 0) & kernel_values(10); 
 		end if; 
-
 	end process; 
 	
 	
@@ -424,31 +721,26 @@ begin
 		que_fifo_din 	<= (others => '0'); 
 		que_fifo_wr_en 	<= '0'; 
 		mask 			<= (others => '1'); 
-		--final_mask 		<= (others => '0'); 
-		
-		--mask(to_integer(unsigned(i_channels_allowed)*unsigned(i_filter_size))-1 downto 0) <= (others => '0'); 
-				
-		--final_mask <= mask or i_products_array_valid; 
+		fsm_state <= "0000"; 
 		
 		case current_state is 
 			
 			when IDLE =>
-
+				fsm_state <= "0000"; 
 				acc_ready <= '1'; 
-				if(shift_in = '1' and i_acc_fifo_full = '0' and i_enable = '1') then 
-				--if(and_reduce(final_mask) = '1' and i_acc_fifo_full = '0') then 
+				if(and_reduce(i_products_array_valid) = '1' and i_acc_fifo_full = '0' and i_enable = '1') then 
 					next_state <= RUN; 
 				else 
 					next_state <= IDLE; 
 				end if; 
 				
 			when RUN => 
+				fsm_state <= "0001"; 
 				acc_ready <= '1';
 				next_state <= RUN; 
 				if(i_acc_fifo_full = '0') then 
-					if(delay_shift_register(((g_num_adder_layers*g_adder_delay)+g_num_adder_layers)-1)= '1') then 
+					if(delay_shift_register(((g_num_adder_layers*(g_adder_delay-1))+g_num_adder_layers)-1)= '1') then 
 						if(kernel_element_counter < unsigned(i_filter_size)) then 
-						--if(kernel_element_counter < 11) then 
 							next_state <= RUN; 
 						else 
 							next_state <= RUN; 
@@ -470,10 +762,11 @@ begin
 			
 			
 			when QUE => 
+				fsm_state <= "0010"; 
 				acc_ready <= '0'; 
 				
 				que_fifo_din <= acc_data; 
-				que_fifo_wr_en <= acc_valid; --kernel_delay_shift_register(((4*g_adder_delay))-1);	
+				que_fifo_wr_en <= acc_valid; 
 				
 				if(i_acc_fifo_full = '1') then 
 					next_state <= QUE; 
@@ -486,6 +779,7 @@ begin
 				end if; 
 
 			when EMPTY_QUE => 
+				fsm_state <= "0011"; 
 				acc_ready <= '0'; 
 
 				
@@ -502,6 +796,7 @@ begin
 				
 
 			when others => 
+				fsm_state <= "0100"; 
 				next_state <= IDLE;   
 		end case; 
 		
@@ -512,7 +807,6 @@ begin
 		if(i_reset_n = '0') then
 
 			kernel_element_counter  	<= (others => '0'); 
-			--kernel_reg				<= (others => '0'); 
 			column_counter				<= (others => '0'); 
 			filter_counter				<= (others => '0'); 
 			kernel_values 				<= (others => (others => '0')); 
@@ -520,7 +814,6 @@ begin
 			kernel_flag 				<= '0'; 
 			que_acc_data 				<= (others => '0'); 
 			que_acc_valid 				<= '0'; 
-			--acc_valid <= '0'; 
 			channels_allowed_counter	<= (others => '0'); 
 			filter_size_counter			<= (others => '0'); 
 			shift_in <= '0'; 
@@ -529,7 +822,6 @@ begin
 		elsif(rising_edge(i_clk))then 
 
 			kernel_element_counter  	<= kernel_element_counter; 
-			--kernel_reg				<= kernel_reg; 
 			column_counter				<= column_counter; 
 			filter_counter				<= filter_counter; 
 			kernel_values 				<= kernel_values; 
@@ -537,7 +829,6 @@ begin
 			kernel_flag 				<= kernel_flag; 
 			que_acc_data 				<= que_acc_data; 
 			que_acc_valid 				<= que_acc_valid; 
-			--acc_valid <= acc_valid; 
 			channels_allowed_counter	<= channels_allowed_counter; 
 			filter_size_counter			<= filter_size_counter; 
 			
@@ -549,25 +840,11 @@ begin
 				when IDLE => 
 					acc_complete <= '0'; 
 					kernel_element_counter  <= (others => '0'); 
-					--kernel_reg				<= (others => '0'); 
 					column_counter			<= (others => '0'); 
 					filter_counter			<= (others => '0'); 
 					kernel_values 			<= (others => (others => '0')); 
 					kernel_delay_shift_register <= (others => '0'); 
-					--shift_in <=and_reduce(i_products_array_valid(to_integer(unsigned(i_ch_al_filt))-1 DOWNTO 0)); 
-					
-					
-					if(channels_filt_counter = 0) then 
-						channels_filt_counter <= channels_filt_counter + 1; 
-						shift_in_temp <= i_products_array_valid(0); 
-					elsif(channels_filt_counter < unsigned(i_ch_al_filt) and channels_filt_counter > 0) then 
-						channels_filt_counter <= channels_filt_counter + 1; 
-						shift_in_temp <= i_products_array_valid(to_integer(channels_filt_counter)) and shift_in_temp; 
-					else 
-						channels_filt_counter <= channels_filt_counter; 
-						shift_in <= shift_in_temp; 
-					end if;
-					
+
 					if(channels_allowed_counter < unsigned(i_channels_allowed)) then 
 						channels_allowed_counter <= channels_allowed_counter + 1; 
 					else 
@@ -583,20 +860,14 @@ begin
 					
 				when RUN => 
 				
-					--acc_valid <= kernel_delay_shift_register(((4*g_adder_delay))-1); 
-				
-					if(delay_shift_register(((g_num_adder_layers*g_adder_delay)+g_num_adder_layers)-1)= '1') then 
+					if(delay_shift_register(((g_num_adder_layers*(g_adder_delay-1))+g_num_adder_layers)-1)= '1') then 
 						if(kernel_element_counter < unsigned(i_filter_size)) then 
-						--if(kernel_element_counter < 11) then 
 							kernel_element_counter <= kernel_element_counter + 1; 
-							--kernel_reg <= kernel_sum_result; 
 							kernel_values(to_integer(kernel_element_counter)) <= layer_6_reg; 
 							
 						else 
 							kernel_element_counter <= (others => '0'); 
-							--kernel_reg <= (others => '0'); 
 							kernel_values <= kernel_values; 
-							--kernel_delay_shift_register <=  kernel_delay_shift_register(((4*g_adder_delay))-2 downto 0) & '1'; 
 							
 							if(column_counter < unsigned(i_output_volume_size)) then 
 								column_counter <= column_counter + 1; 
@@ -616,7 +887,6 @@ begin
 					
 					
 					if(kernel_element_counter < unsigned(i_filter_size) or kernel_flag = '1') then 
-					--if(kernel_element_counter < 11 or kernel_flag = '1') then 
 						kernel_delay_shift_register <=  kernel_delay_shift_register(((4*g_adder_delay)+3)-2 downto 0) & '0'; 
 						kernel_flag <= '0'; 
 					else 
@@ -630,18 +900,14 @@ begin
 				when QUE => 
 				
 				     
-					if(delay_shift_register(((g_num_adder_layers*g_adder_delay)+g_num_adder_layers)-1)= '1') then 
+					if(delay_shift_register(((g_num_adder_layers*(g_adder_delay-1))+g_num_adder_layers)-1)= '1') then 
 						if(kernel_element_counter < unsigned(i_filter_size)) then 
-						--if(kernel_element_counter < 11) then 
 							kernel_element_counter <= kernel_element_counter + 1; 
-							--kernel_reg <= kernel_sum_result; 
 							kernel_values(to_integer(kernel_element_counter)) <= layer_6_reg; 
 							
 						else 
 							kernel_element_counter <= (others => '0'); 
-							--kernel_reg <= (others => '0'); 
 							kernel_values <= kernel_values; 
-							--kernel_delay_shift_register <=  kernel_delay_shift_register(((4*g_adder_delay))-2 downto 0) & '1'; 
 							
 							if(column_counter < unsigned(i_output_volume_size)) then 
 								column_counter <= column_counter + 1; 
@@ -661,7 +927,6 @@ begin
 					
 					
 					if(kernel_element_counter < unsigned(i_filter_size) or kernel_flag = '1') then 
-					--if(kernel_element_counter < 11 or kernel_flag = '1') then 
 						kernel_delay_shift_register <=  kernel_delay_shift_register(((4*g_adder_delay)+3)-2 downto 0) & '0'; 
 						kernel_flag <= '0'; 
 					else 
@@ -676,15 +941,12 @@ begin
 					if(i_acc_fifo_full = '1') then 
 						que_acc_data <= (others => '0'); 
 						que_acc_valid <= '0'; 
-						--acc_valid <= '0'; 
 					elsif(que_fifo_empty = '1') then 
 						que_acc_data <= (others => '0'); 
 						que_acc_valid <= '0'; 
-						--acc_valid <= '0'; 
 					elsif(que_fifo_empty = '0') then 
 						que_acc_data <= que_fifo_dout; 
 						que_acc_valid <= '1'; 
-						--acc_valid <= '1'; 
 					end if; 
 					
 
